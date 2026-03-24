@@ -1,4 +1,4 @@
-﻿Set-StrictMode -Version Latest
+Set-StrictMode -Version Latest
 $ErrorActionPreference='Stop'
 Add-Type -AssemblyName System.Drawing
 
@@ -108,6 +108,18 @@ function ExcelLogo($g,[float]$x,[float]$y,[float]$size){
   $sf.LineAlignment='Center'
   try{$g.DrawString('X',$font,$brush,[Drawing.RectangleF]::new($x+8,$y+30,86,$size-60),$sf)}finally{$font.Dispose();$brush.Dispose();$sf.Dispose()}
 }
+function GetPortraitSourceRect($img,[float]$dstW,[float]$dstH){
+  $dstAspect=$dstW / $dstH
+  $cropHeight=[float][Math]::Round([Math]::Min($img.Height * 0.84,$img.Width / $dstAspect))
+  if($cropHeight -le 0){$cropHeight=[float]$img.Height}
+  $cropWidth=[float][Math]::Round($cropHeight * $dstAspect)
+  if($cropWidth -gt $img.Width){
+    $cropWidth=[float]$img.Width
+    $cropHeight=[float][Math]::Round($cropWidth / $dstAspect)
+  }
+  $srcX=[float][Math]::Round(($img.Width - $cropWidth) / 2)
+  [Drawing.RectangleF]::new($srcX,0,$cropWidth,$cropHeight)
+}
 function PortraitFrame($g,$img,$p){
   Glow $g 246 228 190 $p.P 16
   Glow $g 186 470 120 $p.S 16
@@ -129,7 +141,7 @@ function PortraitFrame($g,$img,$p){
     $old=$g.Clip
     $g.SetClip($clip)
     $dst=[Drawing.RectangleF]::new(60,106,398,448)
-    $src=[Drawing.RectangleF]::new(148,0,730,860)
+    $src=GetPortraitSourceRect $img $dst.Width $dst.Height
     $g.DrawImage($img,$dst,$src,[Drawing.GraphicsUnit]::Pixel)
     $fade=[Drawing.RectangleF]::new(376,106,82,448)
     $fb=New-Object Drawing.Drawing2D.LinearGradientBrush([Drawing.PointF]::new($fade.Left,$fade.Top),[Drawing.PointF]::new($fade.Right,$fade.Top),[Drawing.Color]::FromArgb(0,255,255,255),[Drawing.Color]::FromArgb(175,255,255,255))
