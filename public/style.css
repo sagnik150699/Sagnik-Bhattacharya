@@ -248,6 +248,8 @@ footer a:hover{color:var(--warm-600)}
 .blog-author-avatar img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.9);transform-origin:55% 10%}
 .blog-author-name{color:var(--earth-800);text-decoration:none;font-weight:600;transition:color .3s ease}
 .blog-author-name:hover{color:var(--warm-700)}
+.blog-cover{margin:0 0 32px;border-radius:var(--radius-xl);overflow:hidden;border:1px solid rgba(44,24,16,0.08);background:var(--white);box-shadow:var(--shadow-lg)}
+.blog-cover img{width:100%;height:auto;display:block}
 .blog-post-content h2{font-size:1.6rem;color:var(--earth-800);margin:40px 0 16px;padding-top:16px;border-top:1px solid rgba(44,24,16,0.06)}
 .blog-post-content h3{font-size:1.25rem;color:var(--earth-800);margin:28px 0 12px}
 .blog-post-content p{color:var(--text-secondary);font-size:1.02rem;margin-bottom:18px;line-height:1.8}
@@ -279,6 +281,7 @@ footer a:hover{color:var(--warm-600)}
 .reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(0.16,1,0.3,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .gsap-ready .reveal{transition:none}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 /* ═══════════ SCROLL PROGRESS BAR ═══════════ */
 .scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--warm-400),var(--warm-500),var(--warm-600));z-index:200;width:0%;transition:width 50ms linear;border-radius:0 2px 2px 0}
