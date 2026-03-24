@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excel Conditional Formatting Tips and Tricks | Sagnik Bhattacharya</title>
+  <meta name="description" content="Make your data speak visually with colour scales, icon sets, data bars, and custom rules.">
+  <meta name="keywords" content="Excel conditional formatting, conditional formatting rules, Excel colour scales, data bars Excel, highlight cells Excel">
+  <meta name="author" content="Sagnik Bhattacharya">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/conditional-formatting-tips">
+  <meta property="og:title" content="Excel Conditional Formatting Tips and Tricks">
+  <meta property="og:description" content="Make your data speak visually with colour scales, icon sets, data bars, and custom rules.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/conditional-formatting-tips">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/sagnik-bhattacharya.png">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:site_name" content="Sagnik Bhattacharya">
+  <meta property="article:author" content="Sagnik Bhattacharya">
+  <meta property="article:published_time" content="2026-03-24">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BlogPosting","headline":"Excel Conditional Formatting Tips and Tricks","description":"Make your data speak visually with colour scales, icon sets, data bars, and custom rules.","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"datePublished":"2026-03-24","dateModified":"2026-03-24","mainEntityOfPage":"https://sagnikbhattacharya.com/blog/conditional-formatting-tips"}
+  </script>
+  <link rel="stylesheet" href="/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+</head>
+<body>
+  <nav id="navbar"><div class="container"><a href="/" class="nav-logo">sagnik<span>.</span></a><ul class="nav-links" id="navLinks"><li><a href="/about">About</a></li><li><a href="/courses">Courses</a></li><li><a href="/services">Services</a></li><li><a href="/blog" class="active">Blog</a></li><li><a href="/contact" class="nav-cta">Get in Touch</a></li></ul><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+
+  <div class="page-hero" style="padding-bottom:20px"><div class="container"><div class="blog-breadcrumb"><a href="/blog">← Blog</a> <span>/</span> <span>Excel Basics</span></div></div></div>
+
+  <section style="padding-top:0">
+    <div class="container">
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-tags"><span class="blog-post-tag">Excel Basics</span></div>
+          <h1 class="blog-post-title">Excel Conditional Formatting Tips and Tricks</h1>
+          <div class="blog-post-meta"><span>By Sagnik Bhattacharya</span><span>24 Mar 2026</span><span>8 min read</span></div>
+        </div>
+        <div class="blog-post-content">
+          
+<p>Conditional formatting is one of Excel's most underused features. It automatically changes the appearance of cells based on their values — making patterns, outliers, and trends instantly visible without a single chart.</p>
+
+<h2>The Basics: Built-in Rules</h2>
+<p>Select your data range, then go to <strong>Home → Conditional Formatting</strong>. You'll find these categories:</p>
+
+<h3>Highlight Cell Rules</h3>
+<ul>
+<li><strong>Greater Than / Less Than</strong> — Highlight cells above or below a threshold</li>
+<li><strong>Between</strong> — Highlight values within a range</li>
+<li><strong>Equal To</strong> — Highlight specific values</li>
+<li><strong>Text That Contains</strong> — Highlight cells containing specific text</li>
+<li><strong>Duplicate Values</strong> — Instantly find duplicates in your data</li>
+</ul>
+
+<h3>Top/Bottom Rules</h3>
+<ul>
+<li>Top 10 items or top 10%</li>
+<li>Bottom 10 items or bottom 10%</li>
+<li>Above or below average</li>
+</ul>
+
+<h2>Visual Formats</h2>
+
+<h3>Data Bars</h3>
+<p>Turn any column of numbers into miniature bar charts directly inside cells. Select your range → Conditional Formatting → Data Bars. Choose gradient or solid fill. Great for comparing values at a glance without creating a separate chart.</p>
+
+<h3>Colour Scales</h3>
+<p>Apply a gradient of colours across your values — green for high, red for low (or reversed). Perfect for heat maps, performance dashboards, and highlighting distribution patterns.</p>
+
+<h3>Icon Sets</h3>
+<p>Add arrows, traffic lights, stars, or flags to cells based on value ranges. Useful for KPI dashboards — green arrow up for targets met, red arrow down for missed targets.</p>
+
+<h2>Custom Formula-Based Rules</h2>
+<p>This is where conditional formatting becomes truly powerful. Go to <strong>Conditional Formatting → New Rule → Use a formula</strong>.</p>
+
+<h3>Example 1: Highlight Entire Row Based on One Cell</h3>
+<p>To highlight the entire row if column D says "Overdue":</p>
+<pre><code>=$D1="Overdue"</code></pre>
+<p>The <code>$D</code> locks the column reference while letting the row number change — so the rule checks column D for every row.</p>
+
+<h3>Example 2: Alternating Row Colours</h3>
+<pre><code>=MOD(ROW(),2)=0</code></pre>
+<p>This applies formatting to every even row, creating a zebra-stripe effect that improves readability.</p>
+
+<h3>Example 3: Highlight Weekends</h3>
+<p>If column A has dates:</p>
+<pre><code>=OR(WEEKDAY($A1)=1, WEEKDAY($A1)=7)</code></pre>
+
+<h3>Example 4: Cells Older Than 30 Days</h3>
+<pre><code>=TODAY()-$A1>30</code></pre>
+
+<h2>Pro Tips</h2>
+<ol>
+<li><strong>Rule order matters</strong> — Rules are evaluated top to bottom. Use "Manage Rules" to reorder them and check "Stop If True" when needed.</li>
+<li><strong>Use named ranges</strong> — Reference named ranges in formulas for clarity and maintainability.</li>
+<li><strong>Performance</strong> — Too many conditional formatting rules on large datasets can slow down Excel. Use sparingly on 100K+ row sheets.</li>
+<li><strong>Copy formatting</strong> — Use Format Painter (<code>Ctrl+Shift+C</code>) to copy conditional formatting rules to other ranges.</li>
+<li><strong>Clear rules</strong> — To remove all formatting: Conditional Formatting → Clear Rules → Clear Rules from Entire Sheet.</li>
+</ol>
+
+<h2>Dashboard Use Case</h2>
+<p>Combine multiple conditional formatting types to create a visual dashboard:</p>
+<ul>
+<li>Data bars on revenue columns</li>
+<li>Traffic light icons on target achievement columns</li>
+<li>Color scale on a heatmap of monthly performance</li>
+<li>Red highlight on overdue items</li>
+</ul>
+<p>All without writing a single formula or creating a chart. That's the power of conditional formatting.</p>
+
+          <div class="blog-cta-box">
+            <h3>Want to master Excel with AI?</h3>
+            <p>My upcoming Complete Excel Guide with AI Integration course covers everything from formulas to AI-powered workflows.</p>
+            <a href="/courses#excel" class="btn-primary">Explore the Course <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <footer><div class="container"><p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p></div></footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/animations.js" defer></script>
+</body>
+</html>

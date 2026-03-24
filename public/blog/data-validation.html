@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excel Data Validation — Prevent Errors Before They Happen | Sagnik Bhattacharya</title>
+  <meta name="description" content="Dropdown lists, input restrictions, and custom validation rules that keep your spreadsheets error-free."><meta name="keywords" content="Excel data validation, dropdown list Excel, input validation spreadsheet, prevent errors Excel, Excel form controls"><meta name="author" content="Sagnik Bhattacharya"><meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://sagnikbhattacharya.com/blog/data-validation">
+  <meta property="og:title" content="Excel Data Validation — Prevent Errors Before They Happen"><meta property="og:description" content="Dropdown lists, input restrictions, and custom validation rules that keep your spreadsheets error-free."><meta property="og:type" content="article"><meta property="og:url" content="https://sagnikbhattacharya.com/blog/data-validation"><meta property="og:image" content="https://sagnikbhattacharya.com/sagnik-bhattacharya.png"><meta property="og:locale" content="en_IN"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-24">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Excel Data Validation — Prevent Errors Before They Happen","description":"Dropdown lists, input restrictions, and custom validation rules that keep your spreadsheets error-free.","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"datePublished":"2026-03-24","dateModified":"2026-03-24","mainEntityOfPage":"https://sagnikbhattacharya.com/blog/data-validation"}</script>
+  <link rel="stylesheet" href="/style.css"><script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+</head>
+<body>
+  <nav id="navbar"><div class="container"><a href="/" class="nav-logo">sagnik<span>.</span></a><ul class="nav-links" id="navLinks"><li><a href="/about">About</a></li><li><a href="/courses">Courses</a></li><li><a href="/services">Services</a></li><li><a href="/blog" class="active">Blog</a></li><li><a href="/contact" class="nav-cta">Get in Touch</a></li></ul><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+  <div class="page-hero" style="padding-bottom:20px"><div class="container"><div class="blog-breadcrumb"><a href="/blog">← Blog</a> <span>/</span> <span>Excel Basics</span></div></div></div>
+  <section style="padding-top:0"><div class="container"><article class="blog-post"><div class="blog-post-header"><div class="blog-post-tags"><span class="blog-post-tag">Excel Basics</span></div><h1 class="blog-post-title">Excel Data Validation — Prevent Errors Before They Happen</h1><div class="blog-post-meta"><span>By Sagnik Bhattacharya</span><span>24 Mar 2026</span><span>7 min read</span></div></div>
+    <div class="blog-post-content">
+<p>Data validation is your first line of defence against bad data. It restricts what users can enter into cells — dropdown menus, number ranges, date limits, and custom rules that catch errors before they corrupt your analysis.</p>
+<h2>Basic Validation: Dropdown Lists</h2>
+<p>The most common use case. Select your target cells, go to <strong>Data → Data Validation</strong>:</p>
+<ol><li>Under "Allow", select <strong>List</strong></li><li>In "Source", type your options separated by commas: <code>North,South,East,West</code></li><li>Or reference a range: <code>=Sheet2!$A$1:$A$10</code></li></ol>
+<p>Now users can only select from the dropdown — no typos, no inconsistencies.</p>
+<h2>Number Restrictions</h2>
+<p>Restrict cells to accept only numbers within a range:</p>
+<ul><li><strong>Allow: Whole number</strong> — Between 1 and 100</li><li><strong>Allow: Decimal</strong> — Greater than 0</li><li><strong>Allow: Date</strong> — Between 01/01/2026 and 31/12/2026</li><li><strong>Allow: Text Length</strong> — Maximum 50 characters</li></ul>
+<h2>Custom Validation with Formulas</h2>
+<p>For complex rules, select "Custom" and enter a formula:</p>
+<h3>No Duplicate Entries</h3>
+<pre><code>=COUNTIF(A:A, A1)<=1</code></pre>
+<h3>Must Start with a Letter</h3>
+<pre><code>=ISNUMBER(FIND(LEFT(A1,1),"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"))</code></pre>
+<h3>Date Must Be in the Future</h3>
+<pre><code>=A1>TODAY()</code></pre>
+<h3>Email Format Validation</h3>
+<pre><code>=AND(ISNUMBER(FIND("@",A1)), ISNUMBER(FIND(".",A1,FIND("@",A1))))</code></pre>
+<h2>Input Messages and Error Alerts</h2>
+<p>In the Data Validation dialog:</p>
+<ul><li><strong>Input Message tab</strong> — Shows a tooltip when the cell is selected, guiding the user on what to enter</li><li><strong>Error Alert tab</strong> — Customise what happens when invalid data is entered: Stop (block entry), Warning (allow with warning), or Information (allow with info)</li></ul>
+<h2>Dependent Dropdowns</h2>
+<p>Create cascading dropdowns where the second list depends on the first selection. For example, selecting "North" in column A shows only northern cities in column B:</p>
+<ol><li>Name your lists — select each city list, go to Formulas → Define Name (e.g., "North", "South")</li><li>In column B validation, use: <code>=INDIRECT(A1)</code></li></ol>
+<h2>Audit Existing Validation</h2>
+<p>To see which cells have validation rules: <strong>Home → Find & Select → Data Validation</strong>. This selects all cells with validation rules, making it easy to audit and update.</p>
+<h2>Best Practices</h2>
+<ul><li>Always add an <strong>input message</strong> explaining what's expected</li><li>Use "Stop" error alerts for critical fields, "Warning" for flexible ones</li><li>Keep dropdown source lists on a hidden sheet for maintainability</li><li>Test validation with edge cases — blank entries, copy-paste, and special characters</li></ul><div class="blog-cta-box"><h3>Want to master Excel with AI?</h3><p>My upcoming Complete Excel Guide with AI Integration course covers everything from formulas to AI-powered workflows.</p><a href="/courses#excel" class="btn-primary">Explore the Course <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+  </article></div></section>
+  <footer><div class="container"><p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p></div></footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script><script src="/animations.js" defer></script>
+</body></html>

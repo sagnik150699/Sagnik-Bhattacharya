@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use Claude AI to Write Excel Formulas Instantly | Sagnik Bhattacharya</title>
+  <meta name="description" content="Learn how to use Claude AI to generate complex Excel formulas from plain English descriptions."><meta name="keywords" content="Claude AI Excel, AI write Excel formulas, Claude spreadsheet help, AI formula generator"><meta name="author" content="Sagnik Bhattacharya"><meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://sagnikbhattacharya.com/blog/claude-ai-excel-formulas">
+  <meta property="og:title" content="How to Use Claude AI to Write Excel Formulas Instantly"><meta property="og:description" content="Learn how to use Claude AI to generate complex Excel formulas from plain English descriptions."><meta property="og:type" content="article"><meta property="og:url" content="https://sagnikbhattacharya.com/blog/claude-ai-excel-formulas"><meta property="og:image" content="https://sagnikbhattacharya.com/sagnik-bhattacharya.png"><meta property="og:locale" content="en_IN"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-24">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Use Claude AI to Write Excel Formulas Instantly","description":"Learn how to use Claude AI to generate complex Excel formulas from plain English descriptions.","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"datePublished":"2026-03-24","dateModified":"2026-03-24","mainEntityOfPage":"https://sagnikbhattacharya.com/blog/claude-ai-excel-formulas"}</script>
+  <link rel="stylesheet" href="/style.css"><script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+</head>
+<body>
+  <nav id="navbar"><div class="container"><a href="/" class="nav-logo">sagnik<span>.</span></a><ul class="nav-links" id="navLinks"><li><a href="/about">About</a></li><li><a href="/courses">Courses</a></li><li><a href="/services">Services</a></li><li><a href="/blog" class="active">Blog</a></li><li><a href="/contact" class="nav-cta">Get in Touch</a></li></ul><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+  <div class="page-hero" style="padding-bottom:20px"><div class="container"><div class="blog-breadcrumb"><a href="/blog">← Blog</a> <span>/</span> <span>Claude + Excel</span></div></div></div>
+  <section style="padding-top:0"><div class="container"><article class="blog-post"><div class="blog-post-header"><div class="blog-post-tags"><span class="blog-post-tag">Claude + Excel</span></div><h1 class="blog-post-title">How to Use Claude AI to Write Excel Formulas Instantly</h1><div class="blog-post-meta"><span>By Sagnik Bhattacharya</span><span>24 Mar 2026</span><span>8 min read</span></div></div>
+    <div class="blog-post-content">
+<p>If you've ever spent 20 minutes trying to get a VLOOKUP to work, or Googled "Excel formula for calculating percentage difference between two columns" only to find answers that don't quite fit — Claude AI can save you hours every week.</p>
+<p>Claude, built by Anthropic, is particularly strong at understanding what you mean in plain English and translating it into precise Excel formulas. In this guide, I'll show you exactly how to use it — with real examples you can copy and paste straight into your spreadsheets.</p>
+<h2>Why Claude Excels at Excel Formulas</h2>
+<p>Unlike generic search engines, Claude understands <strong>context</strong>. You can describe your spreadsheet layout, explain what result you want, and Claude will generate the exact formula — accounting for your specific column letters, row numbers, and edge cases.</p>
+<ul><li><strong>It understands natural language</strong> — you don't need to know the function name to ask for it</li><li><strong>It handles nested formulas</strong> — complex multi-function formulas that would take you ages to debug</li><li><strong>It explains the formula</strong> — so you actually learn, not just copy-paste</li><li><strong>It remembers context</strong> — describe your spreadsheet once, ask multiple questions</li></ul>
+<h2>Getting Started: Your First Formula Request</h2>
+<p>The key to getting great formulas from Claude is being specific about your spreadsheet layout. Here's a template that works every time:</p>
+<blockquote>"I have an Excel spreadsheet where column A has [data type], column B has [data type], and column C has [data type]. I need a formula in column D that [describes what you want]."</blockquote>
+<h3>Example 1: Conditional Calculation</h3>
+<p>Let's say you have a sales spreadsheet with Column A (sales rep name), Column B (region), Column C (sales amount). You want Column D to show a 10% bonus if sales exceed ₹50,000, otherwise 5%. Ask Claude and it gives you:</p>
+<pre><code>=IF(C2>50000, C2*0.1, C2*0.05)</code></pre>
+<p>Claude will also explain <em>why</em> the formula works, and often suggest improvements like a tiered structure for multiple bonus levels.</p>
+<h3>Example 2: Multi-Condition Lookup</h3>
+<p>You need to look up a value based on two criteria. Claude will give you:</p>
+<pre><code>=INDEX(C:C, MATCH(1, (A:A="Electronics")*(B:B="North"), 0))</code></pre>
+<p><strong>Note:</strong> Claude will remind you this is an array formula and needs <code>Ctrl+Shift+Enter</code> in older Excel versions.</p>
+<h2>Advanced Techniques</h2>
+<h3>Technique 1: Paste Your Data</h3>
+<p>Copy a few rows from your spreadsheet and paste them directly into Claude. This gives it the exact context it needs for accurate formulas.</p>
+<h3>Technique 2: Ask for Alternatives</h3>
+<p>After Claude gives you a formula, ask: <em>"Is there a simpler way?"</em> or <em>"Can you do this without an array formula?"</em> Claude will provide 2-3 alternative approaches with trade-offs.</p>
+<h3>Technique 3: Error Handling</h3>
+<p>Ask Claude to make your formulas robust. For example, wrapping a VLOOKUP in error handling:</p>
+<pre><code>=IFERROR(VLOOKUP(A2, Sheet2!A:C, 3, FALSE), "Not Found")</code></pre>
+<h2>Real-World Use Cases</h2>
+<table><thead><tr><th>What You Need</th><th>What to Ask Claude</th></tr></thead><tbody>
+<tr><td>Sum values by category</td><td>"Sum all values in column C where column A equals 'Sales'"</td></tr>
+<tr><td>Find duplicates</td><td>"Highlight or flag duplicate values in column B"</td></tr>
+<tr><td>Date calculations</td><td>"Calculate business days between two dates excluding weekends"</td></tr>
+<tr><td>Text extraction</td><td>"Extract the domain name from email addresses in column A"</td></tr>
+<tr><td>Dynamic ranges</td><td>"Create a formula that automatically includes new rows"</td></tr>
+<tr><td>Cross-sheet lookups</td><td>"Look up a value from Sheet2 based on matching IDs"</td></tr>
+</tbody></table>
+<h2>Common Mistakes to Avoid</h2>
+<ol><li><strong>Being too vague</strong> — Describe your columns and desired output specifically</li><li><strong>Not mentioning your Excel version</strong> — XLOOKUP only works in Microsoft 365 and Excel 2021+</li><li><strong>Forgetting regional settings</strong> — If you use semicolons instead of commas as separators, let Claude know</li><li><strong>Not testing with edge cases</strong> — Always test with blank cells, zero values, and text in numeric columns</li></ol>
+<h2>Wrapping Up</h2>
+<p>Claude AI isn't just a formula generator — it's like having a patient Excel expert sitting next to you. Start with your most annoying, frequently-used formula and ask Claude to write it for you. You'll be surprised how much time you save.</p><div class="blog-cta-box"><h3>Want to master Excel with AI?</h3><p>My upcoming Complete Excel Guide with AI Integration course covers everything from formulas to AI-powered workflows.</p><a href="/courses#excel" class="btn-primary">Explore the Course <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+  </article></div></section>
+  <footer><div class="container"><p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p></div></footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script><script src="/animations.js" defer></script>
+</body></html>

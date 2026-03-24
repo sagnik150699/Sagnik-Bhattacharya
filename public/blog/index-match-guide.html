@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INDEX-MATCH — The Superior Alternative to VLOOKUP | Sagnik Bhattacharya</title>
+  <meta name="description" content="Why experienced Excel users prefer INDEX-MATCH over VLOOKUP, with step-by-step examples."><meta name="keywords" content="INDEX MATCH Excel, INDEX MATCH tutorial, INDEX MATCH vs VLOOKUP, Excel lookup formula, two column lookup Excel"><meta name="author" content="Sagnik Bhattacharya"><meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/index-match-guide">
+  <meta property="og:title" content="INDEX-MATCH — The Superior Alternative to VLOOKUP"><meta property="og:description" content="Why experienced Excel users prefer INDEX-MATCH over VLOOKUP, with step-by-step examples."><meta property="og:type" content="article"><meta property="og:url" content="https://sagnikbhattacharya.com/blog/index-match-guide"><meta property="og:image" content="https://sagnikbhattacharya.com/sagnik-bhattacharya.png"><meta property="og:locale" content="en_IN"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-24">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"INDEX-MATCH — The Superior Alternative to VLOOKUP","description":"Why experienced Excel users prefer INDEX-MATCH over VLOOKUP, with step-by-step examples.","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"datePublished":"2026-03-24","dateModified":"2026-03-24","mainEntityOfPage":"https://sagnikbhattacharya.com/blog/index-match-guide"}</script>
+  <link rel="stylesheet" href="/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+</head>
+<body>
+  <nav id="navbar"><div class="container"><a href="/" class="nav-logo">sagnik<span>.</span></a><ul class="nav-links" id="navLinks"><li><a href="/about">About</a></li><li><a href="/courses">Courses</a></li><li><a href="/services">Services</a></li><li><a href="/blog" class="active">Blog</a></li><li><a href="/contact" class="nav-cta">Get in Touch</a></li></ul><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+  <div class="page-hero" style="padding-bottom:20px"><div class="container"><div class="blog-breadcrumb"><a href="/blog">← Blog</a> <span>/</span> <span>Formulas</span></div></div></div>
+  <section style="padding-top:0"><div class="container"><article class="blog-post">
+    <div class="blog-post-header"><div class="blog-post-tags"><span class="blog-post-tag">Formulas</span></div><h1 class="blog-post-title">INDEX-MATCH — The Superior Alternative to VLOOKUP</h1><div class="blog-post-meta"><span>By Sagnik Bhattacharya</span><span>24 Mar 2026</span><span>8 min read</span></div></div>
+    <div class="blog-post-content">
+<p>Ask any experienced Excel user which lookup function they prefer, and most will say INDEX-MATCH. It's more flexible, more powerful, and more reliable than VLOOKUP — once you understand how it works.</p>
+<h2>How INDEX-MATCH Works</h2>
+<p>It's actually two functions working together:</p>
+<ul><li><strong>MATCH</strong> finds the position (row number) of your lookup value</li><li><strong>INDEX</strong> returns the value at that position from another column</li></ul>
+<pre><code>=INDEX(return_range, MATCH(lookup_value, lookup_range, 0))</code></pre>
+<h3>Practical Example</h3>
+<p>Find the price of "Widget A" where names are in column A and prices in column C:</p>
+<pre><code>=INDEX(C2:C100, MATCH("Widget A", A2:A100, 0))</code></pre>
+<p>MATCH finds "Widget A" in A2:A100 and returns its row position (say, 5). INDEX then returns the 5th value from C2:C100.</p>
+<h2>Why INDEX-MATCH Beats VLOOKUP</h2>
+<table><thead><tr><th>Advantage</th><th>Explanation</th></tr></thead><tbody>
+<tr><td>Look left</td><td>VLOOKUP can only return values to the right. INDEX-MATCH can look in any direction.</td></tr>
+<tr><td>Column independence</td><td>VLOOKUP uses a column index number that breaks when columns are inserted. INDEX-MATCH uses direct range references.</td></tr>
+<tr><td>Performance</td><td>On large datasets, INDEX-MATCH is significantly faster because it only processes the lookup and return columns, not the entire table.</td></tr>
+<tr><td>Multiple criteria</td><td>Combine with multiple MATCH functions for two-dimensional lookups.</td></tr>
+</tbody></table>
+<h2>Advanced Patterns</h2>
+<h3>Two-Criteria Lookup</h3>
+<pre><code>=INDEX(D2:D100, MATCH(1, (A2:A100="North")*(B2:B100="Electronics"), 0))</code></pre>
+<p>Enter with <code>Ctrl+Shift+Enter</code> in older Excel, or just Enter in Microsoft 365.</p>
+<h3>Two-Way Lookup (Row and Column)</h3>
+<pre><code>=INDEX(B2:F10, MATCH("Product A",A2:A10,0), MATCH("Q2",B1:F1,0))</code></pre>
+<p>Finds the intersection of a specific row and column — like coordinates on a grid.</p>
+<h3>Return Last Match</h3>
+<p>VLOOKUP returns the first match. For the last match:</p>
+<pre><code>=INDEX(B:B, MATCH(2, 1/(A:A="SearchValue")))</code></pre>
+<h2>When to Stick with VLOOKUP</h2>
+<p>VLOOKUP is fine when your lookup column is the leftmost column and your data structure won't change. For shared spreadsheets with less experienced users, VLOOKUP's single-function syntax is easier to understand.</p>
+<p>For everything else — and especially for large, complex spreadsheets — INDEX-MATCH is the professional choice.</p>
+      <div class="blog-cta-box"><h3>Want to master Excel with AI?</h3><p>My upcoming Complete Excel Guide with AI Integration course covers everything from formulas to AI-powered workflows.</p><a href="/courses#excel" class="btn-primary">Explore the Course <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    </div>
+  </article></div></section>
+  <footer><div class="container"><p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p></div></footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script><script src="/animations.js" defer></script>
+</body></html>

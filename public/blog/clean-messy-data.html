@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Clean Messy Data in Excel Fast | Sagnik Bhattacharya</title>
+  <meta name="description" content="Duplicates, blanks, inconsistent formatting — learn the fastest techniques to turn messy spreadsheets into clean data.">
+  <meta name="keywords" content="clean data Excel, remove duplicates Excel, data cleaning spreadsheet, fix messy data Excel, Excel data preparation">
+  <meta name="author" content="Sagnik Bhattacharya">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/clean-messy-data">
+  <meta property="og:title" content="How to Clean Messy Data in Excel Fast">
+  <meta property="og:description" content="Duplicates, blanks, inconsistent formatting — learn the fastest techniques to turn messy spreadsheets into clean data.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/clean-messy-data">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/sagnik-bhattacharya.png">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:site_name" content="Sagnik Bhattacharya">
+  <meta property="article:author" content="Sagnik Bhattacharya">
+  <meta property="article:published_time" content="2026-03-24">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Clean Messy Data in Excel Fast","description":"Duplicates, blanks, inconsistent formatting — learn the fastest techniques to turn messy spreadsheets into clean data.","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"datePublished":"2026-03-24","dateModified":"2026-03-24","mainEntityOfPage":"https://sagnikbhattacharya.com/blog/clean-messy-data"}
+  </script>
+  <link rel="stylesheet" href="/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+</head>
+<body>
+  <nav id="navbar"><div class="container"><a href="/" class="nav-logo">sagnik<span>.</span></a><ul class="nav-links" id="navLinks"><li><a href="/about">About</a></li><li><a href="/courses">Courses</a></li><li><a href="/services">Services</a></li><li><a href="/blog" class="active">Blog</a></li><li><a href="/contact" class="nav-cta">Get in Touch</a></li></ul><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+
+  <div class="page-hero" style="padding-bottom:20px"><div class="container"><div class="blog-breadcrumb"><a href="/blog">← Blog</a> <span>/</span> <span>Data Analysis</span></div></div></div>
+
+  <section style="padding-top:0">
+    <div class="container">
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-tags"><span class="blog-post-tag">Data Analysis</span></div>
+          <h1 class="blog-post-title">How to Clean Messy Data in Excel Fast</h1>
+          <div class="blog-post-meta"><span>By Sagnik Bhattacharya</span><span>24 Mar 2026</span><span>9 min read</span></div>
+        </div>
+        <div class="blog-post-content">
+          
+<p>Every data analyst knows the reality: 80% of the work is cleaning data, 20% is actual analysis. Messy data — duplicates, blanks, inconsistent formatting, extra spaces, mixed cases — can derail any analysis. Here are the fastest techniques to clean it up.</p>
+
+<h2>1. Remove Duplicates</h2>
+<p>The quickest win. Select your data, go to <strong>Data → Remove Duplicates</strong>. Choose which columns to check for duplicates. Excel will tell you how many duplicates were found and removed.</p>
+<p><strong>Pro tip:</strong> Before removing, use conditional formatting to <em>highlight</em> duplicates first (Home → Conditional Formatting → Highlight Cell Rules → Duplicate Values). Review them before deleting — sometimes duplicates are legitimate.</p>
+
+<h2>2. Fix Extra Spaces</h2>
+<p>Hidden spaces are the #1 cause of failed VLOOKUP formulas. The <code>TRIM</code> function removes all leading, trailing, and double spaces:</p>
+<pre><code>=TRIM(A2)</code></pre>
+<p>For non-breaking spaces (common in web data), use:</p>
+<pre><code>=TRIM(SUBSTITUTE(A2, CHAR(160), " "))</code></pre>
+
+<h2>3. Standardise Text Case</h2>
+<p>"john smith", "JOHN SMITH", and "John Smith" are three different values to Excel. Fix it with:</p>
+<ul>
+<li><code>=UPPER(A2)</code> — JOHN SMITH</li>
+<li><code>=LOWER(A2)</code> — john smith</li>
+<li><code>=PROPER(A2)</code> — John Smith</li>
+</ul>
+
+<h2>4. Find and Replace</h2>
+<p><code>Ctrl+H</code> opens Find and Replace. Powerful uses:</p>
+<ul>
+<li>Replace "N/A" with blank</li>
+<li>Replace old product codes with new ones</li>
+<li>Remove specific characters (search for the character, leave "Replace with" empty)</li>
+<li>Use wildcards: <code>*</code> matches any characters, <code>?</code> matches one character</li>
+</ul>
+
+<h2>5. Split Data with Text to Columns</h2>
+<p>Got "First Last" in one column? Select the column → <strong>Data → Text to Columns</strong>:</p>
+<ul>
+<li><strong>Delimited</strong> — Split by comma, space, tab, or custom delimiter</li>
+<li><strong>Fixed width</strong> — Split at specific character positions</li>
+</ul>
+<p>In Microsoft 365, use the <code>TEXTSPLIT</code> function instead for more flexibility.</p>
+
+<h2>6. Handle Blank Cells</h2>
+<p>To find and fill blanks:</p>
+<ol>
+<li>Select your range</li>
+<li>Press <code>Ctrl+G</code> → Special → Blanks</li>
+<li>All blank cells are now selected</li>
+<li>Type a value or formula and press <code>Ctrl+Enter</code> to fill all at once</li>
+</ol>
+
+<h2>7. Fix Numbers Stored as Text</h2>
+<p>If you see numbers left-aligned with a green triangle, they're stored as text. Fix:</p>
+<ul>
+<li>Select the cells → click the warning icon → "Convert to Number"</li>
+<li>Or: create a helper column with <code>=A2*1</code> or <code>=VALUE(A2)</code></li>
+<li>Or: select all → Data → Text to Columns → Finish (without changing settings)</li>
+</ul>
+
+<h2>8. Extract Data with Formulas</h2>
+<p>Common extraction tasks:</p>
+<ul>
+<li>Extract domain from email: <code>=MID(A2, FIND("@",A2)+1, 100)</code></li>
+<li>Extract first name: <code>=LEFT(A2, FIND(" ",A2)-1)</code></li>
+<li>Extract numbers from text: Use <code>TEXTSPLIT</code> or a combination of <code>MID</code> and <code>ROW</code></li>
+</ul>
+
+<h2>9. Use Flash Fill</h2>
+<p>Excel's Flash Fill (<code>Ctrl+E</code>) is magic for pattern-based cleaning. Type the desired result for 2-3 rows, then press <code>Ctrl+E</code> — Excel detects the pattern and fills the rest. Works for:</p>
+<ul>
+<li>Name reformatting ("Smith, John" → "John Smith")</li>
+<li>Extracting parts of strings</li>
+<li>Combining data from multiple columns</li>
+<li>Reformatting phone numbers and dates</li>
+</ul>
+
+<h2>10. Data Cleaning Checklist</h2>
+<table>
+<thead><tr><th>Check</th><th>Tool/Method</th></tr></thead>
+<tbody>
+<tr><td>Duplicates</td><td>Remove Duplicates / Conditional Formatting</td></tr>
+<tr><td>Extra spaces</td><td>TRIM function</td></tr>
+<tr><td>Inconsistent case</td><td>UPPER/LOWER/PROPER</td></tr>
+<tr><td>Blank cells</td><td>Go To Special → Blanks</td></tr>
+<tr><td>Numbers as text</td><td>Text to Columns / VALUE</td></tr>
+<tr><td>Date formats</td><td>Format Cells → Date</td></tr>
+<tr><td>Spelling errors</td><td>Find & Replace with wildcards</td></tr>
+<tr><td>Column splitting</td><td>Text to Columns / Flash Fill</td></tr>
+</tbody>
+</table>
+
+          <div class="blog-cta-box">
+            <h3>Want to master Excel with AI?</h3>
+            <p>My upcoming Complete Excel Guide with AI Integration course covers everything from formulas to AI-powered workflows.</p>
+            <a href="/courses#excel" class="btn-primary">Explore the Course <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <footer><div class="container"><p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p></div></footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/animations.js" defer></script>
+</body>
+</html>
