@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excel What-If Analysis — Goal Seek, Scenarios and Data Tables | Sagnik Bhattacharya</title>
+  <meta name="description" content="Master Excel's What-If Analysis tools — Goal Seek, Scenario Manager, Data Tables, and Solver — to model outcomes, test assumptions, and make smarter decisions."><meta name="keywords" content="Excel what-if analysis, Goal Seek Excel, Scenario Manager Excel, data tables Excel, Solver Excel, sensitivity analysis Excel, Excel decision making, Sagnik Bhattacharya, Coding Liquids, Excel tutorial, Excel tips"><meta name="author" content="Sagnik Bhattacharya"><meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://sagnikbhattacharya.com/blog/what-if-analysis">
+  <meta property="og:title" content="Excel What-If Analysis — Goal Seek, Scenarios and Data Tables"><meta property="og:description" content="Master Excel's What-If Analysis tools — Goal Seek, Scenario Manager, Data Tables, and Solver — to model outcomes, test assumptions, and make smarter decisions."><meta property="og:type" content="article"><meta property="og:url" content="https://sagnikbhattacharya.com/blog/what-if-analysis">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/what-if-analysis-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/what-if-analysis-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Blog cover featuring Sagnik Bhattacharya for Excel What-If Analysis — Goal Seek, Scenarios and Data Tables, with spreadsheet visuals and scenario comparison elements.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/what-if-analysis-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Blog cover featuring Sagnik Bhattacharya for Excel What-If Analysis — Goal Seek, Scenarios and Data Tables, with spreadsheet visuals and scenario comparison elements."><meta property="og:locale" content="en_IN"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-26">
+  <meta property="article:section" content="Advanced"><meta property="article:tag" content="What-If Analysis"><meta property="article:tag" content="Goal Seek"><meta property="article:tag" content="Scenario Manager">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Excel What-If Analysis — Goal Seek, Scenarios and Data Tables","description":"Master Excel\u0027s What-If Analysis tools — Goal Seek, Scenario Manager, Data Tables, and Solver — to model outcomes, test assumptions, and make smarter decisions.","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"datePublished":"2026-03-26","dateModified":"2026-03-26","mainEntityOfPage":"https://sagnikbhattacharya.com/blog/what-if-analysis","image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/what-if-analysis-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/what-if-analysis-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"Excel What-If Analysis — Goal Seek, Scenarios and Data Tables by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}}}</script>
+  <link rel="stylesheet" href="/style.css"><script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+</head>
+<body>
+  <nav id="navbar"><div class="container"><a href="/" class="nav-logo">sagnik<span>.</span></a><ul class="nav-links" id="navLinks"><li><a href="/about">About</a></li><li><a href="/courses">Courses</a></li><li><a href="/services">Services</a></li><li><a href="/blog" class="active">Blog</a></li><li><a href="/contact" class="nav-cta">Get in Touch</a></li></ul><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+  <div class="page-hero" style="padding-bottom:20px"><div class="container"><div class="blog-breadcrumb"><a href="/blog">← Blog</a> <span>/</span> <span>Advanced</span></div></div></div>
+  <section style="padding-top:0"><div class="container"><article class="blog-post"><div class="blog-post-header"><div class="blog-post-tags"><span class="blog-post-tag">Advanced</span></div><h1 class="blog-post-title">Excel What-If Analysis — Goal Seek, Scenarios and Data Tables</h1><div class="blog-post-meta"><a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya"><img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48"></a><span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span><span>26 Mar 2026</span><span>10 min read</span></div></div>
+        <figure class="blog-cover">
+          <img src="/blog/images/what-if-analysis-sagnik-bhattacharya-coding-liquids.jpg" alt="Blog cover featuring Sagnik Bhattacharya for Excel What-If Analysis — Goal Seek, Scenarios and Data Tables, with spreadsheet visuals and scenario comparison elements." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Blog cover featuring Sagnik Bhattacharya for Excel What-If Analysis — Goal Seek, Scenarios and Data Tables, with spreadsheet visuals and scenario comparison elements.</figcaption>
+        </figure>
+        <div class="blog-post-content">
+<p>Most Excel users build formulas that answer one question: "Given these inputs, what's the output?" What-If Analysis flips that around — it lets you ask "What inputs do I need to hit a target?" or "How does the output change across different assumptions?" These tools live under <strong>Data → What-If Analysis</strong> and are some of the most powerful yet underused features in Excel.</p>
+
+<h2>The Four What-If Analysis Tools</h2>
+<p>Excel gives you four distinct tools, each solving a different type of problem:</p>
+<table><thead><tr><th>Tool</th><th>Best For</th><th>Direction</th></tr></thead><tbody>
+<tr><td><strong>Goal Seek</strong></td><td>Finding one input to hit a specific target</td><td>Backward (output → input)</td></tr>
+<tr><td><strong>Scenario Manager</strong></td><td>Comparing named sets of assumptions side by side</td><td>Forward (inputs → outputs)</td></tr>
+<tr><td><strong>Data Tables</strong></td><td>Sensitivity analysis across one or two variables</td><td>Forward (inputs → outputs)</td></tr>
+<tr><td><strong>Solver</strong></td><td>Optimising a result subject to constraints</td><td>Backward (output → multiple inputs)</td></tr>
+</tbody></table>
+
+<h2>Goal Seek — Reverse-Engineer Any Formula</h2>
+<p>Goal Seek answers: "What value does one cell need to be for a formula to return a specific result?"</p>
+<h3>Example: Break-Even Price</h3>
+<p>Suppose you have a simple profit formula:</p>
+<table><thead><tr><th>Cell</th><th>Label</th><th>Value</th></tr></thead><tbody>
+<tr><td>B2</td><td>Price per unit</td><td>₹200</td></tr>
+<tr><td>B3</td><td>Units sold</td><td>500</td></tr>
+<tr><td>B4</td><td>Fixed costs</td><td>₹80,000</td></tr>
+<tr><td>B5</td><td>Profit</td><td><code>=(B2*B3)-B4</code> → ₹20,000</td></tr>
+</tbody></table>
+<p>You want to know: <em>what price per unit makes profit exactly zero?</em></p>
+<ol>
+<li>Go to <strong>Data → What-If Analysis → Goal Seek</strong></li>
+<li>Set cell: <code>B5</code> (the profit formula)</li>
+<li>To value: <code>0</code></li>
+<li>By changing cell: <code>B2</code> (price per unit)</li>
+</ol>
+<p>Excel iterates and finds that ₹160 per unit is the break-even price. This works with any formula — loan payments, margins, growth rates — as long as the target cell depends on the changing cell.</p>
+
+<h3>Limitations</h3>
+<ul>
+<li>Only changes <strong>one</strong> input cell at a time</li>
+<li>The target cell must contain a formula (not a static value)</li>
+<li>It doesn't save results — write down the answer or undo to restore the original value</li>
+</ul>
+
+<h2>Scenario Manager — Compare Multiple Assumptions</h2>
+<p>Scenario Manager lets you define named sets of input values and switch between them instantly. Unlike Goal Seek, it works with <strong>multiple changing cells</strong> and generates a summary report.</p>
+
+<h3>Example: Sales Forecast Scenarios</h3>
+<p>Assume cells B2 (growth rate), B3 (ad spend), and B4 (conversion rate) drive your revenue formula in B8.</p>
+<ol>
+<li>Go to <strong>Data → What-If Analysis → Scenario Manager</strong></li>
+<li>Click <strong>Add</strong> and name it "Base Case"</li>
+<li>Select changing cells: <code>B2:B4</code></li>
+<li>Enter values: 10%, ₹50,000, 3%</li>
+<li>Repeat for "Best Case" (15%, ₹75,000, 4.5%) and "Worst Case" (5%, ₹30,000, 1.5%)</li>
+</ol>
+<p>Click <strong>Summary</strong> to generate a side-by-side report showing how each scenario affects your result cells. Excel creates a new worksheet with a clean comparison table.</p>
+
+<h3>When to Use It</h3>
+<ul>
+<li>Presenting options to stakeholders ("here are three plans")</li>
+<li>Budget planning with optimistic/pessimistic assumptions</li>
+<li>Comparing hiring plans, pricing tiers, or marketing strategies</li>
+</ul>
+
+<h2>Data Tables — Sensitivity Analysis Made Visual</h2>
+<p>Data Tables automate the process of running a formula across a range of input values. They come in two flavours: <strong>one-variable</strong> and <strong>two-variable</strong>.</p>
+
+<h3>One-Variable Data Table</h3>
+<p>You want to see how profit changes as price varies from ₹100 to ₹300:</p>
+<ol>
+<li>In column A, list your test values: 100, 125, 150, 175, 200, 225, 250, 275, 300</li>
+<li>In cell B1, enter the formula <code>=B5</code> (pointing to your profit formula)</li>
+<li>Select the entire range (A1:B10)</li>
+<li>Go to <strong>Data → What-If Analysis → Data Table</strong></li>
+<li>Column input cell: <code>B2</code> (the price cell)</li>
+</ol>
+<p>Excel fills column B with the profit at each price point. You immediately see the break-even threshold and the sensitivity of profit to price changes.</p>
+
+<h3>Two-Variable Data Table</h3>
+<p>Even more powerful — test two inputs simultaneously. Put price values across the top row and units sold down the first column. Excel fills the grid with the profit for every combination.</p>
+<table><thead><tr><th></th><th>₹150</th><th>₹200</th><th>₹250</th></tr></thead><tbody>
+<tr><td><strong>300 units</strong></td><td>-₹35,000</td><td>-₹20,000</td><td>-₹5,000</td></tr>
+<tr><td><strong>500 units</strong></td><td>-₹5,000</td><td>₹20,000</td><td>₹45,000</td></tr>
+<tr><td><strong>700 units</strong></td><td>₹25,000</td><td>₹60,000</td><td>₹95,000</td></tr>
+</tbody></table>
+<p>This grid is invaluable for pricing decisions, capacity planning, and investment analysis. Apply conditional formatting to colour-code the results and the insights jump off the screen.</p>
+
+<h2>Solver — Optimisation with Constraints</h2>
+<p>Solver is the most advanced What-If tool. It finds the optimal value for a target cell by adjusting multiple input cells, subject to constraints you define.</p>
+
+<h3>Enabling Solver</h3>
+<p>Solver is an add-in that ships with Excel but isn't enabled by default:</p>
+<ol>
+<li>Go to <strong>File → Options → Add-ins</strong></li>
+<li>At the bottom, select "Excel Add-ins" and click <strong>Go</strong></li>
+<li>Check <strong>Solver Add-in</strong> and click OK</li>
+</ol>
+<p>You'll now find Solver under the <strong>Data</strong> tab on the far right.</p>
+
+<h3>Example: Maximise Profit with Constraints</h3>
+<p>You sell three products. Each has a different profit margin and requires different production hours. You have limited hours and minimum order quantities.</p>
+<table><thead><tr><th>Product</th><th>Profit/Unit</th><th>Hours/Unit</th><th>Min Order</th></tr></thead><tbody>
+<tr><td>A</td><td>₹120</td><td>2</td><td>50</td></tr>
+<tr><td>B</td><td>₹200</td><td>3.5</td><td>30</td></tr>
+<tr><td>C</td><td>₹80</td><td>1</td><td>100</td></tr>
+</tbody></table>
+<p>Total available hours: 1,000. Solver finds the quantity of each product that maximises total profit while respecting all constraints.</p>
+<ol>
+<li>Set objective: Total Profit cell → <strong>Max</strong></li>
+<li>By changing: Quantity cells for products A, B, C</li>
+<li>Subject to: Total hours ≤ 1,000; each quantity ≥ its minimum order</li>
+</ol>
+
+<h3>When to Use Solver</h3>
+<ul>
+<li><strong>Resource allocation</strong> — distributing budget, staff, or materials optimally</li>
+<li><strong>Scheduling</strong> — minimising overtime while covering shifts</li>
+<li><strong>Portfolio optimisation</strong> — maximising return for a given risk level</li>
+<li><strong>Transportation problems</strong> — minimising shipping cost across warehouses</li>
+</ul>
+
+<h2>Choosing the Right Tool</h2>
+<p>Here's a quick decision guide:</p>
+<ul>
+<li><strong>"What input gives me this exact output?"</strong> → Goal Seek</li>
+<li><strong>"How do my results compare across 3-4 different plans?"</strong> → Scenario Manager</li>
+<li><strong>"How sensitive is my output to changes in one or two inputs?"</strong> → Data Tables</li>
+<li><strong>"What's the best possible outcome given these constraints?"</strong> → Solver</li>
+</ul>
+<p>These tools complement each other. A common workflow: use Data Tables for initial sensitivity analysis, Scenario Manager to present shortlisted options, and Goal Seek or Solver to fine-tune the final numbers.</p>
+
+<h2>Related Posts</h2>
+<ul>
+  <li><a href="/blog/financial-modelling">Excel for Financial Modelling — A Beginner's Guide</a></li>
+  <li><a href="/blog/advanced-formulas">15 Advanced Excel Formulas Every Professional Should Know</a></li>
+  <li><a href="/blog/dynamic-dashboards">Creating Dynamic Dashboards in Excel</a></li>
+</ul>
+<div class="blog-cta-box"><h3>Liked this? Get better.</h3><p>The Excel Guide with AI Integration takes you from formulas to production-grade projects.</p><a href="/courses#excel" class="btn-primary">Explore Courses <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+  </article></div></section>
+  <footer><div class="container"><p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p></div></footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script><script src="/animations.js" defer></script>
+</body></html>

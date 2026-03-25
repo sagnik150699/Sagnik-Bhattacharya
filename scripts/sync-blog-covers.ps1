@@ -318,6 +318,7 @@ $posts=@(
 @{Slug='mastering-pivot-tables';P='#0F766E';S='#F59E0B';Hook='Summarise large data sets quickly and turn rows into useful answers.';CTA='Master Pivot Tables';K=@('Rows','Values','Groups');Cue='pivot layouts, summary visuals, and grouped data blocks'},
 @{Slug='power-pivot-guide';P='#1E3A8A';S='#10B981';Hook='Handle massive datasets with better relationships, DAX, and data models.';CTA='Scale Beyond 1M Rows';K=@('DAX','Relations','Models');Cue='connected data tables, model relationships, and scale cues'},
 @{Slug='power-query-guide';P='#047857';S='#06B6D4';Hook='Automate data cleaning and transformation instead of repeating manual prep.';CTA='Automate Data Prep';K=@('Source','Transform','Load');Cue='data pipelines, transformation steps, and import flow elements'},
+@{Slug='what-if-analysis';P='#1D4ED8';S='#F59E0B';Hook='Compare outcomes, test assumptions, and make better Excel decisions.';CTA='Run Better Scenarios';K=@('Goal Seek','Scenarios','Solver');Cue='spreadsheet visuals and scenario comparison elements'},
 @{Slug='vlookup-vs-xlookup';P='#166534';S='#EA580C';Hook='See when the legacy lookup still works and when the modern one wins.';CTA='Choose The Better Lookup';K=@('VLOOKUP','XLOOKUP','Compare');Cue='lookup comparisons, arrows, and side-by-side formula cues'}
 )
 
