@@ -1,3 +1,7 @@
+param(
+  [string[]]$Slug,
+  [switch]$ImageOnly
+)
 Set-StrictMode -Version Latest
 $ErrorActionPreference='Stop'
 Add-Type -AssemblyName System.Drawing
@@ -121,6 +125,119 @@ function ExcelLogo($g,[float]$x,[float]$y,[float]$size){
   $sf.LineAlignment='Center'
   try{$g.DrawString('X',$font,$brush,[Drawing.RectangleF]::new($x+8,$y+30,86,$size-60),$sf)}finally{$font.Dispose();$brush.Dispose();$sf.Dispose()}
 }
+function FlutterGlyph($g,[float]$x,[float]$y,[float]$scale=1){
+  $light=New-Object Drawing.SolidBrush (C '#93E6FF' 248)
+  $mid=New-Object Drawing.SolidBrush (C '#38BDF8' 244)
+  $dark=New-Object Drawing.SolidBrush (C '#2563EB' 242)
+  try{
+    $g.FillPolygon($light,[Drawing.PointF[]]@(
+      [Drawing.PointF]::new($x + (12*$scale),$y + (16*$scale)),
+      [Drawing.PointF]::new($x + (38*$scale),$y + (42*$scale)),
+      [Drawing.PointF]::new($x + (54*$scale),$y + (26*$scale)),
+      [Drawing.PointF]::new($x + (28*$scale),$y + (0*$scale))
+    ))
+    $g.FillPolygon($mid,[Drawing.PointF[]]@(
+      [Drawing.PointF]::new($x + (12*$scale),$y + (54*$scale)),
+      [Drawing.PointF]::new($x + (38*$scale),$y + (80*$scale)),
+      [Drawing.PointF]::new($x + (92*$scale),$y + (26*$scale)),
+      [Drawing.PointF]::new($x + (66*$scale),$y + (0*$scale))
+    ))
+    $g.FillPolygon($dark,[Drawing.PointF[]]@(
+      [Drawing.PointF]::new($x + (40*$scale),$y + (54*$scale)),
+      [Drawing.PointF]::new($x + (58*$scale),$y + (72*$scale)),
+      [Drawing.PointF]::new($x + (92*$scale),$y + (38*$scale)),
+      [Drawing.PointF]::new($x + (74*$scale),$y + (20*$scale))
+    ))
+  }finally{$light.Dispose();$mid.Dispose();$dark.Dispose()}
+}
+function ReactNativeGlyph($g,[float]$cx,[float]$cy,[float]$scale=1){
+  $pen=New-Object Drawing.Pen (C '#61DAFB' 236),([Math]::Max(2.4,(3.2*$scale)))
+  $pen.StartCap='Round'
+  $pen.EndCap='Round'
+  $core=New-Object Drawing.SolidBrush (C '#9BE7FF' 246)
+  try{
+    foreach($angle in @(0,60,-60)){
+      $state=$g.Save()
+      try{
+        $g.TranslateTransform($cx,$cy)
+        $g.RotateTransform($angle)
+        $g.DrawEllipse($pen,(-30*$scale),(-12*$scale),(60*$scale),(24*$scale))
+      }finally{$g.Restore($state)}
+    }
+    $g.FillEllipse($core,$cx-(7*$scale),$cy-(7*$scale),(14*$scale),(14*$scale))
+  }finally{$pen.Dispose();$core.Dispose()}
+}
+function PhoneMockup($g,[float]$x,[float]$y,[float]$w,[float]$h,[string]$accent,[string]$accent2,[string]$mode){
+  $shadow=New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb(22,0,10,18))
+  $body=New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb(234,8,20,31))
+  $screen=New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb(248,13,27,41))
+  $stroke=New-Object Drawing.Pen (C '#D7F8FF' 34),1
+  $speaker=New-Object Drawing.SolidBrush (C '#FFFFFF' 42)
+  $accentBrush=New-Object Drawing.SolidBrush (C $accent 236)
+  $accentBrush2=New-Object Drawing.SolidBrush (C $accent2 218)
+  $muted=New-Object Drawing.SolidBrush (C '#FFFFFF' 26)
+  try{
+    FillRR $g $shadow ($x+6) ($y+10) $w $h 24
+    FillRR $g $body $x $y $w $h 24
+    StrokeRR $g $stroke $x $y $w $h 24
+    FillRR $g $screen ($x+6) ($y+8) ($w-12) ($h-16) 20
+    FillRR $g $speaker ($x+($w/2)-14) ($y+12) 28 4 2
+    if($mode -eq 'flutter'){
+      FillRR $g $accentBrush ($x+18) ($y+34) ($w-36) 24 10
+      FillRR $g $muted ($x+18) ($y+70) ($w-36) 42 12
+      FillRR $g $accentBrush2 ($x+28) ($y+84) ($w-56) 10 5
+      FillRR $g $muted ($x+18) ($y+120) ($w-36) 18 9
+      FillRR $g $accentBrush ($x+18) ($y+148) 44 10 5
+      FillRR $g $accentBrush2 ($x+68) ($y+148) 22 10 5
+    }else{
+      FillRR $g $muted ($x+18) ($y+34) ($w-36) 32 14
+      FillRR $g $accentBrush ($x+28) ($y+46) 30 8 4
+      FillRR $g $accentBrush2 ($x+18) ($y+82) ($w-36) 20 10
+      FillRR $g $muted ($x+18) ($y+114) ($w-36) 34 12
+      FillRR $g $accentBrush ($x+26) ($y+128) 22 8 4
+      FillRR $g $accentBrush2 ($x+54) ($y+128) 28 8 4
+      FillRR $g $muted ($x+16) ($y+$h-34) ($w-32) 8 4
+    }
+  }finally{$shadow.Dispose();$body.Dispose();$screen.Dispose();$stroke.Dispose();$speaker.Dispose();$accentBrush.Dispose();$accentBrush2.Dispose();$muted.Dispose()}
+}
+function CompareRow($g,[float]$x,[float]$y,[string]$label,[float]$flutterWidth,[float]$reactWidth,[string]$flutterColor,[string]$reactColor){
+  $font=New-Object Drawing.Font('Segoe UI',12,[Drawing.FontStyle]::Bold,[Drawing.GraphicsUnit]::Pixel)
+  $textBrush=New-Object Drawing.SolidBrush (C '#ECFEFF' 232)
+  $track=New-Object Drawing.SolidBrush (C '#FFFFFF' 14)
+  $flutterBrush=New-Object Drawing.SolidBrush (C $flutterColor 236)
+  $reactBrush=New-Object Drawing.SolidBrush (C $reactColor 220)
+  try{
+    $g.DrawString($label,$font,$textBrush,$x,$y-3)
+    FillRR $g $track ($x+58) ($y+2) 118 8 4
+    FillRR $g $track ($x+58) ($y+16) 118 8 4
+    FillRR $g $flutterBrush ($x+58) ($y+2) $flutterWidth 8 4
+    FillRR $g $reactBrush ($x+58) ($y+16) $reactWidth 8 4
+  }finally{$font.Dispose();$textBrush.Dispose();$track.Dispose();$flutterBrush.Dispose();$reactBrush.Dispose()}
+}
+function FrameworkBadge($g,$p,[float]$x,[float]$y){
+  GlassPanel $g $x $y 158 132 32 '#07131B' 222 '#D9F7FF' 26
+
+  $left=New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb(236,15,36,58))
+  $right=New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb(236,13,28,44))
+  $label=New-Object Drawing.SolidBrush (C '#FFFFFF' 68)
+  $vsBrush=New-Object Drawing.SolidBrush (C $p.P 240)
+  $vsStroke=New-Object Drawing.Pen (C '#FFFFFF' 34),1
+  $font=New-Object Drawing.Font('Segoe UI',13,[Drawing.FontStyle]::Bold,[Drawing.GraphicsUnit]::Pixel)
+  $text=New-Object Drawing.SolidBrush (C '#F8FAFC' 246)
+  try{
+    FillRR $g $left ($x+16) ($y+18) 54 68 18
+    FillRR $g $right ($x+88) ($y+18) 54 68 18
+    FlutterGlyph $g ($x+20) ($y+26) 0.52
+    ReactNativeGlyph $g ($x+115) ($y+52) 0.62
+    $g.FillEllipse($vsBrush,$x+60,$y+42,38,38)
+    $g.DrawEllipse($vsStroke,$x+60,$y+42,38,38)
+    $sf=NewTextFormat
+    $sf.Alignment='Center'
+    $sf.LineAlignment='Center'
+    try{$g.DrawString('VS',$font,$text,[Drawing.RectangleF]::new($x+60,$y+42,38,38),$sf)}finally{$sf.Dispose()}
+    FillRR $g $label ($x+18) ($y+98) 122 12 6
+  }finally{$left.Dispose();$right.Dispose();$label.Dispose();$vsBrush.Dispose();$vsStroke.Dispose();$font.Dispose();$text.Dispose()}
+}
 function GetPortraitSourceRect($img,[float]$dstW,[float]$dstH){
   $dstAspect=$dstW / $dstH
   $cropHeight=[float][Math]::Round([Math]::Min($img.Height * 0.84,$img.Width / $dstAspect))
@@ -212,6 +329,49 @@ function BackdropScene($g,$p){
   Glow $g 1126 320 52 $p.S 12
   Glow $g 838 300 40 $p.P 12
 }
+function MobileBackdropScene($g,$p){
+  GlassPanel $g 854 84 292 214 34 '#0F1D28' 214 '#C8F4FF' 24
+  PhoneMockup $g 880 108 92 162 $p.P '#93E6FF' 'flutter'
+  PhoneMockup $g 1006 120 92 162 $p.S '#1D4ED8' 'react'
+
+  $vsShadow=New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb(26,0,12,24))
+  $vsFill=New-Object Drawing.SolidBrush (C '#0F172A' 242)
+  $vsStroke=New-Object Drawing.Pen (C '#D8F6FF' 42),1
+  $vsFont=New-Object Drawing.Font('Segoe UI',14,[Drawing.FontStyle]::Bold,[Drawing.GraphicsUnit]::Pixel)
+  $vsText=New-Object Drawing.SolidBrush (C '#F8FAFC' 248)
+  try{
+    $g.FillEllipse($vsShadow,967,170,44,44)
+    $g.FillEllipse($vsFill,961,164,44,44)
+    $g.DrawEllipse($vsStroke,961,164,44,44)
+    $sf=NewTextFormat
+    $sf.Alignment='Center'
+    $sf.LineAlignment='Center'
+    try{$g.DrawString('VS',$vsFont,$vsText,[Drawing.RectangleF]::new(961,164,44,44),$sf)}finally{$sf.Dispose()}
+  }finally{$vsShadow.Dispose();$vsFill.Dispose();$vsStroke.Dispose();$vsFont.Dispose();$vsText.Dispose()}
+
+  GlassPanel $g 898 326 224 146 28 '#0F1D28' 212 '#C8F4FF' 22
+  $tagX=920
+  $tagX += Tag $g 'Flutter' $tagX 346 '#0F2942' '#D8F6FF' 12 10 24
+  $tagX += 8
+  Tag $g 'React Native' $tagX 346 '#102734' '#D8F6FF' 12 10 24 | Out-Null
+  CompareRow $g 922 386 'UI' 92 78 $p.P $p.S
+  CompareRow $g 922 418 'DX' 82 96 $p.P $p.S
+  CompareRow $g 922 450 'Jobs' 68 102 $p.P $p.S
+
+  GlassPanel $g 852 494 248 68 24 $p.P 230 '#FFFFFF' 28
+  $line=New-Object Drawing.SolidBrush (C '#FFFFFF' 62)
+  $dot1=New-Object Drawing.SolidBrush (C '#93E6FF' 228)
+  $dot2=New-Object Drawing.SolidBrush (C '#61DAFB' 228)
+  try{
+    FillRR $g $line 880 512 126 10 5
+    FillRR $g $line 880 532 164 10 5
+    $g.FillEllipse($dot1,1048,508,12,12)
+    $g.FillEllipse($dot2,1066,522,12,12)
+  }finally{$line.Dispose();$dot1.Dispose();$dot2.Dispose()}
+
+  Glow $g 1122 318 54 $p.S 12
+  Glow $g 842 294 42 $p.P 12
+}
 function TitleSize([string]$title){
   $len=$title.Length
   if($len -gt 80){32}
@@ -283,9 +443,15 @@ function NewCover($p,$img,[string]$title,[string]$tag,[string]$path){
     }finally{$grid.Dispose()}
 
     PortraitFrame $g $img $p
-    BackdropScene $g $p
-    ExcelLogo $g 1034 26 132
-    GlassPanel $g 520 84 498 470 38 '#07131B' 210 '#D8F7E5' 26
+    if($p.Variant -eq 'mobile-compare'){
+      MobileBackdropScene $g $p
+      FrameworkBadge $g $p 1010 26
+      GlassPanel $g 520 84 498 470 38 '#07131B' 210 '#D9F7FF' 26
+    }else{
+      BackdropScene $g $p
+      ExcelLogo $g 1034 26 132
+      GlassPanel $g 520 84 498 470 38 '#07131B' 210 '#D8F7E5' 26
+    }
     $titleLayout=FitTitleLayout $g $title $p.Hook
 
     Tag $g $tag 548 110 '#FFFFFF' '#0F172A' 18 16 36 | Out-Null
@@ -359,6 +525,7 @@ $posts=@(
 @{Slug='dynamic-dashboards';P='#059669';S='#0EA5E9';Hook='Create interactive dashboards that stakeholders can understand at a glance.';CTA='Build Dynamic Dashboards';K=@('KPI','Slicers','Charts');Cue='dashboard cards, KPIs, and interactive chart elements'},
 @{Slug='excel-vs-google-sheets';P='#166534';S='#2563EB';Hook='Choose the spreadsheet tool that actually fits the way you work.';CTA='Pick The Right Tool';K=@('Offline','Collab','AI');Cue='side-by-side spreadsheet comparison panels and decision cues'},
 @{Slug='financial-modelling';P='#0F172A';S='#10B981';Hook='Build cleaner forecasts, cash flow models, and scenario analysis in Excel.';CTA='Build Your First Model';K=@('Revenue','Cash Flow','Scenario');Cue='forecast visuals, tables, and financial model elements'},
+@{Slug='flutter-vs-react-native';P='#2563EB';S='#22D3EE';Hook='Compare performance, DX, hiring, and product fit before you commit.';CTA='Choose The Right Framework';K=@('Flutter','React Native','2026');Cue='Flutter and React Native logos, mobile UI cards, and a framework comparison visual';Variant='mobile-compare'},
 @{Slug='getting-started-copilot-excel';P='#2563EB';S='#14B8A6';Hook='Get comfortable with Copilot fast and start using it inside real sheets.';CTA='Start Using Copilot';K=@('Prompt','Analyse','Formula');Cue='AI assistant styling, onboarding cues, and spreadsheet cards'},
 @{Slug='index-match-guide';P='#166534';S='#F59E0B';Hook='Replace brittle lookups with a more flexible and reliable formula setup.';CTA='Upgrade Your Lookups';K=@('INDEX','MATCH','Lookup');Cue='lookup references, match arrows, and formula comparison cues'},
 @{Slug='keyboard-shortcuts';P='#1F2937';S='#10B981';Hook='Memorise the shortcuts that save time every single day in Excel.';CTA='Save Hours Every Week';K=@('Ctrl','Navigate','Format');Cue='keyboard cues, fast actions, and productivity shortcuts'},
@@ -375,10 +542,19 @@ $blog=Join-Path $public 'blog'
 $imgDir=Join-Path $blog 'images'
 $utf8=[Text.UTF8Encoding]::new($false)
 if(-not(Test-Path $imgDir)){New-Item -ItemType Directory -Path $imgDir|Out-Null}
-Get-ChildItem $imgDir -File -ErrorAction SilentlyContinue | Remove-Item -Force
+$selectedPosts=$posts
+if($Slug){
+  $missing=@($Slug | Where-Object { $_ -notin $posts.Slug })
+  if($missing.Count){
+    throw ('Unknown slug(s): ' + ($missing -join ', '))
+  }
+  $selectedPosts=@($posts | Where-Object { $Slug -contains $_.Slug })
+}else{
+  Get-ChildItem $imgDir -File -ErrorAction SilentlyContinue | Remove-Item -Force
+}
 $head=[Drawing.Image]::FromFile((Join-Path $public 'sagnik-bhattacharya.png'))
 try{
-  foreach($p in $posts){
+  foreach($p in $selectedPosts){
     $htmlPath=Join-Path $blog ($p.Slug+'.html')
     if(-not(Test-Path $htmlPath)){continue}
     $html=[IO.File]::ReadAllText($htmlPath)
@@ -390,11 +566,11 @@ try{
     $url='https://sagnikbhattacharya.com/blog/images/'+$file
     $alt='Blog cover featuring Sagnik Bhattacharya for '+$title+', with '+$p.Cue+'.'
     NewCover $p $head $title $tag (Join-Path $imgDir $file)
-    $html=SetImageMeta $html $url $alt
-    $html=SetJsonImage $html $url $title
-    $html=SetCoverHtml $html $src $alt
-    [IO.File]::WriteAllText($htmlPath,$html,$utf8)
+    if(-not $ImageOnly){
+      $html=SetImageMeta $html $url $alt
+      $html=SetJsonImage $html $url $title
+      $html=SetCoverHtml $html $src $alt
+      [IO.File]::WriteAllText($htmlPath,$html,$utf8)
+    }
   }
 }finally{$head.Dispose()}
-
-

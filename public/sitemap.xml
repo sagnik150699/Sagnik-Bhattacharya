@@ -135,4 +135,9 @@
 
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/flutter-vs-react-native</loc>
+
+    <priority>0.7</priority>
+  </url>
 </urlset>
