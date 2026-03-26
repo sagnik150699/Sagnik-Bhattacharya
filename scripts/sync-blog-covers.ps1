@@ -32,14 +32,27 @@ function Glow($g,[float]$cx,[float]$cy,[float]$r,[string]$hex,[int]$strength=18)
     try{$g.FillEllipse($b,$cx-($size/2),$cy-($size/2),$size,$size)}finally{$b.Dispose()}
   }
 }
-function WrapTextBlock($g,[string]$text,[float]$x,[float]$y,[float]$w,[float]$h,[float]$size,[string]$hex,[string]$fontName='Segoe UI',[Drawing.FontStyle]$style=[Drawing.FontStyle]::Bold,[int]$alpha=255){
-  $font=New-Object Drawing.Font($fontName,$size,$style,[Drawing.GraphicsUnit]::Pixel)
-  $brush=New-Object Drawing.SolidBrush (C $hex $alpha)
+function NewTextFormat([Drawing.StringTrimming]$trimming=[Drawing.StringTrimming]::EllipsisWord){
   $sf=New-Object Drawing.StringFormat
   $sf.Alignment=[Drawing.StringAlignment]::Near
   $sf.LineAlignment=[Drawing.StringAlignment]::Near
-  $sf.Trimming=[Drawing.StringTrimming]::EllipsisWord
+  $sf.Trimming=$trimming
+  $sf.FormatFlags=[Drawing.StringFormatFlags]::LineLimit
+  $sf
+}
+function WrapTextBlock($g,[string]$text,[float]$x,[float]$y,[float]$w,[float]$h,[float]$size,[string]$hex,[string]$fontName='Segoe UI',[Drawing.FontStyle]$style=[Drawing.FontStyle]::Bold,[int]$alpha=255){
+  $font=New-Object Drawing.Font($fontName,$size,$style,[Drawing.GraphicsUnit]::Pixel)
+  $brush=New-Object Drawing.SolidBrush (C $hex $alpha)
+  $sf=NewTextFormat
   try{$g.DrawString($text,$font,$brush,[Drawing.RectangleF]::new($x,$y,$w,$h),$sf)}finally{$font.Dispose();$brush.Dispose();$sf.Dispose()}
+}
+function MeasureTextBlockHeight($g,[string]$text,[float]$w,[float]$size,[string]$fontName='Segoe UI',[Drawing.FontStyle]$style=[Drawing.FontStyle]::Bold){
+  $font=New-Object Drawing.Font($fontName,$size,$style,[Drawing.GraphicsUnit]::Pixel)
+  $sf=NewTextFormat
+  try{
+    $measured=$g.MeasureString($text,$font,[Drawing.SizeF]::new($w,2000),$sf)
+    return [float][Math]::Ceiling($measured.Height)
+  }finally{$font.Dispose();$sf.Dispose()}
 }
 function Tag($g,[string]$text,[float]$x,[float]$y,[string]$fill,[string]$fg,[float]$fontSize=18,[float]$padX=16,[float]$height=34){
   $font=New-Object Drawing.Font('Segoe UI',$fontSize,[Drawing.FontStyle]::Bold,[Drawing.GraphicsUnit]::Pixel)
@@ -75,7 +88,7 @@ function GlassPanel($g,[float]$x,[float]$y,[float]$w,[float]$h,[float]$r,[string
 function SaveJ($img,[string]$path){
   $enc=[Drawing.Imaging.ImageCodecInfo]::GetImageEncoders()|Where-Object{$_.MimeType-eq 'image/jpeg'}|Select-Object -First 1
   $ep=New-Object Drawing.Imaging.EncoderParameters 1
-  $ep.Param[0]=New-Object Drawing.Imaging.EncoderParameter([Drawing.Imaging.Encoder]::Quality,[long]94)
+  $ep.Param[0]=New-Object Drawing.Imaging.EncoderParameter([Drawing.Imaging.Encoder]::Quality,[long]98)
   try{$img.Save($path,$enc,$ep)}finally{$ep.Dispose()}
 }
 function ExcelLogo($g,[float]$x,[float]$y,[float]$size){
@@ -103,7 +116,7 @@ function ExcelLogo($g,[float]$x,[float]$y,[float]$size){
 
   $font=New-Object Drawing.Font('Segoe UI',($size*0.34),[Drawing.FontStyle]::Bold,[Drawing.GraphicsUnit]::Pixel)
   $brush=New-Object Drawing.SolidBrush ([Drawing.Color]::White)
-  $sf=New-Object Drawing.StringFormat
+  $sf=NewTextFormat
   $sf.Alignment='Center'
   $sf.LineAlignment='Center'
   try{$g.DrawString('X',$font,$brush,[Drawing.RectangleF]::new($x+8,$y+30,86,$size-60),$sf)}finally{$font.Dispose();$brush.Dispose();$sf.Dispose()}
@@ -207,6 +220,38 @@ function TitleSize([string]$title){
   elseif($len -gt 48){41}
   else{45}
 }
+function FitTitleLayout($g,[string]$title,[string]$hook){
+  $titleY=[float]164
+  $titleW=[float]428
+  $titleMaxHeight=[float]226
+  $hookW=[float]416
+  $hookSize=[float]21
+  $hookGap=[float]18
+  $tagsGap=[float]24
+  $buttonGap=[float]18
+  $buttonYMax=[float]520
+  $fontSize=[float](TitleSize $title)
+  $minSize=[float]31
+  do{
+    $titleHeight=MeasureTextBlockHeight $g $title $titleW $fontSize 'Segoe UI' ([Drawing.FontStyle]::Bold)
+    $hookHeight=[Math]::Max(66,[float](MeasureTextBlockHeight $g $hook $hookW $hookSize 'Segoe UI' ([Drawing.FontStyle]::Regular)))
+    $hookY=$titleY + $titleHeight + $hookGap
+    $tagsY=$hookY + $hookHeight + $tagsGap
+    $ctaY=$tagsY + 30 + $buttonGap
+    if($titleHeight -le $titleMaxHeight -and $ctaY -le $buttonYMax){break}
+    $fontSize -= 1
+  }while($fontSize -gt $minSize)
+
+  [pscustomobject]@{
+    TitleWidth=$titleW
+    TitleHeight=$titleMaxHeight
+    TitleSize=$fontSize
+    HookY=$hookY
+    HookHeight=$hookHeight
+    TagsY=$tagsY
+    CtaY=$ctaY
+  }
+}
 function NewCover($p,$img,[string]$title,[string]$tag,[string]$path){
   $bmp=New-Object Drawing.Bitmap 1200,630
   $g=[Drawing.Graphics]::FromImage($bmp)
@@ -215,6 +260,7 @@ function NewCover($p,$img,[string]$title,[string]$tag,[string]$path){
     $g.InterpolationMode='HighQualityBicubic'
     $g.PixelOffsetMode='HighQuality'
     $g.CompositingQuality='HighQuality'
+    $g.TextRenderingHint=[Drawing.Text.TextRenderingHint]::ClearTypeGridFit
 
     $bg=New-Object Drawing.Drawing2D.LinearGradientBrush([Drawing.PointF]::new(0,0),[Drawing.PointF]::new(1200,630),(C '#06131D'),(C '#0E2230'))
     try{$g.FillRectangle($bg,0,0,1200,630)}finally{$bg.Dispose()}
@@ -240,12 +286,13 @@ function NewCover($p,$img,[string]$title,[string]$tag,[string]$path){
     BackdropScene $g $p
     ExcelLogo $g 1034 26 132
     GlassPanel $g 520 84 498 470 38 '#07131B' 210 '#D8F7E5' 26
+    $titleLayout=FitTitleLayout $g $title $p.Hook
 
-    $badgeWidth=Tag $g $tag 548 110 '#FFFFFF' '#0F172A' 18 16 36
-    WrapTextBlock $g $title 548 164 420 206 (TitleSize $title) '#F8FAFC' 'Segoe UI' ([Drawing.FontStyle]::Bold) 248
-    WrapTextBlock $g $p.Hook 548 392 416 66 21 '#DCEFE6' 'Segoe UI' ([Drawing.FontStyle]::Regular) 224
-    TagRow $g $p.K 548 474 '#163645' '#E5FAEF' 16 14 30
-    Tag $g $p.CTA 548 520 $p.P '#FFFFFF' 22 22 48 | Out-Null
+    Tag $g $tag 548 110 '#FFFFFF' '#0F172A' 18 16 36 | Out-Null
+    WrapTextBlock $g $title 548 164 $titleLayout.TitleWidth $titleLayout.TitleHeight $titleLayout.TitleSize '#F8FAFC' 'Segoe UI' ([Drawing.FontStyle]::Bold) 248
+    WrapTextBlock $g $p.Hook 548 $titleLayout.HookY 416 $titleLayout.HookHeight 21 '#DCEFE6' 'Segoe UI' ([Drawing.FontStyle]::Regular) 224
+    TagRow $g $p.K 548 $titleLayout.TagsY '#163645' '#E5FAEF' 16 14 30
+    Tag $g $p.CTA 548 $titleLayout.CtaY $p.P '#FFFFFF' 22 22 48 | Out-Null
 
     SaveJ $bmp $path
   }finally{$g.Dispose();$bmp.Dispose()}
