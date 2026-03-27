@@ -33,12 +33,12 @@
 <ul><li>"Sort this table by Revenue, highest to lowest"</li><li>"Filter to show only rows where Region is North"</li><li>"Show only the top 20 customers by total orders"</li><li>"Remove all rows where the Status column is blank"</li></ul>
 <p>Copilot applies these changes directly to your table. You can undo with <code>Ctrl+Z</code> if needed.</p>
 <h2>Formatting</h2>
-<ul><li>"Bold all headers and add filters"</li><li>"Highlight all cells in the Revenue column that are above average"</li><li>"Add alternating row colours to this table"</li><li>"Format the Date column as DD/MM/YYYY"</li><li>"Add data bars to the Profit column"</li></ul>
+<ul><li>"Bold all headers and add filters"</li><li>"Highlight all cells in the Revenue column that are above average" — also see <a href="/blog/conditional-formatting-tips">conditional formatting tips</a> for manual control</li><li>"Add alternating row colours to this table"</li><li>"Format the Date column as DD/MM/YYYY"</li><li>"Add data bars to the Profit column"</li></ul>
 <h2>Adding Formulas</h2>
 <ul><li>"Add a column that calculates the percentage of total for each row"</li><li>"Add a RANK column based on Revenue"</li><li>"Calculate the running total of Sales in a new column"</li><li>"Add a column showing the difference from the previous month"</li></ul>
-<p>Copilot adds the formula to one row and automatically applies it to all rows in the table.</p>
+<p>Copilot adds the formula to one row and automatically applies it to all rows in the table. To understand what formulas Copilot writes, see the <a href="/blog/advanced-formulas">advanced formulas guide</a>.</p>
 <h2>Data Summarisation</h2>
-<ul><li>"Add a total row at the bottom"</li><li>"Create a summary table showing average revenue by region"</li><li>"Calculate the year-over-year growth rate"</li><li>"Show monthly totals in a new table"</li></ul>
+<ul><li>"Add a total row at the bottom"</li><li>"Create a summary table showing average revenue by region" — <a href="/blog/mastering-pivot-tables">pivot tables</a> do this interactively too</li><li>"Calculate the year-over-year growth rate"</li><li>"Show monthly totals in a new table"</li></ul>
 <h2>Building a Weekly Automation Workflow</h2>
 <p>Here's a real example — processing a weekly sales report:</p>
 <ol><li>Import the raw CSV data into an Excel Table</li><li>Ask Copilot: "Remove rows where Amount is zero or blank"</li><li>Ask: "Add a Month column extracted from the Date column"</li><li>Ask: "Sort by Date, newest first"</li><li>Ask: "Highlight the top 10 deals in green"</li><li>Ask: "Create a bar chart showing revenue by sales rep"</li><li>Ask: "Add a summary table with totals by region"</li></ol>
@@ -46,7 +46,7 @@
 <h2>Limitations</h2>
 <ul><li>Copilot can't create VBA macros — use Claude AI for automation that runs on a button click</li><li>Complex multi-step workflows still need a human to sequence the prompts</li><li>File must be saved to OneDrive and data must be in a Table format</li></ul>
 <h2>Copilot + Power Automate</h2>
-<p>For true automation (no prompts needed), combine Excel Copilot with Microsoft Power Automate. Create flows that automatically process new files, send notifications, and update dashboards — triggered by email, schedule, or file changes.</p><h2>Related Posts</h2>
+<p>For true automation (no prompts needed), combine Excel Copilot with Microsoft Power Automate. Create flows that automatically process new files, send notifications, and update dashboards — triggered by email, schedule, or file changes. For data transformation automation without Power Automate, <a href="/blog/power-query-guide">Power Query</a> is another powerful option.</p><h2>Related Posts</h2>
 <ul>
   <li><a href="/blog/getting-started-copilot-excel">Getting Started with Microsoft Copilot in Excel</a></li>
   <li><a href="/blog/copilot-data-analysis">Excel Copilot for Data Analysis — A Practical Guide</a></li>

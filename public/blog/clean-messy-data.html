@@ -57,7 +57,7 @@
 
 <h2>1. Remove Duplicates</h2>
 <p>The quickest win. Select your data, go to <strong>Data → Remove Duplicates</strong>. Choose which columns to check for duplicates. Excel will tell you how many duplicates were found and removed.</p>
-<p><strong>Pro tip:</strong> Before removing, use conditional formatting to <em>highlight</em> duplicates first (Home → Conditional Formatting → Highlight Cell Rules → Duplicate Values). Review them before deleting — sometimes duplicates are legitimate.</p>
+<p><strong>Pro tip:</strong> Before removing, use <a href="/blog/conditional-formatting-tips">conditional formatting</a> to <em>highlight</em> duplicates first (Home → Conditional Formatting → Highlight Cell Rules → Duplicate Values). Review them before deleting — sometimes duplicates are legitimate.</p>
 
 <h2>2. Fix Extra Spaces</h2>
 <p>Hidden spaces are the #1 cause of failed VLOOKUP formulas. The <code>TRIM</code> function removes all leading, trailing, and double spaces:</p>
@@ -102,7 +102,7 @@
 <h2>7. Fix Numbers Stored as Text</h2>
 <p>If you see numbers left-aligned with a green triangle, they're stored as text. Fix:</p>
 <ul>
-<li>Select the cells → click the warning icon → "Convert to Number"</li>
+<li>Select the cells → click the warning icon → "Convert to Number". To prevent this issue entirely, set up <a href="/blog/data-validation">data validation rules</a> on your input columns</li>
 <li>Or: create a helper column with <code>=A2*1</code> or <code>=VALUE(A2)</code></li>
 <li>Or: select all → Data → Text to Columns → Finish (without changing settings)</li>
 </ul>
@@ -110,13 +110,13 @@
 <h2>8. Extract Data with Formulas</h2>
 <p>Common extraction tasks:</p>
 <ul>
-<li>Extract domain from email: <code>=MID(A2, FIND("@",A2)+1, 100)</code></li>
+<li>Extract domain from email: <code>=MID(A2, FIND("@",A2)+1, 100)</code>. For more formula techniques, see the <a href="/blog/advanced-formulas">advanced formulas guide</a></li>
 <li>Extract first name: <code>=LEFT(A2, FIND(" ",A2)-1)</code></li>
 <li>Extract numbers from text: Use <code>TEXTSPLIT</code> or a combination of <code>MID</code> and <code>ROW</code></li>
 </ul>
 
 <h2>9. Use Flash Fill</h2>
-<p>Excel's Flash Fill (<code>Ctrl+E</code>) is magic for pattern-based cleaning. Type the desired result for 2-3 rows, then press <code>Ctrl+E</code> — Excel detects the pattern and fills the rest. Works for:</p>
+<p>Excel's Flash Fill (<code>Ctrl+E</code>) is magic for pattern-based cleaning. Type the desired result for 2-3 rows, then press <code>Ctrl+E</code> — Excel detects the pattern and fills the rest. For recurring data cleaning tasks, <a href="/blog/power-query-guide">Power Query</a> can automate the entire process. Flash Fill works for:</p>
 <ul>
 <li>Name reformatting ("Smith, John" → "John Smith")</li>
 <li>Extracting parts of strings</li>

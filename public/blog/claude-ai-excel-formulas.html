@@ -41,7 +41,7 @@
 <pre><code>=IF(C2>50000, C2*0.1, C2*0.05)</code></pre>
 <p>Claude will also explain <em>why</em> the formula works, and often suggest improvements like a tiered structure for multiple bonus levels.</p>
 <h3>Example 2: Multi-Condition Lookup</h3>
-<p>You need to look up a value based on two criteria. Claude will give you:</p>
+<p>You need to look up a value based on two criteria. For a deeper dive into lookup functions, see <a href="/blog/vlookup-vs-xlookup">VLOOKUP vs XLOOKUP</a>. Claude will give you:</p>
 <pre><code>=INDEX(C:C, MATCH(1, (A:A="Electronics")*(B:B="North"), 0))</code></pre>
 <p><strong>Note:</strong> Claude will remind you this is an array formula and needs <code>Ctrl+Shift+Enter</code> in older Excel versions.</p>
 <h2>Advanced Techniques</h2>
@@ -50,19 +50,19 @@
 <h3>Technique 2: Ask for Alternatives</h3>
 <p>After Claude gives you a formula, ask: <em>"Is there a simpler way?"</em> or <em>"Can you do this without an array formula?"</em> Claude will provide 2-3 alternative approaches with trade-offs.</p>
 <h3>Technique 3: Error Handling</h3>
-<p>Ask Claude to make your formulas robust. For example, wrapping a VLOOKUP in error handling:</p>
+<p>Ask Claude to make your formulas robust. For more on IFERROR, VLOOKUP, and other power functions, see the <a href="/blog/advanced-formulas">advanced formulas guide</a>. For example, wrapping a VLOOKUP in error handling:</p>
 <pre><code>=IFERROR(VLOOKUP(A2, Sheet2!A:C, 3, FALSE), "Not Found")</code></pre>
 <h2>Real-World Use Cases</h2>
 <table><thead><tr><th>What You Need</th><th>What to Ask Claude</th></tr></thead><tbody>
 <tr><td>Sum values by category</td><td>"Sum all values in column C where column A equals 'Sales'"</td></tr>
-<tr><td>Find duplicates</td><td>"Highlight or flag duplicate values in column B"</td></tr>
+<tr><td>Find duplicates</td><td>"Highlight or flag duplicate values in column B" — also see <a href="/blog/clean-messy-data">how to clean messy data</a></td></tr>
 <tr><td>Date calculations</td><td>"Calculate business days between two dates excluding weekends"</td></tr>
 <tr><td>Text extraction</td><td>"Extract the domain name from email addresses in column A"</td></tr>
 <tr><td>Dynamic ranges</td><td>"Create a formula that automatically includes new rows"</td></tr>
 <tr><td>Cross-sheet lookups</td><td>"Look up a value from Sheet2 based on matching IDs"</td></tr>
 </tbody></table>
 <h2>Common Mistakes to Avoid</h2>
-<ol><li><strong>Being too vague</strong> — Describe your columns and desired output specifically</li><li><strong>Not mentioning your Excel version</strong> — XLOOKUP only works in Microsoft 365 and Excel 2021+</li><li><strong>Forgetting regional settings</strong> — If you use semicolons instead of commas as separators, let Claude know</li><li><strong>Not testing with edge cases</strong> — Always test with blank cells, zero values, and text in numeric columns</li></ol>
+<ol><li><strong>Being too vague</strong> — Describe your columns and desired output specifically</li><li><strong>Not mentioning your Excel version</strong> — XLOOKUP only works in Microsoft 365 and Excel 2021+</li><li><strong>Forgetting regional settings</strong> — If you use semicolons instead of commas as separators, let Claude know</li><li><strong>Not testing with edge cases</strong> — Always test with blank cells, zero values, and text in numeric columns. When a formula breaks, see <a href="/blog/claude-debug-formulas">using Claude to debug formulas</a></li></ol>
 <h2>Wrapping Up</h2>
 <p>Claude AI isn't just a formula generator — it's like having a patient Excel expert sitting next to you. Start with your most annoying, frequently-used formula and ask Claude to write it for you. You'll be surprised how much time you save.</p><h2>Related Posts</h2>
 <ul>

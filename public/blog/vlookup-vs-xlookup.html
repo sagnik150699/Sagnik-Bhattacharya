@@ -63,7 +63,7 @@
 
 <h3>VLOOKUP Limitations</h3>
 <ul>
-<li>Can only look <strong>right</strong> — the lookup column must be the leftmost column</li>
+<li>Can only look <strong>right</strong> — the lookup column must be the leftmost column. The classic workaround is <a href="/blog/index-match-guide">INDEX-MATCH</a></li>
 <li>Uses a <strong>column index number</strong> — if you insert a column, the formula breaks</li>
 <li>Returns only the <strong>first match</strong></li>
 <li>The <code>FALSE</code> parameter for exact match is counterintuitive</li>
@@ -79,7 +79,7 @@
 <ul>
 <li>Can look in <strong>any direction</strong> — left, right, up, down</li>
 <li>References <strong>return column directly</strong> — no column index to break</li>
-<li><strong>Built-in error handling</strong> with the if_not_found parameter</li>
+<li><strong>Built-in error handling</strong> with the if_not_found parameter — no more wrapping in IFERROR. For debugging formula errors with AI, see <a href="/blog/claude-debug-formulas">using Claude to debug formulas</a></li>
 <li>Supports <strong>exact match by default</strong> — no need for FALSE</li>
 <li>Can search from <strong>last to first</strong> (reverse search)</li>
 <li>Can return <strong>multiple columns</strong> at once</li>
@@ -104,7 +104,7 @@
 <ul>
 <li>You're sharing files with people who may use older Excel versions</li>
 <li>Your lookup column is already the leftmost column</li>
-<li>You're working in Google Sheets (which supports VLOOKUP natively)</li>
+<li>You're working in Google Sheets (which supports VLOOKUP natively) — see the full <a href="/blog/excel-vs-google-sheets">Excel vs Google Sheets comparison</a></li>
 </ul>
 <p><strong>Use XLOOKUP when:</strong></p>
 <ul>

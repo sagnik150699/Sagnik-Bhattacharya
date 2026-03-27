@@ -42,9 +42,9 @@
 <p>MATCH finds "Widget A" in A2:A100 and returns its row position (say, 5). INDEX then returns the 5th value from C2:C100.</p>
 <h2>Why INDEX-MATCH Beats VLOOKUP</h2>
 <table><thead><tr><th>Advantage</th><th>Explanation</th></tr></thead><tbody>
-<tr><td>Look left</td><td>VLOOKUP can only return values to the right. INDEX-MATCH can look in any direction.</td></tr>
+<tr><td>Look left</td><td>VLOOKUP can only return values to the right. INDEX-MATCH can look in any direction. For a full comparison of all lookup options, see <a href="/blog/vlookup-vs-xlookup">VLOOKUP vs XLOOKUP</a>.</td></tr>
 <tr><td>Column independence</td><td>VLOOKUP uses a column index number that breaks when columns are inserted. INDEX-MATCH uses direct range references.</td></tr>
-<tr><td>Performance</td><td>On large datasets, INDEX-MATCH is significantly faster because it only processes the lookup and return columns, not the entire table.</td></tr>
+<tr><td>Performance</td><td>On large datasets, INDEX-MATCH is significantly faster because it only processes the lookup and return columns, not the entire table. For truly massive datasets (1M+ rows), consider <a href="/blog/power-pivot-guide">Power Pivot</a> instead.</td></tr>
 <tr><td>Multiple criteria</td><td>Combine with multiple MATCH functions for two-dimensional lookups.</td></tr>
 </tbody></table>
 <h2>Advanced Patterns</h2>
@@ -53,7 +53,7 @@
 <p>Enter with <code>Ctrl+Shift+Enter</code> in older Excel, or just Enter in Microsoft 365.</p>
 <h3>Two-Way Lookup (Row and Column)</h3>
 <pre><code>=INDEX(B2:F10, MATCH("Product A",A2:A10,0), MATCH("Q2",B1:F1,0))</code></pre>
-<p>Finds the intersection of a specific row and column — like coordinates on a grid.</p>
+<p>Finds the intersection of a specific row and column — like coordinates on a grid. For more complex multi-criteria patterns, see the <a href="/blog/advanced-formulas">advanced formulas guide</a>.</p>
 <h3>Return Last Match</h3>
 <p>VLOOKUP returns the first match. For the last match:</p>
 <pre><code>=INDEX(B:B, MATCH(2, 1/(A:A="SearchValue")))</code></pre>

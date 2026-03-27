@@ -33,7 +33,7 @@
 <table><thead><tr><th>Error</th><th>Meaning</th><th>Common Cause</th></tr></thead><tbody>
 <tr><td><code>#VALUE!</code></td><td>Wrong data type</td><td>Text in a math formula, or space characters</td></tr>
 <tr><td><code>#REF!</code></td><td>Invalid reference</td><td>Deleted column/row that the formula referenced</td></tr>
-<tr><td><code>#N/A</code></td><td>Value not found</td><td>VLOOKUP can't find the lookup value</td></tr>
+<tr><td><code>#N/A</code></td><td>Value not found</td><td>VLOOKUP can't find the lookup value — consider switching to <a href="/blog/vlookup-vs-xlookup">XLOOKUP</a> which has built-in error handling</td></tr>
 <tr><td><code>#NAME?</code></td><td>Unrecognised name</td><td>Misspelled function name or missing quotes</td></tr>
 <tr><td><code>#DIV/0!</code></td><td>Division by zero</td><td>Denominator is zero or blank</td></tr>
 <tr><td><code>#NUM!</code></td><td>Invalid number</td><td>Result too large, or impossible calculation</td></tr>
@@ -55,7 +55,7 @@ A2 = 15/01/2024, B2 = 20/03/2026"</code></pre>
 <blockquote>"Can you break down this formula step by step and tell me which part is causing the error?"</blockquote>
 <p>Claude will evaluate each nested function from the inside out, identifying exactly where the error originates.</p>
 <h2>Preventive Debugging Tips</h2>
-<ol><li><strong>Use the Evaluate Formula tool</strong> — Formulas → Evaluate Formula steps through each part</li><li><strong>Check for hidden spaces</strong> — Use <code>=LEN(A2)</code> to see if there are extra characters</li><li><strong>Verify data types</strong> — Use <code>=ISNUMBER(A2)</code> or <code>=ISTEXT(A2)</code></li><li><strong>Wrap in IFERROR</strong> — <code>=IFERROR(your_formula, "Check input")</code></li><li><strong>Build incrementally</strong> — Test each nested function separately before combining</li></ol>
+<ol><li><strong>Use the Evaluate Formula tool</strong> — Formulas → Evaluate Formula steps through each part</li><li><strong>Check for hidden spaces</strong> — Use <code>=LEN(A2)</code> to see if there are extra characters. See the full <a href="/blog/clean-messy-data">data cleaning guide</a> for fixing these issues</li><li><strong>Verify data types</strong> — Use <code>=ISNUMBER(A2)</code> or <code>=ISTEXT(A2)</code></li><li><strong>Wrap in IFERROR</strong> — <code>=IFERROR(your_formula, "Check input")</code>. Better yet, use <a href="/blog/data-validation">data validation</a> to prevent bad inputs at the source</li><li><strong>Build incrementally</strong> — Test each nested function separately before combining. The <a href="/blog/advanced-formulas">advanced formulas guide</a> explains each function in detail</li></ol>
 <h2>When to Use Claude vs Excel's Tools</h2>
 <ul><li><strong>Use Excel's Evaluate Formula</strong> when you want to step through a formula visually</li><li><strong>Use Claude</strong> when you can't figure out why a formula isn't working, need an explanation of the error, or want a rewritten version that handles edge cases</li></ul><h2>Related Posts</h2>
 <ul>

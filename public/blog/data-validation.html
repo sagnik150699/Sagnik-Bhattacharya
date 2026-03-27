@@ -28,7 +28,7 @@
           <figcaption class="sr-only">Blog cover featuring Sagnik Bhattacharya for Excel Data Validation — Prevent Errors Before They Happen, with validation controls, dropdowns, and error-prevention signals.</figcaption>
         </figure>
         <div class="blog-post-content">
-<p>Data validation is your first line of defence against bad data. It restricts what users can enter into cells — dropdown menus, number ranges, date limits, and custom rules that catch errors before they corrupt your analysis.</p>
+<p>Data validation is your first line of defence against bad data. It restricts what users can enter into cells — dropdown menus, number ranges, date limits, and custom rules that catch errors before they corrupt your analysis. Already have messy data? Start with the <a href="/blog/clean-messy-data">data cleaning guide</a> first, then add validation to prevent future issues.</p>
 <h2>Basic Validation: Dropdown Lists</h2>
 <p>The most common use case. Select your target cells, go to <strong>Data → Data Validation</strong>:</p>
 <ol><li>Under "Allow", select <strong>List</strong></li><li>In "Source", type your options separated by commas: <code>North,South,East,West</code></li><li>Or reference a range: <code>=Sheet2!$A$1:$A$10</code></li></ol>
@@ -37,7 +37,7 @@
 <p>Restrict cells to accept only numbers within a range:</p>
 <ul><li><strong>Allow: Whole number</strong> — Between 1 and 100</li><li><strong>Allow: Decimal</strong> — Greater than 0</li><li><strong>Allow: Date</strong> — Between 01/01/2026 and 31/12/2026</li><li><strong>Allow: Text Length</strong> — Maximum 50 characters</li></ul>
 <h2>Custom Validation with Formulas</h2>
-<p>For complex rules, select "Custom" and enter a formula:</p>
+<p>For complex rules, select "Custom" and enter a formula. The functions used here — COUNTIF, FIND, ISNUMBER, TODAY — are covered in the <a href="/blog/advanced-formulas">advanced formulas guide</a>:</p>
 <h3>No Duplicate Entries</h3>
 <pre><code>=COUNTIF(A:A, A1)<=1</code></pre>
 <h3>Must Start with a Letter</h3>
@@ -55,7 +55,7 @@
 <h2>Audit Existing Validation</h2>
 <p>To see which cells have validation rules: <strong>Home → Find & Select → Data Validation</strong>. This selects all cells with validation rules, making it easy to audit and update.</p>
 <h2>Best Practices</h2>
-<ul><li>Always add an <strong>input message</strong> explaining what's expected</li><li>Use "Stop" error alerts for critical fields, "Warning" for flexible ones</li><li>Keep dropdown source lists on a hidden sheet for maintainability</li><li>Test validation with edge cases — blank entries, copy-paste, and special characters</li></ul><h2>Related Posts</h2>
+<ul><li>Always add an <strong>input message</strong> explaining what's expected</li><li>Use "Stop" error alerts for critical fields, "Warning" for flexible ones</li><li>Keep dropdown source lists on a hidden sheet for maintainability</li><li>Test validation with edge cases — blank entries, copy-paste, and special characters</li><li>Pair validation with <a href="/blog/conditional-formatting-tips">conditional formatting</a> to visually highlight cells that meet or violate rules</li></ul><h2>Related Posts</h2>
 <ul>
   <li><a href="/blog/clean-messy-data">How to Clean Messy Data in Excel Fast</a></li>
   <li><a href="/blog/conditional-formatting-tips">Excel Conditional Formatting Tips and Tricks</a></li>

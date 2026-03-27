@@ -36,13 +36,14 @@
 <ol><li>Go to <strong>File → Options → Add-ins</strong></li><li>At the bottom, select "COM Add-ins" → Go</li><li>Check "Microsoft Power Pivot for Excel" → OK</li><li>A new "Power Pivot" tab appears in the ribbon</li></ol>
 <h2>Loading Data</h2>
 <p>Click <strong>Power Pivot → Manage</strong> to open the Power Pivot window. Then:</p>
+<p>For best results, use <a href="/blog/power-query-guide">Power Query</a> to clean and transform your data before loading it into the data model.</p>
 <ul><li><strong>From Excel</strong> — Add linked tables from your workbook</li><li><strong>From Database</strong> — Connect directly to SQL Server, Access</li><li><strong>From Files</strong> — Import CSV, text files</li><li><strong>From Data Feeds</strong> — OData, Azure, web services</li></ul>
 <h2>Creating Relationships</h2>
 <p>The killer feature. Instead of VLOOKUP between tables, create relationships:</p>
 <ol><li>In Power Pivot, go to <strong>Design → Create Relationship</strong></li><li>Select the matching columns from each table</li><li>Click OK</li></ol>
 <p>Now your pivot tables can use fields from any related table seamlessly.</p>
 <h2>DAX Formulas: The Basics</h2>
-<p>DAX is Power Pivot's formula language. It looks similar to Excel formulas but operates on entire tables:</p>
+<p>DAX is Power Pivot's formula language. It looks similar to <a href="/blog/advanced-formulas">standard Excel formulas</a> but operates on entire tables:</p>
 <h3>Calculated Columns</h3>
 <pre><code>=Sales[Revenue] - Sales[Cost]</code></pre>
 <p>Creates a new column calculated per row.</p>
@@ -58,6 +59,7 @@
 <tr><td><code>YEARTODATE</code></td><td>Running total from start of year</td></tr>
 </tbody></table>
 <h2>When to Use Power Pivot</h2>
+<p>If your data fits comfortably in a worksheet, start with <a href="/blog/mastering-pivot-tables">regular pivot tables</a> first. Upgrade to Power Pivot when:</p>
 <ul><li>Your data exceeds 100K rows</li><li>You have multiple related tables</li><li>You need calculations that change based on filter context</li><li>You want a single source of truth for multiple reports</li></ul>
 <h2>Power Pivot vs Power BI</h2>
 <p>Power Pivot is for Excel-based analysis — your reports live in Excel workbooks. Power BI is a standalone tool for interactive dashboards shared via the web. Learn Power Pivot first — the DAX skills transfer directly to Power BI.</p><h2>Related Posts</h2>

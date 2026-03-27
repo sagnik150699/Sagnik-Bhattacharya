@@ -35,7 +35,7 @@
 <h2>1. SUMPRODUCT</h2>
 <p>Sum values based on multiple criteria without needing an array formula:</p>
 <pre><code>=SUMPRODUCT((A2:A100="Sales")*(B2:B100="North")*(C2:C100))</code></pre>
-<p>This sums column C only where column A is "Sales" AND column B is "North".</p>
+<p>This sums column C only where column A is "Sales" AND column B is "North". For an alternative approach to multi-criteria counting, <a href="/blog/mastering-pivot-tables">pivot tables</a> handle this interactively.</p>
 <h2>2. INDEX-MATCH (Two-Way Lookup)</h2>
 <pre><code>=INDEX(C2:F10, MATCH("Product A",A2:A10,0), MATCH("Q2",C1:F1,0))</code></pre>
 <p>Looks up a value based on both a row and column header — like a grid lookup.</p>
@@ -44,7 +44,7 @@
 <pre><code>=TEXTJOIN(", ", TRUE, A2:A20)</code></pre>
 <h2>4. UNIQUE (Dynamic Array)</h2>
 <pre><code>=UNIQUE(A2:A100)</code></pre>
-<p>Returns a list of unique values that automatically spills into adjacent cells.</p>
+<p>Returns a list of unique values that automatically spills into adjacent cells. Make sure to <a href="/blog/clean-messy-data">clean your data first</a> — trailing spaces and inconsistent casing will produce false "unique" entries.</p>
 <h2>5. SORT</h2>
 <pre><code>=SORT(A2:C100, 3, -1)</code></pre>
 <p>Dynamically sorts data by column 3 in descending order.</p>
@@ -52,7 +52,7 @@
 <pre><code>=FILTER(A2:D100, C2:C100>50000, "No results")</code></pre>
 <p>Returns rows where column C exceeds 50,000. Replaces complex Advanced Filter setups.</p>
 <h2>7. LET</h2>
-<p>Define variables within formulas to avoid repeating calculations:</p>
+<p>Define variables within formulas to avoid repeating calculations. LET is especially useful when <a href="/blog/financial-modelling">building financial models</a> with complex, multi-step calculations:</p>
 <pre><code>=LET(total, SUM(B2:B100), avg, AVERAGE(B2:B100), total/avg)</code></pre>
 <h2>8. LAMBDA</h2>
 <p>Create custom, reusable functions:</p>
@@ -67,7 +67,7 @@
 <p>Sums column B from a sheet whose name is in cell A1.</p>
 <h2>11. IFERROR + IFNA</h2>
 <pre><code>=IFERROR(VLOOKUP(A2,Data!A:C,3,0), "Not found")</code></pre>
-<p>Handle errors gracefully. Use IFNA when you only want to catch #N/A errors.</p>
+<p>Handle errors gracefully. Use IFNA when you only want to catch #N/A errors. To prevent errors at the source, set up <a href="/blog/data-validation">data validation rules</a> on your input cells.</p>
 <h2>12. COUNTIFS (Multiple Criteria)</h2>
 <pre><code>=COUNTIFS(A2:A100,"Sales", B2:B100,">50000", C2:C100,"<>")</code></pre>
 <p>Count cells matching multiple conditions across multiple columns.</p>

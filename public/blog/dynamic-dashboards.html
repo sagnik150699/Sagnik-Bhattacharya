@@ -36,13 +36,13 @@
 <p>Every effective Excel dashboard uses these four components:</p>
 <ul><li><strong>Data source</strong> — Your raw data, ideally in an Excel Table</li><li><strong>Pivot tables</strong> — To summarise and aggregate the data</li><li><strong>Charts</strong> — To visualise the summarised data</li><li><strong>Slicers</strong> — To add interactive filtering</li></ul>
 <h2>Step 1: Structure Your Data</h2>
-<p>Your data should be in a flat table format with clear column headers. Convert it to an Excel Table with <code>Ctrl+T</code>. This ensures new data is automatically included when you refresh.</p>
+<p>Your data should be in a flat table format with clear column headers. Convert it to an Excel Table with <code>Ctrl+T</code>. This ensures new data is automatically included when you refresh. For recurring data imports, <a href="/blog/power-query-guide">use Power Query to automate data preparation</a> before it reaches your dashboard.</p>
 <h2>Step 2: Create Pivot Tables</h2>
-<p>Create multiple pivot tables from the same data source — one for each metric you want to display:</p>
+<p>Create multiple pivot tables from the same data source — one for each metric you want to display. If you're new to pivot tables, start with the <a href="/blog/mastering-pivot-tables">complete guide to mastering pivot tables</a>.</p>
 <ul><li>Revenue by month (for a line chart)</li><li>Sales by region (for a bar chart)</li><li>Product category breakdown (for a pie chart)</li><li>Top 10 customers (for a table)</li></ul>
 <p>Place all pivot tables on a separate "Calculations" sheet — keep them hidden from the dashboard view.</p>
 <h2>Step 3: Build Charts</h2>
-<p>Create charts from each pivot table. Key formatting tips:</p>
+<p>Create charts from each pivot table. For a deep dive into chart design, see the <a href="/blog/charts-visualisations">professional chart formatting guide</a>. Key formatting tips:</p>
 <ul><li>Remove chart titles — use text boxes instead for consistent styling</li><li>Remove gridlines for a cleaner look</li><li>Use a consistent colour palette across all charts</li><li>Format axes to show abbreviated numbers (e.g., "50K" instead of "50,000")</li><li>Remove chart borders and set background to "No fill"</li></ul>
 <h2>Step 4: Add Slicers</h2>
 <p>Slicers are the magic that makes dashboards interactive:</p>
@@ -53,6 +53,7 @@
 <h2>Auto-Refresh Setup</h2>
 <p>To make your dashboard update automatically:</p>
 <ol><li>Right-click any pivot table → PivotTable Options → Data</li><li>Check "Refresh data when opening the file"</li><li>For periodic refresh, use Data → Connections → Properties → Refresh every X minutes</li></ol>
+<p>If your dashboard needs to handle large datasets beyond Excel's row limit, consider upgrading to <a href="/blog/power-pivot-guide">Power Pivot for million-row dashboards</a>.</p>
 <h2>Pro Tips</h2>
 <ol><li>Use <strong>KPI cards</strong> — Large numbers at the top showing total revenue, growth %, and key metrics using simple cell references with bold formatting</li><li>Use <strong>Sparklines</strong> — Tiny inline charts (Insert → Sparklines) for trend indicators next to KPIs</li><li>Use <strong>conditional formatting</strong> on data tables within the dashboard for visual emphasis</li><li>Keep it to <strong>one screen</strong> — The best dashboards don't require scrolling</li></ol>
       <h2>Related Posts</h2>

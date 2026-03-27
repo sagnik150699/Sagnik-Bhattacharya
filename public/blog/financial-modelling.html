@@ -31,7 +31,7 @@
 <p>Financial modelling is the art of building a mathematical representation of a company's financial performance. Excel remains the industry standard tool for this — from startup pitch decks to Wall Street analysis. Here's how to build your first model.</p>
 <h2>Structure of a Financial Model</h2>
 <p>Every financial model has three core sections:</p>
-<ol><li><strong>Assumptions</strong> — Input variables that drive the model (growth rate, costs, prices)</li><li><strong>Calculations</strong> — Formulas that process the assumptions</li><li><strong>Outputs</strong> — Financial statements and charts</li></ol>
+<ol><li><strong>Assumptions</strong> — Input variables that drive the model (growth rate, costs, prices)</li><li><strong>Calculations</strong> — Formulas that process the assumptions</li><li><strong>Outputs</strong> — Financial statements and charts. Present them using <a href="/blog/dynamic-dashboards">interactive dashboards</a> for maximum impact</li></ol>
 <p>Best practice: keep assumptions on a separate sheet, colour-code input cells (blue font for inputs, black for formulas), and never hardcode numbers inside formulas.</p>
 <h2>Building a Simple Revenue Model</h2>
 <h3>Step 1: Define Assumptions</h3>
@@ -45,7 +45,7 @@
 <p>For each month, calculate:</p>
 <ul><li><strong>New customers</strong> = Previous month customers × growth rate</li><li><strong>Churned customers</strong> = Previous month customers × churn rate</li><li><strong>End-of-month customers</strong> = Previous + New - Churned</li><li><strong>Monthly revenue</strong> = End-of-month customers × ARPC</li></ul>
 <h3>Step 3: Annual Summary</h3>
-<p>Sum the monthly figures into annual totals. Use <code>=SUMPRODUCT</code> or simple <code>=SUM</code> for annual revenue, total new customers, and total churned customers.</p>
+<p>Sum the monthly figures into annual totals. Use <code>=SUMPRODUCT</code> or simple <code>=SUM</code> for annual revenue, total new customers, and total churned customers. These and other powerful functions are covered in the <a href="/blog/advanced-formulas">advanced formulas reference</a>.</p>
 <h2>Cost Modelling</h2>
 <p>Separate costs into:</p>
 <ul><li><strong>Fixed costs</strong> — Rent, salaries, subscriptions (same regardless of revenue)</li><li><strong>Variable costs</strong> — Cost of goods sold, transaction fees (scale with revenue)</li><li><strong>Semi-variable</strong> — Customer support, infrastructure (step-function increases)</li></ul>
@@ -61,9 +61,9 @@
 <h2>Scenario Analysis</h2>
 <p>Build three scenarios by changing assumptions:</p>
 <ul><li><strong>Base case</strong> — Realistic projections</li><li><strong>Best case</strong> — Higher growth, lower churn</li><li><strong>Worst case</strong> — Lower growth, higher costs</li></ul>
-<p>Use Excel's <strong>Data Tables</strong> (Data → What-If Analysis → Data Table) to automatically calculate outputs for different input values. Or use <strong>Scenario Manager</strong> (Data → What-If Analysis → Scenario Manager) to save and switch between named scenarios.</p>
+<p>Use Excel's <strong>Data Tables</strong> (Data → What-If Analysis → Data Table) to automatically calculate outputs for different input values. Or use <strong>Scenario Manager</strong> (Data → What-If Analysis → Scenario Manager) to save and switch between named scenarios. For a detailed walkthrough of all four tools, see the <a href="/blog/what-if-analysis">complete what-if analysis guide</a>.</p>
 <h2>Best Practices</h2>
-<ol><li><strong>One formula per row</strong> — Don't mix different formulas in the same row</li><li><strong>Blue for inputs, black for formulas</strong> — Industry standard colour coding</li><li><strong>No circular references</strong> — They make models unstable and hard to audit</li><li><strong>Label everything</strong> — Every number should have a clear label</li><li><strong>Separate sheets</strong> — Assumptions, calculations, and outputs on different tabs</li><li><strong>Version control</strong> — Save dated copies before major changes</li></ol><h2>Related Posts</h2>
+<ol><li><strong>One formula per row</strong> — Don't mix different formulas in the same row</li><li><strong>Blue for inputs, black for formulas</strong> — Industry standard colour coding. You can automate this with <a href="/blog/conditional-formatting-tips">conditional formatting rules</a></li><li><strong>No circular references</strong> — They make models unstable and hard to audit</li><li><strong>Label everything</strong> — Every number should have a clear label</li><li><strong>Separate sheets</strong> — Assumptions, calculations, and outputs on different tabs</li><li><strong>Version control</strong> — Save dated copies before major changes</li></ol><h2>Related Posts</h2>
 <ul>
   <li><a href="/blog/mastering-pivot-tables">Mastering Pivot Tables — A Complete Guide</a></li>
   <li><a href="/blog/dynamic-dashboards">Creating Dynamic Dashboards in Excel</a></li>
