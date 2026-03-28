@@ -564,7 +564,7 @@ try{
     $file=$p.Slug+'-sagnik-bhattacharya-coding-liquids.jpg'
     $src='/blog/images/'+$file
     $url='https://sagnikbhattacharya.com/blog/images/'+$file
-    $alt='Blog cover featuring Sagnik Bhattacharya for '+$title+', with '+$p.Cue+'.'
+    $alt='Coding Liquids blog cover featuring Sagnik Bhattacharya for '+$title+', with '+$p.Cue+'.'
     NewCover $p $head $title $tag (Join-Path $imgDir $file)
     if(-not $ImageOnly){
       $html=SetImageMeta $html $url $alt
