@@ -6,6 +6,11 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference='Stop'
 Add-Type -AssemblyName System.Drawing
 
+$codingLiquidsUrl='https://codingliquids.com'
+$codingLiquidsTermsUrl='https://www.codingliquids.com/termsofuse'
+$imageAcquireLicenseUrl='https://sagnikbhattacharya.com/contact'
+$codingLiquidsCopyrightNotice=([string][char]0x00A9)+' Sagnik Bhattacharya and Coding Liquids. All rights reserved.'
+
 function C($hex,[int]$a=255){
   $h=$hex.TrimStart('#')
   [Drawing.Color]::FromArgb($a,[Convert]::ToInt32($h.Substring(0,2),16),[Convert]::ToInt32($h.Substring(2,2),16),[Convert]::ToInt32($h.Substring(4,2),16))
@@ -443,7 +448,9 @@ function NewCover($p,$img,[string]$title,[string]$tag,[string]$path){
     }finally{$grid.Dispose()}
 
     PortraitFrame $g $img $p
-    if($p.Variant -eq 'mobile-compare'){
+    $variantProp=$p.PSObject.Properties['Variant']
+    $variant=if($variantProp){[string]$variantProp.Value}else{''}
+    if($variant -eq 'mobile-compare'){
       MobileBackdropScene $g $p
       FrameworkBadge $g $p 1010 26
       GlassPanel $g 520 84 498 470 38 '#07131B' 210 '#D9F7FF' 26
@@ -488,13 +495,16 @@ function SetJsonImage([string]$html,[string]$url,[string]$title){
     '@type'='ImageObject'
     url=$url
     contentUrl=$url
+    license=$codingLiquidsTermsUrl
+    acquireLicensePage=$imageAcquireLicenseUrl
     width=1200
     height=630
     caption="$title by Sagnik Bhattacharya for Coding Liquids"
     creditText='Sagnik Bhattacharya for Coding Liquids'
+    copyrightNotice=$codingLiquidsCopyrightNotice
     creator=[ordered]@{'@type'='Person';name='Sagnik Bhattacharya';url='https://sagnikbhattacharya.com'}
-    publisher=[ordered]@{'@type'='Organization';name='Coding Liquids';url='https://codingliquids.com'}
-    copyrightHolder=[ordered]@{'@type'='Organization';name='Coding Liquids';url='https://codingliquids.com'}
+    publisher=[ordered]@{'@type'='Organization';name='Coding Liquids';url=$codingLiquidsUrl}
+    copyrightHolder=[ordered]@{'@type'='Organization';name='Coding Liquids';url=$codingLiquidsUrl}
   }) -Force
   $json=$obj|ConvertTo-Json -Compress -Depth 10
   $html.Substring(0,$m.Groups[1].Index)+$json+$html.Substring($m.Groups[1].Index+$m.Groups[1].Length)
@@ -557,7 +567,7 @@ try{
   foreach($p in $selectedPosts){
     $htmlPath=Join-Path $blog ($p.Slug+'.html')
     if(-not(Test-Path $htmlPath)){continue}
-    $html=[IO.File]::ReadAllText($htmlPath)
+    $html=[IO.File]::ReadAllText($htmlPath,[Text.Encoding]::UTF8)
     $title=[regex]::Match($html,'<title>(.*?) \| Sagnik Bhattacharya</title>','Singleline').Groups[1].Value.Trim()
     $tagMatch=[regex]::Match($html,'<span class="blog-post-tag">(.*?)</span>','Singleline')
     $tag=if($tagMatch.Success){[Net.WebUtility]::HtmlDecode($tagMatch.Groups[1].Value.Trim())}else{'Excel Guide'}
