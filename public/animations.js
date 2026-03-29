@@ -10,28 +10,55 @@
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
 
+  hamburger.setAttribute('aria-expanded', 'false');
+  hamburger.setAttribute('aria-controls', 'navLinks');
+
+  function closeNav() {
+    navLinks.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+  }
+
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 20);
   });
-  hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => navLinks.classList.remove('active'));
+
+  hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = navLinks.classList.contains('active');
+    navLinks.classList.toggle('active', !isOpen);
+    hamburger.setAttribute('aria-expanded', String(!isOpen));
   });
 
-  // ── SCROLL PROGRESS BAR ──
-  const progressBar = document.createElement('div');
-  progressBar.className = 'scroll-progress';
-  document.body.prepend(progressBar);
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeNav);
+  });
 
-  window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    const pct = maxScroll > 0 ? (scrolled / maxScroll) * 100 : 0;
-    progressBar.style.width = pct + '%';
-  }, { passive: true });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeNav();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target)) closeNav();
+  });
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ── SCROLL PROGRESS BAR ──
+  if (!reducedMotion) {
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    document.body.prepend(progressBar);
+
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = maxScroll > 0 ? (scrolled / maxScroll) * 100 : 0;
+      progressBar.style.width = pct + '%';
+    }, { passive: true });
+  }
 
   // ── CURSOR GLOW (desktop only) ──
-  if (window.matchMedia('(min-width:901px) and (pointer:fine)').matches) {
+  if (!reducedMotion && window.matchMedia('(min-width:901px) and (pointer:fine)').matches) {
     const glow = document.createElement('div');
     glow.className = 'cursor-glow';
     document.body.appendChild(glow);
@@ -55,13 +82,15 @@
   // ── CHECK IF GSAP LOADED ──
   const hasGSAP = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
 
-  if (hasGSAP) {
-    gsap.registerPlugin(ScrollTrigger);
-    document.body.classList.add('gsap-ready');
-    initGSAPAnimations();
-  } else {
-    // Fallback: use the simple IntersectionObserver
-    initFallbackAnimations();
+  if (!reducedMotion) {
+    if (hasGSAP) {
+      gsap.registerPlugin(ScrollTrigger);
+      document.body.classList.add('gsap-ready');
+      initGSAPAnimations();
+    } else {
+      // Fallback: use the simple IntersectionObserver
+      initFallbackAnimations();
+    }
   }
 
   // ── GSAP ANIMATIONS ──
