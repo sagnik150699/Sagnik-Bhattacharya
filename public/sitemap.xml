@@ -140,4 +140,14 @@
 
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/chatgpt-excel-guide</loc>
+
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/gemini-ai-excel</loc>
+
+    <priority>0.7</priority>
+  </url>
 </urlset>
