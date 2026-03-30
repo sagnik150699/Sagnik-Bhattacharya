@@ -18,7 +18,25 @@
         ]
       },
       {
-        "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|ico|woff2|css|js)",
+        "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|ico|woff2|css)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=31536000, immutable"
+          }
+        ]
+      },
+      {
+        "source": "tracking.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      },
+      {
+        "source": "animations.js",
         "headers": [
           {
             "key": "Cache-Control",
