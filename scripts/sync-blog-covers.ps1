@@ -649,8 +649,18 @@ function SetImageMeta([string]$html,[string]$url,[string]$alt){
   $html -replace '<meta property="og:url" content="[^"]*">',('$0'+"`r`n  "+$meta)
 }
 function SetJsonImage([string]$html,[string]$url,[string]$title){
-  $m=[regex]::Match($html,'<script[^>]*application/ld\+json[^>]*>(.*?)</script>','Singleline')
-  if(-not $m.Success){return $html}
+  $scriptPattern='<script[^>]*application/ld\+json[^>]*>(.*?)</script>'
+  $m=$null
+  foreach($candidate in [regex]::Matches($html,$scriptPattern,'Singleline')){
+    $jsonText=$candidate.Groups[1].Value.Trim()
+    try{$obj=$jsonText|ConvertFrom-Json}catch{continue}
+    $typeProp=$obj.PSObject.Properties['@type']
+    if($null -ne $typeProp -and @($typeProp.Value) -contains 'BlogPosting'){
+      $m=$candidate
+      break
+    }
+  }
+  if($null -eq $m){return $html}
   $obj=($m.Groups[1].Value.Trim()|ConvertFrom-Json)
   $obj|Add-Member -NotePropertyName image -NotePropertyValue ([ordered]@{
     '@type'='ImageObject'
