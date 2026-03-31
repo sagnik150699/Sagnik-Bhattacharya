@@ -377,6 +377,85 @@ function MobileBackdropScene($g,$p){
   Glow $g 1122 318 54 $p.S 12
   Glow $g 842 294 42 $p.P 12
 }
+function BubbleBadge($g,[float]$x,[float]$y,[string]$letter,[string]$accent,[float]$size=56){
+  $shell=New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb(224,10,24,36))
+  $stroke=New-Object Drawing.Pen (C $accent 72),1.2
+  $orb=New-Object Drawing.SolidBrush (C $accent 236)
+  $glint=New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb(44,255,255,255))
+  $font=New-Object Drawing.Font('Segoe UI',([Math]::Max(16,($size*0.34))),[Drawing.FontStyle]::Bold,[Drawing.GraphicsUnit]::Pixel)
+  $text=New-Object Drawing.SolidBrush (C '#0F172A' 244)
+  try{
+    FillRR $g $shell $x $y $size $size 18
+    StrokeRR $g $stroke $x $y $size $size 18
+    $orbSize=$size-18
+    $orbX=$x+9
+    $orbY=$y+9
+    $g.FillEllipse($orb,$orbX,$orbY,$orbSize,$orbSize)
+    $g.FillEllipse($glint,$orbX+4,$orbY+4,($orbSize*0.42),($orbSize*0.28))
+    $sf=NewTextFormat
+    $sf.Alignment='Center'
+    $sf.LineAlignment='Center'
+    try{$g.DrawString($letter,$font,$text,[Drawing.RectangleF]::new($orbX,$orbY,$orbSize,$orbSize),$sf)}finally{$sf.Dispose()}
+  }finally{$shell.Dispose();$stroke.Dispose();$orb.Dispose();$glint.Dispose();$font.Dispose();$text.Dispose()}
+}
+function StateSignalBars($g,[float]$x,[float]$y,[string]$accent,[float]$trackWidth=34){
+  $track=New-Object Drawing.SolidBrush (C '#FFFFFF' 16)
+  $fill=New-Object Drawing.SolidBrush (C $accent 214)
+  try{
+    FillRR $g $track $x $y $trackWidth 8 4
+    FillRR $g $track $x ($y+16) $trackWidth 8 4
+    FillRR $g $track $x ($y+32) $trackWidth 8 4
+    FillRR $g $fill $x $y ([Math]::Max(16,($trackWidth*0.76))) 8 4
+    FillRR $g $fill $x ($y+16) ([Math]::Max(12,($trackWidth*0.54))) 8 4
+    FillRR $g $fill $x ($y+32) ([Math]::Max(18,($trackWidth*0.86))) 8 4
+  }finally{$track.Dispose();$fill.Dispose()}
+}
+function StateCard($g,[float]$x,[float]$y,[float]$w,[float]$h,[string]$label,[string]$letter,[string]$accent){
+  GlassPanel $g $x $y $w $h 24 '#0F1D28' 214 $accent 54
+
+  BubbleBadge $g ($x+16) ($y+16) $letter $accent 42
+
+  $font=New-Object Drawing.Font('Segoe UI',15,[Drawing.FontStyle]::Bold,[Drawing.GraphicsUnit]::Pixel)
+  $text=New-Object Drawing.SolidBrush (C '#F8FAFC' 244)
+  $muted=New-Object Drawing.SolidBrush (C '#FFFFFF' 24)
+  $fill=New-Object Drawing.SolidBrush (C $accent 216)
+  try{
+    $g.DrawString($label,$font,$text,$x+66,$y+24)
+    FillRR $g $muted ($x+18) ($y+76) ($w-36) 8 4
+    FillRR $g $fill ($x+18) ($y+76) ([Math]::Max(32,($w-60))) 8 4
+    FillRR $g $muted ($x+18) ($y+94) ($w-58) 8 4
+    FillRR $g $fill ($x+18) ($y+94) ([Math]::Max(22,($w-94))) 8 4
+    FillRR $g $muted ($x+18) ($y+$h-26) ($w-44) 8 4
+    StateSignalBars $g ($x+$w-54) ($y+22) $accent 28
+  }finally{$font.Dispose();$text.Dispose();$muted.Dispose();$fill.Dispose()}
+}
+function StateManagementScene($g,$p){
+  $provider='#38BDF8'
+  $riverpod='#2DD4BF'
+  $bloc='#F59E0B'
+
+  GlassPanel $g 882 86 250 216 34 '#0F1D28' 210 '#C8F4FF' 22
+  Glow $g 1010 96 160 $riverpod 11
+  Glow $g 1128 432 140 $p.P 10
+
+  BubbleBadge $g 930 22 'P' $provider 56
+  BubbleBadge $g 988 18 'R' $riverpod 60
+  BubbleBadge $g 1052 22 'B' $bloc 56
+
+  StateCard $g 984 152 144 176 'Riverpod' 'R' $riverpod
+  StateCard $g 940 234 138 146 'Provider' 'P' $provider
+  StateCard $g 1082 220 100 154 'BLoC' 'B' $bloc
+
+  $footer=New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb(26,255,255,255))
+  $line1=New-Object Drawing.SolidBrush (C '#FFFFFF' 40)
+  $line2=New-Object Drawing.SolidBrush (C '#FFFFFF' 24)
+  try{
+    FillRR $g $footer 1014 474 140 74 24
+    FillRR $g $line1 1036 496 80 10 5
+    FillRR $g $line2 1036 516 96 10 5
+    FillRR $g $line1 1036 536 62 10 5
+  }finally{$footer.Dispose();$line1.Dispose();$line2.Dispose()}
+}
 function PromptStep($g,[float]$x,[float]$y,[float]$w,[string]$label,[string]$accent,[float]$fillRatio=0.7){
   GlassPanel $g $x $y $w 72 20 '#0E1B26' 214 '#FFE8CC' 18
 
@@ -520,12 +599,18 @@ function NewCover($p,$img,[string]$title,[string]$tag,[string]$path){
     }finally{$grid.Dispose()}
 
     PortraitFrame $g $img $p
-    $variantProp=$p.PSObject.Properties['Variant']
-    $variant=if($variantProp){[string]$variantProp.Value}else{''}
+    $variant=if($p.ContainsKey('Variant')){[string]$p['Variant']}else{''}
+
+    $renderTitle=if($p.ContainsKey('CoverTitle') -and $p['CoverTitle']){[string]$p['CoverTitle']}else{$title}
+
+    $renderTag=if($p.ContainsKey('CoverTag') -and $p['CoverTag']){[string]$p['CoverTag']}else{$tag}
     if($variant -eq 'mobile-compare'){
       MobileBackdropScene $g $p
       FrameworkBadge $g $p 1010 26
       GlassPanel $g 520 84 498 470 38 '#07131B' 210 '#D9F7FF' 26
+    }elseif($variant -eq 'state-management'){
+      StateManagementScene $g $p
+      GlassPanel $g 520 84 498 470 38 '#07131B' 210 '#D9F7FF' 24
     }elseif($variant -eq 'neuro-prompts'){
       NeuroPromptScene $g $p
       ExcelLogo $g 1034 26 132
@@ -535,10 +620,10 @@ function NewCover($p,$img,[string]$title,[string]$tag,[string]$path){
       ExcelLogo $g 1034 26 132
       GlassPanel $g 520 84 498 470 38 '#07131B' 210 '#D8F7E5' 26
     }
-    $titleLayout=FitTitleLayout $g $title $p.Hook
+    $titleLayout=FitTitleLayout $g $renderTitle $p.Hook
 
-    Tag $g $tag 548 110 '#FFFFFF' '#0F172A' 18 16 36 | Out-Null
-    WrapTextBlock $g $title 548 164 $titleLayout.TitleWidth $titleLayout.TitleHeight $titleLayout.TitleSize '#F8FAFC' 'Segoe UI' ([Drawing.FontStyle]::Bold) 248
+    Tag $g $renderTag 548 110 '#FFFFFF' '#0F172A' 18 16 36 | Out-Null
+    WrapTextBlock $g $renderTitle 548 164 $titleLayout.TitleWidth $titleLayout.TitleHeight $titleLayout.TitleSize '#F8FAFC' 'Segoe UI' ([Drawing.FontStyle]::Bold) 248
     WrapTextBlock $g $p.Hook 548 $titleLayout.HookY 416 $titleLayout.HookHeight 21 '#DCEFE6' 'Segoe UI' ([Drawing.FontStyle]::Regular) 224
     TagRow $g $p.K 548 $titleLayout.TagsY '#163645' '#E5FAEF' 16 14 30
     Tag $g $p.CTA 548 $titleLayout.CtaY $p.P '#FFFFFF' 22 22 48 | Out-Null
@@ -628,6 +713,7 @@ $posts=@(
 @{Slug='excel-ai-prompts';P='#F97316';S='#22C55E';Hook='Use specificity, context, and output framing to get formulas, macros, and analysis that actually work.';CTA='Copy. Paste. Get Results.';K=@('Copy','Paste','Results');Cue='attention-driven prompt cards, conversion cues, and spreadsheet grids';Variant='neuro-prompts'},
 @{Slug='excel-vs-google-sheets';P='#166534';S='#2563EB';Hook='Choose the spreadsheet tool that actually fits the way you work.';CTA='Pick The Right Tool';K=@('Offline','Collab','AI');Cue='side-by-side spreadsheet comparison panels and decision cues'},
 @{Slug='financial-modelling';P='#0F172A';S='#10B981';Hook='Build cleaner forecasts, cash flow models, and scenario analysis in Excel.';CTA='Build Your First Model';K=@('Revenue','Cash Flow','Scenario');Cue='forecast visuals, tables, and financial model elements'},
+@{Slug='flutter-state-management';P='#2563EB';S='#22D3EE';Hook='Use app size, async complexity, and team needs to choose the right state management pattern.';CTA='Pick The Right Pattern';K=@('Provider','Riverpod','BLoC');Cue='comparison cards, a dark grid background, and choice-focused messaging';Variant='state-management';CoverTag='Flutter 2026';CoverTitle='Provider vs Riverpod vs BLoC Best For Your App?'},
 @{Slug='flutter-vs-react-native';P='#2563EB';S='#22D3EE';Hook='Compare performance, DX, hiring, and product fit before you commit.';CTA='Choose The Right Framework';K=@('Flutter','React Native','2026');Cue='Flutter and React Native logos, mobile UI cards, and a framework comparison visual';Variant='mobile-compare'},
 @{Slug='gemini-ai-excel';P='#2563EB';S='#F97316';Hook='Use Gemini to solve formula blocks, data questions, and spreadsheet busywork faster.';CTA='Get Excel Answers Faster';K=@('Gemini','Excel','Speed');Cue='AI prompt styling and spreadsheet visuals'},
 @{Slug='getting-started-copilot-excel';P='#2563EB';S='#14B8A6';Hook='Get comfortable with Copilot fast and start using it inside real sheets.';CTA='Start Using Copilot';K=@('Prompt','Analyse','Formula');Cue='AI assistant styling, onboarding cues, and spreadsheet cards'},

@@ -13,6 +13,15 @@
       <link>https://sagnikbhattacharya.com/blog</link>
     </image>
     <item>
+      <title>Flutter State Management in 2026: Provider vs Riverpod vs BLoC</title>
+      <link>https://sagnikbhattacharya.com/blog/flutter-state-management</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/flutter-state-management</guid>
+      <description>A practical comparison of Provider, Riverpod, and BLoC for Flutter state management in 2026 — with real code examples, architecture advice, and clear recommendations for every project size.</description>
+      <category>Flutter</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
       <title>60 AI Prompts for Excel That Actually Work (Copy, Paste, Get Results)</title>
       <link>https://sagnikbhattacharya.com/blog/excel-ai-prompts</link>
       <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/excel-ai-prompts</guid>

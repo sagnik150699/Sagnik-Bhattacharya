@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flutter State Management in 2026: Provider vs Riverpod vs BLoC</title>
+  <meta name="description" content="A practical comparison of Provider, Riverpod, and BLoC for Flutter state management in 2026 — with real code examples, architecture advice, and clear recommendations for every project size."><meta name="keywords" content="Flutter state management, Provider vs Riverpod, BLoC pattern Flutter, Riverpod tutorial, Flutter architecture 2026, Flutter Provider, Flutter BLoC, Dart state management, Sagnik Bhattacharya, Coding Liquids"><meta name="author" content="Sagnik Bhattacharya"><meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://sagnikbhattacharya.com/blog/flutter-state-management">
+  <meta property="og:title" content="Flutter State Management in 2026: Provider vs Riverpod vs BLoC"><meta property="og:description" content="A practical comparison of Provider, Riverpod, and BLoC for Flutter state management in 2026 — with real code examples, architecture advice, and clear recommendations for every project size."><meta property="og:type" content="article"><meta property="og:url" content="https://sagnikbhattacharya.com/blog/flutter-state-management">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/flutter-state-management-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/flutter-state-management-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter State Management in 2026 — Provider vs Riverpod vs BLoC, with comparison cards, a dark grid background, and choice-focused messaging.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/flutter-state-management-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter State Management in 2026 — Provider vs Riverpod vs BLoC, with comparison cards, a dark grid background, and choice-focused messaging.">
+  <meta name="twitter:title" content="Flutter State Management in 2026: Provider vs Riverpod vs BLoC">
+  <meta name="twitter:description" content="A practical comparison of Provider, Riverpod, and BLoC for Flutter state management in 2026 — with real code examples, architecture advice, and clear recommendations for every project size."><meta property="og:locale" content="en_IN"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-31">
+  <meta property="article:section" content="Flutter"><meta property="article:tag" content="Flutter"><meta property="article:tag" content="State Management"><meta property="article:tag" content="Dart"><meta property="article:tag" content="Riverpod"><meta property="article:tag" content="Provider"><meta property="article:tag" content="BLoC"><meta property="article:tag" content="Mobile Development">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Flutter State Management in 2026: Provider vs Riverpod vs BLoC","description":"A practical comparison of Provider, Riverpod, and BLoC for Flutter state management in 2026 — with real code examples, architecture advice, and clear recommendations for every project size.","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"datePublished":"2026-03-31","dateModified":"2026-03-31","mainEntityOfPage":"https://sagnikbhattacharya.com/blog/flutter-state-management","image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/flutter-state-management-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/flutter-state-management-sagnik-bhattacharya-coding-liquids.jpg","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","width":1200,"height":630,"caption":"Flutter State Management in 2026 — Provider vs Riverpod vs BLoC by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"Flutter State Management in 2026: Provider vs Riverpod vs BLoC","item":"https://sagnikbhattacharya.com/blog/flutter-state-management"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the best state management solution for Flutter in 2026?","acceptedAnswer":{"@type":"Answer","text":"Riverpod is the best overall choice for most new Flutter projects in 2026. It offers compile-time safety, built-in async support, auto-dispose, and works without BuildContext. However, Provider is simpler for small apps, and BLoC is better for large enterprise teams that need enforced architecture patterns."}},{"@type":"Question","name":"Should I use Provider or Riverpod for Flutter?","acceptedAnswer":{"@type":"Answer","text":"Use Provider if you're building a small to medium app, your team is new to Flutter, or you're following a tutorial that teaches Provider. Use Riverpod if you want compile-time safety, better async handling, testability without BuildContext, and a foundation that scales to any app size. Riverpod was created by the same developer who built Provider as its evolution."}},{"@type":"Question","name":"When should I use BLoC pattern in Flutter?","acceptedAnswer":{"@type":"Answer","text":"Use BLoC when you're working on a large-scale app with 5+ developers, need enterprise-grade traceability (logging every event and state change), have complex business logic with multi-step workflows, or your team has experience with reactive programming patterns like RxDart or streams."}},{"@type":"Question","name":"Can you mix Provider, Riverpod, and BLoC in the same Flutter app?","acceptedAnswer":{"@type":"Answer","text":"Yes, many production apps mix state management solutions. A common pattern is using Riverpod for dependency injection and simple state (theme, auth, feature flags) and BLoC for complex feature modules (checkout flows, real-time chat). The key rule is to be consistent within each feature module."}},{"@type":"Question","name":"Is GetX good for Flutter state management?","acceptedAnswer":{"@type":"Answer","text":"GetX is popular for its simplicity, but it is not recommended for production apps. It encourages patterns that break as apps scale, has inconsistent documentation, and creates tight coupling between your code and the GetX library. Most professional Flutter teams use Riverpod or BLoC instead."}}]}</script>
+  <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
+  <link rel="stylesheet" href="/style.css"><script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+</head>
+<body>
+  <nav id="navbar"><div class="container"><a href="/" class="nav-logo">sagnik<span>.</span></a><ul class="nav-links" id="navLinks"><li><a href="/about">About</a></li><li><a href="/courses">Courses</a></li><li><a href="/services">Services</a></li><li><a href="/blog" class="active">Blog</a></li><li><a href="/contact" class="nav-cta">Get in Touch</a></li></ul><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+  <div class="page-hero" style="padding-bottom:20px"><div class="container"><div class="blog-breadcrumb"><a href="/blog">← Blog</a> <span>/</span> <span>Flutter</span></div></div></div>
+  <section style="padding-top:0"><div class="container"><article class="blog-post"><div class="blog-post-header"><div class="blog-post-tags"><span class="blog-post-tag">Flutter</span></div><h1 class="blog-post-title">Flutter State Management in 2026 — Provider vs Riverpod vs BLoC</h1><div class="blog-post-meta"><a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya"><img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48"></a><span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span><span>31 Mar 2026</span><span>11 min read</span></div></div>
+        <figure class="blog-cover">
+          <img src="/blog/images/flutter-state-management-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter State Management in 2026 — Provider vs Riverpod vs BLoC, with comparison cards, a dark grid background, and choice-focused messaging." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter State Management in 2026 — Provider vs Riverpod vs BLoC, with comparison cards, a dark grid background, and choice-focused messaging.</figcaption>
+        </figure>
+        <div class="blog-post-content">
+<p>If there's one topic that causes more confusion in the Flutter world than any other, it's state management. Every week I get asked: "Sagnik, should I use Provider, Riverpod, or BLoC?" I've trained hundreds of developers on Flutter, and I've seen teams succeed and struggle with all three. The answer isn't about which one is "best" — it's about which one fits your project, your team, and your architecture goals.</p>
+<p>This guide breaks down all three approaches with real code, honest trade-offs, and clear recommendations based on years of production experience.</p>
+
+<h2>Why State Management Matters</h2>
+<p>Every <a href="/blog/flutter-vs-react-native">Flutter</a> app has state — the data that determines what your UI displays at any given moment. A counter value, a list of products fetched from an API, whether a user is logged in, the current theme. When your app is small, managing state with <code>setState()</code> inside a StatefulWidget works fine. But the moment your app grows — multiple screens sharing data, API calls, authentication flows, caching — things get messy fast.</p>
+<p>State management solutions solve three core problems:</p>
+<ul>
+<li><strong>Sharing state across widgets</strong> without passing data through every constructor (prop drilling)</li>
+<li><strong>Separating business logic from UI</strong> so your code is testable and maintainable</li>
+<li><strong>Rebuilding only the widgets that need to change</strong> when state updates, keeping your app performant</li>
+</ul>
+<p>Let's look at how Provider, Riverpod, and BLoC each tackle these problems differently.</p>
+
+<h2>Provider — The Established Default</h2>
+<p>Provider was the first state management solution officially recommended by the Flutter team. It's built on top of <code>InheritedWidget</code> — Flutter's native mechanism for passing data down the widget tree — and wraps it in a much friendlier API.</p>
+
+<h3>How Provider Works</h3>
+<p>You create a class that holds your state (typically extending <code>ChangeNotifier</code>), provide it at the top of the widget tree using <code>ChangeNotifierProvider</code>, and consume it anywhere below using <code>context.watch()</code> or <code>Consumer</code>.</p>
+<pre><code>class CartNotifier extends ChangeNotifier {
+  final List&lt;Product&gt; _items = [];
+
+  List&lt;Product&gt; get items =&gt; List.unmodifiable(_items);
+  double get total =&gt; _items.fold(0, (sum, p) =&gt; sum + p.price);
+
+  void add(Product product) {
+    _items.add(product);
+    notifyListeners();
+  }
+
+  void remove(Product product) {
+    _items.remove(product);
+    notifyListeners();
+  }
+}</code></pre>
+<pre><code>// Providing it
+ChangeNotifierProvider(
+  create: (_) =&gt; CartNotifier(),
+  child: MyApp(),
+)
+
+// Consuming it
+final cart = context.watch&lt;CartNotifier&gt;();
+Text('Total: \$${cart.total}');</code></pre>
+
+<h3>Provider Strengths</h3>
+<ul>
+<li><strong>Simple mental model</strong> — if you understand the widget tree, you understand Provider</li>
+<li><strong>Minimal boilerplate</strong> — a ChangeNotifier class and a Provider widget is all you need</li>
+<li><strong>Massive community</strong> — most tutorials, Stack Overflow answers, and courses teach Provider first</li>
+<li><strong>Flutter team endorsed</strong> — it's listed in the official Flutter documentation</li>
+</ul>
+
+<h3>Provider Limitations</h3>
+<ul>
+<li><strong>Depends on BuildContext</strong> — you can only access providers through the widget tree, which makes it awkward to use in services, repositories, or pure Dart code</li>
+<li><strong>Runtime errors</strong> — if you try to read a provider that doesn't exist above you in the tree, you get a runtime exception, not a compile-time error</li>
+<li><strong>Combining providers is clunky</strong> — when one provider depends on another, you end up with <code>ProxyProvider</code> chains that are hard to follow</li>
+<li><strong>No auto-dispose</strong> — you have to manage provider lifecycles manually for anything beyond simple cases</li>
+</ul>
+
+<h2>Riverpod — Provider's Evolution</h2>
+<p>Riverpod was created by Remi Rousselet — the same developer who built Provider. Think of it as "Provider 2.0" — it fixes every major limitation of Provider while keeping the same philosophy of simplicity. The name itself is an anagram of "Provider."</p>
+
+<h3>How Riverpod Works</h3>
+<p>Instead of placing providers in the widget tree, Riverpod declares them as global variables. Don't panic — they're not mutable globals. They're declarative definitions that Riverpod's container manages. You consume them using <code>ref.watch()</code> inside a <code>ConsumerWidget</code>.</p>
+<pre><code>// Declare providers globally
+final cartProvider = NotifierProvider&lt;CartNotifier, List&lt;Product&gt;&gt;(
+  CartNotifier.new,
+);
+
+class CartNotifier extends Notifier&lt;List&lt;Product&gt;&gt; {
+  @override
+  List&lt;Product&gt; build() =&gt; [];
+
+  void add(Product product) {
+    state = [...state, product];
+  }
+
+  void remove(Product product) {
+    state = state.where((p) =&gt; p != product).toList();
+  }
+}
+
+final cartTotalProvider = Provider&lt;double&gt;((ref) {
+  final items = ref.watch(cartProvider);
+  return items.fold(0, (sum, p) =&gt; sum + p.price);
+});</code></pre>
+<pre><code>// Consuming it
+class CartScreen extends ConsumerWidget {
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final total = ref.watch(cartTotalProvider);
+    return Text('Total: \$${total}');
+  }
+}</code></pre>
+
+<h3>Riverpod Strengths</h3>
+<ul>
+<li><strong>Compile-time safety</strong> — no more runtime "ProviderNotFoundException" errors. If a provider doesn't exist, your code won't compile</li>
+<li><strong>No BuildContext dependency</strong> — providers can depend on each other, be used in tests, or accessed from anywhere without needing the widget tree</li>
+<li><strong>Auto-dispose</strong> — providers automatically clean up when no longer listened to. No memory leaks from forgotten subscriptions</li>
+<li><strong>Built-in async support</strong> — <code>FutureProvider</code> and <code>StreamProvider</code> handle loading, error, and data states out of the box with <code>AsyncValue</code></li>
+<li><strong>Provider composition is natural</strong> — one provider watching another is just <code>ref.watch(otherProvider)</code>. No ProxyProvider gymnastics</li>
+<li><strong>Code generation option</strong> — the <code>@riverpod</code> annotation can auto-generate provider declarations, reducing boilerplate even further</li>
+</ul>
+
+<h3>Riverpod Limitations</h3>
+<ul>
+<li><strong>Learning curve</strong> — the global provider pattern and <code>ref</code> system feel unfamiliar to developers coming from Provider or React</li>
+<li><strong>Two APIs to learn</strong> — Riverpod offers both a manual API and a code-generation API. Beginners often aren't sure which to start with</li>
+<li><strong>Fewer tutorials</strong> — while growing fast, the Riverpod ecosystem is still smaller than Provider's. Finding answers to niche questions can take longer</li>
+<li><strong>Migration effort</strong> — moving an existing Provider codebase to Riverpod is a significant refactor, not a drop-in replacement</li>
+</ul>
+
+<h2>BLoC — The Enterprise Choice</h2>
+<p>BLoC (Business Logic Component) takes a fundamentally different approach. Instead of notifiers and watchers, it uses <strong>events and states</strong> flowing through streams. You send an event into a Bloc, the Bloc processes it, and emits a new state. The UI listens to state changes and rebuilds accordingly.</p>
+
+<h3>How BLoC Works</h3>
+<p>You define events (what happened), states (what the UI should show), and a Bloc class that maps events to states.</p>
+<pre><code>// Events
+sealed class CartEvent {}
+class AddToCart extends CartEvent {
+  final Product product;
+  AddToCart(this.product);
+}
+class RemoveFromCart extends CartEvent {
+  final Product product;
+  RemoveFromCart(this.product);
+}
+
+// State
+class CartState {
+  final List&lt;Product&gt; items;
+  double get total =&gt; items.fold(0, (sum, p) =&gt; sum + p.price);
+  const CartState({this.items = const []});
+}
+
+// Bloc
+class CartBloc extends Bloc&lt;CartEvent, CartState&gt; {
+  CartBloc() : super(const CartState()) {
+    on&lt;AddToCart&gt;((event, emit) {
+      emit(CartState(items: [...state.items, event.product]));
+    });
+    on&lt;RemoveFromCart&gt;((event, emit) {
+      emit(CartState(
+        items: state.items.where((p) =&gt; p != event.product).toList(),
+      ));
+    });
+  }
+}</code></pre>
+<pre><code>// Consuming it
+BlocBuilder&lt;CartBloc, CartState&gt;(
+  builder: (context, state) {
+    return Text('Total: \$${state.total}');
+  },
+)
+
+// Sending events
+context.read&lt;CartBloc&gt;().add(AddToCart(product));</code></pre>
+
+<h3>BLoC Strengths</h3>
+<ul>
+<li><strong>Extreme testability</strong> — every interaction is an event, every output is a state. Testing a Bloc means: send event, assert state. No mocking widgets or build contexts</li>
+<li><strong>Predictable data flow</strong> — events go in, states come out. There's no ambiguity about how state changes happen or what triggered them</li>
+<li><strong>Great for large teams</strong> — the enforced structure (events, states, blocs) means every developer follows the same pattern. Code reviews are faster because the architecture is consistent</li>
+<li><strong>Excellent debugging</strong> — <code>BlocObserver</code> lets you log every event and state transition globally. When something breaks, you can trace exactly what happened</li>
+<li><strong>Concurrency handling</strong> — Bloc has built-in event transformers for debouncing, throttling, and sequential processing of events</li>
+</ul>
+
+<h3>BLoC Limitations</h3>
+<ul>
+<li><strong>Verbose</strong> — for a simple feature, you need an events file, a states file, and a bloc file. A counter app in BLoC is significantly more code than in Provider or Riverpod</li>
+<li><strong>Overkill for small apps</strong> — if your app has 5 screens and simple CRUD, BLoC's ceremony adds complexity without proportional benefit</li>
+<li><strong>Steeper learning curve</strong> — understanding streams, events, states, and the reactive paradigm takes time, especially for developers new to Flutter</li>
+<li><strong>Event-to-state mapping can get complex</strong> — when a single event triggers multiple async operations or depends on other Blocs, the handler logic can become hard to follow</li>
+</ul>
+
+<h2>Head-to-Head Comparison</h2>
+<table><thead><tr><th>Factor</th><th>Provider</th><th>Riverpod</th><th>BLoC</th></tr></thead><tbody>
+<tr><td><strong>Learning curve</strong></td><td>Low</td><td>Medium</td><td>High</td></tr>
+<tr><td><strong>Boilerplate</strong></td><td>Minimal</td><td>Low</td><td>High</td></tr>
+<tr><td><strong>Type safety</strong></td><td>Runtime checks</td><td>Compile-time</td><td>Compile-time</td></tr>
+<tr><td><strong>Testability</strong></td><td>Good</td><td>Excellent</td><td>Excellent</td></tr>
+<tr><td><strong>Async support</strong></td><td>Manual</td><td>Built-in</td><td>Built-in</td></tr>
+<tr><td><strong>Scalability</strong></td><td>Small-medium apps</td><td>All sizes</td><td>Medium-large apps</td></tr>
+<tr><td><strong>Debugging tools</strong></td><td>DevTools</td><td>DevTools + Riverpod inspector</td><td>BlocObserver + DevTools</td></tr>
+<tr><td><strong>Community size</strong></td><td>Largest</td><td>Growing fast</td><td>Large (enterprise)</td></tr>
+<tr><td><strong>Requires BuildContext</strong></td><td>Yes</td><td>No</td><td>Yes (for UI layer)</td></tr>
+<tr><td><strong>Auto-dispose</strong></td><td>No</td><td>Yes</td><td>Via BlocProvider</td></tr>
+</tbody></table>
+
+<h2>When to Use What — My Recommendations</h2>
+<p>After years of building and teaching Flutter, here's how I recommend choosing:</p>
+
+<h3>Choose Provider When</h3>
+<ul>
+<li>You're building a <strong>small to medium app</strong> (under 15-20 screens)</li>
+<li>Your team is <strong>new to Flutter</strong> and needs the gentlest learning curve</li>
+<li>The app has <strong>simple state needs</strong> — a few shared objects, basic CRUD, no complex async chains</li>
+<li>You're following a <strong>tutorial or course</strong> that teaches Provider (don't fight the teaching material)</li>
+</ul>
+
+<h3>Choose Riverpod When</h3>
+<ul>
+<li>You're starting a <strong>new project</strong> and want the best long-term architecture foundation</li>
+<li>Your app has <strong>complex async requirements</strong> — API calls, caching, real-time data, pagination</li>
+<li>You want <strong>compile-time safety</strong> and don't want to debug runtime provider errors</li>
+<li>You need to <strong>test business logic independently</strong> from the widget tree</li>
+<li>You're a <strong>solo developer or small team</strong> that values flexibility over enforced structure</li>
+</ul>
+
+<h3>Choose BLoC When</h3>
+<ul>
+<li>You're working on a <strong>large-scale app</strong> with a team of 5+ developers</li>
+<li>Your organisation values <strong>consistent architecture</strong> and enforced patterns across the codebase</li>
+<li>The app has <strong>complex business logic</strong> — multi-step workflows, concurrent operations, event-driven features</li>
+<li>You need <strong>enterprise-grade traceability</strong> — logging every event and state change for debugging or auditing</li>
+<li>Your team has <strong>experience with reactive programming</strong> (RxDart, streams, or similar patterns from other platforms)</li>
+</ul>
+
+<h2>Can You Mix Them?</h2>
+<p>Yes — and many production apps do. A common pattern I see in successful projects:</p>
+<ul>
+<li><strong>Riverpod</strong> for dependency injection and simple state (theme, auth status, feature flags)</li>
+<li><strong>BLoC</strong> for complex feature modules that benefit from the event-state pattern (checkout flows, real-time chat, form wizards)</li>
+</ul>
+<p>The key rule: <strong>be consistent within a feature module</strong>. Don't use Provider for the cart, Riverpod for the profile, and BLoC for the feed within the same app. Pick a primary approach and use the secondary one only where it genuinely adds value.</p>
+
+<h2>What About setState, GetX, and MobX?</h2>
+<p>A few quick takes on other options you'll encounter:</p>
+<ul>
+<li><strong>setState</strong> — perfectly fine for local widget state (form fields, animations, toggles). Don't let anyone tell you it's "wrong." It's the wrong choice for <em>shared</em> state, but it's the right choice for widget-local state.</li>
+<li><strong>GetX</strong> — popular for its simplicity, but I don't recommend it for production apps. It encourages patterns that break as apps scale, the documentation is inconsistent, and it creates tight coupling between your code and the GetX library. I've helped multiple teams migrate away from it.</li>
+<li><strong>MobX</strong> — excellent if you're coming from the JavaScript/React world. Code generation makes it low-boilerplate. But the Flutter community has largely moved toward Riverpod and BLoC, so you'll find fewer Flutter-specific resources.</li>
+</ul>
+
+<h2>A Real-World Architecture Example</h2>
+<p>Here's the folder structure I use for Riverpod-based projects in my training sessions. It scales cleanly from 5 screens to 50:</p>
+<pre><code>lib/
+├── core/
+│   ├── constants/
+│   ├── theme/
+│   └── utils/
+├── features/
+│   ├── auth/
+│   │   ├── data/          # repositories, API clients
+│   │   ├── domain/        # models, entities
+│   │   └── presentation/  # screens, widgets, providers
+│   ├── cart/
+│   │   ├── data/
+│   │   ├── domain/
+│   │   └── presentation/
+│   └── products/
+│       ├── data/
+│       ├── domain/
+│       └── presentation/
+├── shared/
+│   ├── providers/         # app-wide providers (theme, auth state)
+│   └── widgets/           # reusable UI components
+└── main.dart</code></pre>
+<p>Each feature is self-contained. The <code>presentation</code> folder holds the providers (or blocs) for that feature. Shared state lives in <code>shared/providers</code>. This structure works equally well with Riverpod or BLoC — the difference is whether the <code>presentation</code> folder contains <code>*_provider.dart</code> files or <code>*_bloc.dart</code> + <code>*_event.dart</code> + <code>*_state.dart</code> files.</p>
+
+<h2>My Personal Take</h2>
+<p>If you're asking me what I'd choose for a new project today — <strong>Riverpod</strong>. It hits the sweet spot between simplicity and power. It's flexible enough for a solo developer building a side project and robust enough for a team shipping a <a href="/blog/flutter-vs-react-native">production cross-platform app</a>. The compile-time safety alone saves hours of debugging.</p>
+<p>But here's the thing I tell every batch of students: <strong>the state management solution is not the architecture</strong>. Provider, Riverpod, and BLoC are tools — they help you manage state, but they don't automatically make your code clean. Clean separation of concerns, proper dependency injection, testable business logic, and a consistent folder structure matter more than which package you import.</p>
+<p>Master the principles. The tools will follow.</p>
+
+<h2>Related Posts</h2>
+<ul>
+  <li><a href="/blog/flutter-vs-react-native">Flutter vs React Native in 2026 — Which One Should You Pick?</a></li>
+  <li><a href="/blog/excel-ai-prompts">60 AI Prompts for Excel That Actually Work (Copy, Paste, Get Results)</a></li>
+  <li><a href="/blog/claude-ai-excel-formulas">How to Use Claude AI to Write Excel Formulas Instantly</a></li>
+</ul>
+<div class="blog-cta-box"><h3>Want to learn Flutter from scratch?</h3><p>My Complete Flutter Guide takes you from zero to building production-ready Android, iOS, and web apps — including state management with Riverpod and BLoC.</p><a href="/courses" class="btn-primary">Explore Courses <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+  </article></div></section>
+  <footer><div class="container"><p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p></div></footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script><script src="/animations.js" defer></script>
+  <script src="/tracking.js" defer></script>
+</body></html>
