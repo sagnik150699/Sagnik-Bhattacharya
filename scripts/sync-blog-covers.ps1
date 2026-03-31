@@ -377,6 +377,78 @@ function MobileBackdropScene($g,$p){
   Glow $g 1122 318 54 $p.S 12
   Glow $g 842 294 42 $p.P 12
 }
+function PromptStep($g,[float]$x,[float]$y,[float]$w,[string]$label,[string]$accent,[float]$fillRatio=0.7){
+  GlassPanel $g $x $y $w 72 20 '#0E1B26' 214 '#FFE8CC' 18
+
+  Tag $g $label ($x+16) ($y+12) '#132634' '#F8FAFC' 11 10 22 | Out-Null
+
+  $track=New-Object Drawing.SolidBrush (C '#FFFFFF' 34)
+  $subtrack=New-Object Drawing.SolidBrush (C '#FFFFFF' 18)
+  $fill=New-Object Drawing.SolidBrush (C $accent 228)
+  $dot=New-Object Drawing.SolidBrush (C $accent 196)
+  try{
+    FillRR $g $track ($x+18) ($y+43) ($w-62) 8 4
+    FillRR $g $subtrack ($x+18) ($y+57) ($w-82) 6 3
+    $fillWidth=[float][Math]::Max(48,[Math]::Round(($w-96) * $fillRatio))
+    FillRR $g $fill ($x+18) ($y+57) $fillWidth 6 3
+    $g.FillEllipse($dot,$x+$w-28,$y+24,10,10)
+  }finally{$track.Dispose();$subtrack.Dispose();$fill.Dispose();$dot.Dispose()}
+}
+function NeuroPromptScene($g,$p){
+  GlassPanel $g 846 82 300 238 34 '#101E2A' 216 '#FFE6C7' 24
+  Tag $g 'PROMPT BLUEPRINT' 872 104 '#FFFFFF' '#0F172A' 12 10 26 | Out-Null
+  Tag $g '60' 1072 104 $p.P '#FFFFFF' 12 12 26 | Out-Null
+
+  PromptStep $g 874 144 228 'Specific goal' $p.P 0.94
+  PromptStep $g 892 204 226 'Sheet context' $p.S 0.78
+  PromptStep $g 910 264 208 'Desired output' $p.P 0.62
+
+  $connector=New-Object Drawing.Pen (C '#FFFFFF' 50),2
+  $connector.StartCap='Round'
+  $connector.EndCap='Round'
+  try{
+    $g.DrawLine($connector,1092,180,1110,180)
+    $g.DrawLine($connector,1092,240,1110,240)
+  }finally{$connector.Dispose()}
+
+  GlassPanel $g 894 344 228 126 28 '#101E2A' 214 '#D8F7E5' 22
+  TagRow $g @('Copy','Paste','Results') 916 364 '#102734' '#ECFEFF' 12 10 24
+
+  $axis=New-Object Drawing.Pen (C '#FFFFFF' 56),2
+  $bar1=New-Object Drawing.SolidBrush (C $p.P 228)
+  $bar2=New-Object Drawing.SolidBrush (C $p.S 220)
+  $line=New-Object Drawing.Pen (C '#FFFFFF' 188),3
+  $line.StartCap='Round'
+  $line.EndCap='Round'
+  try{
+    $g.DrawLine($axis,920,442,1092,442)
+    $g.DrawLine($axis,920,388,920,442)
+    FillRR $g $bar1 944 416 22 26 6
+    FillRR $g $bar2 978 404 22 38 6
+    FillRR $g $bar1 1012 392 22 50 6
+    FillRR $g $bar2 1046 378 22 64 6
+    $pts=[Drawing.PointF[]]@(
+      [Drawing.PointF]::new(944,420),
+      [Drawing.PointF]::new(989,408),
+      [Drawing.PointF]::new(1022,396),
+      [Drawing.PointF]::new(1057,382)
+    )
+    $g.DrawLines($line,$pts)
+  }finally{$axis.Dispose();$bar1.Dispose();$bar2.Dispose();$line.Dispose()}
+
+  GlassPanel $g 852 494 266 68 24 $p.P 230 '#FFFFFF' 28
+  $ctaLine=New-Object Drawing.SolidBrush (C '#FFFFFF' 66)
+  $ctaAccent=New-Object Drawing.SolidBrush (C '#FFF7ED' 216)
+  try{
+    FillRR $g $ctaLine 880 512 150 10 5
+    FillRR $g $ctaLine 880 532 114 10 5
+    FillRR $g $ctaAccent 1042 510 42 12 6
+    FillRR $g $ctaAccent 1090 526 16 16 8
+  }finally{$ctaLine.Dispose();$ctaAccent.Dispose()}
+
+  Glow $g 1128 322 56 $p.S 12
+  Glow $g 840 304 44 $p.P 12
+}
 function TitleSize([string]$title){
   $len=$title.Length
   if($len -gt 80){32}
@@ -454,6 +526,10 @@ function NewCover($p,$img,[string]$title,[string]$tag,[string]$path){
       MobileBackdropScene $g $p
       FrameworkBadge $g $p 1010 26
       GlassPanel $g 520 84 498 470 38 '#07131B' 210 '#D9F7FF' 26
+    }elseif($variant -eq 'neuro-prompts'){
+      NeuroPromptScene $g $p
+      ExcelLogo $g 1034 26 132
+      GlassPanel $g 520 84 498 470 38 '#07131B' 212 '#FFE7C2' 28
     }else{
       BackdropScene $g $p
       ExcelLogo $g 1034 26 132
@@ -521,6 +597,21 @@ function SetCoverHtml([string]$html,[string]$src,[string]$alt){
 "@
   $html -replace '<div class="blog-post-content">',$fig
 }
+function GetPostTitle([string]$html,[string]$slug){
+  foreach($pattern in @(
+    '<h1 class="blog-post-title">(.*?)</h1>',
+    '<meta property="og:title" content="([^"]+)"',
+    '<title>(.*?)</title>'
+  )){
+    $match=[regex]::Match($html,$pattern,'Singleline')
+    if($match.Success){
+      $title=[Net.WebUtility]::HtmlDecode($match.Groups[1].Value.Trim())
+      $title=$title -replace '\s+\|\s+Sagnik Bhattacharya$',''
+      if($title){return $title}
+    }
+  }
+  return (($slug -replace '-',' ') -replace '\s+',' ').Trim()
+}
 $posts=@(
 @{Slug='advanced-formulas';P='#0F766E';S='#34D399';Hook='Move beyond basic formulas and start solving real spreadsheet problems faster.';CTA='Master These 15 Formulas';K=@('LET','LAMBDA','SUMPRODUCT');Cue='formula blocks, dynamic arrays, and advanced spreadsheet logic'},
 @{Slug='charts-visualisations';P='#1D4ED8';S='#F97316';Hook='Build charts that tell a clear story instead of just filling space.';CTA='Create Better Excel Charts';K=@('Line','Bar','Story');Cue='bold charts, trend lines, and presentation-ready visuals'},
@@ -534,6 +625,7 @@ $posts=@(
 @{Slug='copilot-data-analysis';P='#1D4ED8';S='#06B6D4';Hook='Use AI to surface insights, trends, and summaries from messy data.';CTA='Analyse Data With AI';K=@('Insights','Charts','Trends');Cue='data analysis cards, charts, and insight panels'},
 @{Slug='data-validation';P='#0F766E';S='#22C55E';Hook='Stop bad inputs before they break your spreadsheet or your reports.';CTA='Prevent Spreadsheet Errors';K=@('Dropdowns','Checks','Rules');Cue='validation controls, dropdowns, and error-prevention signals'},
 @{Slug='dynamic-dashboards';P='#059669';S='#0EA5E9';Hook='Create interactive dashboards that stakeholders can understand at a glance.';CTA='Build Dynamic Dashboards';K=@('KPI','Slicers','Charts');Cue='dashboard cards, KPIs, and interactive chart elements'},
+@{Slug='excel-ai-prompts';P='#F97316';S='#22C55E';Hook='Use specificity, context, and output framing to get formulas, macros, and analysis that actually work.';CTA='Copy. Paste. Get Results.';K=@('Copy','Paste','Results');Cue='attention-driven prompt cards, conversion cues, and spreadsheet grids';Variant='neuro-prompts'},
 @{Slug='excel-vs-google-sheets';P='#166534';S='#2563EB';Hook='Choose the spreadsheet tool that actually fits the way you work.';CTA='Pick The Right Tool';K=@('Offline','Collab','AI');Cue='side-by-side spreadsheet comparison panels and decision cues'},
 @{Slug='financial-modelling';P='#0F172A';S='#10B981';Hook='Build cleaner forecasts, cash flow models, and scenario analysis in Excel.';CTA='Build Your First Model';K=@('Revenue','Cash Flow','Scenario');Cue='forecast visuals, tables, and financial model elements'},
 @{Slug='flutter-vs-react-native';P='#2563EB';S='#22D3EE';Hook='Compare performance, DX, hiring, and product fit before you commit.';CTA='Choose The Right Framework';K=@('Flutter','React Native','2026');Cue='Flutter and React Native logos, mobile UI cards, and a framework comparison visual';Variant='mobile-compare'},
@@ -570,7 +662,7 @@ try{
     $htmlPath=Join-Path $blog ($p.Slug+'.html')
     if(-not(Test-Path $htmlPath)){continue}
     $html=[IO.File]::ReadAllText($htmlPath,[Text.Encoding]::UTF8)
-    $title=[regex]::Match($html,'<title>(.*?) \| Sagnik Bhattacharya</title>','Singleline').Groups[1].Value.Trim()
+    $title=GetPostTitle $html $p.Slug
     $tagMatch=[regex]::Match($html,'<span class="blog-post-tag">(.*?)</span>','Singleline')
     $tag=if($tagMatch.Success){[Net.WebUtility]::HtmlDecode($tagMatch.Groups[1].Value.Trim())}else{'Excel Guide'}
     $file=$p.Slug+'-sagnik-bhattacharya-coding-liquids.jpg'

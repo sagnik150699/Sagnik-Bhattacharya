@@ -5,13 +5,22 @@
     <link>https://sagnikbhattacharya.com/blog</link>
     <description>Tutorials on Excel, AI tools, Flutter, and tech — by Sagnik Bhattacharya of Coding Liquids.</description>
     <language>en-in</language>
-    <lastBuildDate>Sun, 29 Mar 2026 00:00:00 +0530</lastBuildDate>
+    <lastBuildDate>Tue, 31 Mar 2026 00:00:00 +0530</lastBuildDate>
     <atom:link href="https://sagnikbhattacharya.com/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://sagnikbhattacharya.com/sagnik-bhattacharya.png</url>
       <title>Sagnik Bhattacharya — Blog</title>
       <link>https://sagnikbhattacharya.com/blog</link>
     </image>
+    <item>
+      <title>60 AI Prompts for Excel That Actually Work (Copy, Paste, Get Results)</title>
+      <link>https://sagnikbhattacharya.com/blog/excel-ai-prompts</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/excel-ai-prompts</guid>
+      <description>A curated library of 60 proven AI prompts for Excel — organized by task. Write formulas, clean data, build macros, analyse data, debug errors, and build dashboards using ChatGPT, Claude, Copilot, or Gemini.</description>
+      <category>AI + Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
     <item>
       <title>How to Use ChatGPT to Write Excel Formulas (With Real Examples)</title>
       <link>https://sagnikbhattacharya.com/blog/chatgpt-excel-guide</link>
