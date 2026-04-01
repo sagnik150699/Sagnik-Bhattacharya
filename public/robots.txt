@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://sagnikbhattacharya.com/sitemap.xml
-Feed: https://sagnikbhattacharya.com/feed.xml
