@@ -1,0 +1,752 @@
+[
+  {
+    "slug": "agent-mode-in-excel",
+    "title": "Agent Mode in Excel: What It Does, What It Can’t, and Who Should Use It",
+    "tag": "AI + Excel",
+    "hook": "Use workbook-level AI when you need a guided sequence, not just one formula.",
+    "cta": "Use Agent Mode Safely",
+    "keywords": [
+      "Agent",
+      "Workbook",
+      "Review"
+    ],
+    "cue": "AI workspace panels, workbook actions, and guided-analysis cues",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Agent Mode in Excel, with workbook action panels and supervised AI workflow cues."
+  },
+  {
+    "slug": "groupby-function-excel",
+    "title": "GROUPBY Function in Excel: Formula-Based Summaries Without a Pivot Table",
+    "tag": "Excel",
+    "hook": "Build summaries with formulas so reports stay live, flexible, and easier to reuse.",
+    "cta": "Use GROUPBY Better",
+    "keywords": [
+      "GROUPBY",
+      "Summary",
+      "Spill"
+    ],
+    "cue": "dynamic summary grids, grouped rows, and formula-led reporting cues",
+    "category": "Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the GROUPBY function in Excel, with spill summaries and grouped reporting visuals."
+  },
+  {
+    "slug": "flutter-widget-previewer",
+    "title": "Flutter Widget Previewer: Real-Time UI Iteration Without Running the Full App",
+    "tag": "Flutter",
+    "hook": "Shorten the UI feedback loop without relaunching the whole app every time.",
+    "cta": "Preview Widgets Faster",
+    "keywords": [
+      "Preview",
+      "Widget",
+      "Speed"
+    ],
+    "cue": "isolated UI cards, live preview panes, and fast-iteration cues",
+    "category": "Flutter",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter Widget Previewer, with isolated UI previews and rapid-iteration visuals."
+  },
+  {
+    "slug": "claude-agent-mode-excel",
+    "title": "Use Claude With Agent Mode in Excel: Setup, Limits, and Best Workflows",
+    "tag": "AI + Excel",
+    "hook": "Claude helps most when workbook reasoning matters and the data is already reviewable.",
+    "cta": "Use Claude Carefully",
+    "keywords": [
+      "Claude",
+      "Reasoning",
+      "Excel"
+    ],
+    "cue": "AI reasoning panels, workbook summaries, and controlled-analysis cues",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Claude with Agent Mode in Excel, with reasoning panels and workbook analysis visuals."
+  },
+  {
+    "slug": "pivotby-function-excel",
+    "title": "PIVOTBY Function in Excel: Build Pivot-Style Reports With a Formula",
+    "tag": "Excel",
+    "hook": "Create a live cross-tab report without leaving the formula layer.",
+    "cta": "Build With PIVOTBY",
+    "keywords": [
+      "Cross-tab",
+      "Report",
+      "Formula"
+    ],
+    "cue": "grid reports, row-column summaries, and formula-based pivot visuals",
+    "category": "Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the PIVOTBY function in Excel, with cross-tab report grids and formula-led summary visuals."
+  },
+  {
+    "slug": "create-with-ai-flutter",
+    "title": "Create With AI in Flutter: Gemini CLI, MCP, and the AI Toolkit Explained",
+    "tag": "Flutter",
+    "hook": "Use AI where it shortens real engineering work, not where it adds vague complexity.",
+    "cta": "Ship AI Sensibly",
+    "keywords": [
+      "AI Toolkit",
+      "MCP",
+      "Flutter"
+    ],
+    "cue": "tooling cards, AI workflow nodes, and production-minded Flutter cues",
+    "category": "Flutter",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for creating with AI in Flutter, with tooling nodes and production-minded AI workflow visuals."
+  },
+  {
+    "slug": "copilot-function-excel",
+    "title": "COPILOT Function in Excel: Syntax, Use Cases, Limits, and Risks",
+    "tag": "AI + Excel",
+    "hook": "Use AI in the grid only when the result stays reviewable and clearly labelled.",
+    "cta": "Review COPILOT Outputs",
+    "keywords": [
+      "COPILOT",
+      "Cells",
+      "Review"
+    ],
+    "cue": "spreadsheet cells, AI result cards, and worksheet-review cues",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the COPILOT function in Excel, with AI-filled cells and review-focused spreadsheet visuals."
+  },
+  {
+    "slug": "groupby-vs-pivottable-excel",
+    "title": "GROUPBY vs PivotTable in Excel: When Formula Summaries Beat the Ribbon",
+    "tag": "Excel",
+    "hook": "Choose the summary method that matches the workflow, not the trend.",
+    "cta": "Pick The Right Summary Tool",
+    "keywords": [
+      "GROUPBY",
+      "PivotTable",
+      "Choice"
+    ],
+    "cue": "formula summaries, pivot layouts, and side-by-side decision visuals",
+    "category": "Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for GROUPBY vs PivotTable in Excel, with formula summaries and comparison visuals."
+  },
+  {
+    "slug": "flutter-web-skwasm-vs-canvaskit",
+    "title": "Flutter Web in 2026: skwasm vs CanvasKit vs WebAssembly Builds",
+    "tag": "Flutter",
+    "hook": "Pick the renderer that matches the product and browser reality, not the trend label.",
+    "cta": "Choose Web Rendering Wisely",
+    "keywords": [
+      "skwasm",
+      "CanvasKit",
+      "Web"
+    ],
+    "cue": "browser render layers, performance graphs, and Flutter web deployment visuals",
+    "category": "Flutter",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter web renderers, with skwasm, CanvasKit, and web performance comparison visuals."
+  },
+  {
+    "slug": "analyst-vs-agent-mode-vs-copilot-chat",
+    "title": "Analyst vs Agent Mode vs Copilot Chat: Which Excel AI Workflow Fits Best?",
+    "tag": "AI + Excel",
+    "hook": "Match the AI surface to the workbook task so the tool feels useful instead of noisy.",
+    "cta": "Choose The Right Excel AI Mode",
+    "keywords": [
+      "Analyst",
+      "Agent",
+      "Chat"
+    ],
+    "cue": "mode comparison panels, workbook tasks, and decision-making visuals",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Analyst vs Agent Mode vs Copilot Chat in Excel, with AI workflow comparison visuals."
+  },
+  {
+    "slug": "choosecols-chooserows-take-drop-excel",
+    "title": "CHOOSECOLS, CHOOSEROWS, TAKE, and DROP in Excel: Slice Data Faster",
+    "tag": "Excel",
+    "hook": "Trim spill ranges cleanly instead of copying, hiding, or rebuilding them.",
+    "cta": "Slice Arrays Faster",
+    "keywords": [
+      "TAKE",
+      "DROP",
+      "Arrays"
+    ],
+    "cue": "trimmed grids, selected columns, and tidy spill-range visuals",
+    "category": "Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for CHOOSECOLS, CHOOSEROWS, TAKE, and DROP in Excel, with sliced array and report-grid visuals."
+  },
+  {
+    "slug": "flutter-app-architecture-2026",
+    "title": "Flutter App Architecture in 2026: A Practical Feature-First Guide",
+    "tag": "Flutter",
+    "hook": "Build around features so teams can scale without drowning in global folders.",
+    "cta": "Structure Flutter Better",
+    "keywords": [
+      "Architecture",
+      "Features",
+      "Flutter"
+    ],
+    "cue": "feature folders, layered app structure, and production-minded architecture visuals",
+    "category": "Flutter",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter app architecture, with feature-first app structure visuals."
+  },
+  {
+    "slug": "format-data-for-copilot-excel",
+    "title": "Format Data for Copilot in Excel: Tables, Supported Ranges, and Common Failures",
+    "tag": "AI + Excel",
+    "hook": "Copilot gets better when the workbook stops making it guess the structure.",
+    "cta": "Fix Data Shape First",
+    "keywords": [
+      "Tables",
+      "Headers",
+      "Copilot"
+    ],
+    "cue": "clean tables, structured columns, and workbook-readiness visuals",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for formatting data for Copilot in Excel, with clean table and workbook structure visuals."
+  },
+  {
+    "slug": "map-scan-reduce-excel",
+    "title": "MAP, SCAN, and REDUCE in Excel: Modern Array Logic for Power Users",
+    "tag": "Excel",
+    "hook": "Use modern array logic when helper columns start making the workbook heavier than it needs to be.",
+    "cta": "Level Up Array Logic",
+    "keywords": [
+      "MAP",
+      "SCAN",
+      "REDUCE"
+    ],
+    "cue": "array flows, running calculations, and formula-logic visuals",
+    "category": "Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for MAP, SCAN, and REDUCE in Excel, with dynamic-array logic visuals."
+  },
+  {
+    "slug": "go-router-flutter-deep-linking",
+    "title": "go_router in Flutter: Deep Linking, Nested Navigation, and Web URLs",
+    "tag": "Flutter",
+    "hook": "Use explicit routing so deep links and web URLs stay understandable as the app grows.",
+    "cta": "Route Flutter Cleanly",
+    "keywords": [
+      "Routing",
+      "Links",
+      "Flutter"
+    ],
+    "cue": "route trees, linked screens, and deep-link navigation visuals",
+    "category": "Flutter",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for go_router in Flutter, with nested routes and deep-link visuals."
+  },
+  {
+    "slug": "create-lookups-with-copilot-excel",
+    "title": "Create Lookups With Copilot in Excel: When It Writes XLOOKUP Well and When It Doesn’t",
+    "tag": "AI + Excel",
+    "hook": "AI can draft lookup formulas quickly, but only if you still review the logic like an analyst.",
+    "cta": "Review XLOOKUP Drafts",
+    "keywords": [
+      "XLOOKUP",
+      "Copilot",
+      "Review"
+    ],
+    "cue": "lookup arrows, AI formula drafts, and spreadsheet verification visuals",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for creating lookups with Copilot in Excel, with XLOOKUP and review visuals."
+  },
+  {
+    "slug": "let-and-lambda-excel",
+    "title": "LET and LAMBDA in Excel: Turn Repeated Formulas Into Reusable Logic",
+    "tag": "Excel",
+    "hook": "Name logic once so long formulas stop becoming unreadable repeated blocks.",
+    "cta": "Make Formulas Reusable",
+    "keywords": [
+      "LET",
+      "LAMBDA",
+      "Reuse"
+    ],
+    "cue": "named formula blocks, reusable logic chips, and cleaner calculation visuals",
+    "category": "Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for LET and LAMBDA in Excel, with reusable formula logic visuals."
+  },
+  {
+    "slug": "flutter-form-validation-best-practices",
+    "title": "Flutter Form Validation Best Practices for Production Apps",
+    "tag": "Flutter",
+    "hook": "Good validation improves trust for users and reduces brittle rules for engineers.",
+    "cta": "Validate Forms Better",
+    "keywords": [
+      "Forms",
+      "Validation",
+      "Flutter"
+    ],
+    "cue": "form fields, validation states, and production-ready mobile UI visuals",
+    "category": "Flutter",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter form validation best practices, with mobile form and validation-state visuals."
+  },
+  {
+    "slug": "generate-formula-columns-copilot-excel",
+    "title": "Generate Formula Columns With Copilot in Excel: Best Prompts and Review Steps",
+    "tag": "AI + Excel",
+    "hook": "AI can save time on repeated derived fields if you review the logic before it spreads.",
+    "cta": "Build Better Formula Columns",
+    "keywords": [
+      "Columns",
+      "Prompts",
+      "Review"
+    ],
+    "cue": "column fills, AI prompts, and spreadsheet review visuals",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for generating formula columns with Copilot in Excel, with prompt and column-fill visuals."
+  },
+  {
+    "slug": "xmatch-function-excel",
+    "title": "XMATCH in Excel: Smarter Lookups, Reverse Searches, and Binary Search Use Cases",
+    "tag": "Excel",
+    "hook": "Use modern lookup control when position and search direction matter more than a basic match.",
+    "cta": "Use XMATCH Smarter",
+    "keywords": [
+      "XMATCH",
+      "Lookup",
+      "Position"
+    ],
+    "cue": "reverse-search arrows, lookup positions, and modern formula visuals",
+    "category": "Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for XMATCH in Excel, with reverse-search and lookup-position visuals."
+  },
+  {
+    "slug": "flutter-performance-2026",
+    "title": "Flutter Performance in 2026: Impeller, DevTools, and Rebuild Reduction",
+    "tag": "Flutter",
+    "hook": "Measure the real bottleneck, then cut rebuild and startup waste where it actually hurts.",
+    "cta": "Improve Flutter Performance",
+    "keywords": [
+      "Performance",
+      "DevTools",
+      "Flutter"
+    ],
+    "cue": "performance graphs, rebuild heat, and mobile app profiling visuals",
+    "category": "Flutter",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter performance in 2026, with profiling and rebuild visuals."
+  },
+  {
+    "slug": "generate-single-cell-formulas-copilot-excel",
+    "title": "Generate Single-Cell Formulas With Copilot in Excel: Fast Wins and Failure Modes",
+    "tag": "AI + Excel",
+    "hook": "Single-cell AI formulas are useful when the prompt is clear and the check is immediate.",
+    "cta": "Draft One Formula Faster",
+    "keywords": [
+      "Formula",
+      "Prompt",
+      "Review"
+    ],
+    "cue": "single-cell formulas, prompt cards, and quick-check spreadsheet visuals",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for generating single-cell formulas with Copilot in Excel, with prompt and formula visuals."
+  },
+  {
+    "slug": "excel-tables-best-practices",
+    "title": "Excel Tables Best Practices: Structured References, Growth, and Cleaner Models",
+    "tag": "Excel",
+    "hook": "Good tables make formulas, dashboards, and AI workflows more reliable before you add anything fancy.",
+    "cta": "Fix Table Design First",
+    "keywords": [
+      "Tables",
+      "Structure",
+      "Excel"
+    ],
+    "cue": "structured references, clean headers, and stable table-growth visuals",
+    "category": "Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel tables best practices, with clean table and structured-reference visuals."
+  },
+  {
+    "slug": "responsive-flutter-ui-all-screens",
+    "title": "Responsive Flutter UI for Mobile, Tablet, Desktop, and Web",
+    "tag": "Flutter",
+    "hook": "Responsive design is about hierarchy and structure, not just a couple of breakpoints.",
+    "cta": "Design Across Screens",
+    "keywords": [
+      "Responsive",
+      "Layouts",
+      "Flutter"
+    ],
+    "cue": "multi-device layouts, adaptive panels, and cross-screen UI visuals",
+    "category": "Flutter",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for responsive Flutter UI across mobile, tablet, desktop, and web."
+  },
+  {
+    "slug": "create-charts-with-copilot-excel",
+    "title": "Create Charts With Copilot in Excel: What Works, What Needs Manual Cleanup",
+    "tag": "AI + Excel",
+    "hook": "AI can draft a chart quickly, but it still needs human judgement before it tells the right story.",
+    "cta": "Refine Chart Drafts",
+    "keywords": [
+      "Charts",
+      "Copilot",
+      "Story"
+    ],
+    "cue": "chart drafts, AI panels, and presentation-cleanup visuals",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for creating charts with Copilot in Excel, with chart-draft and review visuals."
+  },
+  {
+    "slug": "fix-spill-errors-excel",
+    "title": "How to Fix #SPILL! Errors in Excel and Prevent Them in Dynamic Array Models",
+    "tag": "Excel",
+    "hook": "Most spill errors are easier to fix once you stop treating them like mysterious formula bugs.",
+    "cta": "Clear Spill Errors Faster",
+    "keywords": [
+      "#SPILL!",
+      "Arrays",
+      "Fix"
+    ],
+    "cue": "blocked ranges, dynamic arrays, and troubleshooting visuals",
+    "category": "Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for fixing #SPILL! errors in Excel, with dynamic-array troubleshooting visuals."
+  },
+  {
+    "slug": "add-flutter-to-existing-app",
+    "title": "Add Flutter to an Existing App: Mobile and Web Integration Patterns",
+    "tag": "Flutter",
+    "hook": "Integrate Flutter where it adds value, but keep the seam clean enough to maintain afterwards.",
+    "cta": "Integrate Flutter Cleanly",
+    "keywords": [
+      "Integration",
+      "Flutter",
+      "Migration"
+    ],
+    "cue": "host-app seams, embedded screens, and migration visuals",
+    "category": "Flutter",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for adding Flutter to an existing app, with integration and migration visuals."
+  },
+  {
+    "slug": "text-analysis-excel-with-ai",
+    "title": "Text Analysis in Excel With AI: Survey Comments, Reviews, and Open Feedback",
+    "tag": "AI + Excel",
+    "hook": "AI can speed up open-text analysis if you still sample the labels before trusting the summary.",
+    "cta": "Analyse Text More Reliably",
+    "keywords": [
+      "Feedback",
+      "Themes",
+      "AI"
+    ],
+    "cue": "survey comments, category tags, and text-analysis workflow visuals",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for text analysis in Excel with AI, with survey-comment and theme-tag visuals."
+  },
+  {
+    "slug": "audit-formulas-excel",
+    "title": "How to Audit Formulas in Excel: Trace Precedents, Dependents, and Error Sources",
+    "tag": "Excel",
+    "hook": "Audit the calculation path so you fix the source of the problem, not just the symptom.",
+    "cta": "Trace Errors Better",
+    "keywords": [
+      "Audit",
+      "Precedents",
+      "Errors"
+    ],
+    "cue": "formula traces, dependency arrows, and spreadsheet-audit visuals",
+    "category": "Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for auditing formulas in Excel, with dependency-trace and error-source visuals."
+  },
+  {
+    "slug": "flutter-testing-strategy-2026",
+    "title": "Flutter Testing Strategy in 2026: Unit, Widget, Integration, and Goldens",
+    "tag": "Flutter",
+    "hook": "Choose the test that buys real confidence instead of the most impressive test label.",
+    "cta": "Test Flutter Wisely",
+    "keywords": [
+      "Tests",
+      "Widget",
+      "Flutter"
+    ],
+    "cue": "test pyramids, device flows, and UI verification visuals",
+    "category": "Flutter",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter testing strategy in 2026, with testing-layer visuals."
+  },
+  {
+    "slug": "python-in-excel-beginners",
+    "title": "Python in Excel for Beginners: The First 10 Things Worth Learning",
+    "tag": "AI + Excel",
+    "hook": "Learn the small set of Python-in-Excel skills that actually create value before adding more complexity.",
+    "cta": "Start Python In Excel",
+    "keywords": [
+      "Python",
+      "Excel",
+      "Starter"
+    ],
+    "cue": "Python cells, data tables, and beginner-friendly analytics visuals",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Python in Excel for beginners, with Python cell and analytics visuals."
+  },
+  {
+    "slug": "protect-excel-workbook-collaboration",
+    "title": "Protect an Excel Workbook Without Breaking Collaboration and Shared Editing",
+    "tag": "Excel",
+    "hook": "Protect the logic that is costly to break, but keep the workbook usable for the people doing the work.",
+    "cta": "Protect Without Friction",
+    "keywords": [
+      "Protect",
+      "Workbook",
+      "Collab"
+    ],
+    "cue": "locked logic zones, editable input areas, and collaboration-safe workbook visuals",
+    "category": "Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for protecting an Excel workbook without breaking collaboration, with lock and collaboration visuals."
+  },
+  {
+    "slug": "py-function-excel",
+    "title": "PY Function in Excel: What It Is, How It Works, and When to Use It",
+    "tag": "AI + Excel",
+    "hook": "Use Python in the workbook when it adds clear analytical value, not simply because it is available.",
+    "cta": "Use The PY Function Wisely",
+    "keywords": [
+      "PY",
+      "Python",
+      "Workbook"
+    ],
+    "cue": "Python cells, workbook returns, and analysis workflow visuals",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the PY function in Excel, with Python-in-workbook visuals."
+  },
+  {
+    "slug": "calendar-in-excel-automatic",
+    "title": "How to Create a Calendar in Excel That Updates Automatically Every Month",
+    "tag": "Excel",
+    "hook": "Build the calendar from date logic once so you stop rebuilding it manually every month.",
+    "cta": "Automate Calendar Updates",
+    "keywords": [
+      "Calendar",
+      "Dates",
+      "Excel"
+    ],
+    "cue": "monthly grid, date logic, and planning-sheet visuals",
+    "category": "Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for creating an automatic calendar in Excel, with date-grid and planning visuals."
+  },
+  {
+    "slug": "copilot-excel-python-analysis",
+    "title": "Copilot in Excel With Python: Forecasting, Risk Analysis, and Deeper Reasoning",
+    "tag": "AI + Excel",
+    "hook": "Use Copilot for framing and Python for deeper analysis, but keep judgement over the final decision.",
+    "cta": "Combine Copilot And Python",
+    "keywords": [
+      "Copilot",
+      "Python",
+      "Analysis"
+    ],
+    "cue": "AI guidance, Python analysis, and forecasting visuals",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Copilot in Excel with Python, with analysis and forecasting visuals."
+  },
+  {
+    "slug": "gantt-chart-excel",
+    "title": "How to Make a Gantt Chart in Excel for Real Project Planning",
+    "tag": "Excel",
+    "hook": "Build the schedule data properly first so the Gantt chart stays useful instead of decorative.",
+    "cta": "Plan Projects Visually",
+    "keywords": [
+      "Gantt",
+      "Project",
+      "Timeline"
+    ],
+    "cue": "timeline bars, task rows, and project-planning visuals",
+    "category": "Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for making a Gantt chart in Excel, with project-timeline visuals."
+  },
+  {
+    "slug": "chatgpt-vs-claude-vs-copilot-vs-gemini-excel",
+    "title": "ChatGPT vs Claude vs Copilot vs Gemini for Excel in 2026",
+    "tag": "AI + Excel",
+    "hook": "Choose the AI tool that matches the spreadsheet job instead of looking for one universal winner.",
+    "cta": "Pick The Right Excel AI Tool",
+    "keywords": [
+      "ChatGPT",
+      "Claude",
+      "Copilot"
+    ],
+    "cue": "AI tool comparison cards, spreadsheet tasks, and decision visuals",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for ChatGPT vs Claude vs Copilot vs Gemini for Excel, with AI comparison visuals."
+  },
+  {
+    "slug": "inventory-tracker-excel",
+    "title": "How to Build an Inventory Tracker in Excel That Stays Maintainable",
+    "tag": "Excel",
+    "hook": "Track stock with a structure that explains quantity changes instead of hiding them.",
+    "cta": "Build Better Inventory Sheets",
+    "keywords": [
+      "Inventory",
+      "Stock",
+      "Excel"
+    ],
+    "cue": "stock tables, movement logs, and warehouse-tracking visuals",
+    "category": "Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for building an inventory tracker in Excel, with stock and movement visuals."
+  },
+  {
+    "slug": "review-ai-generated-excel-formulas",
+    "title": "How to Review AI-Generated Excel Formulas Before You Trust Them",
+    "tag": "AI + Excel",
+    "hook": "Treat AI formulas like junior drafts and review the business logic before they reach the report.",
+    "cta": "Review Formula Logic",
+    "keywords": [
+      "Review",
+      "AI",
+      "Formulas"
+    ],
+    "cue": "formula checks, review marks, and spreadsheet-risk visuals",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for reviewing AI-generated Excel formulas, with formula-check and risk visuals."
+  },
+  {
+    "slug": "attendance-tracker-excel",
+    "title": "How to Create an Attendance Tracker in Excel for Teams, Schools, or Training",
+    "tag": "Excel",
+    "hook": "Keep attendance tracking simple enough to update consistently and structured enough to summarise cleanly.",
+    "cta": "Track Attendance Better",
+    "keywords": [
+      "Attendance",
+      "Tracker",
+      "Excel"
+    ],
+    "cue": "attendance grids, roster sheets, and summary visuals",
+    "category": "Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for creating an attendance tracker in Excel, with roster and attendance-grid visuals."
+  },
+  {
+    "slug": "ai-power-query-m-code",
+    "title": "Use AI to Write and Fix Power Query M Code for Excel",
+    "tag": "AI + Excel",
+    "hook": "AI can draft M code faster, but the transformed data still needs a human who knows what correct looks like.",
+    "cta": "Review M Code Carefully",
+    "keywords": [
+      "Power Query",
+      "M Code",
+      "AI"
+    ],
+    "cue": "query steps, transformed tables, and AI-assisted code visuals",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using AI to write and fix Power Query M code in Excel, with query-step visuals."
+  },
+  {
+    "slug": "project-tracker-excel",
+    "title": "How to Build a Project Tracker in Excel Without Turning It Into a Mess",
+    "tag": "Excel",
+    "hook": "Track only what the team will genuinely maintain, then build reporting on top of that clean core.",
+    "cta": "Build Cleaner Project Trackers",
+    "keywords": [
+      "Project",
+      "Tracker",
+      "Excel"
+    ],
+    "cue": "task boards, due dates, and tracker-summary visuals",
+    "category": "Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for building a project tracker in Excel, with task and status visuals."
+  },
+  {
+    "slug": "ai-forecasting-model-excel",
+    "title": "Build a Forecasting Model in Excel With AI Assistance Step by Step",
+    "tag": "AI + Excel",
+    "hook": "Use AI to speed up model setup, but keep the assumptions visible enough to defend.",
+    "cta": "Model Forecasts Better",
+    "keywords": [
+      "Forecast",
+      "Model",
+      "AI"
+    ],
+    "cue": "forecast curves, scenario tables, and reviewable model visuals",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for building a forecasting model in Excel with AI assistance, with forecast and scenario visuals."
+  },
+  {
+    "slug": "sales-pipeline-tracker-excel",
+    "title": "How to Build a Sales Pipeline Tracker in Excel for Small Teams",
+    "tag": "Excel",
+    "hook": "Track stages and next actions clearly enough that the pipeline drives behaviour, not just a report.",
+    "cta": "Build A Better Pipeline Sheet",
+    "keywords": [
+      "Pipeline",
+      "Sales",
+      "Excel"
+    ],
+    "cue": "deal stages, action dates, and pipeline-summary visuals",
+    "category": "Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for building a sales pipeline tracker in Excel, with deal-stage visuals."
+  },
+  {
+    "slug": "excel-ai-for-accountants",
+    "title": "Excel + AI for Accountants: Reconciliations, Variance Reviews, and Close Prep",
+    "tag": "AI + Excel",
+    "hook": "Use AI where it shortens accounting review work without weakening the control trail.",
+    "cta": "Use AI More Carefully In Accounting",
+    "keywords": [
+      "Accountants",
+      "Variance",
+      "Close"
+    ],
+    "cue": "close packs, reconciliation sheets, and finance-review visuals",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel and AI for accountants, with reconciliation and close-prep visuals."
+  },
+  {
+    "slug": "monthly-budget-spreadsheet-excel",
+    "title": "How to Build a Monthly Budget Spreadsheet in Excel From Scratch",
+    "tag": "Excel",
+    "hook": "Build the budget clearly enough that updating it every month feels possible, not exhausting.",
+    "cta": "Create A Clear Budget Sheet",
+    "keywords": [
+      "Budget",
+      "Monthly",
+      "Excel"
+    ],
+    "cue": "budget rows, summary totals, and monthly cash visuals",
+    "category": "Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for building a monthly budget spreadsheet in Excel, with budget and cashflow visuals."
+  },
+  {
+    "slug": "excel-ai-for-hr-teams",
+    "title": "Excel + AI for HR Teams: Hiring Trackers, Attrition Analysis, and Reporting",
+    "tag": "AI + Excel",
+    "hook": "Use AI to reduce reporting drag in HR, but keep people decisions and sensitive interpretation clearly human.",
+    "cta": "Use AI Carefully In HR",
+    "keywords": [
+      "HR",
+      "Attrition",
+      "Reporting"
+    ],
+    "cue": "hiring trackers, reporting sheets, and HR-analysis visuals",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel and AI for HR teams, with hiring and reporting visuals."
+  },
+  {
+    "slug": "amortization-schedule-excel",
+    "title": "How to Create an Amortization Schedule in Excel With Extra Payment Scenarios",
+    "tag": "Excel",
+    "hook": "Make loan repayment visible enough that extra-payment choices become easier to understand and compare.",
+    "cta": "Model Loan Paydown Clearly",
+    "keywords": [
+      "Amortisation",
+      "Loan",
+      "Excel"
+    ],
+    "cue": "loan tables, declining balances, and extra-payment visuals",
+    "category": "Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for creating an amortisation schedule in Excel, with loan and paydown visuals."
+  },
+  {
+    "slug": "excel-ai-for-sales-ops",
+    "title": "Excel + AI for Sales Ops: Pipeline Cleanup, Forecasts, and Territory Reporting",
+    "tag": "AI + Excel",
+    "hook": "Use AI to reduce reporting drag in Sales Ops, but keep pipeline ownership and review firmly with the team.",
+    "cta": "Use AI Carefully In Sales Ops",
+    "keywords": [
+      "Sales Ops",
+      "Forecasts",
+      "Territory"
+    ],
+    "cue": "pipeline sheets, forecast reports, and territory-summary visuals",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel and AI for Sales Ops, with pipeline and forecast visuals."
+  },
+  {
+    "slug": "map-charts-excel",
+    "title": "Map Charts in Excel: When to Use Them, Data Prep, and Common Mistakes",
+    "tag": "Excel",
+    "hook": "Use map charts when place is genuinely part of the question, not just because the visual looks impressive.",
+    "cta": "Map Data More Clearly",
+    "keywords": [
+      "Map",
+      "Charts",
+      "Excel"
+    ],
+    "cue": "geographic charts, location data, and comparison visuals",
+    "category": "Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for map charts in Excel, with geographic chart visuals."
+  }
+]

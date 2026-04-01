@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Review AI-Generated Excel Formulas Before You Trust Them</title>
+  <meta name="description" content="Learn a practical review process for AI-generated Excel formulas so you can catch bad logic before it reaches the workbook or the report.">
+  <meta name="keywords" content="review AI-generated Excel formulas, Excel AI formula review, Copilot formula review, ChatGPT Excel formulas, AI spreadsheet risk">
+  <meta name="author" content="Sagnik Bhattacharya">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/review-ai-generated-excel-formulas">
+  <meta property="og:title" content="How to Review AI-Generated Excel Formulas Before You Trust Them">
+  <meta property="og:description" content="Learn a practical review process for AI-generated Excel formulas so you can catch bad logic before it reaches the workbook or the report.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/review-ai-generated-excel-formulas">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/review-ai-generated-excel-formulas-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/review-ai-generated-excel-formulas-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for reviewing AI-generated Excel formulas, with formula-check and risk visuals.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Sagnik Bhattacharya">
+  <meta property="article:author" content="Sagnik Bhattacharya">
+  <meta property="article:published_time" content="2026-02-22">
+  <meta property="article:modified_time" content="2026-02-22">
+  <meta property="article:section" content="AI &amp; Automation">
+  <meta property="article:tag" content="review AI-generated Excel formulas">
+  <meta property="article:tag" content="Excel AI formula review">
+  <meta property="article:tag" content="Copilot formula review">
+  <meta property="article:tag" content="ChatGPT Excel formulas">
+  <meta property="article:tag" content="AI spreadsheet risk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Review AI-Generated Excel Formulas Before You Trust Them">
+  <meta name="twitter:description" content="Learn a practical review process for AI-generated Excel formulas so you can catch bad logic before it reaches the workbook or the report.">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/review-ai-generated-excel-formulas-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for reviewing AI-generated Excel formulas, with formula-check and risk visuals.">
+  <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Review AI-Generated Excel Formulas Before You Trust Them","description":"Learn a practical review process for AI-generated Excel formulas so you can catch bad logic before it reaches the workbook or the report.","datePublished":"2026-02-22","dateModified":"2026-02-22","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/review-ai-generated-excel-formulas"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/review-ai-generated-excel-formulas-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/review-ai-generated-excel-formulas-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"How to Review AI-Generated Excel Formulas Before You Trust Them by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"review AI-generated Excel formulas, Excel AI formula review, Copilot formula review, ChatGPT Excel formulas, AI spreadsheet risk","articleSection":"AI & Automation"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"How to Review AI-Generated Excel Formulas Before You Trust Them","item":"https://sagnikbhattacharya.com/blog/review-ai-generated-excel-formulas"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"How to Review AI-Generated Excel Formulas Before You Trust Them","url":"https://sagnikbhattacharya.com/blog/images/review-ai-generated-excel-formulas-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/review-ai-generated-excel-formulas-sagnik-bhattacharya-coding-liquids.jpg","caption":"How to Review AI-Generated Excel Formulas Before You Trust Them by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <link rel="stylesheet" href="/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">sagnik<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about">About</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">How to Review AI-Generated Excel Formulas Before You Trust Them</span></nav>
+    </div>
+  </div>
+  <section style="padding-top:0">
+    <div class="container">
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-tags"><span class="blog-post-tag">AI + Excel</span></div>
+          <h1 class="blog-post-title">How to Review AI-Generated Excel Formulas Before You Trust Them</h1>
+          <div class="blog-post-meta">
+            <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
+              <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
+            </a>
+            <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
+            <span>22 Feb 2026</span>
+            <span>6 min read</span>
+          </div>
+        </div>
+        <figure class="blog-cover">
+          <img src="/blog/images/review-ai-generated-excel-formulas-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for reviewing AI-generated Excel formulas, with formula-check and risk visuals." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for reviewing AI-generated Excel formulas, with formula-check and risk visuals.</figcaption>
+        </figure>
+        <div class="blog-post-content">
+<p>The problem with AI-generated formulas is rarely syntax alone. The dangerous formulas are the ones that run, return a value, and quietly apply the wrong business logic.</p><p>That is why formula review needs its own workflow. The right question is not did AI generate a formula, but can I prove this formula is doing what the workbook actually needs.</p><h2>Quick answer</h2><p>Review the references, logic, blanks handling, edge cases, and known sample rows before you trust an AI-generated formula. Treat it like junior draft work that still needs a human check.</p><ul><li>AI drafted a formula that will influence reporting or decisions.</li><li>The formula touches several columns or business rules.</li><li>You want a repeatable review habit rather than one-off guesswork.</li></ul><h2>Check the reference logic first</h2><p>The first review step is whether the formula points to the right columns, ranges, and match rules. A tidy formula can still be wrong if the references are wrong.</p><h2>Then test business cases</h2><p>Use a few rows where you already know the expected answer. That makes silent logic errors much easier to catch than reading the syntax in the abstract.</p><h2>Keep AI in the draft role</h2><p>The healthiest workflow is to let AI draft faster and let a human confirm fit. That mindset reduces the urge to trust output because it arrived quickly.</p><h2>Worked example: commission formula</h2><p>AI drafts a commission formula that looks sensible, but review shows it ignores one special commission band. A quick test against known sample rows catches the issue before the formula reaches the monthly report.</p><h2>Common mistakes</h2><ul><li>Reviewing only syntax.</li><li>Skipping sample rows because the formula returns values.</li><li>Treating AI speed as a reason to relax review standards.</li></ul><h2>When to use something else</h2><p>If the task is wider workbook diagnosis, <a href="/blog/audit-formulas-excel">formula auditing</a> is the better lens. If you are still at the prompt stage, <a href="/blog/generate-formula-columns-copilot-excel">formula columns with Copilot</a> may help you reduce bad drafts in the first place.</p><h2>Related guides on this site</h2><p>If you want to keep going without opening dead ends, these are the most useful next reads from this site.</p><ul><li><a href="/blog/generate-formula-columns-copilot-excel">Generate Formula Columns With Copilot in Excel: Best Prompts and Review Steps</a></li><li><a href="/blog/generate-single-cell-formulas-copilot-excel">Generate Single-Cell Formulas With Copilot in Excel: Fast Wins and Failure Modes</a></li><li><a href="/blog/audit-formulas-excel">How to Audit Formulas in Excel: Trace Precedents, Dependents, and Error Sources</a></li><li><a href="/blog/claude-debug-formulas">How to Fix Excel Formula Errors with Claude AI (Fast)</a></li></ul>
+<div class="blog-cta-box"><h3>Want a structured way to use Excel with AI at work?</h3><p>My Complete Excel Guide with AI Integration covers spreadsheet fundamentals, prompt design, and review habits that help you work faster without trusting AI blindly.</p><a href="/courses#excel" class="btn-primary">See the Excel + AI course <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/animations.js" defer></script>
+  <script src="/tracking.js" defer></script>
+</body>
+</html>

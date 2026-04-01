@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>go_router in Flutter: Deep Linking, Nested Navigation, and Web URLs</title>
+  <meta name="description" content="Learn how go_router helps with deep linking, nested navigation, and cleaner Flutter web URLs without turning routing into a maintenance problem.">
+  <meta name="keywords" content="go_router Flutter, Flutter deep linking, Flutter nested navigation, Flutter web URLs, Flutter routing">
+  <meta name="author" content="Sagnik Bhattacharya">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/go-router-flutter-deep-linking">
+  <meta property="og:title" content="go_router in Flutter: Deep Linking, Nested Navigation, and Web URLs">
+  <meta property="og:description" content="Learn how go_router helps with deep linking, nested navigation, and cleaner Flutter web URLs without turning routing into a maintenance problem.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/go-router-flutter-deep-linking">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/go-router-flutter-deep-linking-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/go-router-flutter-deep-linking-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for go_router in Flutter, with nested routes and deep-link visuals.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Sagnik Bhattacharya">
+  <meta property="article:author" content="Sagnik Bhattacharya">
+  <meta property="article:published_time" content="2026-03-18">
+  <meta property="article:modified_time" content="2026-03-18">
+  <meta property="article:section" content="Flutter">
+  <meta property="article:tag" content="go_router Flutter">
+  <meta property="article:tag" content="Flutter deep linking">
+  <meta property="article:tag" content="Flutter nested navigation">
+  <meta property="article:tag" content="Flutter web URLs">
+  <meta property="article:tag" content="Flutter routing">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="go_router in Flutter: Deep Linking, Nested Navigation, and Web URLs">
+  <meta name="twitter:description" content="Learn how go_router helps with deep linking, nested navigation, and cleaner Flutter web URLs without turning routing into a maintenance problem.">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/go-router-flutter-deep-linking-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for go_router in Flutter, with nested routes and deep-link visuals.">
+  <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"go_router in Flutter: Deep Linking, Nested Navigation, and Web URLs","description":"Learn how go_router helps with deep linking, nested navigation, and cleaner Flutter web URLs without turning routing into a maintenance problem.","datePublished":"2026-03-18","dateModified":"2026-03-18","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/go-router-flutter-deep-linking"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/go-router-flutter-deep-linking-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/go-router-flutter-deep-linking-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"go_router in Flutter: Deep Linking, Nested Navigation, and Web URLs by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"go_router Flutter, Flutter deep linking, Flutter nested navigation, Flutter web URLs, Flutter routing","articleSection":"Flutter"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"go_router in Flutter: Deep Linking, Nested Navigation, and Web URLs","item":"https://sagnikbhattacharya.com/blog/go-router-flutter-deep-linking"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"go_router in Flutter: Deep Linking, Nested Navigation, and Web URLs","url":"https://sagnikbhattacharya.com/blog/images/go-router-flutter-deep-linking-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/go-router-flutter-deep-linking-sagnik-bhattacharya-coding-liquids.jpg","caption":"go_router in Flutter: Deep Linking, Nested Navigation, and Web URLs by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <link rel="stylesheet" href="/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">sagnik<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about">About</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">go_router in Flutter: Deep Linking, Nested Navigation, and Web URLs</span></nav>
+    </div>
+  </div>
+  <section style="padding-top:0">
+    <div class="container">
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-tags"><span class="blog-post-tag">Flutter</span></div>
+          <h1 class="blog-post-title">go_router in Flutter: Deep Linking, Nested Navigation, and Web URLs</h1>
+          <div class="blog-post-meta">
+            <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
+              <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
+            </a>
+            <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
+            <span>18 Mar 2026</span>
+            <span>6 min read</span>
+          </div>
+        </div>
+        <figure class="blog-cover">
+          <img src="/blog/images/go-router-flutter-deep-linking-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for go_router in Flutter, with nested routes and deep-link visuals." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for go_router in Flutter, with nested routes and deep-link visuals.</figcaption>
+        </figure>
+        <div class="blog-post-content">
+<p>Routing stops being a small topic the moment your app needs deep links, web URLs, guarded routes, or shells with nested navigation. At that point, go_router is useful because it gives those concerns a clearer home.</p><p>The goal is not to make routing feel fancy. It is to make app navigation understandable enough that several developers can work on it without fear.</p><h2>Quick answer</h2><p>Use go_router when your app needs URL-aware navigation, deep links, or nested shells that should stay consistent across mobile and web. Keep the route map readable and avoid turning it into a second business-logic layer.</p><ul><li>You need deep links or clean browser URLs.</li><li>Your app has nested navigation or tab shells.</li><li>You want routing decisions to stay explicit and maintainable.</li></ul><h2>Why go_router helps</h2><p>go_router gives navigation concerns a clearer structure, especially once URL state matters. That makes Flutter web, guarded routes, and nested shells easier to reason about than ad hoc route handling.</p><h2>What teams get wrong</h2><p>The common mistake is loading too much logic into the route map. Routing should describe navigation shape and light guards, not replace feature state or application services.</p><h2>How to keep it maintainable</h2><p>Group routes by feature, keep guards readable, and make route names or paths obvious. If route setup starts feeling magical, future maintenance usually gets worse, not better.</p><h2>Worked example: a multi-tab admin app</h2><p>An admin app has overview, customers, orders, and settings, each with nested detail pages. go_router helps keep deep links, browser navigation, and nested shell behaviour aligned instead of scattering route handling through the widget tree.</p><h2>Common mistakes</h2><ul><li>Putting business rules in the route map.</li><li>Letting route files grow without feature boundaries.</li><li>Ignoring web URL behaviour until late in the build.</li></ul><h2>When to use something else</h2><p>If the bigger issue is overall app structure, read <a href="/blog/flutter-app-architecture-2026">Flutter architecture</a>. If the pain is primarily layout adaptation across devices, <a href="/blog/responsive-flutter-ui-all-screens">responsive UI</a> may help more immediately.</p><h2>Official references</h2><p>These official references are useful if you need the product or framework documentation alongside this guide.</p><ul><li><a href="https://docs.flutter.dev/ui/navigation" target="_blank" rel="noopener">Flutter docs: Navigation and routing</a></li></ul><h2>Related guides on this site</h2><p>If you want to keep going without opening dead ends, these are the most useful next reads from this site.</p><ul><li><a href="/blog/flutter-app-architecture-2026">Flutter App Architecture in 2026: A Practical Feature-First Guide</a></li><li><a href="/blog/responsive-flutter-ui-all-screens">Responsive Flutter UI for Mobile, Tablet, Desktop, and Web</a></li><li><a href="/blog/add-flutter-to-existing-app">Add Flutter to an Existing App: Mobile and Web Integration Patterns</a></li><li><a href="/blog/flutter-state-management">Flutter State Management in 2026: Provider vs Riverpod vs BLoC</a></li></ul>
+<div class="blog-cta-box"><h3>Need a structured Flutter learning path?</h3><p>My Flutter and Dart training focuses on production habits, architecture choices, and the practical skills teams need to ship and maintain apps.</p><a href="/courses" class="btn-primary">Explore Flutter courses <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/animations.js" defer></script>
+  <script src="/tracking.js" defer></script>
+</body>
+</html>

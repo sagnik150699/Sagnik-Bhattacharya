@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LET and LAMBDA in Excel: Turn Repeated Formulas Into Reusable Logic</title>
+  <meta name="description" content="Learn how LET and LAMBDA make complex Excel formulas easier to read, reuse, and maintain without leaving the workbook.">
+  <meta name="keywords" content="LET Excel, LAMBDA Excel, Excel reusable formulas, modern Excel functions, Excel formula design">
+  <meta name="author" content="Sagnik Bhattacharya">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/let-and-lambda-excel">
+  <meta property="og:title" content="LET and LAMBDA in Excel: Turn Repeated Formulas Into Reusable Logic">
+  <meta property="og:description" content="Learn how LET and LAMBDA make complex Excel formulas easier to read, reuse, and maintain without leaving the workbook.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/let-and-lambda-excel">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/let-and-lambda-excel-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/let-and-lambda-excel-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for LET and LAMBDA in Excel, with reusable formula logic visuals.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Sagnik Bhattacharya">
+  <meta property="article:author" content="Sagnik Bhattacharya">
+  <meta property="article:published_time" content="2026-03-16">
+  <meta property="article:modified_time" content="2026-03-16">
+  <meta property="article:section" content="Excel">
+  <meta property="article:tag" content="LET Excel">
+  <meta property="article:tag" content="LAMBDA Excel">
+  <meta property="article:tag" content="Excel reusable formulas">
+  <meta property="article:tag" content="modern Excel functions">
+  <meta property="article:tag" content="Excel formula design">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LET and LAMBDA in Excel: Turn Repeated Formulas Into Reusable Logic">
+  <meta name="twitter:description" content="Learn how LET and LAMBDA make complex Excel formulas easier to read, reuse, and maintain without leaving the workbook.">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/let-and-lambda-excel-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for LET and LAMBDA in Excel, with reusable formula logic visuals.">
+  <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"LET and LAMBDA in Excel: Turn Repeated Formulas Into Reusable Logic","description":"Learn how LET and LAMBDA make complex Excel formulas easier to read, reuse, and maintain without leaving the workbook.","datePublished":"2026-03-16","dateModified":"2026-03-16","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/let-and-lambda-excel"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/let-and-lambda-excel-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/let-and-lambda-excel-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"LET and LAMBDA in Excel: Turn Repeated Formulas Into Reusable Logic by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"LET Excel, LAMBDA Excel, Excel reusable formulas, modern Excel functions, Excel formula design","articleSection":"Excel"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"LET and LAMBDA in Excel: Turn Repeated Formulas Into Reusable Logic","item":"https://sagnikbhattacharya.com/blog/let-and-lambda-excel"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"LET and LAMBDA in Excel: Turn Repeated Formulas Into Reusable Logic","url":"https://sagnikbhattacharya.com/blog/images/let-and-lambda-excel-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/let-and-lambda-excel-sagnik-bhattacharya-coding-liquids.jpg","caption":"LET and LAMBDA in Excel: Turn Repeated Formulas Into Reusable Logic by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <link rel="stylesheet" href="/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">sagnik<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about">About</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">LET and LAMBDA in Excel: Turn Repeated Formulas Into Reusable Logic</span></nav>
+    </div>
+  </div>
+  <section style="padding-top:0">
+    <div class="container">
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-tags"><span class="blog-post-tag">Excel</span></div>
+          <h1 class="blog-post-title">LET and LAMBDA in Excel: Turn Repeated Formulas Into Reusable Logic</h1>
+          <div class="blog-post-meta">
+            <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
+              <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
+            </a>
+            <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
+            <span>16 Mar 2026</span>
+            <span>6 min read</span>
+          </div>
+        </div>
+        <figure class="blog-cover">
+          <img src="/blog/images/let-and-lambda-excel-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for LET and LAMBDA in Excel, with reusable formula logic visuals." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for LET and LAMBDA in Excel, with reusable formula logic visuals.</figcaption>
+        </figure>
+        <div class="blog-post-content">
+<p>LET and LAMBDA matter because they move Excel away from copy-paste formula habits and towards clearer logic. LET lets you name intermediate values inside a formula. LAMBDA lets you turn logic into a reusable function.</p><p>That is useful whenever you keep rewriting the same long formula or explaining the same nested logic to yourself every month.</p><h2>Quick answer</h2><p>Use LET to make long formulas easier to read and calculate once. Use LAMBDA when the same logic appears repeatedly and deserves a reusable workbook-level function.</p><ul><li>A formula is getting long enough that named parts would improve clarity.</li><li>The same business rule appears in many cells.</li><li>You want fewer brittle copy-paste formulas across a workbook.</li></ul><h2>Why LET is usually the first win</h2><p>LET improves readability immediately because you can name the pieces of a calculation. That means fewer repeated expressions and a clearer path for anyone reviewing the workbook later.</p><h2>Where LAMBDA becomes worthwhile</h2><p>LAMBDA matters once a workbook keeps reusing the same logic. Instead of hiding the rule inside ten separate formulas, you define it once and call it by name.</p><h2>What this changes in practical models</h2><p>These functions do not make a workbook clever for the sake of it. They reduce duplication and make advanced logic easier to test, document, and maintain.</p><h2>Worked example: revenue quality rule</h2><p>A finance workbook keeps checking whether revenue rows meet the same quality rule across several sheets. LET makes each formula easier to read, and LAMBDA turns the rule into one named function the whole workbook can reuse.</p><h2>Common mistakes</h2><ul><li>Creating named logic that nobody else can understand.</li><li>Using LAMBDA before the underlying rule is stable.</li><li>Ignoring simpler formulas when the logic is still small.</li></ul><h2>When to use something else</h2><p>If you are still getting comfortable with arrays, <a href="/blog/map-scan-reduce-excel">MAP, SCAN, and REDUCE</a> or <a href="/blog/choosecols-chooserows-take-drop-excel">TAKE and DROP</a> may be easier next steps depending on the problem.</p><h2>Related guides on this site</h2><p>If you want to keep going without opening dead ends, these are the most useful next reads from this site.</p><ul><li><a href="/blog/map-scan-reduce-excel">MAP, SCAN, and REDUCE in Excel: Modern Array Logic for Power Users</a></li><li><a href="/blog/choosecols-chooserows-take-drop-excel">CHOOSECOLS, CHOOSEROWS, TAKE, and DROP in Excel: Slice Data Faster</a></li><li><a href="/blog/xmatch-function-excel">XMATCH in Excel: Smarter Lookups, Reverse Searches, and Binary Search Use Cases</a></li><li><a href="/blog/advanced-formulas">15 Excel Formulas That Save Hours of Manual Work (With Examples)</a></li></ul>
+<div class="blog-cta-box"><h3>Want to get better at Excel without guessing?</h3><p>My Complete Excel Guide with AI Integration is built for practical work: formulas, reporting, cleaner models, and AI-assisted workflows.</p><a href="/courses#excel" class="btn-primary">Explore the Excel course <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/animations.js" defer></script>
+  <script src="/tracking.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create With AI in Flutter: Gemini CLI, MCP, and the AI Toolkit Explained</title>
+  <meta name="description" content="Learn how Flutter’s AI tooling story fits together, including Gemini CLI, MCP, and the AI Toolkit, without turning your app into AI-themed fluff.">
+  <meta name="keywords" content="Flutter AI toolkit, Gemini CLI Flutter, MCP Flutter, Create with AI Flutter, Flutter AI workflow">
+  <meta name="author" content="Sagnik Bhattacharya">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/create-with-ai-flutter">
+  <meta property="og:title" content="Create With AI in Flutter: Gemini CLI, MCP, and the AI Toolkit Explained">
+  <meta property="og:description" content="Learn how Flutter’s AI tooling story fits together, including Gemini CLI, MCP, and the AI Toolkit, without turning your app into AI-themed fluff.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/create-with-ai-flutter">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/create-with-ai-flutter-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/create-with-ai-flutter-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for creating with AI in Flutter, with tooling nodes and production-minded AI workflow visuals.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Sagnik Bhattacharya">
+  <meta property="article:author" content="Sagnik Bhattacharya">
+  <meta property="article:published_time" content="2026-03-27">
+  <meta property="article:modified_time" content="2026-03-27">
+  <meta property="article:section" content="Flutter">
+  <meta property="article:tag" content="Flutter AI toolkit">
+  <meta property="article:tag" content="Gemini CLI Flutter">
+  <meta property="article:tag" content="MCP Flutter">
+  <meta property="article:tag" content="Create with AI Flutter">
+  <meta property="article:tag" content="Flutter AI workflow">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Create With AI in Flutter: Gemini CLI, MCP, and the AI Toolkit Explained">
+  <meta name="twitter:description" content="Learn how Flutter’s AI tooling story fits together, including Gemini CLI, MCP, and the AI Toolkit, without turning your app into AI-themed fluff.">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/create-with-ai-flutter-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for creating with AI in Flutter, with tooling nodes and production-minded AI workflow visuals.">
+  <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Create With AI in Flutter: Gemini CLI, MCP, and the AI Toolkit Explained","description":"Learn how Flutter’s AI tooling story fits together, including Gemini CLI, MCP, and the AI Toolkit, without turning your app into AI-themed fluff.","datePublished":"2026-03-27","dateModified":"2026-03-27","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/create-with-ai-flutter"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/create-with-ai-flutter-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/create-with-ai-flutter-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"Create With AI in Flutter: Gemini CLI, MCP, and the AI Toolkit Explained by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"Flutter AI toolkit, Gemini CLI Flutter, MCP Flutter, Create with AI Flutter, Flutter AI workflow","articleSection":"Flutter"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"Create With AI in Flutter: Gemini CLI, MCP, and the AI Toolkit Explained","item":"https://sagnikbhattacharya.com/blog/create-with-ai-flutter"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"Create With AI in Flutter: Gemini CLI, MCP, and the AI Toolkit Explained","url":"https://sagnikbhattacharya.com/blog/images/create-with-ai-flutter-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/create-with-ai-flutter-sagnik-bhattacharya-coding-liquids.jpg","caption":"Create With AI in Flutter: Gemini CLI, MCP, and the AI Toolkit Explained by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <link rel="stylesheet" href="/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">sagnik<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about">About</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">Create With AI in Flutter: Gemini CLI, MCP, and the AI Toolkit Explained</span></nav>
+    </div>
+  </div>
+  <section style="padding-top:0">
+    <div class="container">
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-tags"><span class="blog-post-tag">Flutter</span></div>
+          <h1 class="blog-post-title">Create With AI in Flutter: Gemini CLI, MCP, and the AI Toolkit Explained</h1>
+          <div class="blog-post-meta">
+            <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
+              <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
+            </a>
+            <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
+            <span>27 Mar 2026</span>
+            <span>6 min read</span>
+          </div>
+        </div>
+        <figure class="blog-cover">
+          <img src="/blog/images/create-with-ai-flutter-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for creating with AI in Flutter, with tooling nodes and production-minded AI workflow visuals." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for creating with AI in Flutter, with tooling nodes and production-minded AI workflow visuals.</figcaption>
+        </figure>
+        <div class="blog-post-content">
+<p>Flutter’s create-with-AI story can feel messy because several pieces show up at once: Gemini CLI, MCP, the AI Toolkit, IDE integrations, and the wider question of whether you are generating code, wiring model calls, or building AI features into the app itself.</p><p>The useful way to think about it is to separate three jobs: speeding up developer work, integrating model-backed features into the product, and keeping the result maintainable after the first demo.</p><blockquote><p><strong>Note:</strong> Tool names and recommended workflows in Flutter’s AI documentation are evolving. Treat this overview as current as of 1 April 2026 and verify the latest docs before you standardise a team workflow.</p></blockquote><h2>Quick answer</h2><p>Use Gemini CLI or comparable tooling to speed up local development tasks, use MCP where you need a cleaner bridge between tools and models, and use Flutter’s AI Toolkit or platform integrations when the app itself needs AI features. Do not treat all three as the same problem.</p><ul><li>You want faster coding and debugging loops without pretending AI replaces engineering.</li><li>You are designing actual product features that use models or agents.</li><li>You need a workflow teams can review, test, and maintain.</li></ul><h2>Separate developer tooling from product architecture</h2><p>This is the mistake most teams make first: they bundle code generation, backend AI integration, and in-app user features into one vague AI strategy. That makes planning worse, not better.</p><p>A healthier split is simple. Developer tooling helps you write or inspect code faster. Product architecture decides how the app talks to models or services. UI and policy decisions shape what the user actually sees.</p><h2>Where Gemini CLI and MCP fit</h2><p>Gemini CLI fits the developer-assistance side: local iteration, code scaffolding, debugging, or accelerating routine implementation. MCP matters when you want a clearer tool interface and better boundaries around how model-driven workflows reach project context or external systems.</p><ul><li>Developer speed-up: drafts, tests, refactors, and documentation.</li><li>Controlled tool access around model workflows.</li><li>A cleaner path from experimentation to team-level process.</li></ul><h2>What the AI Toolkit is best for</h2><p>The AI Toolkit matters most when you are moving from use AI while coding to ship an app feature that uses AI. It helps you think about the product surface, not merely the engineer surface.</p><p>That distinction matters because shipping AI means handling loading states, error states, abuse cases, privacy, cost, and degraded behaviour.</p><h2>Worked example: adding AI to a support app</h2><p>Suppose you are building a support dashboard that suggests draft replies. Gemini CLI can speed up implementation, but the AI Toolkit and your app structure matter more once the feature exists.</p><p>You still need prompt inputs, rate limiting, fallbacks, review controls, analytics, and a clean separation between UI, service layer, and data handling.</p><h2>Common mistakes</h2><ul><li>Treating every AI tool as the same category of decision.</li><li>Letting generated code ignore the existing app structure.</li><li>Shipping AI features without product-level fallback behaviour.</li></ul><h2>When to use something else</h2><p>If your issue is mostly app structure, go to <a href="/blog/flutter-app-architecture-2026">architecture</a>. If your bottleneck is UI speed, <a href="/blog/flutter-widget-previewer">Widget Previewer</a> may help more than another AI tool.</p><h2>Official references</h2><p>These official references are useful if you need the product or framework documentation alongside this guide.</p><ul><li><a href="https://docs.flutter.dev/resources/ai-overview" target="_blank" rel="noopener">Flutter docs: Create with AI</a></li></ul><h2>Related guides on this site</h2><p>If you want to keep going without opening dead ends, these are the most useful next reads from this site.</p><ul><li><a href="/blog/flutter-widget-previewer">Flutter Widget Previewer: Real-Time UI Iteration Without Running the Full App</a></li><li><a href="/blog/flutter-app-architecture-2026">Flutter App Architecture in 2026: A Practical Feature-First Guide</a></li><li><a href="/blog/flutter-testing-strategy-2026">Flutter Testing Strategy in 2026: Unit, Widget, Integration, and Goldens</a></li><li><a href="/blog/flutter-state-management">Flutter State Management in 2026: Provider vs Riverpod vs BLoC</a></li></ul>
+<div class="blog-cta-box"><h3>Need a structured Flutter learning path?</h3><p>My Flutter and Dart training focuses on production habits, architecture choices, and the practical skills teams need to ship and maintain apps.</p><a href="/courses" class="btn-primary">Explore Flutter courses <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/animations.js" defer></script>
+  <script src="/tracking.js" defer></script>
+</body>
+</html>

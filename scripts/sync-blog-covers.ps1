@@ -599,11 +599,11 @@ function NewCover($p,$img,[string]$title,[string]$tag,[string]$path){
     }finally{$grid.Dispose()}
 
     PortraitFrame $g $img $p
-    $variant=if($p.ContainsKey('Variant')){[string]$p['Variant']}else{''}
+    $variant=if($p.Contains('Variant')){[string]$p['Variant']}else{''}
 
-    $renderTitle=if($p.ContainsKey('CoverTitle') -and $p['CoverTitle']){[string]$p['CoverTitle']}else{$title}
+    $renderTitle=if($p.Contains('CoverTitle') -and $p['CoverTitle']){[string]$p['CoverTitle']}else{$title}
 
-    $renderTag=if($p.ContainsKey('CoverTag') -and $p['CoverTag']){[string]$p['CoverTag']}else{$tag}
+    $renderTag=if($p.Contains('CoverTag') -and $p['CoverTag']){[string]$p['CoverTag']}else{$tag}
     if($variant -eq 'mobile-compare'){
       MobileBackdropScene $g $p
       FrameworkBadge $g $p 1010 26
@@ -611,6 +611,10 @@ function NewCover($p,$img,[string]$title,[string]$tag,[string]$path){
     }elseif($variant -eq 'state-management'){
       StateManagementScene $g $p
       GlassPanel $g 520 84 498 470 38 '#07131B' 210 '#D9F7FF' 24
+    }elseif($variant -eq 'flutter-general'){
+      BackdropScene $g $p
+      GlassPanel $g 520 84 498 470 38 '#07131B' 210 '#D9F7FF' 24
+      FlutterGlyph $g 1040 32 1.9
     }elseif($variant -eq 'neuro-prompts'){
       NeuroPromptScene $g $p
       ExcelLogo $g 1034 26 132
@@ -735,6 +739,32 @@ $posts=@(
 @{Slug='what-if-analysis';P='#1D4ED8';S='#F59E0B';Hook='Compare outcomes, test assumptions, and make better Excel decisions.';CTA='Run Better Scenarios';K=@('Goal Seek','Scenarios','Solver');Cue='spreadsheet visuals and scenario comparison elements'},
 @{Slug='vlookup-vs-xlookup';P='#166534';S='#EA580C';Hook='See when the legacy lookup still works and when the modern one wins.';CTA='Choose The Better Lookup';K=@('VLOOKUP','XLOOKUP','Compare');Cue='lookup comparisons, arrows, and side-by-side formula cues'}
 )
+
+$manifestPath=Join-Path $PSScriptRoot 'blog_cluster_covers.json'
+if(Test-Path $manifestPath){
+  $manifestPosts=Get-Content $manifestPath -Raw -Encoding UTF8 | ConvertFrom-Json
+  foreach($item in $manifestPosts){
+    if($item.slug -in $posts.Slug){continue}
+    $palette=switch($item.category){
+      'Flutter' { @{P='#2563EB';S='#22D3EE';Variant='flutter-general'} }
+      'AI + Excel' { @{P='#2563EB';S='#22C55E';Variant=''} }
+      default { @{P='#0F766E';S='#34D399';Variant=''} }
+    }
+    $entry=[ordered]@{
+      Slug=[string]$item.slug
+      P=[string]$palette.P
+      S=[string]$palette.S
+      Hook=[string]$item.hook
+      CTA=[string]$item.cta
+      K=@($item.keywords | ForEach-Object { [string]$_ })
+      Cue=[string]$item.cue
+    }
+    if($palette.Variant){
+      $entry.Variant=[string]$palette.Variant
+    }
+    $posts+=,$entry
+  }
+}
 
 $root=Resolve-Path (Join-Path $PSScriptRoot '..')
 $public=Join-Path $root 'public'

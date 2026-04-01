@@ -3,15 +3,33 @@
   <channel>
     <title>Sagnik Bhattacharya — Blog</title>
     <link>https://sagnikbhattacharya.com/blog</link>
-    <description>Tutorials on Excel, AI tools, Flutter, and tech — by Sagnik Bhattacharya of Coding Liquids.</description>
-    <language>en-in</language>
-    <lastBuildDate>Tue, 31 Mar 2026 00:00:00 +0530</lastBuildDate>
+    <description>Useful guides on Excel, Excel with AI, and Flutter by Sagnik Bhattacharya.</description>
+    <language>en-gb</language>
+    <lastBuildDate>Wed, 01 Apr 2026 00:00:00 +0530</lastBuildDate>
     <atom:link href="https://sagnikbhattacharya.com/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://sagnikbhattacharya.com/sagnik-bhattacharya.png</url>
       <title>Sagnik Bhattacharya — Blog</title>
       <link>https://sagnikbhattacharya.com/blog</link>
     </image>
+    <item>
+      <title>Agent Mode in Excel: What It Does, What It Can’t, and Who Should Use It</title>
+      <link>https://sagnikbhattacharya.com/blog/agent-mode-in-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/agent-mode-in-excel</guid>
+      <description>Learn what Agent Mode in Excel actually does, where it saves time, where it still needs human review, and which teams will benefit most.</description>
+      <category>AI + Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>GROUPBY Function in Excel: Formula-Based Summaries Without a Pivot Table</title>
+      <link>https://sagnikbhattacharya.com/blog/groupby-function-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/groupby-function-excel</guid>
+      <description>Learn how GROUPBY works in Excel, when it beats a PivotTable, and how to use it for dynamic summaries that stay close to the source data.</description>
+      <category>Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
     <item>
       <title>Flutter State Management in 2026: Provider vs Riverpod vs BLoC</title>
       <link>https://sagnikbhattacharya.com/blog/flutter-state-management</link>
@@ -25,19 +43,19 @@
       <title>60 AI Prompts for Excel That Actually Work (Copy, Paste, Get Results)</title>
       <link>https://sagnikbhattacharya.com/blog/excel-ai-prompts</link>
       <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/excel-ai-prompts</guid>
-      <description>A curated library of 60 proven AI prompts for Excel — organized by task. Write formulas, clean data, build macros, analyse data, debug errors, and build dashboards using ChatGPT, Claude, Copilot, or Gemini.</description>
+      <description>A curated library of 60 proven AI prompts for Excel — organised by task. Write formulas, clean data, build macros, analyse data, debug errors, and build dashboards using ChatGPT, Claude, Copilot, or Gemini.</description>
       <category>AI + Excel</category>
       <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
       <pubDate>Tue, 31 Mar 2026 00:00:00 +0530</pubDate>
     </item>
     <item>
-      <title>How to Use ChatGPT to Write Excel Formulas (With Real Examples)</title>
-      <link>https://sagnikbhattacharya.com/blog/chatgpt-excel-guide</link>
-      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/chatgpt-excel-guide</guid>
-      <description>ChatGPT can write complex Excel formulas from plain English. Learn how to prompt it effectively for formulas, VBA macros, data cleaning, and error fixes — with examples.</description>
-      <category>ChatGPT + Excel</category>
+      <title>Flutter Widget Previewer: Real-Time UI Iteration Without Running the Full App</title>
+      <link>https://sagnikbhattacharya.com/blog/flutter-widget-previewer</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/flutter-widget-previewer</guid>
+      <description>Learn what Flutter Widget Previewer is good at, where it saves time, and how to fold it into a production workflow without skipping real testing.</description>
+      <category>Flutter</category>
       <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
-      <pubDate>Sun, 29 Mar 2026 00:00:00 +0530</pubDate>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +0530</pubDate>
     </item>
     <item>
       <title>How to Use Google Gemini to Write Excel Formulas for Free</title>
@@ -49,6 +67,51 @@
       <pubDate>Sun, 29 Mar 2026 00:00:00 +0530</pubDate>
     </item>
     <item>
+      <title>Use Claude With Agent Mode in Excel: Setup, Limits, and Best Workflows</title>
+      <link>https://sagnikbhattacharya.com/blog/claude-agent-mode-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/claude-agent-mode-excel</guid>
+      <description>A practical guide to using Claude with Agent Mode in Excel, including setup expectations, current limits, and the workflows where it helps most.</description>
+      <category>AI + Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 29 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Use ChatGPT to Write Excel Formulas (With Real Examples)</title>
+      <link>https://sagnikbhattacharya.com/blog/chatgpt-excel-guide</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/chatgpt-excel-guide</guid>
+      <description>ChatGPT can write complex Excel formulas from plain English. Learn how to prompt it effectively for formulas, VBA macros, data cleaning, and error fixes — with examples.</description>
+      <category>ChatGPT + Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 29 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>PIVOTBY Function in Excel: Build Pivot-Style Reports With a Formula</title>
+      <link>https://sagnikbhattacharya.com/blog/pivotby-function-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/pivotby-function-excel</guid>
+      <description>Learn when to use PIVOTBY in Excel, how it differs from PivotTables, and how to create report-style summaries directly in formulas.</description>
+      <category>Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>Create With AI in Flutter: Gemini CLI, MCP, and the AI Toolkit Explained</title>
+      <link>https://sagnikbhattacharya.com/blog/create-with-ai-flutter</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/create-with-ai-flutter</guid>
+      <description>Learn how Flutter’s AI tooling story fits together, including Gemini CLI, MCP, and the AI Toolkit, without turning your app into AI-themed fluff.</description>
+      <category>Flutter</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Use What-If Analysis in Excel: Goal Seek and Scenarios</title>
+      <link>https://sagnikbhattacharya.com/blog/what-if-analysis</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/what-if-analysis</guid>
+      <description>Learn how to use Excel&#x27;s What-If Analysis tools — Goal Seek, Scenario Manager, Data Tables, and Solver — to reverse-engineer targets and model multiple outcomes.</description>
+      <category>Advanced</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Thu, 26 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
       <title>Flutter vs React Native in 2026: Which Should You Choose?</title>
       <link>https://sagnikbhattacharya.com/blog/flutter-vs-react-native</link>
       <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/flutter-vs-react-native</guid>
@@ -58,13 +121,31 @@
       <pubDate>Thu, 26 Mar 2026 00:00:00 +0530</pubDate>
     </item>
     <item>
-      <title>How to Use What-If Analysis in Excel: Goal Seek and Scenarios</title>
-      <link>https://sagnikbhattacharya.com/blog/what-if-analysis</link>
-      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/what-if-analysis</guid>
-      <description>Learn how to use Excel's What-If Analysis tools — Goal Seek, Scenario Manager, Data Tables, and Solver — to reverse-engineer targets and model multiple outcomes.</description>
-      <category>Advanced</category>
+      <title>COPILOT Function in Excel: Syntax, Use Cases, Limits, and Risks</title>
+      <link>https://sagnikbhattacharya.com/blog/copilot-function-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/copilot-function-excel</guid>
+      <description>Learn what the COPILOT function in Excel is actually for, where it helps, what its preview limits mean, and how to review the output properly.</description>
+      <category>AI + Excel</category>
       <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
       <pubDate>Thu, 26 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>GROUPBY vs PivotTable in Excel: When Formula Summaries Beat the Ribbon</title>
+      <link>https://sagnikbhattacharya.com/blog/groupby-vs-pivottable-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/groupby-vs-pivottable-excel</guid>
+      <description>Compare GROUPBY and PivotTables in Excel so you can choose the right summary tool for dashboards, recurring reports, and ad hoc analysis.</description>
+      <category>Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>Flutter Web in 2026: skwasm vs CanvasKit vs WebAssembly Builds</title>
+      <link>https://sagnikbhattacharya.com/blog/flutter-web-skwasm-vs-canvaskit</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/flutter-web-skwasm-vs-canvaskit</guid>
+      <description>A practical guide to Flutter web renderer choices in 2026, including when skwasm, CanvasKit, and WebAssembly builds make sense.</description>
+      <category>Flutter</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Tue, 24 Mar 2026 00:00:00 +0530</pubDate>
     </item>
     <item>
       <title>How to Build a Financial Model in Excel From Scratch</title>
@@ -85,6 +166,15 @@
       <pubDate>Mon, 23 Mar 2026 00:00:00 +0530</pubDate>
     </item>
     <item>
+      <title>Analyst vs Agent Mode vs Copilot Chat: Which Excel AI Workflow Fits Best?</title>
+      <link>https://sagnikbhattacharya.com/blog/analyst-vs-agent-mode-vs-copilot-chat</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/analyst-vs-agent-mode-vs-copilot-chat</guid>
+      <description>Compare Analyst, Agent Mode, and Copilot chat in Excel so you can choose the AI surface that fits the task instead of forcing one tool everywhere.</description>
+      <category>AI + Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
       <title>How to Fix Excel Formula Errors with Claude AI (Fast)</title>
       <link>https://sagnikbhattacharya.com/blog/claude-debug-formulas</link>
       <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/claude-debug-formulas</guid>
@@ -94,22 +184,58 @@
       <pubDate>Sun, 22 Mar 2026 00:00:00 +0530</pubDate>
     </item>
     <item>
+      <title>CHOOSECOLS, CHOOSEROWS, TAKE, and DROP in Excel: Slice Data Faster</title>
+      <link>https://sagnikbhattacharya.com/blog/choosecols-chooserows-take-drop-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/choosecols-chooserows-take-drop-excel</guid>
+      <description>Learn how CHOOSECOLS, CHOOSEROWS, TAKE, and DROP help you reshape modern Excel arrays without extra helper columns or manual copying.</description>
+      <category>Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
       <title>How to Use Power Pivot in Excel to Analyse Millions of Rows</title>
       <link>https://sagnikbhattacharya.com/blog/power-pivot-guide</link>
       <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/power-pivot-guide</guid>
-      <description>Excel's row limit is 1 million — Power Pivot breaks it. Learn how to load multiple tables, create relationships, and write DAX formulas for advanced pivot analysis.</description>
+      <description>Excel&#x27;s row limit is 1 million — Power Pivot breaks it. Learn how to load multiple tables, create relationships, and write DAX formulas for advanced pivot analysis.</description>
       <category>Advanced</category>
       <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
       <pubDate>Sat, 21 Mar 2026 00:00:00 +0530</pubDate>
     </item>
     <item>
+      <title>Flutter App Architecture in 2026: A Practical Feature-First Guide</title>
+      <link>https://sagnikbhattacharya.com/blog/flutter-app-architecture-2026</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/flutter-app-architecture-2026</guid>
+      <description>A practical guide to Flutter app architecture in 2026, with a feature-first structure that helps teams scale without drowning in folders.</description>
+      <category>Flutter</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>Format Data for Copilot in Excel: Tables, Supported Ranges, and Common Failures</title>
+      <link>https://sagnikbhattacharya.com/blog/format-data-for-copilot-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/format-data-for-copilot-excel</guid>
+      <description>Learn how to format data for Copilot in Excel so prompts work better, tables stay readable, and common workbook failures stop getting in the way.</description>
+      <category>AI + Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
       <title>How to Make Professional Charts in Excel (Step-by-Step Guide)</title>
       <link>https://sagnikbhattacharya.com/blog/charts-visualisations</link>
       <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/charts-visualisations</guid>
-      <description>Learn how to choose the right chart type, format it professionally, and present data clearly in Excel. Covers bar, line, pie, and combo charts with practical tips.</description>
+      <description>How to Make Professional Charts in Excel (Step-by-Step Guide)</description>
       <category>Data Analysis</category>
       <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
       <pubDate>Fri, 20 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>MAP, SCAN, and REDUCE in Excel: Modern Array Logic for Power Users</title>
+      <link>https://sagnikbhattacharya.com/blog/map-scan-reduce-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/map-scan-reduce-excel</guid>
+      <description>Learn how MAP, SCAN, and REDUCE expand modern Excel array logic so you can transform, accumulate, and combine data more elegantly.</description>
+      <category>Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0530</pubDate>
     </item>
     <item>
       <title>How to Add a Dropdown List in Excel Using Data Validation</title>
@@ -130,6 +256,15 @@
       <pubDate>Wed, 18 Mar 2026 00:00:00 +0530</pubDate>
     </item>
     <item>
+      <title>go_router in Flutter: Deep Linking, Nested Navigation, and Web URLs</title>
+      <link>https://sagnikbhattacharya.com/blog/go-router-flutter-deep-linking</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/go-router-flutter-deep-linking</guid>
+      <description>Learn how go_router helps with deep linking, nested navigation, and cleaner Flutter web URLs without turning routing into a maintenance problem.</description>
+      <category>Flutter</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
       <title>Excel vs Google Sheets: Which Is Better for You in 2026?</title>
       <link>https://sagnikbhattacharya.com/blog/excel-vs-google-sheets</link>
       <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/excel-vs-google-sheets</guid>
@@ -137,6 +272,33 @@
       <category>Excel Basics</category>
       <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
       <pubDate>Tue, 17 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>Create Lookups With Copilot in Excel: When It Writes XLOOKUP Well and When It Doesn’t</title>
+      <link>https://sagnikbhattacharya.com/blog/create-lookups-with-copilot-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/create-lookups-with-copilot-excel</guid>
+      <description>Learn when Copilot is genuinely useful for XLOOKUP-style formulas in Excel, and when you should stop prompting and write or review the formula yourself.</description>
+      <category>AI + Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>LET and LAMBDA in Excel: Turn Repeated Formulas Into Reusable Logic</title>
+      <link>https://sagnikbhattacharya.com/blog/let-and-lambda-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/let-and-lambda-excel</guid>
+      <description>Learn how LET and LAMBDA make complex Excel formulas easier to read, reuse, and maintain without leaving the workbook.</description>
+      <category>Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>Flutter Form Validation Best Practices for Production Apps</title>
+      <link>https://sagnikbhattacharya.com/blog/flutter-form-validation-best-practices</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/flutter-form-validation-best-practices</guid>
+      <description>Learn practical Flutter form validation habits that keep production apps clearer, safer, and less frustrating for users and engineers alike.</description>
+      <category>Flutter</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0530</pubDate>
     </item>
     <item>
       <title>15 Excel Formulas That Save Hours of Manual Work (With Examples)</title>
@@ -148,6 +310,15 @@
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0530</pubDate>
     </item>
     <item>
+      <title>Generate Formula Columns With Copilot in Excel: Best Prompts and Review Steps</title>
+      <link>https://sagnikbhattacharya.com/blog/generate-formula-columns-copilot-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/generate-formula-columns-copilot-excel</guid>
+      <description>Learn how to use Copilot for full formula columns in Excel, including the prompt patterns and review steps that stop bad logic spreading down the sheet.</description>
+      <category>AI + Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
       <title>How to Use Microsoft Copilot for Data Analysis in Excel</title>
       <link>https://sagnikbhattacharya.com/blog/copilot-data-analysis</link>
       <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/copilot-data-analysis</guid>
@@ -157,13 +328,31 @@
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0530</pubDate>
     </item>
     <item>
+      <title>XMATCH in Excel: Smarter Lookups, Reverse Searches, and Binary Search Use Cases</title>
+      <link>https://sagnikbhattacharya.com/blog/xmatch-function-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/xmatch-function-excel</guid>
+      <description>Learn how XMATCH improves lookup logic in Excel, including reverse searches and scenarios where binary search can make sense.</description>
+      <category>Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Fri, 13 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
       <title>How to Use Claude AI to Write Excel Macros and VBA Code</title>
       <link>https://sagnikbhattacharya.com/blog/claude-ai-excel-macros</link>
       <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/claude-ai-excel-macros</guid>
-      <description>Never written VBA before? Use Claude AI to generate Excel macros from plain English — automate repetitive tasks, format reports, and build custom tools without coding.</description>
+      <description>How to Use Claude AI to Write Excel Macros and VBA Code</description>
       <category>Claude + Excel</category>
       <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
       <pubDate>Fri, 13 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>Flutter Performance in 2026: Impeller, DevTools, and Rebuild Reduction</title>
+      <link>https://sagnikbhattacharya.com/blog/flutter-performance-2026</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/flutter-performance-2026</guid>
+      <description>A practical Flutter performance guide for 2026, covering what to measure, where jank usually starts, and how to reduce rebuild and startup pain.</description>
+      <category>Flutter</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0530</pubDate>
     </item>
     <item>
       <title>30 Excel Keyboard Shortcuts That Save Hours Every Week</title>
@@ -175,6 +364,24 @@
       <pubDate>Wed, 11 Mar 2026 00:00:00 +0530</pubDate>
     </item>
     <item>
+      <title>Generate Single-Cell Formulas With Copilot in Excel: Fast Wins and Failure Modes</title>
+      <link>https://sagnikbhattacharya.com/blog/generate-single-cell-formulas-copilot-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/generate-single-cell-formulas-copilot-excel</guid>
+      <description>Learn when Copilot is useful for one-off Excel formulas, how to prompt it cleanly, and how to catch the failure modes before you trust the result.</description>
+      <category>AI + Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>Excel Tables Best Practices: Structured References, Growth, and Cleaner Models</title>
+      <link>https://sagnikbhattacharya.com/blog/excel-tables-best-practices</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/excel-tables-best-practices</guid>
+      <description>Learn practical Excel table habits that make reports easier to maintain, formulas easier to read, and AI or dashboard workflows far more reliable.</description>
+      <category>Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
       <title>How to Build an Interactive Dashboard in Excel (No VBA)</title>
       <link>https://sagnikbhattacharya.com/blog/dynamic-dashboards</link>
       <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/dynamic-dashboards</guid>
@@ -182,6 +389,15 @@
       <category>Data Analysis</category>
       <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
       <pubDate>Tue, 10 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>Responsive Flutter UI for Mobile, Tablet, Desktop, and Web</title>
+      <link>https://sagnikbhattacharya.com/blog/responsive-flutter-ui-all-screens</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/responsive-flutter-ui-all-screens</guid>
+      <description>Learn how to build responsive Flutter interfaces that hold up across mobile, tablet, desktop, and web without relying on brittle one-off layouts.</description>
+      <category>Flutter</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0530</pubDate>
     </item>
     <item>
       <title>How to Use Power Query in Excel to Automate Data Cleaning</title>
@@ -193,10 +409,28 @@
       <pubDate>Mon, 09 Mar 2026 00:00:00 +0530</pubDate>
     </item>
     <item>
+      <title>Create Charts With Copilot in Excel: What Works, What Needs Manual Cleanup</title>
+      <link>https://sagnikbhattacharya.com/blog/create-charts-with-copilot-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/create-charts-with-copilot-excel</guid>
+      <description>Learn when Copilot helps with charts in Excel, where it still needs manual cleanup, and how to review the result before sharing it widely.</description>
+      <category>AI + Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 08 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Fix #SPILL! Errors in Excel and Prevent Them in Dynamic Array Models</title>
+      <link>https://sagnikbhattacharya.com/blog/fix-spill-errors-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/fix-spill-errors-excel</guid>
+      <description>Learn the practical causes of #SPILL! errors in Excel and how to fix and prevent them in dynamic-array workbooks.</description>
+      <category>Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
       <title>How to Clean Messy Data in Excel: Step-by-Step Guide</title>
       <link>https://sagnikbhattacharya.com/blog/clean-messy-data</link>
       <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/clean-messy-data</guid>
-      <description>Duplicates, blanks, inconsistent text, wrong formats — this step-by-step guide shows the fastest ways to clean messy spreadsheet data using Excel's built-in tools.</description>
+      <description>Duplicates, blanks, inconsistent text, wrong formats — this step-by-step guide shows the fastest ways to clean messy spreadsheet data using Excel&#x27;s built-in tools.</description>
       <category>Data Analysis</category>
       <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
       <pubDate>Sat, 07 Mar 2026 00:00:00 +0530</pubDate>
@@ -211,6 +445,24 @@
       <pubDate>Fri, 06 Mar 2026 00:00:00 +0530</pubDate>
     </item>
     <item>
+      <title>Add Flutter to an Existing App: Mobile and Web Integration Patterns</title>
+      <link>https://sagnikbhattacharya.com/blog/add-flutter-to-existing-app</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/add-flutter-to-existing-app</guid>
+      <description>Learn practical patterns for adding Flutter to an existing product without turning the integration into a long-term maintenance burden.</description>
+      <category>Flutter</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>Text Analysis in Excel With AI: Survey Comments, Reviews, and Open Feedback</title>
+      <link>https://sagnikbhattacharya.com/blog/text-analysis-excel-with-ai</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/text-analysis-excel-with-ai</guid>
+      <description>Learn how to use AI with Excel to analyse survey comments, product reviews, and open-text feedback without turning the process into a black box.</description>
+      <category>AI + Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
       <title>How to Create a Pivot Table in Excel Step by Step</title>
       <link>https://sagnikbhattacharya.com/blog/mastering-pivot-tables</link>
       <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/mastering-pivot-tables</guid>
@@ -218,6 +470,15 @@
       <category>Data Analysis</category>
       <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
       <pubDate>Thu, 05 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Audit Formulas in Excel: Trace Precedents, Dependents, and Error Sources</title>
+      <link>https://sagnikbhattacharya.com/blog/audit-formulas-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/audit-formulas-excel</guid>
+      <description>Learn how to audit formulas in Excel so you can trace errors faster, understand dependencies, and reduce hidden spreadsheet risk.</description>
+      <category>Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Wed, 04 Mar 2026 00:00:00 +0530</pubDate>
     </item>
     <item>
       <title>VLOOKUP vs XLOOKUP: Differences and When to Use Each</title>
@@ -229,6 +490,24 @@
       <pubDate>Tue, 03 Mar 2026 00:00:00 +0530</pubDate>
     </item>
     <item>
+      <title>Flutter Testing Strategy in 2026: Unit, Widget, Integration, and Goldens</title>
+      <link>https://sagnikbhattacharya.com/blog/flutter-testing-strategy-2026</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/flutter-testing-strategy-2026</guid>
+      <description>Learn how to choose the right mix of unit, widget, integration, and golden tests in Flutter without building a slow test suite no one trusts.</description>
+      <category>Flutter</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Tue, 03 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>Python in Excel for Beginners: The First 10 Things Worth Learning</title>
+      <link>https://sagnikbhattacharya.com/blog/python-in-excel-beginners</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/python-in-excel-beginners</guid>
+      <description>Learn the first practical things worth understanding about Python in Excel so you can move beyond hype and decide where it genuinely helps.</description>
+      <category>AI + Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
       <title>How to Set Up and Use Microsoft Copilot in Excel (2026)</title>
       <link>https://sagnikbhattacharya.com/blog/getting-started-copilot-excel</link>
       <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/getting-started-copilot-excel</guid>
@@ -238,6 +517,15 @@
       <pubDate>Mon, 02 Mar 2026 00:00:00 +0530</pubDate>
     </item>
     <item>
+      <title>Protect an Excel Workbook Without Breaking Collaboration and Shared Editing</title>
+      <link>https://sagnikbhattacharya.com/blog/protect-excel-workbook-collaboration</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/protect-excel-workbook-collaboration</guid>
+      <description>Learn how to protect an Excel workbook sensibly so formulas and structure stay safer without making collaboration more painful than necessary.</description>
+      <category>Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
       <title>How to Use Claude AI to Write Excel Formulas Instantly</title>
       <link>https://sagnikbhattacharya.com/blog/claude-ai-excel-formulas</link>
       <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/claude-ai-excel-formulas</guid>
@@ -245,6 +533,168 @@
       <category>Claude + Excel</category>
       <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
       <pubDate>Sun, 01 Mar 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>PY Function in Excel: What It Is, How It Works, and When to Use It</title>
+      <link>https://sagnikbhattacharya.com/blog/py-function-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/py-function-excel</guid>
+      <description>Learn what the PY function in Excel is for, how it fits into Python in Excel workflows, and when it is worth using instead of ordinary formulas.</description>
+      <category>AI + Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Create a Calendar in Excel That Updates Automatically Every Month</title>
+      <link>https://sagnikbhattacharya.com/blog/calendar-in-excel-automatic</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/calendar-in-excel-automatic</guid>
+      <description>Learn how to build an Excel calendar that updates automatically so you can reuse it for schedules, planning, and lightweight team coordination.</description>
+      <category>Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>Copilot in Excel With Python: Forecasting, Risk Analysis, and Deeper Reasoning</title>
+      <link>https://sagnikbhattacharya.com/blog/copilot-excel-python-analysis</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/copilot-excel-python-analysis</guid>
+      <description>Learn how Copilot and Python in Excel can work together for deeper analysis, and where you still need human judgement before trusting the result.</description>
+      <category>AI + Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Make a Gantt Chart in Excel for Real Project Planning</title>
+      <link>https://sagnikbhattacharya.com/blog/gantt-chart-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/gantt-chart-excel</guid>
+      <description>Learn how to build a practical Gantt chart in Excel that is useful for real project planning rather than just looking like a template.</description>
+      <category>Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>ChatGPT vs Claude vs Copilot vs Gemini for Excel in 2026</title>
+      <link>https://sagnikbhattacharya.com/blog/chatgpt-vs-claude-vs-copilot-vs-gemini-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/chatgpt-vs-claude-vs-copilot-vs-gemini-excel</guid>
+      <description>A practical comparison of ChatGPT, Claude, Copilot, and Gemini for Excel work in 2026, focused on task fit rather than brand hype.</description>
+      <category>AI + Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Build an Inventory Tracker in Excel That Stays Maintainable</title>
+      <link>https://sagnikbhattacharya.com/blog/inventory-tracker-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/inventory-tracker-excel</guid>
+      <description>Learn how to build an inventory tracker in Excel that stays clean, maintainable, and useful instead of becoming a brittle stock spreadsheet.</description>
+      <category>Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Review AI-Generated Excel Formulas Before You Trust Them</title>
+      <link>https://sagnikbhattacharya.com/blog/review-ai-generated-excel-formulas</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/review-ai-generated-excel-formulas</guid>
+      <description>Learn a practical review process for AI-generated Excel formulas so you can catch bad logic before it reaches the workbook or the report.</description>
+      <category>AI + Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Create an Attendance Tracker in Excel for Teams, Schools, or Training</title>
+      <link>https://sagnikbhattacharya.com/blog/attendance-tracker-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/attendance-tracker-excel</guid>
+      <description>Learn how to create an attendance tracker in Excel that stays clear and reusable for teams, schools, workshops, or training cohorts.</description>
+      <category>Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>Use AI to Write and Fix Power Query M Code for Excel</title>
+      <link>https://sagnikbhattacharya.com/blog/ai-power-query-m-code</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/ai-power-query-m-code</guid>
+      <description>Learn how AI can help with Power Query M code in Excel, where it saves time, and how to review the result before trusting the transformation logic.</description>
+      <category>AI + Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Build a Project Tracker in Excel Without Turning It Into a Mess</title>
+      <link>https://sagnikbhattacharya.com/blog/project-tracker-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/project-tracker-excel</guid>
+      <description>Learn how to build a practical project tracker in Excel that stays maintainable instead of collapsing into status clutter and hidden logic.</description>
+      <category>Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Thu, 19 Feb 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>Build a Forecasting Model in Excel With AI Assistance Step by Step</title>
+      <link>https://sagnikbhattacharya.com/blog/ai-forecasting-model-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/ai-forecasting-model-excel</guid>
+      <description>Learn how AI can help you build an Excel forecasting model faster while still keeping the assumptions and logic reviewable.</description>
+      <category>AI + Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Wed, 18 Feb 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Build a Sales Pipeline Tracker in Excel for Small Teams</title>
+      <link>https://sagnikbhattacharya.com/blog/sales-pipeline-tracker-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/sales-pipeline-tracker-excel</guid>
+      <description>Learn how to build a simple sales pipeline tracker in Excel that small teams can maintain without turning it into a CRM lookalike.</description>
+      <category>Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Tue, 17 Feb 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>Excel + AI for Accountants: Reconciliations, Variance Reviews, and Close Prep</title>
+      <link>https://sagnikbhattacharya.com/blog/excel-ai-for-accountants</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/excel-ai-for-accountants</guid>
+      <description>Learn practical Excel and AI workflows for accountants, focused on reconciliations, variance review, and close preparation rather than vague automation claims.</description>
+      <category>AI + Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Mon, 16 Feb 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Build a Monthly Budget Spreadsheet in Excel From Scratch</title>
+      <link>https://sagnikbhattacharya.com/blog/monthly-budget-spreadsheet-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/monthly-budget-spreadsheet-excel</guid>
+      <description>Learn how to build a monthly budget spreadsheet in Excel from scratch so it stays useful, readable, and easy to update month after month.</description>
+      <category>Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>Excel + AI for HR Teams: Hiring Trackers, Attrition Analysis, and Reporting</title>
+      <link>https://sagnikbhattacharya.com/blog/excel-ai-for-hr-teams</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/excel-ai-for-hr-teams</guid>
+      <description>Learn practical Excel and AI workflows for HR teams, focused on hiring trackers, attrition analysis, and reporting that still needs human judgement.</description>
+      <category>AI + Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sat, 14 Feb 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Create an Amortization Schedule in Excel With Extra Payment Scenarios</title>
+      <link>https://sagnikbhattacharya.com/blog/amortization-schedule-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/amortization-schedule-excel</guid>
+      <description>Learn how to create an amortisation schedule in Excel, including extra payment scenarios that make the sheet more useful for real planning.</description>
+      <category>Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Fri, 13 Feb 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>Excel + AI for Sales Ops: Pipeline Cleanup, Forecasts, and Territory Reporting</title>
+      <link>https://sagnikbhattacharya.com/blog/excel-ai-for-sales-ops</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/excel-ai-for-sales-ops</guid>
+      <description>Learn practical Excel and AI workflows for Sales Ops, focused on pipeline cleanup, forecasting support, and territory reporting.</description>
+      <category>AI + Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Thu, 12 Feb 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>Map Charts in Excel: When to Use Them, Data Prep, and Common Mistakes</title>
+      <link>https://sagnikbhattacharya.com/blog/map-charts-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/map-charts-excel</guid>
+      <description>Learn when map charts in Excel are useful, how to prepare the location data properly, and the mistakes that make them misleading.</description>
+      <category>Excel</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Wed, 11 Feb 2026 00:00:00 +0530</pubDate>
     </item>
   </channel>
 </rss>
