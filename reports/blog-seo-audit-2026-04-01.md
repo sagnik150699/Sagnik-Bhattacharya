@@ -3,7 +3,7 @@
 - Audit date: `2026-04-01`
 - New posts audited: `50`
 - Legacy posts inspected: `26`
-- Internal links checked across in-scope HTML: `1283`
+- Internal links checked across in-scope HTML: `1493`
 - In-scope blockers: `0`
 - In-scope high findings: `0`
 - In-scope medium findings: `0`

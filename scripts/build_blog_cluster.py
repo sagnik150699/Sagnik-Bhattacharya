@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import html
 import json
+import math
 import re
 from dataclasses import dataclass
 from datetime import date, datetime
@@ -249,7 +250,7 @@ def words_in_html(value: str) -> int:
 
 
 def estimate_read_time(body_html: str) -> int:
-    return max(6, round(words_in_html(body_html) / 180))
+    return max(3, math.ceil(words_in_html(body_html) / 220))
 
 
 def render_list(items: list[str]) -> str:
@@ -818,6 +819,21 @@ def render_body(post: dict[str, Any], new_lookup: dict[str, dict[str, Any]], old
     if post.get("instead"):
         instead = post["instead"]
         html_parts.append(section_html(instead.get("heading", "When to use something else"), instead.get("paragraphs"), instead.get("bullets")))
+    for section in build_generated_sections(post, new_lookup, old_lookup):
+        table_html = ""
+        if section.get("table"):
+            table = section["table"]
+            table_html = render_table(table["headers"], table["rows"])
+        html_parts.append(
+            section_html(
+                section["heading"],
+                section.get("paragraphs"),
+                section.get("bullets"),
+                table_html or None,
+                section.get("code"),
+                section.get("code_language", ""),
+            )
+        )
     html_parts.append(render_sources(post.get("sources", [])))
     html_parts.append(render_related_section(post, new_lookup, old_lookup))
     return "".join(html_parts)
@@ -3009,6 +3025,1212 @@ NEW_POSTS: list[dict[str, Any]] = [
 ]
 
 
+ANCHOR_BLUEPRINTS: dict[str, dict[str, Any]] = {}
+
+ANCHOR_BLUEPRINTS.update(
+    {
+        "agent-mode-in-excel": {
+            "audience": "analysts, finance leads, operations managers, and spreadsheet owners who need faster answers without losing workbook control",
+            "value_case": "Agent Mode changes the unit of work from one reply to a short chain of workbook actions, which means the real challenge is supervision, not only prompting.",
+            "prerequisites": [
+                "The source workbook already uses clear table headers, clean ranges, and descriptive sheet names.",
+                "You can duplicate the workbook or work inside a safe review copy before structural edits happen.",
+                "Someone on the team can manually check formulas, filters, and totals after each run.",
+                "The business has agreed which outputs are draft support and which still need human sign-off.",
+            ],
+            "decision_points": [
+                "Is the task exploratory and reviewable, or does one wrong change distort a board-level number?",
+                "Do you want Agent Mode to explain, to draft, or to edit the workbook directly?",
+                "Will the user know enough about the workbook to catch a subtle mistake quickly?",
+                "Is the current workbook structured well enough that the assistant can see the same logic a human would see?",
+            ],
+            "workflow_steps": [
+                "Ask Agent Mode to map the workbook, name the tables, and explain what it thinks the data represents before requesting conclusions.",
+                "Narrow the task to one bounded output such as a first-pass summary, anomaly explanation, or draft report structure.",
+                "Review every changed formula, filter scope, and sheet edit before using the result elsewhere.",
+                "Log the useful prompt wording and the review checks if the task will repeat weekly or monthly.",
+                "Promote successful prompt sequences into a written operating routine instead of improvising from scratch every cycle.",
+            ],
+            "standards": [
+                "Separate safe working copies from approved reporting outputs.",
+                "Use consistent names for dates, regions, metrics, and status columns so the assistant sees stable structure.",
+                "Keep a lightweight review checklist for totals, filters, outliers, and formulas touched.",
+                "Decide in advance which workbook actions may be automated and which must stay recommendation-only.",
+            ],
+            "scenario_title": "Scenario: month-end revenue commentary for an operations review",
+            "scenario_paragraphs": [
+                "An operations lead inherits one workbook with bookings, cancellations, refunds, discount codes, and regional notes. The question from leadership sounds simple: explain what changed this month and whether one region needs intervention. That is exactly the sort of request that tempts teams to over-trust Agent Mode, because the question spans several sheets and feels bigger than one formula.",
+                "A safer pattern is to split the work into stages. First the assistant describes the workbook and names the tables it plans to use. Then it summarises revenue, cancellations, and discount trends by region. Only after that does it draft commentary about where the change appears to be coming from. Each stage creates a reviewable checkpoint instead of jumping straight from raw workbook to polished answer.",
+                "By the time the commentary reaches leadership, the human owner has checked the date range, validated the totals against the finance view, confirmed that outliers are real rather than filtered artefacts, and rewritten any wording that sounded more certain than the data deserved. That makes Agent Mode a speed tool inside a governed workflow rather than a hidden analyst replacement.",
+            ],
+            "metrics": [
+                "How often the assistant identifies the right tables and ranges without human correction.",
+                "Time saved between receiving the workbook and producing a reviewed draft summary.",
+                "Number of structural or logic issues caught during review before results are shared.",
+                "How often successful runs can be converted into a repeatable documented process.",
+            ],
+            "faq": [
+                (
+                    "Should teams allow Agent Mode to edit a live workbook by default?",
+                    "Only if the workbook is low-risk and the reviewer can inspect every change quickly. For high-stakes models, explanation-first and draft-first workflows are usually safer.",
+                ),
+                (
+                    "Is Agent Mode better than Copilot chat for every task?",
+                    "No. It is better when the work involves several workbook-aware steps. Simple formula help or a one-off explanation can still fit standard chat perfectly well.",
+                ),
+                (
+                    "What is the main implementation mistake?",
+                    "Treating a plausible answer as proof. The expensive failures usually come from skipped review, weak source structure, or unclear task boundaries.",
+                ),
+                (
+                    "How do you know it is ready for repeat use?",
+                    "When the same task can be run on a clean workbook copy with stable prompts, stable review checks, and a human owner who knows what good output looks like.",
+                ),
+                (
+                    "Who should own the workflow once it is in use?",
+                    "A real workbook owner, not the tool. Someone has to own the prompts, the review step, and the business interpretation when edge cases appear.",
+                ),
+            ],
+        },
+        "chatgpt-vs-claude-vs-copilot-vs-gemini-excel": {
+            "audience": "Excel users, team leads, and consultants trying to choose the right AI assistant for a specific spreadsheet job rather than chasing the loudest demo",
+            "value_case": "Tool comparison pages only become useful when they help readers decide what to use for formula writing, workbook explanation, automation support, and narrative analysis under real constraints.",
+            "prerequisites": [
+                "You know the actual job to be done: formula drafting, debugging, workbook interpretation, reporting, or automation support.",
+                "You understand whether the work happens inside Excel, beside Excel, or across a wider process.",
+                "You have one or two realistic sample tasks for testing instead of comparing tools in the abstract.",
+                "You can separate marketing claims from the behaviour you actually need in your own environment.",
+            ],
+            "decision_points": [
+                "Does the task need tight Excel integration or just strong reasoning beside the workbook?",
+                "Is the reader optimising for speed, explanation quality, enterprise governance, or multi-step analysis?",
+                "Will the answer be reviewed by one person or passed into a team workflow?",
+                "How expensive would a confident but wrong answer be in this context?",
+            ],
+            "workflow_steps": [
+                "Choose three representative Excel tasks and run them across the candidate tools.",
+                "Score the outputs for correctness, clarity, editability, and review effort instead of judging only speed.",
+                "Separate direct workbook features from strong external assistants that still need copy-paste or context staging.",
+                "Standardise which tool the team uses for each job type so quality does not vary wildly by person.",
+                "Review the decision quarterly because product capabilities and licensing can move quickly.",
+            ],
+            "standards": [
+                "Keep a shared evaluation sheet with the prompts, sample data, and scored outcomes.",
+                "Document which tool is preferred for formula generation, explanation, analysis, and macro or code support.",
+                "Do not let one strong personal preference become an untested default for the whole team.",
+                "Treat pricing, governance, and workflow fit as first-class criteria rather than afterthoughts.",
+            ],
+            "scenario_title": "Scenario: choosing one default AI stack for a spreadsheet-heavy team",
+            "scenario_paragraphs": [
+                "A team of analysts and ops leads all use Excel heavily, but they are split across different assistants. One person loves Copilot because it lives closer to the workbook. Another prefers ChatGPT for explanations. A third finds Claude stronger for structured reasoning. Without a shared decision model, results become inconsistent and people waste time arguing tool philosophy instead of solving work problems.",
+                "The team runs a practical bake-off with four task types: write a lookup formula, explain a messy inherited workbook, draft a variance summary from an export, and suggest a clean-up approach for categorising open-text comments. They score each tool on correctness, editability, review burden, and how much context staging is needed before the answer becomes useful.",
+                "The final result is not one winner for everything. Instead the team ends up with a task map: one default for workbook-native help, one for deeper reasoning, and one for fast external drafting when Excel integration matters less. That kind of conclusion is much more durable than a generic headline about which AI is “best”.",
+            ],
+            "metrics": [
+                "Reduction in time spent choosing a tool for repeat tasks.",
+                "Consistency of output quality across different team members.",
+                "Review effort required before sharing AI-assisted workbook outputs.",
+                "How often the chosen tool map still holds up when capabilities change.",
+            ],
+            "faq": [
+                (
+                    "Is there one best AI for Excel overall?",
+                    "Not in a durable sense. The better question is which tool best fits formula help, workbook-native actions, deeper reasoning, or organisation-wide governance in your context.",
+                ),
+                (
+                    "Why do comparisons age badly?",
+                    "Because product capabilities, integrations, and pricing change. A good comparison explains the criteria well enough that readers can re-run the judgement when features move.",
+                ),
+                (
+                    "Should small teams still standardise on one tool?",
+                    "Usually yes, at least by task type. Standardisation reduces review chaos and makes it easier to document what “good” output looks like.",
+                ),
+                (
+                    "What is the most overlooked criterion?",
+                    "Review burden. Two tools can both feel fast, but the one that produces cleaner, easier-to-check answers often wins in real work.",
+                ),
+                (
+                    "Can external tools still beat Excel-native ones?",
+                    "Absolutely. Strong external reasoning can be more valuable than shallow native integration if the team knows how to stage context and review the output carefully.",
+                ),
+            ],
+        },
+        "format-data-for-copilot-excel": {
+            "audience": "spreadsheet users who want Copilot or related AI features to produce fewer misreads and more reviewable results",
+            "value_case": "Most failures blamed on prompting are really structure failures, so this topic is foundational for everything that sits on top of workbook AI.",
+            "prerequisites": [
+                "You can identify the source range that should become the trustworthy base table.",
+                "Each row represents one record and each column has one clear meaning.",
+                "Decorative layout choices can be separated from the analytical source data.",
+                "Someone can define what a clean output from Copilot should look like before the prompt is written.",
+            ],
+            "decision_points": [
+                "Should this sheet remain a presentation layer, or become a clean data layer first?",
+                "Which fields are essential for the question you want AI to answer?",
+                "Do headers reflect business meaning clearly enough for a new reader to understand them?",
+                "Would a human reviewer notice quickly if Copilot grouped or interpreted the data incorrectly?",
+            ],
+            "workflow_steps": [
+                "Move the operational data into one clean table before asking Copilot for analysis.",
+                "Rename vague columns, remove merged cells, and isolate totals or notes outside the source range.",
+                "Run one simple question first to confirm the tool is reading the right grain of data.",
+                "Only then ask for summaries, formulas, categorisation, or chart suggestions.",
+                "Save the working structure as the default pattern for the next dataset instead of cleaning from scratch every time.",
+            ],
+            "standards": [
+                "Use one header row and avoid duplicate or ambiguous field names.",
+                "Keep calculations, notes, and decorative formatting outside the raw source table when possible.",
+                "Document the table grain in plain language so reviewers know what one row represents.",
+                "Build a small pre-AI clean-up checklist that every workbook owner can run quickly.",
+            ],
+            "scenario_title": "Scenario: turning a messy monthly export into a Copilot-ready reporting table",
+            "scenario_paragraphs": [
+                "A sales operations lead receives an export with blank rows, repeated subheadings, merged cells, and several columns whose names make sense only to the person who built the report two years ago. Copilot can still respond to prompts on that sheet, but the answers swing between partial and misleading because the underlying structure does not tell a consistent story.",
+                "The turnaround comes from rebuilding the source as one proper table. Region, owner, stage, amount, close date, and product line each get their own clear column. Totals and commentary move out of the data layer. The team asks Copilot a small question first, such as summarising count and value by region, just to confirm it now sees the same grain the analyst sees.",
+                "Once that foundation is in place, later tasks become much easier: chart drafting, formula suggestions, pipeline commentary, anomaly spotting, and even text categorisation for notes. The lesson is simple but powerful. Workbook AI is downstream of structure, not a substitute for it.",
+            ],
+            "metrics": [
+                "How often Copilot answers on the correct row and column grain after clean-up.",
+                "Reduction in prompt retries caused by vague headers or mixed data layers.",
+                "Time spent preparing a workbook before AI-assisted work begins.",
+                "Number of repeat workflows that can use the same clean table pattern.",
+            ],
+            "faq": [
+                (
+                    "Can good prompting rescue bad structure?",
+                    "Sometimes it can reduce confusion, but it rarely fixes the core problem. If the data layer is ambiguous, the assistant has to guess where humans should not.",
+                ),
+                (
+                    "Do I always need an Excel Table object?",
+                    "A proper table is usually the cleanest path because it reinforces headers, growth, and structured references, but the bigger point is consistent row-column structure.",
+                ),
+                (
+                    "What is the quickest quality check?",
+                    "Ask one narrow summary question first. If the answer groups the data correctly, you know the structure is at least readable before you request bigger outputs.",
+                ),
+                (
+                    "Should totals stay inside the same range?",
+                    "Usually no. Totals, commentary, and presentation elements are better kept outside the analytical source layer so the tool reads the data cleanly.",
+                ),
+                (
+                    "Why does this deserve anchor-page depth?",
+                    "Because nearly every Excel AI workflow gets stronger or weaker based on data structure. Fixing that upstream lever improves the whole cluster, not just one article.",
+                ),
+            ],
+        },
+    }
+)
+
+ANCHOR_BLUEPRINTS.update(
+    {
+        "flutter-performance-2026": {
+            "audience": "Flutter developers who need a repeatable way to diagnose and improve performance instead of collecting isolated optimisation tricks",
+            "value_case": "Performance work only becomes valuable when it is measured, prioritised, and tied back to user-visible problems rather than intuition alone.",
+            "prerequisites": [
+                "You can reproduce the performance issue on a screen, flow, or device profile that matters.",
+                "The team is willing to measure before and after changes instead of guessing.",
+                "There is enough codebase clarity to isolate rendering, state, image, or data causes separately.",
+                "You know whether the goal is smoothness, startup, memory, or interaction responsiveness.",
+            ],
+            "decision_points": [
+                "Is the bottleneck in rebuild patterns, rendering, image handling, layout, or data work?",
+                "Which user journeys deserve optimisation first because users actually feel the pain there?",
+                "Can the issue be solved structurally rather than with scattered micro-tweaks?",
+                "What evidence will prove the change helped instead of merely moving code around?",
+            ],
+            "workflow_steps": [
+                "Start with a reproducible performance case and capture a baseline with the right tooling.",
+                "Narrow the issue to one screen, flow, or component before changing implementation details.",
+                "Fix the highest-leverage cause first, then remeasure before touching secondary issues.",
+                "Record what changed and which metric improved so the team learns from the work.",
+                "Turn repeated findings into code review heuristics and performance guardrails.",
+            ],
+            "standards": [
+                "Measure before optimising and measure again afterwards.",
+                "Prefer structural fixes over scattered micro-optimisations.",
+                "Keep user-visible performance goals explicit so the team knows what success means.",
+                "Share performance findings so the next feature avoids repeating the same problem.",
+            ],
+            "scenario_title": "Scenario: a critical Flutter dashboard feels smooth in demos but janky in daily use",
+            "scenario_paragraphs": [
+                "A team demos a dashboard that looks fine on a fast machine, but users in daily work start reporting lag when filters change and charts redraw. The danger is reacting with random tweaks: caching here, one refactor there, a new widget pattern somewhere else. Without a measurement-led process, performance work quickly becomes superstition.",
+                "The team picks one user flow, captures a baseline, and isolates where the cost is actually coming from. They discover that a broad rebuild pattern is forcing expensive sections to update unnecessarily. Fixing that structural cause gives a larger gain than the minor tweaks they were originally debating.",
+                "After the improvement, the team records the before-and-after evidence and updates its review habits. That prevents performance from being treated as a heroic cleanup phase at the end. Instead it becomes part of how the codebase is designed and reviewed during normal delivery.",
+            ],
+            "metrics": [
+                "Measured improvement in frame stability or interaction responsiveness on the target flow.",
+                "Reduction in unnecessary rebuilds or expensive rendering work after structural fixes.",
+                "Time required to diagnose the next performance issue using the documented process.",
+                "How often new features meet the team’s performance baseline without late firefighting.",
+            ],
+            "faq": [
+                (
+                    "What is the first optimisation step?",
+                    "Measurement. Until the team can reproduce and observe the issue clearly, optimisation work is mostly guesswork.",
+                ),
+                (
+                    "Are micro-optimisations useless?",
+                    "No, but they are secondary. They help most after the team has already found and addressed the larger structural cause.",
+                ),
+                (
+                    "How do you make performance work sustainable?",
+                    "Turn recurring findings into patterns the team can review for early, instead of relying on one performance hero to rescue the app later.",
+                ),
+                (
+                    "Why do some fixes feel good but not last?",
+                    "Because they treat symptoms rather than the source. If rebuild scope, rendering cost, or data flow remains weak, the pain returns under real usage.",
+                ),
+                (
+                    "Why does this deserve anchor-page depth?",
+                    "Because performance is not one trick. It is a workflow of diagnosis, prioritisation, remediation, verification, and team learning.",
+                ),
+            ],
+        },
+        "flutter-testing-strategy-2026": {
+            "audience": "Flutter teams trying to build a balanced test strategy that catches real failures without freezing delivery velocity",
+            "value_case": "Testing strategy matters because the wrong balance makes teams either slow and brittle or fast and unsafe, and both problems compound as the app grows.",
+            "prerequisites": [
+                "You know the main failure modes in the product rather than treating all tests as equal.",
+                "The team can distinguish cheap feedback from high-confidence coverage.",
+                "Architecture and dependency boundaries are clear enough that tests have sensible seams.",
+                "Developers agree that test value should be judged by risk reduction, not by badge counts alone.",
+            ],
+            "decision_points": [
+                "Which behaviours deserve unit, widget, integration, or golden coverage based on risk?",
+                "What failures are expensive enough that slower tests still make sense?",
+                "How much confidence can be achieved earlier in the pipeline with cheaper tests?",
+                "Where is the current suite generating noise instead of insight?",
+            ],
+            "workflow_steps": [
+                "Map the product’s key failure risks before adding or removing tests.",
+                "Choose the cheapest trustworthy test for each meaningful risk.",
+                "Keep the fast feedback loop healthy so developers still use the suite during normal work.",
+                "Reserve slower end-to-end coverage for behaviour that truly needs cross-layer confidence.",
+                "Review the strategy as the product and architecture evolve instead of freezing it forever.",
+            ],
+            "standards": [
+                "Tie tests to risk, not to abstract coverage goals.",
+                "Keep ownership of flaky or low-value tests visible until they are fixed or removed.",
+                "Make the fast path easy so developers actually run the suite often.",
+                "Use architecture boundaries that support focused tests instead of forcing everything into integration scope.",
+            ],
+            "scenario_title": "Scenario: a Flutter team wants confidence without drowning in slow or brittle tests",
+            "scenario_paragraphs": [
+                "A product team has grown past the stage where manual checking is enough, but its test suite is sending mixed signals. Some failures are useful. Others are flaky or so slow that developers stop trusting them. That is a strategy problem, not only a tooling problem.",
+                "The team starts by identifying the failures that would genuinely hurt users or release confidence. It then chooses the cheapest test shape that can catch each one well. Many UI and state risks can be handled earlier than teams expect, which preserves faster feedback without giving up real confidence.",
+                "The result is not maximal testing. It is intelligent testing. The suite becomes easier to explain, easier to maintain, and more aligned with how the app actually fails in the real world. That is what makes a testing strategy durable.",
+            ],
+            "metrics": [
+                "Speed of the developer feedback loop on the core test path.",
+                "Rate of meaningful failure detection compared with flaky or low-value failures.",
+                "Confidence in releases without excessive manual regression effort.",
+                "How easily the team can explain why each major test layer exists.",
+            ],
+            "faq": [
+                (
+                    "Should teams aim for a target coverage number?",
+                    "Coverage can be informative, but on its own it is a weak goal. The stronger question is whether the suite catches the failures that would materially hurt users or releases.",
+                ),
+                (
+                    "What usually makes test suites unhealthy?",
+                    "Poor risk mapping, unclear architecture seams, and letting flaky tests remain normal for too long.",
+                ),
+                (
+                    "How do you balance speed and confidence?",
+                    "By using the cheapest trustworthy test for each risk and reserving slower tests for behaviour that truly crosses layers.",
+                ),
+                (
+                    "When should a team revisit the strategy?",
+                    "Whenever product scope, architecture, or release risk changes enough that the old balance no longer reflects reality.",
+                ),
+                (
+                    "Why is this an anchor topic?",
+                    "Because testing strategy touches architecture, developer workflow, release confidence, and the long-term maintainability of the whole app.",
+                ),
+            ],
+        },
+        "responsive-flutter-ui-all-screens": {
+            "audience": "Flutter developers building interfaces that need to behave well across mobile, tablet, desktop, and web without becoming a pile of one-off breakpoints",
+            "value_case": "Responsive UI pays off when teams move from ad hoc resizing tricks to deliberate layout systems and content priorities.",
+            "prerequisites": [
+                "You know which screen classes and usage modes the product actually needs to support.",
+                "The team can separate layout decisions from business logic cleanly.",
+                "Content hierarchy is clear enough that bigger screens can add value instead of only adding empty space.",
+                "Design and engineering are aligned on how the experience should adapt across form factors.",
+            ],
+            "decision_points": [
+                "Which parts of the UI should stretch, reflow, split, or remain fixed across screen sizes?",
+                "Is the experience primarily touch-first, pointer-first, or mixed?",
+                "Do larger screens need more density, more simultaneous context, or simply more breathing room?",
+                "How will navigation, forms, and long data views behave when space changes dramatically?",
+            ],
+            "workflow_steps": [
+                "Start by defining the content priorities and interaction goals for each screen class.",
+                "Build layout patterns that can flex structurally rather than relying on scattered breakpoint hacks.",
+                "Test the same key journeys across mobile, tablet, desktop, and web views early.",
+                "Capture reusable layout decisions so later screens inherit the same responsive logic.",
+                "Refine the system as real usage reveals where density or interaction changes are needed.",
+            ],
+            "standards": [
+                "Treat responsive behaviour as a layout system, not as a late patch.",
+                "Keep navigation and content hierarchy explicit across screen sizes.",
+                "Design for interaction mode as well as width and height.",
+                "Reuse responsive shells and layout primitives instead of rewriting behaviour screen by screen.",
+            ],
+            "scenario_title": "Scenario: the same Flutter product must serve field users on mobile and operators on desktop",
+            "scenario_paragraphs": [
+                "A Flutter product starts on mobile, where a simple stacked flow feels natural. Then the same product needs to support internal operators on desktop and tablet. Suddenly the design problem changes. The app cannot simply stretch every mobile screen wider and call that responsive. Larger screens need more context, faster navigation, and better information density. Desktop operators often need split views, denser tables, and fewer navigation hops than mobile users.",
+                "The team responds by designing layout systems rather than isolated breakpoint rules. Navigation shifts, content regions adapt, and certain workflows expose side-by-side context that would never fit on a phone. Because the patterns are deliberate, new screens can follow the same logic instead of inventing responsive behaviour anew each time.",
+                "That is the deeper lesson of responsive Flutter work. Success is not that the UI technically renders on every screen. Success is that the product feels intentionally designed for the way people use it on each class of device.",
+            ],
+            "metrics": [
+                "How well key journeys complete across target screen classes without workaround behaviour.",
+                "Reuse rate of responsive shells, components, and layout patterns across features.",
+                "Reduction in screen-specific bugs caused by ad hoc breakpoint logic.",
+                "User or stakeholder satisfaction with information density and usability on larger screens.",
+            ],
+            "faq": [
+                (
+                    "Is responsiveness just about width breakpoints?",
+                    "No. Width matters, but interaction mode, content priority, and workflow shape matter just as much.",
+                ),
+                (
+                    "When should desktop behaviour diverge from mobile?",
+                    "When the extra space can create a genuinely better workflow, such as showing more context or reducing navigation hops, rather than only enlarging the same mobile layout.",
+                ),
+                (
+                    "What is the biggest team mistake?",
+                    "Treating each screen as a unique responsive problem instead of building reusable layout principles and shells.",
+                ),
+                (
+                    "How do you test responsive quality well?",
+                    "Use real journeys across the main screen classes early, not only static screenshots or isolated widgets in ideal states.",
+                ),
+                (
+                    "Why does this deserve anchor depth?",
+                    "Because responsive Flutter UI sits at the intersection of layout systems, navigation, content hierarchy, and product design decisions across platforms.",
+                ),
+            ],
+        },
+    }
+)
+
+ANCHOR_BLUEPRINTS.update(
+    {
+        "excel-ai-for-accountants": {
+            "audience": "accountants, finance teams, and close-process owners who want AI assistance without weakening control, traceability, or professional judgement",
+            "value_case": "Accounting workflows are full of repetitive analytical work, but the value of AI depends on keeping sign-off, evidence, and judgement visibly human-owned.",
+            "prerequisites": [
+                "The team can separate draft assistance from final accounting conclusions.",
+                "Source reconciliations and close schedules already have a stable structure.",
+                "Sensitive data handling and governance rules are understood before AI is introduced.",
+                "There is an agreed reviewer for any AI-assisted commentary, anomaly callout, or reconciliation support.",
+            ],
+            "decision_points": [
+                "Is the task low-risk drafting support or a judgement-heavy accounting conclusion?",
+                "Will the workflow improve evidence gathering, or only create faster but less clear commentary?",
+                "Can the AI-assisted step be traced back to the underlying source data easily?",
+                "Would a mistake slow the close, create rework, or undermine stakeholder confidence?",
+            ],
+            "workflow_steps": [
+                "Identify repeatable finance tasks where AI can accelerate first-pass work without owning the decision.",
+                "Prepare the workbook or export so source evidence stays visible and auditable.",
+                "Use AI for draft summaries, anomaly triage, or checklist support, then review the result against the source.",
+                "Capture the useful prompt and review steps if the workflow supports monthly close or recurring reconciliations.",
+                "Refine the pattern after each cycle based on where review found overstatements, omissions, or weak wording.",
+            ],
+            "standards": [
+                "Keep sign-off with the accountant, not with the generated output.",
+                "Preserve the link between commentary and source evidence.",
+                "Label AI-assisted narrative or categorisation so reviewers know what they are checking.",
+                "Use repeatable close or reconciliation checklists to keep review consistent across periods.",
+            ],
+            "scenario_title": "Scenario: AI-supported close commentary for a monthly variance review",
+            "scenario_paragraphs": [
+                "A finance team wants to reduce the time spent drafting monthly close commentary. The actual pain is not the calculations themselves, but the repetitive effort of comparing variances, checking whether exceptions look material, and writing the first-pass explanation for business partners. AI can help here, but only if the team preserves clear evidence paths back to the workbook.",
+                "The team prepares a clean variance table with current period, prior period, budget, and materiality flags. AI drafts the first narrative about what changed, but the accountant still checks the numbers, confirms whether the variance is explainable, and rewrites any wording that sounds more certain than the evidence supports. The model accelerates the pass; it does not replace the accounting conclusion.",
+                "Over time, the workflow becomes stronger because the team standardises the source table shape, the prompt pattern, and the review checklist. That is what makes AI genuinely helpful in accounting contexts: not speed alone, but speed inside a controlled process.",
+            ],
+            "metrics": [
+                "Time saved during variance review and commentary drafting.",
+                "Number of AI-drafted observations that survive review with only light editing.",
+                "Strength of the evidence trail between generated commentary and source numbers.",
+                "Reduction in repetitive manual narrative work during close cycles.",
+            ],
+            "faq": [
+                (
+                    "Where does AI fit cleanly in accounting work?",
+                    "It fits best in first-pass summaries, anomaly triage, checklist support, and preparation work that still leaves the final accounting conclusion to a professional reviewer.",
+                ),
+                (
+                    "Where should teams be most careful?",
+                    "Any place where wording could imply certainty beyond the evidence, or where a classification error could distort a financial conclusion.",
+                ),
+                (
+                    "Can AI help with reconciliations?",
+                    "Yes, especially for surfacing differences and drafting first-pass explanations, but the reconciliation itself still needs evidence-based human review.",
+                ),
+                (
+                    "What makes this workflow scale safely?",
+                    "Clean source tables, consistent prompts, explicit review ownership, and a documented checklist for what must be verified each cycle.",
+                ),
+                (
+                    "Why should this be an anchor page?",
+                    "Because accountants need a governance-aware operating model, not just isolated prompt tips. The surrounding controls matter as much as the feature itself.",
+                ),
+            ],
+        },
+        "create-with-ai-flutter": {
+            "audience": "Flutter developers and tech leads trying to place Gemini CLI, MCP, and the AI Toolkit into a practical build workflow rather than a novelty demo",
+            "value_case": "The real decision is not whether AI can help Flutter work, but where it should sit in architecture, iteration speed, and code review habits.",
+            "prerequisites": [
+                "You already know the product feature or workflow you are trying to accelerate.",
+                "The codebase has enough structure that generated changes can be reviewed meaningfully.",
+                "The team has a normal code review and testing habit rather than treating AI output as self-validating.",
+                "Developers understand the difference between idea generation, scaffolding, and production readiness.",
+            ],
+            "decision_points": [
+                "Do you need fast ideation, local code assistance, design-to-code help, or workflow orchestration?",
+                "How much of the task touches app architecture rather than isolated UI code?",
+                "Will the generated output be easy to test and maintain after the first draft lands?",
+                "Which tool fits local developer loops versus broader team workflows?",
+            ],
+            "workflow_steps": [
+                "Use AI first for scoped ideation or scaffolding, not for hidden architectural decisions.",
+                "Keep the codebase structure explicit so generated output lands in the right feature and layer.",
+                "Run the normal review and test steps even when the draft looked correct at first glance.",
+                "Capture the prompts or agent flows that repeatedly save time on similar tasks.",
+                "Evolve the workflow based on what genuinely reduced cycle time rather than what felt impressive in demos.",
+            ],
+            "standards": [
+                "Treat AI as a draft partner inside an existing engineering process.",
+                "Keep ownership of architecture, state boundaries, and production constraints with the team.",
+                "Prefer small reviewable changes over large magical rewrites.",
+                "Measure whether the workflow shortens iteration time or only creates cleanup later.",
+            ],
+            "scenario_title": "Scenario: adding an AI-assisted feature to a support dashboard",
+            "scenario_paragraphs": [
+                "A team building a support dashboard wants to add AI-assisted reply suggestions. Several tools can help: one can scaffold parts of the feature, another can improve iteration speed, and another can support local workflow orchestration. The temptation is to search for one tool that does everything. In practice, the workflow works better when each tool has a clearly bounded role.",
+                "The team first uses AI to sketch the interaction model and scaffold the outer feature shell. Then the developers place the code inside the existing Flutter architecture, wire the dependencies properly, and run the same review and testing habits they would use for hand-written code. That preserves the health of the app while still capturing the speed advantage.",
+                "After a few cycles, the team knows which prompts and workflows genuinely save time and which ones only create noisy diffs. That is the useful maturity point for Flutter AI workflows: not excitement about generation, but a repeatable path from idea to reviewable code.",
+            ],
+            "metrics": [
+                "Reduction in time from feature idea to first reviewable draft.",
+                "Code review churn caused by generated changes versus hand-written baselines.",
+                "How often AI-assisted output survives testing and architectural review with limited cleanup.",
+                "Clarity of ownership around prompts, tooling choices, and reviewed implementation patterns.",
+            ],
+            "faq": [
+                (
+                    "Is one Flutter AI tool enough for the whole workflow?",
+                    "Usually no. Teams often mix idea support, code assistance, and architecture-aware review rather than expecting one surface to cover every job well.",
+                ),
+                (
+                    "What should never be outsourced to AI?",
+                    "Core product judgement, architecture boundaries, security assumptions, and the final decision that a change is ready for production.",
+                ),
+                (
+                    "How do you know the workflow is helping?",
+                    "When the team reaches a reviewable first draft faster without increasing cleanup, architectural drift, or flaky tests afterwards.",
+                ),
+                (
+                    "Where do teams overuse AI in Flutter?",
+                    "In large rewrites and hidden architecture decisions. The best gains usually come from scoped drafts and faster iteration loops.",
+                ),
+                (
+                    "Why does this topic deserve anchor-page treatment?",
+                    "Because readers need the surrounding process: where the tools fit, how they change iteration speed, and how to keep code quality intact after the first draft lands.",
+                ),
+            ],
+        },
+        "flutter-app-architecture-2026": {
+            "audience": "Flutter developers and leads choosing a maintainable project structure that can survive feature growth, onboarding, and release pressure",
+            "value_case": "Architecture matters because it turns isolated coding choices into a codebase that either gets easier or harder to change over time.",
+            "prerequisites": [
+                "You know the app size, team size, and expected pace of feature growth.",
+                "State, navigation, and data boundaries are being discussed explicitly rather than emerging by accident.",
+                "The team can agree on folder, naming, and ownership conventions early enough to avoid churn.",
+                "You are willing to optimise for maintainability, not only for the next sprint.",
+            ],
+            "decision_points": [
+                "Will the app stay small, or is it likely to grow across multiple feature teams?",
+                "How much separation do you need between UI, domain logic, and data access?",
+                "What architecture choices help testing and refactoring rather than making them harder?",
+                "Which conventions will still make sense when a new developer joins six months later?",
+            ],
+            "workflow_steps": [
+                "Choose the smallest architecture that still protects the codebase from foreseeable growth.",
+                "Define feature boundaries, data flow, and ownership rules before the project becomes crowded.",
+                "Use early features to prove the architecture under real delivery pressure, not only in diagrams.",
+                "Refine conventions when they create friction, but avoid stylistic churn with every new idea.",
+                "Keep architecture documentation lightweight and close to the code so it remains useful.",
+            ],
+            "standards": [
+                "Agree on feature-first boundaries and layer responsibilities explicitly.",
+                "Keep routing, state, and data access choices aligned with the architecture rather than bolted on later.",
+                "Optimise for onboarding clarity and testability, not only initial coding speed.",
+                "Review architectural exceptions intentionally instead of letting them accumulate by default.",
+            ],
+            "scenario_title": "Scenario: a Flutter app grows from one product team to several streams of work",
+            "scenario_paragraphs": [
+                "A Flutter product starts with one small team and a manageable set of screens. In that stage almost any structure feels acceptable because the original developers still hold the whole app in their heads. The real architecture test begins once new features arrive in parallel, specialists join the team, and the code needs to support changes made by people who were not present at the beginning.",
+                "A feature-first architecture with clear boundaries gives the team somewhere to put new work without constant negotiation. UI, domain logic, and data access still need to collaborate, but they no longer blur into one giant directory of convenience code. That makes testing, onboarding, and debugging much more predictable.",
+                "The goal is not theoretical purity. It is to keep change cheap as the app grows. Teams feel the benefit when a new feature can be added without hunting through unrelated screens, when a new developer can trace ownership quickly, and when architectural conversations become specific rather than vague.",
+            ],
+            "metrics": [
+                "Time required for a new developer to navigate to the right feature and layer.",
+                "Change surface when adding a new feature or refactoring an old one.",
+                "Ease of testing and reasoning about code ownership.",
+                "Frequency of architectural exceptions that create recurring maintenance pain.",
+            ],
+            "faq": [
+                (
+                    "Is feature-first always the right answer?",
+                    "Not automatically, but it is often a strong default once the app is expected to grow. The real question is how the structure handles change, ownership, and onboarding pressure.",
+                ),
+                (
+                    "How much architecture is too much?",
+                    "If the structure makes simple features slower without protecting against real complexity, it is probably overbuilt. The best architecture is proportionate to the app’s likely growth.",
+                ),
+                (
+                    "Should state management be chosen first?",
+                    "Usually architecture and state decisions inform each other. Picking state in isolation can push the project toward a structure that is harder to sustain.",
+                ),
+                (
+                    "What is the most common failure mode?",
+                    "Convenience-driven drift, where the team has a diagrammed architecture on paper but keeps adding exceptions under delivery pressure.",
+                ),
+                (
+                    "Why is this an anchor page?",
+                    "Because architecture decisions shape everything else in the Flutter cluster: routing, testing, performance, team onboarding, and the cost of future change.",
+                ),
+            ],
+        },
+    }
+)
+
+ANCHOR_BLUEPRINTS.update(
+    {
+        "ai-power-query-m-code": {
+            "audience": "Excel users and analysts who already use Power Query and want AI to accelerate M code work without making refresh logic harder to trust",
+            "value_case": "AI can help with M code drafting and debugging, but the durable gain comes from using it inside a transparent transformation workflow rather than as a blind fixer.",
+            "prerequisites": [
+                "You understand the business transformation you want, even if you do not know the exact M syntax yet.",
+                "The source data and expected final table shape are both clear enough to test.",
+                "You can refresh the query on sample data and inspect the result step by step.",
+                "The workbook owner is willing to keep the transformation readable for later support.",
+            ],
+            "decision_points": [
+                "Do you need AI to draft a new query step, explain an error, or refactor a messy existing query?",
+                "Would changing the source structure reduce the problem more than rewriting M code?",
+                "Can the resulting query be understood by the next analyst who inherits it?",
+                "Are you solving a one-off clean-up or building a refreshable pipeline?",
+            ],
+            "workflow_steps": [
+                "Define the desired before-and-after table shape before asking AI for M code help.",
+                "Request one step or one fix at a time so the query remains inspectable.",
+                "Test the result on representative sample data and confirm edge cases like blanks, duplicates, and changed headers.",
+                "Rename query steps clearly so later reviewers can follow the transformation path.",
+                "Keep a reviewed version of the query once the logic is stable and useful.",
+            ],
+            "standards": [
+                "Prefer clear step names over anonymous transformation chains.",
+                "Store expected output examples so query changes can be judged quickly.",
+                "Ask AI to explain the proposed step, not only to generate it.",
+                "Treat refresh reliability as more important than clever one-line transformations.",
+            ],
+            "scenario_title": "Scenario: AI helps untangle a brittle monthly Power Query workflow",
+            "scenario_paragraphs": [
+                "A reporting analyst inherits a monthly Power Query process that used to work only because the export never changed. Then a source column gets renamed, another column arrives out of order, and the refresh starts failing. AI feels attractive here because the analyst wants faster help with the M code, but the risk is swapping one opaque query for another.",
+                "The cleaner approach is to define the required output table first, then ask AI for help on one failing step at a time. The analyst confirms whether the proposed fix actually handles missing columns, type changes, and row anomalies on sample data. That keeps the repair visible instead of magical.",
+                "Once the refresh becomes stable again, the analyst renames the steps, documents the expected output, and keeps the AI-assisted changes as part of a readable query chain. The best outcome is not merely a working refresh today. It is a transformation pipeline the next reviewer can still reason about next month.",
+            ],
+            "metrics": [
+                "Time saved when debugging or drafting Power Query transformations.",
+                "Refresh reliability after AI-assisted changes are reviewed and documented.",
+                "Ease with which another analyst can follow the query steps.",
+                "Reduction in brittle manual clean-up outside the query pipeline.",
+            ],
+            "faq": [
+                (
+                    "Can AI write whole Power Query pipelines safely?",
+                    "It can draft a lot, but whole-pipeline trust is risky unless you already know the target shape and can validate each step against sample data.",
+                ),
+                (
+                    "What is the best way to ask for help?",
+                    "Describe the source table, the desired output, and the exact failing step or transformation need. That gives AI something concrete instead of forcing it to guess the business intent.",
+                ),
+                (
+                    "Should I accept compact clever code?",
+                    "Only if it remains readable. In Power Query, clarity often matters more than showing off brevity.",
+                ),
+                (
+                    "How do I know the fix is trustworthy?",
+                    "Refresh the query on representative data, inspect the changed rows, and verify that edge cases and schema shifts behave as expected.",
+                ),
+                (
+                    "Why does this topic deserve anchor depth?",
+                    "Because readers need more than syntax help. They need a repeatable way to define transformations, review query changes, and keep refresh logic maintainable over time.",
+                ),
+            ],
+        },
+        "ai-forecasting-model-excel": {
+            "audience": "analysts, planners, and finance teams who want AI assistance while building forecasting models without outsourcing the model judgement itself",
+            "value_case": "Forecasting gains come from faster structuring and scenario support, but the model remains only as strong as its assumptions, review, and interpretation.",
+            "prerequisites": [
+                "You have a clear business question, forecast horizon, and decision to support.",
+                "Historical data is clean enough to inspect for trend, seasonality, and anomalies.",
+                "Assumptions can be written down in plain language before they are turned into formulas or model steps.",
+                "Someone owns the final model sign-off and can explain the forecast to stakeholders.",
+            ],
+            "decision_points": [
+                "Is the model for rough planning, operating review, budgeting, or external reporting support?",
+                "Which assumptions deserve manual control rather than AI suggestion?",
+                "How much explanation will stakeholders need before they trust the forecast?",
+                "What baseline or benchmark will you compare the AI-assisted model against?",
+            ],
+            "workflow_steps": [
+                "Frame the forecast question, inputs, and success criteria before asking AI for formulas or model ideas.",
+                "Use AI to accelerate structure, scenario framing, or documentation rather than to skip assumption thinking.",
+                "Validate the model against history and a simpler baseline before sharing new scenarios widely.",
+                "Separate assumptions, mechanics, and outputs so reviewers can inspect the model cleanly.",
+                "Update the model with documented learning after each forecast cycle instead of treating it as a one-off artefact.",
+            ],
+            "standards": [
+                "Keep assumption cells visible and explained in plain language.",
+                "Show a baseline forecast alongside the richer model so reviewers have context.",
+                "Document where AI suggested structure or wording and where humans locked the logic.",
+                "Review model outputs for sensitivity to a few critical assumptions before presenting them.",
+            ],
+            "scenario_title": "Scenario: an AI-assisted demand forecast for the next planning cycle",
+            "scenario_paragraphs": [
+                "A planning team needs a demand view for the next two quarters and wants to move faster than its usual manual spreadsheet build. AI can help shape the model structure, suggest scenario labels, and draft some of the first-pass formulas. But if the team hands over the real modelling judgement too early, the forecast becomes polished guesswork rather than useful planning support.",
+                "The better route is to lock the question first: what business decision will this forecast influence, what data is in scope, what baseline will be compared, and which assumptions are intentionally manual. AI then accelerates the build, but the team still validates the outputs against history and tests whether the model behaves sensibly when major assumptions move.",
+                "When the forecast goes to leadership, the planners can explain both the number and the pathway: where the model came from, what assumptions matter most, and how the result changes across plausible scenarios. That is what turns an AI-assisted spreadsheet into a credible planning tool.",
+            ],
+            "metrics": [
+                "Time saved in building or refreshing the forecast structure.",
+                "Forecast accuracy relative to the baseline or previous approach.",
+                "Reviewer confidence in the visibility of assumptions and scenario logic.",
+                "How quickly the team can update the model after new data arrives.",
+            ],
+            "faq": [
+                (
+                    "Can AI build a full forecast model for me?",
+                    "It can accelerate a lot of the setup, but the most valuable part of forecasting is still assumption judgement and interpretation. That remains a human responsibility.",
+                ),
+                (
+                    "What is the safest use of AI here?",
+                    "Use it for structure, draft formulas, scenario framing, and first-pass narrative support while keeping assumptions and validation firmly in human hands.",
+                ),
+                (
+                    "How do I avoid trusting the model too quickly?",
+                    "Compare it against history and a simpler baseline, then test how the outputs react to a few critical assumption changes.",
+                ),
+                (
+                    "Should the model stay in one sheet?",
+                    "Usually no. Separating assumptions, calculations, and outputs makes review and maintenance much easier.",
+                ),
+                (
+                    "Why is this a pillar topic?",
+                    "Because forecasting pulls together structure, formulas, scenarios, review, and stakeholder communication. Readers usually need the whole operating model, not a short tip.",
+                ),
+            ],
+        },
+        "text-analysis-excel-with-ai": {
+            "audience": "teams working with survey comments, reviews, and open-text feedback who want AI speed without losing auditability",
+            "value_case": "Open-text analysis gets messy quickly, so the winning workflow is not only about classification prompts but about sampling, review, and presentation discipline.",
+            "prerequisites": [
+                "The comment dataset is cleaned enough that one row truly equals one response or one analysable unit.",
+                "You know what type of output matters: themes, sentiment, categories, summaries, or escalations.",
+                "The team can review sampled outputs before publishing conclusions widely.",
+                "Sensitive or people-impacting conclusions still have an accountable human reviewer.",
+            ],
+            "decision_points": [
+                "Do you need broad themes, fine-grained labels, or just a quick first-pass summary?",
+                "How much inconsistency can the business tolerate in the categorisation?",
+                "Is the text sensitive enough that privacy or governance changes the workflow?",
+                "Will the result drive reporting, operational action, or only exploratory understanding?",
+            ],
+            "workflow_steps": [
+                "Start by defining the categories or analysis questions in plain language before prompting.",
+                "Run a first-pass AI classification on a sample, not on the whole dataset immediately.",
+                "Review edge cases, sarcasm, mixed comments, and off-topic responses before scaling up.",
+                "Aggregate the reviewed labels into counts, trends, and representative examples inside Excel.",
+                "Document where the labels were drafted by AI and how sampling or manual review corrected them.",
+            ],
+            "standards": [
+                "Keep one source sheet for raw comments and another for reviewed labels or themes.",
+                "Use sampling as a formal review step, not as optional polish.",
+                "Avoid presenting AI-generated categories as if they were objective truth without caveats.",
+                "Retain example comments for each theme so reports stay grounded in real language.",
+            ],
+            "scenario_title": "Scenario: quarterly customer feedback analysis for a product team",
+            "scenario_paragraphs": [
+                "A product team has thousands of feedback comments and wants a fast read on the biggest themes before the quarterly review. AI is clearly useful here because manual reading alone is slow and inconsistent. The problem is that open text contains sarcasm, mixed intent, domain-specific language, and comments that fit more than one category at once.",
+                "The strongest workflow starts with a sample. The team asks AI to draft categories and labels a subset first, then reviews whether the themes hold up on ambiguous or important edge cases. Only after that do they scale the workflow to the full dataset and turn the labels into counts, charts, and narrative summaries.",
+                "By the time the report reaches leadership, the team is not merely repeating what the model said. It can explain how the themes were defined, what review happened, where ambiguity remained, and which example comments support the most important conclusions. That is what makes the analysis operationally useful.",
+            ],
+            "metrics": [
+                "Time saved in producing a first-pass thematic view of the dataset.",
+                "Agreement rate between sampled manual review and AI-generated labels.",
+                "Clarity of downstream reporting once comments have been grouped into reviewed themes.",
+                "How often the same taxonomy can be reused across future surveys or review cycles.",
+            ],
+            "faq": [
+                (
+                    "Can AI sentiment alone replace theme analysis?",
+                    "Usually no. Sentiment is often too blunt for operational decisions. Teams usually need themes, drivers, and representative examples, not only positive or negative scoring.",
+                ),
+                (
+                    "How much sampling is enough?",
+                    "Enough to cover obvious edge cases and verify that the category set is behaving sensibly. The right amount depends on risk, but zero sampling is rarely acceptable.",
+                ),
+                (
+                    "Should the categories be fixed in advance?",
+                    "Sometimes a draft taxonomy can emerge from the data, but it still needs human review before it becomes the reporting framework.",
+                ),
+                (
+                    "Where does Excel still add value here?",
+                    "Excel is excellent for cleaning, aggregating, pivoting, charting, and presenting the reviewed outcomes once the label workflow is under control.",
+                ),
+                (
+                    "Why is this page stronger as an anchor?",
+                    "Because readers need the full pipeline: row structure, taxonomy design, sampling, review, aggregation, and communication of uncertain results.",
+                ),
+            ],
+        },
+    }
+)
+
+ANCHOR_BLUEPRINTS.update(
+    {
+        "review-ai-generated-excel-formulas": {
+            "audience": "Excel users who already use AI for formula help and now need a dependable way to catch bad assumptions before they spread",
+            "value_case": "Formula review is where the value of AI-generated spreadsheet work is either locked in or destroyed, especially once the result feeds a report, dashboard, or business decision.",
+            "prerequisites": [
+                "You can state in plain language what the formula is supposed to do before you inspect the syntax.",
+                "The source cells, ranges, and expected edge cases are known to the reviewer.",
+                "There is at least one manual spot-check or sample row that can confirm behaviour.",
+                "The workbook is structured clearly enough that dependencies are visible.",
+            ],
+            "decision_points": [
+                "Does the formula change a visible business metric or only a convenience output?",
+                "Is the risk in the lookup logic, the filter logic, the date logic, or the error handling?",
+                "Would a simpler formula be easier for the team to support later?",
+                "Does the reviewer need a one-off answer or a pattern that can survive workbook growth?",
+            ],
+            "workflow_steps": [
+                "Translate the requirement into plain English before reading the formula itself.",
+                "Check inputs, expected outputs, and failure cases using a few representative rows.",
+                "Inspect lookups, date handling, criteria logic, and spill behaviour separately rather than all at once.",
+                "Rewrite clever but brittle output into simpler logic when maintainability matters more than compactness.",
+                "Record any approved reusable pattern so later AI suggestions can be judged against it.",
+            ],
+            "standards": [
+                "Review formulas against examples, not only against syntax.",
+                "Prefer formulas the next analyst can explain without heroic effort.",
+                "Document known edge cases such as blanks, duplicates, missing matches, or changing date windows.",
+                "Treat AI-generated formulas as drafts until one human has verified the business logic.",
+            ],
+            "scenario_title": "Scenario: an AI-written margin formula starts feeding the leadership dashboard",
+            "scenario_paragraphs": [
+                "An analyst uses AI to generate a formula for margin by product family and region. The result looks impressive and seems to work on the first few rows, so it is copied across the reporting sheet. The real danger begins at that exact moment because the formula is now feeding a number that leaders will trust without seeing the underlying logic.",
+                "A good review process breaks the risk apart. The analyst checks whether the lookup keys are unique, whether excluded returns are really excluded, whether blanks turn into zeros incorrectly, and whether the date filter matches the dashboard period. That is slower than blind trust, but far faster than explaining a wrong number after it has already circulated.",
+                "Once the formula passes that review, the team documents why it is approved and what test rows validated it. The next time AI suggests a similar pattern, the analyst can compare it against a known good standard instead of starting the judgement from zero.",
+            ],
+            "metrics": [
+                "Number of formula issues caught before outputs reach a stakeholder-facing sheet.",
+                "Time required to review a new AI-generated formula against known test cases.",
+                "How often approved formula patterns can be reused instead of revalidated from scratch.",
+                "Reduction in workbook fragility caused by opaque or overly clever formulas.",
+            ],
+            "faq": [
+                (
+                    "What is the best first review question?",
+                    "Ask what business rule the formula is supposed to encode. If that is unclear, syntax inspection will not save you.",
+                ),
+                (
+                    "Should I prefer shorter formulas?",
+                    "Not automatically. The better rule is understandable formulas. Sometimes a slightly longer formula is much easier to trust and maintain.",
+                ),
+                (
+                    "How many sample rows should I test?",
+                    "Enough to cover the normal path and the obvious edge cases. One happy-path row is rarely enough for meaningful review.",
+                ),
+                (
+                    "When is AI formula help most dangerous?",
+                    "When users copy a plausible-looking result into a high-visibility model without checking hidden assumptions around lookups, blanks, and time windows.",
+                ),
+                (
+                    "Can this process be standardised?",
+                    "Yes. The strongest teams use short review checklists and a library of known-good patterns so judgement becomes faster and more consistent.",
+                ),
+            ],
+        },
+        "python-in-excel-beginners": {
+            "audience": "Excel-first analysts and curious professionals who want a practical starting point with Python in Excel rather than a programming detour",
+            "value_case": "Python in Excel only creates durable value when readers understand where it complements worksheet formulas and where it adds needless complexity.",
+            "prerequisites": [
+                "You already know the spreadsheet problem you want to solve better, not merely that Python looks powerful.",
+                "The workbook owner can explain the data source, expected outputs, and refresh rhythm.",
+                "You are willing to keep the first use case narrow and reviewable.",
+                "Colleagues who inherit the workbook will know that Python exists inside it and what it is doing.",
+            ],
+            "decision_points": [
+                "Would a standard Excel formula or Power Query step solve this more simply?",
+                "Is the job exploratory analysis, repeatable transformation, modelling support, or visualisation?",
+                "Will the workbook be shared with colleagues who can support Python-based logic later?",
+                "Does the extra analytical power justify the added support surface?",
+            ],
+            "workflow_steps": [
+                "Start with one contained use case such as summary statistics, quick modelling, or exploratory transformation.",
+                "Keep the Python cell close to the input table and document the expected output in plain language.",
+                "Check the answer against a simpler Excel method on a small sample before trusting the bigger result.",
+                "Separate exploratory notebooks-in-cells from the logic that genuinely belongs in the production workbook.",
+                "Only expand the Python footprint after the first small use case has proved maintainable.",
+            ],
+            "standards": [
+                "Explain what each Python block is for and what data it depends on.",
+                "Avoid burying core business logic in opaque code cells no one else can review.",
+                "Keep one workbook section for inputs, one for Python outputs, and one for reviewed presentation results.",
+                "Document how a future owner should validate the Python result after changes.",
+            ],
+            "scenario_title": "Scenario: using Python in Excel for a first-pass risk analysis",
+            "scenario_paragraphs": [
+                "A finance analyst wants to compare several demand scenarios with more statistical flexibility than standard worksheet formulas offer. Python in Excel is attractive because it sits closer to the workbook than a separate notebook, but that convenience only helps if the use case stays understandable to the rest of the team.",
+                "The analyst starts small: clean input table, one Python block, one reviewed output area, and one comparison against a simpler manual calculation. That gives the team confidence that the new layer is extending the workbook rather than hiding it behind code theatre.",
+                "Once the pattern proves itself, Python can take on richer analysis. But the key discipline remains the same: the workbook still needs to be readable by humans who did not write the original code, and the result still needs a business owner who knows how to judge whether it makes sense.",
+            ],
+            "metrics": [
+                "Time saved on analyses that were previously awkward with formulas alone.",
+                "How often Python outputs match reviewed expectations on sample checks.",
+                "Ease with which another teammate can understand and support the workbook.",
+                "Number of use cases where Python genuinely improved clarity or capability rather than adding novelty.",
+            ],
+            "faq": [
+                (
+                    "Should beginners start with the PY function or broader Python workflows?",
+                    "Start with the smallest practical use case that teaches the boundary between Excel-native logic and Python-assisted analysis. The goal is judgement, not feature collection.",
+                ),
+                (
+                    "What is the biggest beginner mistake?",
+                    "Using Python to prove sophistication rather than to solve a clear spreadsheet problem more cleanly.",
+                ),
+                (
+                    "Does Python in Excel replace formulas?",
+                    "No. It complements them. Formula logic is often still the best choice for transparent, maintainable workbook behaviour.",
+                ),
+                (
+                    "How do I keep the workbook supportable?",
+                    "Document inputs, outputs, and validation steps. If a teammate cannot tell what the Python cell does, the workbook is already too fragile.",
+                ),
+                (
+                    "What makes this topic anchor-worthy?",
+                    "It sits at a major decision boundary for modern Excel users: when to stay formula-first, when to add Python, and how to do it without losing workbook clarity.",
+                ),
+            ],
+        },
+        "copilot-excel-python-analysis": {
+            "audience": "Excel users who want to combine Copilot and Python thoughtfully for deeper analysis without turning a workbook into a confusing black box",
+            "value_case": "The strength of this topic is in the hand-off between natural-language assistance and analytical depth, not in treating AI and Python as interchangeable magic.",
+            "prerequisites": [
+                "The workbook already has a clean analytical base with clear tables and known assumptions.",
+                "You can say which part of the job is better handled by guidance and which part needs explicit computation.",
+                "Review ownership is clear once Copilot suggests an approach or Python produces a result.",
+                "The team understands that deeper analysis increases the need for documentation, not the opposite.",
+            ],
+            "decision_points": [
+                "Should Copilot help frame the question, prepare the workbook, or explain the result?",
+                "What part of the analysis genuinely needs Python rather than a standard formula or chart?",
+                "How will you validate the Python output before it informs a decision?",
+                "Will the result remain readable to someone who did not build the original workflow?",
+            ],
+            "workflow_steps": [
+                "Use Copilot first to structure the workbook question and identify the relevant data tables.",
+                "Move into Python only for the deeper modelling or analytical step that benefits from it.",
+                "Bring the result back into a clear worksheet layer that a reviewer can inspect quickly.",
+                "Compare the analytical output against a simpler baseline or manual spot check.",
+                "Document the boundary between what Copilot suggested and what Python computed.",
+            ],
+            "standards": [
+                "Keep the explanatory layer, the analytical layer, and the presentation layer visibly separate.",
+                "Label AI-assisted and Python-derived outputs so reviewers know what they are looking at.",
+                "Retain a simpler baseline calculation whenever practical for confidence checks.",
+                "Write down the assumptions and validation steps with the workbook, not in someone’s head.",
+            ],
+            "scenario_title": "Scenario: forecasting with natural-language framing and Python-backed analysis",
+            "scenario_paragraphs": [
+                "A planner wants to forecast demand for the next two quarters and explain the risk to leadership. Copilot is useful early because it can help frame the workbook question, summarise the available fields, and suggest what variables or scenarios the planner should compare. But Copilot is not the final analytical engine in that workflow.",
+                "The deeper step happens in Python, where the analyst tests several assumptions, compares scenarios, and produces structured outputs that would be awkward to build with formulas alone. Even then, the real work is not finished. Those results need to come back into a worksheet area with clear labels, supporting notes, and spot checks against simpler expectations.",
+                "When the planner presents the conclusion, the team can point to both the reasoning path and the computational path. That is the real advantage of combining Copilot and Python well: faster framing, deeper analysis, and a result that is still explainable to humans.",
+            ],
+            "metrics": [
+                "Reduction in time spent framing complex analytical questions before modelling begins.",
+                "Confidence level of reviewers when reading the final workbook outputs.",
+                "Number of cases where Python added real analytical value instead of unnecessary complexity.",
+                "How often the workflow can be rerun with fresh data and the same documented checks.",
+            ],
+            "faq": [
+                (
+                    "Should Copilot or Python come first?",
+                    "Usually Copilot comes first for framing, structure, and explanation, while Python handles the deeper computation that deserves explicit code and validation.",
+                ),
+                (
+                    "What breaks these workflows most often?",
+                    "Messy source data and undocumented hand-offs. If reviewers cannot see where Copilot ended and Python began, trust falls quickly.",
+                ),
+                (
+                    "Can small teams still use this well?",
+                    "Yes, if they keep the use case narrow and the validation obvious. The size of the team matters less than the clarity of the workflow.",
+                ),
+                (
+                    "How do you avoid analysis theatre?",
+                    "By keeping the computation tied to a real decision and by showing how the result compares with a simpler baseline or expectation.",
+                ),
+                (
+                    "Why is this stronger as an anchor than as a short post?",
+                    "Because readers need the surrounding operating model: data preparation, task framing, analytical boundaries, validation, and presentation discipline.",
+                ),
+            ],
+        },
+    }
+)
+
+CATEGORY_REALITY: dict[str, dict[str, Any]] = {
+    "AI + Excel": {
+        "stack": "data shape, prompting, review steps, and stakeholder trust around the workbook output",
+        "support_heading": "How to use this without turning AI into a black box",
+        "support_bullets": [
+            "Keep one reliable source table or range before you ask the model for interpretation.",
+            "Treat AI output as draft support until a human has checked the logic and the business meaning.",
+            "Capture the prompt and the review step when the task becomes repeatable.",
+        ],
+    },
+    "Excel": {
+        "stack": "table structure, formula clarity, edge cases, and what the workbook has to support next",
+        "support_heading": "How to make this pattern hold up in a real workbook",
+        "support_bullets": [
+            "Check the data shape first, because most workbook pain starts upstream of the formula or feature.",
+            "Prefer patterns that another analyst can still read and support later.",
+            "Test the technique on one real edge case before you spread it across the model.",
+        ],
+    },
+    "Flutter": {
+        "stack": "architecture boundaries, developer workflow, testing discipline, and the release pressure around the code",
+        "support_heading": "How to apply this in a production Flutter codebase",
+        "support_bullets": [
+            "Use the idea inside your existing architecture instead of letting one feature create a parallel pattern.",
+            "Keep changes reviewable, measurable, and easy to test before you scale them.",
+            "Turn the useful part of the lesson into a team convention so the next feature starts from a stronger baseline.",
+        ],
+    },
+}
+
+
+def build_generated_sections(post: dict[str, Any], new_lookup: dict[str, dict[str, Any]], old_lookup: dict[str, Post]) -> list[dict[str, Any]]:
+    sections = build_support_sections(post, new_lookup, old_lookup)
+    profile = ANCHOR_BLUEPRINTS.get(post["slug"])
+    if profile:
+        sections.extend(build_anchor_sections(post, profile, new_lookup, old_lookup))
+    return sections
+
+
+def build_support_sections(post: dict[str, Any], new_lookup: dict[str, dict[str, Any]], old_lookup: dict[str, Post]) -> list[dict[str, Any]]:
+    lens = CATEGORY_REALITY[post["category"]]
+    title = post["title"]
+    related_links = build_related_links(new_lookup, old_lookup, post["related_new"] + post["related_old"])[:3]
+    next_bullets = [
+        f'Go next to <a href="{href}">{html_escape(link_title)}</a> if you want to deepen the surrounding workflow instead of treating {html_escape(title)} as an isolated trick.'
+        for link_title, href in related_links
+    ]
+    return [
+        {
+            "heading": lens["support_heading"],
+            "paragraphs": [
+                f"{title} becomes much more useful once it is tied to the rest of the workflow around it. In real work, the result depends on {lens['stack']}, not only on following one local tip correctly.",
+                "That is why the biggest win rarely comes from one clever move in isolation. It comes from making the surrounding process easier to review, easier to repeat, and easier to hand over when another person inherits the workbook or codebase later.",
+            ],
+            "bullets": lens["support_bullets"],
+        },
+        {
+            "heading": "How to extend the workflow after this guide",
+            "paragraphs": [
+                "Once the core technique works, the next leverage usually comes from standardising it. That might mean naming inputs more clearly, keeping one review checklist, or pairing this page with neighbouring guides so the process becomes repeatable rather than person-dependent.",
+                f"The follow-on guides below are the most natural next steps from {title}. They help move the reader from one useful page into a stronger connected system.",
+            ],
+            "bullets": next_bullets,
+        },
+    ]
+
+
+def build_anchor_sections(
+    post: dict[str, Any],
+    profile: dict[str, Any],
+    new_lookup: dict[str, dict[str, Any]],
+    old_lookup: dict[str, Post],
+) -> list[dict[str, Any]]:
+    title = post["title"]
+    related_links = build_related_links(new_lookup, old_lookup, post["related_new"] + post["related_old"])[:4]
+    cluster_bullets = [
+        f'Use <a href="{href}">{html_escape(link_title)}</a> when you are ready to deepen the next connected skill in the same workflow.'
+        for link_title, href in related_links
+    ]
+    failure_bullets = list(post.get("mistakes", []))
+    category_extra = {
+        "AI + Excel": "Treating a confident answer as proof instead of as a draft that still needs human judgement.",
+        "Excel": "Solving today’s example without checking whether the pattern will survive workbook growth or messy data.",
+        "Flutter": "Letting one successful implementation turn into a local convention before the team has tested it under real delivery pressure.",
+    }[post["category"]]
+    if category_extra not in failure_bullets:
+        failure_bullets.append(category_extra)
+
+    faq_paragraphs = [
+        "The deeper guides in this cluster tend to create implementation questions once readers move from curiosity to repeatable use. These are the follow-up issues that matter most in practice."
+    ]
+    for question, answer in profile["faq"]:
+        faq_paragraphs.append(f"<strong>{html_escape(question)}</strong> {answer}")
+
+    return [
+        {
+            "heading": "What changes when this has to work in real life",
+            "paragraphs": [
+                f"{title} often looks simpler in demos than it feels inside real delivery. The moment the topic becomes part of actual work for {profile['audience']}, the question expands beyond surface tactics. {profile['value_case']}",
+                "That is why this page works best as an anchor rather than a thin explainer. The durable value comes from understanding the surrounding operating model: what has to be true before the technique works well, how the workflow should be reviewed, and what needs to be standardised once more than one person depends on the result.",
+            ],
+        },
+        {
+            "heading": "Prerequisites that make the guidance hold up",
+            "paragraphs": [
+                "Most execution pain does not come from the feature or technique alone. It comes from weak inputs, fuzzy ownership, or unclear expectations about what “good” looks like. When those foundations are missing, even a promising tactic turns into noise.",
+                "If the team fixes the prerequisites first, the later steps become much easier to trust. Review becomes faster, hand-offs become clearer, and the surrounding workflow stops fighting the technique at every turn.",
+            ],
+            "bullets": profile["prerequisites"],
+        },
+        {
+            "heading": "Decision points before you commit",
+            "paragraphs": [
+                "A lot of wasted effort comes from using the right tactic in the wrong situation. The best teams slow down long enough to answer a few decision questions before they scale a pattern or recommend it to others.",
+                "Those decisions do not need a workshop. They just need to be explicit. Once the team knows the stakes, the owner, and the likely failure modes, the technique can be used far more confidently.",
+            ],
+            "bullets": profile["decision_points"],
+        },
+        {
+            "heading": "A workflow that scales past one-off use",
+            "paragraphs": [
+                "The first successful result is not the finish line. The real test is whether the same approach can be rerun next week, by another person, on slightly messier inputs, and still produce something reviewable. That is where lightweight process beats isolated cleverness.",
+                "A scalable workflow keeps the high-value judgement human and makes the repeatable parts easier to execute. It also creates checkpoints where the next reviewer can tell quickly whether the output is still behaving as intended.",
+            ],
+            "bullets": profile["workflow_steps"],
+        },
+        {
+            "heading": "Where teams get bitten once the workflow repeats",
+            "paragraphs": [
+                "The failure modes usually become visible only after repetition. A workflow that feels fine once can become fragile when fresh data arrives, when another teammate runs it, or when the result starts feeding something more important downstream.",
+                "That is why recurring failure patterns deserve explicit attention. Seeing them early is often the difference between a useful system and a trusted-looking mess that creates rework later.",
+            ],
+            "bullets": failure_bullets,
+        },
+        {
+            "heading": "What to standardise if more than one person will use this",
+            "paragraphs": [
+                "If a workflow is genuinely valuable, it will not stay personal for long. Other people will copy it, inherit it, or depend on its outputs. Standardisation is how the team keeps that growth from turning into inconsistency.",
+                "The good news is that the standards do not need to be heavy. A few clear conventions around inputs, review, naming, and ownership can remove a surprising amount of friction.",
+            ],
+            "bullets": profile["standards"],
+        },
+        {
+            "heading": "How to review this when time is short",
+            "paragraphs": [
+                "Real teams rarely get the luxury of a perfect slow review every time. The better pattern is a compact review sequence that can still catch the most expensive mistakes under delivery pressure. That is especially important once the topic feeds reporting, production code, or anything another stakeholder will treat as trustworthy by default.",
+                "A strong short-form review does not try to inspect everything equally. It focuses on the few checks that are most likely to expose a wrong boundary, a wrong assumption, or an output that sounds more confident than the evidence allows. Over time those checks become muscle memory and make the whole workflow safer without making it heavy.",
+            ],
+            "bullets": [
+                "Confirm the exact input boundary before reviewing the output itself.",
+                "Check one representative happy path and one realistic edge case before wider rollout.",
+                "Ask what a wrong answer would look like here, then look for that failure directly.",
+                "Keep one reviewer accountable for the final call even when several people touched the process.",
+            ],
+        },
+        {
+            "heading": profile["scenario_title"],
+            "paragraphs": profile["scenario_paragraphs"],
+        },
+        {
+            "heading": "Metrics that show the change is actually helping",
+            "paragraphs": [
+                "Longer guides are only worth it if they improve action. Teams should know what evidence would show the workflow is getting healthier, faster, or more trustworthy rather than assuming improvement because the process feels more sophisticated.",
+                "Good metrics are practical and observable. They do not need to be elaborate. They just need to reveal whether the new pattern is reducing confusion, review effort, or delivery friction in the places that matter most.",
+            ],
+            "bullets": profile["metrics"],
+        },
+        {
+            "heading": "How to hand this off without losing context",
+            "paragraphs": [
+                "Anchor pages become genuinely valuable once somebody else can use the pattern without sitting beside the original author. Handoff is where fragile workflows are exposed. If the next person cannot tell what the inputs are, what good output looks like, or what the review step is supposed to catch, the process is not yet mature enough for broader use.",
+                "The simplest fix is to leave behind more operational context than most people expect: one example, one approved pattern, one list of checks, and one owner for questions. That is often enough to keep the workflow useful after staff changes, deadline pressure, or a fresh batch of data arrives.",
+            ],
+            "bullets": [
+                "Document the input shape, the output expectation, and the owner in plain language.",
+                "Keep one approved example or screenshot that shows what a good result looks like.",
+                "Store the review checklist close to the workflow instead of burying it in chat history.",
+                "Note which parts are fixed standards and which parts still require human judgement each run.",
+            ],
+        },
+        {
+            "heading": "Questions readers usually ask next",
+            "paragraphs": faq_paragraphs,
+        },
+        {
+            "heading": "A practical 30-60-90 day adoption path",
+            "paragraphs": [
+                "The cleanest way to adopt a workflow like this is in stages. Trying to jump straight from curiosity to team-wide standard usually creates avoidable resistance, because the process has not yet proved itself on live work. Short staged rollout keeps the learning visible and prevents false confidence.",
+                "In the first month, the goal is proof on one bounded use case. In the second, the goal is repeatability and documentation. By the third, the workflow should either be strong enough to standardise or honest enough to reveal that it still needs redesign. That discipline is what turns a promising topic into a dependable operating habit.",
+            ],
+            "bullets": [
+                "Days 1-30: prove the workflow on one repeated task with one accountable owner.",
+                "Days 31-60: capture the prompt, inputs, review checks, and a known-good example.",
+                "Days 61-90: decide whether the process is ready for wider rollout, needs tighter guardrails, or should stay a specialist pattern.",
+                "After 90 days: review what changed in accuracy, speed, and team confidence before scaling further.",
+            ],
+        },
+        {
+            "heading": "How to explain the result so other people trust it for the right reasons",
+            "paragraphs": [
+                "A strong implementation still fails if the surrounding explanation is weak. Stakeholders do not simply need an output. They need enough context to understand what the result means, what it does not mean, and which parts were accelerated by process rather than proved by certainty. That is especially important when the work touches AI assistance, complex workbook logic, or engineering choices that are not obvious to non-specialists.",
+                "The safest communication style is specific, bounded, and evidence-aware. Show what inputs were used, what review happened, and where human judgement still mattered. People trust workflows more when the explanation makes the quality controls visible instead of hiding them behind confident language.",
+            ],
+            "bullets": [
+                "State the scope of the input and the date or environment the result applies to.",
+                "Name the review or validation step that turned the draft into something shareable.",
+                "Call out the key assumption or limitation instead of hoping nobody notices it later.",
+                "Keep one example, comparison, or baseline nearby so the output feels grounded rather than magical.",
+            ],
+        },
+        {
+            "heading": "Signals that this should stay a specialist pattern, not a default",
+            "paragraphs": [
+                "Not every promising workflow deserves full standardisation. Some patterns are powerful precisely because they are handled by someone with enough context to judge nuance, exceptions, or downstream consequences. Teams save themselves a lot of friction when they can recognise that boundary early instead of trying to force every useful tactic into a universal operating rule.",
+                "A good anchor page should therefore tell readers when to stop scaling. If the inputs stay unstable, if the review burden remains high, or if the business risk changes faster than the pattern can be documented, it may be smarter to keep the workflow specialist-owned while the rest of the team uses a simpler, safer default.",
+            ],
+            "bullets": [
+                "The workflow still depends heavily on one person’s tacit judgement to stay safe.",
+                "Fresh data or changing context breaks the process often enough that the checklist cannot keep up yet.",
+                "Review takes almost as long as doing the work manually, so the promised leverage never really appears.",
+                "Stakeholders need more certainty than the current workflow can honestly provide without extra controls.",
+            ],
+        },
+        {
+            "heading": "How this anchor connects to the rest of the workflow",
+            "paragraphs": [
+                "Anchor pages matter most when they help readers navigate the next layer with intention. Once this page is clear, the surrounding workflow usually becomes the next bottleneck rather than the topic itself.",
+                f"That is why this guide links outward into neighbouring pages in the cluster. Used together, the pages below help turn {title} from a single insight into a broader repeatable capability. They also make it easier to sequence learning so readers build confidence in the right order instead of collecting disconnected tips.",
+            ],
+            "bullets": cluster_bullets,
+        },
+    ]
+
+
 def main() -> None:
     if not NEW_POSTS:
         raise SystemExit("NEW_POSTS is empty.")
@@ -3049,7 +4271,11 @@ def main() -> None:
         encoding="utf-8",
         newline="\n",
     )
-    print(f"Built {len(rendered_posts)} new posts, updated blog index, feed, sitemap, and cover manifest.")
+    anchor_count = sum(1 for post in rendered_posts if post.slug in ANCHOR_BLUEPRINTS)
+    print(
+        f"Built {len(rendered_posts)} new posts, including {anchor_count} anchor pages, "
+        "updated blog index, feed, sitemap, and cover manifest."
+    )
 
 
 if __name__ == "__main__":
