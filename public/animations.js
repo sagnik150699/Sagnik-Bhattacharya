@@ -5,6 +5,9 @@
 (function(){
   'use strict';
 
+  // Signal that JS is running — enables CSS reveal animations
+  document.documentElement.classList.add('js-ready');
+
   // ── NAV ──
   const navbar = document.getElementById('navbar');
   const hamburger = document.getElementById('hamburger');
@@ -13,9 +16,18 @@
   hamburger.setAttribute('aria-expanded', 'false');
   hamburger.setAttribute('aria-controls', 'navLinks');
 
-  function closeNav() {
+  function openNav() {
+    navLinks.classList.add('active');
+    hamburger.setAttribute('aria-expanded', 'true');
+    // Move focus to first link inside the nav
+    const firstLink = navLinks.querySelector('a');
+    if (firstLink) firstLink.focus();
+  }
+
+  function closeNav(restoreFocus) {
     navLinks.classList.remove('active');
     hamburger.setAttribute('aria-expanded', 'false');
+    if (restoreFocus) hamburger.focus();
   }
 
   window.addEventListener('scroll', () => {
@@ -25,20 +37,25 @@
   hamburger.addEventListener('click', (e) => {
     e.stopPropagation();
     const isOpen = navLinks.classList.contains('active');
-    navLinks.classList.toggle('active', !isOpen);
-    hamburger.setAttribute('aria-expanded', String(!isOpen));
+    if (isOpen) {
+      closeNav(true);
+    } else {
+      openNav();
+    }
   });
 
   navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', closeNav);
+    link.addEventListener('click', () => closeNav(false));
   });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeNav();
+    if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+      closeNav(true);
+    }
   });
 
   document.addEventListener('click', (e) => {
-    if (!navbar.contains(e.target)) closeNav();
+    if (!navbar.contains(e.target)) closeNav(false);
   });
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
