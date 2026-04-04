@@ -2,248 +2,494 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sagnikbhattacharya.com/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/about</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/courses</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/services</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/contact</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/chatgpt-excel-guide</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/gemini-ai-excel</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/flutter-vs-react-native</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/what-if-analysis</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/financial-modelling</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/copilot-automate-tasks</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/claude-debug-formulas</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/power-pivot-guide</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/charts-visualisations</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/data-validation</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/index-match-guide</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/excel-vs-google-sheets</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/advanced-formulas</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/copilot-data-analysis</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/claude-ai-excel-macros</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/keyboard-shortcuts</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/dynamic-dashboards</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/power-query-guide</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/clean-messy-data</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/conditional-formatting-tips</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/mastering-pivot-tables</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/vlookup-vs-xlookup</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/getting-started-copilot-excel</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/claude-ai-excel-formulas</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/excel-ai-prompts</loc>
-  </url>
-  <url>
-    <loc>https://sagnikbhattacharya.com/blog/flutter-state-management</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/agent-mode-in-excel</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/groupby-function-excel</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/flutter-state-management</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/excel-ai-prompts</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/flutter-widget-previewer</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/chatgpt-excel-guide</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/gemini-ai-excel</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/claude-agent-mode-excel</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/pivotby-function-excel</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/create-with-ai-flutter</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/flutter-vs-react-native</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/what-if-analysis</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/copilot-function-excel</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/groupby-vs-pivottable-excel</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/financial-modelling</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/flutter-web-skwasm-vs-canvaskit</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/copilot-automate-tasks</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/analyst-vs-agent-mode-vs-copilot-chat</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/claude-debug-formulas</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/choosecols-chooserows-take-drop-excel</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/power-pivot-guide</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/flutter-app-architecture-2026</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/charts-visualisations</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/format-data-for-copilot-excel</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/data-validation</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/map-scan-reduce-excel</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/index-match-guide</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/go-router-flutter-deep-linking</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/excel-vs-google-sheets</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/create-lookups-with-copilot-excel</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/let-and-lambda-excel</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/advanced-formulas</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/flutter-form-validation-best-practices</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/copilot-data-analysis</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/generate-formula-columns-copilot-excel</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/claude-ai-excel-macros</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/xmatch-function-excel</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/flutter-performance-2026</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/keyboard-shortcuts</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/generate-single-cell-formulas-copilot-excel</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/dynamic-dashboards</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/excel-tables-best-practices</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/power-query-guide</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/responsive-flutter-ui-all-screens</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/create-charts-with-copilot-excel</loc>
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/clean-messy-data</loc>
+    <lastmod>2026-03-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/fix-spill-errors-excel</loc>
+    <lastmod>2026-03-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/conditional-formatting-tips</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/add-flutter-to-existing-app</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/mastering-pivot-tables</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/text-analysis-excel-with-ai</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/audit-formulas-excel</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/vlookup-vs-xlookup</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/flutter-testing-strategy-2026</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/getting-started-copilot-excel</loc>
+    <lastmod>2026-03-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/python-in-excel-beginners</loc>
+    <lastmod>2026-03-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/claude-ai-excel-formulas</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/protect-excel-workbook-collaboration</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/py-function-excel</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/calendar-in-excel-automatic</loc>
+    <lastmod>2026-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/copilot-excel-python-analysis</loc>
+    <lastmod>2026-02-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/gantt-chart-excel</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/chatgpt-vs-claude-vs-copilot-vs-gemini-excel</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/inventory-tracker-excel</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/review-ai-generated-excel-formulas</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/attendance-tracker-excel</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/ai-power-query-m-code</loc>
+    <lastmod>2026-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/project-tracker-excel</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/ai-forecasting-model-excel</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/sales-pipeline-tracker-excel</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/excel-ai-for-accountants</loc>
+    <lastmod>2026-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/monthly-budget-spreadsheet-excel</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/excel-ai-for-hr-teams</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/amortization-schedule-excel</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/excel-ai-for-sales-ops</loc>
+    <lastmod>2026-02-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/map-charts-excel</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

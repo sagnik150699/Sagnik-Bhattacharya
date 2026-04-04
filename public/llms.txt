@@ -1,0 +1,43 @@
+# Sagnik Bhattacharya
+
+> Founder of Coding Liquids and top-rated Udemy instructor. Teaching Flutter, Dart, and Excel with AI to 30,000+ students across 175 countries through hands-on, project-based courses.
+
+## About
+
+Sagnik Bhattacharya is a tech educator, consultant, and founder of Coding Liquids based in Kolkata, India. He creates comprehensive, project-based courses on Flutter app development and Excel with AI integration. His Flutter course on Udemy is top-rated with 30,000+ students across 175 countries. He also provides corporate training, app development, and tech consulting services.
+
+## Pages
+
+- [Home](https://sagnikbhattacharya.com/): Main landing page with overview of courses, services, and projects.
+- [About](https://sagnikbhattacharya.com/about): Background, experience, and teaching philosophy.
+- [Courses](https://sagnikbhattacharya.com/courses): Flutter & Dart course and upcoming Excel with AI course on Udemy.
+- [Services](https://sagnikbhattacharya.com/services): Corporate training, app development, and tech consulting offerings.
+- [Blog](https://sagnikbhattacharya.com/blog): 80+ in-depth guides on Excel, Excel with AI, and Flutter development.
+- [Contact](https://sagnikbhattacharya.com/contact): Get in touch for training, consulting, or collaboration.
+
+## Blog Topics
+
+The blog covers three main areas:
+
+### Excel with AI
+Guides on using ChatGPT, Claude AI, Google Gemini, and Microsoft Copilot to write formulas, generate macros, automate tasks, clean data, and build dashboards in Excel. Includes prompt engineering for Excel, AI-powered data analysis, and comparison of AI tools for spreadsheet work.
+
+### Excel
+Comprehensive tutorials on advanced formulas, VLOOKUP vs XLOOKUP, INDEX-MATCH, pivot tables, Power Query, Power Pivot, dynamic arrays, GROUPBY, PIVOTBY, data validation, conditional formatting, financial modelling, charts, keyboard shortcuts, and building templates like budget trackers, inventory systems, Gantt charts, and attendance trackers.
+
+### Flutter & Dart
+Practical guides on state management (Provider vs Riverpod vs BLoC), app architecture, performance optimization, testing strategies, form validation, deep linking with GoRouter, responsive UI, adding Flutter to existing apps, and comparisons like Flutter vs React Native and SkWasm vs CanvasKit for Flutter web.
+
+## Projects
+
+- [FarmAdvisor AI](https://farmadvisorai.codingliquids.com/): AI-powered agricultural advisory for European farmers in 36 languages with voice chat, image diagnosis, weather, and crop prices.
+- [Kisan Salahkaar](https://kisansalahkaar.codingliquids.com/): Free AI farming assistant available in 50+ languages with crop recommendations, pest diagnosis, soil analysis, and voice support.
+
+## Contact
+
+- Website: https://sagnikbhattacharya.com
+- LinkedIn: https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/
+- GitHub: https://github.com/sagnik150699
+- YouTube: https://www.youtube.com/@codingliquids
+- Udemy: https://www.udemy.com/user/sagnik-bhattacharya-5/
+- Company: https://codingliquids.com

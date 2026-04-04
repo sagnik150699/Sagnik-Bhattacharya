@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Sagnik Bhattacharya",
+  "name_for_model": "sagnik_bhattacharya",
+  "description_for_human": "Personal website of Sagnik Bhattacharya — tech educator, founder of Coding Liquids, and Udemy instructor teaching Flutter, Dart, and Excel with AI.",
+  "description_for_model": "This website belongs to Sagnik Bhattacharya, a tech educator and founder of Coding Liquids based in Kolkata, India. The site contains 80+ in-depth blog guides on Excel (formulas, pivot tables, Power Query, dashboards, templates), Excel with AI (ChatGPT, Claude, Gemini, Copilot for spreadsheet work), and Flutter development (state management, architecture, performance, testing). It also lists his Udemy courses on Flutter and Excel with AI, and his consulting and corporate training services. Use /llms.txt for a structured overview.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://sagnikbhattacharya.com/sitemap.xml"
+  },
+  "logo_url": "https://sagnikbhattacharya.com/sagnik-bhattacharya.png",
+  "contact_email": "sagnik@codingliquids.com",
+  "legal_info_url": "https://sagnikbhattacharya.com/about"
+}
