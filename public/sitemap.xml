@@ -1,495 +1,906 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://sagnikbhattacharya.com/</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/sagnik-bhattacharya.png</image:loc>
+      <image:title>Sagnik Bhattacharya</image:title>
+      <image:caption>Sagnik Bhattacharya - Tech Educator, Flutter and Excel Instructor, Founder of Coding Liquids</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/about</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/sagnik-bhattacharya.png</image:loc>
+      <image:title>Sagnik Bhattacharya</image:title>
+      <image:caption>Sagnik Bhattacharya - Tech Educator, Flutter and Excel Instructor, Founder of Coding Liquids</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/courses</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/sagnik-bhattacharya.png</image:loc>
+      <image:title>Sagnik Bhattacharya</image:title>
+      <image:caption>Sagnik Bhattacharya - Tech Educator, Flutter and Excel Instructor, Founder of Coding Liquids</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/services</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/sagnik-bhattacharya.png</image:loc>
+      <image:title>Sagnik Bhattacharya</image:title>
+      <image:caption>Sagnik Bhattacharya - Tech Educator, Flutter and Excel Instructor, Founder of Coding Liquids</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/contact</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/sagnik-bhattacharya.png</image:loc>
+      <image:title>Sagnik Bhattacharya</image:title>
+      <image:caption>Sagnik Bhattacharya - Tech Educator, Flutter and Excel Instructor, Founder of Coding Liquids</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/sagnik-bhattacharya.png</image:loc>
+      <image:title>Sagnik Bhattacharya</image:title>
+      <image:caption>Sagnik Bhattacharya - Tech Educator, Flutter and Excel Instructor, Founder of Coding Liquids</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/agent-mode-in-excel</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/agent-mode-in-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Agent Mode in Excel: What It Does, What It Can’t, and Who Should Use It</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Agent Mode in Excel, with workbook action panels and supervised AI workflow cues.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/groupby-function-excel</loc>
     <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/groupby-function-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>GROUPBY Function in Excel: Formula-Based Summaries Without a Pivot Table</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for the GROUPBY function in Excel, with spill summaries and grouped reporting visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/flutter-state-management</loc>
     <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/flutter-state-management-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Flutter State Management in 2026: Provider vs Riverpod vs BLoC</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter State Management in 2026 — Provider vs Riverpod vs BLoC, with comparison cards, a dark grid background, and choice-focused messaging.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/excel-ai-prompts</loc>
     <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/excel-ai-prompts-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>60 AI Prompts for Excel That Actually Work (Copy, Paste, Get Results)</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for 60 AI Prompts for Excel That Actually Work, with prompt cards, formula visuals, and spreadsheet grids.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/flutter-widget-previewer</loc>
     <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/flutter-widget-previewer-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Flutter Widget Previewer: Real-Time UI Iteration Without Running the Full App</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter Widget Previewer, with isolated UI previews and rapid-iteration visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/chatgpt-excel-guide</loc>
     <lastmod>2026-03-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/chatgpt-excel-guide-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Use ChatGPT to Write Excel Formulas (With Real Examples)</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use ChatGPT for Excel Formulas and Analysis, with AI chat interface, spreadsheet grids, and formula visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/gemini-ai-excel</loc>
     <lastmod>2026-03-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/gemini-ai-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Use Google Gemini to Write Excel Formulas for Free</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Google Gemini for Excel Formulas and Data, with AI prompt styling and spreadsheet visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/claude-agent-mode-excel</loc>
     <lastmod>2026-03-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/claude-agent-mode-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Use Claude With Agent Mode in Excel: Setup, Limits, and Best Workflows</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for using Claude with Agent Mode in Excel, with reasoning panels and workbook analysis visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/pivotby-function-excel</loc>
     <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/pivotby-function-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>PIVOTBY Function in Excel: Build Pivot-Style Reports With a Formula</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for the PIVOTBY function in Excel, with cross-tab report grids and formula-led summary visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/create-with-ai-flutter</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/create-with-ai-flutter-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Create With AI in Flutter: Gemini CLI, MCP, and the AI Toolkit Explained</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for creating with AI in Flutter, with tooling nodes and production-minded AI workflow visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/flutter-vs-react-native</loc>
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/flutter-vs-react-native-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Flutter vs React Native in 2026: Which Should You Choose?</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter vs React Native in 2026 — Which One Should You Pick?, with Flutter and React Native logos, mobile UI cards, and a framework comparison visual.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/what-if-analysis</loc>
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/what-if-analysis-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Use What-If Analysis in Excel: Goal Seek and Scenarios</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel What-If Analysis — Goal Seek, Scenarios and Data Tables, with spreadsheet visuals and scenario comparison elements.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/copilot-function-excel</loc>
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/copilot-function-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>COPILOT Function in Excel: Syntax, Use Cases, Limits, and Risks</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for the COPILOT function in Excel, with AI-filled cells and review-focused spreadsheet visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/groupby-vs-pivottable-excel</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/groupby-vs-pivottable-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>GROUPBY vs PivotTable in Excel: When Formula Summaries Beat the Ribbon</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for GROUPBY vs PivotTable in Excel, with formula summaries and comparison visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/financial-modelling</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/financial-modelling-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Build a Financial Model in Excel From Scratch</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel for Financial Modelling — A Beginner&amp;#39;s Guide, with forecast visuals, tables, and financial model elements.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/flutter-web-skwasm-vs-canvaskit</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/flutter-web-skwasm-vs-canvaskit-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Flutter Web in 2026: skwasm vs CanvasKit vs WebAssembly Builds</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter web renderers, with skwasm, CanvasKit, and web performance comparison visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/copilot-automate-tasks</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/copilot-automate-tasks-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Automate Excel Tasks with Microsoft Copilot</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Automating Repetitive Excel Tasks with Copilot, with automation loops, task cards, and spreadsheet workflow elements.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/analyst-vs-agent-mode-vs-copilot-chat</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/analyst-vs-agent-mode-vs-copilot-chat-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Analyst vs Agent Mode vs Copilot Chat: Which Excel AI Workflow Fits Best?</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Analyst vs Agent Mode vs Copilot Chat in Excel, with AI workflow comparison visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/claude-debug-formulas</loc>
     <lastmod>2026-03-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/claude-debug-formulas-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Fix Excel Formula Errors with Claude AI (Fast)</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Using Claude AI to Debug and Fix Excel Formulas, with formula debugging cues, alerts, and clean fixes.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/choosecols-chooserows-take-drop-excel</loc>
     <lastmod>2026-03-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/choosecols-chooserows-take-drop-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>CHOOSECOLS, CHOOSEROWS, TAKE, and DROP in Excel: Slice Data Faster</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for CHOOSECOLS, CHOOSEROWS, TAKE, and DROP in Excel, with sliced array and report-grid visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/power-pivot-guide</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/power-pivot-guide-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Use Power Pivot in Excel to Analyse Millions of Rows</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Power Pivot — Handle Millions of Rows, with connected data tables, model relationships, and scale cues.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/flutter-app-architecture-2026</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/flutter-app-architecture-2026-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Flutter App Architecture in 2026: A Practical Feature-First Guide</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter app architecture, with feature-first app structure visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/charts-visualisations</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/charts-visualisations-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Make Professional Charts in Excel (Step-by-Step Guide)</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Creating Professional Charts and Visualisations in Excel, with bold charts, trend lines, and presentation-ready visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/format-data-for-copilot-excel</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/format-data-for-copilot-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Format Data for Copilot in Excel: Tables, Supported Ranges, and Common Failures</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for formatting data for Copilot in Excel, with clean table and workbook structure visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/data-validation</loc>
     <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/data-validation-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Add a Dropdown List in Excel Using Data Validation</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Data Validation — Prevent Errors Before They Happen, with validation controls, dropdowns, and error-prevention signals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/map-scan-reduce-excel</loc>
     <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/map-scan-reduce-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>MAP, SCAN, and REDUCE in Excel: Modern Array Logic for Power Users</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for MAP, SCAN, and REDUCE in Excel, with dynamic-array logic visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/index-match-guide</loc>
     <lastmod>2026-03-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/index-match-guide-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Use INDEX MATCH in Excel with Multiple Criteria</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for INDEX-MATCH — The Superior Alternative to VLOOKUP, with lookup references, match arrows, and formula comparison cues.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/go-router-flutter-deep-linking</loc>
     <lastmod>2026-03-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/go-router-flutter-deep-linking-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>go_router in Flutter: Deep Linking, Nested Navigation, and Web URLs</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for go_router in Flutter, with nested routes and deep-link visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/excel-vs-google-sheets</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/excel-vs-google-sheets-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Excel vs Google Sheets: Which Is Better for You in 2026?</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel vs Google Sheets — Which Should You Use in 2026, with side-by-side spreadsheet comparison panels and decision cues.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/create-lookups-with-copilot-excel</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/create-lookups-with-copilot-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Create Lookups With Copilot in Excel: When It Writes XLOOKUP Well and When It Doesn’t</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for creating lookups with Copilot in Excel, with XLOOKUP and review visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/let-and-lambda-excel</loc>
     <lastmod>2026-03-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/let-and-lambda-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>LET and LAMBDA in Excel: Turn Repeated Formulas Into Reusable Logic</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for LET and LAMBDA in Excel, with reusable formula logic visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/advanced-formulas</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/advanced-formulas-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>15 Excel Formulas That Save Hours of Manual Work (With Examples)</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for 15 Advanced Excel Formulas Every Professional Should Know, with formula blocks, dynamic arrays, and advanced spreadsheet logic.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/flutter-form-validation-best-practices</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/flutter-form-validation-best-practices-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Flutter Form Validation Best Practices for Production Apps</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter form validation best practices, with mobile form and validation-state visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/copilot-data-analysis</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/copilot-data-analysis-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Use Microsoft Copilot for Data Analysis in Excel</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Copilot for Data Analysis — A Practical Guide, with data analysis cards, charts, and insight panels.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/generate-formula-columns-copilot-excel</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/generate-formula-columns-copilot-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Generate Formula Columns With Copilot in Excel: Best Prompts and Review Steps</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for generating formula columns with Copilot in Excel, with prompt and column-fill visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/claude-ai-excel-macros</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/claude-ai-excel-macros-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Use Claude AI to Write Excel Macros and VBA Code</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Using Claude AI to Generate Excel Macros and VBA, with macro automation cues, code blocks, and workflow visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/xmatch-function-excel</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/xmatch-function-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>XMATCH in Excel: Smarter Lookups, Reverse Searches, and Binary Search Use Cases</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for XMATCH in Excel, with reverse-search and lookup-position visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/flutter-performance-2026</loc>
     <lastmod>2026-03-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/flutter-performance-2026-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Flutter Performance in 2026: Impeller, DevTools, and Rebuild Reduction</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter performance in 2026, with profiling and rebuild visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/keyboard-shortcuts</loc>
     <lastmod>2026-03-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/keyboard-shortcuts-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>30 Excel Keyboard Shortcuts That Save Hours Every Week</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for 30 Excel Keyboard Shortcuts That Save Hours, with keyboard cues, fast actions, and productivity shortcuts.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/generate-single-cell-formulas-copilot-excel</loc>
     <lastmod>2026-03-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/generate-single-cell-formulas-copilot-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Generate Single-Cell Formulas With Copilot in Excel: Fast Wins and Failure Modes</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for generating single-cell formulas with Copilot in Excel, with prompt and formula visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/dynamic-dashboards</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/dynamic-dashboards-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Build an Interactive Dashboard in Excel (No VBA)</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Creating Dynamic Dashboards in Excel, with dashboard cards, KPIs, and interactive chart elements.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/excel-tables-best-practices</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/excel-tables-best-practices-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Excel Tables Best Practices: Structured References, Growth, and Cleaner Models</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel tables best practices, with clean table and structured-reference visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/power-query-guide</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/power-query-guide-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Use Power Query in Excel to Automate Data Cleaning</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Power Query — Automate Data Transformation, with data pipelines, transformation steps, and import flow elements.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/responsive-flutter-ui-all-screens</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/responsive-flutter-ui-all-screens-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Responsive Flutter UI for Mobile, Tablet, Desktop, and Web</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for responsive Flutter UI across mobile, tablet, desktop, and web.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/create-charts-with-copilot-excel</loc>
     <lastmod>2026-03-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/create-charts-with-copilot-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Create Charts With Copilot in Excel: What Works, What Needs Manual Cleanup</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for creating charts with Copilot in Excel, with chart-draft and review visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/clean-messy-data</loc>
     <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/clean-messy-data-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Clean Messy Data in Excel: Step-by-Step Guide</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Clean Messy Data in Excel Fast, with messy spreadsheet elements transforming into organised rows.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/fix-spill-errors-excel</loc>
     <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/fix-spill-errors-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Fix #SPILL! Errors in Excel and Prevent Them in Dynamic Array Models</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for fixing #SPILL! errors in Excel, with dynamic-array troubleshooting visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/conditional-formatting-tips</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/conditional-formatting-tips-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Highlight Rows Based on Cell Value in Excel</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Conditional Formatting Tips and Tricks, with highlighted cells, colour scales, and formatting triggers.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/add-flutter-to-existing-app</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/add-flutter-to-existing-app-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Add Flutter to an Existing App: Mobile and Web Integration Patterns</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for adding Flutter to an existing app, with integration and migration visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/mastering-pivot-tables</loc>
     <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/mastering-pivot-tables-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Create a Pivot Table in Excel Step by Step</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Mastering Pivot Tables — A Complete Guide, with pivot layouts, summary visuals, and grouped data blocks.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/text-analysis-excel-with-ai</loc>
     <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/text-analysis-excel-with-ai-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Text Analysis in Excel With AI: Survey Comments, Reviews, and Open Feedback</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for text analysis in Excel with AI, with survey-comment and theme-tag visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/audit-formulas-excel</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/audit-formulas-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Audit Formulas in Excel: Trace Precedents, Dependents, and Error Sources</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for auditing formulas in Excel, with dependency-trace and error-source visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/vlookup-vs-xlookup</loc>
     <lastmod>2026-03-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/vlookup-vs-xlookup-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>VLOOKUP vs XLOOKUP: Differences and When to Use Each</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for VLOOKUP vs XLOOKUP — When to Use Which, with lookup comparisons, arrows, and side-by-side formula cues.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/flutter-testing-strategy-2026</loc>
     <lastmod>2026-03-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/flutter-testing-strategy-2026-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Flutter Testing Strategy in 2026: Unit, Widget, Integration, and Goldens</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter testing strategy in 2026, with testing-layer visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/getting-started-copilot-excel</loc>
     <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/getting-started-copilot-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Set Up and Use Microsoft Copilot in Excel (2026)</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Getting Started with Microsoft Copilot in Excel, with AI assistant styling, onboarding cues, and spreadsheet cards.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/python-in-excel-beginners</loc>
     <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/python-in-excel-beginners-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Python in Excel for Beginners: The First 10 Things Worth Learning</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Python in Excel for beginners, with Python cell and analytics visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/claude-ai-excel-formulas</loc>
     <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/claude-ai-excel-formulas-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Use Claude AI to Write Excel Formulas Instantly</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Claude AI to Write Excel Formulas Instantly, with AI prompt styling, formulas, and spreadsheet visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/protect-excel-workbook-collaboration</loc>
     <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/protect-excel-workbook-collaboration-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Protect an Excel Workbook Without Breaking Collaboration and Shared Editing</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for protecting an Excel workbook without breaking collaboration, with lock and collaboration visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/py-function-excel</loc>
     <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/py-function-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>PY Function in Excel: What It Is, How It Works, and When to Use It</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for the PY function in Excel, with Python-in-workbook visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/calendar-in-excel-automatic</loc>
     <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/calendar-in-excel-automatic-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Create a Calendar in Excel That Updates Automatically Every Month</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for creating an automatic calendar in Excel, with date-grid and planning visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/copilot-excel-python-analysis</loc>
     <lastmod>2026-02-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/copilot-excel-python-analysis-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Copilot in Excel With Python: Forecasting, Risk Analysis, and Deeper Reasoning</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Copilot in Excel with Python, with analysis and forecasting visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/gantt-chart-excel</loc>
     <lastmod>2026-02-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/gantt-chart-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Make a Gantt Chart in Excel for Real Project Planning</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for making a Gantt chart in Excel, with project-timeline visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/chatgpt-vs-claude-vs-copilot-vs-gemini-excel</loc>
     <lastmod>2026-02-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/chatgpt-vs-claude-vs-copilot-vs-gemini-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>ChatGPT vs Claude vs Copilot vs Gemini for Excel in 2026</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for ChatGPT vs Claude vs Copilot vs Gemini for Excel, with AI comparison visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/inventory-tracker-excel</loc>
     <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/inventory-tracker-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Build an Inventory Tracker in Excel That Stays Maintainable</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for building an inventory tracker in Excel, with stock and movement visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/review-ai-generated-excel-formulas</loc>
     <lastmod>2026-02-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/review-ai-generated-excel-formulas-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Review AI-Generated Excel Formulas Before You Trust Them</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for reviewing AI-generated Excel formulas, with formula-check and risk visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/attendance-tracker-excel</loc>
     <lastmod>2026-02-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/attendance-tracker-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Create an Attendance Tracker in Excel for Teams, Schools, or Training</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for creating an attendance tracker in Excel, with roster and attendance-grid visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/ai-power-query-m-code</loc>
     <lastmod>2026-02-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/ai-power-query-m-code-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Use AI to Write and Fix Power Query M Code for Excel</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for using AI to write and fix Power Query M code in Excel, with query-step visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/project-tracker-excel</loc>
     <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/project-tracker-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Build a Project Tracker in Excel Without Turning It Into a Mess</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for building a project tracker in Excel, with task and status visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/ai-forecasting-model-excel</loc>
     <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/ai-forecasting-model-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Build a Forecasting Model in Excel With AI Assistance Step by Step</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for building a forecasting model in Excel with AI assistance, with forecast and scenario visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/sales-pipeline-tracker-excel</loc>
     <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/sales-pipeline-tracker-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Build a Sales Pipeline Tracker in Excel for Small Teams</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for building a sales pipeline tracker in Excel, with deal-stage visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/excel-ai-for-accountants</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/excel-ai-for-accountants-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Excel + AI for Accountants: Reconciliations, Variance Reviews, and Close Prep</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel and AI for accountants, with reconciliation and close-prep visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/monthly-budget-spreadsheet-excel</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/monthly-budget-spreadsheet-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Build a Monthly Budget Spreadsheet in Excel From Scratch</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for building a monthly budget spreadsheet in Excel, with budget and cashflow visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/excel-ai-for-hr-teams</loc>
     <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/excel-ai-for-hr-teams-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Excel + AI for HR Teams: Hiring Trackers, Attrition Analysis, and Reporting</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel and AI for HR teams, with hiring and reporting visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/amortization-schedule-excel</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/amortization-schedule-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Create an Amortization Schedule in Excel With Extra Payment Scenarios</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for creating an amortisation schedule in Excel, with loan and paydown visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/excel-ai-for-sales-ops</loc>
     <lastmod>2026-02-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/excel-ai-for-sales-ops-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Excel + AI for Sales Ops: Pipeline Cleanup, Forecasts, and Territory Reporting</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel and AI for Sales Ops, with pipeline and forecast visuals.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/map-charts-excel</loc>
     <lastmod>2026-02-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/map-charts-excel-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Map Charts in Excel: When to Use Them, Data Prep, and Common Mistakes</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for map charts in Excel, with geographic chart visuals.</image:caption>
+    </image:image>
   </url>
 </urlset>

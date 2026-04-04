@@ -431,4 +431,161 @@
     );
   });
 
+  // ── HERO FLOATING PARTICLES ──
+  const heroEl = document.querySelector('.hero') || document.querySelector('.page-hero');
+  if (heroEl && !reducedMotion) {
+    const particleContainer = document.createElement('div');
+    particleContainer.className = 'hero-particles';
+    heroEl.appendChild(particleContainer);
+
+    for (let i = 0; i < 15; i++) {
+      const p = document.createElement('div');
+      p.className = 'hero-particle';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.top = Math.random() * 100 + '%';
+      p.style.setProperty('--dx', (Math.random() * 120 - 60) + 'px');
+      p.style.setProperty('--dy', (Math.random() * -100 - 30) + 'px');
+      p.style.setProperty('--duration', (4 + Math.random() * 6) + 's');
+      p.style.setProperty('--delay', (Math.random() * 5) + 's');
+      p.style.width = (3 + Math.random() * 5) + 'px';
+      p.style.height = p.style.width;
+      p.style.opacity = 0.15 + Math.random() * 0.25;
+      particleContainer.appendChild(p);
+    }
+  }
+
+  // ── SECTION TITLE UNDERLINE DRAW ON SCROLL ──
+  const sectionTitles = document.querySelectorAll('.section-title');
+  if (sectionTitles.length) {
+    const titleObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('line-visible');
+          titleObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    sectionTitles.forEach(t => titleObs.observe(t));
+  }
+
+  // ── FOOTER REVEAL ON SCROLL ──
+  const footerEl = document.querySelector('footer');
+  if (footerEl) {
+    const footerObs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        footerEl.classList.add('visible');
+        footerObs.unobserve(footerEl);
+      }
+    }, { threshold: 0.2 });
+    footerObs.observe(footerEl);
+  }
+
+  // ── BUTTON CLICK RIPPLE ──
+  document.querySelectorAll('.btn-primary, .btn-outline').forEach(btn => {
+    btn.style.position = 'relative';
+    btn.style.overflow = 'hidden';
+    btn.addEventListener('click', function(e) {
+      const rect = this.getBoundingClientRect();
+      const ripple = document.createElement('span');
+      ripple.className = 'btn-ripple';
+      const size = Math.max(rect.width, rect.height);
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+      ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+      this.appendChild(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove());
+    });
+  });
+
+  // ── STAGGERED TEXT REVEAL FOR HERO H1 ──
+  if (!reducedMotion && hasGSAP) {
+    const heroH1Lines = document.querySelectorAll('.hero h1, .page-hero h1');
+    heroH1Lines.forEach(h1 => {
+      // Add a subtle text-shadow glow after entrance animation completes
+      gsap.to(h1, {
+        textShadow: '0 0 40px rgba(232,133,46,0.08)',
+        duration: 2,
+        delay: 1.5,
+        ease: 'power2.out'
+      });
+    });
+  }
+
+  // ── GSAP: STAT NUMBERS ELASTIC BOUNCE ──
+  if (hasGSAP) {
+    document.querySelectorAll('.stat-item').forEach(item => {
+      gsap.fromTo(item,
+        { scale: 0.7, opacity: 0 },
+        {
+          scale: 1, opacity: 1,
+          duration: 0.8,
+          ease: 'elastic.out(1, 0.5)',
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 85%',
+            once: true
+          }
+        }
+      );
+    });
+  }
+
+  // ── GSAP: BLOG CARDS ROTATE-IN ──
+  if (hasGSAP) {
+    document.querySelectorAll('.blog-grid').forEach(grid => {
+      const cards = grid.querySelectorAll('.blog-card');
+      if (cards.length) {
+        gsap.fromTo(cards,
+          { opacity: 0, y: 40, rotateX: 8 },
+          {
+            opacity: 1, y: 0, rotateX: 0,
+            duration: 0.7,
+            stagger: 0.12,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: grid,
+              start: 'top 80%',
+              once: true
+            }
+          }
+        );
+      }
+    });
+  }
+
+  // ── GSAP: FOOTER CONTENT STAGGER ──
+  if (hasGSAP && footerEl) {
+    gsap.fromTo(footerEl.children,
+      { opacity: 0, y: 15 },
+      {
+        opacity: 1, y: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: footerEl,
+          start: 'top 95%',
+          once: true
+        }
+      }
+    );
+  }
+
+  // ── SMOOTH HOVER GLOW ON PROJECT CARDS ──
+  if (!reducedMotion && window.matchMedia('(pointer:fine)').matches) {
+    document.querySelectorAll('.project-card, .course-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--glow-x', x + 'px');
+        card.style.setProperty('--glow-y', y + 'px');
+        card.style.background = `radial-gradient(300px circle at var(--glow-x) var(--glow-y), rgba(232,133,46,0.06), transparent 60%), var(--white)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.background = '';
+      });
+    });
+  }
+
 })();
