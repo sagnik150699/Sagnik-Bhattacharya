@@ -315,15 +315,6 @@
       );
     }
 
-    // Hero grain entrance
-    const heroGrain = document.querySelector('.hero-grain');
-    if (heroGrain) {
-      gsap.fromTo(heroGrain,
-        { opacity: 0 },
-        { opacity: 0.035, duration: 1.5, ease: 'power2.out', delay: 0.8 }
-      );
-    }
-
     // Parallax effect on hero background orbs
     document.querySelectorAll('.parallax-orb').forEach(orb => {
       const speed = parseFloat(orb.dataset.speed) || 0.3;
@@ -448,29 +439,6 @@
       }
     );
   });
-
-  // ── HERO FLOATING PARTICLES ──
-  const heroEl = document.querySelector('.hero') || document.querySelector('.page-hero');
-  if (heroEl && !reducedMotion) {
-    const particleContainer = document.createElement('div');
-    particleContainer.className = 'hero-particles';
-    heroEl.appendChild(particleContainer);
-
-    for (let i = 0; i < 15; i++) {
-      const p = document.createElement('div');
-      p.className = 'hero-particle';
-      p.style.left = Math.random() * 100 + '%';
-      p.style.top = Math.random() * 100 + '%';
-      p.style.setProperty('--dx', (Math.random() * 120 - 60) + 'px');
-      p.style.setProperty('--dy', (Math.random() * -100 - 30) + 'px');
-      p.style.setProperty('--duration', (4 + Math.random() * 6) + 's');
-      p.style.setProperty('--delay', (Math.random() * 5) + 's');
-      p.style.width = (3 + Math.random() * 5) + 'px';
-      p.style.height = p.style.width;
-      p.style.opacity = 0.15 + Math.random() * 0.25;
-      particleContainer.appendChild(p);
-    }
-  }
 
   // ── SECTION TITLE UNDERLINE DRAW ON SCROLL ──
   const sectionTitles = document.querySelectorAll('.section-title');
