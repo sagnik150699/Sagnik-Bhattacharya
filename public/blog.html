@@ -113,13 +113,17 @@
       return (p >= 1 && p <= totalPages) ? p : 1;
     }
 
+    let initialLoad = true;
     function showPage(page) {
       cards.forEach((c, i) => {
         const show = i >= (page - 1) * POSTS_PER_PAGE && i < page * POSTS_PER_PAGE;
         c.style.display = show ? '' : 'none';
       });
       renderNav(page);
-      window.scrollTo({ top: grid.offsetTop - 100, behavior: 'smooth' });
+      if (!initialLoad) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      initialLoad = false;
     }
 
     function renderNav(page) {
