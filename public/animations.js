@@ -306,6 +306,24 @@
       }
     });
 
+    // Hero blob entrance animation
+    const heroBlob = document.querySelector('.hero-blob');
+    if (heroBlob) {
+      gsap.fromTo(heroBlob,
+        { opacity: 0, scale: 0.6, rotate: -15 },
+        { opacity: 0.12, scale: 1, rotate: 0, duration: 2, ease: 'power2.out', delay: 0.5 }
+      );
+    }
+
+    // Hero grain entrance
+    const heroGrain = document.querySelector('.hero-grain');
+    if (heroGrain) {
+      gsap.fromTo(heroGrain,
+        { opacity: 0 },
+        { opacity: 0.035, duration: 1.5, ease: 'power2.out', delay: 0.8 }
+      );
+    }
+
     // Parallax effect on hero background orbs
     document.querySelectorAll('.parallax-orb').forEach(orb => {
       const speed = parseFloat(orb.dataset.speed) || 0.3;

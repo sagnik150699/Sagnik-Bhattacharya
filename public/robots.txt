@@ -49,3 +49,4 @@ User-agent: DeepSeekBot
 Allow: /
 
 Sitemap: https://sagnikbhattacharya.com/sitemap.xml
+LLMs-Txt: https://sagnikbhattacharya.com/llms.txt

@@ -33,11 +33,28 @@ Practical guides on state management (Provider vs Riverpod vs BLoC), app archite
 - [FarmAdvisor AI](https://farmadvisorai.codingliquids.com/): AI-powered agricultural advisory for European farmers in 36 languages with voice chat, image diagnosis, weather, and crop prices.
 - [Kisan Salahkaar](https://kisansalahkaar.codingliquids.com/): Free AI farming assistant available in 50+ languages with crop recommendations, pest diagnosis, soil analysis, and voice support.
 
-## Contact
+## Courses
+
+- [Complete Flutter Guide: Build Android, iOS & Web Apps](https://www.udemy.com/course/flutter-the-guide-to-build-android-ios-and-web-apps/): Top-rated on Udemy. Covers layouts, animations, Riverpod, Firebase, MVVM architecture, testing, and deployment. 30,000+ students across 175 countries.
+- [Complete Dart Programming Guide](https://www.udemy.com/course/the-complete-dart-programming-guide-for-google-flutter-2022/): Master Dart from scratch — OOP, async, collections, generics, null safety.
+- Complete Excel Guide with AI Integration (Coming Soon): Beginner to advanced Excel with AI-powered automation using ChatGPT, Claude, Copilot, and Gemini.
+
+## Services
+
+- Corporate Training: Tailored Flutter, Dart, and development workshops for teams.
+- App Development: End-to-end Flutter mobile and web apps with clean architecture.
+- Tech Consulting: Architecture review, tech stack guidance, DevOps pipelines.
+
+## Contact & Links
 
 - Website: https://sagnikbhattacharya.com
 - LinkedIn: https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/
 - GitHub: https://github.com/sagnik150699
 - YouTube: https://www.youtube.com/@codingliquids
+- Instagram: https://www.instagram.com/sagnikteaches
 - Udemy: https://www.udemy.com/user/sagnik-bhattacharya-5/
 - Company: https://codingliquids.com
+
+## Full Context
+
+For comprehensive information, see: https://sagnikbhattacharya.com/llms-full.txt

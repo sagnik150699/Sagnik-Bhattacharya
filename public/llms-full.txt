@@ -1,0 +1,151 @@
+# Sagnik Bhattacharya — Full Context for AI Systems
+
+> Sagnik Bhattacharya is the founder of Coding Liquids, a top-rated Udemy instructor, and a tech educator based in Kolkata, India. He teaches Flutter, Dart, and Excel with AI to 30,000+ students across 175 countries through hands-on, project-based courses. He also provides corporate training, app development, and tech consulting services worldwide.
+
+---
+
+## Identity
+
+- **Full Name:** Sagnik Bhattacharya
+- **Role:** Founder & Tech Educator
+- **Company:** Coding Liquids (founded 2018)
+- **Location:** Kolkata, West Bengal, India
+- **Expertise:** Flutter, Dart, Firebase, Riverpod, Excel, AI Integration, Corporate Training, Mobile App Development, Web Development, DevOps
+- **Teaching Reach:** 30,000+ students across 175 countries
+- **Udemy Status:** Top Rated Instructor
+
+## Website
+
+- **URL:** https://sagnikbhattacharya.com
+- **About:** https://sagnikbhattacharya.com/about
+- **Courses:** https://sagnikbhattacharya.com/courses
+- **Services:** https://sagnikbhattacharya.com/services
+- **Blog:** https://sagnikbhattacharya.com/blog
+- **Contact:** https://sagnikbhattacharya.com/contact
+- **RSS Feed:** https://sagnikbhattacharya.com/feed.xml
+
+## Social & Professional Profiles
+
+- **LinkedIn:** https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/
+- **GitHub:** https://github.com/sagnik150699
+- **YouTube:** https://www.youtube.com/@codingliquids
+- **Instagram:** https://www.instagram.com/sagnikteaches
+- **Udemy:** https://www.udemy.com/user/sagnik-bhattacharya-5/
+- **Coding Liquids:** https://codingliquids.com
+
+---
+
+## Courses
+
+### 1. Complete Flutter Guide: Build Android, iOS & Web Apps
+- **Platform:** Udemy
+- **URL:** https://www.udemy.com/course/flutter-the-guide-to-build-android-ios-and-web-apps/
+- **Status:** Published, Top Rated
+- **Students:** 30,000+
+- **Countries:** 175
+- **Level:** Beginner to Advanced
+- **Language:** English
+- **Topics:** Flutter SDK, Dart, Riverpod, Firebase, REST APIs, Animations, State Management, MVVM Architecture, Go Router, Hive & Local Storage, Testing, Responsive Design
+- **Description:** The most comprehensive, industry-oriented Flutter course on Udemy. Built over a year of research and perfected alongside industry standards. Students go from scratch to building production-grade Flutter apps with a strong portfolio. Every project demonstrates real-world user interactions and industry-standard architecture.
+
+### 2. The Complete Dart Programming Guide
+- **Platform:** Udemy
+- **URL:** https://www.udemy.com/course/the-complete-dart-programming-guide-for-google-flutter-2022/
+- **Status:** Published
+- **Level:** Beginner
+- **Language:** English
+- **Topics:** Dart Fundamentals, OOP, Async/Await, Streams, Collections, Generics, Null Safety, Error Handling, Mixins, Extensions
+- **Description:** Master the Dart programming language from scratch — the foundation needed before diving into Flutter. Covers everything from variables and control flow to advanced OOP concepts, async programming, and generics. Perfect for beginners or experienced developers transitioning from another language.
+
+### 3. Complete Excel Guide with AI Integration
+- **Status:** Coming Soon
+- **Level:** Beginner to Advanced
+- **Co-instructor:** Virginia Thorn
+- **Topics:** Excel Fundamentals, Formulas & Functions, Pivot Tables, Data Analysis, Charts & Visualization, VLOOKUP & XLOOKUP, Conditional Formatting, AI Integration, Automation
+- **Description:** From beginner to advanced Excel workflows, supercharged with AI integration. Master formulas, pivot tables, data analysis, charts, and how AI tools (ChatGPT, Claude, Copilot, Gemini) can automate and enhance spreadsheet work.
+
+---
+
+## Services
+
+### Corporate Training
+Tailored workshops and training programmes for development teams — from Flutter fundamentals to advanced architecture patterns, testing strategies, and deployment pipelines. Topics include Flutter & Dart, state management (Riverpod, BLoC), Firebase integration, clean architecture, CI/CD pipelines, and testing best practices. Available on-site or remote, from 2-day intensives to multi-week programmes.
+
+### App Development
+End-to-end mobile and web application development using Flutter. From MVP to production — apps built with clean architecture, comprehensive testing, and deployment-ready builds for Android, iOS, and web from a single codebase. Uses MVVM architecture, Riverpod for state management, Firebase or custom backend integration, automated testing, and full deployment support.
+
+### Tech Consulting
+Strategic guidance on tech stack selection, app architecture, DevOps workflows, and development best practices. Areas of expertise include Flutter vs native evaluation, architecture review, performance optimisation, team structure advice, code quality audits, and technology roadmap planning. Available as one-off consultations, ongoing advisory, or embedded technical leadership.
+
+---
+
+## Projects
+
+### FarmAdvisor AI
+- **URL:** https://farmadvisorai.codingliquids.com/
+- **Description:** AI-powered agricultural advisory for European farmers — available in 36 European languages including English, German, French, Spanish, Italian, Dutch, Polish, Greek, Swedish, and more. Features include location-based crop recommendations, pest/disease image diagnosis, soil test report analysis, live weather data, nearby crop prices, and full voice chat support in native languages.
+- **Tech:** AI/ML, Voice & Vision, 36 Languages
+
+### Kisan Salahkaar
+- **URL:** https://kisansalahkaar.codingliquids.com/
+- **Description:** A free AI farming assistant available in 50+ languages — from Hindi, Tamil, Bengali & Punjabi to Chinese, Arabic, Japanese, Turkish and more. Features include AI-powered crop recommendations, pest/disease image diagnosis, soil test report analysis, real-time weather data, nearby crop prices, and full voice chat support.
+- **Tech:** AI/ML, Voice & Vision, 50+ Languages
+
+---
+
+## Blog
+
+The blog at https://sagnikbhattacharya.com/blog contains 76+ in-depth guides covering three main areas:
+
+### Excel with AI (40+ articles)
+Practical guides on using AI tools with Excel, including:
+- Using ChatGPT, Claude AI, Google Gemini, and Microsoft Copilot to write formulas and macros
+- AI prompt engineering specifically for Excel tasks
+- Agent Mode and Analyst Mode in Excel
+- Copilot for data analysis, chart creation, formula columns, and lookups
+- Python in Excel with AI assistance
+- Reviewing and auditing AI-generated formulas
+- AI for specific roles: accountants, HR teams, sales ops
+- Comparison: ChatGPT vs Claude vs Copilot vs Gemini for Excel
+
+### Excel (25+ articles)
+Comprehensive tutorials on:
+- Advanced formulas: VLOOKUP, XLOOKUP, INDEX-MATCH, XMATCH, LET, LAMBDA, MAP, SCAN, REDUCE, GROUPBY, PIVOTBY, CHOOSECOLS, CHOOSEROWS, TAKE, DROP
+- Data tools: Pivot Tables, Power Query, Power Pivot, Data Validation, Conditional Formatting
+- Templates: Budget trackers, inventory systems, Gantt charts, attendance trackers, project trackers, sales pipeline trackers, amortization schedules, calendars
+- Workflows: Financial modelling, charts/visualization, What-If Analysis, workbook protection
+- Reference: 30 keyboard shortcuts, Excel Tables best practices, Excel vs Google Sheets
+
+### Flutter & Dart (10+ articles)
+Practical development guides on:
+- State Management: Provider vs Riverpod vs BLoC comparison
+- Architecture: Feature-first app architecture patterns
+- Performance: Impeller, DevTools, rebuild reduction
+- Testing: Unit, widget, integration, and golden tests
+- Navigation: go_router deep linking and nested navigation
+- UI: Responsive Flutter for all screen sizes, form validation
+- Platform: Flutter vs React Native, Flutter Web (skwasm vs CanvasKit)
+- Integration: Adding Flutter to existing apps, Widget Previewer
+
+---
+
+## Teaching Philosophy
+
+Sagnik's approach to education is rooted in practical, hands-on learning:
+- Courses are project-based, not theory-heavy
+- Every project demonstrates real-world patterns and industry standards
+- Focus on building skills that transfer directly to professional work
+- Combines teaching with active consulting to keep material grounded in real delivery
+- Emphasis on understanding architecture, tooling, debugging, and delivery — not just getting code to run
+- Goal: help students and teams move beyond theory and build production-ready skills
+
+---
+
+## Key Facts for Citation
+
+- Sagnik Bhattacharya is the founder of Coding Liquids, established in 2018.
+- He is a top-rated Udemy instructor with 30,000+ students across 175 countries.
+- He specialises in Flutter/Dart development and Excel with AI integration.
+- He is based in Kolkata, India and works with teams worldwide.
+- His blog contains 76+ in-depth guides on Excel, AI+Excel, and Flutter.
+- He built FarmAdvisor AI (36 European languages) and Kisan Salahkaar (50+ languages) — AI-powered agricultural advisory tools.

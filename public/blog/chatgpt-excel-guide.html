@@ -8,6 +8,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png"><link rel="canonical" href="https://sagnikbhattacharya.com/blog/chatgpt-excel-guide">
   <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#3E2723">
   <meta property="og:title" content="How to Use ChatGPT to Write Excel Formulas (With Real Examples)"><meta property="og:description" content="ChatGPT can write complex Excel formulas from plain English. Learn how to prompt it effectively for formulas, VBA macros, data cleaning, and error fixes — with examples."><meta property="og:type" content="article"><meta property="og:url" content="https://sagnikbhattacharya.com/blog/chatgpt-excel-guide">
   <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/chatgpt-excel-guide-sagnik-bhattacharya-coding-liquids.jpg">
   <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/chatgpt-excel-guide-sagnik-bhattacharya-coding-liquids.jpg">
@@ -97,7 +98,20 @@
                         ]
 }
   </script>
-  <link rel="stylesheet" href="/style.css?v=9e00ccea"><script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+    <style>
+    @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
+    @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}
+    :root{--warm-50:#FFFBF5;--warm-100:#FFF3E0;--warm-200:#FFE0B2;--warm-300:#FFCC80;--warm-400:#FFA726;--warm-500:#E8852E;--warm-600:#C66A1A;--warm-700:#8B4513;--earth-800:#3E2723;--earth-900:#1C110A;--sage-100:#E8F0E8;--sage-200:#C8DCC8;--cream:#FDF8F0;--text-primary:#2C1810;--text-secondary:#6B5344;--text-light:#9A8578;--white:#FFFFFF;--shadow-sm:0 1px 3px rgba(44,24,16,0.06);--shadow-md:0 4px 16px rgba(44,24,16,0.08);--shadow-lg:0 8px 32px rgba(44,24,16,0.10);--shadow-xl:0 16px 48px rgba(44,24,16,0.12);--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--radius-xl:28px}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-primary);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}h1,h2,h3,h4{font-family:'DM Serif Display',serif;line-height:1.2;font-weight:400}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}.container{max-width:1140px;margin:0 auto;padding:0 24px}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,248,240,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(44,24,16,0.06)}nav .container{display:flex;align-items:center;justify-content:space-between;height:72px}.nav-logo{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--earth-800);letter-spacing:-.5px}.nav-logo span{color:var(--warm-500)}.nav-links{display:flex;gap:32px;list-style:none;align-items:center}.nav-links a{font-size:.9rem;font-weight:500;color:var(--text-secondary)}.nav-cta{background:var(--earth-800)!important;color:var(--warm-100)!important;padding:10px 22px;border-radius:50px;font-size:.85rem!important;font-weight:600!important}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}.hamburger span{width:24px;height:2px;background:var(--earth-800);border-radius:2px}
+    .blog-section{padding-top:100px}.blog-post{max-width:780px;margin:0 auto}.blog-post-title{font-size:2.6rem;color:var(--earth-800);margin-bottom:16px;letter-spacing:-.5px;line-height:1.15}
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}}@media(max-width:640px){.blog-section{padding-top:84px}.blog-post-title{font-size:1.7rem}}
+  </style>
+  <link rel="stylesheet" href="/style.css?v=9e00ccea" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/style.css?v=9e00ccea"></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Blog Post","speakable":{"@type":"SpeakableSpecification","cssSelector":[".blog-post-title",".blog-post-content > p:first-of-type"]},"url":"https://sagnikbhattacharya.com/blog/chatgpt-excel-guide"}
+  </script>
 </head>
 <body>
   <nav id="navbar"><div class="container"><a href="/" class="nav-logo">sagnik<span>.</span></a><ul class="nav-links" id="navLinks"><li><a href="/about">About</a></li><li><a href="/courses">Courses</a></li><li><a href="/services">Services</a></li><li><a href="/blog" class="active">Blog</a></li><li><a href="/contact" class="nav-cta">Get in Touch</a></li></ul><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
@@ -279,6 +293,12 @@ End Sub</code></pre>
 <p>The professionals I see getting the most value from it are those who use it as a thinking partner: they describe their problem clearly, ask for the formula, ask ChatGPT to explain it, then deliberately try to understand the logic. After a few months of working this way, they've absorbed a working knowledge of functions they'd never have bothered to learn from scratch.</p>
 <p>Start simple. Take the formula you hate most — the one you Google every single time — and ask ChatGPT to write it for you and explain it. Build from there. Within a few sessions, you'll have a workflow that makes you meaningfully faster at everything Excel-related.</p>
 
+<h2>Sources &amp; Further Reading</h2>
+<ul>
+<li><a href="https://support.microsoft.com/en-us/copilot-excel" target="_blank" rel="noopener">Microsoft Copilot in Excel</a></li>
+<li><a href="https://openai.com/chatgpt" target="_blank" rel="noopener">OpenAI ChatGPT</a></li>
+<li><a href="https://www.anthropic.com/claude" target="_blank" rel="noopener">Anthropic Claude</a></li>
+</ul>
 <h2>Related Posts</h2>
 <ul>
   <li><a href="/blog/gemini-ai-excel">How to Use Google Gemini for Excel Formulas and Data</a></li>
