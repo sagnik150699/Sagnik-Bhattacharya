@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use Gemma 4 in VS Code: Setup, Extensions, and Coding Workflows</title>
+  <meta name="description" content="Set up Gemma 4 as your local AI coding assistant in VS Code. Step-by-step guide covering extensions, Ollama integration, inline completions, and real coding workflow examples.">
+  <meta name="keywords" content="Gemma 4 VS Code, Gemma 4 coding assistant, local AI VS Code, Ollama VS Code, Gemma 4 code completion, free AI coding, VS Code AI extension, Sagnik Bhattacharya, Coding Liquids">
+  <meta name="author" content="Sagnik Bhattacharya">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#3E2723">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/gemma-4-vscode">
+  <meta property="og:title" content="How to Use Gemma 4 in VS Code: Setup, Extensions, and Coding Workflows">
+  <meta property="og:description" content="Set up Gemma 4 as your local AI coding assistant in VS Code. Step-by-step guide covering extensions, Ollama integration, inline completions, and real coding workflow examples.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/gemma-4-vscode">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/gemma-4-vscode-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/gemma-4-vscode-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemma 4 in VS Code with Ollama, showing VS Code editor with AI coding assistant integration.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Sagnik Bhattacharya">
+  <meta property="article:author" content="Sagnik Bhattacharya">
+  <meta property="article:published_time" content="2026-04-05">
+  <meta property="article:modified_time" content="2026-04-05">
+  <meta property="article:section" content="AI &amp; Automation">
+  <meta property="article:tag" content="AI Tools">
+  <meta property="article:tag" content="VS Code">
+  <meta property="article:tag" content="Gemma 4">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Use Gemma 4 in VS Code: Setup, Extensions, and Coding Workflows">
+  <meta name="twitter:description" content="Set up Gemma 4 as your local AI coding assistant in VS Code. Step-by-step guide covering extensions, Ollama integration, inline completions, and real coding workflow examples.">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/gemma-4-vscode-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemma 4 in VS Code with Ollama, showing VS Code editor with AI coding assistant integration.">
+  <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Use Gemma 4 in VS Code: Setup, Extensions, and Coding Workflows","description":"Set up Gemma 4 as your local AI coding assistant in VS Code. Step-by-step guide covering extensions, Ollama integration, inline completions, and real coding workflow examples.","datePublished":"2026-04-05","dateModified":"2026-04-05","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/gemma-4-vscode"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/gemma-4-vscode-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/gemma-4-vscode-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"How to Use Gemma 4 in VS Code: Setup, Extensions, and Coding Workflows by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"Gemma 4 VS Code, Gemma 4 coding assistant, local AI VS Code, Ollama VS Code, Gemma 4 code completion, free AI coding, VS Code AI extension, Sagnik Bhattacharya, Coding Liquids","articleSection":"AI & Automation"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"How to Use Gemma 4 in VS Code: Setup, Extensions, and Coding Workflows","item":"https://sagnikbhattacharya.com/blog/gemma-4-vscode"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"How to Use Gemma 4 in VS Code: Setup, Extensions, and Coding Workflows","url":"https://sagnikbhattacharya.com/blog/images/gemma-4-vscode-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/gemma-4-vscode-sagnik-bhattacharya-coding-liquids.jpg","caption":"How to Use Gemma 4 in VS Code: Setup, Extensions, and Coding Workflows by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What hardware do I need to run Gemma 4 as a coding assistant in VS Code?","acceptedAnswer":{"@type":"Answer","text":"For comfortable inline code completions, you need a GPU with at least 8GB VRAM to run the Gemma 4 12B model. The 27B model requires 16GB+ VRAM for reasonable speed. If you only have a CPU, the 4B model works but completions will be noticeably slower (2-5 seconds per suggestion instead of under 1 second). For most developers, a mid-range NVIDIA GPU like the RTX 3060 (12GB) or RTX 4060 Ti (16GB) provides a good experience. Apple Silicon Macs with 16GB unified memory also handle the 12B model well through Ollama."}},{"@type":"Question","name":"Is Gemma 4 in VS Code as good as GitHub Copilot?","acceptedAnswer":{"@type":"Answer","text":"For inline code completions, GitHub Copilot is still ahead — its suggestions are faster, more contextually aware across your entire project, and handle a wider range of languages and frameworks. Where Gemma 4 closes the gap is in chat-based coding workflows (explaining code, refactoring, generating tests) where the quality difference is smaller. Gemma 4's advantages are cost (completely free), privacy (code never leaves your machine), and offline availability. For developers who cannot use cloud-based tools due to company policy or who want to avoid the $19/month Copilot subscription, Gemma 4 is a genuinely capable alternative."}},{"@type":"Question","name":"Can I use Gemma 4 and GitHub Copilot together in VS Code?","acceptedAnswer":{"@type":"Answer","text":"Yes, you can run both simultaneously. A practical setup is to use Copilot for inline tab-completions (where it excels) and Gemma 4 through Continue for chat-based tasks like code explanation, refactoring, and test generation (where keeping your code local matters). This gives you the best of both worlds — fast cloud-powered completions for routine coding and a private local model for when you are working with sensitive codebases or need detailed architectural discussions."}},{"@type":"Question","name":"Which Gemma 4 model size is best for coding in VS Code?","acceptedAnswer":{"@type":"Answer","text":"The 12B model offers the best balance for most developers. It is fast enough for interactive use (sub-second completions on a decent GPU), handles most programming languages well, and produces good quality code for standard tasks. The 27B model produces better code for complex logic, architectural decisions, and less common languages, but it is slower and requires more VRAM. The 4B model is usable for simple completions but struggles with anything requiring multi-step reasoning. Start with 12B and upgrade to 27B if you find yourself hitting quality limitations."}}]}</script>
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+    @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
+    @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}
+    :root{--warm-50:#FFFBF5;--warm-100:#FFF3E0;--warm-200:#FFE0B2;--warm-300:#FFCC80;--warm-400:#FFA726;--warm-500:#E8852E;--warm-600:#C66A1A;--warm-700:#8B4513;--earth-800:#3E2723;--earth-900:#1C110A;--sage-100:#E8F0E8;--sage-200:#C8DCC8;--cream:#FDF8F0;--text-primary:#2C1810;--text-secondary:#6B5344;--text-light:#9A8578;--white:#FFFFFF;--shadow-sm:0 1px 3px rgba(44,24,16,0.06);--shadow-md:0 4px 16px rgba(44,24,16,0.08);--shadow-lg:0 8px 32px rgba(44,24,16,0.10);--shadow-xl:0 16px 48px rgba(44,24,16,0.12);--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--radius-xl:28px}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-primary);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}h1,h2,h3,h4{font-family:'DM Serif Display',serif;line-height:1.2;font-weight:400}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}.container{max-width:1140px;margin:0 auto;padding:0 24px}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,248,240,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(44,24,16,0.06)}nav .container{display:flex;align-items:center;justify-content:space-between;height:72px}.nav-logo{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--earth-800);letter-spacing:-.5px}.nav-logo span{color:var(--warm-500)}.nav-links{display:flex;gap:32px;list-style:none;align-items:center}.nav-links a{font-size:.9rem;font-weight:500;color:var(--text-secondary)}.nav-cta{background:var(--earth-800)!important;color:var(--warm-100)!important;padding:10px 22px;border-radius:50px;font-size:.85rem!important;font-weight:600!important}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}.hamburger span{width:24px;height:2px;background:var(--earth-800);border-radius:2px}
+    .blog-section{padding-top:100px}.blog-post{max-width:780px;margin:0 auto}.blog-post-title{font-size:2.6rem;color:var(--earth-800);margin-bottom:16px;letter-spacing:-.5px;line-height:1.15}
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}}@media(max-width:640px){.blog-section{padding-top:84px}.blog-post-title{font-size:1.7rem}}
+  </style>
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/style.css"></noscript>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Blog Post","speakable":{"@type":"SpeakableSpecification","cssSelector":[".blog-post-title",".blog-post-content > p:first-of-type"]},"url":"https://sagnikbhattacharya.com/blog/gemma-4-vscode"}
+  </script>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">sagnik<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about">About</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">How to Use Gemma 4 in VS Code: Setup, Extensions, and Coding Workflows</span></nav>
+    </div>
+  </div>
+  <section style="padding-top:0">
+    <div class="container">
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-tags"><span class="blog-post-tag">AI Tools</span></div>
+          <h1 class="blog-post-title">How to Use Gemma 4 in VS Code: Setup, Extensions, and Coding Workflows</h1>
+          <div class="blog-post-meta">
+            <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
+              <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
+            </a>
+            <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
+            <span>5 Apr 2026</span>
+            <span>12 min read</span>
+          </div>
+        </div>
+        <figure class="blog-cover">
+          <img src="/blog/images/gemma-4-vscode-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemma 4 in VS Code with Ollama, showing VS Code editor with AI coding assistant integration." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemma 4 in VS Code with Ollama, showing VS Code editor with AI coding assistant integration.</figcaption>
+        </figure>
+        <div class="blog-post-content">
+<p>GitHub Copilot costs $19 per month. It is an excellent tool — I use it myself and recommend it in my courses. But there is a growing number of developers who either cannot use cloud-based coding assistants (company policy, security requirements, air-gapped environments) or simply do not want to pay a recurring subscription for AI code completions. If that is you, Gemma 4 running locally through Ollama and connected to VS Code is the most capable free alternative available today.</p>
+<p>I have spent the past few weeks setting up and testing three different methods of integrating Gemma 4 with VS Code. This guide walks through each one with concrete setup steps, configuration details, and an honest assessment of what works well and where the experience falls short compared to Copilot. If you have not installed Gemma 4 yet, start with my <a href="/blog/run-gemma-4-locally">beginner's guide to running Gemma 4 locally</a> and come back here once Ollama is running.</p>
+
+<h2>Prerequisites</h2>
+<p>Before configuring any VS Code extension, make sure you have the following ready:</p>
+<ol>
+  <li><strong>Ollama installed and running.</strong> Download it from <a href="https://ollama.com" target="_blank" rel="noopener">ollama.com</a> and verify it is running by opening a terminal and typing <code>ollama list</code>. You should see your installed models.</li>
+  <li><strong>Gemma 4 pulled.</strong> Run <code>ollama pull gemma4</code> (for the default size) or <code>ollama pull gemma4:27b</code> for the larger version. The download is several gigabytes, so allow time on slower connections.</li>
+  <li><strong>VS Code installed.</strong> Any recent version works. I recommend keeping it updated to the latest stable release for the best extension compatibility.</li>
+  <li><strong>Adequate hardware.</strong> For coding tasks specifically, the 12B model is the sweet spot. It runs well on a GPU with 8GB VRAM or an Apple Silicon Mac with 16GB unified memory. The 27B model provides better code quality but needs 16GB+ VRAM.</li>
+</ol>
+<p>Verify Ollama is serving by visiting <code>http://localhost:11434</code> in your browser — you should see "Ollama is running". This is the local API endpoint that all VS Code extensions will connect to.</p>
+
+<h2>Method 1: Continue Extension — The Most Complete Option</h2>
+<p>Continue is an open-source AI coding assistant extension that supports multiple backends, including Ollama. It is the closest experience to Copilot you will get with a local model, offering chat, inline editing, and tab-autocomplete.</p>
+
+<h3>Installation and Setup</h3>
+<ol>
+  <li>Open VS Code and go to the Extensions panel (Ctrl+Shift+X).</li>
+  <li>Search for "Continue" and install the extension by Continue.dev.</li>
+  <li>After installation, click the Continue icon in the sidebar to open the configuration panel.</li>
+  <li>Click the gear icon or open the configuration file. You need to add Ollama as a provider with Gemma 4 as the model.</li>
+</ol>
+<p>In your Continue configuration file (<code>~/.continue/config.json</code>), add or modify the models section:</p>
+<pre><code>{
+  "models": [
+    {
+      "title": "Gemma 4 27B",
+      "provider": "ollama",
+      "model": "gemma4:27b"
+    }
+  ],
+  "tabAutocompleteModel": {
+    "title": "Gemma 4 12B",
+    "provider": "ollama",
+    "model": "gemma4:12b"
+  }
+}</code></pre>
+<p>Notice that I use the 27B model for chat (where quality matters more and latency is acceptable) and the 12B model for tab-autocomplete (where speed is critical). This dual-model approach gives you the best balance of quality and responsiveness.</p>
+
+<h3>Configuring Autocomplete</h3>
+<p>Tab-autocomplete is the feature most developers associate with Copilot — you type a few characters or a comment, and the AI suggests the rest of the line or block. With Continue and Gemma 4, this works but requires some tuning:</p>
+<ul>
+  <li>Set <code>"tabAutocompleteOptions"</code> in your config to control how aggressively suggestions appear. I recommend starting with <code>"debounceDelay": 500</code> to avoid overwhelming your GPU with requests on every keystroke.</li>
+  <li>If completions feel slow, switch the autocomplete model to the 4B version (<code>gemma4:4b</code>). The suggestions will be less sophisticated but appear faster.</li>
+  <li>Enable <code>"multilineCompletions": "always"</code> if you want Gemma 4 to suggest entire function bodies rather than single lines.</li>
+</ul>
+
+<h3>Chat and Inline Editing</h3>
+<p>Continue's chat panel works like a dedicated coding assistant. You can highlight code, press Ctrl+L (or Cmd+L on Mac) to send it to the chat, and ask Gemma 4 to explain it, refactor it, add error handling, or write tests. The inline editing feature (Ctrl+I) lets you select code and describe a change in natural language — Gemma 4 generates the edit and shows you a diff to accept or reject.</p>
+<p>In my experience, the chat and inline editing features work well with Gemma 4 27B. Explanations are clear, refactoring suggestions are sensible, and test generation covers the main paths. Where it sometimes falls short compared to Copilot or Claude is in understanding the broader project context — Gemma 4 processes what you give it in the prompt, but does not index your entire workspace the way Copilot does.</p>
+
+<h2>Method 2: CodeGPT Extension — Connecting to Local Ollama</h2>
+<p>CodeGPT is another popular AI coding extension that supports local model backends. Its interface is slightly different from Continue — it focuses more on the chat experience and less on inline completions.</p>
+
+<h3>Setup Steps</h3>
+<ol>
+  <li>Install the CodeGPT extension from the VS Code marketplace.</li>
+  <li>Open CodeGPT settings (click the extension icon in the sidebar, then the settings gear).</li>
+  <li>Select "Ollama" as your AI provider.</li>
+  <li>The extension will automatically detect models available in your local Ollama installation. Select Gemma 4 from the dropdown.</li>
+  <li>Optionally, configure the system prompt to tailor Gemma 4's behaviour for your coding style. For example: "You are a senior developer. Write clean, well-commented code. Prefer TypeScript over JavaScript. Always include error handling."</li>
+</ol>
+
+<h3>What CodeGPT Does Well</h3>
+<p>CodeGPT's strength is its chat interface. You can ask Gemma 4 coding questions, paste error messages, and get explanations without leaving VS Code. It also supports selecting code in the editor and sending it to the chat with a right-click context menu, which is convenient for quick "explain this" or "find the bug" queries.</p>
+<p>The extension also supports saving conversation history, which is useful when you are working on a complex feature over multiple sessions and want to reference earlier discussions.</p>
+
+<h3>Limitations</h3>
+<p>CodeGPT's inline autocomplete integration with local models is less polished than Continue's. If tab-autocomplete is your priority, Continue is the better choice. CodeGPT is strongest when used as a chat-based coding companion alongside your normal typing workflow.</p>
+
+<h2>Method 3: Ollama Extension — Lightweight Direct Integration</h2>
+<p>For developers who want minimal overhead, the Ollama extension for VS Code provides a stripped-down chat interface that connects directly to your local Ollama server. No account creation, no provider configuration — just install and use.</p>
+
+<h3>Setup Steps</h3>
+<ol>
+  <li>Install the "Ollama" extension from the VS Code marketplace (by Matt Williams or similar — look for the one with the highest download count).</li>
+  <li>Ensure Ollama is running locally.</li>
+  <li>Open the command palette (Ctrl+Shift+P) and search for "Ollama". Select the chat command.</li>
+  <li>Choose Gemma 4 from the list of available models.</li>
+</ol>
+<p>This extension is intentionally simple. It gives you a chat panel and nothing else — no inline completions, no inline editing, no workspace indexing. Its advantage is that it is lightweight, fast to set up, and has minimal impact on VS Code's performance. If you just want to ask occasional coding questions without leaving your editor, this is sufficient.</p>
+
+<h2>Configuring Inline Code Completions</h2>
+<p>Tab-autocomplete is where the practical value of an AI coding assistant is felt most directly. Here is how to optimise the experience with Gemma 4:</p>
+<ul>
+  <li><strong>Model size matters for speed.</strong> For autocomplete specifically, response time is more important than response quality. A 200ms completion with an adequate suggestion beats a 3-second completion with a perfect suggestion. Start with the 12B model and drop to 4B if it feels sluggish.</li>
+  <li><strong>GPU offloading.</strong> Make sure Ollama is using your GPU rather than CPU. Run <code>ollama ps</code> to check which processor is being used. On NVIDIA systems, set the <code>OLLAMA_GPU_LAYERS</code> environment variable if needed.</li>
+  <li><strong>Context window.</strong> Reduce the context window size in your extension settings if completions are slow. A context of 2048 tokens is usually sufficient for inline completions and reduces memory pressure.</li>
+  <li><strong>Fill-in-the-middle (FIM).</strong> Gemma 4 supports FIM, which means it can look at code both before and after the cursor position to generate better suggestions. Make sure your extension has FIM enabled in its settings — Continue supports this by default.</li>
+</ul>
+
+<h2>Chat-Based Coding Workflows</h2>
+<p>Beyond autocomplete, the chat interface is where Gemma 4 provides the most value in day-to-day development. Here are the workflows I use most frequently:</p>
+
+<h3>Explaining Unfamiliar Code</h3>
+<p>Select a block of code you inherited or found in a library, send it to the chat, and ask: "Explain what this code does, step by step. Highlight any potential issues or anti-patterns." Gemma 4 27B does this well across most popular languages. It correctly identifies design patterns, explains control flow, and flags issues like missing error handling or potential memory leaks.</p>
+
+<h3>Refactoring</h3>
+<p>Select a function and ask: "Refactor this to be more readable. Extract any magic numbers into named constants. Add TypeScript types if possible." Gemma 4 produces clean refactored code, though it occasionally over-refactors — splitting code into more functions than necessary. I find a follow-up prompt like "simplify — keep it to two functions maximum" corrects this tendency.</p>
+
+<h3>Generating Tests</h3>
+<p>Paste a function and ask: "Write unit tests for this function using Jest. Cover the happy path, edge cases (empty input, null values), and error conditions." Gemma 4 generates reasonable test suites. The coverage is not as thorough as what Claude or ChatGPT produce — it tends to cover the main paths but misses some edge cases. For production test suites, use Gemma 4 as a starting point and add the edge cases manually.</p>
+
+<h3>Debugging Errors</h3>
+<p>Paste an error message along with the relevant code and ask: "What is causing this error and how do I fix it?" This is one of Gemma 4's stronger use cases. Stack traces and common error patterns are well-represented in its training data, so it correctly diagnoses most issues on the first attempt.</p>
+
+<h2>Performance Tips: Model Size and Hardware Trade-Offs</h2>
+<p>Choosing the right model size for your hardware is critical for a good experience. Here is a practical guide:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Min VRAM</th>
+      <th>Autocomplete Speed</th>
+      <th>Code Quality</th>
+      <th>Best For</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Gemma 4 4B</td>
+      <td>4GB</td>
+      <td>Very fast (100-300ms)</td>
+      <td>Basic — simple completions</td>
+      <td>Low-end GPUs, CPU-only, quick suggestions</td>
+    </tr>
+    <tr>
+      <td>Gemma 4 12B</td>
+      <td>8GB</td>
+      <td>Fast (300-800ms)</td>
+      <td>Good — handles most tasks</td>
+      <td>Most developers, best balance</td>
+    </tr>
+    <tr>
+      <td>Gemma 4 27B</td>
+      <td>16GB</td>
+      <td>Moderate (800ms-2s)</td>
+      <td>Very good — complex logic</td>
+      <td>Chat-based workflows, complex code generation</td>
+    </tr>
+  </tbody>
+</table>
+<p>If you have an NVIDIA RTX 3060 (12GB VRAM), the 12B model runs comfortably with room to spare. The RTX 4070 (12GB) handles it faster due to the newer architecture. Apple Silicon Macs with M1 Pro/Max (16GB+) run the 12B model smoothly and can handle the 27B model with slightly longer response times.</p>
+<p>A practical approach I recommend: run the 12B model for autocomplete and keep the 27B model available for chat tasks. Most extensions let you configure different models for different features, as shown in the Continue configuration above.</p>
+
+<h2>Gemma 4 vs GitHub Copilot for Coding: Honest Comparison</h2>
+<p>This is the comparison most developers want. Here is an honest assessment based on several weeks of using both side by side.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Gemma 4 (Local)</th>
+      <th>GitHub Copilot</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Inline autocomplete quality</td>
+      <td>Good for common patterns</td>
+      <td>Excellent across all contexts</td>
+    </tr>
+    <tr>
+      <td>Autocomplete speed</td>
+      <td>Hardware-dependent (300ms-2s)</td>
+      <td>Consistently fast (100-300ms)</td>
+    </tr>
+    <tr>
+      <td>Project context awareness</td>
+      <td>Limited to active file + prompt</td>
+      <td>Indexes workspace and open files</td>
+    </tr>
+    <tr>
+      <td>Chat / code explanation</td>
+      <td>Good (27B model)</td>
+      <td>Very good (Copilot Chat)</td>
+    </tr>
+    <tr>
+      <td>Test generation</td>
+      <td>Adequate — covers main paths</td>
+      <td>Good — better edge case coverage</td>
+    </tr>
+    <tr>
+      <td>Language support breadth</td>
+      <td>Strong in popular languages</td>
+      <td>Strong across all languages</td>
+    </tr>
+    <tr>
+      <td>Privacy</td>
+      <td>Fully local — code never transmitted</td>
+      <td>Cloud-based — code sent to GitHub servers</td>
+    </tr>
+    <tr>
+      <td>Offline availability</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Cost</td>
+      <td>Free</td>
+      <td>$19/month individual, $39/month business</td>
+    </tr>
+    <tr>
+      <td>Setup effort</td>
+      <td>Moderate (install Ollama, pull model, configure extension)</td>
+      <td>Minimal (install extension, sign in)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>When Local Gemma 4 Makes Sense vs When Copilot Is Worth the Subscription</h2>
+<p><strong>Choose Gemma 4</strong> when:</p>
+<ul>
+  <li>Your organisation prohibits sending code to external servers. This is common in finance, defence, healthcare, and any company with strict IP policies. Gemma 4 is the only option that keeps everything local.</li>
+  <li>You work offline frequently — on flights, in restricted network environments, or in locations with unreliable internet.</li>
+  <li>You are a student or early-career developer and $19/month is a meaningful expense. Gemma 4 gives you a capable coding assistant for free.</li>
+  <li>You want to learn about AI infrastructure. Setting up and configuring local models is a valuable skill that translates directly to deploying AI in production environments.</li>
+  <li>You primarily need chat-based assistance (explain, refactor, debug) rather than inline completions. The quality gap between Gemma 4 and Copilot is smaller for chat tasks than for autocomplete.</li>
+</ul>
+<p><strong>Choose Copilot</strong> when:</p>
+<ul>
+  <li>Inline autocomplete speed and quality are your top priority. Copilot is still meaningfully better at predicting what you want to type next, especially in complex codebases.</li>
+  <li>You work across many languages and frameworks. Copilot's training data and architecture give it broader coverage of less common languages and newer frameworks.</li>
+  <li>You value zero-configuration setup. Copilot works out of the box with a single sign-in. No GPU requirements, no model downloads, no configuration files.</li>
+  <li>Your team or company already has a Copilot Business licence. At that point, the cost is covered and Copilot's team features (organisation-wide policy controls, audit logs) add value.</li>
+</ul>
+<p>For a broader perspective on how Gemma 4 compares to paid AI tools across all categories, see my <a href="/blog/gemma-4-vs-chatgpt-vs-claude">full AI model comparison for 2026</a>. And for specific use cases where Gemma 4 outperforms paid alternatives, see <a href="/blog/gemma-4-vs-paid-ai-models">5 real-world tasks where Gemma 4 beats paid models</a>.</p>
+
+<h2>Frequently Asked Questions</h2>
+<h3>What hardware do I need to run Gemma 4 as a coding assistant in VS Code?</h3>
+<p>For comfortable inline code completions, you need a GPU with at least 8GB VRAM to run the Gemma 4 12B model. The 27B model requires 16GB+ VRAM for reasonable speed. If you only have a CPU, the 4B model works but completions will be noticeably slower (2-5 seconds per suggestion instead of under 1 second). For most developers, a mid-range NVIDIA GPU like the RTX 3060 (12GB) or RTX 4060 Ti (16GB) provides a good experience. Apple Silicon Macs with 16GB unified memory also handle the 12B model well through Ollama.</p>
+
+<h3>Is Gemma 4 in VS Code as good as GitHub Copilot?</h3>
+<p>For inline code completions, GitHub Copilot is still ahead — its suggestions are faster, more contextually aware across your entire project, and handle a wider range of languages and frameworks. Where Gemma 4 closes the gap is in chat-based coding workflows (explaining code, refactoring, generating tests) where the quality difference is smaller. Gemma 4's advantages are cost (completely free), privacy (code never leaves your machine), and offline availability. For developers who cannot use cloud-based tools due to company policy or who want to avoid the $19/month Copilot subscription, Gemma 4 is a genuinely capable alternative.</p>
+
+<h3>Can I use Gemma 4 and GitHub Copilot together in VS Code?</h3>
+<p>Yes, you can run both simultaneously. A practical setup is to use Copilot for inline tab-completions (where it excels) and Gemma 4 through Continue for chat-based tasks like code explanation, refactoring, and test generation (where keeping your code local matters). This gives you the best of both worlds — fast cloud-powered completions for routine coding and a private local model for when you are working with sensitive codebases or need detailed architectural discussions.</p>
+
+<h3>Which Gemma 4 model size is best for coding in VS Code?</h3>
+<p>The 12B model offers the best balance for most developers. It is fast enough for interactive use (sub-second completions on a decent GPU), handles most programming languages well, and produces good quality code for standard tasks. The 27B model produces better code for complex logic, architectural decisions, and less common languages, but it is slower and requires more VRAM. The 4B model is usable for simple completions but struggles with anything requiring multi-step reasoning. Start with 12B and upgrade to 27B if you find yourself hitting quality limitations.</p>
+
+<h2>Sources and Further Reading</h2>
+<ul>
+  <li><a href="https://ai.google.dev/gemma" target="_blank" rel="noopener">Google Gemma official documentation</a></li>
+  <li><a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a></li>
+  <li><a href="https://continue.dev" target="_blank" rel="noopener">Continue — open-source AI code assistant</a></li>
+  <li><a href="https://github.com/features/copilot" target="_blank" rel="noopener">GitHub Copilot</a></li>
+</ul>
+
+<h2>Related Posts</h2>
+<ul>
+  <li><a href="/blog/run-gemma-4-locally">How to Run Gemma 4 Locally for Free: A Beginner's Guide</a></li>
+  <li><a href="/blog/gemma-4-vs-chatgpt-vs-claude">Gemma 4 vs ChatGPT vs Claude vs Copilot: Best AI Model Comparison in 2026</a></li>
+  <li><a href="/blog/gemma-4-vs-paid-ai-models">5 Real-World Tasks Where Gemma 4 Beats Paid AI Models</a></li>
+  <li><a href="/blog/gemma-4-vs-gemini">Gemma 4 vs Gemini: What's the Difference and When to Use Which</a></li>
+  <li><a href="/blog/gemma-4-vs-gpt-vs-llama-excel">Gemma 4 vs GPT-4o vs Llama 4: Which Free AI Model Is Best for Excel Formulas?</a></li>
+  <li><a href="/blog/gemma-4-data-analysis-excel">Gemma 4 for Data Analysis: Can It Replace ChatGPT for Spreadsheet Work?</a></li>
+</ul>
+<div class="blog-cta-box"><h3>Want to use AI tools more effectively?</h3><p>My courses cover practical AI workflows, from spreadsheet formulas to app development, with real projects and honest tool comparisons.</p><a href="/courses" class="btn-primary">Browse all courses <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/animations.js" defer></script>
+  <script src="/tracking.js" defer></script>
+</body>
+</html>

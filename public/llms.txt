@@ -12,7 +12,7 @@ Sagnik Bhattacharya is a tech educator, consultant, and founder of Coding Liquid
 - [About](https://sagnikbhattacharya.com/about): Background, experience, and teaching philosophy.
 - [Courses](https://sagnikbhattacharya.com/courses): Flutter & Dart course and upcoming Excel with AI course on Udemy.
 - [Services](https://sagnikbhattacharya.com/services): Corporate training, app development, and tech consulting offerings.
-- [Blog](https://sagnikbhattacharya.com/blog): 80+ in-depth guides on Excel, Excel with AI, and Flutter development.
+- [Blog](https://sagnikbhattacharya.com/blog): 85+ in-depth guides on Excel, Excel with AI, AI model comparisons, and Flutter development.
 - [Contact](https://sagnikbhattacharya.com/contact): Get in touch for training, consulting, or collaboration.
 
 ## Blog Topics
@@ -20,7 +20,10 @@ Sagnik Bhattacharya is a tech educator, consultant, and founder of Coding Liquid
 The blog covers three main areas:
 
 ### Excel with AI
-Guides on using ChatGPT, Claude AI, Google Gemini, and Microsoft Copilot to write formulas, generate macros, automate tasks, clean data, and build dashboards in Excel. Includes prompt engineering for Excel, AI-powered data analysis, and comparison of AI tools for spreadsheet work.
+Guides on using ChatGPT, Claude AI, Google Gemini, Google Gemma 4, and Microsoft Copilot to write formulas, generate macros, automate tasks, clean data, and build dashboards in Excel. Includes prompt engineering for Excel, AI-powered data analysis, and comparison of AI tools for spreadsheet work. Recent additions include Gemma 4 vs GPT-4o vs Llama 4 for Excel formulas, and Gemma 4 for data analysis vs ChatGPT.
+
+### AI Models & Tools
+In-depth comparisons and practical guides on AI models including Google Gemma 4, ChatGPT, Claude, Gemini, Llama 4, and Microsoft Copilot. Covers running Gemma 4 locally with Ollama and LM Studio, using Gemma 4 in VS Code as a coding assistant, Gemma 4 vs Gemini differences, tasks where open-weight models beat paid AI, and comprehensive model comparisons across coding, writing, data analysis, privacy, and cost.
 
 ### Excel
 Comprehensive tutorials on advanced formulas, VLOOKUP vs XLOOKUP, INDEX-MATCH, pivot tables, Power Query, Power Pivot, dynamic arrays, GROUPBY, PIVOTBY, data validation, conditional formatting, financial modelling, charts, keyboard shortcuts, and building templates like budget trackers, inventory systems, Gantt charts, and attendance trackers.

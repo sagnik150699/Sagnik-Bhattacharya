@@ -95,11 +95,11 @@ Strategic guidance on tech stack selection, app architecture, DevOps workflows, 
 
 ## Blog
 
-The blog at https://sagnikbhattacharya.com/blog contains 76+ in-depth guides covering three main areas:
+The blog at https://sagnikbhattacharya.com/blog contains 85+ in-depth guides covering four main areas:
 
 ### Excel with AI (40+ articles)
 Practical guides on using AI tools with Excel, including:
-- Using ChatGPT, Claude AI, Google Gemini, and Microsoft Copilot to write formulas and macros
+- Using ChatGPT, Claude AI, Google Gemini, Google Gemma 4, and Microsoft Copilot to write formulas and macros
 - AI prompt engineering specifically for Excel tasks
 - Agent Mode and Analyst Mode in Excel
 - Copilot for data analysis, chart creation, formula columns, and lookups
@@ -107,6 +107,18 @@ Practical guides on using AI tools with Excel, including:
 - Reviewing and auditing AI-generated formulas
 - AI for specific roles: accountants, HR teams, sales ops
 - Comparison: ChatGPT vs Claude vs Copilot vs Gemini for Excel
+- Gemma 4 vs GPT-4o vs Llama 4 for Excel formula generation
+- Gemma 4 for data analysis vs ChatGPT for spreadsheet work
+
+### AI Models & Tools (7 articles)
+In-depth comparisons and practical guides on AI models:
+- Gemma 4 vs ChatGPT vs Claude vs Copilot: comprehensive model comparison across coding, writing, data analysis, privacy, and cost
+- Gemma 4 vs GPT-4o vs Llama 4: head-to-head Excel formula accuracy tests
+- Gemma 4 for data analysis: can it replace ChatGPT for spreadsheet work
+- Gemma 4 vs Gemini: differences between Google's open-weight and cloud models
+- 5 real-world tasks where Gemma 4 beats paid AI models
+- How to run Gemma 4 locally with Ollama and LM Studio
+- How to use Gemma 4 in VS Code: setup, extensions, and coding workflows
 
 ### Excel (25+ articles)
 Comprehensive tutorials on:
@@ -147,5 +159,5 @@ Sagnik's approach to education is rooted in practical, hands-on learning:
 - He is a top-rated Udemy instructor with 30,000+ students across 175 countries.
 - He specialises in Flutter/Dart development and Excel with AI integration.
 - He is based in Kolkata, India and works with teams worldwide.
-- His blog contains 76+ in-depth guides on Excel, AI+Excel, and Flutter.
+- His blog contains 85+ in-depth guides on Excel, AI+Excel, AI model comparisons, and Flutter.
 - He built FarmAdvisor AI (36 European languages) and Kisan Salahkaar (50+ languages) — AI-powered agricultural advisory tools.

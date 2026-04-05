@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemma 4 for Data Analysis: Can It Replace ChatGPT for Spreadsheet Work?</title>
+  <meta name="description" content="Test Gemma 4 against ChatGPT for real spreadsheet tasks — data cleaning, pivot table logic, VBA macros, and chart recommendations. Honest results with practical examples.">
+  <meta name="keywords" content="Gemma 4 data analysis, Gemma 4 Excel, Gemma 4 vs ChatGPT spreadsheet, AI data analysis, Gemma 4 spreadsheet formulas, free AI for Excel, Sagnik Bhattacharya, Coding Liquids">
+  <meta name="author" content="Sagnik Bhattacharya">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#3E2723">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/gemma-4-data-analysis-excel">
+  <meta property="og:title" content="Gemma 4 for Data Analysis: Can It Replace ChatGPT for Spreadsheet Work?">
+  <meta property="og:description" content="Test Gemma 4 against ChatGPT for real spreadsheet tasks — data cleaning, pivot table logic, VBA macros, and chart recommendations. Honest results with practical examples.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/gemma-4-data-analysis-excel">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/gemma-4-data-analysis-excel-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/gemma-4-data-analysis-excel-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemma 4 vs ChatGPT for Data Analysis and Spreadsheet Work, with AI model comparison visuals and Excel grids.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Sagnik Bhattacharya">
+  <meta property="article:author" content="Sagnik Bhattacharya">
+  <meta property="article:published_time" content="2026-04-05">
+  <meta property="article:modified_time" content="2026-04-05">
+  <meta property="article:section" content="AI &amp; Automation">
+  <meta property="article:tag" content="Gemma 4">
+  <meta property="article:tag" content="Data Analysis">
+  <meta property="article:tag" content="AI + Excel">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gemma 4 for Data Analysis: Can It Replace ChatGPT for Spreadsheet Work?">
+  <meta name="twitter:description" content="Test Gemma 4 against ChatGPT for real spreadsheet tasks — data cleaning, pivot table logic, VBA macros, and chart recommendations. Honest results with practical examples.">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/gemma-4-data-analysis-excel-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemma 4 vs ChatGPT for Data Analysis and Spreadsheet Work, with AI model comparison visuals and Excel grids.">
+  <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Gemma 4 for Data Analysis: Can It Replace ChatGPT for Spreadsheet Work?","description":"Test Gemma 4 against ChatGPT for real spreadsheet tasks — data cleaning, pivot table logic, VBA macros, and chart recommendations. Honest results with practical examples.","datePublished":"2026-04-05","dateModified":"2026-04-05","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/gemma-4-data-analysis-excel"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/gemma-4-data-analysis-excel-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/gemma-4-data-analysis-excel-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"Gemma 4 for Data Analysis: Can It Replace ChatGPT for Spreadsheet Work? by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"Gemma 4 data analysis, Gemma 4 Excel, Gemma 4 vs ChatGPT spreadsheet, AI data analysis, Gemma 4 spreadsheet formulas, free AI for Excel, Sagnik Bhattacharya, Coding Liquids","articleSection":"AI & Automation"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"Gemma 4 for Data Analysis: Can It Replace ChatGPT for Spreadsheet Work?","item":"https://sagnikbhattacharya.com/blog/gemma-4-data-analysis-excel"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"Gemma 4 for Data Analysis: Can It Replace ChatGPT for Spreadsheet Work?","url":"https://sagnikbhattacharya.com/blog/images/gemma-4-data-analysis-excel-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/gemma-4-data-analysis-excel-sagnik-bhattacharya-coding-liquids.jpg","caption":"Gemma 4 for Data Analysis: Can It Replace ChatGPT for Spreadsheet Work? by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can Gemma 4 actually replace ChatGPT for Excel and spreadsheet work?","acceptedAnswer":{"@type":"Answer","text":"For many common spreadsheet tasks — formula writing, data cleaning logic, and basic VBA — Gemma 4 performs surprisingly close to ChatGPT. It handles standard Excel functions well and runs completely free on your own machine. However, ChatGPT still has an edge for very complex multi-step analysis, advanced VBA with error handling, and tasks that benefit from file upload and Code Interpreter. The best approach is to use Gemma 4 for routine spreadsheet AI tasks and switch to ChatGPT when you need its advanced capabilities."}},{"@type":"Question","name":"Which Gemma 4 model size should I use for Excel and data analysis tasks?","acceptedAnswer":{"@type":"Answer","text":"For spreadsheet formula generation and data cleaning prompts, the 12B parameter version of Gemma 4 running through Ollama is a good balance of speed and quality. If you have a GPU with 16GB or more VRAM, the 27B version will give noticeably better results on complex analytical tasks like pivot table design and VBA macro generation. The smaller 4B version works for simple formula lookups but struggles with multi-step reasoning."}},{"@type":"Question","name":"Is my spreadsheet data safe when using Gemma 4 for analysis?","acceptedAnswer":{"@type":"Answer","text":"Yes — this is one of Gemma 4's strongest advantages. Because Gemma 4 runs entirely on your local machine through tools like Ollama, your data never leaves your computer. Nothing is sent to external servers. This makes it ideal for sensitive financial data, proprietary business information, or any spreadsheet work where data privacy is a concern. With ChatGPT, your prompts are processed on OpenAI's servers, which may not be acceptable under certain compliance frameworks."}},{"@type":"Question","name":"How do I get Gemma 4 to understand my specific spreadsheet layout?","acceptedAnswer":{"@type":"Answer","text":"The key is providing clear context in your prompt. Describe your column headers, the type of data in each column, and what row your data starts on. For example: 'I have a spreadsheet with columns A (Date, dd/mm/yyyy format), B (Product Name, text), C (Quantity, integer), D (Unit Price, decimal). Data starts at row 2. Headers are in row 1.' This level of detail helps Gemma 4 generate accurate formulas and references, just as it would with any cloud-based AI model."}}]}</script>
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+    @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
+    @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}
+    :root{--warm-50:#FFFBF5;--warm-100:#FFF3E0;--warm-200:#FFE0B2;--warm-300:#FFCC80;--warm-400:#FFA726;--warm-500:#E8852E;--warm-600:#C66A1A;--warm-700:#8B4513;--earth-800:#3E2723;--earth-900:#1C110A;--sage-100:#E8F0E8;--sage-200:#C8DCC8;--cream:#FDF8F0;--text-primary:#2C1810;--text-secondary:#6B5344;--text-light:#9A8578;--white:#FFFFFF;--shadow-sm:0 1px 3px rgba(44,24,16,0.06);--shadow-md:0 4px 16px rgba(44,24,16,0.08);--shadow-lg:0 8px 32px rgba(44,24,16,0.10);--shadow-xl:0 16px 48px rgba(44,24,16,0.12);--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--radius-xl:28px}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-primary);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}h1,h2,h3,h4{font-family:'DM Serif Display',serif;line-height:1.2;font-weight:400}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}.container{max-width:1140px;margin:0 auto;padding:0 24px}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,248,240,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(44,24,16,0.06)}nav .container{display:flex;align-items:center;justify-content:space-between;height:72px}.nav-logo{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--earth-800);letter-spacing:-.5px}.nav-logo span{color:var(--warm-500)}.nav-links{display:flex;gap:32px;list-style:none;align-items:center}.nav-links a{font-size:.9rem;font-weight:500;color:var(--text-secondary)}.nav-cta{background:var(--earth-800)!important;color:var(--warm-100)!important;padding:10px 22px;border-radius:50px;font-size:.85rem!important;font-weight:600!important}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}.hamburger span{width:24px;height:2px;background:var(--earth-800);border-radius:2px}
+    .blog-section{padding-top:100px}.blog-post{max-width:780px;margin:0 auto}.blog-post-title{font-size:2.6rem;color:var(--earth-800);margin-bottom:16px;letter-spacing:-.5px;line-height:1.15}
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}}@media(max-width:640px){.blog-section{padding-top:84px}.blog-post-title{font-size:1.7rem}}
+  </style>
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/style.css"></noscript>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Blog Post","speakable":{"@type":"SpeakableSpecification","cssSelector":[".blog-post-title",".blog-post-content > p:first-of-type"]},"url":"https://sagnikbhattacharya.com/blog/gemma-4-data-analysis-excel"}
+  </script>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">sagnik<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about">About</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">Gemma 4 for Data Analysis: Can It Replace ChatGPT for Spreadsheet Work?</span></nav>
+    </div>
+  </div>
+  <section style="padding-top:0">
+    <div class="container">
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-tags"><span class="blog-post-tag">AI + Excel</span></div>
+          <h1 class="blog-post-title">Gemma 4 for Data Analysis: Can It Replace ChatGPT for Spreadsheet Work?</h1>
+          <div class="blog-post-meta">
+            <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
+              <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
+            </a>
+            <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
+            <span>5 Apr 2026</span>
+            <span>13 min read</span>
+          </div>
+        </div>
+        <figure class="blog-cover">
+          <img src="/blog/images/gemma-4-data-analysis-excel-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemma 4 vs ChatGPT for Data Analysis and Spreadsheet Work, with AI model comparison visuals and Excel grids." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemma 4 vs ChatGPT for Data Analysis and Spreadsheet Work, with AI model comparison visuals and Excel grids.</figcaption>
+        </figure>
+        <div class="blog-post-content">
+<p>Every time Google releases a new open-weight model, the same question lands in my inbox from students and workshop participants: "Can I use this instead of paying for ChatGPT?" With Gemma 4, that question deserves a genuinely thorough answer — because for the first time, a free, locally-run model is good enough at spreadsheet tasks to make the comparison meaningful.</p>
+<p>I have spent the past two weeks putting Gemma 4 and ChatGPT through a structured set of real spreadsheet challenges — the same kinds of tasks I encounter in my corporate Excel training sessions. Not synthetic benchmarks, but actual messy data, actual broken formulas, and actual VBA requirements from real projects. Here is what I found.</p>
+
+<h2>The Setup: How I Tested Both Models</h2>
+<p>For consistency, I ran Gemma 4 (27B parameter version) locally through <a href="/blog/run-gemma-4-locally">Ollama on my machine</a> and tested ChatGPT using GPT-4o through the web interface. Both models received identical prompts, word for word. I used the same five spreadsheet scenarios I regularly use in my <a href="/courses#excel">Excel + AI training workshops</a>, so the tasks reflect genuine business use cases rather than contrived examples.</p>
+<p>Each test was scored on three criteria: accuracy of the output (did the formula or code actually work?), quality of the explanation (did it help the user understand what was happening?), and handling of edge cases (did it account for blanks, errors, or unusual data?). Let me walk through each one.</p>
+
+<h2>Test 1: Data Cleaning — Messy CSV With Inconsistent Dates and Mixed Formats</h2>
+<p>The scenario: a 2,000-row CSV export from a legacy CRM system. Dates appeared in at least four formats — dd/mm/yyyy, mm-dd-yyyy, yyyy.mm.dd, and plain text like "15 March 2025". Phone numbers mixed country codes with local formats. Product names had random capitalisation and trailing spaces. This is exactly the kind of file I see in every data cleaning workshop I run.</p>
+<p>I gave both models the same prompt: "I have a CSV with a Date column that mixes dd/mm/yyyy, mm-dd-yyyy, yyyy.mm.dd, and written dates like '15 March 2025'. I need a single formula approach to normalise everything to dd/mm/yyyy in Excel. Also suggest a strategy for cleaning phone numbers that mix +91-XXXXXXXXXX with 0XX-XXXXXXXX formats and product names with inconsistent capitalisation."</p>
+<p><strong>Gemma 4's response</strong> was solid. It suggested a nested approach using <code>DATEVALUE</code> combined with <code>TEXT</code> and <code>SUBSTITUTE</code>, and correctly identified that written dates like "15 March 2025" would need a separate handling path. It recommended a helper column strategy — parse each format with <code>IFERROR</code> wrappers and combine them. For phone numbers, it suggested <code>SUBSTITUTE</code> chains to remove hyphens and spaces, then <code>RIGHT</code> to extract the last 10 digits. For product names, it correctly recommended <code>PROPER(TRIM())</code>.</p>
+<p><strong>ChatGPT's response</strong> was more polished. It provided a single nested formula using <code>LET</code> to define intermediate variables, making the formula more readable. It also proactively suggested a Power Query approach as an alternative, which Gemma 4 did not mention. For the phone number cleaning, ChatGPT additionally flagged that some Indian mobile numbers starting with certain digits might be misinterpreted and suggested a validation step.</p>
+<p><strong>Verdict:</strong> ChatGPT wins this round, but not by a landslide. Gemma 4's approach was functional and correct — it would work in production. ChatGPT's answer was more comprehensive, better structured, and showed more awareness of real-world edge cases. If you are already comfortable with <a href="/blog/clean-messy-data">data cleaning strategies</a>, Gemma 4 gives you enough to work with.</p>
+
+<h2>Test 2: Pivot Table Logic — Designing and Building Pivot Table Formulas</h2>
+<p>The scenario: a sales dataset with columns for Region, Salesperson, Product Category, Quarter, and Revenue. The task was to ask each model to suggest an appropriate pivot table structure and then provide the equivalent formulas for users who need a formula-based approach (common when the data source updates frequently and you want formulas that recalculate automatically).</p>
+<p>I prompted both models: "I have a sales table with Region (North/South/East/West), Salesperson (names), Product Category (Electronics/Furniture/Software), Quarter (Q1-Q4), and Revenue. Suggest a pivot table layout to analyse revenue by region and category, then give me the SUMIFS formulas to replicate this as a formula-based summary table."</p>
+<p><strong>Gemma 4</strong> suggested a clean two-dimensional layout with regions as rows and categories as columns, which is exactly what most analysts would want. The <code>SUMIFS</code> formulas it generated were correct, with proper absolute and relative references. It also suggested adding a Grand Total row and column using <code>SUM</code>.</p>
+<p><strong>ChatGPT</strong> produced the same layout but went further — it suggested using <code>GETPIVOTDATA</code> for users who prefer actual pivot tables, offered a <code>SUMPRODUCT</code> alternative for older Excel versions, and included conditional formatting suggestions to highlight the highest revenue cells. It also recommended a <a href="/blog/mastering-pivot-tables">slicer-based approach</a> for interactive dashboards.</p>
+<p><strong>Verdict:</strong> ChatGPT wins again, primarily on depth and the extra suggestions that a less experienced user would find valuable. Gemma 4's core answer was accurate and usable — the SUMIFS formulas worked perfectly. The gap here is in the "what else should I consider" territory rather than correctness.</p>
+
+<h2>Test 3: VBA Macro Generation — Multi-Sheet Consolidation</h2>
+<p>This is where I expected ChatGPT to pull ahead significantly, and it did — but Gemma 4 surprised me. The task: write a VBA macro that loops through all worksheets in a workbook (except a "Summary" sheet), copies data from a consistent range (A2 to the last row in column D) on each sheet, and pastes it sequentially onto the Summary sheet with a source sheet name column added.</p>
+<p><strong>Gemma 4</strong> produced a working macro. It correctly used <code>For Each ws In ThisWorkbook.Worksheets</code>, included the <code>If ws.Name &lt;&gt; "Summary"</code> check, found the last row using <code>Cells(Rows.Count, 1).End(xlUp).Row</code>, and appended data to the Summary sheet. The source sheet name was added in column E. The code ran without errors on my test workbook.</p>
+<p><strong>ChatGPT</strong> produced a more robust version. It included error handling with <code>On Error Resume Next</code> guards around sheet operations, added a confirmation message box at the end showing how many rows were consolidated, cleared the Summary sheet before writing (with a user prompt to confirm), and added comments explaining each section. It also suggested a <code>Application.ScreenUpdating = False</code> wrapper for performance.</p>
+<p><strong>Verdict:</strong> ChatGPT wins on production quality. Gemma 4's macro worked, which is genuinely impressive for a free local model. But ChatGPT's version is what you would actually want to deploy in a business setting — with error handling, user feedback, and performance optimisation. For anyone learning VBA through <a href="/blog/claude-ai-excel-macros">AI-assisted macro generation</a>, both models are useful starting points.</p>
+
+<h2>Test 4: Chart and Visualisation Recommendations</h2>
+<p>I described a dataset to both models: monthly revenue and customer count for four product lines over two years, with a goal of presenting trends to a non-technical executive audience. I asked each model what chart types to use and how to structure the visualisation.</p>
+<p><strong>Gemma 4</strong> recommended a line chart for revenue trends over time (one line per product), a clustered bar chart for comparing product lines by quarter, and a combo chart (line + bar) to show revenue against customer count on dual axes. Solid, conventional recommendations.</p>
+<p><strong>ChatGPT</strong> gave the same three recommendations but added a sparkline suggestion for an executive summary table, recommended a waterfall chart to show year-over-year revenue changes, and provided specific formatting advice — colour palette suggestions, axis label formatting, and a note about avoiding 3D charts for executive presentations. It also suggested a dashboard layout with the charts arranged in a logical reading order.</p>
+<p><strong>Verdict:</strong> ChatGPT wins on presentation awareness. If you are already experienced with <a href="/blog/charts-visualisations">charts and visualisations</a>, Gemma 4's recommendations are perfectly adequate. ChatGPT's advantage is in the design and communication layer — the kind of advice that makes the difference between a chart that is technically correct and one that actually communicates effectively to stakeholders.</p>
+
+<h2>Test 5: Formula Debugging — Diagnosing a Broken Formula</h2>
+<p>I pasted this deliberately broken formula into both models and asked them to identify and fix all the issues:</p>
+<p><code>=IFERROR(VLOOKUP(A2,Sheet2!B:F,5,TRUE),"Not Found")+IF(C2&gt;"100",D2*0.1,D2*0.05)</code></p>
+<p>There are multiple problems here: the VLOOKUP match type should probably be FALSE for an exact match; the IF condition compares C2 to the text string "100" instead of the number 100; and the IFERROR wraps only the VLOOKUP but the entire expression can still error if the IF part fails.</p>
+<p><strong>Gemma 4</strong> caught two of the three issues. It correctly identified the TRUE/FALSE match type problem and the text-vs-number comparison in the IF statement. It missed the incomplete IFERROR coverage.</p>
+<p><strong>ChatGPT</strong> caught all three issues. It rewrote the formula with the IFERROR wrapping the entire expression, changed TRUE to FALSE, removed the quotes around 100, and additionally suggested using <code>XLOOKUP</code> as a modern replacement if the user was on Microsoft 365. It also explained why each change was necessary.</p>
+<p><strong>Verdict:</strong> ChatGPT wins clearly here. Formula debugging requires the model to reason about multiple interacting parts of an expression, and ChatGPT's deeper analytical capability shows. That said, Gemma 4 catching two out of three issues is still genuinely useful — for many users, those two fixes alone would have resolved their problem. For more complex formula debugging, see my guide on <a href="/blog/advanced-formulas">advanced Excel formulas</a>.</p>
+
+<h2>Results Comparison Table</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Gemma 4</th>
+      <th>ChatGPT</th>
+      <th>Winner</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Data cleaning (messy CSV)</td>
+      <td>Good — functional formulas, correct approach</td>
+      <td>Very good — LET formula, Power Query suggestion</td>
+      <td>ChatGPT</td>
+      <td>Gemma 4 workable for experienced users</td>
+    </tr>
+    <tr>
+      <td>Pivot table logic</td>
+      <td>Good — accurate SUMIFS, clean layout</td>
+      <td>Very good — added GETPIVOTDATA, conditional formatting</td>
+      <td>ChatGPT</td>
+      <td>Core formulas identical in quality</td>
+    </tr>
+    <tr>
+      <td>VBA macro generation</td>
+      <td>Good — working macro, basic structure</td>
+      <td>Excellent — error handling, user feedback, performance</td>
+      <td>ChatGPT</td>
+      <td>Gemma 4 output runs correctly as-is</td>
+    </tr>
+    <tr>
+      <td>Chart recommendations</td>
+      <td>Good — solid standard recommendations</td>
+      <td>Very good — design advice, dashboard layout</td>
+      <td>ChatGPT</td>
+      <td>Gemma 4 sufficient for experienced analysts</td>
+    </tr>
+    <tr>
+      <td>Formula debugging</td>
+      <td>Adequate — caught 2 of 3 issues</td>
+      <td>Excellent — caught all 3, offered modern alternative</td>
+      <td>ChatGPT</td>
+      <td>Multi-layer reasoning favours ChatGPT</td>
+    </tr>
+    <tr>
+      <td><strong>Privacy and data control</strong></td>
+      <td><strong>Excellent — fully local, no data leaves your machine</strong></td>
+      <td><strong>Adequate — cloud-based, data sent to OpenAI</strong></td>
+      <td><strong>Gemma 4</strong></td>
+      <td><strong>Critical for sensitive business data</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Cost</strong></td>
+      <td><strong>Free</strong></td>
+      <td><strong>Free tier limited; Plus costs $20/month</strong></td>
+      <td><strong>Gemma 4</strong></td>
+      <td><strong>No subscription, no usage caps</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Speed (after initial load)</strong></td>
+      <td><strong>Fast on GPU, slower on CPU</strong></td>
+      <td><strong>Consistently fast</strong></td>
+      <td><strong>Tie</strong></td>
+      <td><strong>Depends on local hardware</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>When Gemma 4 Is the Better Choice for Spreadsheet AI</h2>
+<p>Despite ChatGPT winning on raw output quality across most tests, there are clear scenarios where Gemma 4 is the smarter choice:</p>
+<ul>
+  <li><strong>Sensitive data</strong> — If you are working with financial records, employee data, client information, or anything governed by data protection policies, Gemma 4 running locally means your data never leaves your machine. This is not a minor advantage — it is often a hard requirement in enterprise settings.</li>
+  <li><strong>High-volume routine tasks</strong> — If you need to generate 50 similar formulas in a session, ChatGPT's rate limits on the free tier become a real friction point. Gemma 4 has no usage caps.</li>
+  <li><strong>Offline work</strong> — Gemma 4 works without an internet connection. If you travel, work on secure networks, or simply have unreliable connectivity, it is always available.</li>
+  <li><strong>Budget-conscious teams</strong> — For a team of 10 analysts, ChatGPT Plus would cost $200/month. Gemma 4 costs nothing after the initial hardware investment. Over a year, that is $2,400 saved.</li>
+  <li><strong>Learning and experimentation</strong> — When you are exploring prompts and iterating rapidly, having no cost per query encourages experimentation. Students in my courses often learn faster when they are not worried about burning through API credits.</li>
+</ul>
+<p>If you want to get started with running Gemma 4 on your own machine, I have written a complete <a href="/blog/run-gemma-4-locally">beginner's guide to running Gemma 4 locally</a> that walks through the entire setup process.</p>
+
+<h2>When ChatGPT Still Wins</h2>
+<p>I want to be honest about where ChatGPT remains the stronger tool, because pretending otherwise would not serve you well:</p>
+<ul>
+  <li><strong>Complex multi-step analysis</strong> — When a task requires the model to hold a large context and reason through several dependent steps (like designing a complete financial model), ChatGPT's larger context window and deeper reasoning produce noticeably better results.</li>
+  <li><strong>Code Interpreter and file upload</strong> — ChatGPT can directly ingest your spreadsheet file, run Python code on it, and return results. Gemma 4 running through Ollama is text-in, text-out — you cannot upload a file to it. This is a significant workflow difference for data analysis.</li>
+  <li><strong>Production-quality VBA</strong> — While Gemma 4 writes working macros, ChatGPT consistently produces code with better error handling, user prompts, and edge case coverage. For macros that will be used by others in your organisation, ChatGPT's output requires less manual refinement.</li>
+  <li><strong>Explanation depth</strong> — ChatGPT generally provides more thorough explanations of why it chose a particular approach, which is valuable for learning. Gemma 4 tends to be more terse.</li>
+  <li><strong>Cutting-edge Excel features</strong> — ChatGPT's training data tends to include more recent Excel feature releases, so it handles newer functions like <code>GROUPBY</code>, <code>PIVOTBY</code>, and <code>PERCENTOF</code> more reliably.</li>
+</ul>
+<p>For a broader comparison that includes Claude and other models, see my <a href="/blog/gemma-4-vs-chatgpt-vs-claude">detailed AI model comparison for 2026</a>.</p>
+
+<h2>Practical Recommendations</h2>
+<p>After running these tests and using both models extensively in my training sessions, here is my practical advice:</p>
+<ol>
+  <li><strong>Start with Gemma 4 for routine tasks.</strong> Formula writing, basic data cleaning logic, simple VBA — Gemma 4 handles these well and costs nothing. Install it through Ollama and keep it running in the background.</li>
+  <li><strong>Escalate to ChatGPT for complex work.</strong> When you hit a task that requires deep multi-step reasoning, file analysis, or production-grade code, switch to ChatGPT. The free tier handles most of these needs; Plus is worth it if you use it daily.</li>
+  <li><strong>Use both for learning.</strong> Ask Gemma 4 for a formula, then ask ChatGPT the same question. Compare the approaches. This is one of the most effective learning strategies I recommend to my students.</li>
+  <li><strong>Default to Gemma 4 for sensitive data.</strong> If you are unsure whether your data should go to a cloud service, the answer is to use the local model. You can always re-prompt ChatGPT with anonymised or sample data if you need its extra capability.</li>
+</ol>
+<p>For a head-to-head comparison of how Gemma 4 handles Excel formulas specifically versus GPT-4o and Llama 4, see my <a href="/blog/gemma-4-vs-gpt-vs-llama-excel">detailed formula comparison test</a>. And if you want practical prompts to use with either model, my collection of <a href="/blog/excel-ai-prompts">60 AI prompts for Excel</a> works well with both Gemma 4 and ChatGPT.</p>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Can Gemma 4 actually replace ChatGPT for Excel and spreadsheet work?</h3>
+<p>For many common spreadsheet tasks — formula writing, data cleaning logic, and basic VBA — Gemma 4 performs surprisingly close to ChatGPT. It handles standard Excel functions well and runs completely free on your own machine. However, ChatGPT still has an edge for very complex multi-step analysis, advanced VBA with error handling, and tasks that benefit from file upload and Code Interpreter. The best approach is to use Gemma 4 for routine spreadsheet AI tasks and switch to ChatGPT when you need its advanced capabilities.</p>
+
+<h3>Which Gemma 4 model size should I use for Excel and data analysis tasks?</h3>
+<p>For spreadsheet formula generation and data cleaning prompts, the 12B parameter version of Gemma 4 running through Ollama is a good balance of speed and quality. If you have a GPU with 16GB or more VRAM, the 27B version will give noticeably better results on complex analytical tasks like pivot table design and VBA macro generation. The smaller 4B version works for simple formula lookups but struggles with multi-step reasoning.</p>
+
+<h3>Is my spreadsheet data safe when using Gemma 4 for analysis?</h3>
+<p>Yes — this is one of Gemma 4's strongest advantages. Because Gemma 4 runs entirely on your local machine through tools like Ollama, your data never leaves your computer. Nothing is sent to external servers. This makes it ideal for sensitive financial data, proprietary business information, or any spreadsheet work where data privacy is a concern. With ChatGPT, your prompts are processed on OpenAI's servers, which may not be acceptable under certain compliance frameworks.</p>
+
+<h3>How do I get Gemma 4 to understand my specific spreadsheet layout?</h3>
+<p>The key is providing clear context in your prompt. Describe your column headers, the type of data in each column, and what row your data starts on. For example: "I have a spreadsheet with columns A (Date, dd/mm/yyyy format), B (Product Name, text), C (Quantity, integer), D (Unit Price, decimal). Data starts at row 2. Headers are in row 1." This level of detail helps Gemma 4 generate accurate formulas and references, just as it would with any cloud-based AI model.</p>
+
+<h2>Sources and Further Reading</h2>
+<ul>
+  <li><a href="https://ai.google.dev/gemma" target="_blank" rel="noopener">Google Gemma official documentation</a></li>
+  <li><a href="https://ollama.com" target="_blank" rel="noopener">Ollama — run LLMs locally</a></li>
+  <li><a href="https://openai.com/chatgpt" target="_blank" rel="noopener">OpenAI ChatGPT</a></li>
+</ul>
+
+<h2>Related Posts</h2>
+<ul>
+  <li><a href="/blog/gemma-4-vs-gpt-vs-llama-excel">Gemma 4 vs GPT-4o vs Llama 4: Which Free AI Model Is Best for Excel Formulas?</a></li>
+  <li><a href="/blog/gemma-4-vs-chatgpt-vs-claude">Gemma 4 vs ChatGPT vs Claude vs Copilot: Best AI Model Comparison in 2026</a></li>
+  <li><a href="/blog/chatgpt-excel-guide">How to Use ChatGPT to Write Excel Formulas (With Real Examples)</a></li>
+  <li><a href="/blog/claude-ai-excel-formulas">How to Use Claude AI to Write Excel Formulas Instantly</a></li>
+  <li><a href="/blog/clean-messy-data">How to Clean Messy Data in Excel</a></li>
+  <li><a href="/blog/mastering-pivot-tables">Mastering Pivot Tables in Excel</a></li>
+  <li><a href="/blog/claude-ai-excel-macros">Using Claude AI to Generate Excel Macros and VBA</a></li>
+  <li><a href="/blog/charts-visualisations">Charts and Visualisations in Excel</a></li>
+  <li><a href="/blog/advanced-formulas">Advanced Excel Formulas</a></li>
+  <li><a href="/blog/excel-ai-prompts">60 AI Prompts for Excel That Actually Work</a></li>
+</ul>
+<div class="blog-cta-box"><h3>Ready to level up your Excel skills?</h3><p>The Complete Excel Course with AI Integration takes you from formulas to production-grade spreadsheets, with real projects and AI-assisted workflows.</p><a href="/courses#excel" class="btn-primary">Explore the Excel + AI course <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/animations.js" defer></script>
+  <script src="/tracking.js" defer></script>
+</body>
+</html>

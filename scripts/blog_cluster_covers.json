@@ -749,4 +749,145 @@
     "category": "Excel",
     "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for map charts in Excel, with geographic chart visuals."
   }
+,
+  {
+    "slug": "gemma-4-vs-chatgpt-vs-claude",
+    "title": "Gemma 4 vs ChatGPT vs Claude vs Copilot: Best AI Model Comparison in 2026",
+    "tag": "AI Tools",
+    "hook": "See where Gemma 4 wins, where Claude thinks deeper, and where Copilot still fits better.",
+    "cta": "Compare The Best Fits",
+    "keywords": [
+      "Gemma 4",
+      "ChatGPT",
+      "Claude"
+    ],
+    "cue": "AI model comparison cards, local-vs-cloud workflow panels, and benchmark-style visuals",
+    "category": "AI Tools",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemma 4 vs ChatGPT vs Claude vs Copilot, with AI model comparison visuals.",
+    "primaryColor": "#2563EB",
+    "secondaryColor": "#F97316",
+    "variant": "ai-model-neuro",
+    "portraitFocus": "headshot",
+    "coverTitle": "Gemma 4 vs ChatGPT vs Claude vs Copilot"
+  },
+  {
+    "slug": "gemma-4-vs-gpt-vs-llama-excel",
+    "title": "Gemma 4 vs GPT-4o vs Llama 4: Which Free AI Model Is Best for Excel Formulas?",
+    "tag": "AI + Excel",
+    "hook": "Test free models on real formulas so you know which one helps before you copy anything into Excel.",
+    "cta": "Pick The Best Free Model",
+    "keywords": [
+      "Gemma 4",
+      "GPT-4o",
+      "Llama 4"
+    ],
+    "cue": "spreadsheet formula cards, model comparison cues, and AI workflow panels",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemma 4 vs GPT-4o vs Llama 4 for Excel formulas, with spreadsheet and model comparison visuals.",
+    "primaryColor": "#2563EB",
+    "secondaryColor": "#22C55E",
+    "variant": "ai-model-neuro",
+    "portraitFocus": "headshot",
+    "coverTitle": "Gemma 4 vs GPT-4o vs Llama 4 For Excel"
+  },
+  {
+    "slug": "gemma-4-data-analysis-excel",
+    "title": "Gemma 4 for Data Analysis: Can It Replace ChatGPT for Spreadsheet Work?",
+    "tag": "AI + Excel",
+    "hook": "Compare Gemma 4 and ChatGPT on analysis tasks before you trust either one with the workbook.",
+    "cta": "Test Spreadsheet Reasoning",
+    "keywords": [
+      "Gemma 4",
+      "Analysis",
+      "Excel"
+    ],
+    "cue": "spreadsheet grids, analysis cards, and model-comparison visuals",
+    "category": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemma 4 for data analysis, with spreadsheet and AI comparison visuals.",
+    "primaryColor": "#1D4ED8",
+    "secondaryColor": "#22C55E",
+    "variant": "ai-model-neuro",
+    "portraitFocus": "headshot",
+    "coverTitle": "Can Gemma 4 Replace ChatGPT For Spreadsheet Work?"
+  },
+  {
+    "slug": "gemma-4-vs-gemini",
+    "title": "Gemma 4 vs Gemini: What's the Difference and When to Use Which",
+    "tag": "AI Tools",
+    "hook": "Understand the open-model versus cloud-model tradeoff so you choose based on privacy, cost, and control.",
+    "cta": "Choose The Right Google AI",
+    "keywords": [
+      "Gemma 4",
+      "Gemini",
+      "Privacy"
+    ],
+    "cue": "open-model badges, cloud AI cards, and side-by-side decision visuals",
+    "category": "AI Tools",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemma 4 vs Gemini, with open-model and cloud AI comparison visuals.",
+    "primaryColor": "#2563EB",
+    "secondaryColor": "#14B8A6",
+    "variant": "ai-model-neuro",
+    "portraitFocus": "headshot",
+    "coverTitle": "Gemma 4 vs Gemini"
+  },
+  {
+    "slug": "gemma-4-vs-paid-ai-models",
+    "title": "5 Real-World Tasks Where Gemma 4 Beats Paid AI Models",
+    "tag": "AI Tools",
+    "hook": "Spot the tasks where free, local, and open workflows beat the paid defaults.",
+    "cta": "Find Gemma's Edge",
+    "keywords": [
+      "Gemma 4",
+      "Value",
+      "Benchmarks"
+    ],
+    "cue": "benchmark panels, value comparison charts, and practical-task visuals",
+    "category": "AI Tools",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for tasks where Gemma 4 beats paid AI models, with benchmark visuals.",
+    "primaryColor": "#F97316",
+    "secondaryColor": "#22C55E",
+    "variant": "ai-model-neuro",
+    "portraitFocus": "headshot",
+    "coverTitle": "5 Tasks Where Gemma 4 Beats Paid AI"
+  },
+  {
+    "slug": "run-gemma-4-locally",
+    "title": "How to Run Gemma 4 Locally for Free: A Beginner's Guide With Ollama and LM Studio",
+    "tag": "AI Tools",
+    "hook": "Set up local AI step by step so privacy, cost, and speed all work in your favour.",
+    "cta": "Run It Locally",
+    "keywords": [
+      "Ollama",
+      "LM Studio",
+      "Local"
+    ],
+    "cue": "local-model dashboards, terminal cues, and on-device AI workflow visuals",
+    "category": "AI Tools",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for running Gemma 4 locally, with local AI and terminal visuals.",
+    "primaryColor": "#2563EB",
+    "secondaryColor": "#22C55E",
+    "variant": "ai-model-neuro",
+    "portraitFocus": "headshot",
+    "coverTitle": "Run Gemma 4 Locally For Free"
+  },
+  {
+    "slug": "gemma-4-vscode",
+    "title": "How to Use Gemma 4 in VS Code: Setup, Extensions, and Coding Workflows",
+    "tag": "AI Tools",
+    "hook": "Use Gemma 4 inside VS Code without losing the coding flow or sending every file to the cloud.",
+    "cta": "Code With Gemma Faster",
+    "keywords": [
+      "VS Code",
+      "Gemma 4",
+      "Local AI"
+    ],
+    "cue": "editor-style cards, coding workflow panels, and local AI assistant visuals",
+    "category": "AI Tools",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Gemma 4 in VS Code, with coding workflow visuals.",
+    "primaryColor": "#2563EB",
+    "secondaryColor": "#06B6D4",
+    "variant": "ai-model-neuro",
+    "portraitFocus": "headshot",
+    "coverTitle": "Use Gemma 4 In VS Code"
+  }
 ]

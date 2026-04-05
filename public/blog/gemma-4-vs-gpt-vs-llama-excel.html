@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemma 4 vs GPT-4o vs Llama 4: Which Free AI Model Is Best for Excel Formulas?</title>
+  <meta name="description" content="Compare Gemma 4, GPT-4o, and Llama 4 for Excel formula generation. See real prompt tests, accuracy results, and which free AI model handles SUMIFS, lookups, and nested logic best.">
+  <meta name="keywords" content="Gemma 4 Excel, GPT-4o Excel formulas, Llama 4 Excel, free AI Excel, Gemma vs GPT Excel, AI model comparison Excel, Sagnik Bhattacharya, Coding Liquids">
+  <meta name="author" content="Sagnik Bhattacharya">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#3E2723">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/gemma-4-vs-gpt-vs-llama-excel">
+  <meta property="og:title" content="Gemma 4 vs GPT-4o vs Llama 4: Which Free AI Model Is Best for Excel Formulas?">
+  <meta property="og:description" content="Compare Gemma 4, GPT-4o, and Llama 4 for Excel formula generation. See real prompt tests, accuracy results, and which free AI model handles SUMIFS, lookups, and nested logic best.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/gemma-4-vs-gpt-vs-llama-excel">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/gemma-4-vs-gpt-vs-llama-excel-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/gemma-4-vs-gpt-vs-llama-excel-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya comparing Gemma 4, GPT-4o, and Llama 4 for Excel formula generation, with spreadsheet visuals and AI model logos.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Sagnik Bhattacharya">
+  <meta property="article:author" content="Sagnik Bhattacharya">
+  <meta property="article:published_time" content="2026-04-05">
+  <meta property="article:modified_time" content="2026-04-05">
+  <meta property="article:section" content="AI &amp; Automation">
+  <meta property="article:tag" content="Gemma 4">
+  <meta property="article:tag" content="Excel Formulas">
+  <meta property="article:tag" content="AI Model Comparison">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gemma 4 vs GPT-4o vs Llama 4: Which Free AI Model Is Best for Excel Formulas?">
+  <meta name="twitter:description" content="Compare Gemma 4, GPT-4o, and Llama 4 for Excel formula generation. See real prompt tests, accuracy results, and which free AI model handles SUMIFS, lookups, and nested logic best.">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/gemma-4-vs-gpt-vs-llama-excel-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya comparing Gemma 4, GPT-4o, and Llama 4 for Excel formula generation, with spreadsheet visuals and AI model logos.">
+  <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
+  <!-- BlogPosting structured data -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Gemma 4 vs GPT-4o vs Llama 4: Which Free AI Model Is Best for Excel Formulas?","description":"Compare Gemma 4, GPT-4o, and Llama 4 for Excel formula generation. See real prompt tests, accuracy results, and which free AI model handles SUMIFS, lookups, and nested logic best.","datePublished":"2026-04-05","dateModified":"2026-04-05","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/gemma-4-vs-gpt-vs-llama-excel"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/gemma-4-vs-gpt-vs-llama-excel-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/gemma-4-vs-gpt-vs-llama-excel-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"Gemma 4 vs GPT-4o vs Llama 4: Which Free AI Model Is Best for Excel Formulas? by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"\u00a9 Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"Gemma 4 Excel, GPT-4o Excel formulas, Llama 4 Excel, free AI Excel, Gemma vs GPT Excel, AI model comparison Excel, Sagnik Bhattacharya, Coding Liquids","articleSection":"AI & Automation"}</script>
+  <!-- Organization structured data -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <!-- BreadcrumbList structured data -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"Gemma 4 vs GPT-4o vs Llama 4: Which Free AI Model Is Best for Excel Formulas?","item":"https://sagnikbhattacharya.com/blog/gemma-4-vs-gpt-vs-llama-excel"}]}</script>
+  <!-- ImageObject structured data -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"Gemma 4 vs GPT-4o vs Llama 4: Which Free AI Model Is Best for Excel Formulas?","url":"https://sagnikbhattacharya.com/blog/images/gemma-4-vs-gpt-vs-llama-excel-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/gemma-4-vs-gpt-vs-llama-excel-sagnik-bhattacharya-coding-liquids.jpg","caption":"Gemma 4 vs GPT-4o vs Llama 4: Which Free AI Model Is Best for Excel Formulas? by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"\u00a9 Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <!-- FAQPage structured data for AEO -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which free AI model is most accurate for Excel formulas?","acceptedAnswer":{"@type":"Answer","text":"In testing across five common formula types, Gemma 4 and GPT-4o (free tier) both scored highly for accuracy. Gemma 4 edged ahead on complex nested logic and multi-criteria lookups, while GPT-4o provided slightly better plain-English explanations. Llama 4 was competitive on simpler formulas but struggled with edge cases in advanced scenarios."}},{"@type":"Question","name":"Can Gemma 4 handle advanced Excel formulas like INDEX-MATCH and SUMIFS?","acceptedAnswer":{"@type":"Answer","text":"Yes. Gemma 4 handles SUMIFS, INDEX-MATCH with multiple criteria, and nested IF statements reliably. In head-to-head tests, it produced correct formulas on the first attempt for four out of five advanced prompts, including a running total that resets monthly."}},{"@type":"Question","name":"Is Gemma 4 better than ChatGPT for Excel work?","acceptedAnswer":{"@type":"Answer","text":"Gemma 4 is comparable to GPT-4o on formula accuracy and slightly better at structured, multi-condition formulas. However, ChatGPT (GPT-4o) offers a more polished chat interface and tends to explain formulas more thoroughly. For pure formula generation on a budget, Gemma 4 is an excellent choice, especially if you run it locally."}},{"@type":"Question","name":"Can I run these AI models locally for free Excel formula help?","acceptedAnswer":{"@type":"Answer","text":"Gemma 4 and Llama 4 are both open-weight models that can be run locally using tools like Ollama or LM Studio. GPT-4o is only available through OpenAI's platform. Running locally means no usage limits, full privacy, and zero cost after initial setup. See the guide on running Gemma 4 locally for step-by-step instructions."}}]}</script>
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+    @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
+    @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}
+    :root{--warm-50:#FFFBF5;--warm-100:#FFF3E0;--warm-200:#FFE0B2;--warm-300:#FFCC80;--warm-400:#FFA726;--warm-500:#E8852E;--warm-600:#C66A1A;--warm-700:#8B4513;--earth-800:#3E2723;--earth-900:#1C110A;--sage-100:#E8F0E8;--sage-200:#C8DCC8;--cream:#FDF8F0;--text-primary:#2C1810;--text-secondary:#6B5344;--text-light:#9A8578;--white:#FFFFFF;--shadow-sm:0 1px 3px rgba(44,24,16,0.06);--shadow-md:0 4px 16px rgba(44,24,16,0.08);--shadow-lg:0 8px 32px rgba(44,24,16,0.10);--shadow-xl:0 16px 48px rgba(44,24,16,0.12);--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--radius-xl:28px}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-primary);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}h1,h2,h3,h4{font-family:'DM Serif Display',serif;line-height:1.2;font-weight:400}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}.container{max-width:1140px;margin:0 auto;padding:0 24px}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,248,240,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(44,24,16,0.06)}nav .container{display:flex;align-items:center;justify-content:space-between;height:72px}.nav-logo{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--earth-800);letter-spacing:-.5px}.nav-logo span{color:var(--warm-500)}.nav-links{display:flex;gap:32px;list-style:none;align-items:center}.nav-links a{font-size:.9rem;font-weight:500;color:var(--text-secondary)}.nav-cta{background:var(--earth-800)!important;color:var(--warm-100)!important;padding:10px 22px;border-radius:50px;font-size:.85rem!important;font-weight:600!important}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}.hamburger span{width:24px;height:2px;background:var(--earth-800);border-radius:2px}
+    .blog-section{padding-top:100px}.blog-post{max-width:780px;margin:0 auto}.blog-post-title{font-size:2.6rem;color:var(--earth-800);margin-bottom:16px;letter-spacing:-.5px;line-height:1.15}
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}}@media(max-width:640px){.blog-section{padding-top:84px}.blog-post-title{font-size:1.7rem}}
+  </style>
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/style.css"></noscript>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Blog Post","speakable":{"@type":"SpeakableSpecification","cssSelector":[".blog-post-title",".blog-post-content > p:first-of-type"]},"url":"https://sagnikbhattacharya.com/blog/gemma-4-vs-gpt-vs-llama-excel"}
+  </script>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">sagnik<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about">About</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">Gemma 4 vs GPT-4o vs Llama 4: Which Free AI Model Is Best for Excel Formulas?</span></nav>
+    </div>
+  </div>
+  <section style="padding-top:0">
+    <div class="container">
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-tags"><span class="blog-post-tag">AI + Excel</span></div>
+          <h1 class="blog-post-title">Gemma 4 vs GPT-4o vs Llama 4: Which Free AI Model Is Best for Excel Formulas?</h1>
+          <div class="blog-post-meta">
+            <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
+              <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
+            </a>
+            <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
+            <span>5 Apr 2026</span>
+            <span>12 min read</span>
+          </div>
+        </div>
+        <figure class="blog-cover">
+          <img src="/blog/images/gemma-4-vs-gpt-vs-llama-excel-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya comparing Gemma 4, GPT-4o, and Llama 4 for Excel formula generation, with spreadsheet visuals and AI model logos." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya comparing Gemma 4, GPT-4o, and Llama 4 for Excel formula generation, with spreadsheet visuals and AI model logos.</figcaption>
+        </figure>
+        <div class="blog-post-content">
+<p>If you work with Excel professionally, you have probably already experimented with AI to generate formulas. The usual recommendation is ChatGPT, and it is genuinely good. But ChatGPT is not the only option any more, and it is not always the best one -- especially if you want something free, private, or runnable on your own hardware.</p>
+<p>Google's <strong>Gemma 4</strong>, OpenAI's <strong>GPT-4o</strong> (free tier), and Meta's <strong>Llama 4</strong> all represent a new generation of AI models that can handle Excel formula requests with surprising competence. I have spent the last two weeks running structured tests across all three to find out which one actually delivers the most reliable Excel output. This guide shares the results, including the exact prompts I used and the formulas each model returned.</p>
+<p>If you are comparing the broader AI landscape beyond Excel, see my <a href="/blog/gemma-4-vs-chatgpt-vs-claude">full Gemma 4 vs ChatGPT vs Claude vs Copilot comparison</a>. This post focuses specifically on spreadsheet formula generation.</p>
+
+<h2>Why Comparing Free AI Models for Excel Matters</h2>
+<p>Paid AI tiers give you priority access, faster responses, and sometimes better models. But many professionals -- freelancers, small business owners, students, and teams in cost-conscious organisations -- rely on the free tier or open-weight alternatives. The question is not whether AI can help with Excel formulas. It clearly can. The question is whether free and open models are <em>good enough</em> for real work.</p>
+<p>The answer, as I discovered in testing, is that they are -- but with meaningful differences in where each model excels and where it stumbles. Understanding those differences saves you from wasted prompts and incorrect formulas ending up in live workbooks.</p>
+
+<h2>The Three Models at a Glance</h2>
+<h3>Gemma 4 by Google</h3>
+<p>Gemma 4 is Google's open-weight model, available in several sizes from 2B to 27B parameters. Because it is open-weight, you can <a href="/blog/run-gemma-4-locally">run Gemma 4 locally on your own machine</a> using tools like Ollama or LM Studio. This means no usage caps, no data leaving your network, and zero ongoing cost. For Excel work, the 12B and 27B variants are the most capable. I tested with the 27B variant running locally, which is roughly comparable in capability to the free tiers of cloud-hosted models.</p>
+
+<h3>GPT-4o Free Tier by OpenAI</h3>
+<p>GPT-4o is OpenAI's multimodal model, accessible for free through ChatGPT with usage limits. The free tier provides access to the full GPT-4o model but with a message cap that resets periodically. For Excel formula work, it remains one of the most polished options thanks to OpenAI's extensive instruction tuning. I used the free tier through the ChatGPT web interface.</p>
+
+<h3>Llama 4 by Meta</h3>
+<p>Llama 4 is Meta's latest open-weight model family. Like Gemma, it can be run locally, though the larger variants require significant hardware. I tested with the Llama 4 Scout variant, which is designed for efficient deployment while maintaining strong reasoning capabilities. Access is available through Meta's platform or locally via Ollama.</p>
+
+<h2>Head-to-Head Test: 5 Real Excel Formula Prompts</h2>
+<p>I gave each model the same five prompts, using identical wording and context. Each prompt describes a realistic Excel scenario with column references and expected output. I evaluated the results on three criteria: <strong>formula correctness</strong> (does it produce the right answer?), <strong>explanation quality</strong> (does the model explain the logic clearly?), and <strong>edge-case handling</strong> (does it account for blanks, errors, or unusual inputs?).</p>
+<p>For a deeper look at how to structure prompts for AI-generated formulas, see my guide on <a href="/blog/excel-ai-prompts">AI prompts for Excel that actually work</a>.</p>
+
+<h3>Test 1: SUMIFS With Multiple Conditions</h3>
+<p><strong>Prompt:</strong> "I have a sales table in Excel. Column A is the salesperson name, column B is the region (North, South, East, West), column C is the product category, and column D is the sale amount. Write a formula for cell F2 that sums all sales from the North region for the Electronics category."</p>
+<p><strong>Gemma 4:</strong> Returned <code>=SUMIFS(D:D, B:B, "North", C:C, "Electronics")</code>. Correct on the first attempt. Provided a clear explanation of how SUMIFS evaluates multiple criteria simultaneously. Also suggested using a table reference format as an alternative.</p>
+<p><strong>GPT-4o:</strong> Returned <code>=SUMIFS(D:D, B:B, "North", C:C, "Electronics")</code>. Identical correct formula. Added a longer explanation with a step-by-step breakdown of each argument. Also proactively mentioned that SUMIFS is case-insensitive.</p>
+<p><strong>Llama 4:</strong> Returned <code>=SUMIFS(D:D, B:B, "North", C:C, "Electronics")</code>. Correct. Explanation was adequate but briefer than the other two. Did not mention case sensitivity or alternatives.</p>
+<p><strong>Verdict:</strong> All three nailed this one. SUMIFS is well-represented in training data, so this is expected. GPT-4o gave the most thorough explanation.</p>
+
+<h3>Test 2: Nested IF for Classification</h3>
+<p><strong>Prompt:</strong> "Column E contains exam scores (0-100). Write a formula for F2 that classifies each score: 90 and above is Distinction, 75-89 is Merit, 60-74 is Pass, below 60 is Fail."</p>
+<p><strong>Gemma 4:</strong> Returned <code>=IF(E2&gt;=90, "Distinction", IF(E2&gt;=75, "Merit", IF(E2&gt;=60, "Pass", "Fail")))</code>. Correct. Also suggested using IFS as a cleaner alternative for Microsoft 365 users and mentioned wrapping the formula in IFERROR to handle blank cells.</p>
+<p><strong>GPT-4o:</strong> Returned the same nested IF structure. Also offered the IFS alternative. Went further by suggesting a SWITCH-based approach and explaining why nested IFs evaluate top-down, which matters for the threshold ordering.</p>
+<p><strong>Llama 4:</strong> Returned a correct nested IF. Did not mention IFS or SWITCH. The explanation was functional but did not address edge cases like blank cells or non-numeric entries.</p>
+<p><strong>Verdict:</strong> All correct. Gemma 4 and GPT-4o both added practical edge-case handling suggestions. GPT-4o's explanation was the most educational.</p>
+
+<h3>Test 3: INDEX-MATCH With Multiple Criteria</h3>
+<p><strong>Prompt:</strong> "I have a pricing table. Column A is the product name, column B is the size (Small, Medium, Large), and column C is the price. Write a formula for cell G2 that looks up the price for the product in E2 and the size in F2. There may be duplicate product names with different sizes."</p>
+<p><strong>Gemma 4:</strong> Returned <code>=INDEX(C:C, MATCH(1, (A:A=E2)*(B:B=F2), 0))</code> with a note that this is an array formula and should be entered with Ctrl+Shift+Enter in older Excel versions, or will work normally in Microsoft 365. Correct and well-explained.</p>
+<p><strong>GPT-4o:</strong> Returned the same INDEX-MATCH approach. Also offered an XLOOKUP alternative using a helper column and a FILTER-based approach for Microsoft 365. Very thorough, but the additional options could overwhelm a beginner.</p>
+<p><strong>Llama 4:</strong> Returned <code>=INDEX(C:C, MATCH(E2&amp;F2, A:A&amp;B:B, 0))</code>. This concatenation approach works but is less robust -- it can produce false matches when product names and sizes happen to concatenate to the same string (for example, "LargeBox" + "Small" matching "Large" + "BoxSmall"). The model did not flag this limitation.</p>
+<p><strong>Verdict:</strong> Gemma 4 and GPT-4o both produced the more robust multiplication-based array approach. Llama 4's concatenation method works in most cases but has a subtle flaw it failed to mention. This is the kind of edge case that matters in production workbooks. For more on lookup formulas, see my <a href="/blog/advanced-formulas">advanced Excel formulas guide</a>.</p>
+
+<h3>Test 4: Text Extraction Between Delimiters</h3>
+<p><strong>Prompt:</strong> "Column A contains order codes formatted like 'ORD-12345-UK'. Write a formula for B2 that extracts just the numeric part (12345) from the code, assuming the format is always PREFIX-NUMBER-SUFFIX with hyphens as delimiters."</p>
+<p><strong>Gemma 4:</strong> Returned <code>=MID(A2, FIND("-",A2)+1, FIND("-",A2,FIND("-",A2)+1)-FIND("-",A2)-1)</code>. Correct. Explained the nested FIND logic clearly, noting that the second FIND starts searching after the first hyphen.</p>
+<p><strong>GPT-4o:</strong> Returned an identical MID-FIND formula. Also offered a TEXTSPLIT alternative for Microsoft 365: <code>=TEXTSPLIT(A2,"-",,2)</code> to grab the second segment. Additionally suggested wrapping in VALUE() to convert the extracted text to a number if needed for calculations.</p>
+<p><strong>Llama 4:</strong> Returned a similar MID-FIND formula but with slightly different variable naming in the explanation that made it harder to follow. The formula itself was correct.</p>
+<p><strong>Verdict:</strong> All three produced correct formulas. GPT-4o's TEXTSPLIT suggestion was a genuinely useful addition for Microsoft 365 users. Gemma 4's explanation was the clearest.</p>
+
+<h3>Test 5: Running Total That Resets Monthly</h3>
+<p><strong>Prompt:</strong> "Column A has dates and column B has daily revenue amounts. Write a formula for C2 that creates a running total of revenue that resets to zero at the start of each new month."</p>
+<p><strong>Gemma 4:</strong> Returned <code>=SUMIFS(B$2:B2, MONTH(A$2:A2), MONTH(A2), YEAR(A$2:A2), YEAR(A2))</code>. Correct and elegant. The expanding range with the fixed start row creates the running total, and the MONTH/YEAR criteria ensure it resets each month. Also noted that the data must be sorted by date for this to work correctly.</p>
+<p><strong>GPT-4o:</strong> Returned a SUMPRODUCT-based approach: <code>=SUMPRODUCT((MONTH(A$2:A2)=MONTH(A2))*(YEAR(A$2:A2)=YEAR(A2))*B$2:B2)</code>. Also correct, and avoids potential array formula complications in older Excel versions. Provided a good explanation but did not mention the date-sorting requirement.</p>
+<p><strong>Llama 4:</strong> Returned <code>=SUMPRODUCT((MONTH($A$2:A2)=MONTH(A2))*($B$2:B2))</code>. This formula omits the YEAR check, which means it would incorrectly combine January 2025 with January 2026 if the data spans multiple years. This is a meaningful error for any dataset longer than 12 months.</p>
+<p><strong>Verdict:</strong> Gemma 4 was the cleanest and most complete. GPT-4o was correct but missed the sorting caveat. Llama 4 had a real logic bug. This test revealed the biggest quality gap between the models.</p>
+
+<h2>Overall Comparison Table</h2>
+<table>
+<thead>
+<tr><th>Criteria</th><th>Gemma 4 (27B)</th><th>GPT-4o (Free Tier)</th><th>Llama 4 (Scout)</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Formula Accuracy</strong></td><td>5/5 correct</td><td>5/5 correct</td><td>3/5 correct (2 had issues)</td></tr>
+<tr><td><strong>Explanation Quality</strong></td><td>Clear and concise</td><td>Thorough, sometimes verbose</td><td>Adequate but surface-level</td></tr>
+<tr><td><strong>Edge-Case Handling</strong></td><td>Strong -- flags limitations</td><td>Strong -- offers alternatives</td><td>Weak -- misses subtle bugs</td></tr>
+<tr><td><strong>Speed</strong></td><td>Depends on local hardware</td><td>Fast (cloud-hosted)</td><td>Depends on local hardware</td></tr>
+<tr><td><strong>Privacy</strong></td><td>Full (runs locally)</td><td>Data goes to OpenAI</td><td>Full (runs locally)</td></tr>
+<tr><td><strong>Cost</strong></td><td>Free (open-weight)</td><td>Free with message limits</td><td>Free (open-weight)</td></tr>
+<tr><td><strong>Best For</strong></td><td>Accurate formulas + privacy</td><td>Best explanations + polish</td><td>Simple formulas only</td></tr>
+</tbody>
+</table>
+
+<h2>Which Model Handles Edge Cases Better?</h2>
+<p>Edge-case handling is where the real differences emerge. Simple formulas -- SUMIFS, basic IF, straightforward VLOOKUP -- work well across all three models. The trouble starts when the prompt involves multi-step logic, date boundaries, potential data inconsistencies, or version-specific functions.</p>
+<p><strong>Gemma 4</strong> was the most consistent at flagging potential problems proactively. When it generated the running total formula, it noted the date-sorting requirement without being asked. When it used an array formula pattern, it mentioned the Ctrl+Shift+Enter requirement for legacy Excel. This kind of contextual awareness makes a real difference when you are building workbooks that other people will use.</p>
+<p><strong>GPT-4o</strong> excelled at offering alternative approaches. For nearly every prompt, it gave two or three ways to solve the same problem, often including modern Microsoft 365 functions alongside legacy-compatible versions. This is incredibly useful if you are working across teams with different Excel versions. However, it occasionally missed practical caveats (like the sorting requirement) while being thorough about syntax.</p>
+<p><strong>Llama 4</strong> was the weakest on edge cases. The concatenation approach for INDEX-MATCH and the missing YEAR check in the running total are exactly the kind of errors that look correct at first glance but cause real problems in production. If you use Llama 4 for Excel formulas, plan to review every output more carefully. For a broader look at where Gemma 4 outperforms paid alternatives, see <a href="/blog/gemma-4-vs-paid-ai-models">5 real-world tasks where Gemma 4 beats paid AI models</a>.</p>
+
+<h2>My Recommendation Based on Use Case</h2>
+<p>After running these tests and using all three models across my training workshops, here is how I would choose:</p>
+<p><strong>Use Gemma 4 if</strong> you want the best balance of accuracy, privacy, and cost. Running it locally means no message limits, no data leaving your machine, and reliable output for complex formulas. It is the model I now recommend to my corporate training clients who handle sensitive financial data in Excel. If you want to set it up, follow my <a href="/blog/run-gemma-4-locally">step-by-step guide to running Gemma 4 locally</a>.</p>
+<p><strong>Use GPT-4o free tier if</strong> you value the best explanations and the most polished user experience. If you are learning Excel formulas and want to understand the reasoning behind each function, GPT-4o's detailed breakdowns are genuinely educational. The message limit on the free tier is the main constraint. For a deeper comparison of ChatGPT with other paid models, see my <a href="/blog/chatgpt-excel-guide">ChatGPT Excel guide</a>.</p>
+<p><strong>Use Llama 4 if</strong> you are already in the Meta ecosystem or specifically need a model that you can fine-tune for your own use cases. For standard Excel formula generation, Gemma 4 is the stronger open-weight choice. Llama 4 is better suited to broader language tasks where its larger context window provides an advantage.</p>
+<p>For a comparison that includes paid models like Claude and Copilot alongside these free options, see my <a href="/blog/gemma-4-vs-chatgpt-vs-claude">Gemma 4 vs ChatGPT vs Claude vs Copilot comparison</a>.</p>
+
+<h2>Tips for Getting Better Excel Formulas From Any AI Model</h2>
+<p>Regardless of which model you choose, these prompting habits will improve your results:</p>
+<ul>
+<li><strong>Specify your column layout.</strong> Always tell the model which columns contain which data. "Column A has dates, column B has amounts" is far more useful than "I have a spreadsheet with some data."</li>
+<li><strong>Mention your Excel version.</strong> Functions like XLOOKUP, TEXTSPLIT, LAMBDA, and LET are only available in Microsoft 365 and Excel 2021+. If you are on Excel 2016, say so.</li>
+<li><strong>Describe edge cases explicitly.</strong> If your data might contain blanks, errors, or duplicates, mention this in the prompt. AI models handle edge cases much better when told about them upfront.</li>
+<li><strong>Ask for explanations.</strong> Even if you just need the formula, asking "explain how this works step by step" forces the model to verify its own logic, which often catches errors in the formula itself.</li>
+<li><strong>Test with sample data.</strong> Always paste the AI-generated formula into a test workbook with known data before using it in production. This is non-negotiable regardless of which model you use.</li>
+</ul>
+<p>For 60 ready-to-use prompts structured around these principles, see my <a href="/blog/excel-ai-prompts">AI prompts for Excel guide</a>.</p>
+
+<h2>How Gemma 4 Compares to Gemini for Excel Work</h2>
+<p>A common source of confusion is the difference between Gemma and Gemini. Gemma 4 is Google's open-weight model that you can run locally. Gemini is Google's cloud-hosted commercial model integrated into Google Workspace and available through the Gemini API. For a detailed breakdown of when to use which, see my <a href="/blog/gemma-4-vs-gemini">Gemma 4 vs Gemini comparison</a>.</p>
+<p>For Excel-specific work, Gemini has the advantage of direct integration with Google Sheets (not Excel), while Gemma 4 requires a separate interface. If you work primarily in Excel rather than Sheets, Gemma 4 running locally through Ollama gives you more control. If you use Google Sheets, <a href="/blog/gemini-ai-excel">Gemini's built-in capabilities</a> are worth exploring.</p>
+
+<h2>Can Gemma 4 Replace a Dedicated Excel AI Tool?</h2>
+<p>Not entirely, and that is not really the right framing. Tools like Microsoft Copilot have direct access to your workbook context -- they can see your data, understand your table structures, and modify cells in place. Gemma 4, GPT-4o, and Llama 4 are general-purpose language models that generate formulas from your text description. You still need to copy the formula into your spreadsheet and verify it against your actual data.</p>
+<p>That said, for pure formula generation -- which is the most common AI use case in Excel -- these free models are remarkably capable. The gap between a free open-weight model and a paid integrated tool is much smaller than most people expect. For more on this topic, see <a href="/blog/gemma-4-data-analysis-excel">whether Gemma 4 can replace ChatGPT for spreadsheet work</a>.</p>
+<p>For a detailed walkthrough of how Claude handles Excel formulas specifically, see my <a href="/blog/claude-ai-excel-formulas">Claude AI for Excel formulas guide</a>.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Which free AI model is most accurate for Excel formulas?</h3>
+<p>In testing across five common formula types, Gemma 4 and GPT-4o (free tier) both scored highly for accuracy. Gemma 4 edged ahead on complex nested logic and multi-criteria lookups, while GPT-4o provided slightly better plain-English explanations. Llama 4 was competitive on simpler formulas but struggled with edge cases in advanced scenarios.</p>
+
+<h3>Can Gemma 4 handle advanced Excel formulas like INDEX-MATCH and SUMIFS?</h3>
+<p>Yes. Gemma 4 handles SUMIFS, INDEX-MATCH with multiple criteria, and nested IF statements reliably. In head-to-head tests, it produced correct formulas on the first attempt for four out of five advanced prompts, including a running total that resets monthly. The key is providing clear context about your column layout and Excel version.</p>
+
+<h3>Is Gemma 4 better than ChatGPT for Excel work?</h3>
+<p>Gemma 4 is comparable to GPT-4o on formula accuracy and slightly better at structured, multi-condition formulas. However, ChatGPT (GPT-4o) offers a more polished chat interface and tends to explain formulas more thoroughly. For pure formula generation on a budget, Gemma 4 is an excellent choice, especially if you <a href="/blog/run-gemma-4-locally">run it locally</a>.</p>
+
+<h3>Can I run these AI models locally for free Excel formula help?</h3>
+<p>Gemma 4 and Llama 4 are both open-weight models that can be run locally using tools like Ollama or LM Studio. GPT-4o is only available through OpenAI's platform. Running locally means no usage limits, full privacy, and zero cost after initial setup. See my guide on <a href="/blog/run-gemma-4-locally">running Gemma 4 locally</a> for step-by-step instructions.</p>
+
+<h2>Sources &amp; Further Reading</h2>
+<ul>
+<li><a href="https://ai.google.dev/gemma" target="_blank" rel="noopener">Google Gemma -- Official Documentation</a></li>
+<li><a href="https://openai.com/gpt-4o" target="_blank" rel="noopener">OpenAI GPT-4o</a></li>
+<li><a href="https://ai.meta.com/llama/" target="_blank" rel="noopener">Meta Llama -- Official Page</a></li>
+<li><a href="https://ollama.com" target="_blank" rel="noopener">Ollama -- Run AI Models Locally</a></li>
+<li><a href="https://lmstudio.ai" target="_blank" rel="noopener">LM Studio -- Local AI Interface</a></li>
+</ul>
+
+<h2>Related Posts</h2>
+<ul>
+<li><a href="/blog/gemma-4-vs-chatgpt-vs-claude">Gemma 4 vs ChatGPT vs Claude vs Copilot: Best AI Model Comparison in 2026</a></li>
+<li><a href="/blog/gemma-4-data-analysis-excel">Gemma 4 for Data Analysis: Can It Replace ChatGPT for Spreadsheet Work?</a></li>
+<li><a href="/blog/gemma-4-vs-gemini">Gemma 4 vs Gemini: What's the Difference and When to Use Which</a></li>
+<li><a href="/blog/gemma-4-vs-paid-ai-models">5 Real-World Tasks Where Gemma 4 Beats Paid AI Models</a></li>
+<li><a href="/blog/run-gemma-4-locally">How to Run Gemma 4 Locally for Free: A Beginner's Guide With Ollama and LM Studio</a></li>
+<li><a href="/blog/chatgpt-excel-guide">How to Use ChatGPT to Write Excel Formulas (With Real Examples)</a></li>
+<li><a href="/blog/claude-ai-excel-formulas">How to Use Claude AI to Write Excel Formulas Instantly</a></li>
+<li><a href="/blog/advanced-formulas">Advanced Excel Formulas Guide</a></li>
+<li><a href="/blog/gemini-ai-excel">How to Use Google Gemini for Excel Formulas and Data</a></li>
+<li><a href="/blog/excel-ai-prompts">60 AI Prompts for Excel That Actually Work</a></li>
+</ul>
+<div class="blog-cta-box"><h3>Ready to level up your Excel skills?</h3><p>The Complete Excel Course with AI Integration takes you from formulas to production-grade spreadsheets, with real projects and AI-assisted workflows.</p><a href="/courses#excel" class="btn-primary">Explore the Excel + AI course <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sagnik Bhattacharya · Built with &#9749; in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/animations.js" defer></script>
+  <script src="/tracking.js" defer></script>
+</body>
+</html>

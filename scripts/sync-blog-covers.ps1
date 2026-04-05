@@ -10,6 +10,7 @@ $codingLiquidsUrl='https://codingliquids.com'
 $codingLiquidsTermsUrl='https://www.codingliquids.com/termsofuse'
 $imageAcquireLicenseUrl='https://sagnikbhattacharya.com/contact'
 $codingLiquidsCopyrightNotice=([string][char]0x00A9)+' Sagnik Bhattacharya and Coding Liquids. All rights reserved.'
+$defaultPortraitFocus='headshot'
 
 function C($hex,[int]$a=255){
   $h=$hex.TrimStart('#')
@@ -243,9 +244,10 @@ function FrameworkBadge($g,$p,[float]$x,[float]$y){
     FillRR $g $label ($x+18) ($y+98) 122 12 6
   }finally{$left.Dispose();$right.Dispose();$label.Dispose();$vsBrush.Dispose();$vsStroke.Dispose();$font.Dispose();$text.Dispose()}
 }
-function GetPortraitSourceRect($img,[float]$dstW,[float]$dstH){
+function GetPortraitSourceRect($img,[float]$dstW,[float]$dstH,[string]$focus=''){
   $dstAspect=$dstW / $dstH
-  $cropHeight=[float][Math]::Round([Math]::Min($img.Height * 0.84,$img.Width / $dstAspect))
+  $cropHeightFactor=if($focus -eq 'headshot'){0.66}else{0.84}
+  $cropHeight=[float][Math]::Round([Math]::Min($img.Height * $cropHeightFactor,$img.Width / $dstAspect))
   if($cropHeight -le 0){$cropHeight=[float]$img.Height}
   $cropWidth=[float][Math]::Round($cropHeight * $dstAspect)
   if($cropWidth -gt $img.Width){
@@ -253,9 +255,15 @@ function GetPortraitSourceRect($img,[float]$dstW,[float]$dstH){
     $cropHeight=[float][Math]::Round($cropWidth / $dstAspect)
   }
   $srcX=[float][Math]::Round(($img.Width - $cropWidth) / 2)
-  [Drawing.RectangleF]::new($srcX,0,$cropWidth,$cropHeight)
+  $srcY=if($focus -eq 'headshot'){
+    [float][Math]::Round([Math]::Min(($img.Height - $cropHeight),[Math]::Max(22,($img.Height * 0.04))))
+  }else{
+    0
+  }
+  [Drawing.RectangleF]::new($srcX,$srcY,$cropWidth,$cropHeight)
 }
 function PortraitFrame($g,$img,$p){
+  $portraitFocus=if($p.Contains('PortraitFocus') -and $p['PortraitFocus']){[string]$p['PortraitFocus']}else{$defaultPortraitFocus}
   Glow $g 246 228 190 $p.P 16
   Glow $g 186 470 120 $p.S 16
 
@@ -276,7 +284,7 @@ function PortraitFrame($g,$img,$p){
     $old=$g.Clip
     $g.SetClip($clip)
     $dst=[Drawing.RectangleF]::new(60,106,398,448)
-    $src=GetPortraitSourceRect $img $dst.Width $dst.Height
+    $src=GetPortraitSourceRect $img $dst.Width $dst.Height $portraitFocus
     $g.DrawImage($img,$dst,$src,[Drawing.GraphicsUnit]::Pixel)
     $fade=[Drawing.RectangleF]::new(376,106,82,448)
     $fb=New-Object Drawing.Drawing2D.LinearGradientBrush([Drawing.PointF]::new($fade.Left,$fade.Top),[Drawing.PointF]::new($fade.Right,$fade.Top),[Drawing.Color]::FromArgb(0,255,255,255),[Drawing.Color]::FromArgb(175,255,255,255))
@@ -528,6 +536,82 @@ function NeuroPromptScene($g,$p){
   Glow $g 1128 322 56 $p.S 12
   Glow $g 840 304 44 $p.P 12
 }
+function AiModelNeuroScene($g,$p){
+  $chips=@($p.K | Select-Object -First 2)
+  if($chips.Count -eq 0){$chips=@('AI','Models')}
+
+  GlassPanel $g 842 82 308 222 34 '#101E2A' 216 '#E7EDFF' 24
+  Tag $g 'MODEL PLAYBOOK' 868 104 '#FFFFFF' '#0F172A' 12 10 26 | Out-Null
+  TagRow $g $chips 868 142 '#102734' '#ECFEFF' 12 10 24
+
+  $card=New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb(228,11,24,38))
+  $cardStroke=New-Object Drawing.Pen (C '#FFFFFF' 26),1
+  $muted=New-Object Drawing.SolidBrush (C '#FFFFFF' 22)
+  $link=New-Object Drawing.Pen (C '#FFFFFF' 52),2
+  $primary=New-Object Drawing.SolidBrush (C $p.P 230)
+  $secondary=New-Object Drawing.SolidBrush (C $p.S 220)
+  try{
+    $link.StartCap='Round'
+    $link.EndCap='Round'
+    FillRR $g $card 872 188 78 72 18
+    FillRR $g $card 958 174 78 88 18
+    FillRR $g $card 1044 188 78 72 18
+    StrokeRR $g $cardStroke 872 188 78 72 18
+    StrokeRR $g $cardStroke 958 174 78 88 18
+    StrokeRR $g $cardStroke 1044 188 78 72 18
+    $g.DrawLine($link,950,224,958,218)
+    $g.DrawLine($link,1036,218,1044,224)
+
+    FillRR $g $primary 886 202 34 10 5
+    FillRR $g $muted 886 220 46 8 4
+    FillRR $g $muted 886 236 34 8 4
+    FillRR $g $secondary 914 238 16 16 8
+
+    FillRR $g $secondary 972 188 42 10 5
+    FillRR $g $muted 972 208 50 8 4
+    FillRR $g $muted 972 224 36 8 4
+    FillRR $g $primary 972 240 22 10 5
+    FillRR $g $secondary 1000 240 20 10 5
+
+    FillRR $g $secondary 1058 202 34 10 5
+    FillRR $g $muted 1058 220 46 8 4
+    FillRR $g $muted 1058 236 34 8 4
+    FillRR $g $primary 1086 238 16 16 8
+  }finally{$card.Dispose();$cardStroke.Dispose();$muted.Dispose();$link.Dispose();$primary.Dispose();$secondary.Dispose()}
+
+  GlassPanel $g 888 330 224 132 28 '#101E2A' 214 '#D8F7E5' 22
+  Tag $g 'LOCAL WORKFLOW' 912 352 '#FFFFFF' '#0F172A' 11 10 24 | Out-Null
+
+  $window=New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb(228,13,27,41))
+  $chrome=New-Object Drawing.SolidBrush (C '#FFFFFF' 30)
+  $lineA=New-Object Drawing.SolidBrush (C $p.P 224)
+  $lineB=New-Object Drawing.SolidBrush (C $p.S 214)
+  $lineMuted=New-Object Drawing.SolidBrush (C '#FFFFFF' 26)
+  try{
+    FillRR $g $window 912 380 176 60 16
+    FillRR $g $chrome 926 392 10 10 5
+    FillRR $g $chrome 942 392 10 10 5
+    FillRR $g $chrome 958 392 10 10 5
+    FillRR $g $lineA 926 414 70 8 4
+    FillRR $g $lineMuted 926 430 124 6 3
+    FillRR $g $lineB 926 442 54 6 3
+    FillRR $g $lineA 998 414 28 8 4
+    FillRR $g $lineB 1032 414 34 8 4
+  }finally{$window.Dispose();$chrome.Dispose();$lineA.Dispose();$lineB.Dispose();$lineMuted.Dispose()}
+
+  GlassPanel $g 848 494 270 68 24 $p.P 230 '#FFFFFF' 28
+  $ctaLine=New-Object Drawing.SolidBrush (C '#FFFFFF' 64)
+  $ctaAccent=New-Object Drawing.SolidBrush (C '#FFF7ED' 218)
+  try{
+    FillRR $g $ctaLine 878 512 144 10 5
+    FillRR $g $ctaLine 878 532 106 10 5
+    FillRR $g $ctaAccent 1036 510 40 12 6
+    FillRR $g $ctaAccent 1082 526 16 16 8
+  }finally{$ctaLine.Dispose();$ctaAccent.Dispose()}
+
+  Glow $g 1128 326 58 $p.S 12
+  Glow $g 842 308 46 $p.P 12
+}
 function TitleSize([string]$title){
   $len=$title.Length
   if($len -gt 80){32}
@@ -615,6 +699,9 @@ function NewCover($p,$img,[string]$title,[string]$tag,[string]$path){
       BackdropScene $g $p
       GlassPanel $g 520 84 498 470 38 '#07131B' 210 '#D9F7FF' 24
       FlutterGlyph $g 1040 32 1.9
+    }elseif($variant -eq 'ai-model-neuro'){
+      AiModelNeuroScene $g $p
+      GlassPanel $g 520 84 498 470 38 '#07131B' 212 '#E6EDFF' 24
     }elseif($variant -eq 'neuro-prompts'){
       NeuroPromptScene $g $p
       ExcelLogo $g 1034 26 132
@@ -750,17 +837,29 @@ if(Test-Path $manifestPath){
       'AI + Excel' { @{P='#2563EB';S='#22C55E';Variant=''} }
       default { @{P='#0F766E';S='#34D399';Variant=''} }
     }
+    $primary=if($item.PSObject.Properties['primaryColor'] -and $item.primaryColor){[string]$item.primaryColor}elseif($item.PSObject.Properties['primary'] -and $item.primary){[string]$item.primary}else{[string]$palette.P}
+    $secondary=if($item.PSObject.Properties['secondaryColor'] -and $item.secondaryColor){[string]$item.secondaryColor}elseif($item.PSObject.Properties['secondary'] -and $item.secondary){[string]$item.secondary}else{[string]$palette.S}
+    $variant=if($item.PSObject.Properties['variant'] -and $item.variant){[string]$item.variant}else{[string]$palette.Variant}
     $entry=[ordered]@{
       Slug=[string]$item.slug
-      P=[string]$palette.P
-      S=[string]$palette.S
+      P=$primary
+      S=$secondary
       Hook=[string]$item.hook
       CTA=[string]$item.cta
       K=@($item.keywords | ForEach-Object { [string]$_ })
       Cue=[string]$item.cue
     }
-    if($palette.Variant){
-      $entry.Variant=[string]$palette.Variant
+    if($variant){
+      $entry.Variant=$variant
+    }
+    if($item.PSObject.Properties['coverTag'] -and $item.coverTag){
+      $entry.CoverTag=[string]$item.coverTag
+    }
+    if($item.PSObject.Properties['coverTitle'] -and $item.coverTitle){
+      $entry.CoverTitle=[string]$item.coverTitle
+    }
+    if($item.PSObject.Properties['portraitFocus'] -and $item.portraitFocus){
+      $entry.PortraitFocus=[string]$item.portraitFocus
     }
     $posts+=,$entry
   }

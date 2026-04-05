@@ -5,13 +5,76 @@
     <link>https://sagnikbhattacharya.com/blog</link>
     <description>Useful guides on Excel, Excel with AI, and Flutter by Sagnik Bhattacharya.</description>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 01 Apr 2026 00:00:00 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 05 Apr 2026 00:00:00 +0530</lastBuildDate>
     <atom:link href="https://sagnikbhattacharya.com/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://sagnikbhattacharya.com/sagnik-bhattacharya.png</url>
       <title>Sagnik Bhattacharya — Blog</title>
       <link>https://sagnikbhattacharya.com/blog</link>
     </image>
+    <item>
+      <title>Gemma 4 vs ChatGPT vs Claude vs Copilot: Best AI Model Comparison in 2026</title>
+      <link>https://sagnikbhattacharya.com/blog/gemma-4-vs-chatgpt-vs-claude</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/gemma-4-vs-chatgpt-vs-claude</guid>
+      <description>A detailed, honest comparison of Gemma 4, ChatGPT, Claude, and Microsoft Copilot across coding, writing, data analysis, and cost. Find the right AI model for your workflow.</description>
+      <category>AI Tools</category>
+      <author>noreply@sagnikbhattacharya.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>Gemma 4 vs GPT-4o vs Llama 4: Which Free AI Model Is Best for Excel Formulas?</title>
+      <link>https://sagnikbhattacharya.com/blog/gemma-4-vs-gpt-vs-llama-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/gemma-4-vs-gpt-vs-llama-excel</guid>
+      <description>Compare Gemma 4, GPT-4o, and Llama 4 for Excel formula generation. See real prompt tests, accuracy results, and which free AI model handles SUMIFS, lookups, and nested logic best.</description>
+      <category>AI + Excel</category>
+      <author>noreply@sagnikbhattacharya.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>Gemma 4 for Data Analysis: Can It Replace ChatGPT for Spreadsheet Work?</title>
+      <link>https://sagnikbhattacharya.com/blog/gemma-4-data-analysis-excel</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/gemma-4-data-analysis-excel</guid>
+      <description>Test Gemma 4 against ChatGPT for real spreadsheet tasks — data cleaning, pivot table logic, VBA macros, and chart recommendations. Honest results with practical examples.</description>
+      <category>AI + Excel</category>
+      <author>noreply@sagnikbhattacharya.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>Gemma 4 vs Gemini: What’s the Difference and When to Use Which</title>
+      <link>https://sagnikbhattacharya.com/blog/gemma-4-vs-gemini</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/gemma-4-vs-gemini</guid>
+      <description>Understand the difference between Google’s Gemma 4 and Gemini. Compare open-weight vs cloud API, privacy, cost, customisation, and which is right for your workflow.</description>
+      <category>AI Tools</category>
+      <author>noreply@sagnikbhattacharya.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>5 Real-World Tasks Where Gemma 4 Beats Paid AI Models</title>
+      <link>https://sagnikbhattacharya.com/blog/gemma-4-vs-paid-ai-models</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/gemma-4-vs-paid-ai-models</guid>
+      <description>See 5 practical tasks where Google Gemma 4 outperforms paid AI models like ChatGPT Plus and Claude Pro. Honest benchmarks on code, data, writing, and privacy-sensitive work.</description>
+      <category>AI Tools</category>
+      <author>noreply@sagnikbhattacharya.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Run Gemma 4 Locally for Free: A Beginner’s Guide With Ollama and LM Studio</title>
+      <link>https://sagnikbhattacharya.com/blog/run-gemma-4-locally</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/run-gemma-4-locally</guid>
+      <description>Step-by-step guide to running Google Gemma 4 locally using Ollama and LM Studio. Covers hardware requirements, installation, performance tips, and when local beats cloud AI.</description>
+      <category>AI Tools</category>
+      <author>noreply@sagnikbhattacharya.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Use Gemma 4 in VS Code: Setup, Extensions, and Coding Workflows</title>
+      <link>https://sagnikbhattacharya.com/blog/gemma-4-vscode</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/gemma-4-vscode</guid>
+      <description>Set up Gemma 4 as your local AI coding assistant in VS Code. Step-by-step guide covering extensions, Ollama integration, inline completions, and real coding workflow examples.</description>
+      <category>AI Tools</category>
+      <author>noreply@sagnikbhattacharya.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0530</pubDate>
+    </item>
     <item>
       <title>Agent Mode in Excel: What It Does, What It Can’t, and Who Should Use It</title>
       <link>https://sagnikbhattacharya.com/blog/agent-mode-in-excel</link>

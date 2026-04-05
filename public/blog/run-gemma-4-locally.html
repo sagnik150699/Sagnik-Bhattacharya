@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Run Gemma 4 Locally for Free: A Beginner's Guide With Ollama and LM Studio</title>
+  <meta name="description" content="Step-by-step guide to running Google Gemma 4 locally using Ollama and LM Studio. Covers hardware requirements, installation, performance tips, and when local beats cloud AI.">
+  <meta name="keywords" content="run Gemma 4 locally, Gemma 4 Ollama, Gemma 4 LM Studio, local AI model, Gemma 4 setup, run AI locally free, Sagnik Bhattacharya, Coding Liquids">
+  <meta name="author" content="Sagnik Bhattacharya">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#3E2723">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/run-gemma-4-locally">
+  <meta property="og:title" content="How to Run Gemma 4 Locally for Free: A Beginner's Guide With Ollama and LM Studio">
+  <meta property="og:description" content="Step-by-step guide to running Google Gemma 4 locally using Ollama and LM Studio. Covers hardware requirements, installation, performance tips, and when local beats cloud AI.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/run-gemma-4-locally">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/run-gemma-4-locally-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/run-gemma-4-locally-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya showing how to run Gemma 4 locally with Ollama and LM Studio, with terminal and GUI interface visuals.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Sagnik Bhattacharya">
+  <meta property="article:author" content="Sagnik Bhattacharya">
+  <meta property="article:published_time" content="2026-04-05">
+  <meta property="article:modified_time" content="2026-04-05">
+  <meta property="article:section" content="AI &amp; Automation">
+  <meta property="article:tag" content="Gemma 4">
+  <meta property="article:tag" content="Local AI">
+  <meta property="article:tag" content="Ollama">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Run Gemma 4 Locally for Free: A Beginner's Guide With Ollama and LM Studio">
+  <meta name="twitter:description" content="Step-by-step guide to running Google Gemma 4 locally using Ollama and LM Studio. Covers hardware requirements, installation, performance tips, and when local beats cloud AI.">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/run-gemma-4-locally-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya showing how to run Gemma 4 locally with Ollama and LM Studio, with terminal and GUI interface visuals.">
+  <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
+  <!-- BlogPosting structured data -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Run Gemma 4 Locally for Free: A Beginner's Guide With Ollama and LM Studio","description":"Step-by-step guide to running Google Gemma 4 locally using Ollama and LM Studio. Covers hardware requirements, installation, performance tips, and when local beats cloud AI.","datePublished":"2026-04-05","dateModified":"2026-04-05","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/run-gemma-4-locally"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/run-gemma-4-locally-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/run-gemma-4-locally-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"How to Run Gemma 4 Locally for Free: A Beginner's Guide With Ollama and LM Studio by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"\u00a9 Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"run Gemma 4 locally, Gemma 4 Ollama, Gemma 4 LM Studio, local AI model, Gemma 4 setup, run AI locally free, Sagnik Bhattacharya, Coding Liquids","articleSection":"AI & Automation"}</script>
+  <!-- Organization structured data -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <!-- BreadcrumbList structured data -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"How to Run Gemma 4 Locally for Free: A Beginner's Guide With Ollama and LM Studio","item":"https://sagnikbhattacharya.com/blog/run-gemma-4-locally"}]}</script>
+  <!-- ImageObject structured data -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"How to Run Gemma 4 Locally for Free: A Beginner's Guide With Ollama and LM Studio","url":"https://sagnikbhattacharya.com/blog/images/run-gemma-4-locally-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/run-gemma-4-locally-sagnik-bhattacharya-coding-liquids.jpg","caption":"How to Run Gemma 4 Locally for Free: A Beginner's Guide With Ollama and LM Studio by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"\u00a9 Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <!-- FAQPage structured data for AEO -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What hardware do I need to run Gemma 4 locally?","acceptedAnswer":{"@type":"Answer","text":"The minimum hardware depends on the model size. The 2B parameter variant runs on 8 GB of RAM with no dedicated GPU. The 12B variant needs 16 GB of RAM and runs best with a GPU that has at least 8 GB of VRAM. The 27B variant requires 32 GB of RAM and a GPU with 16-24 GB of VRAM for comfortable performance. Apple Silicon Macs with unified memory handle these models particularly well."}},{"@type":"Question","name":"Is Ollama or LM Studio better for running Gemma 4?","acceptedAnswer":{"@type":"Answer","text":"Ollama is better if you prefer a command-line workflow, want to use the API for automation, or need to integrate Gemma 4 into scripts and applications. LM Studio is better if you want a visual chat interface, prefer downloading and managing models through a GUI, or are new to running local AI models. Both are free and both produce identical output quality for the same model."}},{"@type":"Question","name":"How does local Gemma 4 compare to cloud ChatGPT in speed?","acceptedAnswer":{"@type":"Answer","text":"Cloud ChatGPT is faster for most users because OpenAI runs it on enterprise-grade hardware. Local Gemma 4 on a mid-range GPU (RTX 4070 or similar) generates roughly 15-30 tokens per second with the 12B model, which feels responsive for conversational use. The 27B model is slower at 8-15 tokens per second on the same hardware. The trade-off is that local runs have no rate limits and complete privacy."}},{"@type":"Question","name":"Can I use Gemma 4 locally for Excel formula generation?","acceptedAnswer":{"@type":"Answer","text":"Yes, and it works very well. The 12B and 27B variants of Gemma 4 produce accurate Excel formulas including SUMIFS, INDEX-MATCH, nested IFs, and array formulas. You can prompt it through the Ollama CLI, through LM Studio's chat interface, or by building a simple script that calls the Ollama API. See the companion guide on Gemma 4 vs GPT-4o vs Llama 4 for Excel for detailed accuracy comparisons."}}]}</script>
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+    @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
+    @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}
+    :root{--warm-50:#FFFBF5;--warm-100:#FFF3E0;--warm-200:#FFE0B2;--warm-300:#FFCC80;--warm-400:#FFA726;--warm-500:#E8852E;--warm-600:#C66A1A;--warm-700:#8B4513;--earth-800:#3E2723;--earth-900:#1C110A;--sage-100:#E8F0E8;--sage-200:#C8DCC8;--cream:#FDF8F0;--text-primary:#2C1810;--text-secondary:#6B5344;--text-light:#9A8578;--white:#FFFFFF;--shadow-sm:0 1px 3px rgba(44,24,16,0.06);--shadow-md:0 4px 16px rgba(44,24,16,0.08);--shadow-lg:0 8px 32px rgba(44,24,16,0.10);--shadow-xl:0 16px 48px rgba(44,24,16,0.12);--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--radius-xl:28px}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-primary);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}h1,h2,h3,h4{font-family:'DM Serif Display',serif;line-height:1.2;font-weight:400}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}.container{max-width:1140px;margin:0 auto;padding:0 24px}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,248,240,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(44,24,16,0.06)}nav .container{display:flex;align-items:center;justify-content:space-between;height:72px}.nav-logo{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--earth-800);letter-spacing:-.5px}.nav-logo span{color:var(--warm-500)}.nav-links{display:flex;gap:32px;list-style:none;align-items:center}.nav-links a{font-size:.9rem;font-weight:500;color:var(--text-secondary)}.nav-cta{background:var(--earth-800)!important;color:var(--warm-100)!important;padding:10px 22px;border-radius:50px;font-size:.85rem!important;font-weight:600!important}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}.hamburger span{width:24px;height:2px;background:var(--earth-800);border-radius:2px}
+    .blog-section{padding-top:100px}.blog-post{max-width:780px;margin:0 auto}.blog-post-title{font-size:2.6rem;color:var(--earth-800);margin-bottom:16px;letter-spacing:-.5px;line-height:1.15}
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}}@media(max-width:640px){.blog-section{padding-top:84px}.blog-post-title{font-size:1.7rem}}
+  </style>
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/style.css"></noscript>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Blog Post","speakable":{"@type":"SpeakableSpecification","cssSelector":[".blog-post-title",".blog-post-content > p:first-of-type"]},"url":"https://sagnikbhattacharya.com/blog/run-gemma-4-locally"}
+  </script>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">sagnik<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about">About</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">How to Run Gemma 4 Locally for Free: A Beginner's Guide With Ollama and LM Studio</span></nav>
+    </div>
+  </div>
+  <section style="padding-top:0">
+    <div class="container">
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-tags"><span class="blog-post-tag">AI Tools</span></div>
+          <h1 class="blog-post-title">How to Run Gemma 4 Locally for Free: A Beginner's Guide With Ollama and LM Studio</h1>
+          <div class="blog-post-meta">
+            <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
+              <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
+            </a>
+            <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
+            <span>5 Apr 2026</span>
+            <span>14 min read</span>
+          </div>
+        </div>
+        <figure class="blog-cover">
+          <img src="/blog/images/run-gemma-4-locally-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya showing how to run Gemma 4 locally with Ollama and LM Studio, with terminal and GUI interface visuals." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya showing how to run Gemma 4 locally with Ollama and LM Studio, with terminal and GUI interface visuals.</figcaption>
+        </figure>
+        <div class="blog-post-content">
+<p>Every time I mention running AI models locally in a workshop, I see the same mix of curiosity and scepticism. People assume it requires a server farm, a computer science degree, or at least a mass of Linux configuration. The reality in 2026 is very different. With tools like Ollama and LM Studio, you can have Google's Gemma 4 running on your own machine in under ten minutes -- no cloud subscription, no data leaving your network, and no usage caps.</p>
+<p>I started running models locally about two years ago, initially out of curiosity. Now it is a core part of how I work. For sensitive client data, for offline train journeys, for rapid prototyping without worrying about API costs -- local inference has become genuinely practical. This guide walks you through the entire setup process from scratch, whether you prefer a command-line workflow or a graphical interface.</p>
+
+<h2>Why Run AI Locally?</h2>
+<p>Before diving into the how, it is worth understanding the why. Cloud-based AI tools like ChatGPT, Claude, and Gemini are excellent, and I use them daily. But they come with trade-offs that matter in specific situations:</p>
+<ul>
+<li><strong>Privacy and data control.</strong> When you send a prompt to a cloud AI service, your data travels to their servers. For most casual use, this is fine. But if you are working with client financial data, patient records, proprietary research, or any information governed by compliance requirements, keeping everything on your own hardware eliminates an entire category of risk.</li>
+<li><strong>Zero ongoing cost.</strong> Cloud AI services either charge per API call or limit free-tier usage. Running Gemma 4 locally costs nothing after the initial setup. There are no token limits, no monthly caps, and no surprise bills. If you make heavy use of AI throughout the day, the savings add up quickly.</li>
+<li><strong>Offline availability.</strong> Local models work without an internet connection. I have written entire sections of training materials on flights and train rides using Gemma running on my laptop. Cloud services are useless in those situations.</li>
+<li><strong>Customisation and integration.</strong> Running locally gives you full control over the model's behaviour. You can adjust parameters like temperature and context length, create custom system prompts, and integrate the model into your own scripts and applications through a local API.</li>
+<li><strong>No rate limiting.</strong> Cloud free tiers throttle usage during peak times. Locally, the only bottleneck is your hardware, and it is consistently available.</li>
+</ul>
+<p>The trade-off is that local models are generally slower than cloud-hosted ones (unless you have high-end hardware), and the largest models may not fit on consumer machines. The key is choosing the right model size for your hardware. For a detailed comparison of how Gemma 4 stacks up against cloud services, see my <a href="/blog/gemma-4-vs-chatgpt-vs-claude">Gemma 4 vs ChatGPT vs Claude vs Copilot comparison</a>.</p>
+
+<h2>Hardware Requirements</h2>
+<p>Gemma 4 comes in several sizes, and the hardware you need depends entirely on which variant you choose. Here is a practical breakdown based on my testing across different machines:</p>
+
+<table>
+<thead>
+<tr><th>Gemma 4 Variant</th><th>Parameters</th><th>Minimum RAM</th><th>Recommended GPU VRAM</th><th>Disk Space</th><th>Suitable For</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Gemma 4 2B</strong></td><td>2 billion</td><td>8 GB</td><td>None required (CPU-only works)</td><td>~2 GB</td><td>Quick tasks, older laptops, testing</td></tr>
+<tr><td><strong>Gemma 4 9B</strong></td><td>9 billion</td><td>16 GB</td><td>6 GB+ (recommended)</td><td>~6 GB</td><td>General use, good quality-speed balance</td></tr>
+<tr><td><strong>Gemma 4 12B</strong></td><td>12 billion</td><td>16 GB</td><td>8 GB+</td><td>~8 GB</td><td>Strong reasoning, Excel formulas, writing</td></tr>
+<tr><td><strong>Gemma 4 27B</strong></td><td>27 billion</td><td>32 GB</td><td>16-24 GB</td><td>~18 GB</td><td>Best quality, complex analysis, coding</td></tr>
+</tbody>
+</table>
+
+<p><strong>A note on Apple Silicon Macs:</strong> If you have an M1, M2, M3, or M4 Mac, you are in a particularly good position. Apple Silicon uses unified memory, meaning the GPU and CPU share the same RAM pool. A MacBook Pro with 32 GB of unified memory can comfortably run the 27B model. A MacBook Air with 16 GB handles the 12B model well. The Metal framework acceleration in both Ollama and LM Studio is mature and performs excellently on these machines.</p>
+<p><strong>For Windows and Linux users:</strong> The most important component is your GPU. An NVIDIA RTX 3060 (12 GB VRAM) or better handles the 12B model comfortably. An RTX 4070 or 4080 handles the 27B model. AMD GPUs work through ROCm support in Ollama, though NVIDIA CUDA remains the more stable option. Running on CPU only is possible for smaller models but will be noticeably slower.</p>
+
+<h2>Method 1: Ollama -- The Command-Line Approach</h2>
+<p>Ollama is the tool I recommend for most power users. It is fast, lightweight, and stays out of your way. It runs as a background service and provides both a CLI and a local REST API, making it easy to integrate into scripts, applications, and automation workflows.</p>
+
+<h3>Step 1: Install Ollama</h3>
+<p>Download Ollama from <a href="https://ollama.com" target="_blank" rel="noopener">ollama.com</a>. Installers are available for macOS, Windows, and Linux.</p>
+<p><strong>On macOS:</strong> Download the .dmg file, drag Ollama to Applications, and launch it. It will install itself and run as a menu bar application.</p>
+<p><strong>On Windows:</strong> Download the installer and run it. Ollama will install as a system service that starts automatically.</p>
+<p><strong>On Linux:</strong> The simplest installation is through the install script:</p>
+<pre><code>curl -fsSL https://ollama.com/install.sh | sh</code></pre>
+<p>After installation, verify it is working by opening a terminal and running:</p>
+<pre><code>ollama --version</code></pre>
+<p>You should see a version number. If you see a "command not found" error on Windows, close and reopen your terminal to pick up the PATH changes.</p>
+
+<h3>Step 2: Pull the Gemma 4 Model</h3>
+<p>With Ollama installed, downloading Gemma 4 is a single command. Choose the variant that matches your hardware:</p>
+<pre><code># For the 2B model (fastest, lowest requirements)
+ollama pull gemma4:2b
+
+# For the 12B model (good balance of quality and speed)
+ollama pull gemma4:12b
+
+# For the 27B model (best quality, needs strong hardware)
+ollama pull gemma4:27b</code></pre>
+<p>The download size varies from about 1.5 GB (2B) to about 16 GB (27B). On a typical broadband connection, the 12B model takes 5-10 minutes to download. Ollama handles quantisation automatically -- the default quantisation (Q4_K_M) provides an excellent balance between quality and performance.</p>
+
+<h3>Step 3: Run Your First Prompt</h3>
+<p>Once the model is downloaded, start an interactive chat session:</p>
+<pre><code>ollama run gemma4:12b</code></pre>
+<p>This drops you into a chat interface in your terminal. Type a prompt and press Enter:</p>
+<pre><code>&gt;&gt;&gt; Write an Excel SUMIFS formula that totals column D where column B is "North" and column C is "Electronics"
+
+=SUMIFS(D:D, B:B, "North", C:C, "Electronics")
+
+This formula uses SUMIFS to sum values in column D based on two criteria:
+- Column B must equal "North"
+- Column C must equal "Electronics"
+...</code></pre>
+<p>To exit the chat, type <code>/bye</code> and press Enter.</p>
+
+<h3>Step 4: Use the Ollama API</h3>
+<p>One of Ollama's best features is its built-in REST API, which runs on <code>localhost:11434</code> by default. This lets you integrate Gemma 4 into scripts, applications, and workflows. Here is a simple example using curl:</p>
+<pre><code>curl http://localhost:11434/api/generate -d '{
+  "model": "gemma4:12b",
+  "prompt": "Write a nested IF formula that classifies exam scores: 90+ is Distinction, 75-89 is Merit, 60-74 is Pass, below 60 is Fail.",
+  "stream": false
+}'</code></pre>
+<p>The API is compatible with many tools and libraries. If you use Python, the <code>ollama</code> Python package provides a clean interface:</p>
+<pre><code>import ollama
+
+response = ollama.generate(
+    model='gemma4:12b',
+    prompt='Write an INDEX-MATCH formula with two criteria columns.'
+)
+print(response['response'])</code></pre>
+<p>This API compatibility makes Ollama particularly useful for building custom tools -- for example, a batch formula generator that processes a list of Excel formula requests from a text file.</p>
+
+<h3>Step 5: Customise With a Modelfile</h3>
+<p>For recurring use cases, you can create a custom Modelfile that sets a system prompt, adjusts parameters, and gives your configuration a name. Create a file called <code>ExcelHelper</code> with the following content:</p>
+<pre><code>FROM gemma4:12b
+SYSTEM "You are an expert Excel formula assistant. Always provide the formula first, then explain each component. Mention any version requirements (e.g., Microsoft 365 only). Flag potential issues with blank cells or errors. Use British English spelling."
+PARAMETER temperature 0.3
+PARAMETER num_ctx 4096</code></pre>
+<p>Then create the custom model:</p>
+<pre><code>ollama create excel-helper -f ExcelHelper</code></pre>
+<p>Now you can use it with:</p>
+<pre><code>ollama run excel-helper</code></pre>
+<p>The lower temperature (0.3) makes the model more deterministic, which is exactly what you want for formula generation where creativity is less valuable than precision.</p>
+
+<h2>Method 2: LM Studio -- The GUI Approach</h2>
+<p>If you prefer a visual interface over the command line, LM Studio is an excellent alternative. It provides a ChatGPT-style chat interface, a model browser, and a built-in server -- all in a desktop application.</p>
+
+<h3>Step 1: Install LM Studio</h3>
+<p>Download LM Studio from <a href="https://lmstudio.ai" target="_blank" rel="noopener">lmstudio.ai</a>. It is available for macOS, Windows, and Linux. The installation is a standard desktop application installer -- no terminal required.</p>
+
+<h3>Step 2: Download Gemma 4</h3>
+<p>Open LM Studio and navigate to the Discover tab (the magnifying glass icon). Search for "Gemma 4" and you will see available variants. Click the download button next to the variant you want. LM Studio shows you the file size, quantisation level, and estimated RAM usage before you download, which helps you choose the right model for your hardware.</p>
+<p>I recommend starting with the 12B Q4_K_M quantisation. It offers the best quality-to-performance ratio for most consumer hardware. If your machine has less than 16 GB of RAM, go with the 9B or 2B variant instead.</p>
+
+<h3>Step 3: Start a Chat</h3>
+<p>Switch to the Chat tab (the speech bubble icon). Select your downloaded Gemma 4 model from the dropdown at the top. You will see a familiar chat interface where you can type prompts and receive responses, exactly like ChatGPT but running entirely on your machine.</p>
+<p>The first response after loading a model takes a few seconds longer as the model loads into memory. Subsequent responses are faster. You can adjust settings like temperature, max tokens, and system prompt from the right-hand panel.</p>
+
+<h3>Step 4: Use the Built-in Server</h3>
+<p>LM Studio also includes a local server that exposes an OpenAI-compatible API. Navigate to the Server tab (the arrows icon), select your model, and click Start Server. This creates an API endpoint at <code>http://localhost:1234/v1</code> that is compatible with any tool or library designed for the OpenAI API.</p>
+<p>This means you can use LM Studio as a drop-in replacement for OpenAI in many applications by simply changing the base URL to <code>http://localhost:1234/v1</code> and using any string as the API key.</p>
+
+<h2>Performance Comparison: Local Gemma 4 vs Cloud AI</h2>
+<p>Here is what you can realistically expect in terms of performance, based on my testing across different hardware configurations:</p>
+
+<table>
+<thead>
+<tr><th>Metric</th><th>Gemma 4 12B (Local, RTX 4070)</th><th>Gemma 4 27B (Local, RTX 4080)</th><th>ChatGPT (GPT-4o, Cloud)</th><th>Claude (Cloud)</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>First Token Latency</strong></td><td>~1.5 seconds</td><td>~3 seconds</td><td>~0.5 seconds</td><td>~0.8 seconds</td></tr>
+<tr><td><strong>Generation Speed</strong></td><td>~20-30 tokens/sec</td><td>~10-15 tokens/sec</td><td>~50-80 tokens/sec</td><td>~40-60 tokens/sec</td></tr>
+<tr><td><strong>Excel Formula Quality</strong></td><td>Very good</td><td>Excellent</td><td>Excellent</td><td>Excellent</td></tr>
+<tr><td><strong>Cost Per Query</strong></td><td>Electricity only</td><td>Electricity only</td><td>Free tier limited</td><td>Paid</td></tr>
+<tr><td><strong>Rate Limits</strong></td><td>None</td><td>None</td><td>Yes (free tier)</td><td>Yes</td></tr>
+<tr><td><strong>Data Privacy</strong></td><td>Full -- nothing leaves your machine</td><td>Full -- nothing leaves your machine</td><td>Data sent to OpenAI</td><td>Data sent to Anthropic</td></tr>
+<tr><td><strong>Offline Use</strong></td><td>Yes</td><td>Yes</td><td>No</td><td>No</td></tr>
+</tbody>
+</table>
+
+<p>The speed difference is noticeable but not deal-breaking for most workflows. When I use Gemma 4 locally for Excel formula generation, a typical response takes 3-5 seconds including a full explanation. That is slower than ChatGPT's near-instant replies, but fast enough that it does not disrupt my workflow. For a detailed accuracy comparison of Gemma 4 against GPT-4o and Llama 4 specifically for Excel formulas, see my <a href="/blog/gemma-4-vs-gpt-vs-llama-excel">Gemma 4 vs GPT-4o vs Llama 4 for Excel comparison</a>.</p>
+
+<h2>When Local Makes Sense vs When Cloud Is Better</h2>
+<p>Running AI locally is not always the right choice. Here is how I think about the decision:</p>
+
+<h3>Use Local Gemma 4 When:</h3>
+<ul>
+<li>You are working with sensitive or confidential data that cannot leave your network</li>
+<li>You need consistent, unlimited access without worrying about rate limits or subscription costs</li>
+<li>You are working offline or in environments with unreliable internet</li>
+<li>You want to build custom tools, scripts, or integrations using the local API</li>
+<li>You are doing repetitive batch processing (for example, generating formulas for 50 different Excel scenarios)</li>
+<li>You want full control over model parameters and system prompts</li>
+</ul>
+
+<h3>Use Cloud AI (ChatGPT, Claude, Gemini) When:</h3>
+<ul>
+<li>You need the fastest possible response times and your data is not sensitive</li>
+<li>You need access to the absolute largest models (GPT-4o, Claude Opus, Gemini Ultra) which are too large for consumer hardware</li>
+<li>You want multimodal capabilities like image analysis or file uploads</li>
+<li>You are working on a machine without a capable GPU (for example, a Chromebook or thin client)</li>
+<li>You need features like web browsing, plugin ecosystems, or built-in tools that cloud platforms provide</li>
+</ul>
+<p>In practice, most power users end up using both. I use Gemma 4 locally for formula generation, code assistance, and data analysis prompts. I use cloud services when I need image understanding, very long context windows, or the latest model capabilities. For a deeper dive into where Gemma 4 outperforms even paid cloud models, see <a href="/blog/gemma-4-vs-paid-ai-models">5 real-world tasks where Gemma 4 beats paid AI models</a>.</p>
+
+<h2>Practical Tips for Getting the Best Output Quality Locally</h2>
+<p>Running a model locally gives you more control, but it also means you are responsible for the configuration. Here are the adjustments that make the biggest difference in my experience:</p>
+
+<h3>Choose the Right Quantisation</h3>
+<p>Quantisation reduces the model's memory footprint by using lower-precision numbers. The default Q4_K_M quantisation is the best starting point for most users -- it reduces memory usage by roughly 60% with minimal quality loss. If you have plenty of VRAM, try Q5_K_M or Q6_K for slightly better quality. Avoid Q2 or Q3 quantisations unless you are severely hardware-constrained, as the quality drop becomes noticeable.</p>
+
+<h3>Set an Appropriate Context Length</h3>
+<p>The context length determines how much conversation history the model can consider. For Excel formula work, 4096 tokens is usually sufficient. For longer conversations or document analysis, increase it to 8192 or beyond. Note that longer context lengths require more memory. In Ollama, set this with the <code>num_ctx</code> parameter. In LM Studio, adjust it in the model settings panel.</p>
+
+<h3>Use System Prompts Effectively</h3>
+<p>A well-crafted system prompt dramatically improves output consistency. For Excel work, I use a system prompt that instructs the model to provide the formula first, explain each component, mention version requirements, and flag potential issues. This eliminates the need to ask follow-up questions for every response.</p>
+
+<h3>Lower the Temperature for Technical Tasks</h3>
+<p>Temperature controls randomness in the model's output. For creative writing, higher temperature (0.7-0.9) adds variety. For technical tasks like formula generation, code writing, or data analysis, lower temperature (0.1-0.4) produces more consistent, deterministic output. I use 0.3 for Excel formula work and 0.2 for code generation.</p>
+
+<h3>Keep the Model Loaded</h3>
+<p>Both Ollama and LM Studio keep the model in memory after the first prompt, making subsequent responses faster. Avoid stopping and restarting the model between prompts. In Ollama, the model stays loaded for 5 minutes of inactivity by default. You can extend this with the <code>OLLAMA_KEEP_ALIVE</code> environment variable.</p>
+
+<h2>Understanding the Relationship Between Gemma and Gemini</h2>
+<p>One of the most common questions I get is about the difference between Gemma and Gemini. Both are from Google, but they serve very different purposes. Gemma is the open-weight model family designed for local deployment and customisation. Gemini is Google's proprietary cloud model integrated into Google Workspace, Bard, and the Gemini API. For a thorough comparison of capabilities, use cases, and when to choose which, see my dedicated <a href="/blog/gemma-4-vs-gemini">Gemma 4 vs Gemini guide</a>.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>What hardware do I need to run Gemma 4 locally?</h3>
+<p>The minimum hardware depends on the model size. The 2B parameter variant runs on 8 GB of RAM with no dedicated GPU. The 12B variant needs 16 GB of RAM and runs best with a GPU that has at least 8 GB of VRAM. The 27B variant requires 32 GB of RAM and a GPU with 16-24 GB of VRAM for comfortable performance. Apple Silicon Macs with unified memory handle these models particularly well.</p>
+
+<h3>Is Ollama or LM Studio better for running Gemma 4?</h3>
+<p>Ollama is better if you prefer a command-line workflow, want to use the API for automation, or need to integrate Gemma 4 into scripts and applications. LM Studio is better if you want a visual chat interface, prefer downloading and managing models through a GUI, or are new to running local AI models. Both are free and both produce identical output quality for the same model.</p>
+
+<h3>How does local Gemma 4 compare to cloud ChatGPT in speed?</h3>
+<p>Cloud ChatGPT is faster for most users because OpenAI runs it on enterprise-grade hardware. Local Gemma 4 on a mid-range GPU (RTX 4070 or similar) generates roughly 15-30 tokens per second with the 12B model, which feels responsive for conversational use. The 27B model is slower at 8-15 tokens per second on the same hardware. The trade-off is that local runs have no rate limits and complete privacy.</p>
+
+<h3>Can I use Gemma 4 locally for Excel formula generation?</h3>
+<p>Yes, and it works very well. The 12B and 27B variants of Gemma 4 produce accurate Excel formulas including SUMIFS, INDEX-MATCH, nested IFs, and array formulas. You can prompt it through the Ollama CLI, through LM Studio's chat interface, or by building a simple script that calls the Ollama API. See my companion guide on <a href="/blog/gemma-4-vs-gpt-vs-llama-excel">Gemma 4 vs GPT-4o vs Llama 4 for Excel</a> for detailed accuracy comparisons.</p>
+
+<h2>Sources &amp; Further Reading</h2>
+<ul>
+<li><a href="https://ai.google.dev/gemma" target="_blank" rel="noopener">Google Gemma -- Official Documentation</a></li>
+<li><a href="https://ollama.com" target="_blank" rel="noopener">Ollama -- Official Site and Downloads</a></li>
+<li><a href="https://lmstudio.ai" target="_blank" rel="noopener">LM Studio -- Official Site and Downloads</a></li>
+<li><a href="https://huggingface.co/google" target="_blank" rel="noopener">Google Models on Hugging Face</a></li>
+</ul>
+
+<h2>Related Posts</h2>
+<ul>
+<li><a href="/blog/gemma-4-vs-gemini">Gemma 4 vs Gemini: What's the Difference and When to Use Which</a></li>
+<li><a href="/blog/gemma-4-vs-chatgpt-vs-claude">Gemma 4 vs ChatGPT vs Claude vs Copilot: Best AI Model Comparison in 2026</a></li>
+<li><a href="/blog/gemma-4-vs-gpt-vs-llama-excel">Gemma 4 vs GPT-4o vs Llama 4: Which Free AI Model Is Best for Excel Formulas?</a></li>
+<li><a href="/blog/gemma-4-vs-paid-ai-models">5 Real-World Tasks Where Gemma 4 Beats Paid AI Models</a></li>
+<li><a href="/blog/gemma-4-data-analysis-excel">Gemma 4 for Data Analysis: Can It Replace ChatGPT for Spreadsheet Work?</a></li>
+</ul>
+<div class="blog-cta-box"><h3>Want to use AI tools more effectively?</h3><p>My courses cover practical AI workflows, from spreadsheet formulas to app development, with real projects and honest tool comparisons.</p><a href="/courses" class="btn-primary">Browse all courses <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sagnik Bhattacharya · Built with &#9749; in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/animations.js" defer></script>
+  <script src="/tracking.js" defer></script>
+</body>
+</html>
