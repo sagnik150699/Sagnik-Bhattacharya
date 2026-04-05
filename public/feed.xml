@@ -759,5 +759,104 @@
       <author>noreply@sagnikbhattacharya.com (Sagnik Bhattacharya)</author>
       <pubDate>Wed, 11 Feb 2026 00:00:00 +0530</pubDate>
     </item>
+    <item>
+      <title>How to Use Gemini CLI in VS Code: Setup, IDE Integration, and Coding Workflows</title>
+      <link>https://sagnikbhattacharya.com/blog/gemini-cli-vscode</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/gemini-cli-vscode</guid>
+      <description>Set up Gemini CLI in VS Code with the companion extension. Free setup guide covering installation, IDE integration, terminal workflows, and practical coding examples.</description>
+      <category>AI Tools</category>
+      <author>noreply@sagnikbhattacharya.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Use Gemini Code Assist in Android Studio: Free AI Coding for Flutter and Kotlin</title>
+      <link>https://sagnikbhattacharya.com/blog/gemini-code-assist-android-studio</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/gemini-code-assist-android-studio</guid>
+      <description>Set up Gemini Code Assist in Android Studio for Flutter and Kotlin projects. Free AI coding assistant with inline completions, chat, and code generation.</description>
+      <category>Flutter</category>
+      <author>noreply@sagnikbhattacharya.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Use Cursor for Flutter Development: The Complete 2026 Guide</title>
+      <link>https://sagnikbhattacharya.com/blog/cursor-flutter-development</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/cursor-flutter-development</guid>
+      <description>The complete guide to using Cursor for Flutter development in 2026. Setup, Dart extensions, AI-powered widget generation, and real workflow examples.</description>
+      <category>Flutter</category>
+      <author>noreply@sagnikbhattacharya.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Use Windsurf for Flutter Development: Free AI IDE Setup and Review</title>
+      <link>https://sagnikbhattacharya.com/blog/windsurf-flutter-development</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/windsurf-flutter-development</guid>
+      <description>Set up Windsurf for Flutter development with this free AI IDE guide. Installation, Dart support, Cascade agent, and honest comparison with Cursor and VS Code.</description>
+      <category>Flutter</category>
+      <author>noreply@sagnikbhattacharya.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Use Claude Code in Android Studio: AI-Powered Coding for Kotlin, Flutter, and Gradle Projects</title>
+      <link>https://sagnikbhattacharya.com/blog/claude-code-android-studio</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/claude-code-android-studio</guid>
+      <description>Use Claude Code in Android Studio for Kotlin, Flutter, and Gradle projects. Terminal AI agent setup, practical workflows, and honest review for Android developers.</description>
+      <category>AI Tools</category>
+      <author>noreply@sagnikbhattacharya.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Use OpenCode in VS Code: The Free Open-Source AI Coding Alternative</title>
+      <link>https://sagnikbhattacharya.com/blog/opencode-vscode</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/opencode-vscode</guid>
+      <description>Set up OpenCode as a free, open-source AI coding assistant in VS Code. Supports 75+ models, MIT licensed, and works with Ollama, OpenAI, Anthropic, and more.</description>
+      <category>AI Tools</category>
+      <author>noreply@sagnikbhattacharya.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle</title>
+      <link>https://sagnikbhattacharya.com/blog/gemma-4-android-studio-ollama</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/gemma-4-android-studio-ollama</guid>
+      <description>Run Gemma 4 locally in Android Studio with Ollama for free AI coding assistance. Setup guide for Kotlin, Flutter, and Gradle projects with real workflow examples.</description>
+      <category>AI Tools</category>
+      <author>noreply@sagnikbhattacharya.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Use GitHub Copilot Agent Mode in VS Code: Autonomous Coding in 2026</title>
+      <link>https://sagnikbhattacharya.com/blog/copilot-agent-mode-vscode</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/copilot-agent-mode-vscode</guid>
+      <description>Learn how to use GitHub Copilot Agent Mode in VS Code for autonomous coding. Setup, practical workflows, multi-step task automation, and honest limitations.</description>
+      <category>AI Tools</category>
+      <author>noreply@sagnikbhattacharya.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Use DeepSeek in VS Code: The $2/Month AI Coding Assistant Setup Guide</title>
+      <link>https://sagnikbhattacharya.com/blog/deepseek-vscode</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/deepseek-vscode</guid>
+      <description>Set up DeepSeek as an AI coding assistant in VS Code for under two pounds per month. Step-by-step guide with Continue extension, API setup, and real coding workflow examples.</description>
+      <category>AI Tools</category>
+      <author>noreply@sagnikbhattacharya.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Use Gemini CLI in Android Studio for Flutter: MCP Server, Dart Integration, and Workflows</title>
+      <link>https://sagnikbhattacharya.com/blog/gemini-cli-android-studio-flutter</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/gemini-cli-android-studio-flutter</guid>
+      <description>Use Gemini CLI in Android Studio for Flutter development with MCP server integration, Dart tooling, and practical coding workflows. Free setup guide.</description>
+      <category>Flutter</category>
+      <author>noreply@sagnikbhattacharya.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Use Claude Code in VS Code: Setup, Extensions, and AI Coding Workflows</title>
+      <link>https://sagnikbhattacharya.com/blog/claude-code-vscode</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/claude-code-vscode</guid>
+      <description>Set up Claude Code in VS Code with the native extension. Terminal AI agent setup, practical coding workflows, and honest comparison with Copilot and Cursor.</description>
+      <category>AI Tools</category>
+      <author>noreply@sagnikbhattacharya.com (Sagnik Bhattacharya)</author>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0530</pubDate>
+    </item>
   </channel>
 </rss>

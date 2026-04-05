@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use GitHub Copilot Agent Mode in VS Code: Autonomous Coding in 2026</title>
+  <meta name="description" content="Learn how to use GitHub Copilot Agent Mode in VS Code for autonomous coding. Setup, practical workflows, multi-step task automation, and honest limitations.">
+  <meta name="keywords" content="Copilot Agent Mode, GitHub Copilot Agent Mode, VS Code Agent Mode, autonomous AI coding, Copilot multi-step, AI coding automation, Sagnik Bhattacharya, Coding Liquids">
+  <meta name="author" content="Sagnik Bhattacharya">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#3E2723">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/copilot-agent-mode-vscode">
+  <meta property="og:title" content="How to Use GitHub Copilot Agent Mode in VS Code: Autonomous Coding in 2026">
+  <meta property="og:description" content="Learn how to use GitHub Copilot Agent Mode in VS Code for autonomous coding. Setup, practical workflows, multi-step task automation, and honest limitations.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/copilot-agent-mode-vscode">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/copilot-agent-mode-vscode-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/copilot-agent-mode-vscode-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use GitHub Copilot Agent Mode in VS Code, showing autonomous AI coding workflow in the editor.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Sagnik Bhattacharya">
+  <meta property="article:author" content="Sagnik Bhattacharya">
+  <meta property="article:published_time" content="2026-04-05">
+  <meta property="article:section" content="AI &amp; Automation">
+  <meta property="article:tag" content="AI Tools">
+  <meta property="article:tag" content="VS Code">
+  <meta property="article:tag" content="GitHub Copilot">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Use GitHub Copilot Agent Mode in VS Code: Autonomous Coding in 2026">
+  <meta name="twitter:description" content="Learn how to use GitHub Copilot Agent Mode in VS Code for autonomous coding. Setup, practical workflows, multi-step task automation, and honest limitations.">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/copilot-agent-mode-vscode-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use GitHub Copilot Agent Mode in VS Code, showing autonomous AI coding workflow in the editor.">
+  <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Use GitHub Copilot Agent Mode in VS Code: Autonomous Coding in 2026","description":"Learn how to use GitHub Copilot Agent Mode in VS Code for autonomous coding. Setup, practical workflows, multi-step task automation, and honest limitations.","datePublished":"2026-04-05","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/copilot-agent-mode-vscode"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/copilot-agent-mode-vscode-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/copilot-agent-mode-vscode-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"How to Use GitHub Copilot Agent Mode in VS Code: Autonomous Coding in 2026 by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"Copilot Agent Mode, GitHub Copilot Agent Mode, VS Code Agent Mode, autonomous AI coding, Copilot multi-step, AI coding automation, Sagnik Bhattacharya, Coding Liquids","articleSection":"AI & Automation"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"How to Use GitHub Copilot Agent Mode in VS Code: Autonomous Coding in 2026","item":"https://sagnikbhattacharya.com/blog/copilot-agent-mode-vscode"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"How to Use GitHub Copilot Agent Mode in VS Code: Autonomous Coding in 2026","url":"https://sagnikbhattacharya.com/blog/images/copilot-agent-mode-vscode-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/copilot-agent-mode-vscode-sagnik-bhattacharya-coding-liquids.jpg","caption":"How to Use GitHub Copilot Agent Mode in VS Code: Autonomous Coding in 2026 by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+    @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
+    @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}
+    :root{--warm-50:#FFFBF5;--warm-100:#FFF3E0;--warm-200:#FFE0B2;--warm-300:#FFCC80;--warm-400:#FFA726;--warm-500:#E8852E;--warm-600:#C66A1A;--warm-700:#8B4513;--earth-800:#3E2723;--earth-900:#1C110A;--sage-100:#E8F0E8;--sage-200:#C8DCC8;--cream:#FDF8F0;--text-primary:#2C1810;--text-secondary:#6B5344;--text-light:#9A8578;--white:#FFFFFF;--shadow-sm:0 1px 3px rgba(44,24,16,0.06);--shadow-md:0 4px 16px rgba(44,24,16,0.08);--shadow-lg:0 8px 32px rgba(44,24,16,0.10);--shadow-xl:0 16px 48px rgba(44,24,16,0.12);--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--radius-xl:28px}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-primary);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}h1,h2,h3,h4{font-family:'DM Serif Display',serif;line-height:1.2;font-weight:400}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}.container{max-width:1140px;margin:0 auto;padding:0 24px}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,248,240,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(44,24,16,0.06)}nav .container{display:flex;align-items:center;justify-content:space-between;height:72px}.nav-logo{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--earth-800);letter-spacing:-.5px}.nav-logo span{color:var(--warm-500)}.nav-links{display:flex;gap:32px;list-style:none;align-items:center}.nav-links a{font-size:.9rem;font-weight:500;color:var(--text-secondary)}.nav-cta{background:var(--earth-800)!important;color:var(--warm-100)!important;padding:10px 22px;border-radius:50px;font-size:.85rem!important;font-weight:600!important}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}.hamburger span{width:24px;height:2px;background:var(--earth-800);border-radius:2px}
+    .blog-section{padding-top:100px}.blog-post{max-width:780px;margin:0 auto}.blog-post-title{font-size:2.6rem;color:var(--earth-800);margin-bottom:16px;letter-spacing:-.5px;line-height:1.15}
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}}@media(max-width:640px){.blog-section{padding-top:84px}.blog-post-title{font-size:1.7rem}}
+  </style>
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/style.css"></noscript>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">sagnik<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about">About</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">How to Use GitHub Copilot Agent Mode in VS Code: Autonomous Coding in 2026</span></nav>
+    </div>
+  </div>
+  <section style="padding-top:0">
+    <div class="container">
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-tags"><span class="blog-post-tag">AI Tools</span></div>
+          <h1 class="blog-post-title">How to Use GitHub Copilot Agent Mode in VS Code: Autonomous Coding in 2026</h1>
+          <div class="blog-post-meta">
+            <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
+              <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
+            </a>
+            <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
+            <span>5 Apr 2026</span>
+            <span>12 min read</span>
+          </div>
+        </div>
+        <figure class="blog-cover">
+          <img src="/blog/images/copilot-agent-mode-vscode-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use GitHub Copilot Agent Mode in VS Code, showing autonomous AI coding workflow in the editor." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use GitHub Copilot Agent Mode in VS Code, showing autonomous AI coding workflow in the editor.</figcaption>
+        </figure>
+        <div class="blog-post-content">
+<p>If you have been using GitHub Copilot for inline completions or quick chat questions, Agent Mode is a fundamentally different experience. It does not just suggest the next line of code. It reads your workspace, creates a plan, writes code across multiple files, runs terminal commands, checks the output, and iterates until the task is done — all from a single natural-language prompt. Think of it less as an autocomplete tool and more as a junior developer who can follow instructions autonomously inside your editor.</p>
+<p>I have been using Agent Mode daily for the past several weeks across real projects — a Node.js API, a Flutter mobile app, and a Next.js marketing site. This guide covers everything from enabling it to the specific workflows where it genuinely saves time, along with an honest assessment of where it still falls short. Most coverage of Agent Mode so far has been news articles and feature announcements. This is the practical how-to guide I wish I had when I started.</p>
+
+<h2>Prerequisites</h2>
+<p>Before you can use Agent Mode, you need the following in place:</p>
+<ol>
+  <li><strong>Visual Studio Code</strong> — version 1.99 or later. Agent Mode is built into the Copilot Chat experience in VS Code, and older versions do not include it. Run <code>code --version</code> in your terminal to check. If you are below 1.99, update from <a href="https://code.visualstudio.com" target="_blank" rel="noopener">code.visualstudio.com</a>.</li>
+  <li><strong>GitHub Copilot subscription</strong> — either Copilot Individual ($19/month), Copilot Business ($39/user/month), or Copilot Enterprise ($39/user/month). Agent Mode is included in all paid tiers. The free Copilot tier does not include Agent Mode at the time of writing.</li>
+  <li><strong>GitHub Copilot extension</strong> — install both "GitHub Copilot" and "GitHub Copilot Chat" from the VS Code marketplace. These are separate extensions. Agent Mode lives inside the Chat extension, but both need to be installed and up to date.</li>
+  <li><strong>Signed in to GitHub</strong> — open the command palette (Ctrl+Shift+P), type "GitHub Copilot: Sign In", and authenticate with your GitHub account that has an active Copilot subscription.</li>
+</ol>
+<p>Once all four are in place, you are ready to enable Agent Mode.</p>
+
+<h2>Enabling Agent Mode</h2>
+<p>Agent Mode is accessed through the Copilot Chat panel, not through inline completions. Here is how to find and activate it:</p>
+<ol>
+  <li>Open the Copilot Chat panel by clicking the Copilot icon in the sidebar or pressing Ctrl+Shift+I (Cmd+Shift+I on Mac).</li>
+  <li>At the top of the chat panel, you will see a mode selector dropdown. By default, it is set to "Ask" or "Edit". Click the dropdown and select <strong>Agent</strong>.</li>
+  <li>You are now in Agent Mode. The chat input will show a slightly different placeholder text indicating that Copilot can now take autonomous actions.</li>
+</ol>
+<p>If you do not see the Agent option in the dropdown, check that your VS Code version is 1.99 or later and that your Copilot Chat extension is fully updated. You can also enable it explicitly in settings by opening <code>settings.json</code> and adding:</p>
+<pre><code>{
+  "chat.agent.enabled": true,
+  "github.copilot.chat.agent.enabled": true
+}</code></pre>
+<p>Once enabled, Agent Mode persists as your selected mode until you switch back. I recommend keeping it as your default — you can always give it a simple question and it will respond normally, but having agent capabilities available means you do not need to switch modes when you want it to take autonomous action.</p>
+
+<h2>How Agent Mode Works</h2>
+<p>Understanding the internal loop Agent Mode follows helps you write better prompts and anticipate its behaviour. The process works in four stages:</p>
+<h3>1. Plan</h3>
+<p>When you submit a prompt, Agent Mode first analyses what you are asking for. It reads relevant files in your workspace, examines your project structure, and creates an internal plan of steps needed to complete the task. You can see this plan in the chat — it will list out what it intends to do before taking action.</p>
+<h3>2. Execute</h3>
+<p>Agent Mode begins carrying out the plan. This can include creating new files, editing existing files, running terminal commands (like <code>npm install</code>, <code>pip install</code>, or <code>dotnet build</code>), and reading command output. Each action appears in the chat panel so you can follow along. Critically, Agent Mode asks for your confirmation before running terminal commands — it will not silently execute anything destructive.</p>
+<h3>3. Verify</h3>
+<p>After making changes, Agent Mode checks its own work. It may run your test suite, check for linting errors, or verify that a build succeeds. If it detects problems — a failing test, a compilation error, a linter warning — it moves to the next stage.</p>
+<h3>4. Iterate</h3>
+<p>When verification reveals issues, Agent Mode automatically attempts to fix them. It reads the error output, identifies the cause, modifies the relevant code, and runs the verification step again. This loop continues until the task passes or it determines it cannot resolve the issue and asks for your input.</p>
+<p>This plan-execute-verify-iterate loop is what makes Agent Mode fundamentally different from regular Copilot Chat. Chat mode gives you an answer and stops. Agent Mode gives you an answer, checks whether it actually works, and fixes it if it does not. In practice, this means that roughly 70% of the tasks I give it are completed without any manual intervention beyond reviewing and accepting the final result.</p>
+
+<h2>Practical Workflows</h2>
+<p>Here are the workflows where I have found Agent Mode most valuable in day-to-day development.</p>
+
+<h3>Adding a New Feature End-to-End</h3>
+<p>This is where Agent Mode truly shines. Give it a prompt like: "Add a /api/users/:id/avatar endpoint that accepts a PNG or JPEG upload, resizes it to 256x256 using sharp, stores it in the uploads directory, and returns the URL. Include input validation and error handling. Write tests." Agent Mode will create the route file, install the sharp package, write the handler with validation, create the test file, and run the tests. When a test fails (and it usually does on the first pass), it reads the error, fixes the code, and reruns.</p>
+<p>For a feature like this, which might take a developer 30-45 minutes of focused work, Agent Mode typically completes it in 3-5 minutes. The code is not always production-ready — you still need to review it, check edge cases, and ensure it follows your project conventions — but it gets you 80-90% of the way there.</p>
+
+<h3>Fixing Bugs with Multi-File Changes</h3>
+<p>Describe the bug and point Agent Mode at the relevant files: "Users report that the date picker on the booking form shows dates in US format (MM/DD/YYYY) instead of the UK format (DD/MM/YYYY). The form component is in src/components/BookingForm.tsx and the date utility functions are in src/utils/dates.ts. Fix this and update any related tests." Agent Mode reads both files, identifies the formatting issue, makes changes across both files, and updates the test assertions to match the new format.</p>
+
+<h3>Writing Tests for Existing Code</h3>
+<p>This is one of the most time-saving workflows. Select a file or module and prompt: "Write comprehensive unit tests for src/services/payment.ts using Jest. Cover all public methods, including happy paths, error conditions, edge cases with empty inputs, and mock the Stripe API calls." Agent Mode reads the service file, creates a test file, writes the tests, runs them, and fixes any failures. In my experience, it produces tests that cover 75-85% of meaningful scenarios on the first pass.</p>
+
+<h3>Refactoring Across Files</h3>
+<p>Agent Mode handles cross-file refactoring well because it can read multiple files and understand dependencies. Prompt: "Refactor the authentication middleware to use a shared validateToken utility. Currently, token validation logic is duplicated in src/middleware/auth.ts, src/middleware/adminAuth.ts, and src/routes/webhook.ts. Extract it into src/utils/auth.ts and update all three files to use it." Agent Mode creates the shared utility, updates all three consuming files, and ensures imports are correct.</p>
+
+<h2>Built-In Tools and Participants</h2>
+<p>Agent Mode has access to several built-in tools and extension-provided participants that expand what it can do.</p>
+<h3>@workspace</h3>
+<p>This tool lets Agent Mode search and read files across your entire project. When you ask it to make changes, it uses @workspace automatically to find relevant files, understand your project structure, and locate dependencies. You do not need to type @workspace explicitly in Agent Mode — it is always available.</p>
+<h3>@terminal</h3>
+<p>Agent Mode can run commands in your VS Code integrated terminal. It uses this to install packages, run builds, execute tests, and check command output. Every terminal command requires your approval before execution — you will see a "Run in Terminal" button that you must click. This is a sensible safety measure.</p>
+<h3>File Creation and Editing</h3>
+<p>Agent Mode can create new files and edit existing files directly in your workspace. Changes appear as diffs in the editor, and you can accept or reject each change individually. This gives you granular control over what actually gets written to disc.</p>
+<h3>Extension-Provided Participants</h3>
+<p>If you have other extensions installed that provide Copilot Chat participants, Agent Mode can use them. Common examples include:</p>
+<ul>
+  <li><strong>@docker</strong> — generate and modify Dockerfiles, docker-compose configurations, and troubleshoot container issues.</li>
+  <li><strong>@azure</strong> — deploy resources, configure Azure services, and troubleshoot cloud infrastructure.</li>
+  <li><strong>@github</strong> — interact with GitHub issues, pull requests, and Actions workflows directly from Agent Mode.</li>
+</ul>
+<p>The participant ecosystem is growing. Check the VS Code marketplace for extensions that advertise Copilot Chat participant support.</p>
+
+<h2>Agent Mode vs Chat Mode vs Inline Completions</h2>
+<p>Copilot now offers three distinct modes of interaction. Choosing the right one for each task matters for productivity.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Inline Completions</th>
+      <th>Chat Mode (Ask/Edit)</th>
+      <th>Agent Mode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>How it activates</td>
+      <td>Automatic as you type</td>
+      <td>You open chat and ask</td>
+      <td>You open chat in Agent mode and describe a task</td>
+    </tr>
+    <tr>
+      <td>Scope of action</td>
+      <td>Current line or block</td>
+      <td>Single response, single file</td>
+      <td>Multi-file, multi-step, terminal access</td>
+    </tr>
+    <tr>
+      <td>Autonomy level</td>
+      <td>None — you accept or reject</td>
+      <td>Low — responds once</td>
+      <td>High — plans, executes, iterates</td>
+    </tr>
+    <tr>
+      <td>Can run terminal commands</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes (with approval)</td>
+    </tr>
+    <tr>
+      <td>Self-corrects on errors</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Best for</td>
+      <td>Boilerplate, line-by-line coding</td>
+      <td>Quick questions, single-file edits</td>
+      <td>Multi-file features, refactoring, test generation</td>
+    </tr>
+    <tr>
+      <td>Speed</td>
+      <td>Instant (100-300ms)</td>
+      <td>Fast (2-5 seconds)</td>
+      <td>Slower (30 seconds to several minutes)</td>
+    </tr>
+    <tr>
+      <td>Token usage</td>
+      <td>Low</td>
+      <td>Moderate</td>
+      <td>High</td>
+    </tr>
+  </tbody>
+</table>
+<p>My recommended workflow: keep inline completions enabled at all times for routine coding. Use Chat Mode for quick questions ("What does this function do?" or "Write a regex for UK postcodes"). Switch to Agent Mode when you have a task that spans multiple files, requires terminal commands, or involves more than two or three steps.</p>
+
+<h2>Tips for Better Results</h2>
+<p>Agent Mode is powerful, but the quality of its output depends heavily on the quality of your prompts and project setup. Here is what I have learnt from daily use.</p>
+
+<h3>Write Clear, Specific Task Descriptions</h3>
+<p>Vague prompts produce vague results. Instead of "add authentication", write "Add JWT-based authentication middleware to the Express API in src/middleware/. Use the jsonwebtoken package. Tokens should expire after 24 hours. Protect all routes in src/routes/api/ except /api/health and /api/auth/login. Include tests using Jest." The more specific you are about requirements, file paths, packages, and conventions, the better the output.</p>
+
+<h3>Use Project Context Files</h3>
+<p>Create a <code>.github/copilot-instructions.md</code> file in your repository root. Agent Mode reads this file automatically and uses it as context for every interaction. Include your project's coding standards, preferred libraries, naming conventions, and architectural decisions. For example:</p>
+<pre><code># Project Context
+- Framework: Express.js with TypeScript
+- Testing: Jest with supertest for API tests
+- Style: ESLint with Airbnb config, Prettier
+- Database: PostgreSQL with Prisma ORM
+- Auth: JWT tokens, stored in HTTP-only cookies
+- Error handling: Always use AppError class from src/utils/errors.ts
+- Naming: camelCase for variables, PascalCase for types, kebab-case for files</code></pre>
+
+<h3>Review Each Step, Not Just the Final Result</h3>
+<p>Agent Mode shows you what it is doing as it works. Read the plan before it starts executing. If the plan looks wrong — it is about to install a package you do not want, or it misunderstood which file to edit — stop it early and correct the prompt. It is far quicker to redirect Agent Mode after step one than to undo ten steps of changes.</p>
+
+<h3>Break Large Tasks into Smaller Ones</h3>
+<p>Agent Mode handles focused, well-defined tasks much better than sprawling ones. Instead of "build the entire user management system", break it down: first "create the user database schema and Prisma migration", then "add CRUD API endpoints for users", then "add authentication middleware", then "write integration tests". Each prompt builds on the previous work, and you can review and course-correct between steps.</p>
+
+<h3>Use the Undo Button Liberally</h3>
+<p>If Agent Mode takes a wrong turn, use VS Code's undo (Ctrl+Z) or the "Discard" button on the proposed changes. Agent Mode's changes are not committed to git automatically — they are just file edits — so you can always revert. I recommend committing your work before starting a complex Agent Mode task so you have a clean rollback point.</p>
+
+<h2>Agent Mode vs Claude Code vs Cursor Composer</h2>
+<p>Agent Mode is not the only autonomous coding tool available. Here is how it compares to the two main alternatives I have used extensively.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Copilot Agent Mode</th>
+      <th>Claude Code (CLI)</th>
+      <th>Cursor Composer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Interface</td>
+      <td>VS Code chat panel</td>
+      <td>Terminal / CLI</td>
+      <td>Cursor editor chat panel</td>
+    </tr>
+    <tr>
+      <td>Autonomy level</td>
+      <td>High — plans, executes, iterates</td>
+      <td>Very high — full shell access, git operations</td>
+      <td>High — multi-file edits, codebase-aware</td>
+    </tr>
+    <tr>
+      <td>Terminal command execution</td>
+      <td>Yes (with approval per command)</td>
+      <td>Yes (configurable auto-approval)</td>
+      <td>Limited</td>
+    </tr>
+    <tr>
+      <td>Self-correction loop</td>
+      <td>Yes</td>
+      <td>Yes — often more persistent</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Underlying model</td>
+      <td>GPT-4o / Claude 3.5 (varies)</td>
+      <td>Claude Opus / Sonnet</td>
+      <td>GPT-4o / Claude (user choice)</td>
+    </tr>
+    <tr>
+      <td>Pricing</td>
+      <td>$19/month (Copilot Individual)</td>
+      <td>Usage-based (Anthropic API) or $20/month (Max plan)</td>
+      <td>$20/month (Pro) / $40/month (Business)</td>
+    </tr>
+    <tr>
+      <td>Editor lock-in</td>
+      <td>VS Code only</td>
+      <td>Editor-agnostic (terminal)</td>
+      <td>Cursor editor only</td>
+    </tr>
+    <tr>
+      <td>Extension ecosystem</td>
+      <td>Full VS Code marketplace</td>
+      <td>N/A — terminal-based</td>
+      <td>Fork of VS Code, most extensions work</td>
+    </tr>
+    <tr>
+      <td>Git integration</td>
+      <td>Basic (through terminal)</td>
+      <td>Deep — commits, branches, PRs</td>
+      <td>Basic (through terminal)</td>
+    </tr>
+    <tr>
+      <td>Best for</td>
+      <td>VS Code users wanting integrated AI</td>
+      <td>Power users comfortable in terminal</td>
+      <td>Developers wanting AI-native editor</td>
+    </tr>
+  </tbody>
+</table>
+<p>My honest assessment: Claude Code is the most capable of the three for complex, multi-step tasks — its understanding of large codebases and ability to self-correct through multiple iterations is noticeably better. But it requires comfort with a terminal-based workflow. Copilot Agent Mode is the best choice if you want everything inside VS Code with zero context-switching. Cursor Composer is a strong middle ground but requires switching away from VS Code, which is a dealbreaker for developers with heavily customised VS Code setups.</p>
+<p>For most developers already paying for Copilot and working in VS Code, Agent Mode is the practical choice. You do not need to install anything new, learn a new tool, or pay for an additional subscription. It is already there — you just need to switch the dropdown from "Ask" to "Agent".</p>
+
+<h2>Limitations and Honest Caveats</h2>
+<p>Agent Mode is impressive, but it is not magic. Here are the limitations I have encountered in real use.</p>
+<ul>
+  <li><strong>Looping behaviour.</strong> Sometimes Agent Mode gets stuck in a loop — it makes a change, the test fails, it reverts the change, tries something slightly different, the test fails again, and it cycles. When you notice this pattern (usually after 2-3 iterations on the same error), stop it and provide a specific hint about what the actual fix should be. The loop usually happens when the error is ambiguous or the fix requires domain knowledge the model does not have.</li>
+  <li><strong>Incorrect assumptions about your project.</strong> Agent Mode reads your workspace, but it does not always understand your architectural intentions. It might create a new utility file when you already have one that does the same thing, or use a different naming convention than the rest of your codebase. The <code>.github/copilot-instructions.md</code> file helps, but it does not eliminate this issue entirely.</li>
+  <li><strong>Token usage and cost.</strong> Agent Mode uses significantly more tokens than Chat Mode because it reads files, generates plans, makes changes, reads error output, and iterates. On the Copilot Individual plan, you have a monthly usage allowance. Complex Agent Mode tasks can consume a meaningful portion of that allowance. Monitor your usage in the GitHub Copilot settings dashboard.</li>
+  <li><strong>Context window limitations.</strong> For very large files or projects with deeply interconnected modules, Agent Mode may lose track of context mid-task. If you notice it forgetting earlier decisions or contradicting itself, break the task into smaller pieces and provide explicit reminders of decisions made in previous steps.</li>
+  <li><strong>Security considerations.</strong> Agent Mode can run terminal commands. While it always asks for approval, be mindful of what you approve — especially in projects with scripts that modify infrastructure, databases, or deployment configurations. Read the command before clicking "Run".</li>
+  <li><strong>Not a replacement for code review.</strong> Agent Mode produces functional code, but it does not always produce optimal code. Variable names may be generic, error messages may be vague, and performance-sensitive paths may use naive implementations. Always review Agent Mode's output as you would review a pull request from a colleague.</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Is Agent Mode included in the free GitHub Copilot tier?</h3>
+<p>At the time of writing (April 2026), Agent Mode is only available on paid Copilot plans — Individual ($19/month), Business ($39/user/month), and Enterprise ($39/user/month). The free Copilot tier includes inline completions and basic chat, but not the Agent Mode toggle. GitHub has not announced plans to include it in the free tier, though this could change. Check the <a href="https://github.com/features/copilot" target="_blank" rel="noopener">official Copilot pricing page</a> for the latest details.</p>
+
+<h3>Can Agent Mode break my project or delete files?</h3>
+<p>Agent Mode can edit and create files, and it can run terminal commands — but every terminal command requires your explicit approval before execution. It will not run <code>rm -rf</code> or <code>git push --force</code> without showing you the command first and waiting for you to click "Run". That said, its file edits are applied immediately (though shown as diffs you can discard). My recommendation: always commit your current work to git before starting a complex Agent Mode task, so you can <code>git checkout .</code> if anything goes wrong.</p>
+
+<h3>Does Agent Mode work with programming languages other than JavaScript and Python?</h3>
+<p>Yes. Agent Mode works with any language supported by GitHub Copilot, which includes virtually every mainstream programming language — TypeScript, Java, C#, Go, Rust, Ruby, PHP, Swift, Kotlin, Dart, and many others. Its effectiveness varies by language. It is strongest in JavaScript/TypeScript and Python (where training data is most abundant) and slightly weaker in less common languages. For specialised frameworks or domain-specific languages, provide extra context in your prompts or in the <code>.github/copilot-instructions.md</code> file.</p>
+
+<h2>Sources and Further Reading</h2>
+<ul>
+  <li><a href="https://github.com/features/copilot" target="_blank" rel="noopener">GitHub Copilot official page</a></li>
+  <li><a href="https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode" target="_blank" rel="noopener">VS Code documentation — Copilot Agent Mode</a></li>
+  <li><a href="https://github.blog/changelog/" target="_blank" rel="noopener">GitHub Blog and Changelog</a></li>
+  <li><a href="https://docs.github.com/en/copilot" target="_blank" rel="noopener">GitHub Copilot documentation</a></li>
+</ul>
+
+<h2>Related Posts</h2>
+<ul>
+  <li><a href="/blog/gemma-4-vscode">How to Use Gemma 4 in VS Code: Setup, Extensions, and Coding Workflows</a></li>
+  <li><a href="/blog/gemma-4-vs-chatgpt-vs-claude">Gemma 4 vs ChatGPT vs Claude vs Copilot: Best AI Model Comparison in 2026</a></li>
+  <li><a href="/blog/create-with-ai-flutter">Create with AI: Build a Flutter App from Scratch Using AI Tools</a></li>
+</ul>
+<div class="blog-cta-box"><h3>Want to use AI tools more effectively?</h3><p>My courses cover practical AI workflows, from spreadsheet formulas to app development, with real projects and honest tool comparisons.</p><a href="/courses" class="btn-primary">Browse all courses <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/animations.js" defer></script>
+  <script src="/tracking.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use Claude Code in VS Code: Setup, Extensions, and AI Coding Workflows</title>
+  <meta name="description" content="Set up Claude Code in VS Code with the native extension. Terminal AI agent setup, practical coding workflows, and honest comparison with Copilot and Cursor.">
+  <meta name="keywords" content="Claude Code VS Code, Claude Code setup, Claude Code extension, AI coding VS Code, terminal AI agent, Claude AI coding, Anthropic Claude Code, Sagnik Bhattacharya, Coding Liquids">
+  <meta name="author" content="Sagnik Bhattacharya">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#3E2723">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/claude-code-vscode">
+  <meta property="og:title" content="How to Use Claude Code in VS Code: Setup, Extensions, and AI Coding Workflows">
+  <meta property="og:description" content="Set up Claude Code in VS Code with the native extension. Terminal AI agent setup, practical coding workflows, and honest comparison with Copilot and Cursor.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/claude-code-vscode">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/claude-code-vscode-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/claude-code-vscode-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Claude Code in VS Code, showing VS Code editor with Claude Code terminal AI agent integration.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Sagnik Bhattacharya">
+  <meta property="article:author" content="Sagnik Bhattacharya">
+  <meta property="article:published_time" content="2026-04-05">
+  <meta property="article:section" content="AI &amp; Automation">
+  <meta property="article:tag" content="AI Tools">
+  <meta property="article:tag" content="VS Code">
+  <meta property="article:tag" content="Claude Code">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Use Claude Code in VS Code: Setup, Extensions, and AI Coding Workflows">
+  <meta name="twitter:description" content="Set up Claude Code in VS Code with the native extension. Terminal AI agent setup, practical coding workflows, and honest comparison with Copilot and Cursor.">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/claude-code-vscode-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Claude Code in VS Code, showing VS Code editor with Claude Code terminal AI agent integration.">
+  <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Use Claude Code in VS Code: Setup, Extensions, and AI Coding Workflows","description":"Set up Claude Code in VS Code with the native extension. Terminal AI agent setup, practical coding workflows, and honest comparison with Copilot and Cursor.","datePublished":"2026-04-05","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/claude-code-vscode"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/claude-code-vscode-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/claude-code-vscode-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"How to Use Claude Code in VS Code: Setup, Extensions, and AI Coding Workflows by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"Claude Code VS Code, Claude Code setup, Claude Code extension, AI coding VS Code, terminal AI agent, Claude AI coding, Anthropic Claude Code, Sagnik Bhattacharya, Coding Liquids","articleSection":"AI & Automation"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"How to Use Claude Code in VS Code: Setup, Extensions, and AI Coding Workflows","item":"https://sagnikbhattacharya.com/blog/claude-code-vscode"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"How to Use Claude Code in VS Code: Setup, Extensions, and AI Coding Workflows","url":"https://sagnikbhattacharya.com/blog/images/claude-code-vscode-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/claude-code-vscode-sagnik-bhattacharya-coding-liquids.jpg","caption":"How to Use Claude Code in VS Code: Setup, Extensions, and AI Coding Workflows by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+    @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
+    @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}
+    :root{--warm-50:#FFFBF5;--warm-100:#FFF3E0;--warm-200:#FFE0B2;--warm-300:#FFCC80;--warm-400:#FFA726;--warm-500:#E8852E;--warm-600:#C66A1A;--warm-700:#8B4513;--earth-800:#3E2723;--earth-900:#1C110A;--sage-100:#E8F0E8;--sage-200:#C8DCC8;--cream:#FDF8F0;--text-primary:#2C1810;--text-secondary:#6B5344;--text-light:#9A8578;--white:#FFFFFF;--shadow-sm:0 1px 3px rgba(44,24,16,0.06);--shadow-md:0 4px 16px rgba(44,24,16,0.08);--shadow-lg:0 8px 32px rgba(44,24,16,0.10);--shadow-xl:0 16px 48px rgba(44,24,16,0.12);--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--radius-xl:28px}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-primary);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}h1,h2,h3,h4{font-family:'DM Serif Display',serif;line-height:1.2;font-weight:400}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}.container{max-width:1140px;margin:0 auto;padding:0 24px}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,248,240,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(44,24,16,0.06)}nav .container{display:flex;align-items:center;justify-content:space-between;height:72px}.nav-logo{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--earth-800);letter-spacing:-.5px}.nav-logo span{color:var(--warm-500)}.nav-links{display:flex;gap:32px;list-style:none;align-items:center}.nav-links a{font-size:.9rem;font-weight:500;color:var(--text-secondary)}.nav-cta{background:var(--earth-800)!important;color:var(--warm-100)!important;padding:10px 22px;border-radius:50px;font-size:.85rem!important;font-weight:600!important}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}.hamburger span{width:24px;height:2px;background:var(--earth-800);border-radius:2px}
+    .blog-section{padding-top:100px}.blog-post{max-width:780px;margin:0 auto}.blog-post-title{font-size:2.6rem;color:var(--earth-800);margin-bottom:16px;letter-spacing:-.5px;line-height:1.15}
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}}@media(max-width:640px){.blog-section{padding-top:84px}.blog-post-title{font-size:1.7rem}}
+  </style>
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/style.css"></noscript>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">sagnik<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about">About</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">How to Use Claude Code in VS Code: Setup, Extensions, and AI Coding Workflows</span></nav>
+    </div>
+  </div>
+  <section style="padding-top:0">
+    <div class="container">
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-tags"><span class="blog-post-tag">AI Tools</span></div>
+          <h1 class="blog-post-title">How to Use Claude Code in VS Code: Setup, Extensions, and AI Coding Workflows</h1>
+          <div class="blog-post-meta">
+            <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
+              <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
+            </a>
+            <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
+            <span>5 Apr 2026</span>
+            <span>13 min read</span>
+          </div>
+        </div>
+        <figure class="blog-cover">
+          <img src="/blog/images/claude-code-vscode-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Claude Code in VS Code, showing VS Code editor with Claude Code terminal AI agent integration." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Claude Code in VS Code, showing VS Code editor with Claude Code terminal AI agent integration.</figcaption>
+        </figure>
+        <div class="blog-post-content">
+<p>Claude Code is currently the highest-performing AI coding agent available. It holds the number one position on SWE-bench Verified with a score of 80.8%, meaning it can autonomously resolve real-world GitHub issues more reliably than any other tool tested on that benchmark. Unlike GitHub Copilot or Cursor, Claude Code is a terminal-first agent built by Anthropic — it reads your codebase, edits files, runs commands, creates commits, and manages entire multi-file workflows from the command line. And with the native VS Code extension, the full power of that terminal agent now integrates directly into your editor.</p>
+<p>I have been using Claude Code daily for several weeks across both personal projects and client work. This guide covers everything you need to set it up in VS Code, the workflows that deliver the most value, and an honest comparison with Copilot, Cursor, and Gemini CLI. If you also use Android Studio, I have written a separate guide on <a href="/blog/claude-code-android-studio">using Claude Code in Android Studio</a> for Kotlin and Flutter projects.</p>
+
+<h2>Prerequisites</h2>
+<p>Before installing Claude Code, make sure the following are in place:</p>
+<ol>
+  <li><strong>A Claude subscription or API access.</strong> Claude Code requires either a Claude Max subscription ($100/month for the standard tier, $200/month for the higher usage tier) or direct Anthropic API access with billing configured. There is no free tier — this is the main barrier to entry and worth noting upfront.</li>
+  <li><strong>Node.js 18 or later.</strong> Claude Code is distributed as an npm package and requires a modern Node.js runtime. Run <code>node --version</code> in your terminal to check. If you need to install or update, download from <a href="https://nodejs.org" target="_blank" rel="noopener">nodejs.org</a> or use a version manager like nvm.</li>
+  <li><strong>VS Code installed and updated.</strong> Any recent stable version works. I recommend keeping it on the latest release for the best extension compatibility.</li>
+  <li><strong>A terminal you are comfortable with.</strong> Claude Code runs in the terminal. VS Code's integrated terminal works perfectly, but familiarity with basic command-line navigation will help you get the most from the tool.</li>
+</ol>
+
+<h2>Installing Claude Code</h2>
+<p>Installation is straightforward through npm. Open your terminal (either VS Code's integrated terminal or an external one) and run:</p>
+<pre><code>npm install -g @anthropic-ai/claude-code</code></pre>
+<p>This installs Claude Code globally so you can invoke it from any directory. Once installed, navigate to your project folder and run:</p>
+<pre><code>claude</code></pre>
+<p>The first time you launch it, Claude Code will prompt you to authenticate. If you are using a Claude Max subscription, it will open a browser window for you to sign in with your Anthropic account. If you are using API access, you can set your API key as an environment variable:</p>
+<pre><code>export ANTHROPIC_API_KEY=your-api-key-here</code></pre>
+<p>To verify the installation worked, run <code>claude --version</code> in your terminal. You should see the current version number. Then run <code>claude</code> inside any project directory — Claude Code will analyse the project structure, read key files, and present you with an interactive prompt where you can start giving it instructions.</p>
+<p>If you encounter permission errors during the npm install, avoid using <code>sudo</code>. Instead, configure npm to use a directory you own by running <code>npm config set prefix ~/.npm-global</code> and adding <code>~/.npm-global/bin</code> to your PATH.</p>
+
+<h2>The VS Code Extension</h2>
+<p>While Claude Code works perfectly from any terminal, the official VS Code extension adds meaningful IDE integration that makes the experience substantially better.</p>
+
+<h3>Installing the Extension</h3>
+<ol>
+  <li>Open VS Code and go to the Extensions panel (Ctrl+Shift+X).</li>
+  <li>Search for "Claude Code" and install the official extension by Anthropic.</li>
+  <li>After installation, you will see a Claude Code icon in the sidebar. Click it to open the agent panel.</li>
+  <li>The extension uses your existing Claude Code CLI installation, so make sure the CLI is already installed and authenticated before using the extension.</li>
+</ol>
+
+<h3>What the Extension Adds</h3>
+<p>The extension provides three main enhancements over using Claude Code in a plain terminal:</p>
+<ul>
+  <li><strong>Sidebar panel.</strong> A dedicated chat-like interface where you can interact with Claude Code without switching to the terminal. You type instructions, Claude Code responds with explanations, code, and file edits — all rendered in a clean, readable format within VS Code.</li>
+  <li><strong>Inline diff view.</strong> When Claude Code proposes changes to files, the extension shows them as inline diffs directly in the editor. You can review each change, accept it, or reject it — similar to a code review workflow. This is far more convenient than reading file edit proposals in raw terminal output.</li>
+  <li><strong>Status bar integration.</strong> The status bar shows Claude Code's current state — whether it is thinking, reading files, writing code, or waiting for your input. This gives you visibility into what the agent is doing during longer operations like multi-file refactoring.</li>
+</ul>
+<p>The extension does not replace the terminal experience — it wraps it. Under the hood, the same CLI agent is running. The extension simply provides a better visual interface for reviewing changes and tracking progress.</p>
+
+<h2>Terminal Workflows in VS Code</h2>
+<p>Even with the extension installed, the integrated terminal remains a powerful way to use Claude Code, particularly for developers who prefer keyboard-driven workflows.</p>
+
+<h3>Launching from the Integrated Terminal</h3>
+<p>Open VS Code's integrated terminal (Ctrl+`) and run <code>claude</code>. Claude Code will automatically detect that it is running inside a VS Code workspace and will use the current workspace root as its project context. It reads your file structure, identifies the language and framework, and is immediately ready to take instructions.</p>
+
+<h3>File References and Project Context</h3>
+<p>One of Claude Code's strongest features is its ability to understand your entire project. When you give it an instruction, it does not just look at the current file — it reads relevant files across the codebase to understand the full context. You can also explicitly reference files in your prompts:</p>
+<pre><code>claude "Refactor the authentication logic in src/auth/login.ts to use the new session manager from src/services/session.ts"</code></pre>
+<p>Claude Code will read both files (and any related imports) before making changes. This cross-file awareness is what separates it from simpler AI coding tools that only see the active file or a manually selected context.</p>
+
+<h3>One-Shot Commands</h3>
+<p>For quick tasks, you can pass instructions directly without entering the interactive session:</p>
+<pre><code>claude "Add proper error handling to all the API route handlers in src/routes/"
+claude "Write a comprehensive README for this project"
+claude "Find and fix the bug causing the test in tests/auth.test.ts to fail"</code></pre>
+<p>Each of these runs Claude Code, performs the task, and exits. This is particularly useful for scripting and automation — you can integrate Claude Code into pre-commit hooks, CI pipelines, or custom build scripts.</p>
+
+<h2>Practical Coding Workflows</h2>
+<p>Here are the workflows where Claude Code delivers the most value in day-to-day VS Code development. These are based on my actual usage, not theoretical examples.</p>
+
+<h3>Generating Code from Natural Language</h3>
+<p>Describe what you need and Claude Code writes it. The key difference from Copilot's inline suggestions is that Claude Code generates complete, working implementations — not one line at a time. For example:</p>
+<pre><code>claude "Create a REST API endpoint for user registration with email validation, password hashing using bcrypt, duplicate email checking, and proper error responses. Use Express and TypeScript."</code></pre>
+<p>Claude Code will create the route handler, add input validation, import the necessary dependencies, and even update your route index file to register the new endpoint. It understands project conventions — if your existing routes follow a certain pattern, the new code will match.</p>
+
+<h3>Multi-File Refactoring</h3>
+<p>This is where Claude Code genuinely excels and where it outperforms every other AI coding tool I have tested. You can say:</p>
+<pre><code>claude "Migrate all the class-based React components in src/components/ to functional components with hooks. Preserve all existing behaviour and props interfaces."</code></pre>
+<p>Claude Code will read every component, understand the state management and lifecycle methods, convert them to useState and useEffect hooks, update the imports, and preserve the TypeScript types. It processes files sequentially, showing you diffs for each one. A task that would take a developer hours is completed in minutes with high accuracy.</p>
+
+<h3>Writing Tests</h3>
+<p>Test generation is another strong use case:</p>
+<pre><code>claude "Write unit tests for the UserService class in src/services/user.service.ts. Use Jest with proper mocking of the database layer. Cover happy paths, error cases, and edge cases."</code></pre>
+<p>Claude Code reads the service file, understands its dependencies, creates a test file with properly mocked dependencies, and writes tests that cover the main execution paths. The test quality is notably good — it generates meaningful assertions rather than trivial ones, and it properly handles async operations. I do find that it occasionally misses some obscure edge cases, but the starting point it provides saves significant time.</p>
+
+<h3>Fixing Bugs</h3>
+<p>Paste an error message or describe the symptom, and Claude Code will investigate:</p>
+<pre><code>claude "The /api/users endpoint returns a 500 error when the email field contains a plus sign. Find the bug and fix it."</code></pre>
+<p>Claude Code reads the relevant route handler, traces the email validation logic, identifies the regex pattern that incorrectly rejects plus signs, and proposes a fix. For more complex bugs, it may read multiple files to trace the issue through several layers of the application.</p>
+
+<h3>Explaining Codebases</h3>
+<p>When joining a new project or working with unfamiliar code, Claude Code is invaluable:</p>
+<pre><code>claude "Explain the architecture of this project. What are the main modules, how do they interact, and what patterns are used?"</code></pre>
+<p>It reads the project structure, key configuration files, and representative source files, then produces a clear architectural overview. This is something no other AI coding tool does as well, because Claude Code reads significantly more of the codebase than tools that rely on small context windows.</p>
+
+<h3>Creating Pull Requests</h3>
+<p>Claude Code can handle the entire PR workflow:</p>
+<pre><code>claude "Create a PR for the changes on this branch. Write a clear description summarising what was changed and why."</code></pre>
+<p>It runs git commands to understand the diff, writes a descriptive PR title and body, and creates the pull request using the GitHub CLI. You can even ask it to create the branch, make the changes, commit them, and open the PR — all in one conversation.</p>
+
+<h2>Configuration</h2>
+<p>Claude Code's behaviour is highly configurable. The primary mechanism is the <code>CLAUDE.md</code> file.</p>
+
+<h3>CLAUDE.md Project Files</h3>
+<p>Create a <code>CLAUDE.md</code> file in your project root to give Claude Code persistent instructions about your project. This file is read automatically every time Claude Code starts in that directory. Example:</p>
+<pre><code># Project Context
+This is a Next.js 14 application using the App Router, TypeScript, and Prisma ORM.
+
+# Coding Standards
+- Use functional components with hooks exclusively
+- All functions must have explicit TypeScript return types
+- Use named exports, not default exports
+- Error handling: use custom AppError class from src/lib/errors.ts
+- Tests: Jest with React Testing Library, minimum 80% coverage
+
+# Important Notes
+- The database schema is in prisma/schema.prisma
+- Environment variables are documented in .env.example
+- Do not modify files in src/generated/ — these are auto-generated</code></pre>
+<p>Claude Code reads this file and follows these instructions in every interaction. You can also place <code>CLAUDE.md</code> files in subdirectories for context specific to those parts of the codebase.</p>
+
+<h3>Memory and Custom Instructions</h3>
+<p>Beyond project-level <code>CLAUDE.md</code> files, Claude Code supports user-level memory stored in <code>~/.claude/</code>. This is where personal preferences persist across all projects — things like your preferred code style, commit message format, or testing framework. Claude Code automatically learns and stores these preferences as you work with it, and you can also edit the memory files directly.</p>
+
+<h3>Model Selection</h3>
+<p>Claude Code defaults to the most capable available model (currently Claude Sonnet 4 for most tasks, with Claude Opus 4 available for complex reasoning). You can specify the model explicitly:</p>
+<pre><code>claude --model claude-sonnet-4-20250514</code></pre>
+<p>For most coding tasks, the default model selection works well. Opus 4 is worth using for complex architectural decisions, large-scale refactoring, or debugging subtle issues where deeper reasoning matters.</p>
+
+<h2>Claude Code vs Copilot vs Cursor vs Gemini CLI</h2>
+<p>This is the comparison most developers are looking for. Here is an honest, side-by-side assessment based on extensive use of all four tools.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Claude Code</th>
+      <th>GitHub Copilot</th>
+      <th>Cursor</th>
+      <th>Gemini CLI</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Approach</td>
+      <td>Terminal agent + VS Code extension</td>
+      <td>IDE extension (inline + chat)</td>
+      <td>Custom IDE (VS Code fork)</td>
+      <td>Terminal agent</td>
+    </tr>
+    <tr>
+      <td>SWE-bench score</td>
+      <td>80.8% (#1)</td>
+      <td>Not published</td>
+      <td>Not published</td>
+      <td>Not published</td>
+    </tr>
+    <tr>
+      <td>Inline autocomplete</td>
+      <td>No</td>
+      <td>Excellent</td>
+      <td>Excellent</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Multi-file editing</td>
+      <td>Excellent — reads and edits across entire codebase</td>
+      <td>Limited — mostly single file</td>
+      <td>Good — Composer mode</td>
+      <td>Good — reads and edits files</td>
+    </tr>
+    <tr>
+      <td>Autonomy level</td>
+      <td>High — runs commands, creates PRs, manages git</td>
+      <td>Low — suggests code, you apply</td>
+      <td>Medium — edits files with approval</td>
+      <td>High — runs commands, edits files</td>
+    </tr>
+    <tr>
+      <td>Project context</td>
+      <td>Excellent — reads full codebase</td>
+      <td>Good — indexes workspace</td>
+      <td>Very good — codebase indexing</td>
+      <td>Good — reads project files</td>
+    </tr>
+    <tr>
+      <td>Code quality</td>
+      <td>Best in class for complex tasks</td>
+      <td>Very good for completions</td>
+      <td>Very good</td>
+      <td>Good</td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td>$100-200/month (Max) or API usage</td>
+      <td>$19/month individual</td>
+      <td>$20/month (Pro)</td>
+      <td>Free (with Gemini API)</td>
+    </tr>
+    <tr>
+      <td>Best for</td>
+      <td>Complex tasks, refactoring, full-stack workflows</td>
+      <td>Fast inline completions, broad language support</td>
+      <td>All-in-one AI IDE experience</td>
+      <td>Budget-conscious terminal users</td>
+    </tr>
+  </tbody>
+</table>
+<p>The key insight is that these tools serve different workflows. Copilot excels at moment-to-moment inline completions — it makes you type faster. Claude Code excels at larger, more complex tasks — it performs the work of a junior developer on your behalf. Cursor tries to combine both into a single IDE experience. Gemini CLI offers a free terminal agent for developers who want autonomy without the subscription cost.</p>
+<p>In practice, I use Claude Code and Copilot together. Copilot handles the inline suggestions as I type, and Claude Code handles the bigger tasks: multi-file refactoring, writing test suites, debugging complex issues, and creating PRs. They complement each other rather than compete.</p>
+
+<h2>Advanced Features</h2>
+<p>Claude Code has several advanced capabilities that become valuable once you are comfortable with the basics.</p>
+
+<h3>Hooks</h3>
+<p>Hooks let you run custom scripts before or after Claude Code performs certain actions. For example, you can configure a hook that runs your linter after every file edit, or one that runs your test suite after Claude Code finishes a refactoring task. Hooks are configured in your project settings and give you automated quality gates around Claude Code's output.</p>
+
+<h3>MCP Server Integration</h3>
+<p>Claude Code supports the Model Context Protocol (MCP), which allows it to connect to external tools and data sources. You can configure MCP servers that give Claude Code access to your database schemas, API documentation, design systems, or internal tools. This dramatically expands what the agent can do — for example, an MCP server for your database lets Claude Code write queries that are accurate to your actual schema rather than guessing based on code alone.</p>
+
+<h3>Sub-Agents</h3>
+<p>For complex tasks, Claude Code can spawn sub-agents — smaller, focused instances that handle specific parts of a larger task. When you ask Claude Code to refactor an entire module, it might create sub-agents to handle individual files in parallel, then coordinate the results. This happens automatically and you do not need to configure anything, but understanding the mechanism helps explain why complex tasks sometimes take longer but produce more thorough results.</p>
+
+<h3>Plan Mode</h3>
+<p>When you prefix a request with <code>/plan</code>, Claude Code enters planning mode. Instead of immediately making changes, it analyses the codebase and produces a detailed plan of what it intends to do — which files it will read, what changes it will make, and in what order. You can review the plan, provide feedback, and then approve execution. This is particularly valuable for high-stakes changes where you want to verify the approach before any files are modified.</p>
+
+<h2>Limitations and Honest Assessment</h2>
+<p>No tool is perfect, and Claude Code has meaningful limitations worth understanding before you commit to the subscription.</p>
+
+<h3>Cost</h3>
+<p>At $100-200 per month for Claude Max, Claude Code is the most expensive AI coding tool on this list. The API usage model can be cheaper for light use but unpredictable for heavy use. If you are a solo developer or student, this is a significant expense. Copilot at $19/month or Gemini CLI for free are more accessible options. Claude Code's pricing makes the most sense for professional developers or teams where the productivity gains justify the cost.</p>
+
+<h3>Terminal-Centric UX</h3>
+<p>Despite the VS Code extension, Claude Code is fundamentally a terminal tool. If you are not comfortable with command-line interfaces, the learning curve is steeper than Copilot or Cursor, which integrate more naturally into the visual IDE workflow. The extension helps, but the experience is still closer to "chatting with a command-line agent" than "AI suggestions appearing as you type."</p>
+
+<h3>No Inline Autocomplete</h3>
+<p>This is the most significant gap. Claude Code does not provide inline tab-completions as you type. It is not designed for that use case — it is designed for larger, instruction-driven tasks. If inline autocomplete is your primary need, you must pair Claude Code with Copilot or use Cursor instead. This is not a flaw in Claude Code's design; it is a deliberate architectural choice that prioritises deep analysis over real-time suggestions.</p>
+
+<h3>Token Usage and Session Length</h3>
+<p>Claude Code consumes tokens as it reads your codebase and generates responses. Large projects with many files can use tokens quickly, especially during initial codebase analysis. On the Max subscription, there are usage limits that reset periodically. On API billing, costs can accumulate during intensive sessions. Being mindful of token usage — giving clear, specific instructions rather than vague ones — helps manage this.</p>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Is Claude Code free to use in VS Code?</h3>
+<p>No. Claude Code requires either a Claude Max subscription ($100/month or $200/month depending on the tier) or Anthropic API access with billing configured. There is no free tier or trial specifically for Claude Code. However, new Anthropic accounts sometimes receive API credits that can be used with Claude Code. If cost is a concern, Gemini CLI offers a free terminal-based AI coding agent, and GitHub Copilot is available at $19/month with a free tier for students and open-source contributors.</p>
+
+<h3>Can I use Claude Code and GitHub Copilot together in VS Code?</h3>
+<p>Yes, and this is actually the setup I recommend for most developers. Copilot handles inline tab-completions — the moment-to-moment suggestions as you type — while Claude Code handles the larger tasks: multi-file refactoring, test generation, debugging complex issues, codebase explanation, and PR creation. They do not conflict with each other. Copilot runs as a standard VS Code extension providing inline suggestions, and Claude Code runs as a separate agent (via the extension sidebar or integrated terminal). The combination gives you both fast inline completions and a powerful autonomous coding agent.</p>
+
+<h3>How does Claude Code compare to Cursor for VS Code users?</h3>
+<p>The fundamental difference is that Cursor is a complete IDE (a fork of VS Code) while Claude Code is an agent that works inside your existing VS Code installation. Cursor provides a more integrated experience with inline completions, chat, and file editing all built into the editor. Claude Code provides deeper codebase analysis, higher autonomy (it can run commands and manage git), and the top SWE-bench score. If you want an all-in-one AI IDE and are willing to switch editors, Cursor is compelling. If you want to stay in VS Code and add the most powerful coding agent available, Claude Code is the better choice. Many developers, myself included, have settled on VS Code with both Copilot and Claude Code rather than switching to Cursor.</p>
+
+<h2>Sources and Further Reading</h2>
+<ul>
+  <li><a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener">Claude Code official documentation — Anthropic</a></li>
+  <li><a href="https://www.swebench.com" target="_blank" rel="noopener">SWE-bench Verified leaderboard</a></li>
+  <li><a href="https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code" target="_blank" rel="noopener">Claude Code VS Code extension — Visual Studio Marketplace</a></li>
+  <li><a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">Model Context Protocol (MCP) specification</a></li>
+  <li><a href="https://github.com/features/copilot" target="_blank" rel="noopener">GitHub Copilot</a></li>
+  <li><a href="https://cursor.com" target="_blank" rel="noopener">Cursor — the AI code editor</a></li>
+</ul>
+
+<h2>Related Posts</h2>
+<ul>
+  <li><a href="/blog/claude-code-android-studio">How to Use Claude Code in Android Studio: AI-Powered Coding for Kotlin, Flutter, and Gradle Projects</a></li>
+  <li><a href="/blog/gemma-4-vscode">How to Use Gemma 4 in VS Code: Setup, Extensions, and Coding Workflows</a></li>
+  <li><a href="/blog/gemma-4-vs-chatgpt-vs-claude">Gemma 4 vs ChatGPT vs Claude vs Copilot: Best AI Model Comparison in 2026</a></li>
+</ul>
+<div class="blog-cta-box"><h3>Want to use AI tools more effectively?</h3><p>My courses cover practical AI workflows, from spreadsheet formulas to app development, with real projects and honest tool comparisons.</p><a href="/courses" class="btn-primary">Browse all courses <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/animations.js" defer></script>
+  <script src="/tracking.js" defer></script>
+</body>
+</html>

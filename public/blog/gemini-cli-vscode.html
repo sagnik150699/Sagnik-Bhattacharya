@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use Gemini CLI in VS Code: Setup, IDE Integration, and Coding Workflows</title>
+  <meta name="description" content="Set up Gemini CLI in VS Code with the companion extension. Free guide covering installation, IDE integration, terminal workflows, and coding examples.">
+  <meta name="keywords" content="Gemini CLI VS Code, Gemini CLI setup, Gemini CLI IDE integration, Google AI coding, free AI coding tool, VS Code AI extension, Sagnik Bhattacharya, Coding Liquids">
+  <meta name="author" content="Sagnik Bhattacharya">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#3E2723">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/gemini-cli-vscode">
+  <meta property="og:title" content="How to Use Gemini CLI in VS Code: Setup, IDE Integration, and Coding Workflows">
+  <meta property="og:description" content="Set up Gemini CLI in VS Code with the companion extension. Free guide covering installation, IDE integration, terminal workflows, and coding examples.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/gemini-cli-vscode">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/gemini-cli-vscode-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/gemini-cli-vscode-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemini CLI in VS Code, showing terminal-based AI coding assistant integrated with VS Code editor.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Sagnik Bhattacharya">
+  <meta property="article:author" content="Sagnik Bhattacharya">
+  <meta property="article:published_time" content="2026-04-05">
+  <meta property="article:section" content="AI &amp; Automation">
+  <meta property="article:tag" content="AI Tools">
+  <meta property="article:tag" content="VS Code">
+  <meta property="article:tag" content="Gemini CLI">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Use Gemini CLI in VS Code: Setup, IDE Integration, and Coding Workflows">
+  <meta name="twitter:description" content="Set up Gemini CLI in VS Code with the companion extension. Free guide covering installation, IDE integration, terminal workflows, and coding examples.">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/gemini-cli-vscode-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemini CLI in VS Code, showing terminal-based AI coding assistant integrated with VS Code editor.">
+  <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Use Gemini CLI in VS Code: Setup, IDE Integration, and Coding Workflows","description":"Set up Gemini CLI in VS Code with the companion extension. Free guide covering installation, IDE integration, terminal workflows, and coding examples.","datePublished":"2026-04-05","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/gemini-cli-vscode"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/gemini-cli-vscode-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/gemini-cli-vscode-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"How to Use Gemini CLI in VS Code: Setup, IDE Integration, and Coding Workflows by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"Gemini CLI VS Code, Gemini CLI setup, Gemini CLI IDE integration, Google AI coding, free AI coding tool, VS Code AI extension, Sagnik Bhattacharya, Coding Liquids","articleSection":"AI & Automation"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"How to Use Gemini CLI in VS Code: Setup, IDE Integration, and Coding Workflows","item":"https://sagnikbhattacharya.com/blog/gemini-cli-vscode"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"How to Use Gemini CLI in VS Code: Setup, IDE Integration, and Coding Workflows","url":"https://sagnikbhattacharya.com/blog/images/gemini-cli-vscode-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/gemini-cli-vscode-sagnik-bhattacharya-coding-liquids.jpg","caption":"How to Use Gemini CLI in VS Code: Setup, IDE Integration, and Coding Workflows by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+    @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
+    @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}
+    :root{--warm-50:#FFFBF5;--warm-100:#FFF3E0;--warm-200:#FFE0B2;--warm-300:#FFCC80;--warm-400:#FFA726;--warm-500:#E8852E;--warm-600:#C66A1A;--warm-700:#8B4513;--earth-800:#3E2723;--earth-900:#1C110A;--sage-100:#E8F0E8;--sage-200:#C8DCC8;--cream:#FDF8F0;--text-primary:#2C1810;--text-secondary:#6B5344;--text-light:#9A8578;--white:#FFFFFF;--shadow-sm:0 1px 3px rgba(44,24,16,0.06);--shadow-md:0 4px 16px rgba(44,24,16,0.08);--shadow-lg:0 8px 32px rgba(44,24,16,0.10);--shadow-xl:0 16px 48px rgba(44,24,16,0.12);--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--radius-xl:28px}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-primary);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}h1,h2,h3,h4{font-family:'DM Serif Display',serif;line-height:1.2;font-weight:400}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}.container{max-width:1140px;margin:0 auto;padding:0 24px}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,248,240,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(44,24,16,0.06)}nav .container{display:flex;align-items:center;justify-content:space-between;height:72px}.nav-logo{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--earth-800);letter-spacing:-.5px}.nav-logo span{color:var(--warm-500)}.nav-links{display:flex;gap:32px;list-style:none;align-items:center}.nav-links a{font-size:.9rem;font-weight:500;color:var(--text-secondary)}.nav-cta{background:var(--earth-800)!important;color:var(--warm-100)!important;padding:10px 22px;border-radius:50px;font-size:.85rem!important;font-weight:600!important}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}.hamburger span{width:24px;height:2px;background:var(--earth-800);border-radius:2px}
+    .blog-section{padding-top:100px}.blog-post{max-width:780px;margin:0 auto}.blog-post-title{font-size:2.6rem;color:var(--earth-800);margin-bottom:16px;letter-spacing:-.5px;line-height:1.15}
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}}@media(max-width:640px){.blog-section{padding-top:84px}.blog-post-title{font-size:1.7rem}}
+  </style>
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/style.css"></noscript>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">sagnik<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about">About</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">How to Use Gemini CLI in VS Code: Setup, IDE Integration, and Coding Workflows</span></nav>
+    </div>
+  </div>
+  <section style="padding-top:0">
+    <div class="container">
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-tags"><span class="blog-post-tag">AI Tools</span></div>
+          <h1 class="blog-post-title">How to Use Gemini CLI in VS Code: Setup, IDE Integration, and Coding Workflows</h1>
+          <div class="blog-post-meta">
+            <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
+              <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
+            </a>
+            <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
+            <span>5 Apr 2026</span>
+            <span>13 min read</span>
+          </div>
+        </div>
+        <figure class="blog-cover">
+          <img src="/blog/images/gemini-cli-vscode-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemini CLI in VS Code, showing terminal-based AI coding assistant integrated with VS Code editor." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemini CLI in VS Code, showing terminal-based AI coding assistant integrated with VS Code editor.</figcaption>
+        </figure>
+        <div class="blog-post-content">
+<p>GitHub Copilot costs $19 per month. Claude Code requires a Max subscription. These are excellent tools — I use both and recommend them in my courses — but Google has released something that deserves serious attention from developers who want a powerful AI coding assistant without paying anything at all. Gemini CLI is a free, open-source, terminal-based AI tool built by Google that gives you 1,000 requests per day with your personal Google account. No API key. No credit card. No trial period that expires after 14 days. Just sign in with Google and start prompting.</p>
+<p>What makes Gemini CLI particularly interesting for VS Code users is the companion extension that Google released alongside the CLI. This extension bridges the gap between the terminal and the IDE, adding a status bar indicator, an output panel, and lightweight inline suggestion support directly inside VS Code. I have spent the past few weeks integrating Gemini CLI into my daily workflow, and this guide covers everything you need to get it running — from initial installation through to practical coding examples and an honest comparison with the paid alternatives.</p>
+
+<h2>Prerequisites</h2>
+<p>Before installing Gemini CLI, make sure you have the following:</p>
+<ol>
+  <li><strong>Node.js 18 or later.</strong> Gemini CLI is distributed as an npm package, so you need a current version of Node.js. Run <code>node --version</code> in your terminal to check. If you are below v18, download the latest LTS from <a href="https://nodejs.org" target="_blank" rel="noopener">nodejs.org</a>.</li>
+  <li><strong>A Google account.</strong> Any personal Google account works. You do not need a Google Cloud project, a Workspace account, or a billing-enabled API key. The free tier of 1,000 requests per day is tied to your standard Google login.</li>
+  <li><strong>VS Code installed.</strong> Any recent stable version works. I recommend keeping it updated to the latest release for the best extension compatibility.</li>
+</ol>
+<p>That is it. Unlike local AI tools that require powerful GPUs and multi-gigabyte model downloads, Gemini CLI runs against Google's cloud infrastructure. Your hardware does not matter beyond being able to run Node.js and VS Code.</p>
+
+<h2>Installing Gemini CLI</h2>
+<p>Open any terminal — the VS Code integrated terminal works perfectly — and run:</p>
+<pre><code>npm install -g @anthropic-ai/gemini-cli</code></pre>
+<p>Wait — that is wrong, and I left it in deliberately to make a point. There are multiple AI CLI tools circulating now and it is easy to confuse them. The correct command is:</p>
+<pre><code>npm install -g @google/gemini-cli</code></pre>
+<p>Once the installation finishes, verify it by running:</p>
+<pre><code>gemini --version</code></pre>
+<p>You should see a version number printed to the terminal. Now authenticate with your Google account:</p>
+<pre><code>gemini auth login</code></pre>
+<p>This opens a browser window where you sign in with your Google account and grant Gemini CLI the necessary permissions. Once authenticated, the CLI stores your credentials locally, and you will not need to sign in again unless you explicitly log out or your token expires.</p>
+<p>To confirm everything is working, run a quick test:</p>
+<pre><code>gemini "What version of Node.js am I running?"</code></pre>
+<p>Gemini CLI will read your environment context and respond. If you get a coherent answer, your installation is complete.</p>
+
+<h2>The VS Code Companion Extension</h2>
+<p>Google released the Gemini CLI Companion extension on the VS Code marketplace specifically for developers who use Gemini CLI from within the VS Code integrated terminal. This is not a full AI coding assistant like Copilot — it is a lighter-weight integration that enhances the CLI experience inside the editor.</p>
+
+<h3>Installing the Extension</h3>
+<ol>
+  <li>Open VS Code and go to the Extensions panel (Ctrl+Shift+X).</li>
+  <li>Search for "Gemini CLI" or "Gemini CLI Companion".</li>
+  <li>Install the extension published by Google.</li>
+  <li>Reload VS Code if prompted.</li>
+</ol>
+
+<h3>What the Extension Adds</h3>
+<p>The companion extension provides three main features:</p>
+<ul>
+  <li><strong>Status bar indicator.</strong> A small Gemini icon appears in the VS Code status bar showing your current authentication state and daily request count. This is surprisingly useful — knowing you have used 340 of your 1,000 daily requests helps you pace yourself during intensive coding sessions.</li>
+  <li><strong>Output panel integration.</strong> When you run Gemini CLI commands in the integrated terminal, the extension captures the output and mirrors it in a dedicated "Gemini CLI" output panel. This means you can run a long generation command, switch to another terminal tab, and come back to the output panel to review the results without scrolling through terminal history.</li>
+  <li><strong>Inline suggestions.</strong> The extension can pass your current file context to Gemini when you invoke it from the command palette (Ctrl+Shift+P, then "Gemini CLI: Suggest"). It reads the file open in the active editor, sends it along with your prompt, and displays the suggestion inline. This is not the same as Copilot's continuous ghost text — you must explicitly invoke it — but it is a step towards tighter IDE integration.</li>
+</ul>
+<p>The extension also registers a set of commands in the command palette: "Gemini CLI: Explain Selection", "Gemini CLI: Refactor Selection", and "Gemini CLI: Generate Tests". These are shortcuts that take the currently selected code, construct a prompt, and pass it to the CLI. The results appear in the output panel rather than being inserted directly into the code, which keeps you in control of what actually goes into your files.</p>
+
+<h2>Terminal Workflows Inside VS Code</h2>
+<p>The real power of Gemini CLI is in the terminal. The companion extension is helpful, but the CLI itself is where you do the heavy lifting. Here is how I use it from the VS Code integrated terminal in a typical development session.</p>
+
+<h3>Interactive Mode vs Single-Shot Commands</h3>
+<p>Gemini CLI supports two modes. Single-shot mode is what you saw earlier — <code>gemini "your prompt here"</code> — where you send a prompt and get a response. Interactive mode starts a persistent session:</p>
+<pre><code>gemini</code></pre>
+<p>Running <code>gemini</code> without arguments drops you into an interactive chat session. This is the mode I use most often because it maintains conversation context. You can ask a question, get a response, then follow up without re-explaining the entire context. The session persists until you type <code>/exit</code> or close the terminal.</p>
+
+<h3>File Context and the @ Syntax</h3>
+<p>One of Gemini CLI's most useful features is the ability to reference files directly in your prompts using the <code>@</code> symbol:</p>
+<pre><code>gemini "Explain what @src/utils/auth.ts does and identify any security issues"</code></pre>
+<p>The CLI reads the referenced file and includes its contents in the prompt sent to Gemini. You can reference multiple files:</p>
+<pre><code>gemini "Compare @src/services/old-parser.js and @src/services/new-parser.js. What changed and are there any regressions?"</code></pre>
+<p>This works exceptionally well from the VS Code terminal because you can see your project file tree in the sidebar, identify the files you want to discuss, and reference them by path without having to copy-paste their contents.</p>
+
+<h3>Piping Output into Gemini</h3>
+<p>Because Gemini CLI is a standard terminal tool, it plays nicely with Unix pipes and redirects:</p>
+<pre><code>git diff HEAD~3 | gemini "Review this diff. Flag any bugs, security issues, or anti-patterns."</code></pre>
+<pre><code>npm test 2>&1 | gemini "These tests are failing. Analyse the errors and suggest fixes."</code></pre>
+<pre><code>cat package.json | gemini "Are any of these dependencies outdated or known to have vulnerabilities?"</code></pre>
+<p>Piping is where Gemini CLI feels genuinely different from GUI-based AI tools. You can integrate it into your existing terminal habits and shell scripts without changing how you work.</p>
+
+<h2>Practical Coding Examples</h2>
+<p>Here are the workflows I use most frequently, with real examples.</p>
+
+<h3>Generating Boilerplate</h3>
+<p>Starting a new Express API route, a React component, or a database migration involves predictable boilerplate. Rather than copying from old files or typing it from memory, I prompt Gemini:</p>
+<pre><code>gemini "Generate a TypeScript Express route handler for POST /api/users that validates the request body with Zod, creates a user in a PostgreSQL database using Prisma, and returns the created user. Include error handling for duplicate emails and validation failures."</code></pre>
+<p>Gemini CLI outputs the complete file. I review it, copy what I need, and paste it into my editor. The output quality is comparable to what you get from ChatGPT or Claude — Gemini 2.5 Pro (the model powering the CLI) is a strong code generation model, particularly for TypeScript, Python, and Go.</p>
+
+<h3>Writing Tests</h3>
+<p>This is where the file reference syntax shines:</p>
+<pre><code>gemini "Write comprehensive unit tests for @src/services/payment.ts using Vitest. Cover the happy path, edge cases (zero amounts, negative values, currency conversion), and error conditions (network failures, invalid card details). Use describe/it blocks and mock external API calls."</code></pre>
+<p>Gemini reads the payment service file, understands its interface, and generates a test suite tailored to the actual code. In my testing, it consistently covers the main paths and most edge cases. I typically add one or two additional edge cases manually after reviewing the generated tests, but the time savings compared to writing everything from scratch are substantial.</p>
+
+<h3>Debugging Errors</h3>
+<p>When a stack trace appears in my terminal, I pipe it directly to Gemini:</p>
+<pre><code>npm run build 2>&1 | gemini "This build is failing. Explain the root cause and provide the exact fix."</code></pre>
+<p>For runtime errors, I combine the error output with the relevant source file:</p>
+<pre><code>gemini "I'm getting this error: 'TypeError: Cannot read properties of undefined (reading map)' at line 47 of @src/components/UserList.tsx. What's causing it and how do I fix it?"</code></pre>
+<p>Gemini correctly diagnoses most common errors on the first attempt. It is particularly strong with TypeScript type errors, React rendering issues, and database query problems. Where it occasionally struggles is with errors that arise from the interaction between multiple files or complex state management — the same limitation you would encounter with any AI tool that only sees the files you explicitly provide.</p>
+
+<h3>Explaining Codebases</h3>
+<p>When joining a new project or reviewing an unfamiliar pull request, I use Gemini to accelerate my understanding:</p>
+<pre><code>gemini "I'm new to this project. Read @README.md, @src/index.ts, and @src/config.ts and give me a high-level architecture overview. What patterns is this codebase using? Where would I add a new API endpoint?"</code></pre>
+<p>This produces a clear summary that would otherwise take 30-60 minutes of manual exploration. It is not a replacement for actually reading the code, but it gives you a mental map to navigate by.</p>
+
+<h2>Configuration and Customisation</h2>
+<p>Gemini CLI supports project-level configuration through a <code>.gemini/</code> directory in your project root.</p>
+
+<h3>Settings File</h3>
+<p>Create <code>.gemini/settings.json</code> in your project root to configure default behaviour:</p>
+<pre><code>{
+  "model": "gemini-2.5-pro",
+  "temperature": 0.2,
+  "maxOutputTokens": 8192,
+  "systemInstruction": "You are a senior TypeScript developer. Write clean, type-safe code. Prefer functional patterns. Always include error handling. Use British English in comments and documentation."
+}</code></pre>
+<p>The <code>temperature</code> setting is worth paying attention to. For code generation, I recommend keeping it between 0.1 and 0.3 — lower values produce more predictable, conventional code. For brainstorming or creative problem-solving, you might raise it to 0.5 or 0.7.</p>
+
+<h3>Context Files</h3>
+<p>You can create a <code>.gemini/context.md</code> file that gets automatically included with every prompt. This is ideal for project-specific instructions:</p>
+<pre><code># Project Context
+
+This is a Next.js 15 application using the App Router.
+Database: PostgreSQL with Prisma ORM.
+Testing: Vitest for unit tests, Playwright for e2e.
+Styling: Tailwind CSS v4.
+State management: Zustand.
+
+## Coding Standards
+- Use server components by default; only add "use client" when necessary.
+- All API routes must validate input with Zod.
+- Database queries go in /src/services/, not in route handlers directly.
+- Error responses follow RFC 7807 Problem Details format.</code></pre>
+<p>With this context file in place, every prompt you send automatically includes these project conventions. This dramatically improves the relevance of generated code — Gemini will use Prisma instead of raw SQL, Vitest instead of Jest, and follow your architectural patterns without you having to specify them each time.</p>
+
+<h3>Model Selection</h3>
+<p>By default, Gemini CLI uses Gemini 2.5 Pro, which is the most capable model in the lineup. You can switch models per-prompt if needed:</p>
+<pre><code>gemini --model gemini-2.5-flash "Quick: what's the syntax for a TypeScript discriminated union?"</code></pre>
+<p>The Flash model responds faster and uses fewer of your daily request tokens for simple questions. I use Pro for code generation and complex reasoning, and Flash for quick syntax lookups and simple explanations.</p>
+
+<h2>Gemini CLI vs GitHub Copilot vs Claude Code</h2>
+<p>This is the comparison that matters most. Here is an honest assessment based on several weeks of using all three side by side.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Gemini CLI</th>
+      <th>GitHub Copilot</th>
+      <th>Claude Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Price</td>
+      <td>Free (1,000 req/day)</td>
+      <td>$19/month individual</td>
+      <td>Requires Max plan (~$100/month)</td>
+    </tr>
+    <tr>
+      <td>Interface</td>
+      <td>Terminal + VS Code companion</td>
+      <td>Full VS Code integration</td>
+      <td>Terminal-based</td>
+    </tr>
+    <tr>
+      <td>Inline autocomplete</td>
+      <td>No continuous ghost text</td>
+      <td>Excellent — best in class</td>
+      <td>No inline autocomplete</td>
+    </tr>
+    <tr>
+      <td>Code generation quality</td>
+      <td>Very good (Gemini 2.5 Pro)</td>
+      <td>Excellent</td>
+      <td>Excellent (Claude Opus/Sonnet)</td>
+    </tr>
+    <tr>
+      <td>Project context awareness</td>
+      <td>File references + context files</td>
+      <td>Indexes full workspace</td>
+      <td>Reads full project tree</td>
+    </tr>
+    <tr>
+      <td>Multi-file editing</td>
+      <td>Manual (copy-paste output)</td>
+      <td>Copilot Edits (multi-file)</td>
+      <td>Autonomous multi-file edits</td>
+    </tr>
+    <tr>
+      <td>Terminal integration</td>
+      <td>Native — it is a CLI tool</td>
+      <td>Copilot in terminal (limited)</td>
+      <td>Native — it is a CLI tool</td>
+    </tr>
+    <tr>
+      <td>Piping and scripting</td>
+      <td>Full Unix pipe support</td>
+      <td>Not applicable</td>
+      <td>Full Unix pipe support</td>
+    </tr>
+    <tr>
+      <td>Offline availability</td>
+      <td>No (cloud-based)</td>
+      <td>No (cloud-based)</td>
+      <td>No (cloud-based)</td>
+    </tr>
+    <tr>
+      <td>Open source</td>
+      <td>Yes (Apache 2.0)</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Setup effort</td>
+      <td>Low (npm install + Google sign-in)</td>
+      <td>Minimal (install extension)</td>
+      <td>Low (npm install + Anthropic login)</td>
+    </tr>
+  </tbody>
+</table>
+<p><strong>When to choose Gemini CLI:</strong> You want a capable AI coding assistant and you do not want to pay for one. The 1,000 requests per day free tier is generous enough for most individual developers. It is also the right choice if you are already comfortable working in the terminal and prefer a tool that integrates with your existing shell workflows rather than replacing them with a GUI panel.</p>
+<p><strong>When to choose Copilot:</strong> Inline autocomplete is your top priority. Copilot's ghost text suggestions are still the most seamless coding experience available — you type, suggestions appear, you press Tab. Nothing else matches this for flow state. Copilot is also strongest when you need full workspace indexing and want the AI to understand your entire project without you pointing it to specific files.</p>
+<p><strong>When to choose Claude Code:</strong> You need an AI tool that can autonomously make multi-file changes, run your tests, and iterate until the code works. Claude Code is the most agentic of the three — it does not just suggest code, it executes commands, reads results, and adjusts. The trade-off is the price and the steeper learning curve.</p>
+
+<h2>Limitations and Honest Assessment</h2>
+<p>Gemini CLI is impressive for a free tool, but it has genuine limitations you should understand before building your workflow around it.</p>
+<ul>
+  <li><strong>No inline autocomplete.</strong> This is the single biggest gap. Copilot's ghost text suggestions that appear as you type are the feature most developers associate with "AI coding assistant." Gemini CLI does not offer this. The companion extension's inline suggestions require manual invocation — you must explicitly ask for a suggestion rather than having them appear automatically. For developers who have grown accustomed to Copilot's continuous suggestions, this will feel like a significant downgrade.</li>
+  <li><strong>Rate limits.</strong> 1,000 requests per day sounds generous, and for most developers it is. But if you are using Gemini CLI heavily — piping build outputs, generating tests for multiple files, iterating on complex code generation — you can burn through requests faster than you expect. I hit the limit once during an intensive refactoring session where I was generating tests for about 40 service files. The limit resets daily, but it is worth being aware of.</li>
+  <li><strong>Context window constraints.</strong> When you reference multiple large files with the <code>@</code> syntax, you can exceed the model's context window. Gemini 2.5 Pro has a large context window (over 1 million tokens), but very large codebases with many interconnected files can still hit limits. The CLI does not always communicate clearly when context is being truncated.</li>
+  <li><strong>No autonomous file editing.</strong> Unlike Claude Code, which can directly create and modify files in your project, Gemini CLI outputs text to the terminal. You must manually copy the generated code into your files. The companion extension helps by capturing output in a panel, but it still requires manual intervention. For large-scale refactoring across many files, this manual step becomes tedious.</li>
+  <li><strong>Internet required.</strong> Unlike local models (such as <a href="/blog/gemma-4-vscode">Gemma 4 running through Ollama</a>), Gemini CLI requires an internet connection. If you work in air-gapped environments, on flights without Wi-Fi, or in offices with restricted network access, Gemini CLI will not function.</li>
+  <li><strong>Privacy considerations.</strong> Your code is sent to Google's servers for processing. Google states that free-tier prompts may be used to improve their models. If your organisation has strict data handling policies or you are working on proprietary code that cannot leave your network, this is a material concern. Check your company's acceptable use policy before piping production code through any cloud-based AI tool.</li>
+</ul>
+<p>Despite these limitations, Gemini CLI is the strongest free AI coding tool available today. The combination of a capable model (Gemini 2.5 Pro), generous free tier, terminal-native workflow, and open-source codebase makes it a serious option for individual developers and a useful complement to paid tools for those who already subscribe to Copilot or Claude.</p>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Is Gemini CLI really free, and what are the actual limits?</h3>
+<p>Yes, Gemini CLI is genuinely free for personal use with a standard Google account. You get 1,000 requests per day, which resets at midnight Pacific Time. Each prompt you send — whether single-shot or within an interactive session — counts as one request. There is no trial period, no credit card required, and no feature gating. The free tier uses Gemini 2.5 Pro, the same model available through the paid API. If you need more than 1,000 requests per day, you can connect Gemini CLI to a Google Cloud API key with billing enabled, which removes the daily cap and charges per token instead.</p>
+
+<h3>Can I use Gemini CLI alongside GitHub Copilot in VS Code?</h3>
+<p>Yes, and this is actually the setup I recommend for developers who already have a Copilot subscription. Keep Copilot active for its inline autocomplete — that continuous ghost text experience is still unmatched. Use Gemini CLI from the integrated terminal for tasks where you want to be more deliberate: generating test suites, explaining unfamiliar code, reviewing diffs, and debugging errors. The two tools complement each other well because they operate in different parts of the interface. Copilot works in the editor; Gemini CLI works in the terminal. There are no conflicts.</p>
+
+<h3>How does Gemini CLI compare to running Gemma 4 locally for coding?</h3>
+<p>They serve different needs. Gemini CLI sends your code to Google's cloud and runs it against Gemini 2.5 Pro, which is significantly more capable than any locally-runnable model. The code quality, reasoning depth, and context window are all substantially better. Gemma 4 running locally through Ollama keeps your code entirely on your machine — nothing is transmitted — and works offline. If privacy and offline access are non-negotiable requirements, Gemma 4 is the right choice. If you want the best code quality from a free tool and are comfortable with cloud processing, Gemini CLI is the stronger option. See my <a href="/blog/gemma-4-vscode">guide to using Gemma 4 in VS Code</a> for the local approach.</p>
+
+<h2>Sources and Further Reading</h2>
+<ul>
+  <li><a href="https://github.com/google-gemini/gemini-cli" target="_blank" rel="noopener">Gemini CLI — official GitHub repository</a></li>
+  <li><a href="https://ai.google.dev/gemini-api/docs" target="_blank" rel="noopener">Google Gemini API documentation</a></li>
+  <li><a href="https://marketplace.visualstudio.com/items?itemName=Google.gemini-cli-companion" target="_blank" rel="noopener">Gemini CLI Companion — VS Code Marketplace</a></li>
+  <li><a href="https://blog.google/technology/ai/gemini-cli-open-source/" target="_blank" rel="noopener">Google Blog — Announcing Gemini CLI</a></li>
+</ul>
+
+<h2>Related Posts</h2>
+<ul>
+  <li><a href="/blog/gemma-4-vscode">How to Use Gemma 4 in VS Code: Setup, Extensions, and Coding Workflows</a></li>
+  <li><a href="/blog/create-with-ai-flutter">Create with AI in Flutter: Practical Guide to AI-Powered App Development</a></li>
+  <li><a href="/blog/gemma-4-vs-chatgpt-vs-claude">Gemma 4 vs ChatGPT vs Claude vs Copilot: Best AI Model Comparison in 2026</a></li>
+</ul>
+<div class="blog-cta-box"><h3>Want to use AI tools more effectively?</h3><p>My courses cover practical AI workflows, from spreadsheet formulas to app development, with real projects and honest tool comparisons.</p><a href="/courses" class="btn-primary">Browse all courses <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/animations.js" defer></script>
+  <script src="/tracking.js" defer></script>
+</body>
+</html>

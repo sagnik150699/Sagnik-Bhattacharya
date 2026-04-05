@@ -889,5 +889,225 @@
     "variant": "ai-model-neuro",
     "portraitFocus": "headshot",
     "coverTitle": "Use Gemma 4 In VS Code"
+  },
+  {
+    "slug": "gemini-cli-vscode",
+    "title": "How to Use Gemini CLI in VS Code: Setup, IDE Integration, and Coding Workflows",
+    "tag": "AI Tools",
+    "hook": "Get 1,000 free AI requests per day with a terminal-first coding tool that stays inside your editor.",
+    "cta": "Set Up Gemini CLI",
+    "keywords": [
+      "Gemini CLI",
+      "VS Code",
+      "Terminal AI"
+    ],
+    "cue": "terminal panels, VS Code editor, and AI coding workflow visuals",
+    "category": "AI Tools",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemini CLI in VS Code, with terminal AI workflow and IDE integration visuals.",
+    "primaryColor": "#4285F4",
+    "secondaryColor": "#34A853",
+    "variant": "ai-model-neuro",
+    "portraitFocus": "headshot",
+    "coverTitle": "Use Gemini CLI In VS Code"
+  },
+  {
+    "slug": "gemini-code-assist-android-studio",
+    "title": "How to Use Gemini Code Assist in Android Studio: Free AI Coding for Flutter and Kotlin",
+    "tag": "Flutter",
+    "hook": "Google's own AI assistant inside their own IDE — free tier included, Flutter and Kotlin ready.",
+    "cta": "Enable Gemini Code Assist",
+    "keywords": [
+      "Gemini",
+      "Android Studio",
+      "Flutter"
+    ],
+    "cue": "Android Studio panels, inline completions, and Flutter widget generation visuals",
+    "category": "Flutter",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemini Code Assist in Android Studio, with AI coding assistant and Flutter development visuals.",
+    "primaryColor": "#4285F4",
+    "secondaryColor": "#0175C2",
+    "variant": "ai-model-neuro",
+    "portraitFocus": "headshot",
+    "coverTitle": "Gemini Code Assist In Android Studio"
+  },
+  {
+    "slug": "cursor-flutter-development",
+    "title": "How to Use Cursor for Flutter Development: The Complete 2026 Guide",
+    "tag": "Flutter",
+    "hook": "The #1 AI IDE with 2M+ users, configured specifically for Flutter widget trees and Dart code.",
+    "cta": "Set Up Cursor For Flutter",
+    "keywords": [
+      "Cursor",
+      "Flutter",
+      "AI IDE"
+    ],
+    "cue": "AI IDE panels, widget generation, and Dart code completion visuals",
+    "category": "Flutter",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Cursor IDE Flutter development, with AI-powered coding and widget generation visuals.",
+    "primaryColor": "#7C3AED",
+    "secondaryColor": "#0175C2",
+    "variant": "ai-model-neuro",
+    "portraitFocus": "headshot",
+    "coverTitle": "Cursor For Flutter Development"
+  },
+  {
+    "slug": "windsurf-flutter-development",
+    "title": "How to Use Windsurf for Flutter Development: Free AI IDE Setup and Review",
+    "tag": "Flutter",
+    "hook": "The free Cursor alternative with Cascade agent mode — set up and tested for Flutter projects.",
+    "cta": "Try Windsurf For Flutter",
+    "keywords": [
+      "Windsurf",
+      "Flutter",
+      "Free AI IDE"
+    ],
+    "cue": "AI IDE panels, Cascade agent, and Flutter development workflow visuals",
+    "category": "Flutter",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Windsurf IDE Flutter development, with free AI coding and Cascade agent visuals.",
+    "primaryColor": "#06B6D4",
+    "secondaryColor": "#0175C2",
+    "variant": "ai-model-neuro",
+    "portraitFocus": "headshot",
+    "coverTitle": "Windsurf For Flutter Development"
+  },
+  {
+    "slug": "claude-code-android-studio",
+    "title": "How to Use Claude Code in Android Studio: AI-Powered Coding for Kotlin, Flutter, and Gradle Projects",
+    "tag": "AI Tools",
+    "hook": "The #1 SWE-bench AI agent running in Android Studio's terminal for Kotlin, Flutter, and Gradle.",
+    "cta": "Use Claude Code In Android Studio",
+    "keywords": [
+      "Claude Code",
+      "Android Studio",
+      "Kotlin"
+    ],
+    "cue": "terminal AI panels, Android Studio editor, and Kotlin-Flutter workflow visuals",
+    "category": "AI Tools",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Claude Code in Android Studio, with terminal AI agent and Kotlin-Flutter-Gradle workflow visuals.",
+    "primaryColor": "#D97706",
+    "secondaryColor": "#3DDC84",
+    "variant": "ai-model-neuro",
+    "portraitFocus": "headshot",
+    "coverTitle": "Claude Code In Android Studio"
+  },
+  {
+    "slug": "opencode-vscode",
+    "title": "How to Use OpenCode in VS Code: The Free Open-Source AI Coding Alternative",
+    "tag": "AI Tools",
+    "hook": "126K+ stars, MIT licensed, 75+ models — the open-source Cursor alternative most developers haven't tried.",
+    "cta": "Set Up OpenCode",
+    "keywords": [
+      "OpenCode",
+      "Open Source",
+      "VS Code"
+    ],
+    "cue": "terminal panels, multi-model selection, and open-source coding workflow visuals",
+    "category": "AI Tools",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for OpenCode in VS Code, with open-source AI coding and multi-model terminal visuals.",
+    "primaryColor": "#22C55E",
+    "secondaryColor": "#2563EB",
+    "variant": "ai-model-neuro",
+    "portraitFocus": "headshot",
+    "coverTitle": "OpenCode In VS Code"
+  },
+  {
+    "slug": "gemma-4-android-studio-ollama",
+    "title": "How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle",
+    "tag": "AI Tools",
+    "hook": "The Android Studio companion to the VS Code guide — free, local, offline AI for Kotlin and Flutter.",
+    "cta": "Run Gemma In Android Studio",
+    "keywords": [
+      "Gemma 4",
+      "Android Studio",
+      "Ollama"
+    ],
+    "cue": "Android Studio terminal, local model panels, and Kotlin-Flutter coding visuals",
+    "category": "AI Tools",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemma 4 in Android Studio with Ollama, with local AI coding and Kotlin-Flutter-Gradle visuals.",
+    "primaryColor": "#2563EB",
+    "secondaryColor": "#3DDC84",
+    "variant": "ai-model-neuro",
+    "portraitFocus": "headshot",
+    "coverTitle": "Gemma 4 In Android Studio"
+  },
+  {
+    "slug": "copilot-agent-mode-vscode",
+    "title": "How to Use GitHub Copilot Agent Mode in VS Code: Autonomous Coding in 2026",
+    "tag": "AI Tools",
+    "hook": "Agent Mode plans, executes, and iterates autonomously — here is how to use it without losing control.",
+    "cta": "Use Agent Mode Effectively",
+    "keywords": [
+      "Copilot",
+      "Agent Mode",
+      "Autonomous"
+    ],
+    "cue": "agent workflow panels, multi-step task cards, and autonomous coding visuals",
+    "category": "AI Tools",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for GitHub Copilot Agent Mode in VS Code, with autonomous AI coding and multi-step workflow visuals.",
+    "primaryColor": "#1F2937",
+    "secondaryColor": "#F97316",
+    "variant": "ai-model-neuro",
+    "portraitFocus": "headshot",
+    "coverTitle": "Copilot Agent Mode In VS Code"
+  },
+  {
+    "slug": "deepseek-vscode",
+    "title": "How to Use DeepSeek in VS Code: The $2/Month AI Coding Assistant Setup Guide",
+    "tag": "AI Tools",
+    "hook": "Near-GPT-4 coding quality at a fraction of the price — set up and tested inside VS Code.",
+    "cta": "Set Up DeepSeek",
+    "keywords": [
+      "DeepSeek",
+      "Budget AI",
+      "VS Code"
+    ],
+    "cue": "API cost cards, VS Code terminal, and budget AI coding workflow visuals",
+    "category": "AI Tools",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for DeepSeek in VS Code, with budget AI coding assistant and API configuration visuals.",
+    "primaryColor": "#4F46E5",
+    "secondaryColor": "#22C55E",
+    "variant": "ai-model-neuro",
+    "portraitFocus": "headshot",
+    "coverTitle": "DeepSeek In VS Code"
+  },
+  {
+    "slug": "gemini-cli-android-studio-flutter",
+    "title": "How to Use Gemini CLI in Android Studio for Flutter: MCP Server, Dart Integration, and Workflows",
+    "tag": "Flutter",
+    "hook": "Four trending keywords in one workflow — Gemini CLI, Android Studio, Flutter, and MCP together.",
+    "cta": "Connect Gemini CLI To Flutter",
+    "keywords": [
+      "Gemini CLI",
+      "MCP",
+      "Flutter"
+    ],
+    "cue": "MCP server panels, Dart tooling cards, and Flutter AI workflow visuals",
+    "category": "Flutter",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemini CLI in Android Studio for Flutter, with MCP server and Dart integration visuals.",
+    "primaryColor": "#4285F4",
+    "secondaryColor": "#0175C2",
+    "variant": "ai-model-neuro",
+    "portraitFocus": "headshot",
+    "coverTitle": "Gemini CLI + MCP For Flutter"
+  },
+  {
+    "slug": "claude-code-vscode",
+    "title": "How to Use Claude Code in VS Code: Setup, Extensions, and AI Coding Workflows",
+    "tag": "AI Tools",
+    "hook": "The #1 SWE-bench AI agent now has a native VS Code extension — set up and use it effectively.",
+    "cta": "Set Up Claude Code",
+    "keywords": [
+      "Claude Code",
+      "VS Code",
+      "Terminal AI"
+    ],
+    "cue": "VS Code extension panels, terminal AI agent, and coding workflow visuals",
+    "category": "AI Tools",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Claude Code in VS Code, with terminal AI agent and IDE extension visuals.",
+    "primaryColor": "#D97706",
+    "secondaryColor": "#2563EB",
+    "variant": "ai-model-neuro",
+    "portraitFocus": "headshot",
+    "coverTitle": "Claude Code In VS Code"
   }
 ]

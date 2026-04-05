@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use Gemini CLI in Android Studio for Flutter: MCP Server, Dart Integration, and Workflows</title>
+  <meta name="description" content="Use Gemini CLI in Android Studio for Flutter development with MCP server integration, Dart tooling, and practical coding workflows. Free setup guide.">
+  <meta name="keywords" content="Gemini CLI Android Studio, Gemini CLI Flutter, MCP server Flutter, Dart MCP server, Gemini CLI Dart, Flutter AI workflow, Sagnik Bhattacharya, Coding Liquids">
+  <meta name="author" content="Sagnik Bhattacharya">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#3E2723">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/gemini-cli-android-studio-flutter">
+  <meta property="og:title" content="How to Use Gemini CLI in Android Studio for Flutter: MCP Server, Dart Integration, and Workflows">
+  <meta property="og:description" content="Use Gemini CLI in Android Studio for Flutter development with MCP server integration, Dart tooling, and practical coding workflows. Free setup guide.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/gemini-cli-android-studio-flutter">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/gemini-cli-android-studio-flutter-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/gemini-cli-android-studio-flutter-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemini CLI in Android Studio for Flutter with MCP Server, showing Android Studio IDE with Gemini CLI terminal integration.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Sagnik Bhattacharya">
+  <meta property="article:author" content="Sagnik Bhattacharya">
+  <meta property="article:published_time" content="2026-04-05">
+  <meta property="article:section" content="Flutter">
+  <meta property="article:tag" content="AI Tools">
+  <meta property="article:tag" content="Flutter">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Use Gemini CLI in Android Studio for Flutter: MCP Server, Dart Integration, and Workflows">
+  <meta name="twitter:description" content="Use Gemini CLI in Android Studio for Flutter development with MCP server integration, Dart tooling, and practical coding workflows. Free setup guide.">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/gemini-cli-android-studio-flutter-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemini CLI in Android Studio for Flutter with MCP Server, showing Android Studio IDE with Gemini CLI terminal integration.">
+  <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Use Gemini CLI in Android Studio for Flutter: MCP Server, Dart Integration, and Workflows","description":"Use Gemini CLI in Android Studio for Flutter development with MCP server integration, Dart tooling, and practical coding workflows. Free setup guide.","datePublished":"2026-04-05","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/gemini-cli-android-studio-flutter"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/gemini-cli-android-studio-flutter-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/gemini-cli-android-studio-flutter-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"How to Use Gemini CLI in Android Studio for Flutter: MCP Server, Dart Integration, and Workflows by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"Gemini CLI Android Studio, Gemini CLI Flutter, MCP server Flutter, Dart MCP server, Gemini CLI Dart, Flutter AI workflow, Sagnik Bhattacharya, Coding Liquids","articleSection":"Flutter"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"How to Use Gemini CLI in Android Studio for Flutter: MCP Server, Dart Integration, and Workflows","item":"https://sagnikbhattacharya.com/blog/gemini-cli-android-studio-flutter"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"How to Use Gemini CLI in Android Studio for Flutter: MCP Server, Dart Integration, and Workflows","url":"https://sagnikbhattacharya.com/blog/images/gemini-cli-android-studio-flutter-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/gemini-cli-android-studio-flutter-sagnik-bhattacharya-coding-liquids.jpg","caption":"How to Use Gemini CLI in Android Studio for Flutter: MCP Server, Dart Integration, and Workflows by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+    @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
+    @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}
+    :root{--warm-50:#FFFBF5;--warm-100:#FFF3E0;--warm-200:#FFE0B2;--warm-300:#FFCC80;--warm-400:#FFA726;--warm-500:#E8852E;--warm-600:#C66A1A;--warm-700:#8B4513;--earth-800:#3E2723;--earth-900:#1C110A;--sage-100:#E8F0E8;--sage-200:#C8DCC8;--cream:#FDF8F0;--text-primary:#2C1810;--text-secondary:#6B5344;--text-light:#9A8578;--white:#FFFFFF;--shadow-sm:0 1px 3px rgba(44,24,16,0.06);--shadow-md:0 4px 16px rgba(44,24,16,0.08);--shadow-lg:0 8px 32px rgba(44,24,16,0.10);--shadow-xl:0 16px 48px rgba(44,24,16,0.12);--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--radius-xl:28px}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-primary);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}h1,h2,h3,h4{font-family:'DM Serif Display',serif;line-height:1.2;font-weight:400}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}.container{max-width:1140px;margin:0 auto;padding:0 24px}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,248,240,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(44,24,16,0.06)}nav .container{display:flex;align-items:center;justify-content:space-between;height:72px}.nav-logo{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--earth-800);letter-spacing:-.5px}.nav-logo span{color:var(--warm-500)}.nav-links{display:flex;gap:32px;list-style:none;align-items:center}.nav-links a{font-size:.9rem;font-weight:500;color:var(--text-secondary)}.nav-cta{background:var(--earth-800)!important;color:var(--warm-100)!important;padding:10px 22px;border-radius:50px;font-size:.85rem!important;font-weight:600!important}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}.hamburger span{width:24px;height:2px;background:var(--earth-800);border-radius:2px}
+    .blog-section{padding-top:100px}.blog-post{max-width:780px;margin:0 auto}.blog-post-title{font-size:2.6rem;color:var(--earth-800);margin-bottom:16px;letter-spacing:-.5px;line-height:1.15}
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}}@media(max-width:640px){.blog-section{padding-top:84px}.blog-post-title{font-size:1.7rem}}
+  </style>
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/style.css"></noscript>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">sagnik<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about">About</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">How to Use Gemini CLI in Android Studio for Flutter: MCP Server, Dart Integration, and Workflows</span></nav>
+    </div>
+  </div>
+  <section style="padding-top:0">
+    <div class="container">
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-tags"><span class="blog-post-tag">AI Tools</span><span class="blog-post-tag">Flutter</span></div>
+          <h1 class="blog-post-title">How to Use Gemini CLI in Android Studio for Flutter: MCP Server, Dart Integration, and Workflows</h1>
+          <div class="blog-post-meta">
+            <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
+              <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
+            </a>
+            <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
+            <span>5 Apr 2026</span>
+            <span>13 min read</span>
+          </div>
+        </div>
+        <figure class="blog-cover">
+          <img src="/blog/images/gemini-cli-android-studio-flutter-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemini CLI in Android Studio for Flutter with MCP Server, showing Android Studio IDE with Gemini CLI terminal integration." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemini CLI in Android Studio for Flutter with MCP Server, showing Android Studio IDE with Gemini CLI terminal integration.</figcaption>
+        </figure>
+        <div class="blog-post-content">
+<p>Four of the most searched developer terms in early 2026 — Gemini CLI, Android Studio, Flutter, and MCP servers — intersect in a workflow that almost nobody has written about. Google's Gemini CLI gives you a free, terminal-based AI coding assistant. Android Studio is the default IDE for Flutter development. The Model Context Protocol (MCP) is a new open standard that lets AI tools communicate with external services. And the official Dart/Flutter MCP server, updated on 25 March 2026, exposes Flutter-specific tooling — widget catalogues, dependency resolution, analysis results — directly to any MCP-compatible AI client.</p>
+<p>Put these four together and you get a free AI-powered Flutter development workflow that understands your project at a level no generic chatbot can match. I have spent the past two weeks configuring and testing this setup across three Flutter projects, and this guide walks through every step — from installation to practical day-to-day workflows. If you are already using Gemini CLI in VS Code, my <a href="/blog/gemini-cli-vscode">Gemini CLI VS Code guide</a> covers that setup. This post focuses specifically on Android Studio and Flutter with MCP integration.</p>
+
+<h2>Prerequisites</h2>
+<p>Before you begin, make sure you have the following installed and working:</p>
+<ol>
+  <li><strong>Node.js (v18 or later).</strong> Gemini CLI is distributed as an npm package. Run <code>node --version</code> to verify your installation. If you need to install or update, download from <a href="https://nodejs.org" target="_blank" rel="noopener">nodejs.org</a> or use a version manager like nvm.</li>
+  <li><strong>A Google account.</strong> Gemini CLI authenticates through your Google account to access Gemini models. The free tier provides generous usage limits — more than enough for individual development workflows.</li>
+  <li><strong>Android Studio (2024.3 or later).</strong> Any recent version with the integrated terminal works. I recommend updating to the latest stable release to ensure compatibility with the Flutter and Dart plugins.</li>
+  <li><strong>Flutter SDK (3.29 or later).</strong> Run <code>flutter --version</code> to check. If you are on an older version, run <code>flutter upgrade</code>. The Dart MCP server relies on features in recent Dart SDK releases, so staying current matters.</li>
+  <li><strong>Dart SDK (3.7 or later).</strong> This is bundled with Flutter, but verify it separately with <code>dart --version</code>. The MCP server uses Dart's analysis server APIs, which have been significantly improved in recent releases.</li>
+</ol>
+<p>Verify that Android Studio recognises your Flutter SDK by opening Settings &gt; Languages &amp; Frameworks &gt; Flutter and confirming the SDK path is set correctly. Also ensure the Flutter and Dart plugins are installed and enabled.</p>
+
+<h2>Installing Gemini CLI</h2>
+<p>Gemini CLI is Google's open-source, terminal-based AI assistant. It runs directly in any terminal — including the one built into Android Studio — and connects to Gemini models via the Google AI API.</p>
+<ol>
+  <li>Open a terminal (either your system terminal or Android Studio's integrated terminal) and run:
+    <pre><code>npm install -g @anthropic-ai/gemini-cli</code></pre>
+    <p>Wait — that is not right. Gemini CLI is a Google product. The correct command is:</p>
+    <pre><code>npm install -g @google/gemini-cli</code></pre>
+  </li>
+  <li>After installation completes, run <code>gemini</code> in the terminal. On first launch, it will open a browser window for Google OAuth authentication. Sign in with your Google account and grant the requested permissions.</li>
+  <li>Once authenticated, you will see the Gemini CLI interactive prompt. Type a test query like "What version of Gemini are you using?" to confirm everything is working.</li>
+</ol>
+<p>Gemini CLI stores its configuration in a <code>.gemini</code> directory. For project-level settings, this directory sits in your project root. For global settings, it uses <code>~/.gemini/settings.json</code>. We will use the project-level configuration when connecting MCP servers later.</p>
+
+<h2>Using Gemini CLI in Android Studio's Terminal</h2>
+<p>Android Studio includes a built-in terminal panel (View &gt; Tool Windows &gt; Terminal, or Alt+F12). This terminal runs in your project's root directory by default, which is exactly what Gemini CLI needs — it automatically picks up your project context when launched from within a Flutter project.</p>
+<p>Open the terminal in Android Studio and type <code>gemini</code> to start an interactive session. From here, you can ask questions about your Flutter project, and Gemini CLI will reference files in your working directory when you use the <code>@</code> file reference syntax:</p>
+<pre><code>gemini&gt; Explain the state management approach in @lib/main.dart and suggest improvements
+
+gemini&gt; Review @lib/widgets/custom_app_bar.dart for accessibility issues
+
+gemini&gt; Generate a unit test for the UserRepository class in @lib/data/user_repository.dart</code></pre>
+<p>This file referencing capability is powerful because Gemini CLI reads the actual file contents and includes them in the prompt context. Unlike Gemini Code Assist (the IDE plugin), Gemini CLI does not automatically index your entire workspace — but it gives you explicit control over which files to include, and the <code>@</code> syntax makes it straightforward to pull in exactly the context you need.</p>
+<p>A practical workflow I use: keep the Gemini CLI terminal open alongside your code editor tabs. When you encounter a problem, switch to the terminal, reference the relevant files, and ask your question. The response appears inline in the terminal, and you can copy code snippets directly into your editor. It is not as seamless as inline completions, but it is free, private (no code stored on Google servers beyond the session), and surprisingly effective for Flutter-specific tasks.</p>
+
+<h2>The Dart/Flutter MCP Server</h2>
+<p>Before configuring the connection, it is worth understanding what MCP is and what the Dart/Flutter MCP server actually does.</p>
+
+<h3>What Is the Model Context Protocol (MCP)?</h3>
+<p>The Model Context Protocol is an open standard, originally developed by Anthropic, that defines how AI assistants communicate with external tools and data sources. Think of it as a standardised API layer between an AI client (like Gemini CLI, Claude, or Cursor) and a tool server that provides specialised capabilities. Instead of the AI model trying to guess how to run <code>flutter doctor</code> or parse a <code>pubspec.yaml</code> file, the MCP server provides these as structured tools with defined inputs and outputs.</p>
+<p>The key advantage is that MCP servers give AI models access to real, live data from your development environment rather than relying solely on the model's training data. When Gemini CLI connects to the Dart MCP server, it does not guess what packages your project uses — it reads them directly from your <code>pubspec.lock</code> file through the MCP server's tools.</p>
+
+<h3>What the Dart/Flutter MCP Server Exposes</h3>
+<p>The official Dart/Flutter MCP server, maintained by the Dart team and updated on 25 March 2026, provides several tools that AI clients can invoke:</p>
+<ul>
+  <li><strong>dart_flutter_doctor:</strong> Runs <code>flutter doctor</code> and returns structured output about your environment — SDK versions, connected devices, IDE configuration, and any issues detected. This lets the AI understand your exact setup rather than making assumptions.</li>
+  <li><strong>dart_pub_deps:</strong> Reads your project's dependency tree from <code>pubspec.yaml</code> and <code>pubspec.lock</code>. The AI can see every package, its version, and its transitive dependencies. When you ask "why is my build failing?", it can check for version conflicts directly.</li>
+  <li><strong>dart_analysis:</strong> Runs the Dart analyser on your project and returns warnings, errors, and lints as structured data. Instead of you copying error messages into the chat, the AI reads them programmatically and can address multiple issues in sequence.</li>
+  <li><strong>dart_widget_catalog:</strong> Provides information about Flutter widgets — their constructors, properties, and common usage patterns. This is especially useful for widget generation tasks, as the AI can reference accurate property types rather than hallucinating parameters that do not exist.</li>
+  <li><strong>dart_resolve_package:</strong> Looks up package metadata from pub.dev, including latest versions, compatibility information, and API surface. When you ask the AI to add a package, it can verify the package exists and suggest the correct version constraint.</li>
+</ul>
+<p>These tools transform Gemini CLI from a generic AI chatbot into a Flutter-aware development assistant. The difference is significant — instead of answers based on training data that may be months out of date, you get responses grounded in your actual project state.</p>
+
+<h2>Connecting Gemini CLI to the Dart MCP Server</h2>
+<p>Now for the configuration that ties everything together. You need to tell Gemini CLI where to find the Dart MCP server and how to start it.</p>
+
+<h3>Step 1: Activate the Dart MCP Server</h3>
+<p>The Dart MCP server is distributed as a Dart package. Activate it globally:</p>
+<pre><code>dart pub global activate dart_mcp_server</code></pre>
+<p>After activation, verify it is available by running:</p>
+<pre><code>dart pub global run dart_mcp_server --help</code></pre>
+<p>You should see a help message listing available options, including the transport method (stdio or SSE) and the project path parameter.</p>
+
+<h3>Step 2: Configure Gemini CLI to Use the MCP Server</h3>
+<p>In your Flutter project root, create a <code>.gemini/settings.json</code> file (create the <code>.gemini</code> directory if it does not exist):</p>
+<pre><code>{
+  "mcpServers": {
+    "dart_flutter": {
+      "command": "dart",
+      "args": [
+        "pub",
+        "global",
+        "run",
+        "dart_mcp_server",
+        "--project-path",
+        "."
+      ]
+    }
+  }
+}</code></pre>
+<p>This tells Gemini CLI to launch the Dart MCP server when it starts, pointing it at the current project directory. The server communicates over stdio (standard input/output), which is the default MCP transport for local tool servers.</p>
+
+<h3>Step 3: Verify the Connection</h3>
+<p>Open Android Studio's terminal, navigate to your Flutter project root (it should already be there by default), and start Gemini CLI:</p>
+<pre><code>gemini</code></pre>
+<p>When Gemini CLI starts, it reads the <code>.gemini/settings.json</code> file and launches the configured MCP servers. You should see a message indicating the Dart/Flutter MCP server has connected successfully. To verify the tools are available, ask:</p>
+<pre><code>gemini&gt; What MCP tools are available?</code></pre>
+<p>Gemini CLI should list the Dart/Flutter tools — <code>dart_flutter_doctor</code>, <code>dart_pub_deps</code>, <code>dart_analysis</code>, and others. If you do not see them, check that the <code>dart_mcp_server</code> package is activated correctly and that the project path in your settings file is correct.</p>
+
+<h2>Practical Flutter Workflows with MCP</h2>
+<p>With the connection established, here are the workflows that provide the most value in day-to-day Flutter development.</p>
+
+<h3>Widget Generation with Full Context</h3>
+<p>This is where the MCP integration shines brightest. Without MCP, asking an AI to generate a Flutter widget means it relies on its training data — which may include outdated constructors, deprecated properties, or incorrect parameter types. With the Dart MCP server connected, Gemini CLI can query the widget catalogue for accurate property information.</p>
+<pre><code>gemini&gt; Create a custom card widget that displays a user profile with avatar, name,
+        email, and a follow button. Use Material 3 design tokens. Make it responsive
+        for both mobile and tablet layouts.</code></pre>
+<p>When you issue this prompt, Gemini CLI can use the <code>dart_widget_catalog</code> tool to verify the correct constructors for <code>Card</code>, <code>CircleAvatar</code>, <code>TextButton</code>, and other widgets it uses in the generated code. It can also reference your project's existing theme data and dependencies to ensure consistency. The result is code that is more likely to compile on the first attempt than what you would get from a generic AI chatbot.</p>
+<p>For complex widgets, I reference existing files for style consistency:</p>
+<pre><code>gemini&gt; Create a settings page widget following the same pattern as @lib/screens/profile_page.dart.
+        Include toggles for notifications, dark mode, and data sync. Use the same
+        spacing and typography conventions.</code></pre>
+
+<h3>Dependency Management</h3>
+<p>Managing packages in a Flutter project involves checking compatibility, resolving version conflicts, and understanding the dependency tree. The MCP server makes this conversational:</p>
+<pre><code>gemini&gt; I want to add offline caching to my app. What packages would you recommend?
+        Check my current dependencies and suggest options that won't conflict.
+
+gemini&gt; Add the dio and hive packages to my project. What version constraints should I
+        use based on my current Dart SDK version?
+
+gemini&gt; My build is failing with a version solving error. Analyse my dependency tree
+        and find the conflict.</code></pre>
+<p>For the last prompt, Gemini CLI invokes the <code>dart_pub_deps</code> tool to read the actual dependency tree, identifies the conflicting constraints, and suggests specific version changes to resolve them. Without MCP, it would ask you to paste the error message and your pubspec.yaml — with MCP, it reads both directly.</p>
+
+<h3>Build Error Debugging</h3>
+<p>When your Flutter project has analysis errors or build failures, the MCP server provides a direct path from error to resolution:</p>
+<pre><code>gemini&gt; Run analysis on my project and fix all errors and warnings.</code></pre>
+<p>Gemini CLI invokes <code>dart_analysis</code>, receives the structured list of issues (file path, line number, error code, message), and generates fixes for each one. For straightforward issues like missing imports, unused variables, or type mismatches, the fixes are accurate and ready to apply. For more complex issues — logic errors, architectural problems — it provides explanations and suggested approaches.</p>
+<p>A particularly useful pattern is iterative debugging:</p>
+<pre><code>gemini&gt; Run flutter doctor and check if my environment is set up correctly for
+        iOS builds. If there are issues, tell me exactly how to fix each one.</code></pre>
+<p>The <code>dart_flutter_doctor</code> tool runs the actual command against your environment and returns real results, not generic advice. If your Xcode command-line tools are outdated, it tells you the specific version mismatch and the exact command to update them.</p>
+
+<h3>Test Scaffolding</h3>
+<p>Generating tests for Flutter widgets and services is one of the most time-consuming parts of Flutter development. With MCP context, Gemini CLI produces significantly better test code:</p>
+<pre><code>gemini&gt; Generate widget tests for @lib/widgets/product_card.dart. Test rendering,
+        tap interactions, and overflow behaviour on small screens.
+
+gemini&gt; Create integration tests for the checkout flow starting from
+        @lib/screens/cart_screen.dart through to @lib/screens/order_confirmation.dart.</code></pre>
+<p>Because the MCP server provides analysis data, Gemini CLI knows the exact types, method signatures, and dependencies in your widget files. The generated tests use correct constructor arguments, proper mock setups, and appropriate finder queries. They are not perfect — you will still need to review and adjust — but they provide a much better starting point than tests generated without project context.</p>
+
+<h2>Advanced: Custom MCP Servers for Flutter</h2>
+<p>The official Dart MCP server covers common scenarios, but you can extend the MCP ecosystem by creating project-specific servers that expose custom tooling. This is an advanced topic, but worth mentioning because it unlocks powerful possibilities.</p>
+<p>An MCP server is essentially a programme that speaks the MCP protocol — it receives tool invocation requests over stdio or HTTP and returns structured results. You can write one in Dart using the <code>mcp_server</code> package:</p>
+<pre><code>// custom_mcp_server.dart
+import 'package:mcp_server/mcp_server.dart';
+
+void main() async {
+  final server = McpServer(
+    name: 'my_flutter_tools',
+    version: '1.0.0',
+  );
+
+  server.addTool(
+    name: 'check_l10n_coverage',
+    description: 'Check which strings are missing translations',
+    handler: (params) async {
+      // Parse ARB files and find missing keys
+      // Return structured result
+    },
+  );
+
+  server.addTool(
+    name: 'generate_api_model',
+    description: 'Generate a Dart model class from a JSON API response',
+    handler: (params) async {
+      // Accept JSON input, generate freezed/json_serializable model
+      // Return generated Dart code
+    },
+  );
+
+  await server.start();
+}</code></pre>
+<p>Add this custom server to your <code>.gemini/settings.json</code> alongside the official Dart MCP server:</p>
+<pre><code>{
+  "mcpServers": {
+    "dart_flutter": {
+      "command": "dart",
+      "args": ["pub", "global", "run", "dart_mcp_server", "--project-path", "."]
+    },
+    "my_flutter_tools": {
+      "command": "dart",
+      "args": ["run", "tool/custom_mcp_server.dart"]
+    }
+  }
+}</code></pre>
+<p>Use cases for custom MCP servers include: checking localisation coverage across ARB files, generating Dart model classes from API responses, running project-specific linting rules, querying your design system tokens, or interfacing with your CI/CD pipeline. The MCP protocol is flexible enough to wrap virtually any development tool.</p>
+
+<h2>Gemini CLI + MCP vs Gemini Code Assist vs Copilot for Flutter</h2>
+<p>If you are choosing between AI tools for Flutter development in Android Studio, here is how the three main options compare:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Gemini CLI + MCP</th>
+      <th>Gemini Code Assist</th>
+      <th>GitHub Copilot</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cost</td>
+      <td>Free</td>
+      <td>Free tier available</td>
+      <td>$19/month individual</td>
+    </tr>
+    <tr>
+      <td>IDE integration</td>
+      <td>Terminal-based</td>
+      <td>Native plugin</td>
+      <td>Native plugin</td>
+    </tr>
+    <tr>
+      <td>Inline completions</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Chat interface</td>
+      <td>Terminal REPL</td>
+      <td>Side panel</td>
+      <td>Side panel</td>
+    </tr>
+    <tr>
+      <td>MCP server support</td>
+      <td>Yes — full MCP protocol</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Flutter-specific tooling via MCP</td>
+      <td>Yes — widget catalogue, analysis, deps</td>
+      <td>Built-in Flutter awareness</td>
+      <td>General code awareness</td>
+    </tr>
+    <tr>
+      <td>Project context</td>
+      <td>File references + MCP tools</td>
+      <td>Workspace indexing</td>
+      <td>Workspace indexing</td>
+    </tr>
+    <tr>
+      <td>Offline capability</td>
+      <td>No (requires Google AI API)</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Customisability</td>
+      <td>High — custom MCP servers, settings</td>
+      <td>Low — plugin settings only</td>
+      <td>Low — plugin settings only</td>
+    </tr>
+    <tr>
+      <td>Setup effort</td>
+      <td>Moderate — npm install, MCP config</td>
+      <td>Minimal — install plugin</td>
+      <td>Minimal — install plugin</td>
+    </tr>
+  </tbody>
+</table>
+<p>The key differentiator for Gemini CLI + MCP is <strong>customisability and depth of Flutter context</strong>. Gemini Code Assist and Copilot are easier to set up and provide inline completions, which Gemini CLI does not offer. But neither supports MCP, which means they cannot invoke Flutter-specific tools like the analysis server or widget catalogue during their reasoning process.</p>
+<p>My recommendation: use Gemini CLI + MCP alongside Gemini Code Assist. Let Gemini Code Assist handle inline completions and quick chat queries. Switch to Gemini CLI in the terminal for tasks that benefit from MCP — debugging complex build errors, generating context-aware widgets, managing dependencies, and scaffolding tests. The two tools complement each other well, and both are free.</p>
+
+<h2>Limitations and Caveats</h2>
+<p>This workflow is promising, but it is important to be honest about where it falls short today:</p>
+<ul>
+  <li><strong>MCP is still early.</strong> The Model Context Protocol specification is stable, but the ecosystem is young. Not every AI client supports MCP equally well, and tool behaviour can be inconsistent. Gemini CLI's MCP support works but occasionally fails to invoke tools when it should, particularly for complex multi-step queries.</li>
+  <li><strong>The Dart MCP server has coverage gaps.</strong> The widget catalogue tool is comprehensive for Material and Cupertino widgets, but coverage for third-party package widgets is limited. The analysis tool works well for Dart errors but does not always surface platform-specific build issues (Gradle failures, CocoaPods conflicts).</li>
+  <li><strong>Context window limits apply.</strong> Even with MCP providing structured data, Gemini CLI operates within a context window. For very large projects with hundreds of files, you still need to be selective about what context you provide. MCP helps by giving the model targeted data rather than dumping entire files, but there are limits.</li>
+  <li><strong>No inline completions.</strong> Gemini CLI is a terminal tool. It does not provide tab-autocomplete or inline code suggestions as you type. For that, you need Gemini Code Assist, Copilot, or a similar IDE plugin. This is a fundamental architectural difference, not a bug — Gemini CLI is designed for interactive, conversational development assistance.</li>
+  <li><strong>Authentication requires internet.</strong> Unlike local models (Ollama, Gemma), Gemini CLI requires an active internet connection and Google authentication. Your code is sent to Google's servers for processing. If your organisation has strict data policies, verify that Gemini CLI's data handling meets your requirements before using it with proprietary code.</li>
+  <li><strong>MCP server startup adds latency.</strong> Launching Gemini CLI with MCP servers configured adds a few seconds to the startup time as each server process initialises. This is a minor inconvenience but worth noting if you are accustomed to instant-on tools.</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Is Gemini CLI free for Flutter development with MCP?</h3>
+<p>Yes. Gemini CLI is free and open-source, and the Dart/Flutter MCP server is also free. You authenticate with a Google account to access Gemini models, and the free tier provides generous usage limits. For most individual developers, the free tier is more than sufficient for daily development workflows. Google has not announced plans to restrict MCP usage to paid tiers, but this could change as the product evolves.</p>
+
+<h3>Can I use Gemini CLI with MCP for existing Flutter projects or only new ones?</h3>
+<p>Existing projects work perfectly. The Dart MCP server reads your project's <code>pubspec.yaml</code>, <code>pubspec.lock</code>, and source files regardless of when the project was created. Simply add the <code>.gemini/settings.json</code> configuration to your project root and start Gemini CLI from that directory. The MCP server will analyse your existing codebase, dependencies, and any analysis issues immediately. There is no migration or conversion step required.</p>
+
+<h3>Does Gemini CLI with MCP replace Gemini Code Assist in Android Studio?</h3>
+<p>No — they serve different purposes and work well together. Gemini Code Assist provides inline code completions and a chat panel integrated directly into the editor. Gemini CLI provides a terminal-based, MCP-powered assistant that can invoke Flutter-specific tools. Use Code Assist for quick completions and simple chat queries. Use Gemini CLI for tasks that benefit from MCP tooling: analysing dependencies, debugging build errors with real diagnostic data, generating context-aware code, and creating test scaffolds. Running both simultaneously gives you the best Flutter AI development experience available today at zero cost.</p>
+
+<h2>Sources and Further Reading</h2>
+<ul>
+  <li><a href="https://github.com/google-gemini/gemini-cli" target="_blank" rel="noopener">Gemini CLI — GitHub repository</a></li>
+  <li><a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">Model Context Protocol specification</a></li>
+  <li><a href="https://github.com/dart-lang/sdk/tree/main/pkg/dart_mcp_server" target="_blank" rel="noopener">Dart MCP Server — official repository</a></li>
+  <li><a href="https://docs.flutter.dev" target="_blank" rel="noopener">Flutter official documentation</a></li>
+  <li><a href="https://ai.google.dev/gemini-api" target="_blank" rel="noopener">Google Gemini API documentation</a></li>
+</ul>
+
+<h2>Related Posts</h2>
+<ul>
+  <li><a href="/blog/gemini-cli-vscode">How to Use Gemini CLI in VS Code: Extensions, Terminal Setup, and Coding Workflows</a></li>
+  <li><a href="/blog/create-with-ai-flutter">Create with AI in Flutter: Building Real Apps with AI-Assisted Development</a></li>
+  <li><a href="/blog/flutter-app-architecture-2026">Flutter App Architecture in 2026: Patterns, State Management, and Best Practices</a></li>
+</ul>
+<div class="blog-cta-box"><h3>Want to use AI tools more effectively?</h3><p>My courses cover practical AI workflows, from spreadsheet formulas to app development, with real projects and honest tool comparisons.</p><a href="/courses" class="btn-primary">Browse all courses <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/animations.js" defer></script>
+  <script src="/tracking.js" defer></script>
+</body>
+</html>

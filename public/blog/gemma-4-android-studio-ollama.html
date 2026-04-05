@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle</title>
+  <meta name="description" content="Run Gemma 4 locally in Android Studio with Ollama for free AI coding. Setup guide for Kotlin, Flutter, and Gradle projects with workflow examples.">
+  <meta name="keywords" content="Gemma 4 Android Studio, Ollama Android Studio, local AI Android Studio, Gemma 4 Kotlin, Gemma 4 Flutter, free AI coding, Sagnik Bhattacharya, Coding Liquids">
+  <meta name="author" content="Sagnik Bhattacharya">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#3E2723">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/gemma-4-android-studio-ollama">
+  <meta property="og:title" content="How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle">
+  <meta property="og:description" content="Run Gemma 4 locally in Android Studio with Ollama for free AI coding. Setup guide for Kotlin, Flutter, and Gradle projects with workflow examples.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/gemma-4-android-studio-ollama">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/gemma-4-android-studio-ollama-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/gemma-4-android-studio-ollama-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemma 4 in Android Studio with Ollama, showing Android Studio IDE with local AI coding assistant integration.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Sagnik Bhattacharya">
+  <meta property="article:author" content="Sagnik Bhattacharya">
+  <meta property="article:published_time" content="2026-04-05">
+  <meta property="article:section" content="AI &amp; Automation">
+  <meta property="article:tag" content="AI Tools">
+  <meta property="article:tag" content="Android Studio">
+  <meta property="article:tag" content="Gemma 4">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle">
+  <meta name="twitter:description" content="Run Gemma 4 locally in Android Studio with Ollama for free AI coding. Setup guide for Kotlin, Flutter, and Gradle projects with workflow examples.">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/gemma-4-android-studio-ollama-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemma 4 in Android Studio with Ollama, showing Android Studio IDE with local AI coding assistant integration.">
+  <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle","description":"Run Gemma 4 locally in Android Studio with Ollama for free AI coding. Setup guide for Kotlin, Flutter, and Gradle projects with workflow examples.","datePublished":"2026-04-05","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/gemma-4-android-studio-ollama"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/gemma-4-android-studio-ollama-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/gemma-4-android-studio-ollama-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"\u00a9 Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"Gemma 4 Android Studio, Ollama Android Studio, local AI Android Studio, Gemma 4 Kotlin, Gemma 4 Flutter, free AI coding, Sagnik Bhattacharya, Coding Liquids","articleSection":"AI & Automation"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle","item":"https://sagnikbhattacharya.com/blog/gemma-4-android-studio-ollama"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle","url":"https://sagnikbhattacharya.com/blog/images/gemma-4-android-studio-ollama-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/gemma-4-android-studio-ollama-sagnik-bhattacharya-coding-liquids.jpg","caption":"How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"\u00a9 Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+    @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
+    @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}
+    :root{--warm-50:#FFFBF5;--warm-100:#FFF3E0;--warm-200:#FFE0B2;--warm-300:#FFCC80;--warm-400:#FFA726;--warm-500:#E8852E;--warm-600:#C66A1A;--warm-700:#8B4513;--earth-800:#3E2723;--earth-900:#1C110A;--sage-100:#E8F0E8;--sage-200:#C8DCC8;--cream:#FDF8F0;--text-primary:#2C1810;--text-secondary:#6B5344;--text-light:#9A8578;--white:#FFFFFF;--shadow-sm:0 1px 3px rgba(44,24,16,0.06);--shadow-md:0 4px 16px rgba(44,24,16,0.08);--shadow-lg:0 8px 32px rgba(44,24,16,0.10);--shadow-xl:0 16px 48px rgba(44,24,16,0.12);--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--radius-xl:28px}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-primary);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}h1,h2,h3,h4{font-family:'DM Serif Display',serif;line-height:1.2;font-weight:400}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}.container{max-width:1140px;margin:0 auto;padding:0 24px}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,248,240,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(44,24,16,0.06)}nav .container{display:flex;align-items:center;justify-content:space-between;height:72px}.nav-logo{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--earth-800);letter-spacing:-.5px}.nav-logo span{color:var(--warm-500)}.nav-links{display:flex;gap:32px;list-style:none;align-items:center}.nav-links a{font-size:.9rem;font-weight:500;color:var(--text-secondary)}.nav-cta{background:var(--earth-800)!important;color:var(--warm-100)!important;padding:10px 22px;border-radius:50px;font-size:.85rem!important;font-weight:600!important}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}.hamburger span{width:24px;height:2px;background:var(--earth-800);border-radius:2px}
+    .blog-section{padding-top:100px}.blog-post{max-width:780px;margin:0 auto}.blog-post-title{font-size:2.6rem;color:var(--earth-800);margin-bottom:16px;letter-spacing:-.5px;line-height:1.15}
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}}@media(max-width:640px){.blog-section{padding-top:84px}.blog-post-title{font-size:1.7rem}}
+  </style>
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/style.css"></noscript>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">sagnik<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about">About</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">How to Use Gemma 4 in Android Studio with Ollama</span></nav>
+    </div>
+  </div>
+  <section style="padding-top:0">
+    <div class="container">
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-tags"><span class="blog-post-tag">AI Tools</span></div>
+          <h1 class="blog-post-title">How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle</h1>
+          <div class="blog-post-meta">
+            <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
+              <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
+            </a>
+            <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
+            <span>5 Apr 2026</span>
+            <span>13 min read</span>
+          </div>
+        </div>
+        <figure class="blog-cover">
+          <img src="/blog/images/gemma-4-android-studio-ollama-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemma 4 in Android Studio with Ollama, showing Android Studio IDE with local AI coding assistant integration." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemma 4 in Android Studio with Ollama, showing Android Studio IDE with local AI coding assistant integration.</figcaption>
+        </figure>
+        <div class="blog-post-content">
+<p>This is the companion guide to my <a href="/blog/gemma-4-vscode">VS Code setup post</a>, which became one of the most-read articles on this site within days of publishing. Dozens of readers asked the same follow-up question: "Does this work in Android Studio too?" The short answer is yes — with some important differences in how you connect Ollama to a JetBrains-based IDE versus VS Code. This guide covers everything you need to know.</p>
+<p>Android Studio is built on IntelliJ IDEA, which means the extension ecosystem is different from VS Code's marketplace. You will not find identical plugins, and the native inline completion behaviour works differently. But the core principle remains the same: Gemma 4 running locally through Ollama can serve as a free, private, offline-capable AI coding assistant for your Kotlin, Flutter, and Gradle workflows — all without sending a single line of code to an external server.</p>
+<p>I have tested these setups across native Kotlin Android projects, Flutter apps built in Android Studio, and complex multi-module Gradle builds. This guide walks through the practical steps, shows real workflow examples for each technology, and gives you an honest assessment of where local AI shines and where it falls short in the Android development ecosystem.</p>
+
+<h2>Prerequisites</h2>
+<p>Before you begin, make sure you have the following in place:</p>
+<ol>
+  <li><strong>Ollama installed and running.</strong> Download it from <a href="https://ollama.com" target="_blank" rel="noopener">ollama.com</a> and verify it is active by opening any terminal and running <code>ollama list</code>. You should see your installed models. If you have not set up Ollama before, start with my <a href="/blog/run-gemma-4-locally">beginner's guide to running Gemma 4 locally</a>.</li>
+  <li><strong>Gemma 4 pulled.</strong> Run <code>ollama pull gemma4</code> for the default 12B model, or <code>ollama pull gemma4:27b</code> for the larger variant. The 12B download is roughly 7GB; the 27B is around 16GB.</li>
+  <li><strong>Android Studio Ladybug (2024.2) or later.</strong> Earlier versions work, but Ladybug introduced improvements to the integrated terminal and plugin compatibility that make this workflow smoother. You can check your version under <em>Help &gt; About</em>.</li>
+  <li><strong>Adequate hardware.</strong> The same guidance from the VS Code guide applies here, but Android Studio itself is more memory-hungry than VS Code. For a comfortable experience running Android Studio, an emulator, and Gemma 4 simultaneously, I recommend at least 32GB of system RAM and a GPU with 8GB+ VRAM. If you are running on 16GB of RAM, close the emulator when using Gemma 4 for chat tasks, or use a physical device for testing.</li>
+</ol>
+<p>One additional note for Android developers: if you are already using Gemini Code Assist (Google's cloud-based AI built into Android Studio), Ollama and Gemma 4 complement it rather than replace it. I will cover how the two compare later in this article.</p>
+
+<h2>Connecting Ollama to Android Studio</h2>
+<p>Unlike VS Code, Android Studio does not have a one-click Ollama integration out of the box. The connection happens through two channels: the integrated terminal and JetBrains-compatible plugins.</p>
+
+<h3>Verifying Ollama Is Running</h3>
+<p>Open Android Studio's integrated terminal (View &gt; Tool Windows &gt; Terminal, or press Alt+F12). Run the following commands to confirm Ollama is accessible:</p>
+<pre><code># Check Ollama is running
+ollama list
+
+# Verify the API is responding
+curl http://localhost:11434</code></pre>
+<p>You should see "Ollama is running" from the curl command, and your list of pulled models from <code>ollama list</code>. If Ollama is not responding, start the Ollama application from your system tray (Windows/Linux) or Applications folder (macOS). On Linux, you may need to run <code>ollama serve</code> in a separate terminal first.</p>
+
+<h3>Testing a Quick Query</h3>
+<p>Before setting up any plugins, verify that Gemma 4 responds correctly from within Android Studio's terminal:</p>
+<pre><code>curl http://localhost:11434/api/generate -d '{
+  "model": "gemma4",
+  "prompt": "Write a Kotlin data class for a User with id, name, and email fields.",
+  "stream": false
+}'</code></pre>
+<p>If you get a JSON response containing Kotlin code, your local AI pipeline is working. Everything from here is about making this connection more convenient through plugins and workflow patterns.</p>
+
+<h2>Method 1: Continue Plugin in Android Studio</h2>
+<p>Continue is the best option for integrating a local LLM into Android Studio. It is the same open-source tool I recommended for VS Code, and it has a JetBrains version available on the JetBrains Marketplace.</p>
+
+<h3>Installation</h3>
+<ol>
+  <li>In Android Studio, go to <em>File &gt; Settings &gt; Plugins</em> (or <em>Android Studio &gt; Preferences &gt; Plugins</em> on macOS).</li>
+  <li>Click the <em>Marketplace</em> tab and search for "Continue".</li>
+  <li>Install the plugin by Continue.dev and restart Android Studio when prompted.</li>
+  <li>After restart, you will see a Continue icon in the right sidebar. Click it to open the panel.</li>
+</ol>
+
+<h3>Configuring for Ollama and Gemma 4</h3>
+<p>Continue stores its configuration in <code>~/.continue/config.json</code>. Open this file (Continue's settings panel has a link to it) and configure it for Gemma 4:</p>
+<pre><code>{
+  "models": [
+    {
+      "title": "Gemma 4 27B",
+      "provider": "ollama",
+      "model": "gemma4:27b"
+    }
+  ],
+  "tabAutocompleteModel": {
+    "title": "Gemma 4 12B",
+    "provider": "ollama",
+    "model": "gemma4:12b"
+  },
+  "tabAutocompleteOptions": {
+    "debounceDelay": 600,
+    "multilineCompletions": "always"
+  }
+}</code></pre>
+<p>I set the <code>debounceDelay</code> slightly higher for Android Studio (600ms versus 500ms in VS Code) because the IDE already consumes more memory, and you want to avoid overwhelming the GPU with autocomplete requests while Android Studio's indexer or Gradle sync is running in the background.</p>
+
+<h3>Using Continue in Android Studio</h3>
+<p>The core workflows are identical to the VS Code version:</p>
+<ul>
+  <li><strong>Chat:</strong> Select code in the editor, press Ctrl+L (Cmd+L on Mac), and ask Gemma 4 to explain, refactor, or generate tests for it.</li>
+  <li><strong>Inline editing:</strong> Select code, press Ctrl+I (Cmd+I on Mac), describe the change you want, and review the generated diff.</li>
+  <li><strong>Tab autocomplete:</strong> Continue offers tab-completion suggestions as you type. Accept them with Tab or dismiss with Escape.</li>
+</ul>
+<p>One important difference from VS Code: JetBrains IDEs have their own built-in autocomplete system that competes with Continue's suggestions. If you find the two systems conflicting, go to <em>Settings &gt; Editor &gt; General &gt; Code Completion</em> and adjust the settings so that Continue's AI suggestions do not clash with Android Studio's native completions. In practice, I find they coexist well — Android Studio's completions handle API method names and imports, whilst Continue handles larger multi-line suggestions.</p>
+
+<h2>Method 2: Terminal-Based Workflows</h2>
+<p>Not every interaction needs a plugin. Android Studio's integrated terminal gives you direct access to Ollama, and for many tasks this is faster than switching to a chat panel.</p>
+
+<h3>Quick Queries with ollama run</h3>
+<p>Open the terminal in Android Studio (Alt+F12) and run interactive queries directly:</p>
+<pre><code>ollama run gemma4 "Explain what viewModelScope.launch does in Kotlin coroutines and when to use it versus lifecycleScope."</code></pre>
+<p>For multi-line prompts or when you want to paste code, use the interactive mode:</p>
+<pre><code>ollama run gemma4</code></pre>
+<p>This opens an interactive session where you can type or paste code blocks and have a back-and-forth conversation. Type <code>/bye</code> to exit. This approach is particularly useful for quick "how do I do X" questions that do not warrant opening a full chat panel.</p>
+
+<h3>Piping Files for Review</h3>
+<p>You can pipe entire files to Gemma 4 for review directly from the terminal. This is powerful for code review workflows:</p>
+<pre><code>cat app/src/main/java/com/example/UserRepository.kt | ollama run gemma4 "Review this Kotlin file for potential issues, anti-patterns, and improvements. Focus on coroutine usage and error handling."</code></pre>
+<p>On Windows, use <code>type</code> instead of <code>cat</code>, or use Git Bash (which Android Studio can be configured to use as its default terminal).</p>
+
+<h2>Kotlin Workflows with Gemma 4</h2>
+<p>Kotlin is where Android developers spend most of their time, and Gemma 4 handles it well. Here are the workflows I use most frequently.</p>
+
+<h3>Generating Data Classes</h3>
+<p>Prompt Gemma 4 (via Continue chat or terminal) with your API response structure, and it generates the corresponding Kotlin data classes with serialisation annotations:</p>
+<pre><code>// Prompt: "Generate Kotlin data classes for this JSON API response.
+// Include @Serializable annotations for kotlinx.serialization.
+// The response has a list of products, each with id (Int), name (String),
+// price (Double), category (nested object with id and name), and
+// tags (list of strings)."
+
+@Serializable
+data class ProductResponse(
+    val products: List&lt;Product&gt;
+)
+
+@Serializable
+data class Product(
+    val id: Int,
+    val name: String,
+    val price: Double,
+    val category: Category,
+    val tags: List&lt;String&gt;
+)
+
+@Serializable
+data class Category(
+    val id: Int,
+    val name: String
+)</code></pre>
+<p>Gemma 4 correctly uses <code>@Serializable</code> from kotlinx.serialization rather than older Gson annotations, which shows it has been trained on recent Kotlin conventions. It also handles nullable fields well when you specify them in the prompt.</p>
+
+<h3>Jetpack Compose Components</h3>
+<p>Compose UI generation is one of Gemma 4's stronger areas for Kotlin. Describe a component and it produces idiomatic Compose code:</p>
+<pre><code>// Prompt: "Create a Jetpack Compose card component for displaying a user profile.
+// Include avatar image (circular), name, role, and an action button.
+// Use Material 3 styling."
+
+@Composable
+fun UserProfileCard(
+    name: String,
+    role: String,
+    avatarUrl: String,
+    onActionClick: () -&gt; Unit,
+    modifier: Modifier = Modifier
+) {
+    Card(
+        modifier = modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface
+        )
+    ) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            AsyncImage(
+                model = avatarUrl,
+                contentDescription = "$name avatar",
+                modifier = Modifier
+                    .size(56.dp)
+                    .clip(CircleShape),
+                contentScale = ContentScale.Crop
+            )
+            Spacer(modifier = Modifier.width(16.dp))
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = name,
+                    style = MaterialTheme.typography.titleMedium
+                )
+                Text(
+                    text = role,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+            FilledTonalButton(onClick = onActionClick) {
+                Text("View")
+            }
+        }
+    }
+}</code></pre>
+<p>The output is clean and follows Material 3 conventions. It correctly uses <code>AsyncImage</code> from Coil (the standard image loading library for Compose), applies proper modifiers, and structures the layout idiomatically. You will typically need to add the import statements yourself, but the generated code compiles without modification once imports are in place.</p>
+
+<h3>Ktor Networking Code</h3>
+<p>For networking with Ktor (increasingly popular as a Kotlin-native alternative to Retrofit), Gemma 4 generates solid boilerplate:</p>
+<pre><code>// Prompt: "Write a Ktor HTTP client setup for Android with JSON serialisation,
+// logging, and a function to fetch a list of products from /api/products."</code></pre>
+<p>Gemma 4 produces a complete HttpClient configuration with the ContentNegotiation plugin, kotlinx.serialization, and the Logging plugin. It handles suspending functions correctly and wraps the call in appropriate error handling. The 27B model is particularly good here — it remembers to include the Android engine dependency and sets reasonable timeout values.</p>
+
+<h3>Room Database Entities</h3>
+<p>Ask Gemma 4 to generate Room entity classes, DAOs, and database definitions. It handles the annotation-heavy boilerplate that Room requires and correctly generates <code>@Entity</code>, <code>@PrimaryKey</code>, <code>@Dao</code>, and <code>@Database</code> annotations. I find it especially useful for generating the DAO interface with common query patterns — it produces <code>@Insert(onConflict = OnConflictStrategy.REPLACE)</code>, <code>@Query</code> with Flow return types, and <code>@Transaction</code> annotations where appropriate.</p>
+
+<h2>Flutter and Dart Workflows</h2>
+<p>Many Android developers use Android Studio for Flutter development as well. Gemma 4 supports Dart, though its Dart knowledge is not as deep as its Kotlin coverage. Here is what works well.</p>
+
+<h3>Widget Generation</h3>
+<p>Describe a widget and Gemma 4 generates the corresponding StatelessWidget or StatefulWidget with proper build methods:</p>
+<pre><code>// Prompt: "Create a Flutter StatefulWidget for a search bar with debounced
+// text input that calls an onSearch callback after 500ms of inactivity."
+
+class DebouncedSearchBar extends StatefulWidget {
+  final ValueChanged&lt;String&gt; onSearch;
+  final String hintText;
+
+  const DebouncedSearchBar({
+    super.key,
+    required this.onSearch,
+    this.hintText = 'Search...',
+  });
+
+  @override
+  State&lt;DebouncedSearchBar&gt; createState() =&gt; _DebouncedSearchBarState();
+}
+
+class _DebouncedSearchBarState extends State&lt;DebouncedSearchBar&gt; {
+  final _controller = TextEditingController();
+  Timer? _debounceTimer;
+
+  @override
+  void dispose() {
+    _debounceTimer?.cancel();
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _onChanged(String value) {
+    _debounceTimer?.cancel();
+    _debounceTimer = Timer(
+      const Duration(milliseconds: 500),
+      () =&gt; widget.onSearch(value),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      controller: _controller,
+      onChanged: _onChanged,
+      decoration: InputDecoration(
+        hintText: widget.hintText,
+        prefixIcon: const Icon(Icons.search),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+      ),
+    );
+  }
+}</code></pre>
+<p>The generated code properly handles Timer disposal, uses <code>super.key</code> (the modern Dart 3 syntax), and follows Flutter naming conventions. For straightforward widgets, Gemma 4 is reliable.</p>
+
+<h3>State Management</h3>
+<p>Gemma 4 can generate Riverpod providers, Bloc classes, or plain ChangeNotifier implementations depending on what you ask for. When prompted for Riverpod code, the 27B model produces correct <code>@riverpod</code> annotations and generated code patterns. The 12B model occasionally confuses older Riverpod 1.x syntax with the newer code-generation approach, so use the larger model for state management tasks.</p>
+
+<h3>Package Setup and Configuration</h3>
+<p>Ask Gemma 4 to generate <code>pubspec.yaml</code> dependency blocks or platform-specific configuration files. For example: "What dependencies do I need in pubspec.yaml for a Flutter app with Riverpod state management, GoRouter navigation, Dio networking, and Hive local storage?" It produces the correct package names and reasonable version constraints, though you should always verify version numbers against pub.dev since training data has a cut-off date.</p>
+
+<h2>Gradle Help: Build Configuration and Dependency Management</h2>
+<p>This is the section that might surprise you. Gradle build configuration is one of the areas where Gemma 4 provides the most practical value in an Android Studio workflow, because Gradle files are notoriously difficult to write from memory and the official documentation can be dense.</p>
+
+<h3>build.gradle.kts Generation</h3>
+<p>Ask Gemma 4 to generate module-level <code>build.gradle.kts</code> files with specific requirements:</p>
+<pre><code>// Prompt: "Generate a build.gradle.kts for an Android app module using
+// Kotlin 2.0, Compose, Hilt for DI, Room for database, and Ktor for networking.
+// Use version catalogs for dependency management."
+
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.hilt.android)
+    alias(libs.plugins.ksp)
+}
+
+android {
+    namespace = "com.example.myapp"
+    compileSdk = 35
+
+    defaultConfig {
+        applicationId = "com.example.myapp"
+        minSdk = 26
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0.0"
+    }
+
+    buildFeatures {
+        compose = true
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+}
+
+dependencies {
+    // Compose
+    implementation(platform(libs.compose.bom))
+    implementation(libs.compose.ui)
+    implementation(libs.compose.material3)
+    implementation(libs.compose.ui.tooling.preview)
+    debugImplementation(libs.compose.ui.tooling)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+    implementation(libs.hilt.navigation.compose)
+
+    // Room
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
+
+    // Ktor
+    implementation(libs.ktor.client.android)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.serialization.kotlinx.json)
+}</code></pre>
+<p>Gemma 4 correctly uses KSP instead of KAPT (the modern annotation processing approach), references version catalog aliases rather than hard-coded version strings, and applies the Compose compiler plugin through the Kotlin Compose plugin rather than the older <code>composeOptions</code> block. These are the kinds of details that save you fifteen minutes of searching the migration guides.</p>
+
+<h3>Version Catalog Setup</h3>
+<p>Ask Gemma 4 to generate a complete <code>libs.versions.toml</code> file for your project's dependencies. Provide the libraries you are using and it produces the <code>[versions]</code>, <code>[libraries]</code>, and <code>[plugins]</code> sections with correct group IDs, artifact IDs, and version references. This is particularly useful when migrating an older project from hard-coded dependencies to the version catalog system.</p>
+
+<h3>Multi-Module Configuration</h3>
+<p>For larger projects with multiple modules, Gemma 4 can generate <code>settings.gradle.kts</code> files with proper module includes, convention plugins for shared build logic, and module-level <code>build.gradle.kts</code> files that reference a shared build-logic module. Describe your module structure — for example, "I have :app, :core:data, :core:domain, :core:ui, :feature:home, and :feature:profile" — and it generates the appropriate configuration for each.</p>
+
+<h3>Dependency Resolution Problems</h3>
+<p>Paste a Gradle sync error into the Continue chat or the terminal, and Gemma 4 is remarkably good at diagnosing the issue. Common problems like version conflicts, missing repositories, incorrect plugin application order, and JVM target mismatches are identified quickly with clear fix instructions. This alone makes Ollama worth setting up — Gradle errors are one of the most time-consuming parts of Android development, and having an AI that can parse the error output and suggest a fix is genuinely useful.</p>
+
+<h2>Performance Tips: Optimising Gemma 4 for Android Studio</h2>
+<p>Android Studio is a resource-intensive application. Running Gemma 4 alongside it requires some thought about resource allocation.</p>
+
+<h3>Model Size Selection</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Min VRAM</th>
+      <th>Response Speed</th>
+      <th>Code Quality</th>
+      <th>Best For</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Gemma 4 4B</td>
+      <td>4GB</td>
+      <td>Very fast (100-300ms)</td>
+      <td>Basic completions</td>
+      <td>Low-end hardware, quick snippets</td>
+    </tr>
+    <tr>
+      <td>Gemma 4 12B</td>
+      <td>8GB</td>
+      <td>Fast (300-800ms)</td>
+      <td>Good for most tasks</td>
+      <td>Best balance for daily use</td>
+    </tr>
+    <tr>
+      <td>Gemma 4 27B</td>
+      <td>16GB</td>
+      <td>Moderate (800ms-2s)</td>
+      <td>Excellent for complex logic</td>
+      <td>Chat, Gradle debugging, architecture</td>
+    </tr>
+  </tbody>
+</table>
+<p>For Android Studio specifically, I recommend starting with the 12B model for autocomplete and switching to the 27B model only for chat-based tasks like Gradle debugging or architecture discussions. If you are running Android Studio with an emulator simultaneously, the 4B model might be your only realistic option unless you have 32GB+ of RAM and a high-end GPU.</p>
+
+<h3>GPU Offloading</h3>
+<p>Verify that Ollama is utilising your GPU by running <code>ollama ps</code> in the terminal. You should see the GPU listed as the processor. If it shows CPU, check that your GPU drivers are up to date and that Ollama detects your hardware with <code>ollama show gemma4 --system</code>. On NVIDIA systems, ensure CUDA is properly installed. On Apple Silicon, GPU acceleration works automatically through Metal.</p>
+
+<h3>Context Window Tuning</h3>
+<p>Reduce the context window for autocomplete tasks to 2048 tokens. The default context window is larger, which consumes more VRAM and slows responses. For chat tasks where you are pasting longer code blocks, you can leave the context at the default size. In Continue's config, you can set this per model:</p>
+<pre><code>{
+  "models": [
+    {
+      "title": "Gemma 4 27B",
+      "provider": "ollama",
+      "model": "gemma4:27b",
+      "contextLength": 8192
+    }
+  ],
+  "tabAutocompleteModel": {
+    "title": "Gemma 4 12B",
+    "provider": "ollama",
+    "model": "gemma4:12b",
+    "contextLength": 2048
+  }
+}</code></pre>
+
+<h2>Gemma 4 vs Gemini Code Assist vs GitHub Copilot in Android Studio</h2>
+<p>Android Studio developers have three main AI assistant options. Here is how they compare.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Gemma 4 + Ollama (Local)</th>
+      <th>Gemini Code Assist</th>
+      <th>GitHub Copilot</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cost</td>
+      <td>Free</td>
+      <td>Free tier available; paid plans for teams</td>
+      <td>$19/month individual</td>
+    </tr>
+    <tr>
+      <td>Privacy</td>
+      <td>Fully local — code never leaves your machine</td>
+      <td>Cloud-based — code sent to Google servers</td>
+      <td>Cloud-based — code sent to GitHub servers</td>
+    </tr>
+    <tr>
+      <td>Offline availability</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Native Android Studio integration</td>
+      <td>Via Continue plugin</td>
+      <td>Built-in (first-party)</td>
+      <td>Via JetBrains plugin</td>
+    </tr>
+    <tr>
+      <td>Inline completions</td>
+      <td>Via Continue (not native)</td>
+      <td>Native inline suggestions</td>
+      <td>Native inline suggestions</td>
+    </tr>
+    <tr>
+      <td>Kotlin code quality</td>
+      <td>Good (27B model)</td>
+      <td>Excellent (trained on Android codebase)</td>
+      <td>Very good</td>
+    </tr>
+    <tr>
+      <td>Gradle understanding</td>
+      <td>Good — handles common patterns</td>
+      <td>Very good — deep Android build system knowledge</td>
+      <td>Good</td>
+    </tr>
+    <tr>
+      <td>Flutter/Dart support</td>
+      <td>Adequate</td>
+      <td>Good</td>
+      <td>Good</td>
+    </tr>
+    <tr>
+      <td>Project context awareness</td>
+      <td>Limited to active file + prompt</td>
+      <td>Indexes project files</td>
+      <td>Indexes open files</td>
+    </tr>
+    <tr>
+      <td>Setup effort</td>
+      <td>Moderate (Ollama + model + plugin)</td>
+      <td>Minimal (sign in with Google)</td>
+      <td>Minimal (install plugin, sign in)</td>
+    </tr>
+    <tr>
+      <td>Response speed</td>
+      <td>Hardware-dependent</td>
+      <td>Consistently fast</td>
+      <td>Consistently fast</td>
+    </tr>
+  </tbody>
+</table>
+<p><strong>My recommendation:</strong> If you have no restrictions on cloud usage and budget is not a concern, Gemini Code Assist is the strongest choice for Android Studio because it is built by Google specifically for the Android ecosystem. If you need privacy, offline capability, or simply want a free option, Gemma 4 through Ollama is the best local alternative. Copilot sits in between — excellent for polyglot developers who work across multiple IDEs and languages, but it lacks the Android-specific depth that Gemini Code Assist offers.</p>
+<p>For a deeper comparison of Gemma 4 against other AI models across all categories, see my <a href="/blog/gemma-4-vs-chatgpt-vs-claude">full AI model comparison for 2026</a>.</p>
+
+<h2>Limitations You Should Know About</h2>
+<p>Honesty about limitations helps you set realistic expectations. Here is where the local Gemma 4 experience in Android Studio falls short.</p>
+<ul>
+  <li><strong>No native inline completions in JetBrains.</strong> Unlike VS Code where Continue's inline completions feel nearly native, the JetBrains integration is less seamless. Completions appear as suggestions but can occasionally conflict with Android Studio's own autocomplete. This is a JetBrains platform limitation, not a Gemma 4 issue — it affects all third-party AI completion providers.</li>
+  <li><strong>Slower than cloud-based tools.</strong> Gemini Code Assist and Copilot run on powerful server hardware and deliver responses in under 300ms consistently. Gemma 4 on consumer hardware ranges from 300ms (4B model) to 2+ seconds (27B model). For inline completions, this delay is noticeable. For chat tasks, it is acceptable.</li>
+  <li><strong>Context limitations.</strong> Gemma 4 does not index your entire project. It works with the code you explicitly provide in the prompt or that your extension sends from the active file. This means it might suggest importing a library you are not using or miss project-specific patterns. Cloud tools that index your workspace handle this better.</li>
+  <li><strong>Resource competition with Android Studio.</strong> Android Studio and Gradle already consume significant CPU and RAM. Adding Gemma 4 to the mix can cause slowdowns during Gradle sync or when running the emulator. On machines with less than 32GB RAM, you will feel this.</li>
+  <li><strong>Dart knowledge gaps.</strong> While Gemma 4 handles Kotlin well, its Dart and Flutter knowledge is less comprehensive. It occasionally generates deprecated widget patterns or uses older package versions. Always verify Flutter code against the latest documentation.</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Can I use Gemma 4 in Android Studio for Flutter development specifically?</h3>
+<p>Yes. The setup is identical — install Ollama, pull Gemma 4, and configure Continue in Android Studio. Gemma 4 generates Dart code and Flutter widgets, though its Flutter knowledge is not as deep as its Kotlin knowledge. For widget generation, state management boilerplate, and basic Dart functions, it works well. For Flutter-specific platform channel code or complex animations, you may need to provide more context in your prompts or use the 27B model for better results. If Flutter is your primary focus, I cover additional Flutter-specific AI workflows in my <a href="/blog/create-with-ai-flutter">guide to building Flutter apps with AI</a>.</p>
+
+<h3>Does Gemma 4 work with Android Studio on Apple Silicon Macs?</h3>
+<p>Yes, and it works well. Ollama uses Metal for GPU acceleration on Apple Silicon, which means the M1 Pro, M2, M3, and M4 series chips all handle Gemma 4 efficiently. A Mac with 16GB unified memory runs the 12B model comfortably alongside Android Studio. With 32GB or 64GB, you can run the 27B model and still have headroom for the Android emulator. The unified memory architecture on Apple Silicon is actually an advantage here — there is no separate GPU VRAM to worry about, as the model shares the same memory pool as the rest of the system.</p>
+
+<h3>How does this compare to just using Gemini in Android Studio?</h3>
+<p>Gemini Code Assist (the cloud-based tool built into Android Studio) offers a smoother, more integrated experience because it is a first-party Google product designed specifically for Android development. It has better project context awareness, faster response times, and deeper understanding of Android-specific APIs and patterns. Gemma 4 through Ollama wins on privacy (fully local), cost (completely free with no usage limits), and offline availability. If your company prohibits sending code to external servers, or if you frequently work without internet access, Gemma 4 is the better choice. For everyone else, Gemini Code Assist's free tier is worth trying first, and you can add Gemma 4 as a supplement for sensitive projects or offline scenarios.</p>
+
+<h2>Sources and Further Reading</h2>
+<ul>
+  <li><a href="https://ai.google.dev/gemma" target="_blank" rel="noopener">Google Gemma official documentation</a></li>
+  <li><a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a></li>
+  <li><a href="https://continue.dev" target="_blank" rel="noopener">Continue — open-source AI code assistant</a></li>
+  <li><a href="https://plugins.jetbrains.com/plugin/22707-continue" target="_blank" rel="noopener">Continue plugin on JetBrains Marketplace</a></li>
+  <li><a href="https://developer.android.com/studio" target="_blank" rel="noopener">Android Studio — official site</a></li>
+  <li><a href="https://developer.android.com/studio/intro/studio-features#gemini" target="_blank" rel="noopener">Gemini in Android Studio</a></li>
+</ul>
+
+<h2>Related Posts</h2>
+<ul>
+  <li><a href="/blog/gemma-4-vscode">How to Use Gemma 4 in VS Code: Setup, Extensions, and Coding Workflows</a></li>
+  <li><a href="/blog/gemma-4-vs-chatgpt-vs-claude">Gemma 4 vs ChatGPT vs Claude vs Copilot: Best AI Model Comparison in 2026</a></li>
+  <li><a href="/blog/create-with-ai-flutter">How to Build a Flutter App with AI: From Idea to Google Play in a Weekend</a></li>
+</ul>
+<div class="blog-cta-box"><h3>Want to use AI tools more effectively?</h3><p>My courses cover practical AI workflows, from spreadsheet formulas to app development, with real projects and honest tool comparisons.</p><a href="/courses" class="btn-primary">Browse all courses <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/animations.js" defer></script>
+  <script src="/tracking.js" defer></script>
+</body>
+</html>

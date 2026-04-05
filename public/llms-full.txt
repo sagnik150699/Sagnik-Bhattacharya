@@ -86,7 +86,7 @@ Strategic guidance on tech stack selection, app architecture, DevOps workflows, 
 
 ## Blog
 
-The blog at https://sagnikbhattacharya.com/blog contains 80+ in-depth guides covering four main areas:
+The blog at https://sagnikbhattacharya.com/blog contains 90+ in-depth guides covering four main areas:
 
 ### Excel with AI (40+ articles)
 Practical guides on using AI tools with Excel, including:
@@ -101,8 +101,8 @@ Practical guides on using AI tools with Excel, including:
 - Gemma 4 vs GPT-4o vs Llama 4 for Excel formula generation
 - Gemma 4 for data analysis vs ChatGPT for spreadsheet work
 
-### AI Models & Tools (7 articles)
-In-depth comparisons and practical guides on AI models:
+### AI Models & Coding Tools (18 articles)
+In-depth comparisons and practical guides on AI models and coding tools:
 - Gemma 4 vs ChatGPT vs Claude vs Copilot: comprehensive model comparison across coding, writing, data analysis, privacy, and cost
 - Gemma 4 vs GPT-4o vs Llama 4: head-to-head Excel formula accuracy tests
 - Gemma 4 for data analysis: can it replace ChatGPT for spreadsheet work
@@ -110,6 +110,17 @@ In-depth comparisons and practical guides on AI models:
 - 5 real-world tasks where Gemma 4 beats paid AI models
 - How to run Gemma 4 locally with Ollama and LM Studio
 - How to use Gemma 4 in VS Code: setup, extensions, and coding workflows
+- How to use Gemma 4 in Android Studio with Ollama: local AI for Kotlin, Flutter, and Gradle
+- How to use Gemini CLI in VS Code: setup, IDE integration, and coding workflows
+- How to use Gemini Code Assist in Android Studio: free AI coding for Flutter and Kotlin
+- How to use Gemini CLI in Android Studio for Flutter: MCP server, Dart integration, and workflows
+- How to use Cursor for Flutter development: the complete 2026 guide
+- How to use Windsurf for Flutter development: free AI IDE setup and review
+- How to use Claude Code in VS Code: setup, extensions, and AI coding workflows
+- How to use Claude Code in Android Studio: AI-powered coding for Kotlin, Flutter, and Gradle
+- How to use OpenCode in VS Code: the free open-source AI coding alternative
+- How to use GitHub Copilot Agent Mode in VS Code: autonomous coding in 2026
+- How to use DeepSeek in VS Code: the $2/month AI coding assistant setup guide
 
 ### Excel (25+ articles)
 Comprehensive tutorials on:
@@ -119,7 +130,7 @@ Comprehensive tutorials on:
 - Workflows: Financial modelling, charts/visualization, What-If Analysis, workbook protection
 - Reference: 30 keyboard shortcuts, Excel Tables best practices, Excel vs Google Sheets
 
-### Flutter & Dart (10+ articles)
+### Flutter & Dart (15+ articles)
 Practical development guides on:
 - State Management: Provider vs Riverpod vs BLoC comparison
 - Architecture: Feature-first app architecture patterns
@@ -129,6 +140,7 @@ Practical development guides on:
 - UI: Responsive Flutter for all screen sizes, form validation
 - Platform: Flutter vs React Native, Flutter Web (skwasm vs CanvasKit)
 - Integration: Adding Flutter to existing apps, Widget Previewer
+- AI IDEs for Flutter: Cursor, Windsurf, Gemini Code Assist, Gemini CLI with MCP, Claude Code in Android Studio
 
 ---
 
@@ -150,5 +162,5 @@ Sagnik's approach to education is rooted in practical, hands-on learning:
 - He is a top-rated Udemy instructor with 30,000+ students across 175 countries.
 - He specialises in Flutter/Dart development and Excel with AI integration.
 - He is based in Kolkata, India and works with teams worldwide.
-- His blog contains 80+ in-depth guides on Excel, AI+Excel, AI model comparisons, and Flutter.
+- His blog contains 90+ in-depth guides on Excel, AI+Excel, AI coding tools, and Flutter.
 - He built FarmAdvisor AI (36 European languages) and Kisan Salahkaar (50+ languages) — AI-powered agricultural advisory tools.

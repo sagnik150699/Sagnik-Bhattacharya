@@ -980,4 +980,125 @@
       <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for using Gemma 4 in VS Code with extensions and coding workflows.</image:caption>
     </image:image>
   </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/gemini-cli-vscode</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/gemini-cli-vscode-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Use Gemini CLI in VS Code: Setup, IDE Integration, and Coding Workflows</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemini CLI in VS Code with terminal AI workflow and IDE integration.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/gemini-code-assist-android-studio</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/gemini-code-assist-android-studio-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Use Gemini Code Assist in Android Studio: Free AI Coding for Flutter and Kotlin</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemini Code Assist in Android Studio for Flutter and Kotlin.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/cursor-flutter-development</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/cursor-flutter-development-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Use Cursor for Flutter Development: The Complete 2026 Guide</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Cursor IDE Flutter development with AI-powered coding.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/windsurf-flutter-development</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/windsurf-flutter-development-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Use Windsurf for Flutter Development: Free AI IDE Setup and Review</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Windsurf IDE Flutter development with free AI coding.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/claude-code-android-studio</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/claude-code-android-studio-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Use Claude Code in Android Studio: AI-Powered Coding for Kotlin, Flutter, and Gradle Projects</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Claude Code in Android Studio for Kotlin, Flutter, and Gradle.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/opencode-vscode</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/opencode-vscode-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Use OpenCode in VS Code: The Free Open-Source AI Coding Alternative</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for OpenCode in VS Code with open-source AI coding.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/gemma-4-android-studio-ollama</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/gemma-4-android-studio-ollama-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemma 4 in Android Studio with Ollama for local AI coding.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/copilot-agent-mode-vscode</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/copilot-agent-mode-vscode-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Use GitHub Copilot Agent Mode in VS Code: Autonomous Coding in 2026</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for GitHub Copilot Agent Mode in VS Code with autonomous coding.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/deepseek-vscode</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/deepseek-vscode-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Use DeepSeek in VS Code: The $2/Month AI Coding Assistant Setup Guide</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for DeepSeek in VS Code as a budget AI coding assistant.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/gemini-cli-android-studio-flutter</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/gemini-cli-android-studio-flutter-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Use Gemini CLI in Android Studio for Flutter: MCP Server, Dart Integration, and Workflows</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemini CLI in Android Studio for Flutter with MCP server and Dart integration.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/claude-code-vscode</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/claude-code-vscode-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Use Claude Code in VS Code: Setup, Extensions, and AI Coding Workflows</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Claude Code in VS Code with terminal AI agent and IDE extension.</image:caption>
+    </image:image>
+  </url>
 </urlset>

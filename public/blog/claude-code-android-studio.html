@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use Claude Code in Android Studio: AI-Powered Coding for Kotlin, Flutter, and Gradle Projects</title>
+  <meta name="description" content="Use Claude Code in Android Studio for Kotlin, Flutter, and Gradle projects. Terminal AI agent setup, workflows, and honest review for Android developers.">
+  <meta name="keywords" content="Claude Code Android Studio, Claude Code Kotlin, Claude Code Flutter, AI coding Android Studio, terminal AI agent, Claude AI coding, Sagnik Bhattacharya, Coding Liquids">
+  <meta name="author" content="Sagnik Bhattacharya">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#3E2723">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/claude-code-android-studio">
+  <meta property="og:title" content="How to Use Claude Code in Android Studio: AI-Powered Coding for Kotlin, Flutter, and Gradle Projects">
+  <meta property="og:description" content="Use Claude Code in Android Studio for Kotlin, Flutter, and Gradle projects. Terminal AI agent setup, workflows, and honest review for Android developers.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/claude-code-android-studio">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/claude-code-android-studio-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/claude-code-android-studio-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Claude Code in Android Studio, showing Android Studio terminal with Claude Code AI agent integration.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Sagnik Bhattacharya">
+  <meta property="article:author" content="Sagnik Bhattacharya">
+  <meta property="article:published_time" content="2026-04-05">
+  <meta property="article:section" content="AI &amp; Automation">
+  <meta property="article:tag" content="AI Tools">
+  <meta property="article:tag" content="Android Studio">
+  <meta property="article:tag" content="Claude Code">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Use Claude Code in Android Studio: AI-Powered Coding for Kotlin, Flutter, and Gradle Projects">
+  <meta name="twitter:description" content="Use Claude Code in Android Studio for Kotlin, Flutter, and Gradle projects. Terminal AI agent setup, workflows, and honest review for Android developers.">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/claude-code-android-studio-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Claude Code in Android Studio, showing Android Studio terminal with Claude Code AI agent integration.">
+  <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Use Claude Code in Android Studio: AI-Powered Coding for Kotlin, Flutter, and Gradle Projects","description":"Use Claude Code in Android Studio for Kotlin, Flutter, and Gradle projects. Terminal AI agent setup, workflows, and honest review for Android developers.","datePublished":"2026-04-05","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/claude-code-android-studio"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/claude-code-android-studio-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/claude-code-android-studio-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"How to Use Claude Code in Android Studio: AI-Powered Coding for Kotlin, Flutter, and Gradle Projects by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"Claude Code Android Studio, Claude Code Kotlin, Claude Code Flutter, AI coding Android Studio, terminal AI agent, Claude AI coding, Sagnik Bhattacharya, Coding Liquids","articleSection":"AI & Automation"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"How to Use Claude Code in Android Studio: AI-Powered Coding for Kotlin, Flutter, and Gradle Projects","item":"https://sagnikbhattacharya.com/blog/claude-code-android-studio"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"How to Use Claude Code in Android Studio: AI-Powered Coding for Kotlin, Flutter, and Gradle Projects","url":"https://sagnikbhattacharya.com/blog/images/claude-code-android-studio-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/claude-code-android-studio-sagnik-bhattacharya-coding-liquids.jpg","caption":"How to Use Claude Code in Android Studio: AI-Powered Coding for Kotlin, Flutter, and Gradle Projects by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+    @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
+    @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}
+    :root{--warm-50:#FFFBF5;--warm-100:#FFF3E0;--warm-200:#FFE0B2;--warm-300:#FFCC80;--warm-400:#FFA726;--warm-500:#E8852E;--warm-600:#C66A1A;--warm-700:#8B4513;--earth-800:#3E2723;--earth-900:#1C110A;--sage-100:#E8F0E8;--sage-200:#C8DCC8;--cream:#FDF8F0;--text-primary:#2C1810;--text-secondary:#6B5344;--text-light:#9A8578;--white:#FFFFFF;--shadow-sm:0 1px 3px rgba(44,24,16,0.06);--shadow-md:0 4px 16px rgba(44,24,16,0.08);--shadow-lg:0 8px 32px rgba(44,24,16,0.10);--shadow-xl:0 16px 48px rgba(44,24,16,0.12);--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--radius-xl:28px}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-primary);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}h1,h2,h3,h4{font-family:'DM Serif Display',serif;line-height:1.2;font-weight:400}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}.container{max-width:1140px;margin:0 auto;padding:0 24px}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,248,240,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(44,24,16,0.06)}nav .container{display:flex;align-items:center;justify-content:space-between;height:72px}.nav-logo{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--earth-800);letter-spacing:-.5px}.nav-logo span{color:var(--warm-500)}.nav-links{display:flex;gap:32px;list-style:none;align-items:center}.nav-links a{font-size:.9rem;font-weight:500;color:var(--text-secondary)}.nav-cta{background:var(--earth-800)!important;color:var(--warm-100)!important;padding:10px 22px;border-radius:50px;font-size:.85rem!important;font-weight:600!important}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}.hamburger span{width:24px;height:2px;background:var(--earth-800);border-radius:2px}
+    .blog-section{padding-top:100px}.blog-post{max-width:780px;margin:0 auto}.blog-post-title{font-size:2.6rem;color:var(--earth-800);margin-bottom:16px;letter-spacing:-.5px;line-height:1.15}
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}}@media(max-width:640px){.blog-section{padding-top:84px}.blog-post-title{font-size:1.7rem}}
+  </style>
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/style.css"></noscript>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">sagnik<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about">About</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">How to Use Claude Code in Android Studio: AI-Powered Coding for Kotlin, Flutter, and Gradle Projects</span></nav>
+    </div>
+  </div>
+  <section style="padding-top:0">
+    <div class="container">
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-tags"><span class="blog-post-tag">AI Tools</span></div>
+          <h1 class="blog-post-title">How to Use Claude Code in Android Studio: AI-Powered Coding for Kotlin, Flutter, and Gradle Projects</h1>
+          <div class="blog-post-meta">
+            <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
+              <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
+            </a>
+            <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
+            <span>5 Apr 2026</span>
+            <span>13 min read</span>
+          </div>
+        </div>
+        <figure class="blog-cover">
+          <img src="/blog/images/claude-code-android-studio-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Claude Code in Android Studio, showing Android Studio terminal with Claude Code AI agent integration." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Claude Code in Android Studio, showing Android Studio terminal with Claude Code AI agent integration.</figcaption>
+        </figure>
+        <div class="blog-post-content">
+<p>Android Studio has excellent built-in tooling, but its AI assistance story has historically been limited to Gemini Code Assist and whatever JetBrains ships with their IDE. Claude Code changes that equation entirely. It is Anthropic's terminal-based AI coding agent — currently ranked number one on SWE-bench, the industry-standard benchmark for real-world software engineering tasks — and it works inside any IDE that has an integrated terminal. That includes Android Studio.</p>
+<p>Unlike traditional AI coding extensions that provide inline completions or sidebar chat panels, Claude Code operates as a full agentic system in your terminal. You describe what you want in natural language, and it reads your files, writes code, runs commands, creates tests, and iterates on errors autonomously. For Android developers working across Kotlin, Flutter, and complex Gradle configurations, this approach turns out to be remarkably powerful — precisely because Android projects involve so many interconnected files, build scripts, and platform-specific concerns that benefit from an agent that can reason across the entire project structure.</p>
+<p>I have been using Claude Code inside Android Studio for the past several weeks across three different project types: a native Kotlin app with Jetpack Compose, a Flutter cross-platform project, and a multi-module Gradle build. This guide covers practical workflows for all three, along with an honest assessment of where Claude Code excels and where it falls short compared to alternatives.</p>
+
+<h2>Prerequisites</h2>
+<p>Before you begin, make sure you have the following in place:</p>
+<ol>
+  <li><strong>A Claude Code subscription.</strong> Claude Code requires either a Claude Pro ($20/month) or Claude Max plan. It is not available on the free tier. You will need to authenticate with your Anthropic account during setup.</li>
+  <li><strong>Node.js 18 or later.</strong> Claude Code is distributed as an npm package. Download Node.js from <a href="https://nodejs.org" target="_blank" rel="noopener">nodejs.org</a> if you do not already have it. Run <code>node --version</code> in your terminal to check.</li>
+  <li><strong>Android Studio with terminal access.</strong> Any recent version of Android Studio (Hedgehog or later) includes an integrated terminal. You can open it with Alt+F12 on Windows/Linux or Option+F12 on macOS. If you are using Android Studio for Flutter development, ensure the Flutter and Dart plugins are installed.</li>
+  <li><strong>A project to work with.</strong> Claude Code works best when it can see your full project directory. Open your Android Studio project before launching Claude Code so it can index the file structure.</li>
+</ol>
+
+<h2>Installing Claude Code</h2>
+<p>Installation is straightforward. Open the integrated terminal in Android Studio (Alt+F12) and run:</p>
+<pre><code>npm install -g @anthropic-ai/claude-code</code></pre>
+<p>Once the installation completes, launch it by typing:</p>
+<pre><code>claude</code></pre>
+<p>The first time you run Claude Code, it will prompt you to authenticate. Follow the browser-based authentication flow — it opens a page where you sign in with your Anthropic account and authorise the CLI. After authentication, Claude Code stores your credentials locally and you will not need to sign in again.</p>
+<p>To verify everything is working, ask it a simple question from your project root:</p>
+<pre><code>claude "What files are in this project?"</code></pre>
+<p>Claude Code should list your project's directory structure, confirming it can read your Android Studio project. If you see an authentication error, run <code>claude auth</code> to re-authenticate. If you see a Node.js version error, upgrade Node to version 18 or later.</p>
+<p>One important detail: Claude Code operates in the directory where you launch it. Always launch it from your project root inside Android Studio's terminal so it has access to all your source files, build scripts, and configuration. If you launch it from a subdirectory, it will only see that portion of your project.</p>
+
+<h2>Kotlin Workflows</h2>
+<p>Kotlin is the primary language for native Android development, and Claude Code handles it exceptionally well. Its training data includes extensive Kotlin codebases, Android SDK documentation, and Jetpack library patterns. Here are the workflows I use most frequently.</p>
+
+<h3>Generating Data Classes and Models</h3>
+<p>Android projects involve a great deal of boilerplate for data models — particularly when you are working with Room databases, Retrofit API responses, or serialisation. Instead of writing these manually, describe what you need:</p>
+<pre><code>claude "Create a Kotlin data class for a User entity with fields for id (Long),
+name (String), email (String), and createdAt (Instant). Include Room annotations
+for a table called 'users' with id as the primary key. Also create the
+corresponding DAO interface with insert, getById, getAll, and delete operations."</code></pre>
+<p>Claude Code generates both files — the entity class with <code>@Entity</code>, <code>@PrimaryKey</code>, and <code>@ColumnInfo</code> annotations, and a DAO interface with <code>@Insert</code>, <code>@Query</code>, and <code>@Delete</code> annotations. It places them in sensible package locations based on your existing project structure. What impresses me is that it picks up on your project's conventions — if you use <code>kotlinx.serialization</code> elsewhere, it adds <code>@Serializable</code> annotations; if you use Moshi, it generates Moshi-compatible code instead.</p>
+
+<h3>Jetpack Compose UI Components</h3>
+<p>Compose code is verbose, and writing custom composables from scratch is time-consuming. Claude Code is particularly strong here because Compose follows predictable patterns:</p>
+<pre><code>claude "Create a reusable ProfileCard composable that displays a user's avatar
+(circular, loaded from URL using Coil), name, email, and a follow button. Use
+Material 3 styling. Include a preview annotation."</code></pre>
+<p>The generated composable typically includes proper modifier parameters, content descriptions for accessibility, a <code>@Preview</code> function with sample data, and correct use of Material 3 components like <code>Card</code>, <code>Text</code>, and <code>Button</code>. It handles the Coil <code>AsyncImage</code> integration correctly, including placeholder and error state handling.</p>
+
+<h3>Coroutine Patterns</h3>
+<p>Android's concurrency model with Kotlin coroutines, Flow, and structured concurrency is one of the areas where developers make the most mistakes. Claude Code understands the patterns well:</p>
+<pre><code>claude "Refactor this repository class to use Kotlin Flow instead of LiveData.
+Convert the network call to use a flow that emits Loading, Success, and Error
+states. Use the sealed interface pattern for the UI state."</code></pre>
+<p>It generates sealed interfaces for state management, converts <code>suspend</code> functions to <code>Flow</code> emitters with proper <code>catch</code> and <code>onStart</code> operators, and updates the ViewModel to collect flows with the correct lifecycle scope (<code>viewModelScope</code> and <code>repeatOnLifecycle</code>). This is genuinely useful because getting the lifecycle-aware collection right is a common source of bugs.</p>
+
+<h3>Ktor Client Code</h3>
+<p>For projects using Ktor as the HTTP client (increasingly common in Kotlin Multiplatform setups), Claude Code generates well-structured API client code:</p>
+<pre><code>claude "Create a Ktor HTTP client module with JSON serialisation using
+kotlinx.serialization. Include an ApiService class with methods for GET and
+POST requests to /api/users, with proper error handling and request logging."</code></pre>
+<p>The output includes the <code>HttpClient</code> configuration with content negotiation, serialisation plugins, logging interceptors, and an <code>ApiService</code> class with typed response handling. It correctly uses <code>runCatching</code> or sealed result types for error handling rather than letting exceptions propagate unchecked.</p>
+
+<h2>Flutter and Dart Workflows</h2>
+<p>Many Android developers also work on Flutter projects, and Android Studio with the Flutter plugin is a common development environment for this. Claude Code supports Dart and Flutter equally well.</p>
+
+<h3>Widget Generation</h3>
+<p>Flutter's widget tree structure means you often need to compose multiple nested widgets for a single screen element. Claude Code accelerates this:</p>
+<pre><code>claude "Create a Flutter ProductCard widget that displays a product image,
+name, price (formatted as GBP currency), and an 'Add to Cart' button. Use a
+Card with rounded corners and a subtle shadow. Accept all data via a Product
+model class that you should also create."</code></pre>
+<p>Claude Code creates both the <code>Product</code> model class and the <code>ProductCard</code> widget in separate files, following Flutter conventions. It uses <code>const</code> constructors where appropriate, adds <code>Key</code> parameters, and handles image loading with <code>Image.network</code> including error and loading states.</p>
+
+<h3>State Management</h3>
+<p>State management is Flutter's most debated topic, and Claude Code can work with whichever approach your project uses. It detects whether you are using Riverpod, Bloc, Provider, or GetX based on your <code>pubspec.yaml</code> and existing code:</p>
+<pre><code>claude "Create a CartNotifier using Riverpod that manages a list of cart items.
+Include methods for addItem, removeItem, updateQuantity, and a computed total
+price. Generate the corresponding provider declaration."</code></pre>
+<p>If your project uses Riverpod, it generates code with <code>@riverpod</code> annotations or manual <code>StateNotifierProvider</code> declarations depending on which pattern it sees in your existing code. If your project uses Bloc, the same conceptual request produces a <code>CartBloc</code> with events and states instead. This adaptability is one of Claude Code's strongest qualities.</p>
+
+<h3>Package Configuration and Build Errors</h3>
+<p>Flutter build errors can be maddening — version conflicts in <code>pubspec.yaml</code>, Gradle integration issues on Android, CocoaPods problems on iOS. Claude Code is excellent at diagnosing these:</p>
+<pre><code>claude "I'm getting this error when building: 'Execution failed for task
+:app:checkDebugDuplicateClasses'. Here's the full error output: [paste error].
+Analyse my pubspec.yaml and android/build.gradle and suggest a fix."</code></pre>
+<p>Because Claude Code can read multiple files simultaneously, it cross-references your <code>pubspec.yaml</code> dependencies, the generated <code>build.gradle</code> files, and the error message to identify the conflicting dependency. It then suggests specific version pins or dependency overrides to resolve the conflict. This kind of multi-file reasoning across build systems is something sidebar chat tools struggle with because they lack the project-wide context.</p>
+
+<h2>Gradle Configuration</h2>
+<p>Gradle is arguably the most complex part of any Android project. Build scripts in <code>build.gradle.kts</code> involve Kotlin DSL, plugin management, dependency resolution, flavour configurations, signing configs, and multi-module setups. Claude Code's ability to read and modify these files is genuinely useful.</p>
+
+<h3>Build Script Help</h3>
+<p>When you need to add a new dependency, configure a build type, or set up signing, describe the goal rather than trying to remember the exact syntax:</p>
+<pre><code>claude "Add the Hilt dependency to my project. Update both the project-level
+and app-level build.gradle.kts files. Include the Hilt Android Gradle plugin,
+the hilt-android dependency, and the kapt compiler dependency."</code></pre>
+<p>Claude Code reads both build files, identifies the correct locations for the plugin declaration (in the <code>plugins</code> block) and the dependencies, and applies the changes. It uses the versions from your existing version catalogue if you have one, or suggests appropriate versions if you do not.</p>
+
+<h3>Dependency Management and Version Catalogues</h3>
+<p>Modern Android projects use Gradle version catalogues (<code>libs.versions.toml</code>) to centralise dependency versions. Claude Code understands this pattern and works with it natively:</p>
+<pre><code>claude "Migrate my hardcoded dependency versions in build.gradle.kts to use a
+Gradle version catalogue. Create the libs.versions.toml file with all current
+dependencies organised into versions, libraries, and plugins sections."</code></pre>
+<p>This is a tedious task to do manually — you need to extract every version string, create TOML entries, and update every reference in your build scripts. Claude Code handles the entire migration in one pass, reading all your <code>build.gradle.kts</code> files across modules and generating a correctly structured <code>libs.versions.toml</code> with matching references.</p>
+
+<h3>Multi-Module Project Setup</h3>
+<p>As projects grow, splitting code into feature modules improves build times and enforces separation of concerns. Setting up a new module involves creating directories, writing a <code>build.gradle.kts</code> file, updating <code>settings.gradle.kts</code>, and adding inter-module dependencies:</p>
+<pre><code>claude "Create a new feature module called ':feature:auth' with its own
+build.gradle.kts configured for an Android library. Include dependencies on
+the ':core:data' and ':core:ui' modules. Register it in settings.gradle.kts."</code></pre>
+<p>Claude Code creates the directory structure, writes the build script with the correct plugin IDs (<code>com.android.library</code>, <code>org.jetbrains.kotlin.android</code>), sets up the namespace, adds the implementation dependencies on your core modules, and updates <code>settings.gradle.kts</code> with the <code>include</code> statement. This saves a meaningful amount of time compared to doing it manually or copying from an existing module and then stripping out irrelevant configuration.</p>
+
+<h2>Multi-File Project Scaffolding</h2>
+<p>One of Claude Code's most impressive capabilities is generating entire feature modules with multiple interconnected files. This goes beyond what inline completion tools can do because it requires coordinating across files that reference each other.</p>
+
+<h3>Kotlin Feature Module Example</h3>
+<pre><code>claude "Scaffold a complete 'user profile' feature following clean architecture.
+Create: a domain layer with a UserProfile entity and GetUserProfileUseCase, a
+data layer with a UserProfileRepository implementation and a Retrofit API
+interface, and a presentation layer with a ProfileViewModel and a Compose
+ProfileScreen. Wire everything with Hilt dependency injection."</code></pre>
+<p>Claude Code generates eight to ten files: the entity, use case, repository interface, repository implementation, API service interface, ViewModel, Compose screen, Hilt module for providing dependencies, and a navigation graph entry. All the imports resolve correctly, the Hilt annotations are consistent, and the ViewModel correctly injects the use case through constructor injection. You still need to review and adjust — the generated code makes assumptions about your navigation setup and base classes — but having the full skeleton in place saves thirty minutes or more of scaffolding work.</p>
+
+<h3>Flutter Feature Module Example</h3>
+<p>The same approach works for Flutter projects:</p>
+<pre><code>claude "Create a complete 'order history' feature with: an Order model class
+with fromJson/toJson, an OrderRepository with methods to fetch orders from
+an API, a Riverpod provider for the order list with loading and error states,
+an OrderListScreen with pull-to-refresh, and an OrderDetailScreen. Follow
+the project's existing folder structure conventions."</code></pre>
+<p>Claude Code examines your existing folder structure and replicates it for the new feature. If your project uses a feature-first structure (<code>lib/features/orders/</code>), it follows that pattern. If it uses a layer-first structure (<code>lib/data/repositories/</code>, <code>lib/presentation/screens/</code>), it follows that instead. This context-awareness is what makes it more useful than a generic code generator.</p>
+
+<h2>Code Review and Debugging</h2>
+<p>Beyond code generation, Claude Code functions as a capable code reviewer and debugging assistant. These workflows are particularly valuable in Android development where bugs can span multiple layers — UI, business logic, build configuration, and platform-specific behaviour.</p>
+
+<h3>Reviewing Pull Requests</h3>
+<p>You can point Claude Code at specific files or a git diff and ask for a review:</p>
+<pre><code>claude "Review the changes in my current git diff. Focus on potential bugs,
+memory leaks, missing error handling, and any Android-specific issues like
+improper lifecycle handling or main thread violations."</code></pre>
+<p>Claude Code reads the diff, analyses each changed file in context, and produces a review covering potential issues. In my experience, it catches lifecycle-related bugs (collecting flows outside <code>repeatOnLifecycle</code>, holding Activity references in long-lived objects) and missing null checks that are easy to overlook. It also flags Compose recomposition issues like unstable parameters that trigger unnecessary recompositions.</p>
+
+<h3>Finding and Fixing Bugs</h3>
+<p>When you encounter a runtime error, provide Claude Code with the stack trace and relevant context:</p>
+<pre><code>claude "My app crashes with a NullPointerException on this stack trace:
+[paste stack trace]. Read the relevant source files and tell me the root
+cause and how to fix it."</code></pre>
+<p>Because Claude Code can read multiple files in sequence — following the call chain from the crash site through service classes, repositories, and data sources — it can trace the origin of null values across layers. This multi-file reasoning is something that single-file chat tools cannot replicate effectively.</p>
+
+<h3>Explaining Complex Code</h3>
+<p>Android projects often include complex configuration — custom Gradle plugins, annotation processors, multi-flavour build variants. When you inherit a project with intricate build logic:</p>
+<pre><code>claude "Explain what the custom Gradle plugin in buildSrc/src/main/kotlin
+does. Walk through the logic step by step and explain why each configuration
+choice was made."</code></pre>
+<p>Claude Code reads the plugin source, analyses the tasks it registers, and provides a clear explanation of the build pipeline modifications. This is invaluable when onboarding onto a new project.</p>
+
+<h2>Claude Code vs Copilot vs Gemini Code Assist in Android Studio</h2>
+<p>Android developers have three main AI coding options in Android Studio today. Here is how they compare based on my experience with all three.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Claude Code</th>
+      <th>GitHub Copilot</th>
+      <th>Gemini Code Assist</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Interface</td>
+      <td>Terminal agent</td>
+      <td>Inline completions + chat panel</td>
+      <td>Inline completions + chat panel</td>
+    </tr>
+    <tr>
+      <td>Inline autocomplete</td>
+      <td>No (terminal only)</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Multi-file awareness</td>
+      <td>Excellent — reads entire project</td>
+      <td>Good — indexes open files and workspace</td>
+      <td>Good — integrates with Android Studio context</td>
+    </tr>
+    <tr>
+      <td>Code generation quality (Kotlin)</td>
+      <td>Excellent</td>
+      <td>Very good</td>
+      <td>Good</td>
+    </tr>
+    <tr>
+      <td>Code generation quality (Dart/Flutter)</td>
+      <td>Excellent</td>
+      <td>Good</td>
+      <td>Good</td>
+    </tr>
+    <tr>
+      <td>Gradle/build config understanding</td>
+      <td>Excellent — reads and modifies build files</td>
+      <td>Limited</td>
+      <td>Good — understands Android build system</td>
+    </tr>
+    <tr>
+      <td>Autonomous task execution</td>
+      <td>Yes — runs commands, creates files, iterates</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>SWE-bench ranking</td>
+      <td>#1</td>
+      <td>Not ranked</td>
+      <td>Not ranked</td>
+    </tr>
+    <tr>
+      <td>Cost</td>
+      <td>$20/month (Claude Pro) or $100/month (Max)</td>
+      <td>$19/month individual</td>
+      <td>Free tier available; paid tiers for teams</td>
+    </tr>
+    <tr>
+      <td>Setup effort</td>
+      <td>Moderate (npm install, terminal usage)</td>
+      <td>Low (install plugin, sign in)</td>
+      <td>Low (built into Android Studio)</td>
+    </tr>
+    <tr>
+      <td>Best for</td>
+      <td>Complex tasks, scaffolding, debugging, build config</td>
+      <td>Fast inline completions, daily coding flow</td>
+      <td>Android-specific guidance, integrated experience</td>
+    </tr>
+  </tbody>
+</table>
+<p>The key insight is that these tools are not mutually exclusive. My recommended setup is to use Gemini Code Assist or Copilot for inline completions (where speed and low friction matter) and Claude Code for larger tasks — scaffolding features, debugging complex issues, refactoring across files, and sorting out Gradle problems. Claude Code excels at tasks that require reading multiple files, reasoning about architecture, and executing multi-step plans. Copilot and Gemini Code Assist excel at moment-to-moment coding flow where you want a quick suggestion as you type.</p>
+
+<h2>Limitations and Honest Assessment</h2>
+<p>Claude Code is a powerful tool, but it has real limitations that you should understand before committing to it as part of your workflow.</p>
+<ul>
+  <li><strong>No inline completions.</strong> This is the biggest gap. Claude Code operates entirely in the terminal. It cannot provide tab-autocomplete suggestions as you type in the editor. For that, you still need Copilot, Gemini Code Assist, or a similar plugin. Claude Code is a complement to those tools, not a replacement for them.</li>
+  <li><strong>Terminal-based interaction requires a mindset shift.</strong> Instead of selecting code and pressing a shortcut, you describe tasks in natural language in the terminal. This is more powerful for complex tasks but slower for simple ones. Asking Claude Code to "add a null check to this variable" takes longer than just typing the null check yourself.</li>
+  <li><strong>Cost.</strong> At $20/month for Claude Pro (with usage limits) or $100/month for Claude Max (with higher limits), it is not cheap — especially if you are already paying for Copilot. Evaluate whether the agentic capabilities justify the cost for your specific workflow.</li>
+  <li><strong>Token and usage limits.</strong> Claude Pro has daily usage limits on Claude Code. If you are using it heavily for large scaffolding tasks, you can hit the limit during intensive coding sessions. Claude Max provides significantly higher limits but at a correspondingly higher price.</li>
+  <li><strong>Context window constraints.</strong> While Claude Code can read your entire project, very large projects with hundreds of files may exceed the context window. It handles this by selectively reading relevant files, but it can occasionally miss important context in sprawling monorepo structures.</li>
+  <li><strong>Generated code still needs review.</strong> Claude Code produces high-quality code, but it is not infallible. It may use deprecated APIs, make incorrect assumptions about your project's conventions, or generate code that compiles but has subtle logic errors. Always review generated code before committing it — treat it like a capable junior developer's pull request.</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Can I use Claude Code in Android Studio on Windows, macOS, and Linux?</h3>
+<p>Yes. Claude Code runs as a Node.js package in the terminal, so it works on any operating system that supports Node.js 18 or later. Android Studio's integrated terminal on Windows uses PowerShell or Git Bash by default — both work fine with Claude Code. On macOS and Linux, the default shell (zsh or bash) works without any additional configuration. The experience is identical across platforms because Claude Code itself is platform-agnostic; it is your project's build tooling (Gradle, Flutter SDK) that varies by operating system, and Claude Code adapts its suggestions accordingly.</p>
+
+<h3>Does Claude Code work with Kotlin Multiplatform projects?</h3>
+<p>Yes, and this is actually one of the areas where Claude Code provides the most value. Kotlin Multiplatform projects involve shared code, platform-specific source sets (<code>commonMain</code>, <code>androidMain</code>, <code>iosMain</code>), and complex Gradle configurations with multiple targets. Claude Code can read the full project structure, understand which code belongs to which source set, and generate shared business logic alongside platform-specific implementations. It handles <code>expect</code>/<code>actual</code> declarations correctly and understands the dependency scoping (<code>commonMainImplementation</code> vs <code>androidMainImplementation</code>) in build scripts.</p>
+
+<h3>How does Claude Code compare to the JetBrains AI Assistant for Android Studio?</h3>
+<p>JetBrains AI Assistant is more tightly integrated into the IDE — it provides inline completions, context actions in the editor, and commit message generation. Claude Code has no IDE integration at all; it lives in the terminal. However, Claude Code is stronger at complex multi-file tasks, architectural reasoning, and autonomous task execution. JetBrains AI Assistant is better for quick, in-editor interactions. Many developers find value in using both: JetBrains AI for moment-to-moment coding and Claude Code for larger tasks that benefit from agentic behaviour. The two do not conflict because they operate in different parts of the IDE.</p>
+
+<h2>Sources and Further Reading</h2>
+<ul>
+  <li><a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener">Claude Code official documentation — Anthropic</a></li>
+  <li><a href="https://www.swebench.com" target="_blank" rel="noopener">SWE-bench — Software Engineering benchmark</a></li>
+  <li><a href="https://developer.android.com/studio" target="_blank" rel="noopener">Android Studio — Android Developers</a></li>
+  <li><a href="https://docs.gradle.org/current/userguide/version_catalogs.html" target="_blank" rel="noopener">Gradle Version Catalogues documentation</a></li>
+  <li><a href="https://github.com/features/copilot" target="_blank" rel="noopener">GitHub Copilot</a></li>
+</ul>
+
+<h2>Related Posts</h2>
+<ul>
+  <li><a href="/blog/claude-ai-excel-formulas">How to Use Claude AI to Write Excel Formulas Instantly</a></li>
+  <li><a href="/blog/create-with-ai-flutter">Create With AI in Flutter: Gemini CLI, MCP, and the AI Toolkit Explained</a></li>
+  <li><a href="/blog/flutter-app-architecture-2026">Flutter App Architecture in 2026: A Practical Feature-First Guide</a></li>
+</ul>
+<div class="blog-cta-box"><h3>Want to use AI tools more effectively?</h3><p>My courses cover practical AI workflows, from spreadsheet formulas to app development, with real projects and honest tool comparisons.</p><a href="/courses" class="btn-primary">Browse all courses <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/animations.js" defer></script>
+  <script src="/tracking.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use Gemini Code Assist in Android Studio: Free AI Coding for Flutter and Kotlin</title>
+  <meta name="description" content="Set up Gemini Code Assist in Android Studio for Flutter and Kotlin projects. Free AI coding assistant with inline completions, chat, and code generation.">
+  <meta name="keywords" content="Gemini Code Assist Android Studio, AI coding Android Studio, Flutter AI assistant, Kotlin AI coding, free AI coding, Android Studio AI, Sagnik Bhattacharya, Coding Liquids">
+  <meta name="author" content="Sagnik Bhattacharya">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#3E2723">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/gemini-code-assist-android-studio">
+  <meta property="og:title" content="How to Use Gemini Code Assist in Android Studio: Free AI Coding for Flutter and Kotlin">
+  <meta property="og:description" content="Set up Gemini Code Assist in Android Studio for Flutter and Kotlin projects. Free AI coding assistant with inline completions, chat, and code generation.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/gemini-code-assist-android-studio">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/gemini-code-assist-android-studio-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/gemini-code-assist-android-studio-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemini Code Assist in Android Studio, showing Android Studio IDE with Gemini AI assistant integration for Flutter and Kotlin.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Sagnik Bhattacharya">
+  <meta property="article:author" content="Sagnik Bhattacharya">
+  <meta property="article:published_time" content="2026-04-05">
+  <meta property="article:section" content="Flutter">
+  <meta property="article:tag" content="AI Tools">
+  <meta property="article:tag" content="Flutter">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Use Gemini Code Assist in Android Studio: Free AI Coding for Flutter and Kotlin">
+  <meta name="twitter:description" content="Set up Gemini Code Assist in Android Studio for Flutter and Kotlin projects. Free AI coding assistant with inline completions, chat, and code generation.">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/gemini-code-assist-android-studio-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemini Code Assist in Android Studio, showing Android Studio IDE with Gemini AI assistant integration for Flutter and Kotlin.">
+  <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Use Gemini Code Assist in Android Studio: Free AI Coding for Flutter and Kotlin","description":"Set up Gemini Code Assist in Android Studio for Flutter and Kotlin projects. Free AI coding assistant with inline completions, chat, and code generation.","datePublished":"2026-04-05","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/gemini-code-assist-android-studio"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/gemini-code-assist-android-studio-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/gemini-code-assist-android-studio-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"How to Use Gemini Code Assist in Android Studio: Free AI Coding for Flutter and Kotlin by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"Gemini Code Assist Android Studio, AI coding Android Studio, Flutter AI assistant, Kotlin AI coding, free AI coding, Android Studio AI, Sagnik Bhattacharya, Coding Liquids","articleSection":"Flutter"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"How to Use Gemini Code Assist in Android Studio: Free AI Coding for Flutter and Kotlin","item":"https://sagnikbhattacharya.com/blog/gemini-code-assist-android-studio"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"How to Use Gemini Code Assist in Android Studio: Free AI Coding for Flutter and Kotlin","url":"https://sagnikbhattacharya.com/blog/images/gemini-code-assist-android-studio-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/gemini-code-assist-android-studio-sagnik-bhattacharya-coding-liquids.jpg","caption":"How to Use Gemini Code Assist in Android Studio: Free AI Coding for Flutter and Kotlin by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+    @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
+    @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}
+    :root{--warm-50:#FFFBF5;--warm-100:#FFF3E0;--warm-200:#FFE0B2;--warm-300:#FFCC80;--warm-400:#FFA726;--warm-500:#E8852E;--warm-600:#C66A1A;--warm-700:#8B4513;--earth-800:#3E2723;--earth-900:#1C110A;--sage-100:#E8F0E8;--sage-200:#C8DCC8;--cream:#FDF8F0;--text-primary:#2C1810;--text-secondary:#6B5344;--text-light:#9A8578;--white:#FFFFFF;--shadow-sm:0 1px 3px rgba(44,24,16,0.06);--shadow-md:0 4px 16px rgba(44,24,16,0.08);--shadow-lg:0 8px 32px rgba(44,24,16,0.10);--shadow-xl:0 16px 48px rgba(44,24,16,0.12);--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--radius-xl:28px}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-primary);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}h1,h2,h3,h4{font-family:'DM Serif Display',serif;line-height:1.2;font-weight:400}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}.container{max-width:1140px;margin:0 auto;padding:0 24px}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,248,240,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(44,24,16,0.06)}nav .container{display:flex;align-items:center;justify-content:space-between;height:72px}.nav-logo{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--earth-800);letter-spacing:-.5px}.nav-logo span{color:var(--warm-500)}.nav-links{display:flex;gap:32px;list-style:none;align-items:center}.nav-links a{font-size:.9rem;font-weight:500;color:var(--text-secondary)}.nav-cta{background:var(--earth-800)!important;color:var(--warm-100)!important;padding:10px 22px;border-radius:50px;font-size:.85rem!important;font-weight:600!important}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}.hamburger span{width:24px;height:2px;background:var(--earth-800);border-radius:2px}
+    .blog-section{padding-top:100px}.blog-post{max-width:780px;margin:0 auto}.blog-post-title{font-size:2.6rem;color:var(--earth-800);margin-bottom:16px;letter-spacing:-.5px;line-height:1.15}
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}}@media(max-width:640px){.blog-section{padding-top:84px}.blog-post-title{font-size:1.7rem}}
+  </style>
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/style.css"></noscript>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">sagnik<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about">About</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">How to Use Gemini Code Assist in Android Studio: Free AI Coding for Flutter and Kotlin</span></nav>
+    </div>
+  </div>
+  <section style="padding-top:0">
+    <div class="container">
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-tags"><span class="blog-post-tag">AI Tools</span><span class="blog-post-tag">Flutter</span></div>
+          <h1 class="blog-post-title">How to Use Gemini Code Assist in Android Studio: Free AI Coding for Flutter and Kotlin</h1>
+          <div class="blog-post-meta">
+            <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
+              <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
+            </a>
+            <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
+            <span>5 Apr 2026</span>
+            <span>13 min read</span>
+          </div>
+        </div>
+        <figure class="blog-cover">
+          <img src="/blog/images/gemini-code-assist-android-studio-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemini Code Assist in Android Studio, showing Android Studio IDE with Gemini AI assistant integration for Flutter and Kotlin." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemini Code Assist in Android Studio, showing Android Studio IDE with Gemini AI assistant integration for Flutter and Kotlin.</figcaption>
+        </figure>
+        <div class="blog-post-content">
+<p>Android Studio has always been a capable IDE, but for years it lacked the kind of AI-powered coding assistance that Visual Studio Code users enjoyed through GitHub Copilot. That changed when Google introduced Gemini Code Assist directly into Android Studio. Unlike third-party extensions that bolt AI onto an editor, Gemini Code Assist is a first-party feature built by the same team that makes the IDE itself. The integration is tight, the setup is minimal, and the free tier is generous enough for most individual developers.</p>
+<p>This matters particularly for Flutter developers. Android Studio remains the primary IDE for Flutter development — it offers the best widget inspector, the most reliable hot reload, and deeper integration with the Android and iOS build toolchains than any alternative. Having a capable AI assistant built directly into that environment, rather than needing to switch to VS Code for AI features, is a meaningful productivity gain. Kotlin developers benefit equally, since Gemini understands Kotlin idioms, Jetpack Compose patterns, and Gradle configuration at a level that general-purpose AI tools often struggle with.</p>
+<p>I have been using Gemini Code Assist in Android Studio across several Flutter and Kotlin projects over the past few months. This guide covers everything from initial setup to advanced workflows, with an honest assessment of where it excels and where it falls short.</p>
+
+<h2>Prerequisites</h2>
+<p>Before you can use Gemini Code Assist, you need the following:</p>
+<ol>
+  <li><strong>Android Studio Ladybug (2024.2.1) or later.</strong> Gemini Code Assist is not available in older versions. If you are running an earlier release, update through <em>Help &gt; Check for Updates</em> on Windows/Linux or <em>Android Studio &gt; Check for Updates</em> on macOS. The Ladybug release was the first to ship with Gemini integration built in, and subsequent releases have continued to improve the feature set.</li>
+  <li><strong>A Google account.</strong> Gemini Code Assist requires you to sign in with a Google account. The free tier provides a generous number of completions and chat interactions per day — more than enough for individual development work. If your organisation uses Google Cloud, you may have access to the enterprise tier with higher rate limits and additional features like code customisation based on your private repositories.</li>
+  <li><strong>An active internet connection.</strong> Unlike local AI models, Gemini Code Assist processes requests in the cloud. Your code snippets are sent to Google's servers for inference. Google states that free-tier code snippets are not used to train models, but if your organisation has strict data residency or intellectual property policies, verify compliance before enabling the feature.</li>
+  <li><strong>Flutter SDK (for Flutter projects).</strong> If you are using Gemini Code Assist for Flutter development, ensure the Flutter SDK is installed and configured in Android Studio. Go to <em>File &gt; Settings &gt; Languages &amp; Frameworks &gt; Flutter</em> and verify the SDK path is set correctly.</li>
+</ol>
+
+<h2>Enabling Gemini Code Assist</h2>
+<p>If you have a fresh installation of Android Studio Ladybug or later, Gemini Code Assist may already be partially enabled. Here is how to ensure everything is configured correctly:</p>
+<ol>
+  <li><strong>Sign in to your Google account.</strong> Look for the Gemini icon in the right-hand tool window bar (it resembles a sparkle or star shape). Click it, and you will be prompted to sign in. If you do not see the icon, go to <em>View &gt; Tool Windows &gt; Gemini</em> to activate the panel.</li>
+  <li><strong>Accept the terms of service.</strong> On first use, Google presents a terms of service screen explaining how your code is processed. Read through this carefully — it explains what data is sent, how it is used, and the difference between free and enterprise tier data handling.</li>
+  <li><strong>Enable inline code completions.</strong> Navigate to <em>File &gt; Settings &gt; Tools &gt; Gemini</em>. Ensure "Enable Gemini" is ticked. Under code completion settings, enable "AI code completions" if it is not already active. You can also toggle whether completions appear automatically as you type or only when explicitly triggered.</li>
+  <li><strong>Configure completion behaviour.</strong> In the same settings panel, you can control how aggressively Gemini suggests code. I recommend leaving it on the default "Automatic" setting initially and adjusting if you find the suggestions distracting. You can also configure whether Gemini provides single-line or multi-line completions.</li>
+  <li><strong>Verify the connection.</strong> Open the Gemini panel (the sparkle icon in the sidebar) and type a simple question like "What version of Gemini are you?" If you get a response, the connection is working. If you see an error about authentication or network connectivity, check that your Google account is signed in and that your firewall is not blocking connections to Google's API endpoints.</li>
+</ol>
+<p>The entire setup takes under two minutes. This is one of Gemini Code Assist's strongest advantages over third-party alternatives — there is no extension to install, no API key to manage, and no configuration file to edit. It works out of the box once you sign in.</p>
+
+<h2>Inline Code Completions</h2>
+<p>Inline code completions are the feature you will interact with most frequently. As you type, Gemini analyses the context of your current file — the imports, class structure, function signatures, and the code immediately surrounding your cursor — and suggests what you are likely to type next. Suggestions appear as greyed-out text that you accept by pressing Tab or reject by continuing to type.</p>
+
+<h3>How Completions Work for Kotlin</h3>
+<p>Gemini's Kotlin completions are notably strong. It understands Kotlin idioms like scope functions (<code>let</code>, <code>apply</code>, <code>run</code>, <code>with</code>, <code>also</code>), extension functions, data classes, and sealed classes. When you start writing a <code>when</code> expression on a sealed class, Gemini often suggests all the branches automatically, including the <code>else</code> clause. For Jetpack Compose code, it recognises composable function patterns and suggests appropriate modifiers, layout structures, and state management patterns.</p>
+<p>Where Kotlin completions excel is in boilerplate reduction. Writing a Room database entity, a Retrofit service interface, or a ViewModel with LiveData — Gemini handles all of these with minimal prompting. Type the annotation and the class name, and it fills in the rest based on your existing project patterns.</p>
+
+<h3>How Completions Work for Dart and Flutter</h3>
+<p>For Flutter developers, Gemini's Dart completions cover widget trees, state management patterns, and common Flutter APIs. Start typing a <code>Scaffold</code> and Gemini suggests the <code>appBar</code>, <code>body</code>, and <code>floatingActionButton</code> properties with sensible defaults. Begin a <code>StatefulWidget</code> declaration and it generates the companion <code>State</code> class with the <code>build</code> method scaffolded.</p>
+<p>The completions are context-aware within the widget tree. If you are inside a <code>Column</code> and start adding children, Gemini suggests widgets that make sense in that context — <code>Text</code>, <code>SizedBox</code> for spacing, <code>Padding</code>, and so on. It also respects your existing import statements and suggests classes from packages you have already imported rather than defaulting to the most common option from the standard library.</p>
+
+<h3>Accepting and Rejecting Suggestions</h3>
+<p>Press <strong>Tab</strong> to accept a suggestion in full. If the suggestion is partially correct, you can press <strong>Ctrl+Right Arrow</strong> (or <strong>Cmd+Right Arrow</strong> on macOS) to accept it word by word — useful when the first part of the suggestion is right but the end needs adjustment. Press <strong>Escape</strong> to dismiss a suggestion entirely. If you simply continue typing, the suggestion disappears and a new one may appear based on what you typed.</p>
+
+<h2>Chat-Based Coding</h2>
+<p>The Gemini panel in the sidebar is a full-featured chat interface where you can ask questions, request code generation, and get explanations — all within the context of your current project.</p>
+
+<h3>Code Explanation</h3>
+<p>Select any block of code in your editor, right-click, and choose <em>Gemini &gt; Explain this code</em>. The explanation appears in the Gemini panel with a clear breakdown of what the code does, step by step. This is particularly useful when working with inherited codebases or reviewing pull requests from team members. Gemini handles complex Kotlin constructs like coroutine flows, channel operations, and generic type constraints well, providing explanations that are accurate and appropriately detailed.</p>
+
+<h3>Refactoring Assistance</h3>
+<p>Highlight a function or class and ask Gemini to refactor it. You can be specific: "Refactor this function to use Kotlin coroutines instead of callbacks" or "Convert this StatefulWidget to use Riverpod for state management." Gemini generates the refactored code and explains the changes it made. You can then copy the result into your editor or use the "Insert at cursor" button to place it directly.</p>
+
+<h3>Test Generation</h3>
+<p>Ask Gemini to write tests for a specific function or class. For Kotlin, it generates JUnit tests with appropriate assertions, mock objects (using Mockito or MockK depending on what your project already imports), and test lifecycle methods. For Flutter, it generates widget tests with <code>WidgetTester</code> and unit tests with <code>expect</code> matchers. The generated tests cover the main paths well, though you should review edge cases and add boundary condition tests manually.</p>
+
+<h2>Flutter-Specific Workflows</h2>
+<p>Gemini Code Assist is especially valuable for Flutter development because Android Studio is where most Flutter developers already work. Here are the workflows I find most useful.</p>
+
+<h3>Widget Generation</h3>
+<p>Describe a UI component in the Gemini chat and it generates the corresponding widget tree. For example, type "Create a product card widget with an image at the top, a title, price, and an 'Add to Cart' button at the bottom. Use Material 3 styling." Gemini produces a complete <code>StatelessWidget</code> with appropriate layout widgets, text styles, and a button with an <code>onPressed</code> callback parameter. The generated code follows Flutter conventions — it uses <code>const</code> constructors where possible, applies <code>EdgeInsets</code> for padding, and structures the widget tree in a readable way.</p>
+<p>For more complex widgets, break the request into parts. Ask for the layout structure first, then request specific customisations like animations, gesture detection, or responsive behaviour. Gemini handles iterative refinement well — it remembers the context of the conversation and builds on previous responses.</p>
+
+<h3>State Management Boilerplate</h3>
+<p>State management in Flutter involves significant boilerplate, regardless of which solution you use. Gemini can generate the scaffolding for all the major approaches:</p>
+<ul>
+  <li><strong>Riverpod:</strong> Ask for a <code>StateNotifierProvider</code> with specific state fields and methods. Gemini generates the provider, the state notifier class, and the state class with <code>copyWith</code> methods.</li>
+  <li><strong>BLoC:</strong> Request a BLoC for a specific feature, and Gemini generates the event classes, state classes, and the BLoC itself with <code>on&lt;Event&gt;</code> handlers. It follows the standard BLoC naming conventions and includes the <code>Equatable</code> mixin where appropriate.</li>
+  <li><strong>Provider:</strong> For simpler state management needs, ask for a <code>ChangeNotifier</code> with specific properties and notification logic.</li>
+</ul>
+<p>The time savings here are substantial. A Riverpod state notifier with five state fields, a loading state, an error state, and three methods takes perhaps ten minutes to write by hand. Gemini generates a working version in seconds, and you spend a minute or two reviewing and customising it.</p>
+
+<h3>build.gradle and pubspec.yaml Assistance</h3>
+<p>Configuration files are a persistent source of frustration in Flutter development. Gemini understands both <code>build.gradle</code> (for Android-specific configuration) and <code>pubspec.yaml</code> (for Flutter dependencies and assets). Ask questions like "How do I configure ProGuard rules for this Flutter project?" or "What do I add to pubspec.yaml to use the google_fonts package with specific font families?" and Gemini provides the exact configuration snippets you need, including version numbers that are current as of its training data.</p>
+<p>For <code>build.gradle</code> specifically, Gemini handles the Kotlin DSL and Groovy DSL equally well. If your project uses the newer Kotlin-based Gradle configuration, it generates <code>build.gradle.kts</code> syntax. If you are on the older Groovy-based files, it matches that style instead. This context sensitivity saves time that would otherwise be spent translating between the two formats.</p>
+
+<h2>Kotlin-Specific Workflows</h2>
+<p>For native Android development with Kotlin, Gemini Code Assist leverages its deep understanding of the Android SDK, Jetpack libraries, and Kotlin language features.</p>
+
+<h3>Compose UI Generation</h3>
+<p>Jetpack Compose development benefits enormously from AI assistance because of the amount of boilerplate involved in creating custom layouts, themes, and animations. Describe a screen layout to Gemini and it generates composable functions with appropriate modifiers, state hoisting, and preview annotations. For example: "Create a login screen with email and password fields, a 'Remember me' checkbox, a login button, and a 'Forgot password' text link. Follow Material 3 guidelines." Gemini produces a complete composable with <code>TextField</code> components, proper state management using <code>remember</code> and <code>mutableStateOf</code>, input validation, and theming that respects your app's <code>MaterialTheme</code>.</p>
+<p>It also handles Compose-specific patterns like <code>LaunchedEffect</code>, <code>derivedStateOf</code>, and custom <code>Modifier</code> extensions. If you ask it to add a shimmer loading effect to a list item, it generates the animation code with <code>InfiniteTransition</code> and appropriate <code>Brush</code> configurations.</p>
+
+<h3>Coroutine Patterns</h3>
+<p>Kotlin coroutines are powerful but have a steep learning curve, particularly around structured concurrency, exception handling, and flow operators. Gemini is a reliable guide here. Ask it to "Convert this callback-based API call to use coroutines with proper error handling" and it generates code with <code>withContext(Dispatchers.IO)</code>, <code>try-catch</code> blocks, and appropriate scope management. It understands the difference between <code>launch</code> and <code>async</code>, knows when to use <code>supervisorScope</code>, and correctly applies <code>flowOn</code> for flow-based operations.</p>
+<p>For ViewModels specifically, Gemini generates coroutine code that uses <code>viewModelScope</code> correctly, handles cancellation gracefully, and exposes results through <code>StateFlow</code> or <code>SharedFlow</code> rather than the deprecated <code>LiveData</code> patterns.</p>
+
+<h3>Gradle Configuration</h3>
+<p>Gradle configuration for Android projects is notoriously complex, especially with the migration to version catalogues and the Kotlin DSL. Gemini handles questions about dependency management, build variants, flavour dimensions, signing configurations, and ProGuard rules. If you are migrating from the older <code>buildscript</code> block to the newer plugins DSL, Gemini can generate the equivalent configuration. It also understands version catalogue files (<code>libs.versions.toml</code>) and can help you add new dependencies in the correct format.</p>
+
+<h2>Code Transformations and Refactoring</h2>
+<p>Beyond generating new code, Gemini Code Assist excels at transforming existing code. Here are the most useful transformation workflows.</p>
+
+<h3>Rename and Restructure</h3>
+<p>While Android Studio has built-in rename refactoring (Shift+F6), Gemini handles more complex restructuring. Ask it to "Rename this class from UserManager to UserRepository and update all method names to follow the repository pattern." It generates the transformed code with method names changed from imperative style (<code>saveUser</code>, <code>deleteUser</code>) to repository style (<code>insert</code>, <code>delete</code>, <code>getById</code>, <code>getAll</code>). You can then review the changes and apply them.</p>
+
+<h3>Extract and Decompose</h3>
+<p>Select a long function and ask Gemini to "Extract this into smaller, single-responsibility functions." It analyses the logic, identifies natural boundaries, and suggests a decomposition with appropriately named helper functions. For Flutter widget trees, this is particularly valuable — ask it to "Extract the form section of this widget into a separate widget class" and it creates a new widget with the correct constructor parameters and callback functions to maintain communication with the parent.</p>
+
+<h3>Pattern Migration</h3>
+<p>Gemini handles common migration patterns well. Ask it to migrate a class from one approach to another — for example, "Convert this class from using SharedPreferences directly to using DataStore" or "Migrate this navigation code from Navigator 1.0 to GoRouter." It generates the transformed code with appropriate imports, configuration, and usage patterns for the target approach.</p>
+
+<h2>Gemini Code Assist vs GitHub Copilot in Android Studio</h2>
+<p>GitHub Copilot is also available in Android Studio through the JetBrains plugin. Here is how the two compare based on my experience using both.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Gemini Code Assist</th>
+      <th>GitHub Copilot</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Integration depth</td>
+      <td>Native, first-party — built into the IDE</td>
+      <td>Third-party plugin</td>
+    </tr>
+    <tr>
+      <td>Setup effort</td>
+      <td>Minimal — sign in with Google account</td>
+      <td>Install plugin, sign in with GitHub</td>
+    </tr>
+    <tr>
+      <td>Inline completion quality</td>
+      <td>Very good for Kotlin and Dart</td>
+      <td>Excellent across all languages</td>
+    </tr>
+    <tr>
+      <td>Flutter/Dart support</td>
+      <td>Strong — understands widget patterns</td>
+      <td>Good — slightly less Flutter-specific</td>
+    </tr>
+    <tr>
+      <td>Kotlin/Compose support</td>
+      <td>Excellent — deep Android SDK knowledge</td>
+      <td>Very good</td>
+    </tr>
+    <tr>
+      <td>Chat interface</td>
+      <td>Built-in panel with project context</td>
+      <td>Copilot Chat panel (requires separate enablement)</td>
+    </tr>
+    <tr>
+      <td>Gradle/build config help</td>
+      <td>Strong — understands Android build system</td>
+      <td>Adequate — sometimes outdated suggestions</td>
+    </tr>
+    <tr>
+      <td>Free tier</td>
+      <td>Yes — generous daily limits</td>
+      <td>Free tier available with limited completions</td>
+    </tr>
+    <tr>
+      <td>Paid tier</td>
+      <td>Google Cloud subscription for enterprise</td>
+      <td>$19/month individual, $39/month business</td>
+    </tr>
+    <tr>
+      <td>Privacy</td>
+      <td>Cloud-based — code sent to Google</td>
+      <td>Cloud-based — code sent to GitHub/Microsoft</td>
+    </tr>
+    <tr>
+      <td>Offline availability</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Multi-language breadth</td>
+      <td>Strong in Android ecosystem languages</td>
+      <td>Strong across all languages</td>
+    </tr>
+  </tbody>
+</table>
+<p>The practical takeaway: if you primarily work in Android Studio with Kotlin and Flutter, Gemini Code Assist is the better choice. Its understanding of the Android ecosystem is deeper, the integration is smoother, and the free tier is more generous. If you work across multiple IDEs and languages, Copilot's broader coverage and consistent experience across editors may be worth the subscription. There is nothing stopping you from using both simultaneously — Copilot for general completions and Gemini for Android-specific chat queries.</p>
+
+<h2>Limitations</h2>
+<p>Gemini Code Assist is a capable tool, but it has clear limitations you should be aware of.</p>
+<ul>
+  <li><strong>No offline mode.</strong> Every request requires an internet connection. If you work in environments with restricted or unreliable connectivity, this is a non-starter. For offline AI assistance, consider a local model setup with Ollama instead.</li>
+  <li><strong>Context window limitations.</strong> Gemini analyses your current file and some surrounding context, but it does not index your entire project the way some enterprise AI tools do. If you ask it a question about how two distant modules interact, it may not have enough context to answer accurately. Providing relevant code snippets in the chat helps bridge this gap.</li>
+  <li><strong>Accuracy varies with complexity.</strong> For straightforward tasks — generating boilerplate, writing standard patterns, explaining common APIs — Gemini is reliable. For complex architectural decisions, subtle concurrency bugs, or niche library interactions, its suggestions should be treated as starting points rather than final answers. Always review generated code before committing it.</li>
+  <li><strong>Rate limits on the free tier.</strong> While the free tier is generous for individual use, heavy usage during intense coding sessions can hit the daily limit. If you find yourself running out of completions regularly, the enterprise tier removes these restrictions.</li>
+  <li><strong>Training data freshness.</strong> Like all AI models, Gemini's knowledge has a cutoff date. Very new libraries, recent API changes, or newly released Flutter/Kotlin features may not be reflected in its suggestions. Always verify version-specific syntax against the official documentation.</li>
+  <li><strong>Not a replacement for understanding.</strong> The convenience of AI-generated code can tempt developers — especially those early in their careers — to accept suggestions without fully understanding them. Use Gemini to accelerate your workflow, not to bypass learning. If it generates a coroutine pattern you do not recognise, ask it to explain before you use it.</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Is Gemini Code Assist free in Android Studio?</h3>
+<p>Yes. Google provides a free tier of Gemini Code Assist for individual developers. It includes inline code completions, chat-based assistance, and code generation with a daily usage limit. For most individual developers working on personal or small-team projects, the free tier is sufficient. The enterprise tier, available through Google Cloud subscriptions, offers higher rate limits, code customisation based on your private repositories, and administrative controls for organisations. If you are working on a team project and find the free tier limits restrictive, talk to your organisation about the enterprise option.</p>
+
+<h3>Does Gemini Code Assist work well with Flutter projects?</h3>
+<p>Yes, and this is one of its strengths. Because Google maintains both Flutter and Gemini, the AI has deep knowledge of Flutter's widget system, state management patterns, and common packages. It generates clean widget trees, understands the difference between <code>StatelessWidget</code> and <code>StatefulWidget</code> usage, and produces idiomatic Dart code. It is particularly useful for generating boilerplate — state management classes, model classes with serialisation, and test scaffolding. The quality of Flutter-specific suggestions in Gemini Code Assist is noticeably better than what you get from general-purpose AI tools that treat Dart as just another language.</p>
+
+<h3>Can I use Gemini Code Assist alongside GitHub Copilot?</h3>
+<p>Yes, both can be active simultaneously in Android Studio. In practice, you may experience occasional conflicts with inline completions if both tools try to suggest code at the same time. A practical approach is to use Gemini for inline completions (since it has stronger Android-specific context) and Copilot for its chat features if you prefer the Copilot Chat interface. Alternatively, disable inline completions in one tool and rely on it only for chat. I have found that using Gemini as the primary assistant and keeping Copilot as a secondary reference works well — if Gemini's suggestion does not look right, I can quickly check what Copilot suggests.</p>
+
+<h2>Sources and Further Reading</h2>
+<ul>
+  <li><a href="https://developer.android.com/studio/intro/gemini" target="_blank" rel="noopener">Google — Gemini in Android Studio documentation</a></li>
+  <li><a href="https://cloud.google.com/gemini/docs/codeassist/overview" target="_blank" rel="noopener">Google Cloud — Gemini Code Assist overview</a></li>
+  <li><a href="https://developer.android.com/studio" target="_blank" rel="noopener">Android Studio — official download and release notes</a></li>
+  <li><a href="https://docs.flutter.dev" target="_blank" rel="noopener">Flutter — official documentation</a></li>
+  <li><a href="https://github.com/features/copilot" target="_blank" rel="noopener">GitHub Copilot</a></li>
+</ul>
+
+<h2>Related Posts</h2>
+<ul>
+  <li><a href="/blog/create-with-ai-flutter">Create With AI: Building Flutter Apps Using AI Assistants</a></li>
+  <li><a href="/blog/flutter-app-architecture-2026">Flutter App Architecture in 2026: Best Practices and Patterns</a></li>
+  <li><a href="/blog/flutter-state-management">Flutter State Management: Choosing the Right Solution for Your Project</a></li>
+</ul>
+<div class="blog-cta-box"><h3>Want to use AI tools more effectively?</h3><p>My courses cover practical AI workflows, from spreadsheet formulas to app development, with real projects and honest tool comparisons.</p><a href="/courses" class="btn-primary">Browse all courses <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/animations.js" defer></script>
+  <script src="/tracking.js" defer></script>
+</body>
+</html>

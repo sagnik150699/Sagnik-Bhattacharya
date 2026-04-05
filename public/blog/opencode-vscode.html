@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use OpenCode in VS Code: The Free Open-Source AI Coding Alternative</title>
+  <meta name="description" content="Set up OpenCode as a free, open-source AI coding assistant in VS Code. Supports 75+ models, MIT licensed, and works with Ollama, OpenAI, Anthropic, and more.">
+  <meta name="keywords" content="OpenCode VS Code, OpenCode AI coding, open source AI IDE, free AI coding tool, OpenCode setup, terminal AI assistant, Sagnik Bhattacharya, Coding Liquids">
+  <meta name="author" content="Sagnik Bhattacharya">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#3E2723">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/opencode-vscode">
+  <meta property="og:title" content="How to Use OpenCode in VS Code: The Free Open-Source AI Coding Alternative">
+  <meta property="og:description" content="Set up OpenCode as a free, open-source AI coding assistant in VS Code. Supports 75+ models, MIT licensed, and works with Ollama, OpenAI, Anthropic, and more.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/opencode-vscode">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/opencode-vscode-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/opencode-vscode-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use OpenCode in VS Code, showing terminal-based AI coding assistant integration.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Sagnik Bhattacharya">
+  <meta property="article:author" content="Sagnik Bhattacharya">
+  <meta property="article:published_time" content="2026-04-05">
+  <meta property="article:section" content="AI &amp; Automation">
+  <meta property="article:tag" content="AI Tools">
+  <meta property="article:tag" content="VS Code">
+  <meta property="article:tag" content="OpenCode">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Use OpenCode in VS Code: The Free Open-Source AI Coding Alternative">
+  <meta name="twitter:description" content="Set up OpenCode as a free, open-source AI coding assistant in VS Code. Supports 75+ models, MIT licensed, and works with Ollama, OpenAI, Anthropic, and more.">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/opencode-vscode-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use OpenCode in VS Code, showing terminal-based AI coding assistant integration.">
+  <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Use OpenCode in VS Code: The Free Open-Source AI Coding Alternative","description":"Set up OpenCode as a free, open-source AI coding assistant in VS Code. Supports 75+ models, MIT licensed, and works with Ollama, OpenAI, Anthropic, and more.","datePublished":"2026-04-05","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/opencode-vscode"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/opencode-vscode-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/opencode-vscode-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"How to Use OpenCode in VS Code: The Free Open-Source AI Coding Alternative by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"OpenCode VS Code, OpenCode AI coding, open source AI IDE, free AI coding tool, OpenCode setup, terminal AI assistant, Sagnik Bhattacharya, Coding Liquids","articleSection":"AI & Automation"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"How to Use OpenCode in VS Code: The Free Open-Source AI Coding Alternative","item":"https://sagnikbhattacharya.com/blog/opencode-vscode"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"How to Use OpenCode in VS Code: The Free Open-Source AI Coding Alternative","url":"https://sagnikbhattacharya.com/blog/images/opencode-vscode-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/opencode-vscode-sagnik-bhattacharya-coding-liquids.jpg","caption":"How to Use OpenCode in VS Code: The Free Open-Source AI Coding Alternative by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+    @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
+    @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}
+    :root{--warm-50:#FFFBF5;--warm-100:#FFF3E0;--warm-200:#FFE0B2;--warm-300:#FFCC80;--warm-400:#FFA726;--warm-500:#E8852E;--warm-600:#C66A1A;--warm-700:#8B4513;--earth-800:#3E2723;--earth-900:#1C110A;--sage-100:#E8F0E8;--sage-200:#C8DCC8;--cream:#FDF8F0;--text-primary:#2C1810;--text-secondary:#6B5344;--text-light:#9A8578;--white:#FFFFFF;--shadow-sm:0 1px 3px rgba(44,24,16,0.06);--shadow-md:0 4px 16px rgba(44,24,16,0.08);--shadow-lg:0 8px 32px rgba(44,24,16,0.10);--shadow-xl:0 16px 48px rgba(44,24,16,0.12);--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--radius-xl:28px}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-primary);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}h1,h2,h3,h4{font-family:'DM Serif Display',serif;line-height:1.2;font-weight:400}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}.container{max-width:1140px;margin:0 auto;padding:0 24px}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,248,240,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(44,24,16,0.06)}nav .container{display:flex;align-items:center;justify-content:space-between;height:72px}.nav-logo{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--earth-800);letter-spacing:-.5px}.nav-logo span{color:var(--warm-500)}.nav-links{display:flex;gap:32px;list-style:none;align-items:center}.nav-links a{font-size:.9rem;font-weight:500;color:var(--text-secondary)}.nav-cta{background:var(--earth-800)!important;color:var(--warm-100)!important;padding:10px 22px;border-radius:50px;font-size:.85rem!important;font-weight:600!important}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}.hamburger span{width:24px;height:2px;background:var(--earth-800);border-radius:2px}
+    .blog-section{padding-top:100px}.blog-post{max-width:780px;margin:0 auto}.blog-post-title{font-size:2.6rem;color:var(--earth-800);margin-bottom:16px;letter-spacing:-.5px;line-height:1.15}
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}}@media(max-width:640px){.blog-section{padding-top:84px}.blog-post-title{font-size:1.7rem}}
+  </style>
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/style.css"></noscript>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">sagnik<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about">About</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">How to Use OpenCode in VS Code: The Free Open-Source AI Coding Alternative</span></nav>
+    </div>
+  </div>
+  <section style="padding-top:0">
+    <div class="container">
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-tags"><span class="blog-post-tag">AI Tools</span></div>
+          <h1 class="blog-post-title">How to Use OpenCode in VS Code: The Free Open-Source AI Coding Alternative</h1>
+          <div class="blog-post-meta">
+            <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
+              <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
+            </a>
+            <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
+            <span>5 Apr 2026</span>
+            <span>12 min read</span>
+          </div>
+        </div>
+        <figure class="blog-cover">
+          <img src="/blog/images/opencode-vscode-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use OpenCode in VS Code, showing terminal-based AI coding assistant integration." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use OpenCode in VS Code, showing terminal-based AI coding assistant integration.</figcaption>
+        </figure>
+        <div class="blog-post-content">
+<p>Claude Code costs $20 per month at minimum (with a Max plan), Cursor is $20 per month, and GitHub Copilot sits at $19. These are excellent tools — I use several of them daily and recommend them in my courses. But a growing number of developers want the power of an AI coding assistant without the recurring subscription, the vendor lock-in, or the requirement to send every line of code to a third-party server. If that describes you, OpenCode is the most exciting open-source alternative to land in 2026.</p>
+
+<p>OpenCode is a terminal-based AI coding assistant with over 126,000 GitHub stars, released under the MIT licence. It supports more than 75 models out of the box — including local models through Ollama, cloud providers like OpenAI, Anthropic, and Google, and practically any OpenAI-compatible API endpoint. It runs entirely in your terminal, which means it integrates naturally with VS Code's built-in terminal panel. I have spent the past two weeks setting it up, configuring multiple providers, and testing it across real coding workflows. This guide covers everything you need to get started.</p>
+
+<h2>Prerequisites</h2>
+<p>Before installing OpenCode, make sure the following are in place:</p>
+<ol>
+  <li><strong>VS Code installed.</strong> Any recent stable version works. OpenCode runs in the integrated terminal, so no special extension is required.</li>
+  <li><strong>Go 1.23+ (optional).</strong> If you want to install OpenCode from source using <code>go install</code>, you need Go installed. Alternatively, you can download a pre-built binary or use Homebrew, which does not require Go.</li>
+  <li><strong>At least one model provider.</strong> You need access to at least one AI model. This can be a local Ollama installation (completely free), an OpenAI API key, an Anthropic API key, a Google AI API key, or any OpenAI-compatible endpoint.</li>
+  <li><strong>Ollama (optional, for local models).</strong> If you want to run models entirely on your machine without an internet connection, install Ollama from <a href="https://ollama.com" target="_blank" rel="noopener">ollama.com</a> and pull a model such as <code>ollama pull gemma4</code> or <code>ollama pull deepseek-coder-v2</code>.</li>
+</ol>
+<p>If you plan to use only cloud providers (OpenAI, Anthropic, Google), you do not need Go or Ollama — just the pre-built binary and your API key.</p>
+
+<h2>Installing OpenCode</h2>
+<p>OpenCode offers several installation methods. Choose the one that suits your setup:</p>
+
+<h3>Method 1: Go Install (Requires Go 1.23+)</h3>
+<p>If you already have Go installed, this is the simplest approach:</p>
+<pre><code>go install github.com/opencode-ai/opencode@latest</code></pre>
+<p>This downloads, compiles, and places the <code>opencode</code> binary in your <code>$GOPATH/bin</code> directory. Make sure that directory is in your system PATH.</p>
+
+<h3>Method 2: Homebrew (macOS and Linux)</h3>
+<pre><code>brew install opencode-ai/tap/opencode</code></pre>
+<p>This is the easiest method on macOS. Homebrew handles the binary download and PATH configuration automatically.</p>
+
+<h3>Method 3: Pre-Built Binary</h3>
+<p>Visit the <a href="https://github.com/opencode-ai/opencode/releases" target="_blank" rel="noopener">OpenCode releases page</a> on GitHub and download the binary for your operating system (Windows, macOS, or Linux). Extract it and place it in a directory that is in your system PATH. On Windows, you can add the directory to your PATH through System Properties or by running:</p>
+<pre><code># Example: add to PATH on Windows (PowerShell)
+$env:PATH += ";C:\path\to\opencode"
+
+# Example: add to PATH on macOS/Linux
+export PATH="$PATH:/usr/local/bin/opencode"</code></pre>
+
+<h3>Verifying the Installation</h3>
+<p>Open VS Code's integrated terminal (Ctrl+` or Cmd+`) and run:</p>
+<pre><code>opencode --version</code></pre>
+<p>You should see the version number printed. If you get a "command not found" error, double-check that the binary location is in your PATH.</p>
+
+<h2>Connecting to Model Providers</h2>
+<p>OpenCode's greatest strength is its model flexibility. It supports over 75 models across multiple providers, and you can switch between them freely. Configuration is handled through a <code>.opencode.json</code> file in your project root or through environment variables.</p>
+
+<h3>OpenAI</h3>
+<p>Set your API key as an environment variable:</p>
+<pre><code>export OPENAI_API_KEY="sk-your-key-here"</code></pre>
+<p>Then in your <code>.opencode.json</code> configuration:</p>
+<pre><code>{
+  "provider": {
+    "openai": {
+      "model": "gpt-4o",
+      "apiKey": "$OPENAI_API_KEY"
+    }
+  }
+}</code></pre>
+<p>OpenCode supports all current OpenAI models including GPT-4o, GPT-4o-mini, and o3. For coding tasks, GPT-4o provides the best balance of quality and speed.</p>
+
+<h3>Anthropic</h3>
+<pre><code>export ANTHROPIC_API_KEY="sk-ant-your-key-here"</code></pre>
+<pre><code>{
+  "provider": {
+    "anthropic": {
+      "model": "claude-sonnet-4-20250514",
+      "apiKey": "$ANTHROPIC_API_KEY"
+    }
+  }
+}</code></pre>
+<p>Claude Sonnet 4 is particularly strong for code generation and refactoring tasks. If you have access to Claude Opus 4, it excels at complex architectural reasoning but is slower and more expensive per token.</p>
+
+<h3>Google (Gemini)</h3>
+<pre><code>export GOOGLE_API_KEY="your-google-api-key"</code></pre>
+<pre><code>{
+  "provider": {
+    "google": {
+      "model": "gemini-2.5-pro",
+      "apiKey": "$GOOGLE_API_KEY"
+    }
+  }
+}</code></pre>
+
+<h3>Ollama (Local Models)</h3>
+<p>For completely free, offline usage, configure Ollama as your provider:</p>
+<pre><code>{
+  "provider": {
+    "ollama": {
+      "model": "gemma4:27b",
+      "baseURL": "http://localhost:11434"
+    }
+  }
+}</code></pre>
+<p>No API key is needed for Ollama. Make sure the Ollama service is running (<code>ollama serve</code>) and you have pulled the model you want to use. OpenCode communicates with Ollama through its local API endpoint.</p>
+
+<h3>Multiple Providers</h3>
+<p>One of OpenCode's most powerful features is the ability to configure multiple providers simultaneously. You can switch between them during a session without restarting:</p>
+<pre><code>{
+  "provider": {
+    "openai": {
+      "model": "gpt-4o",
+      "apiKey": "$OPENAI_API_KEY"
+    },
+    "anthropic": {
+      "model": "claude-sonnet-4-20250514",
+      "apiKey": "$ANTHROPIC_API_KEY"
+    },
+    "ollama": {
+      "model": "gemma4:27b",
+      "baseURL": "http://localhost:11434"
+    }
+  }
+}</code></pre>
+<p>This means you can use a free local model for routine tasks and switch to Claude or GPT-4o when you need higher quality output for complex logic — all within the same terminal session.</p>
+
+<h2>Using OpenCode in the VS Code Terminal</h2>
+<p>OpenCode is a terminal application, and VS Code's integrated terminal is the perfect environment for it. Open the terminal panel (Ctrl+` or Cmd+`), navigate to your project directory, and launch OpenCode:</p>
+<pre><code>opencode</code></pre>
+<p>This starts OpenCode in interactive mode. You are presented with a terminal-based interface where you can type prompts, reference files, and receive AI-generated responses — all without leaving VS Code.</p>
+
+<h3>Interactive Mode Basics</h3>
+<p>Once OpenCode is running, you interact with it conversationally:</p>
+<ul>
+  <li><strong>Ask questions:</strong> Type a natural language question and press Enter. OpenCode analyses your project context and responds directly in the terminal.</li>
+  <li><strong>Reference files:</strong> Use the <code>@filename</code> syntax to include specific files in your prompt context. For example: <code>Refactor @src/utils/auth.ts to use async/await instead of promises</code>.</li>
+  <li><strong>Generate code:</strong> Ask OpenCode to create new files or write functions. It outputs the code directly and can write it to disk with your confirmation.</li>
+  <li><strong>Edit existing code:</strong> Describe a change you want, and OpenCode shows a diff view of the proposed modifications. You accept or reject each change.</li>
+</ul>
+
+<h3>Keyboard Shortcuts</h3>
+<p>OpenCode's terminal UI supports several shortcuts that speed up your workflow:</p>
+<ul>
+  <li><code>Ctrl+C</code> — cancel the current generation</li>
+  <li><code>Ctrl+L</code> — clear the conversation history and start fresh</li>
+  <li><code>Tab</code> — autocomplete file paths when using the <code>@</code> syntax</li>
+  <li><code>/compact</code> — summarise the current conversation to reduce token usage</li>
+  <li><code>/model</code> — switch to a different model mid-session</li>
+</ul>
+
+<h3>Split Terminal Workflow</h3>
+<p>A workflow I find highly productive is to split the VS Code terminal into two panes: one running OpenCode and the other for your normal terminal commands (git, npm, running tests). This way, you can ask OpenCode to write a test, then immediately run it in the adjacent pane to verify it passes. Press Ctrl+Shift+5 (or Cmd+Shift+5 on Mac) to split the terminal panel.</p>
+
+<h2>Key Features</h2>
+<p>OpenCode packs a surprising number of features for a terminal-based tool. Here are the ones that matter most for day-to-day development:</p>
+
+<h3>Multi-Model Support</h3>
+<p>As covered in the configuration section, OpenCode supports over 75 models across all major providers. This is its single biggest differentiator. Cursor locks you into their hosted models. Copilot uses GitHub's models. Claude Code requires an Anthropic subscription. OpenCode lets you bring any model you want — including free local models through Ollama. You can even point it at a custom OpenAI-compatible API endpoint if your organisation runs its own inference server.</p>
+
+<h3>Conversation Sessions</h3>
+<p>OpenCode maintains conversation history within a session, so you can iteratively refine code. Ask it to write a function, then follow up with "add error handling", then "write tests for this". Each prompt builds on the previous context. Sessions are persisted locally, so you can resume a conversation after restarting OpenCode.</p>
+
+<h3>File Context and Project Awareness</h3>
+<p>When you launch OpenCode from a project directory, it automatically reads the project structure and can reference files in your codebase. The <code>@filename</code> syntax lets you explicitly include files, but OpenCode also infers relevant context from your prompts. If you ask "fix the authentication bug", it looks for files related to authentication in your project tree.</p>
+
+<h3>LSP Integration</h3>
+<p>OpenCode integrates with Language Server Protocol (LSP) to understand your codebase at a deeper level than raw text. It uses LSP data to resolve type definitions, find references, and understand the relationships between files. This means when you ask it to refactor a function, it can identify all the call sites and update them as well — something a simple text-based tool cannot do reliably.</p>
+
+<h3>Diff View</h3>
+<p>When OpenCode proposes changes to existing files, it presents them in a unified diff format directly in the terminal. You see exactly what lines are being added, removed, or modified before accepting. This is a critical safety feature — you never have to worry about OpenCode silently overwriting code without your review.</p>
+
+<h3>Tool Use and Shell Commands</h3>
+<p>OpenCode can execute shell commands on your behalf (with your approval). This means it can run your test suite, check build output, install dependencies, or perform any terminal operation as part of a coding workflow. For example, you can say "write a unit test for the login function and then run it" — OpenCode writes the test, executes <code>npm test</code>, and adjusts the test if it fails.</p>
+
+<h2>Using OpenCode with Local Models (Ollama)</h2>
+<p>Running OpenCode with Ollama gives you a completely free, offline AI coding assistant. No API keys, no usage limits, no data leaving your machine. Here is how to set it up for the best experience:</p>
+
+<h3>Recommended Local Models for Coding</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Size</th>
+      <th>Min VRAM</th>
+      <th>Coding Quality</th>
+      <th>Best For</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Gemma 4 27B</td>
+      <td>16GB</td>
+      <td>16GB</td>
+      <td>Very good</td>
+      <td>General coding, explanation, refactoring</td>
+    </tr>
+    <tr>
+      <td>DeepSeek Coder V2</td>
+      <td>16GB</td>
+      <td>16GB</td>
+      <td>Excellent for code</td>
+      <td>Code generation, completion, debugging</td>
+    </tr>
+    <tr>
+      <td>Llama 3.3 70B</td>
+      <td>40GB</td>
+      <td>48GB</td>
+      <td>Excellent</td>
+      <td>Complex reasoning, architecture decisions</td>
+    </tr>
+    <tr>
+      <td>Gemma 4 12B</td>
+      <td>8GB</td>
+      <td>8GB</td>
+      <td>Good</td>
+      <td>Quick tasks on modest hardware</td>
+    </tr>
+    <tr>
+      <td>Qwen 2.5 Coder 7B</td>
+      <td>4.5GB</td>
+      <td>6GB</td>
+      <td>Good for code</td>
+      <td>Low-end GPUs, fast iteration</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Setting Up Ollama with OpenCode</h3>
+<ol>
+  <li>Install Ollama from <a href="https://ollama.com" target="_blank" rel="noopener">ollama.com</a>.</li>
+  <li>Pull a coding model: <code>ollama pull gemma4:27b</code> (or your preferred model from the table above).</li>
+  <li>Verify Ollama is running: <code>curl http://localhost:11434</code> should return "Ollama is running".</li>
+  <li>Create or edit <code>.opencode.json</code> in your project root with the Ollama provider configuration shown earlier.</li>
+  <li>Launch OpenCode from VS Code's terminal: <code>opencode</code>.</li>
+</ol>
+<p>The first prompt may take a few seconds while Ollama loads the model into GPU memory. Subsequent prompts within the same session are faster because the model stays loaded.</p>
+
+<h3>Optimising Local Model Performance</h3>
+<ul>
+  <li><strong>GPU offloading:</strong> Ensure Ollama is using your GPU. Run <code>ollama ps</code> to check. On NVIDIA systems, confirm CUDA is available with <code>nvidia-smi</code>.</li>
+  <li><strong>Context window:</strong> Larger context windows consume more VRAM. If you are running out of memory, reduce the context size in Ollama's modelfile or use a smaller model.</li>
+  <li><strong>Quantisation:</strong> If the full model does not fit in your VRAM, use a quantised version (e.g., <code>gemma4:27b-q4_K_M</code>). Quality drops slightly but VRAM usage decreases significantly.</li>
+  <li><strong>Keep-alive:</strong> By default, Ollama unloads models after 5 minutes of inactivity. Set <code>OLLAMA_KEEP_ALIVE=-1</code> to keep models loaded permanently during your coding session.</li>
+</ul>
+
+<h2>Practical Workflows</h2>
+<p>Here are the workflows where I have found OpenCode most useful in day-to-day development:</p>
+
+<h3>Code Generation</h3>
+<p>Describe what you need in plain English and OpenCode generates it. For example: "Create a REST API endpoint in Express.js for user registration. Include input validation with Zod, password hashing with bcrypt, and return appropriate HTTP status codes." OpenCode writes the complete implementation, including imports, error handling, and response formatting. With Claude Sonnet 4 or GPT-4o as the backend model, the quality is comparable to what you would get from Cursor or Copilot Chat.</p>
+
+<h3>Refactoring</h3>
+<p>Reference an existing file and describe the refactoring: <code>Refactor @src/api/handlers.ts — extract the validation logic into a separate middleware function and add TypeScript types for all parameters</code>. OpenCode reads the file, generates the refactored version, and shows you a diff. It handles multi-file refactors as well — if extracting the middleware requires creating a new file, it proposes both the new file and the modifications to the original.</p>
+
+<h3>Test Writing</h3>
+<p>Ask OpenCode to generate tests for existing code: <code>Write comprehensive Jest tests for @src/utils/dateFormatter.ts — cover edge cases including invalid dates, timezone boundaries, and locale formatting</code>. The quality of generated tests depends heavily on the backend model. Claude Sonnet 4 and GPT-4o produce thorough test suites with good edge case coverage. Local models like Gemma 4 27B cover the main paths but tend to miss subtle edge cases — use them as a starting point and add additional assertions manually.</p>
+
+<h3>Debugging</h3>
+<p>Paste an error message or stack trace directly into OpenCode and ask for help: "I am getting this error when running my tests: [paste error]. The relevant code is in @src/services/payment.ts. What is causing this and how do I fix it?" OpenCode analyses the error, examines the referenced file, and explains both the root cause and the fix. For common errors (type mismatches, null references, async/await issues), it gets it right on the first attempt most of the time.</p>
+
+<h3>Project Exploration</h3>
+<p>OpenCode is excellent for understanding unfamiliar codebases. Navigate to a project you have never worked on and ask: "Explain the architecture of this project. What are the main modules, how do they interact, and where is the entry point?" OpenCode scans the directory structure, reads key files, and provides a high-level architectural overview. Follow up with specific questions like "how does the authentication flow work?" to drill deeper into individual systems.</p>
+
+<h2>OpenCode vs Claude Code vs Cursor vs GitHub Copilot</h2>
+<p>This is the comparison most developers want. Here is an honest side-by-side assessment:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>OpenCode</th>
+      <th>Claude Code</th>
+      <th>Cursor</th>
+      <th>GitHub Copilot</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Price</td>
+      <td>Free (MIT licence)</td>
+      <td>$20+/month (Anthropic plan)</td>
+      <td>$20/month (Pro)</td>
+      <td>$19/month (Individual)</td>
+    </tr>
+    <tr>
+      <td>Model flexibility</td>
+      <td>75+ models, any provider</td>
+      <td>Claude models only</td>
+      <td>Claude, GPT, hosted models</td>
+      <td>GitHub-hosted models</td>
+    </tr>
+    <tr>
+      <td>Local/offline models</td>
+      <td>Yes (Ollama)</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Interface</td>
+      <td>Terminal-based</td>
+      <td>Terminal-based</td>
+      <td>Full IDE (VS Code fork)</td>
+      <td>VS Code extension</td>
+    </tr>
+    <tr>
+      <td>Inline autocomplete</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Chat / code generation</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes (Copilot Chat)</td>
+    </tr>
+    <tr>
+      <td>Multi-file editing</td>
+      <td>Yes (with diff review)</td>
+      <td>Yes</td>
+      <td>Yes (Composer)</td>
+      <td>Limited</td>
+    </tr>
+    <tr>
+      <td>Shell command execution</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Limited</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>LSP integration</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes (native IDE)</td>
+      <td>Yes (via VS Code)</td>
+    </tr>
+    <tr>
+      <td>Privacy (fully local option)</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Open source</td>
+      <td>Yes (MIT)</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Project context depth</td>
+      <td>Good (file refs + LSP)</td>
+      <td>Excellent</td>
+      <td>Excellent (full codebase)</td>
+      <td>Good (workspace indexing)</td>
+    </tr>
+  </tbody>
+</table>
+<p>The takeaway: OpenCode offers the most flexibility and the best price (free), but it trades away the polished GUI experience and inline autocomplete that Cursor and Copilot provide. If you are comfortable working in the terminal and value model choice and privacy, OpenCode is the strongest option. If inline tab-completions are essential to your workflow, you will still need Copilot or Cursor alongside it.</p>
+
+<h2>Limitations</h2>
+<p>OpenCode is impressive for its age and community momentum, but it is important to understand where it falls short today:</p>
+<ul>
+  <li><strong>Terminal only.</strong> There is no graphical interface, no sidebar panel, no inline code decorations. Everything happens in the terminal. Some developers love this; others find it disorienting compared to the integrated experience of Cursor or Copilot.</li>
+  <li><strong>No inline autocomplete.</strong> OpenCode does not provide tab-completion suggestions as you type. It is a conversational tool — you ask for code and it generates it. If ghost-text autocomplete is central to your workflow, you will need a separate tool for that.</li>
+  <li><strong>Output quality depends on the model.</strong> OpenCode itself is just an interface. The quality of code it generates, the accuracy of its explanations, and the usefulness of its refactoring suggestions all depend on which backend model you configure. A local 7B model produces noticeably worse output than Claude Sonnet 4 or GPT-4o.</li>
+  <li><strong>Early and rapidly evolving project.</strong> Despite the 126K+ stars, OpenCode is still a young project. Breaking changes between versions are possible, documentation has gaps, and some features are experimental. Check the GitHub issues and changelog before updating to a new version.</li>
+  <li><strong>Token costs with cloud providers.</strong> While OpenCode itself is free, using it with OpenAI, Anthropic, or Google models incurs API usage costs. Heavy usage (large file contexts, long conversations) can accumulate meaningful bills. Monitor your API dashboard and use the <code>/compact</code> command to reduce token consumption during long sessions.</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Is OpenCode truly free to use?</h3>
+<p>OpenCode itself is completely free and open source under the MIT licence. You can download, use, modify, and distribute it without any cost. However, if you connect it to cloud model providers (OpenAI, Anthropic, Google), you pay those providers' standard API rates for the tokens you consume. To use OpenCode at zero cost, pair it with Ollama and a local model — everything runs on your hardware with no external API calls.</p>
+
+<h3>Can OpenCode replace Cursor or GitHub Copilot entirely?</h3>
+<p>For chat-based coding workflows (code generation, refactoring, test writing, debugging, code explanation), OpenCode is a capable replacement, especially with a strong backend model like Claude Sonnet 4 or GPT-4o. Where it cannot replace Cursor or Copilot is inline autocomplete — the ghost-text suggestions that appear as you type. If tab-completion is a significant part of your workflow, you will likely want to keep Copilot or Cursor for that and use OpenCode for conversational AI coding tasks.</p>
+
+<h3>Does OpenCode work on Windows?</h3>
+<p>Yes. OpenCode provides pre-built binaries for Windows, macOS, and Linux. On Windows, it works in PowerShell, Command Prompt, Windows Terminal, and the VS Code integrated terminal. The experience is identical across platforms. If you use Ollama for local models on Windows, make sure the Ollama service is running before launching OpenCode.</p>
+
+<h2>Sources and Further Reading</h2>
+<ul>
+  <li><a href="https://github.com/opencode-ai/opencode" target="_blank" rel="noopener">OpenCode GitHub repository</a></li>
+  <li><a href="https://ollama.com" target="_blank" rel="noopener">Ollama — run local AI models</a></li>
+  <li><a href="https://platform.openai.com/docs" target="_blank" rel="noopener">OpenAI API documentation</a></li>
+  <li><a href="https://docs.anthropic.com" target="_blank" rel="noopener">Anthropic API documentation</a></li>
+</ul>
+
+<h2>Related Posts</h2>
+<ul>
+  <li><a href="/blog/gemma-4-vscode">How to Use Gemma 4 in VS Code: Setup, Extensions, and Coding Workflows</a></li>
+  <li><a href="/blog/gemma-4-vs-chatgpt-vs-claude">Gemma 4 vs ChatGPT vs Claude vs Copilot: Best AI Model Comparison in 2026</a></li>
+  <li><a href="/blog/create-with-ai-flutter">Create a Flutter App with AI: Step-by-Step Guide</a></li>
+</ul>
+<div class="blog-cta-box"><h3>Want to use AI tools more effectively?</h3><p>My courses cover practical AI workflows, from spreadsheet formulas to app development, with real projects and honest tool comparisons.</p><a href="/courses" class="btn-primary">Browse all courses <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/animations.js" defer></script>
+  <script src="/tracking.js" defer></script>
+</body>
+</html>
