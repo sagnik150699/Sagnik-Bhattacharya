@@ -1,7 +1,10 @@
 // Comprehensive GA4 Event Tracking
 // Tracks all user interactions across the site
+// Deferred to idle time so it does not block first paint
 (function () {
   "use strict";
+
+  function init() {
 
   // -- Common page context sent with every event --
   function pageContext() {
@@ -15,20 +18,31 @@
   // -- Scroll depth tracking (25%, 50%, 75%) --
   // GA4 Enhanced Measurement already tracks 90%
   var scrollMilestones = { 25: false, 50: false, 75: false };
-  window.addEventListener("scroll", function () {
-    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    if (docHeight <= 0) return;
-    var percent = Math.round((scrollTop / docHeight) * 100);
-    [25, 50, 75].forEach(function (milestone) {
-      if (percent >= milestone && !scrollMilestones[milestone]) {
-        scrollMilestones[milestone] = true;
-        gtag("event", "scroll_depth", Object.assign({
-          percent_scrolled: milestone,
-        }, pageContext()));
+  var scrollThrottle = null;
+
+  function onScrollDepth() {
+    if (scrollThrottle) return;
+    scrollThrottle = setTimeout(function () {
+      scrollThrottle = null;
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      if (docHeight <= 0) return;
+      var percent = Math.round((scrollTop / docHeight) * 100);
+      [25, 50, 75].forEach(function (milestone) {
+        if (percent >= milestone && !scrollMilestones[milestone]) {
+          scrollMilestones[milestone] = true;
+          gtag("event", "scroll_depth", Object.assign({
+            percent_scrolled: milestone,
+          }, pageContext()));
+        }
+      });
+      if (scrollMilestones[25] && scrollMilestones[50] && scrollMilestones[75]) {
+        window.removeEventListener("scroll", onScrollDepth);
       }
-    });
-  });
+    }, 200);
+  }
+
+  window.addEventListener("scroll", onScrollDepth, { passive: true });
 
   // -- Time on page tracking (visibility-aware) --
   var timeIntervals = [30, 60, 120, 300];
@@ -265,4 +279,12 @@
       time_spent_seconds: Math.round(elapsed),
     }, pageContext()));
   });
+
+  } // end init
+
+  if (typeof requestIdleCallback === 'function') {
+    requestIdleCallback(init, { timeout: 3000 });
+  } else {
+    setTimeout(init, 1500);
+  }
 })();

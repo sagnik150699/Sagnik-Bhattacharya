@@ -74,26 +74,35 @@
     }, { passive: true });
   }
 
-  // ── CURSOR GLOW (desktop only) ──
+  // ── CURSOR GLOW (desktop only, stops when idle) ──
   if (!reducedMotion && window.matchMedia('(min-width:901px) and (pointer:fine)').matches) {
     const glow = document.createElement('div');
     glow.className = 'cursor-glow';
     document.body.appendChild(glow);
     let mouseX = -500, mouseY = -500, glowX = -500, glowY = -500;
+    let glowRunning = false;
 
-    document.addEventListener('mousemove', e => {
-      mouseX = e.clientX; mouseY = e.clientY;
-      glow.classList.add('active');
-    });
-    document.addEventListener('mouseleave', () => glow.classList.remove('active'));
-
-    (function loop() {
+    function glowLoop() {
       glowX += (mouseX - glowX) * 0.08;
       glowY += (mouseY - glowY) * 0.08;
       glow.style.left = glowX + 'px';
       glow.style.top = glowY + 'px';
-      requestAnimationFrame(loop);
-    })();
+      if (Math.abs(mouseX - glowX) < 0.5 && Math.abs(mouseY - glowY) < 0.5) {
+        glowRunning = false;
+        return;
+      }
+      requestAnimationFrame(glowLoop);
+    }
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX; mouseY = e.clientY;
+      glow.classList.add('active');
+      if (!glowRunning) { glowRunning = true; glowLoop(); }
+    });
+    document.addEventListener('mouseleave', () => {
+      glow.classList.remove('active');
+      glowRunning = false;
+    });
   }
 
   // ── CHECK IF GSAP LOADED ──
@@ -161,8 +170,9 @@
           { opacity: 1, y: 0, duration: 0.6 }, '-=0.4');
     }
 
-    // Section reveals with stagger
+    // Section reveals with stagger (skip hidden elements, e.g. paginated blog cards)
     document.querySelectorAll('.reveal').forEach(el => {
+      if (el.offsetParent === null && !el.closest('.cta-inner')) return;
       gsap.fromTo(el,
         { opacity: 0, y: 40 },
         {
@@ -516,12 +526,12 @@
     });
   }
 
-  // ── GSAP: BLOG CARDS ROTATE-IN ──
+  // ── GSAP: BLOG CARDS ROTATE-IN (only visible/paginated cards) ──
   if (hasGSAP) {
     document.querySelectorAll('.blog-grid').forEach(grid => {
-      const cards = grid.querySelectorAll('.blog-card');
-      if (cards.length) {
-        gsap.fromTo(cards,
+      const visibleCards = Array.from(grid.querySelectorAll('.blog-card')).filter(c => c.style.display !== 'none');
+      if (visibleCards.length) {
+        gsap.fromTo(visibleCards,
           { opacity: 0, y: 40, rotateX: 8 },
           {
             opacity: 1, y: 0, rotateX: 0,
