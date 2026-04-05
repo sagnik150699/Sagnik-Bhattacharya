@@ -1,6 +1,9 @@
 {
   "name": "Sagnik Bhattacharya",
   "short_name": "Sagnik",
+  "description": "Tech educator and founder of Coding Liquids. Courses and guides on Flutter, Dart, and Excel with AI.",
+  "start_url": "/",
+  "scope": "/",
   "icons": [
     {
       "src": "/favicon-192x192.png",

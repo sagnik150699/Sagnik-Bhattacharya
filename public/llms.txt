@@ -12,7 +12,7 @@ Sagnik Bhattacharya is a tech educator, consultant, and founder of Coding Liquid
 - [About](https://sagnikbhattacharya.com/about): Background, experience, and teaching philosophy.
 - [Courses](https://sagnikbhattacharya.com/courses): Flutter & Dart course and upcoming Excel with AI course on Udemy.
 - [Services](https://sagnikbhattacharya.com/services): Corporate training, app development, and tech consulting offerings.
-- [Blog](https://sagnikbhattacharya.com/blog): 85+ in-depth guides on Excel, Excel with AI, AI model comparisons, and Flutter development.
+- [Blog](https://sagnikbhattacharya.com/blog): 80+ in-depth guides on Excel, Excel with AI, AI model comparisons, and Flutter development.
 - [Contact](https://sagnikbhattacharya.com/contact): Get in touch for training, consulting, or collaboration.
 
 ## Blog Topics
@@ -39,7 +39,6 @@ Practical guides on state management (Provider vs Riverpod vs BLoC), app archite
 ## Courses
 
 - [Complete Flutter Guide: Build Android, iOS & Web Apps](https://www.udemy.com/course/flutter-the-guide-to-build-android-ios-and-web-apps/): Top-rated on Udemy. Covers layouts, animations, Riverpod, Firebase, MVVM architecture, testing, and deployment. 30,000+ students across 175 countries.
-- [Complete Dart Programming Guide](https://www.udemy.com/course/the-complete-dart-programming-guide-for-google-flutter-2022/): Master Dart from scratch — OOP, async, collections, generics, null safety.
 - Complete Excel Guide with AI Integration (Coming Soon): Beginner to advanced Excel with AI-powered automation using ChatGPT, Claude, Copilot, and Gemini.
 
 ## Services

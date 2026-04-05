@@ -276,8 +276,8 @@ function Update-Page {
   Write-Html $Path $html
 }
 
-$defaultManagedTypes = @('Person', 'Organization', 'BreadcrumbList', 'WebSite', 'FAQPage')
-$blogManagedTypes = @('BlogPosting', 'Organization', 'BreadcrumbList', 'FAQPage')
+$defaultManagedTypes = @('Person', 'Organization', 'BreadcrumbList', 'WebSite', 'WebPage')
+$blogManagedTypes = @('BlogPosting', 'Organization', 'BreadcrumbList', 'WebPage')
 
 $rootPages = @(
   [ordered]@{

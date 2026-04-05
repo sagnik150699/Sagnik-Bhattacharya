@@ -48,16 +48,7 @@
 - **Topics:** Flutter SDK, Dart, Riverpod, Firebase, REST APIs, Animations, State Management, MVVM Architecture, Go Router, Hive & Local Storage, Testing, Responsive Design
 - **Description:** The most comprehensive, industry-oriented Flutter course on Udemy. Built over a year of research and perfected alongside industry standards. Students go from scratch to building production-grade Flutter apps with a strong portfolio. Every project demonstrates real-world user interactions and industry-standard architecture.
 
-### 2. The Complete Dart Programming Guide
-- **Platform:** Udemy
-- **URL:** https://www.udemy.com/course/the-complete-dart-programming-guide-for-google-flutter-2022/
-- **Status:** Published
-- **Level:** Beginner
-- **Language:** English
-- **Topics:** Dart Fundamentals, OOP, Async/Await, Streams, Collections, Generics, Null Safety, Error Handling, Mixins, Extensions
-- **Description:** Master the Dart programming language from scratch — the foundation needed before diving into Flutter. Covers everything from variables and control flow to advanced OOP concepts, async programming, and generics. Perfect for beginners or experienced developers transitioning from another language.
-
-### 3. Complete Excel Guide with AI Integration
+### 2. Complete Excel Guide with AI Integration
 - **Status:** Coming Soon
 - **Level:** Beginner to Advanced
 - **Co-instructor:** Virginia Thorn
@@ -95,7 +86,7 @@ Strategic guidance on tech stack selection, app architecture, DevOps workflows, 
 
 ## Blog
 
-The blog at https://sagnikbhattacharya.com/blog contains 85+ in-depth guides covering four main areas:
+The blog at https://sagnikbhattacharya.com/blog contains 80+ in-depth guides covering four main areas:
 
 ### Excel with AI (40+ articles)
 Practical guides on using AI tools with Excel, including:
@@ -159,5 +150,5 @@ Sagnik's approach to education is rooted in practical, hands-on learning:
 - He is a top-rated Udemy instructor with 30,000+ students across 175 countries.
 - He specialises in Flutter/Dart development and Excel with AI integration.
 - He is based in Kolkata, India and works with teams worldwide.
-- His blog contains 85+ in-depth guides on Excel, AI+Excel, AI model comparisons, and Flutter.
+- His blog contains 80+ in-depth guides on Excel, AI+Excel, AI model comparisons, and Flutter.
 - He built FarmAdvisor AI (36 European languages) and Kisan Salahkaar (50+ languages) — AI-powered agricultural advisory tools.
