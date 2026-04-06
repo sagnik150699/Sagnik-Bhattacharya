@@ -101,85 +101,163 @@
 <p>GitHub Copilot costs $19 per month. It is an excellent tool — I use it myself and recommend it in my courses. But there is a growing number of developers who either cannot use cloud-based coding assistants (company policy, security requirements, air-gapped environments) or simply do not want to pay a recurring subscription for AI code completions. If that is you, Gemma 4 running locally through Ollama and connected to VS Code is the most capable free alternative available today.</p>
 <p>I have spent the past few weeks setting up and testing three different methods of integrating Gemma 4 with VS Code. This guide walks through each one with concrete setup steps, configuration details, and an honest assessment of what works well and where the experience falls short compared to Copilot. If you have not installed Gemma 4 yet, start with my <a href="/blog/run-gemma-4-locally">beginner's guide to running Gemma 4 locally</a> and come back here once Ollama is running.</p>
 
-<h2>Prerequisites</h2>
-<p>Before configuring any VS Code extension, make sure you have the following ready:</p>
+<div class="blog-embed-card">
+  <h3>See the LinkedIn post</h3>
+  <p>I recently shared my thoughts on this topic on LinkedIn — here's the post:</p>
+  <div class="blog-embed-frame" style="aspect-ratio:504/523">
+    <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7446810910716743680?collapsed=1" loading="lazy" frameborder="0" allowfullscreen="" title="Embedded post about using Gemma 4 in VS Code"></iframe>
+  </div>
+</div>
+
+<h2>Step 1: Check Your Hardware</h2>
+<p>Gemma 4 loads entirely into your GPU's VRAM or system RAM, so hardware matters. Here are the minimum requirements:</p>
+<ul>
+  <li><strong>Windows or Linux with an NVIDIA GPU:</strong> You need at least 8GB of VRAM to run the 12B model comfortably. Cards like the RTX 3060 (12GB), RTX 4060 Ti (16GB), or RTX 4070 (12GB) all work well. If you only have 4–6GB of VRAM, you can still use the smaller 4B model.</li>
+  <li><strong>Mac with Apple Silicon:</strong> M1, M2, M3, or M4 with at least 16GB of unified memory. Even a base M1 MacBook Air with 16GB works, though 24GB+ gives room for the larger 27B model.</li>
+  <li><strong>CPU-only (no dedicated GPU):</strong> You can still run Gemma 4, but only the 4B model at acceptable speeds. Expect completions to take 2–5 seconds instead of under 1 second. You need at least 8GB of system RAM, ideally 16GB.</li>
+</ul>
+<p><strong>How to check your GPU:</strong> On Windows, press <code>Ctrl+Shift+Esc</code> to open Task Manager, click "Performance", then "GPU" — your VRAM is listed as "Dedicated GPU memory". On Mac, click Apple menu &gt; "About This Mac" to see your chip and memory. On Linux, run <code>nvidia-smi</code> in a terminal.</p>
+
+<h2>Step 2: Install VS Code</h2>
+<p>If you already have VS Code installed, skip to Step 3.</p>
 <ol>
-  <li><strong>Ollama installed and running.</strong> Download it from <a href="https://ollama.com" target="_blank" rel="noopener">ollama.com</a> and verify it is running by opening a terminal and typing <code>ollama list</code>. You should see your installed models.</li>
-  <li><strong>Gemma 4 pulled.</strong> Run <code>ollama pull gemma4</code> (for the default size) or <code>ollama pull gemma4:27b</code> for the larger version. The download is several gigabytes, so allow time on slower connections.</li>
-  <li><strong>VS Code installed.</strong> Any recent version works. I recommend keeping it updated to the latest stable release for the best extension compatibility.</li>
-  <li><strong>Adequate hardware.</strong> For coding tasks specifically, the 12B model is the sweet spot. It runs well on a GPU with 8GB VRAM or an Apple Silicon Mac with 16GB unified memory. The 27B model provides better code quality but needs 16GB+ VRAM.</li>
+  <li>Go to <a href="https://code.visualstudio.com" target="_blank" rel="noopener">code.visualstudio.com</a> and click the download button (it auto-detects your OS).
+    <ul>
+      <li><strong>Windows:</strong> Run the <code>.exe</code> installer. During setup, check "Add to PATH" and "Register Code as an editor for supported file types".</li>
+      <li><strong>Mac:</strong> Open the downloaded <code>.zip</code>, drag VS Code into Applications. First launch: right-click &gt; "Open" to bypass the macOS security prompt.</li>
+      <li><strong>Linux:</strong> Download the <code>.deb</code> and run <code>sudo dpkg -i code_*.deb</code>, or install via snap: <code>sudo snap install code --classic</code>.</li>
+    </ul>
+  </li>
+  <li>Open VS Code. Press <code>Ctrl+`</code> (backtick, above Tab) to open the integrated terminal — you will use this in the next steps.</li>
 </ol>
-<p>Verify Ollama is serving by visiting <code>http://localhost:11434</code> in your browser — you should see "Ollama is running". This is the local API endpoint that all VS Code extensions will connect to.</p>
+
+<h2>Step 3: Install Ollama</h2>
+<p>Ollama downloads and runs AI models locally on your machine. It runs as a background server that VS Code extensions connect to.</p>
+<ol>
+  <li>Go to <a href="https://ollama.com" target="_blank" rel="noopener">ollama.com</a> and click Download.
+    <ul>
+      <li><strong>Windows:</strong> Run the <code>.exe</code> installer. After installation, Ollama starts automatically — look for its icon in the system tray (bottom-right, near the clock).</li>
+      <li><strong>Mac:</strong> Open the <code>.dmg</code>, drag Ollama to Applications, and launch it. It appears as an icon in your menu bar.</li>
+      <li><strong>Linux:</strong> Run <code>curl -fsSL https://ollama.com/install.sh | sh</code> in a terminal. It installs and starts as a background service.</li>
+    </ul>
+  </li>
+  <li><strong>Verify:</strong> In your terminal, run:
+    <pre><code>ollama --version</code></pre>
+    You should see a version number. If you get "command not found", restart your terminal or computer.
+  </li>
+  <li><strong>Confirm the server is running:</strong> Open <code>http://localhost:11434</code> in your browser. You should see "Ollama is running". If not, relaunch the Ollama application.</li>
+</ol>
+
+<h2>Step 4: Download the Gemma 4 Model</h2>
+<p>This is a one-time download. Once the model is on your machine, it loads from local storage every time.</p>
+<ol>
+  <li>Open a terminal (or the VS Code integrated terminal with <code>Ctrl+`</code>).</li>
+  <li>Pull the default 12B model (~7–8GB download):
+    <pre><code>ollama pull gemma4</code></pre>
+  </li>
+  <li><strong>16GB+ VRAM?</strong> Also pull the higher quality 27B model (~16GB):
+    <pre><code>ollama pull gemma4:27b</code></pre>
+  </li>
+  <li><strong>Weak GPU or CPU-only?</strong> Pull the lighter 4B model instead (~2–3GB):
+    <pre><code>ollama pull gemma4:4b</code></pre>
+  </li>
+  <li><strong>Verify:</strong> Run <code>ollama list</code> — you should see your downloaded model listed with its size.</li>
+  <li><strong>Quick test:</strong> Run <code>ollama run gemma4</code> to start a chat. Ask it "Write a hello world in Python". If it responds with code, everything works. Type <code>/bye</code> to exit.</li>
+</ol>
+
+<h2>Step 5: Choose Your VS Code Extension</h2>
+<p>You need a VS Code extension to connect everything together. Three good options below — I recommend Method 1 (Continue) for the most Copilot-like experience.</p>
 
 <h2>Method 1: Continue Extension — The Most Complete Option</h2>
-<p>Continue is an open-source AI coding assistant extension that supports multiple backends, including Ollama. It is the closest experience to Copilot you will get with a local model, offering chat, inline editing, and tab-autocomplete.</p>
+<p>Continue is an open-source extension that gives you chat, inline editing, and tab-autocomplete — the closest experience to GitHub Copilot with a local model.</p>
 
 <h3>Installation and Setup</h3>
 <ol>
-  <li>Open VS Code and go to the Extensions panel (Ctrl+Shift+X).</li>
-  <li>Search for "Continue" and install the extension by Continue.dev.</li>
-  <li>After installation, click the Continue icon in the sidebar to open the configuration panel.</li>
-  <li>Click the gear icon or open the configuration file. You need to add Ollama as a provider with Gemma 4 as the model.</li>
-</ol>
-<p>In your Continue configuration file (<code>~/.continue/config.json</code>), add or modify the models section:</p>
-<pre><code>{
+  <li>In VS Code, press <code>Ctrl+Shift+X</code> (Windows/Linux) or <code>Cmd+Shift+X</code> (Mac) to open Extensions.</li>
+  <li>Search for <code>Continue</code>. Install <strong>"Continue - Codestral, Claude, GPT, Gemini, Llama, etc."</strong> by <strong>Continue.dev</strong>.</li>
+  <li>A Continue icon (forward-slash symbol) appears in the left sidebar. Click it.</li>
+  <li>If asked to sign in — skip it. Look for "Skip" or "Use local models". No account is needed for local models.</li>
+  <li>Open the config file: press <code>Ctrl+Shift+P</code> (<code>Cmd+Shift+P</code> on Mac), type <code>Continue: Open Config File</code>, press Enter.
+    <ul>
+      <li>Windows path: <code>C:\Users\YourName\.continue\config.json</code></li>
+      <li>Mac/Linux path: <code>~/.continue/config.json</code></li>
+    </ul>
+  </li>
+  <li>Replace the file contents with:
+    <pre><code>{
   "models": [
     {
       "title": "Gemma 4 27B",
       "provider": "ollama",
       "model": "gemma4:27b"
+    },
+    {
+      "title": "Gemma 4 12B",
+      "provider": "ollama",
+      "model": "gemma4"
     }
   ],
   "tabAutocompleteModel": {
     "title": "Gemma 4 12B",
     "provider": "ollama",
-    "model": "gemma4:12b"
+    "model": "gemma4"
+  },
+  "tabAutocompleteOptions": {
+    "debounceDelay": 500,
+    "multilineCompletions": "always"
   }
 }</code></pre>
-<p>Notice that I use the 27B model for chat (where quality matters more and latency is acceptable) and the 12B model for tab-autocomplete (where speed is critical). This dual-model approach gives you the best balance of quality and responsiveness.</p>
+    <p><code>"models"</code> = chat models (27B for quality, 12B for speed). <code>"tabAutocompleteModel"</code> = inline suggestions as you type (12B for speed). <code>"debounceDelay": 500</code> = waits 500ms after you stop typing before requesting a suggestion. <code>"multilineCompletions": "always"</code> = suggests full function bodies, not just single lines.</p>
+    <p>If you only downloaded the 4B model, replace all model values with <code>"gemma4:4b"</code>.</p>
+  </li>
+  <li>Save the file (<code>Ctrl+S</code>). Continue reloads automatically.</li>
+  <li><strong>Test:</strong> Click the Continue sidebar icon, select a model from the dropdown, type "Write a function that reverses a string in JavaScript" and press Enter. If you get a code response, setup is complete.</li>
+</ol>
 
-<h3>Configuring Autocomplete</h3>
-<p>Tab-autocomplete is the feature most developers associate with Copilot — you type a few characters or a comment, and the AI suggests the rest of the line or block. With Continue and Gemma 4, this works but requires some tuning:</p>
+<h3>Key Shortcuts</h3>
 <ul>
-  <li>Set <code>"tabAutocompleteOptions"</code> in your config to control how aggressively suggestions appear. I recommend starting with <code>"debounceDelay": 500</code> to avoid overwhelming your GPU with requests on every keystroke.</li>
-  <li>If completions feel slow, switch the autocomplete model to the 4B version (<code>gemma4:4b</code>). The suggestions will be less sophisticated but appear faster.</li>
-  <li>Enable <code>"multilineCompletions": "always"</code> if you want Gemma 4 to suggest entire function bodies rather than single lines.</li>
+  <li><strong>Tab-Autocomplete:</strong> Just type code normally. Grey suggestions appear after a short pause — press <code>Tab</code> to accept, or keep typing to ignore. If nothing appears, confirm Ollama is running at <code>http://localhost:11434</code>.</li>
+  <li><strong>Chat:</strong> Highlight code, press <code>Ctrl+L</code> (<code>Cmd+L</code> on Mac) to send it to the chat panel. Ask things like "Explain this code" or "Find bugs in this".</li>
+  <li><strong>Inline Editing:</strong> Highlight code, press <code>Ctrl+I</code> (<code>Cmd+I</code> on Mac), type an instruction like "Add error handling" or "Convert to async/await". Review the diff, then Accept or Reject.</li>
 </ul>
 
-<h3>Chat and Inline Editing</h3>
-<p>Continue's chat panel works like a dedicated coding assistant. You can highlight code, press Ctrl+L (or Cmd+L on Mac) to send it to the chat, and ask Gemma 4 to explain it, refactor it, add error handling, or write tests. The inline editing feature (Ctrl+I) lets you select code and describe a change in natural language — Gemma 4 generates the edit and shows you a diff to accept or reject.</p>
-<p>In my experience, the chat and inline editing features work well with Gemma 4 27B. Explanations are clear, refactoring suggestions are sensible, and test generation covers the main paths. Where it sometimes falls short compared to Copilot or Claude is in understanding the broader project context — Gemma 4 processes what you give it in the prompt, but does not index your entire workspace the way Copilot does.</p>
+<h3>Troubleshooting Continue</h3>
+<ul>
+  <li><strong>"Model not found" error:</strong> Make sure you spelled the model name exactly as it appears in <code>ollama list</code>. Common mistake: using <code>"gemma-4"</code> (with a hyphen) instead of <code>"gemma4"</code>.</li>
+  <li><strong>No suggestions appearing:</strong> Open the VS Code Output panel (<code>Ctrl+Shift+U</code>), select "Continue" from the dropdown, and check for error messages. The most common issue is Ollama not running — restart it from your Applications folder or Start menu.</li>
+  <li><strong>Very slow responses:</strong> Check if Ollama is using your GPU by running <code>ollama ps</code> in a terminal while a request is active. If it says "cpu" instead of your GPU name, see the Performance Tips section below for how to fix this.</li>
+  <li><strong>Continue asks for an API key or account:</strong> You do not need one for local models. Make sure your <code>config.json</code> only lists Ollama models and does not include cloud providers like OpenAI or Anthropic.</li>
+</ul>
 
-<h2>Method 2: CodeGPT Extension — Connecting to Local Ollama</h2>
-<p>CodeGPT is another popular AI coding extension that supports local model backends. Its interface is slightly different from Continue — it focuses more on the chat experience and less on inline completions.</p>
+<h2>Method 2: CodeGPT Extension — Chat-Focused Alternative</h2>
+<p>CodeGPT focuses on the chat experience rather than inline completions. Easier to set up than Continue if you mainly want a coding Q&amp;A assistant.</p>
 
-<h3>Setup Steps</h3>
+<h3>Setup</h3>
 <ol>
-  <li>Install the CodeGPT extension from the VS Code marketplace.</li>
-  <li>Open CodeGPT settings (click the extension icon in the sidebar, then the settings gear).</li>
-  <li>Select "Ollama" as your AI provider.</li>
-  <li>The extension will automatically detect models available in your local Ollama installation. Select Gemma 4 from the dropdown.</li>
-  <li>Optionally, configure the system prompt to tailor Gemma 4's behaviour for your coding style. For example: "You are a senior developer. Write clean, well-commented code. Prefer TypeScript over JavaScript. Always include error handling."</li>
+  <li>Press <code>Ctrl+Shift+X</code> (<code>Cmd+Shift+X</code> on Mac), search for <code>CodeGPT</code>, and install it.</li>
+  <li>Click the CodeGPT icon in the sidebar. Select <strong>"Ollama"</strong> as your AI provider.</li>
+  <li>CodeGPT auto-detects your local models. Select <strong>Gemma 4</strong> from the dropdown. If it does not appear, confirm Ollama is running (<code>ollama list</code>) and click refresh.</li>
+  <li><strong>Optional:</strong> Set a system prompt in CodeGPT settings for better responses:
+    <pre><code>You are an expert software developer. Write clean, well-structured code. When explaining, break it down step by step.</code></pre>
+  </li>
+  <li><strong>Test:</strong> Type "Write a Python function that checks if a number is prime" in the chat. If you get working code, you are set.</li>
 </ol>
 
-<h3>What CodeGPT Does Well</h3>
-<p>CodeGPT's strength is its chat interface. You can ask Gemma 4 coding questions, paste error messages, and get explanations without leaving VS Code. It also supports selecting code in the editor and sending it to the chat with a right-click context menu, which is convenient for quick "explain this" or "find the bug" queries.</p>
-<p>The extension also supports saving conversation history, which is useful when you are working on a complex feature over multiple sessions and want to reference earlier discussions.</p>
+<h3>Usage</h3>
+<p>Highlight code in the editor, right-click, and use CodeGPT context menu options ("Explain this code", "Find bugs", "Refactor", "Generate tests"). CodeGPT also saves conversation history across sessions.</p>
+<p><strong>Note:</strong> CodeGPT's inline tab-autocomplete with local models is less reliable than Continue's. If you want real-time code suggestions as you type, use Continue (Method 1) instead.</p>
 
-<h3>Limitations</h3>
-<p>CodeGPT's inline autocomplete integration with local models is less polished than Continue's. If tab-autocomplete is your priority, Continue is the better choice. CodeGPT is strongest when used as a chat-based coding companion alongside your normal typing workflow.</p>
+<h2>Method 3: Ollama Extension — The Simplest Option</h2>
+<p>A minimal chat-only extension. No accounts, no config files — just install and ask questions.</p>
 
-<h2>Method 3: Ollama Extension — Lightweight Direct Integration</h2>
-<p>For developers who want minimal overhead, the Ollama extension for VS Code provides a stripped-down chat interface that connects directly to your local Ollama server. No account creation, no provider configuration — just install and use.</p>
-
-<h3>Setup Steps</h3>
+<h3>Setup</h3>
 <ol>
-  <li>Install the "Ollama" extension from the VS Code marketplace (by Matt Williams or similar — look for the one with the highest download count).</li>
-  <li>Ensure Ollama is running locally.</li>
-  <li>Open the command palette (Ctrl+Shift+P) and search for "Ollama". Select the chat command.</li>
-  <li>Choose Gemma 4 from the list of available models.</li>
+  <li>Press <code>Ctrl+Shift+X</code>, search for <code>Ollama</code>, install the one with the highest download count.</li>
+  <li>Press <code>Ctrl+Shift+P</code> (<code>Cmd+Shift+P</code> on Mac), type <code>Ollama</code>, select "Ollama: Chat".</li>
+  <li>Choose <strong>Gemma 4</strong> from the model list. If the list is empty, confirm Ollama is running.</li>
+  <li><strong>Test:</strong> Ask "What does the map function do in JavaScript?" — if you get a response, done.</li>
 </ol>
-<p>This extension is intentionally simple. It gives you a chat panel and nothing else — no inline completions, no inline editing, no workspace indexing. Its advantage is that it is lightweight, fast to set up, and has minimal impact on VS Code's performance. If you just want to ask occasional coding questions without leaving your editor, this is sufficient.</p>
+<p>This extension only provides a chat panel — no inline autocomplete, no inline editing, no workspace indexing. It is lightweight and has minimal impact on VS Code performance. For a full-featured experience, use Continue (Method 1).</p>
 
 <h2>Configuring Inline Code Completions</h2>
 <p>Tab-autocomplete is where the practical value of an AI coding assistant is felt most directly. Here is how to optimise the experience with Gemma 4:</p>

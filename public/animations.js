@@ -549,6 +549,130 @@
     });
   }
 
+  // ── GSAP: BLOG POST CONTENT ANIMATIONS ──
+  if (hasGSAP) {
+    const blogPost = document.querySelector('.blog-post');
+    if (blogPost) {
+
+      // Blog cover image — scale-in reveal
+      const blogCover = blogPost.querySelector('.blog-cover');
+      if (blogCover) {
+        gsap.fromTo(blogCover,
+          { opacity: 0, y: 30, scale: 0.97 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out',
+            scrollTrigger: { trigger: blogCover, start: 'top 88%', once: true }
+          }
+        );
+      }
+
+      // Blog post title + meta — staggered entrance
+      const blogHeader = blogPost.querySelector('.blog-post-header');
+      if (blogHeader) {
+        const headerChildren = [
+          blogHeader.querySelector('.blog-post-tags'),
+          blogHeader.querySelector('.blog-post-title'),
+          blogHeader.querySelector('.blog-post-meta')
+        ].filter(Boolean);
+        gsap.fromTo(headerChildren,
+          { opacity: 0, y: 25 },
+          { opacity: 1, y: 0, duration: 0.7, stagger: 0.12, ease: 'power3.out' }
+        );
+      }
+
+      // Content h2 headings — fade up on scroll
+      blogPost.querySelectorAll('.blog-post-content h2').forEach(h2 => {
+        gsap.fromTo(h2,
+          { opacity: 0, y: 25 },
+          { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out',
+            scrollTrigger: { trigger: h2, start: 'top 88%', once: true }
+          }
+        );
+      });
+
+      // Content h3 headings
+      blogPost.querySelectorAll('.blog-post-content h3').forEach(h3 => {
+        gsap.fromTo(h3,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out',
+            scrollTrigger: { trigger: h3, start: 'top 90%', once: true }
+          }
+        );
+      });
+
+      // Paragraphs — subtle fade-up
+      blogPost.querySelectorAll('.blog-post-content > p').forEach(p => {
+        gsap.fromTo(p,
+          { opacity: 0, y: 18 },
+          { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out',
+            scrollTrigger: { trigger: p, start: 'top 92%', once: true }
+          }
+        );
+      });
+
+      // Code blocks — slide in from left with a subtle glow
+      blogPost.querySelectorAll('.blog-post-content pre').forEach(pre => {
+        gsap.fromTo(pre,
+          { opacity: 0, x: -30 },
+          { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out',
+            scrollTrigger: { trigger: pre, start: 'top 88%', once: true }
+          }
+        );
+      });
+
+      // Lists (ul, ol) — stagger children
+      blogPost.querySelectorAll('.blog-post-content > ul, .blog-post-content > ol').forEach(list => {
+        gsap.fromTo(list.children,
+          { opacity: 0, x: 15 },
+          { opacity: 1, x: 0, duration: 0.4, stagger: 0.06, ease: 'power3.out',
+            scrollTrigger: { trigger: list, start: 'top 88%', once: true }
+          }
+        );
+      });
+
+      // Tables — fade up with slight scale
+      blogPost.querySelectorAll('.blog-post-content table').forEach(table => {
+        gsap.fromTo(table,
+          { opacity: 0, y: 25, scale: 0.98 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'power3.out',
+            scrollTrigger: { trigger: table, start: 'top 85%', once: true }
+          }
+        );
+      });
+
+      // LinkedIn / embed cards — pop in with scale bounce
+      blogPost.querySelectorAll('.blog-embed-card').forEach(embed => {
+        gsap.fromTo(embed,
+          { opacity: 0, y: 30, scale: 0.94 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'back.out(1.4)',
+            scrollTrigger: { trigger: embed, start: 'top 85%', once: true }
+          }
+        );
+      });
+
+      // CTA box — scale up entrance
+      const ctaBox = blogPost.querySelector('.blog-cta-box');
+      if (ctaBox) {
+        gsap.fromTo(ctaBox,
+          { opacity: 0, y: 30, scale: 0.95 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'power3.out',
+            scrollTrigger: { trigger: ctaBox, start: 'top 85%', once: true }
+          }
+        );
+      }
+
+      // FAQ — stagger h3 + p pairs
+      blogPost.querySelectorAll('.blog-post-content h3 + p').forEach(faqP => {
+        gsap.fromTo(faqP,
+          { opacity: 0, y: 15 },
+          { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out',
+            scrollTrigger: { trigger: faqP, start: 'top 92%', once: true }
+          }
+        );
+      });
+
+    }
+  }
+
   // ── GSAP: FOOTER CONTENT STAGGER ──
   if (hasGSAP && footerEl) {
     gsap.fromTo(footerEl.children,
