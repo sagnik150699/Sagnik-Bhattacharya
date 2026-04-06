@@ -29,7 +29,7 @@ In-depth comparisons and practical guides on AI models and coding tools includin
 Comprehensive tutorials on advanced formulas, VLOOKUP vs XLOOKUP, INDEX-MATCH, pivot tables, Power Query, Power Pivot, dynamic arrays, GROUPBY, PIVOTBY, data validation, conditional formatting, financial modelling, charts, keyboard shortcuts, and building templates like budget trackers, inventory systems, Gantt charts, and attendance trackers.
 
 ### Flutter & Dart
-Practical guides on state management (Provider vs Riverpod vs BLoC), app architecture, performance optimization, testing strategies, form validation, deep linking with GoRouter, responsive UI, adding Flutter to existing apps, and comparisons like Flutter vs React Native and SkWasm vs CanvasKit for Flutter web. Also includes AI IDE guides for Flutter: Cursor, Windsurf, Gemini Code Assist, Gemini CLI with MCP, and Claude Code in Android Studio.
+Practical guides on state management (Provider vs Riverpod vs BLoC), app architecture, performance optimization, testing strategies, form validation, deep linking with GoRouter, responsive UI, adding Flutter to existing apps, and comparisons like Flutter vs React Native and SkWasm vs CanvasKit for Flutter web. Also includes layout debugging guides such as fixing RenderFlex overflowed in Row inside ListView, and AI IDE guides for Flutter: Cursor, Windsurf, Gemini Code Assist, Gemini CLI with MCP, and Claude Code in Android Studio.
 
 ## Projects
 

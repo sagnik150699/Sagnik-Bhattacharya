@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Fix RenderFlex Overflowed in Flutter Row inside ListView</title>
+  <meta name="description" content="Fix Flutter RenderFlex overflowed by X pixels in Row inside ListView. Step-by-step code using Expanded, Flexible, SizedBox, and Wrap.">
+  <meta name="keywords" content="RenderFlex overflowed Flutter, Flutter Row overflow, Flutter ListView Row, Flutter layout overflow, Expanded Flutter fix">
+  <meta name="author" content="Sagnik Bhattacharya">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#3E2723">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/flutter-renderflex-overflow-row-listview">
+  <meta property="og:title" content="How to Fix RenderFlex Overflowed in Flutter Row inside ListView">
+  <meta property="og:description" content="Fix Flutter RenderFlex overflowed by X pixels in Row inside ListView. Step-by-step code using Expanded, Flexible, SizedBox, and Wrap.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/flutter-renderflex-overflow-row-listview">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/flutter-renderflex-overflow-row-listview-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/flutter-renderflex-overflow-row-listview-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for fixing RenderFlex overflowed in Flutter Row inside ListView.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Sagnik Bhattacharya">
+  <meta property="article:author" content="Sagnik Bhattacharya">
+  <meta property="article:published_time" content="2026-04-07">
+  <meta property="article:section" content="Flutter">
+  <meta property="article:tag" content="RenderFlex overflowed Flutter">
+  <meta property="article:tag" content="Flutter Row overflow">
+  <meta property="article:tag" content="Flutter ListView Row">
+  <meta property="article:tag" content="Flutter layout overflow">
+  <meta property="article:tag" content="Expanded Flutter fix">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Fix RenderFlex Overflowed in Flutter Row inside ListView">
+  <meta name="twitter:description" content="Fix Flutter RenderFlex overflowed by X pixels in Row inside ListView. Step-by-step code using Expanded, Flexible, SizedBox, and Wrap.">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/flutter-renderflex-overflow-row-listview-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for fixing RenderFlex overflowed in Flutter Row inside ListView.">
+  <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Fix RenderFlex Overflowed in Flutter Row inside ListView","description":"Fix Flutter RenderFlex overflowed by X pixels in Row inside ListView. Step-by-step code using Expanded, Flexible, SizedBox, and Wrap.","datePublished":"2026-04-07","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/flutter-renderflex-overflow-row-listview"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/flutter-renderflex-overflow-row-listview-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/flutter-renderflex-overflow-row-listview-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"How to Fix RenderFlex Overflowed in Flutter Row inside ListView by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"RenderFlex overflowed Flutter, Flutter Row overflow, Flutter ListView Row, Flutter layout overflow, Expanded Flutter fix","articleSection":"Flutter"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"How to Fix RenderFlex Overflowed in Flutter Row inside ListView","item":"https://sagnikbhattacharya.com/blog/flutter-renderflex-overflow-row-listview"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"How to Fix RenderFlex Overflowed in Flutter Row inside ListView","url":"https://sagnikbhattacharya.com/blog/images/flutter-renderflex-overflow-row-listview-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/flutter-renderflex-overflow-row-listview-sagnik-bhattacharya-coding-liquids.jpg","caption":"How to Fix RenderFlex Overflowed in Flutter Row inside ListView by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
+    @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}
+    :root{--warm-50:#FFFBF5;--warm-100:#FFF3E0;--warm-200:#FFE0B2;--warm-300:#FFCC80;--warm-400:#FFA726;--warm-500:#E8852E;--warm-600:#C66A1A;--warm-700:#8B4513;--earth-800:#3E2723;--earth-900:#1C110A;--sage-100:#E8F0E8;--sage-200:#C8DCC8;--cream:#FDF8F0;--text-primary:#2C1810;--text-secondary:#6B5344;--text-light:#9A8578;--white:#FFFFFF;--shadow-sm:0 1px 3px rgba(44,24,16,0.06);--shadow-md:0 4px 16px rgba(44,24,16,0.08);--shadow-lg:0 8px 32px rgba(44,24,16,0.10);--shadow-xl:0 16px 48px rgba(44,24,16,0.12);--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--radius-xl:28px}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-primary);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}h1,h2,h3,h4{font-family:'DM Serif Display',serif;line-height:1.2;font-weight:400}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}.container{max-width:1140px;margin:0 auto;padding:0 24px}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,248,240,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(44,24,16,0.06)}nav .container{display:flex;align-items:center;justify-content:space-between;height:72px}.nav-logo{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--earth-800);letter-spacing:-.5px}.nav-logo span{color:var(--warm-500)}.nav-links{display:flex;gap:32px;list-style:none;align-items:center}.nav-links a{font-size:.9rem;font-weight:500;color:var(--text-secondary)}.nav-cta{background:var(--earth-800)!important;color:var(--warm-100)!important;padding:10px 22px;border-radius:50px;font-size:.85rem!important;font-weight:600!important}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}.hamburger span{width:24px;height:2px;background:var(--earth-800);border-radius:2px}
+    .blog-section{padding-top:100px}.blog-post{max-width:780px;margin:0 auto}.blog-post-title{font-size:2.6rem;color:var(--earth-800);margin-bottom:16px;letter-spacing:-.5px;line-height:1.15}
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}}@media(max-width:640px){.blog-section{padding-top:84px}.blog-post-title{font-size:1.7rem}}
+  </style>
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/style.css"></noscript>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">sagnik<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about">About</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">How to Fix RenderFlex Overflowed in Flutter Row inside ListView</span></nav>
+    </div>
+  </div>
+  <section style="padding-top:0">
+    <div class="container">
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-tags"><span class="blog-post-tag">Flutter</span></div>
+          <h1 class="blog-post-title">How to Fix RenderFlex Overflowed in Flutter Row inside ListView</h1>
+          <div class="blog-post-meta">
+            <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
+              <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
+            </a>
+            <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
+            <span>7 Apr 2026</span>
+            <span>12 min read</span>
+          </div>
+        </div>
+        <figure class="blog-cover">
+          <img src="/blog/images/flutter-renderflex-overflow-row-listview-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for fixing RenderFlex overflowed in Flutter Row inside ListView." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for fixing RenderFlex overflowed in Flutter Row inside ListView.</figcaption>
+        </figure>
+        <div class="blog-post-content">
+
+<p>The yellow-and-black overflow stripe is one of the most common things Flutter developers run into. You build a list, put a <code>Row</code> inside each item, and suddenly the debug console fills with:</p>
+
+<pre><code>A RenderFlex overflowed by 42 pixels on the right.</code></pre>
+
+<p>It happens most often when a <code>Row</code> sits inside a <code>ListView</code> or <code>ListView.builder</code>, and one or more children — usually a <code>Text</code> widget or an image — is wider than the available space. This guide walks through exactly why it happens and gives you every fix with working code.</p>
+
+<h2>What the full error message looks like</h2>
+
+<p>In debug mode, Flutter prints a message like this to the console:</p>
+
+<pre><code>══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞══════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 83 pixels on the right.
+
+The relevant error-causing widget was:
+  Row
+  Row:file:///path/to/your/widget.dart:24:14
+
+The overflowing RenderFlex has an orientation of Axis.horizontal.
+The edge of the RenderFlex that is overflowing has been marked in the
+rendering with a yellow and black striped pattern. This is usually
+caused by the contents being too big for the RenderFlex.
+
+Consider applying a flex factor (e.g. using an Expanded widget) to
+force the children of the RenderFlex to fit within the available
+space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there
+is content that cannot be seen. If the content is legitimately bigger
+than the available space, consider clipping it with a ClipRect widget
+before putting it in the flex, or using a scrollable container rather
+than a Flex, like a SingleChildScrollView.</code></pre>
+
+<p>Flutter is telling you exactly what happened and even suggesting a fix. This guide explains each option in detail so you can pick the right one for your situation.</p>
+
+<h2>Why Flutter layouts work the way they do</h2>
+
+<p>Before fixing anything, it helps to understand the fundamental rule Flutter uses to lay out widgets. Flutter layout follows two steps:</p>
+
+<ul>
+  <li><strong>Constraints go down.</strong> A parent widget passes size constraints (minimum width, maximum width, minimum height, maximum height) to each child.</li>
+  <li><strong>Sizes go up.</strong> Each child reports back the actual size it wants to be, within those constraints.</li>
+</ul>
+
+<p>A <code>Row</code> is a <code>Flex</code> widget with <code>Axis.horizontal</code> as its main axis. When a <code>Row</code> lays out its children, it first gives every non-flex child (anything not wrapped in <code>Expanded</code> or <code>Flexible</code>) unlimited horizontal space. Each child reports back the width it naturally wants. If the sum of those natural widths exceeds the <code>Row</code>'s own width, you get the overflow error.</p>
+
+<h2>Why ListView makes this worse</h2>
+
+<p>A <code>ListView</code> is a scrollable widget. It scrolls vertically by default, which means it gives its children unbounded height — children can be as tall as they like. In the horizontal direction, however, <code>ListView</code> passes its own width down to each child as both the minimum and maximum constraint. That means each child of a <code>ListView</code> is forced to be exactly as wide as the <code>ListView</code> itself.</p>
+
+<p>This becomes a problem when you place a <code>Row</code> inside a <code>ListView</code> item. The <code>Row</code> receives the <code>ListView</code>'s full width, say 390 logical pixels on a typical phone. The <code>Row</code> then asks its children how wide they want to be. If a <code>Text</code> widget contains a long string and has no constraint, it will report a natural width of perhaps 500 pixels. The <code>Row</code> has only 390 pixels available, so it overflows by 110 pixels.</p>
+
+<h2>Step 1: Reproduce the error with minimal code</h2>
+
+<p>Here is the smallest code example that triggers the overflow. Paste this into a new Flutter project to see the yellow-and-black stripes yourself:</p>
+
+<pre><code>import 'package:flutter/material.dart';
+
+void main() =&gt; runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return Row(
+              children: [
+                const Icon(Icons.person, size: 48),
+                // This Text has no constraints and will overflow
+                // on narrow screens or with long strings
+                const Text(
+                  'This is a very long username that will definitely '
+                  'overflow the available width on any phone screen',
+                ),
+                const Text('Extra info here'),
+              ],
+            );
+          },
+        ),
+      ),
+    );
+  }
+}</code></pre>
+
+<p>Run this in debug mode. You will see the overflow stripes on the right side of each list item and the error in the console. Now let us fix it.</p>
+
+<h2>Fix 1: Wrap the overflowing child with Expanded</h2>
+
+<p><code>Expanded</code> is the most common fix. It tells a child of a <code>Row</code> or <code>Column</code> to take up all the remaining space after the other children have been measured. This is the right choice when you want one child to fill the leftover width.</p>
+
+<p>Here is how to apply it to the example above:</p>
+
+<pre><code>ListView.builder(
+  itemCount: 10,
+  itemBuilder: (context, index) {
+    return Row(
+      children: [
+        const Icon(Icons.person, size: 48),
+        // Wrap the Text that was overflowing with Expanded
+        const Expanded(
+          child: Text(
+            'This is a very long username that will definitely '
+            'overflow the available width on any phone screen',
+            // Optional: truncate with ellipsis if still too long
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+        const Text('Extra info here'),
+      ],
+    );
+  },
+),</code></pre>
+
+<p>What happens step by step:</p>
+
+<ol>
+  <li>The <code>Row</code> first measures its non-flex children: the <code>Icon</code> (48 px) and the last <code>Text</code> (its natural width, say 90 px). Total fixed usage: 138 px.</li>
+  <li>The remaining space is 390 − 138 = 252 px.</li>
+  <li><code>Expanded</code> gives exactly those 252 px to the middle <code>Text</code> as both its minimum and maximum width constraint.</li>
+  <li>The <code>Text</code> must fit within 252 px. With <code>overflow: TextOverflow.ellipsis</code>, it truncates gracefully.</li>
+</ol>
+
+<p><strong>When to use Expanded:</strong> Use <code>Expanded</code> when one child should fill all the leftover space and you do not care if it gets very wide or very narrow.</p>
+
+<h2>Fix 2: Use Flexible instead of Expanded</h2>
+
+<p><code>Flexible</code> is like <code>Expanded</code> but with an important difference: the child is allowed to be smaller than the available space. With <code>Expanded</code>, the child is forced to fill the remaining space exactly. With <code>Flexible</code>, the child takes up at most the remaining space but can choose to be smaller.</p>
+
+<pre><code>ListView.builder(
+  itemCount: 10,
+  itemBuilder: (context, index) {
+    return Row(
+      children: [
+        const Icon(Icons.person, size: 48),
+        // Flexible lets the Text be as small as its content,
+        // up to a maximum of the remaining space
+        const Flexible(
+          child: Text(
+            'Username',
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+        const Text('Active'),
+      ],
+    );
+  },
+),</code></pre>
+
+<p>With <code>Flexible</code>, if the text is short (say "Ali"), the <code>Row</code> will not stretch that child to fill the full remaining width. The layout will look more natural for variable-length content. With <code>Expanded</code>, a short name would still fill the entire middle space, pushing "Active" to the far right.</p>
+
+<p><strong>When to use Flexible:</strong> Use <code>Flexible</code> when the child should shrink to fit its content but must not exceed the available space. This is common for labels and names in list items.</p>
+
+<h2>Fix 3: Constrain the child with SizedBox</h2>
+
+<p>Sometimes you know exactly how wide a widget should be. Wrapping it in a <code>SizedBox</code> with an explicit width gives it a hard constraint and prevents it from expanding beyond that.</p>
+
+<pre><code>ListView.builder(
+  itemCount: 10,
+  itemBuilder: (context, index) {
+    return Row(
+      children: [
+        const Icon(Icons.person, size: 48),
+        // Give this Text a fixed maximum width
+        const SizedBox(
+          width: 200,
+          child: Text(
+            'This is a very long username that will not overflow '
+            'because it has a fixed width constraint',
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+        const Text('Active'),
+      ],
+    );
+  },
+),</code></pre>
+
+<p>Step by step:</p>
+<ol>
+  <li>The <code>Row</code> measures the <code>Icon</code>: 48 px.</li>
+  <li>The <code>Row</code> measures the <code>SizedBox</code>: exactly 200 px.</li>
+  <li>The <code>Row</code> measures "Active": its natural width, say 50 px.</li>
+  <li>Total: 298 px, which is less than 390 px. No overflow.</li>
+</ol>
+
+<p><strong>When to use SizedBox:</strong> Use a fixed <code>SizedBox</code> width when the design spec calls for a specific column width that should not vary, regardless of the device width. This is fragile on very small or very large screens, so prefer <code>Expanded</code> or <code>Flexible</code> for general lists.</p>
+
+<h2>Fix 4: Use ConstrainedBox for a maximum width</h2>
+
+<p><code>ConstrainedBox</code> lets you set a maximum width without fixing an exact value. The child can be smaller but cannot exceed the maximum.</p>
+
+<pre><code>ListView.builder(
+  itemCount: 10,
+  itemBuilder: (context, index) {
+    return Row(
+      children: [
+        const Icon(Icons.person, size: 48),
+        ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 220),
+          child: const Text(
+            'Username that could be very long',
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+        const Spacer(),
+        const Text('Active'),
+      ],
+    );
+  },
+),</code></pre>
+
+<p>The <code>Spacer</code> widget here fills any remaining horizontal space between the constrained text and the "Active" label at the far right. <code>Spacer</code> is equivalent to <code>Expanded(child: SizedBox.shrink())</code>.</p>
+
+<p><strong>When to use ConstrainedBox:</strong> Use it when a widget has a known upper limit but should shrink gracefully for short content. Works well for profile names, product titles, or any label where content length varies unpredictably.</p>
+
+<h2>Fix 5: Replace Row with Wrap for line-breaking content</h2>
+
+<p>Sometimes the overflow happens because you have multiple tags, chips, or badges in a row that can wrap naturally onto a second line. In this case, replacing <code>Row</code> with <code>Wrap</code> solves the problem without any flex widgets.</p>
+
+<pre><code>ListView.builder(
+  itemCount: 10,
+  itemBuilder: (context, index) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      // Wrap automatically moves children to the next line
+      // when they do not fit horizontally
+      child: Wrap(
+        spacing: 8,    // horizontal gap between children
+        runSpacing: 4, // vertical gap between lines
+        children: [
+          Chip(label: Text('Flutter')),
+          Chip(label: Text('Dart')),
+          Chip(label: Text('Mobile Development')),
+          Chip(label: Text('Cross Platform')),
+          Chip(label: Text('Open Source')),
+        ],
+      ),
+    );
+  },
+),</code></pre>
+
+<p><code>Wrap</code> works exactly like <code>Row</code> when everything fits. When a child does not fit on the current line, <code>Wrap</code> moves it to the next line. There is no overflow because <code>Wrap</code> expands vertically to accommodate extra lines.</p>
+
+<p><strong>When to use Wrap:</strong> Use <code>Wrap</code> for tag lists, chip groups, badge rows, or any collection of items where wrapping to a new line makes visual sense. Do not use it for structured rows where alignment across items matters, such as table-like layouts.</p>
+
+<h2>Fix 6: Use FractionallySizedBox for proportional widths</h2>
+
+<p><code>FractionallySizedBox</code> sizes its child as a fraction of the available space. This is useful when you want the first column to always take up a specific percentage of the row width regardless of screen size.</p>
+
+<pre><code>ListView.builder(
+  itemCount: 10,
+  itemBuilder: (context, index) {
+    return Row(
+      children: [
+        // Label always takes 40% of the row width
+        FractionallySizedBox(
+          widthFactor: 0.4,
+          child: Text(
+            'Label that might be long',
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+        // Value takes the remaining 60%
+        Expanded(
+          child: Text(
+            'Value content here',
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+      ],
+    );
+  },
+),</code></pre>
+
+<p>Note that <code>FractionallySizedBox</code> inside a <code>Row</code> needs the <code>Row</code>'s width to be bounded. Since the <code>ListView</code> provides a bounded width to the <code>Row</code>, this works correctly. The fraction is calculated from the tight constraint the <code>ListView</code> passes down.</p>
+
+<p><strong>When to use FractionallySizedBox:</strong> Use it for two-column layouts where a consistent ratio is required across all screen sizes, such as a key–value list or a settings screen.</p>
+
+<h2>Fix 7: Add mainAxisSize: MainAxisSize.min to the Row</h2>
+
+<p>This fix is less common but useful in a specific scenario: when the <code>Row</code> itself does not need to fill the full available width. By default, a <code>Row</code> in a <code>ListView</code> item is forced to fill the full width because <code>ListView</code> gives it tight horizontal constraints. But if you have wrapped the <code>Row</code> inside an <code>IntrinsicWidth</code> or a widget that provides loose constraints, adding <code>mainAxisSize: MainAxisSize.min</code> tells the <code>Row</code> to shrink to its children's total width.</p>
+
+<pre><code>// This pattern works when the Row is inside a widget
+// that gives it loose (not tight) horizontal constraints
+IntrinsicWidth(
+  child: Row(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      const Icon(Icons.star),
+      const Text('Rating'),
+    ],
+  ),
+),</code></pre>
+
+<p>By itself inside a <code>ListView</code>, <code>mainAxisSize: MainAxisSize.min</code> does not prevent overflow because <code>ListView</code> still gives the children tight width constraints. It becomes useful when you want a horizontally-scrollable row (wrapping the <code>Row</code> in a <code>SingleChildScrollView</code> with <code>scrollDirection: Axis.horizontal</code>).</p>
+
+<h2>Handling a nested Row inside Column inside ListView</h2>
+
+<p>A common pattern is a <code>ListTile</code>-style layout where a <code>Column</code> holds the text content, and that <code>Column</code> sits inside a <code>Row</code> alongside an avatar or icon. This nested structure can overflow if the <code>Column</code> is not constrained.</p>
+
+<p>Here is the broken version:</p>
+
+<pre><code>// This overflows because the Column's children are unbounded
+ListView.builder(
+  itemCount: 10,
+  itemBuilder: (context, index) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const CircleAvatar(radius: 24),
+        const SizedBox(width: 12),
+        // Column is unbounded in width — it will overflow
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('Very long display name that overflows'),
+            const Text('Secondary line with more text that also overflows'),
+          ],
+        ),
+      ],
+    );
+  },
+),</code></pre>
+
+<p>Fix it by wrapping the <code>Column</code> in <code>Expanded</code>:</p>
+
+<pre><code>ListView.builder(
+  itemCount: 10,
+  itemBuilder: (context, index) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const CircleAvatar(radius: 24),
+          const SizedBox(width: 12),
+          // Expanded gives the Column all the remaining horizontal space
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Very long display name that no longer overflows',
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                ),
+                const Text(
+                  'Secondary line with more text that is also constrained',
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  },
+),</code></pre>
+
+<p>Step by step:</p>
+<ol>
+  <li>The <code>ListView</code> passes a tight horizontal constraint (full screen width, say 390 px) to the <code>Padding</code>.</li>
+  <li><code>Padding</code> subtracts 32 px (16 each side) and passes 358 px to the <code>Row</code>.</li>
+  <li>The <code>Row</code> measures the <code>CircleAvatar</code>: 48 px. Measures the <code>SizedBox</code>: 12 px. Fixed total: 60 px.</li>
+  <li><code>Expanded</code> gives the <code>Column</code> exactly 358 − 60 = 298 px.</li>
+  <li>The <code>Column</code> gives each <code>Text</code> a maximum of 298 px. The <code>Text</code> widgets wrap or truncate within that space.</li>
+</ol>
+
+<h2>Fixing Text overflow specifically</h2>
+
+<p>Even after applying <code>Expanded</code>, a <code>Text</code> widget may still feel cramped if it does not know how to handle content that is still too long. The <code>Text</code> widget has two relevant properties:</p>
+
+<ul>
+  <li><code>overflow</code>: what to do when the text does not fit. Options are <code>TextOverflow.ellipsis</code> (shows "..."), <code>TextOverflow.clip</code> (cuts off hard), <code>TextOverflow.fade</code> (fades out), or <code>TextOverflow.visible</code> (renders outside the box, but the parent must clip it).</li>
+  <li><code>maxLines</code>: limits how many lines the text can occupy. Without this, long text wraps to as many lines as needed.</li>
+  <li><code>softWrap</code>: if set to <code>false</code>, the text never wraps and overflow behaviour applies to the entire string.</li>
+</ul>
+
+<p>A robust list item text usually combines all three:</p>
+
+<pre><code>Expanded(
+  child: Text(
+    item.title,
+    overflow: TextOverflow.ellipsis,
+    maxLines: 2,
+    softWrap: true,
+  ),
+),</code></pre>
+
+<p>This tells Flutter: the text can wrap to two lines, and if it still does not fit after two lines, truncate with an ellipsis.</p>
+
+<h2>Fixing image overflow inside Row inside ListView</h2>
+
+<p>Images inside rows commonly overflow because <code>Image.network</code> or <code>Image.asset</code> without a size constraint will request its natural dimensions. A 1200 × 800 image will try to render at 1200 px wide, immediately overflowing any phone screen.</p>
+
+<p>Here is the broken pattern:</p>
+
+<pre><code>Row(
+  children: [
+    Image.network('https://example.com/photo.jpg'),
+    const Text('Photo caption'),
+  ],
+),</code></pre>
+
+<p>Fix it by constraining the image with <code>SizedBox</code> or by wrapping it in <code>Expanded</code>:</p>
+
+<pre><code>// Option A: fixed-size thumbnail
+Row(
+  children: [
+    SizedBox(
+      width: 80,
+      height: 80,
+      child: Image.network(
+        'https://example.com/photo.jpg',
+        fit: BoxFit.cover,
+      ),
+    ),
+    const SizedBox(width: 12),
+    const Expanded(
+      child: Text(
+        'Photo caption that can be as long as needed',
+        overflow: TextOverflow.ellipsis,
+        maxLines: 2,
+      ),
+    ),
+  ],
+),</code></pre>
+
+<pre><code>// Option B: image fills remaining space after text
+Row(
+  children: [
+    const SizedBox(
+      width: 160,
+      child: Text(
+        'Caption',
+        overflow: TextOverflow.ellipsis,
+      ),
+    ),
+    Expanded(
+      child: AspectRatio(
+        aspectRatio: 16 / 9,
+        child: Image.network(
+          'https://example.com/photo.jpg',
+          fit: BoxFit.cover,
+        ),
+      ),
+    ),
+  ],
+),</code></pre>
+
+<p>The key rule: every <code>Image</code> inside a <code>Row</code> must either have an explicit <code>width</code> or be wrapped in <code>Expanded</code> or <code>Flexible</code>. Without one of these, the image will render at its natural size and overflow.</p>
+
+<h2>Fixing overflow in horizontally scrollable rows</h2>
+
+<p>Sometimes the correct fix is not to constrain the content but to make the row scrollable. If you have a row of items that should all be fully visible (no truncation), wrap the <code>Row</code> in a <code>SingleChildScrollView</code> with horizontal scroll direction:</p>
+
+<pre><code>ListView.builder(
+  itemCount: 10,
+  itemBuilder: (context, index) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: List.generate(
+          8,
+          (i) => Padding(
+            padding: const EdgeInsets.all(8),
+            child: Chip(label: Text('Category ${i + 1}')),
+          ),
+        ),
+      ),
+    );
+  },
+),</code></pre>
+
+<p>This is appropriate for carousels, tag rows, or any situation where showing all items without truncation is more important than fitting within the screen width. Avoid this pattern for the main content of a list item — use <code>Expanded</code> or truncation there.</p>
+
+<h2>Common mistakes that cause or worsen overflow</h2>
+
+<ul>
+  <li><strong>Forgetting Expanded when nesting Column inside Row.</strong> The Column's children are unbounded unless the Column itself is constrained. Always wrap the Column in Expanded.</li>
+  <li><strong>Using two Expanded children with flex: 1 each and expecting equal halves.</strong> This works correctly — each gets half — but if the Row itself is inside another unbounded context, you get a different error. Ensure the Row has bounded width first.</li>
+  <li><strong>Applying Expanded outside a Row or Column.</strong> Expanded only works as a direct child of a Row, Column, or Flex. Using it elsewhere gives a "Expanded widgets must be placed inside Flex widgets" error.</li>
+  <li><strong>Setting width: double.infinity on a child inside a Row.</strong> This forces the child to be infinitely wide, which immediately overflows. Use Expanded instead.</li>
+  <li><strong>Using mainAxisSize: MainAxisSize.min inside ListView without wrapping in IntrinsicWidth.</strong> As noted above, ListView's tight width constraints mean the Row fills the available width regardless of mainAxisSize unless you explicitly loosen the constraints.</li>
+  <li><strong>Assuming ListView.builder items have intrinsic height.</strong> ListView items have unbounded height and bounded width. Layout issues are always about the horizontal axis, not the vertical one.</li>
+</ul>
+
+<h2>Decision tree: which fix to use</h2>
+
+<p>Use this quick reference to choose the right approach:</p>
+
+<ul>
+  <li><strong>One child should fill all leftover space →</strong> Use <code>Expanded</code> on that child.</li>
+  <li><strong>One child should take up to its natural width but not more than the leftover space →</strong> Use <code>Flexible</code> on that child.</li>
+  <li><strong>The design requires a specific pixel width for a column →</strong> Use <code>SizedBox(width: N)</code>.</li>
+  <li><strong>The design requires a percentage-based column width →</strong> Use <code>FractionallySizedBox(widthFactor: 0.X)</code>.</li>
+  <li><strong>Items in the row are chips or tags that should wrap to a new line →</strong> Replace <code>Row</code> with <code>Wrap</code>.</li>
+  <li><strong>All items must be fully visible with no truncation →</strong> Wrap <code>Row</code> in <code>SingleChildScrollView(scrollDirection: Axis.horizontal)</code>.</li>
+  <li><strong>A nested Column inside a Row is overflowing →</strong> Wrap the <code>Column</code> in <code>Expanded</code>.</li>
+  <li><strong>An image is overflowing →</strong> Wrap in <code>SizedBox</code> with explicit dimensions or in <code>Expanded</code>.</li>
+</ul>
+
+<h2>A complete realistic list item</h2>
+
+<p>Here is a full example combining several of these techniques into a production-style list item. This item shows an avatar, a name with a badge, a subtitle, and a trailing action button.</p>
+
+<pre><code>import 'package:flutter/material.dart';
+
+class ContactListItem extends StatelessWidget {
+  final String name;
+  final String subtitle;
+  final bool isOnline;
+  final VoidCallback onTap;
+
+  const ContactListItem({
+    super.key,
+    required this.name,
+    required this.subtitle,
+    required this.isOnline,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            // 1. Avatar — fixed size, never participates in flex
+            Stack(
+              children: [
+                const CircleAvatar(
+                  radius: 24,
+                  backgroundImage: NetworkImage(
+                    'https://i.pravatar.cc/48',
+                  ),
+                ),
+                if (isOnline)
+                  Positioned(
+                    right: 0,
+                    bottom: 0,
+                    child: Container(
+                      width: 12,
+                      height: 12,
+                      decoration: BoxDecoration(
+                        color: Colors.green,
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.white, width: 2),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+            const SizedBox(width: 12),
+
+            // 2. Name + subtitle column — Expanded to take all remaining space
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    children: [
+                      // Name: Flexible so it shrinks for short names
+                      Flexible(
+                        child: Text(
+                          name,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                        ),
+                      ),
+                      if (isOnline) ...[
+                        const SizedBox(width: 6),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 6, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: Colors.green.shade100,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: const Text(
+                            'Online',
+                            style: TextStyle(
+                              fontSize: 11,
+                              color: Colors.green,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    subtitle,
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: Colors.grey.shade600,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                  ),
+                ],
+              ),
+            ),
+
+            // 3. Trailing action — fixed size, right-aligned
+            const SizedBox(width: 8),
+            IconButton(
+              icon: const Icon(Icons.message_outlined),
+              onPressed: onTap,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// Usage
+class ContactsPage extends StatelessWidget {
+  const ContactsPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Contacts')),
+      body: ListView.separated(
+        itemCount: 20,
+        separatorBuilder: (_, __) =&gt; const Divider(height: 1),
+        itemBuilder: (context, index) =&gt; ContactListItem(
+          name: index % 3 == 0
+              ? 'Alexander the Very Long Named Person'
+              : 'Alex',
+          subtitle: 'Last seen ${index + 1} hours ago',
+          isOnline: index % 2 == 0,
+          onTap: () {},
+        ),
+      ),
+    );
+  }
+}</code></pre>
+
+<p>This example handles every overflow scenario:</p>
+<ul>
+  <li>The avatar is fixed at 48 px diameter and never expands.</li>
+  <li>The inner <code>Column</code> is wrapped in <code>Expanded</code>, so it takes all horizontal space the avatar and trailing button do not use.</li>
+  <li>Inside the name row, the name <code>Text</code> is wrapped in <code>Flexible</code>, so a short name does not push the "Online" badge to the right unnecessarily.</li>
+  <li>Both <code>Text</code> widgets use <code>overflow: TextOverflow.ellipsis</code> and <code>maxLines</code>, so they truncate rather than overflow.</li>
+  <li>The trailing <code>IconButton</code> is fixed and comes after the <code>Expanded</code> column, so it is always visible at the right edge.</li>
+</ul>
+
+<h2>How to confirm the fix worked</h2>
+
+<p>After applying a fix, confirm it in three ways:</p>
+
+<ol>
+  <li><strong>Check the debug console.</strong> If the overflow error is gone, the console will stop reporting it. Run the app and scroll through the entire list to ensure no item triggers the error on any content length.</li>
+  <li><strong>Enable the performance overlay.</strong> In <code>MaterialApp</code>, set <code>showPerformanceOverlay: true</code>. Overflow causes extra paint work. A clean layout will show green bars.</li>
+  <li><strong>Use Flutter DevTools Inspector.</strong> Open DevTools, go to the Widget Inspector tab, and enable "Show guidelines". This draws the layout constraints visually. Look for any widget whose painted area extends outside its constraint box — that indicates a remaining overflow, even if it is clipped and not immediately visible.</li>
+  <li><strong>Test with the longest realistic content.</strong> Overflow bugs often hide during development because test data is short. Write a test list item that uses the maximum expected string length for every text field and verify the layout holds.</li>
+</ol>
+
+<h2>Writing a widget test to catch future regressions</h2>
+
+<p>Once the layout is fixed, add a widget test to prevent regressions. Flutter's test framework will fail the test if an overflow occurs during the test run:</p>
+
+<pre><code>import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:your_app/contact_list_item.dart';
+
+void main() {
+  testWidgets('ContactListItem does not overflow with long name',
+      (WidgetTester tester) async {
+    // Use a standard phone-width surface
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 3.0;
+    addTearDown(tester.view.reset);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: ContactListItem(
+            // Very long name to stress-test the layout
+            name: 'Alexander Bartholomew Christofferson-Wellington III',
+            subtitle: 'Last active 3 days ago — long subtitle text',
+            isOnline: true,
+            onTap: () {},
+          ),
+        ),
+      ),
+    );
+
+    // If there is an overflow, pumpWidget will throw an assertion.
+    // No explicit expect needed — the absence of an exception IS the test.
+    expect(tester.takeException(), isNull);
+  });
+}</code></pre>
+
+<p>Run this with <code>flutter test</code>. If a future code change re-introduces overflow, this test will catch it immediately.</p>
+
+<h2>How to apply this in a production Flutter codebase</h2>
+
+<p>The overflow fix is straightforward once you understand constraints. The harder part is applying the right fix consistently across a large app. In production code:</p>
+
+<ul>
+  <li>Every <code>Row</code> that contains <code>Text</code> should have at least one child wrapped in <code>Expanded</code> or <code>Flexible</code>, unless every child has an explicit size constraint.</li>
+  <li>Images inside rows should always have an explicit width or be inside <code>Expanded</code>.</li>
+  <li>Nested <code>Column</code> inside <code>Row</code> should always have the <code>Column</code> inside <code>Expanded</code>.</li>
+  <li>Add widget tests for list items with stress-test data to prevent regressions when content changes.</li>
+</ul>
+
+<h2>Official references</h2>
+<p>These official references are useful if you need the product or framework documentation alongside this guide.</p>
+<ul>
+  <li><a href="https://docs.flutter.dev/ui/layout/constraints" target="_blank" rel="noopener">Flutter docs: Understanding constraints</a></li>
+  <li><a href="https://docs.flutter.dev/ui/layout" target="_blank" rel="noopener">Flutter docs: Layouts in Flutter</a></li>
+  <li><a href="https://api.flutter.dev/flutter/widgets/Expanded-class.html" target="_blank" rel="noopener">Flutter API: Expanded class</a></li>
+  <li><a href="https://api.flutter.dev/flutter/widgets/Flexible-class.html" target="_blank" rel="noopener">Flutter API: Flexible class</a></li>
+  <li><a href="https://api.flutter.dev/flutter/widgets/Wrap-class.html" target="_blank" rel="noopener">Flutter API: Wrap class</a></li>
+</ul>
+
+<h2>Related guides on this site</h2>
+<p>If you want to keep going without opening dead ends, these are the most useful next reads from this site.</p>
+<ul>
+  <li><a href="/blog/flutter-performance-2026">Flutter Performance in 2026: Impeller, DevTools, and Rebuild Reduction</a></li>
+  <li><a href="/blog/responsive-flutter-ui-all-screens">Responsive Flutter UI for Mobile, Tablet, Desktop, and Web</a></li>
+  <li><a href="/blog/flutter-app-architecture-2026">Flutter App Architecture in 2026: A Practical Feature-First Guide</a></li>
+  <li><a href="/blog/flutter-testing-strategy-2026">Flutter Testing Strategy in 2026: Unit, Widget, Integration, and Goldens</a></li>
+</ul>
+
+<h2>Sources &amp; Further Reading</h2>
+<ul>
+  <li><a href="https://docs.flutter.dev" target="_blank" rel="noopener">Flutter Official Documentation</a></li>
+  <li><a href="https://dart.dev/language" target="_blank" rel="noopener">Dart Language Tour</a></li>
+  <li><a href="https://github.com/flutter/flutter" target="_blank" rel="noopener">Flutter GitHub Repository</a></li>
+</ul>
+
+<h2>Related Posts</h2>
+<ul>
+  <li><a href="/blog/flutter-performance-2026">Flutter Performance in 2026</a></li>
+  <li><a href="/blog/flutter-app-architecture-2026">Flutter App Architecture in 2026</a></li>
+  <li><a href="/blog/responsive-flutter-ui-all-screens">Responsive Flutter UI for All Screens</a></li>
+</ul>
+
+<div class="blog-cta-box"><h3>Need a structured Flutter learning path?</h3><p>My Flutter and Dart training focuses on production habits, architecture choices, and the practical skills teams need to ship and maintain apps.</p><a href="/courses" class="btn-primary">Explore Flutter courses <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+
+        </div>
+      </article>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/animations.js" defer></script>
+  <script src="/tracking.js" defer></script>
+</body>
+</html>
