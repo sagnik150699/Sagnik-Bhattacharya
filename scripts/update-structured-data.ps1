@@ -132,7 +132,20 @@ function Insert-ManagedScripts {
   )
 
   $block = (($Scripts -join "`r`n") + "`r`n")
-  return ($Html -replace '<link rel="stylesheet" href="/style\.css">', ($block + '  <link rel="stylesheet" href="/style.css">'))
+
+  $insertAfterPattern = '<link\b[^>]+\brel="alternate"[^>]+\btype="application/rss\+xml"[^>]*>\s*'
+  $insertAfterMatch = [regex]::Match($Html, $insertAfterPattern, [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
+  if ($insertAfterMatch.Success) {
+    return $Html.Insert($insertAfterMatch.Index + $insertAfterMatch.Length, $block)
+  }
+
+  $fallbackPattern = '</head>'
+  $fallbackMatch = [regex]::Match($Html, $fallbackPattern, [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
+  if ($fallbackMatch.Success) {
+    return $Html.Insert($fallbackMatch.Index, $block)
+  }
+
+  throw 'Could not find a safe insertion point for managed JSON-LD scripts.'
 }
 
 function New-OrganizationReference {
@@ -233,6 +246,7 @@ function New-BlogPostingSchema {
     }
     datePublished = $PublishedDate
     dateModified = $ModifiedDate
+    inLanguage = 'en-GB'
     description = $Description
     publisher = (New-OrganizationReference)
     image = [ordered]@{
