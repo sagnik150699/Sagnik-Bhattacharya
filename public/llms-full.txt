@@ -37,7 +37,7 @@
 
 ## Courses
 
-### 1. Complete Flutter Guide: Build Android, iOS & Web Apps
+### 1. The Complete Flutter Guide: Build Android, iOS and Web apps
 - **Platform:** Udemy
 - **URL:** https://www.udemy.com/course/flutter-the-guide-to-build-android-ios-and-web-apps/
 - **Status:** Published, Top Rated

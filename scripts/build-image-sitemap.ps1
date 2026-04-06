@@ -50,22 +50,28 @@ function Add-UrlEntry($loc, $lastmod, $changefreq, $priority, $images) {
 
 # Static pages with profile image
 $profileImg = @{ loc = "$base/sagnik-bhattacharya.png"; title = "Sagnik Bhattacharya"; caption = "Sagnik Bhattacharya - Tech Educator, Flutter and Excel Instructor, Founder of Coding Liquids" }
+$flutterCourseImg = @{
+    loc = "$base/images/the-complete-flutter-guide-build-android-ios-and-web-apps.jpg"
+    title = "The Complete Flutter Guide: Build Android, iOS and Web apps"
+    caption = "The Complete Flutter Guide: Build Android, iOS and Web apps course thumbnail featuring the Flutter logo, Virginia Thorn, and Sagnik Bhattacharya."
+}
 
 $staticPages = @(
-    @{ loc = "$base/"; lastmod = "2026-04-01"; changefreq = "weekly"; priority = "1.0" },
-    @{ loc = "$base/about"; lastmod = "2026-04-01"; changefreq = "monthly"; priority = "0.8" },
-    @{ loc = "$base/courses"; lastmod = "2026-04-01"; changefreq = "monthly"; priority = "0.9" },
-    @{ loc = "$base/services"; lastmod = "2026-04-01"; changefreq = "monthly"; priority = "0.8" },
-    @{ loc = "$base/contact"; lastmod = "2026-04-01"; changefreq = "monthly"; priority = "0.7" },
-    @{ loc = "$base/blog"; lastmod = "2026-04-01"; changefreq = "daily"; priority = "0.9" }
+    @{ loc = "$base/"; lastmod = "2026-04-01"; changefreq = "weekly"; priority = "1.0"; images = @($profileImg) },
+    @{ loc = "$base/about"; lastmod = "2026-04-01"; changefreq = "monthly"; priority = "0.8"; images = @($profileImg) },
+    @{ loc = "$base/courses"; lastmod = "2026-04-06"; changefreq = "monthly"; priority = "0.9"; images = @($profileImg, $flutterCourseImg) },
+    @{ loc = "$base/services"; lastmod = "2026-04-01"; changefreq = "monthly"; priority = "0.8"; images = @($profileImg) },
+    @{ loc = "$base/contact"; lastmod = "2026-04-01"; changefreq = "monthly"; priority = "0.7"; images = @($profileImg) },
+    @{ loc = "$base/blog"; lastmod = "2026-04-01"; changefreq = "daily"; priority = "0.9"; images = @($profileImg) }
 )
 
 foreach ($p in $staticPages) {
     $info = $oldUrls[$p.loc]
-    $lm = if ($info) { $info.lastmod } else { $p.lastmod }
+    $lm = if ($info -and $info.lastmod -and ([datetime]$info.lastmod -ge [datetime]$p.lastmod)) { $info.lastmod } else { $p.lastmod }
     $cf = if ($info) { $info.changefreq } else { $p.changefreq }
     $pr = if ($info) { $info.priority } else { $p.priority }
-    Add-UrlEntry $p.loc $lm $cf $pr @($profileImg)
+    $images = if ($p.images) { $p.images } else { @($profileImg) }
+    Add-UrlEntry $p.loc $lm $cf $pr $images
 }
 
 # Blog posts - iterate through the old sitemap order to preserve ordering

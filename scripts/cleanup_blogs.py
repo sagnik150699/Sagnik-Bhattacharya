@@ -116,24 +116,40 @@ def fix_ctas(html):
         # Fix Flutter articles that wrongly promote Excel course
         html = html.replace(
             'Explore the Excel + AI course',
-            'Explore the Flutter + Dart course'
+            'Explore The Complete Flutter Guide'
         )
         html = html.replace(
             'href="/courses#excel"',
             'href="/courses#flutter"'
         )
+        html = re.sub(
+            r'(<div class="blog-cta-box[^"]*">.*?<a[^>]*href=")/courses(" class="btn-primary">)',
+            r'\1/courses#flutter\2',
+            html,
+            flags=re.DOTALL
+        )
         # Fix CTA body text for Flutter articles
         html = re.sub(
             r'(<div class="blog-cta-box[^"]*">.*?<p>)The Complete Excel Course with AI Integration[^<]*(</p>)',
-            r'\1The Complete Flutter & Dart Course takes you from basics to production-ready apps, with real projects and modern patterns.\2',
+            r'\1The Complete Flutter Guide: Build Android, iOS and Web apps takes you from basics to production-ready apps, with real projects and modern patterns.\2',
             html,
             flags=re.DOTALL
         )
         html = re.sub(
             r'(<div class="blog-cta-box[^"]*">.*?<p>)My Complete Excel Course with AI Integration[^<]*(</p>)',
-            r'\1The Complete Flutter & Dart Course takes you from basics to production-ready apps, with real projects and modern patterns.\2',
+            r'\1The Complete Flutter Guide: Build Android, iOS and Web apps takes you from basics to production-ready apps, with real projects and modern patterns.\2',
             html,
             flags=re.DOTALL
+        )
+        html = re.sub(
+            r'(<div class="blog-cta-box[^"]*">.*?<p>)My Complete Flutter Course[^<]*(</p>)',
+            r'\1The Complete Flutter Guide: Build Android, iOS and Web apps takes you from zero to building production-ready Android, iOS, and web apps.\2',
+            html,
+            flags=re.DOTALL
+        )
+        html = html.replace(
+            'Explore the Flutter + Dart course',
+            'Explore The Complete Flutter Guide'
         )
 
     # Fix "Complete Excel Course with AI Integration course" -> remove redundant "course"
