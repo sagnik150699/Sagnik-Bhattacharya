@@ -1,7 +1,7 @@
 # Sagnik Bhattacharya Website
 
 <p align="center">
-  <img src="public/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="180">
+  <img src="https://raw.githubusercontent.com/sagnik150699/Sagnik-Bhattacharya/master/public/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="180">
 </p>
 
 Public source for [sagnikbhattacharya.com](https://sagnikbhattacharya.com), a personal website and portfolio for Sagnik Bhattacharya, founder of Coding Liquids.
