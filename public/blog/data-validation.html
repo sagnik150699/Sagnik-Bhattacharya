@@ -127,10 +127,10 @@
 <p>The most common use case. Select your target cells, go to <strong>Data → Data Validation</strong>:</p>
 <ol><li>Under "Allow", select <strong>List</strong></li><li>In "Source", type your options separated by commas: <code>North,South,East,West</code></li><li>Or reference a range: <code>=Sheet2!$A$1:$A$10</code></li></ol>
 <p>Now users can only select from the dropdown — no typos, no inconsistencies.</p>
-<h2>Number Restrictions</h2>
+<div class="blog-inline-course"><div class="blog-inline-course__badge">Coming Soon</div><div class="blog-inline-course__body"><p class="blog-inline-course__label">My upcoming Excel course</p><h3 class="blog-inline-course__title">Complete Excel Guide with AI Integration</h3><p class="blog-inline-course__desc">From formulas to production-grade spreadsheets, with real projects and AI-assisted workflows.</p><a href="/courses#excel" class="blog-inline-course__link">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div><h2>Number Restrictions</h2>
 <p>Restrict cells to accept only numbers within a range:</p>
 <ul><li><strong>Allow: Whole number</strong> — Between 1 and 100</li><li><strong>Allow: Decimal</strong> — Greater than 0</li><li><strong>Allow: Date</strong> — Between 01/01/2026 and 31/12/2026</li><li><strong>Allow: Text Length</strong> — Maximum 50 characters</li></ul>
-<h2>Custom Validation with Formulas</h2>
+<div class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Enjoying this? Follow me on Instagram for quick tips and behind-the-scenes content.</span><a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">@sagnikteaches</a></div><h2>Custom Validation with Formulas</h2>
 <p>For complex rules, select "Custom" and enter a formula. The functions used here — COUNTIF, FIND, ISNUMBER, TODAY — are covered in the <a href="/blog/advanced-formulas">advanced formulas guide</a>:</p>
 <h3>No Duplicate Entries</h3>
 <pre><code>=COUNTIF(A:A, A1)<=1</code></pre>
@@ -143,7 +143,7 @@
 <h2>Input Messages and Error Alerts</h2>
 <p>In the Data Validation dialog:</p>
 <ul><li><strong>Input Message tab</strong> — Shows a tooltip when the cell is selected, guiding the user on what to enter</li><li><strong>Error Alert tab</strong> — Customise what happens when invalid data is entered: Stop (block entry), Warning (allow with warning), or Information (allow with info)</li></ul>
-<h2>Dependent Dropdowns</h2>
+<div class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Let's connect — I share longer thoughts on LinkedIn.</span><a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">Add me on LinkedIn</a></div><h2>Dependent Dropdowns</h2>
 <p>Create cascading dropdowns where the second list depends on the first selection. For example, selecting "North" in column A shows only northern cities in column B:</p>
 <ol><li>Name your lists — select each city list, go to Formulas → Define Name (e.g., "North", "South")</li><li>In column B validation, use: <code>=INDIRECT(A1)</code></li></ol>
 <h2>Audit Existing Validation</h2>

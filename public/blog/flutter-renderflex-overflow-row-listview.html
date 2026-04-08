@@ -135,7 +135,7 @@ than a Flex, like a SingleChildScrollView.</code></pre>
 
 <p>Flutter is telling you exactly what happened and even suggesting a fix. This guide explains each option in detail so you can pick the right one for your situation.</p>
 
-<h2>Why Flutter layouts work the way they do</h2>
+<div class="blog-inline-course"><img src="/images/the-complete-flutter-guide-build-android-ios-and-web-apps.jpg" alt="The Complete Flutter Guide: Build Android, iOS, and Web Apps" width="280" height="147" loading="lazy"><div class="blog-inline-course__body"><p class="blog-inline-course__label">My Flutter course on Udemy</p><h3 class="blog-inline-course__title">The Complete Flutter Guide</h3><p class="blog-inline-course__desc">Build Android, iOS, and web apps from scratch — including state management, navigation, and production architecture.</p><a href="https://www.udemy.com/course/flutter-the-guide-to-build-android-ios-and-web-apps/?referralCode=0895EF14011CB08E80A0" target="_blank" rel="noopener noreferrer" class="blog-inline-course__link">View on Udemy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div><h2>Why Flutter layouts work the way they do</h2>
 
 <p>Before fixing anything, it helps to understand the fundamental rule Flutter uses to lay out widgets. Flutter layout follows two steps:</p>
 
@@ -146,7 +146,7 @@ than a Flex, like a SingleChildScrollView.</code></pre>
 
 <p>A <code>Row</code> is a <code>Flex</code> widget with <code>Axis.horizontal</code> as its main axis. When a <code>Row</code> lays out its children, it first gives every non-flex child (anything not wrapped in <code>Expanded</code> or <code>Flexible</code>) unlimited horizontal space. Each child reports back the width it naturally wants. If the sum of those natural widths exceeds the <code>Row</code>'s own width, you get the overflow error.</p>
 
-<h2>Why ListView makes this worse</h2>
+<div class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Enjoying this? Follow me on Instagram for quick tips and behind-the-scenes content.</span><a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">@sagnikteaches</a></div><h2>Why ListView makes this worse</h2>
 
 <p>A <code>ListView</code> is a scrollable widget. It scrolls vertically by default, which means it gives its children unbounded height — children can be as tall as they like. In the horizontal direction, however, <code>ListView</code> passes its own width down to each child as both the minimum and maximum constraint. That means each child of a <code>ListView</code> is forced to be exactly as wide as the <code>ListView</code> itself.</p>
 
@@ -320,7 +320,7 @@ class MyApp extends StatelessWidget {
 
 <p><strong>When to use ConstrainedBox:</strong> Use it when a widget has a known upper limit but should shrink gracefully for short content. Works well for profile names, product titles, or any label where content length varies unpredictably.</p>
 
-<h2>Fix 5: Replace Row with Wrap for line-breaking content</h2>
+<div class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Let's connect — I share longer thoughts on LinkedIn.</span><a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">Add me on LinkedIn</a></div><h2>Fix 5: Replace Row with Wrap for line-breaking content</h2>
 
 <p>Sometimes the overflow happens because you have multiple tags, chips, or badges in a row that can wrap naturally onto a second line. In this case, replacing <code>Row</code> with <code>Wrap</code> solves the problem without any flex widgets.</p>
 
@@ -558,7 +558,7 @@ Row(
 
 <p>The key rule: every <code>Image</code> inside a <code>Row</code> must either have an explicit <code>width</code> or be wrapped in <code>Expanded</code> or <code>Flexible</code>. Without one of these, the image will render at its natural size and overflow.</p>
 
-<h2>Fixing overflow in horizontally scrollable rows</h2>
+<div class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">I also make videos — subscribe to Coding Liquids on YouTube.</span><a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">Subscribe on YouTube</a></div><h2>Fixing overflow in horizontally scrollable rows</h2>
 
 <p>Sometimes the correct fix is not to constrain the content but to make the row scrollable. If you have a row of items that should all be fully visible (no truncation), wrap the <code>Row</code> in a <code>SingleChildScrollView</code> with horizontal scroll direction:</p>
 

@@ -135,7 +135,7 @@
 </ul>
 <p>Let's look at how Provider, Riverpod, and BLoC each tackle these problems differently.</p>
 
-<h2>Provider — The Established Default</h2>
+<div class="blog-inline-course"><img src="/images/the-complete-flutter-guide-build-android-ios-and-web-apps.jpg" alt="The Complete Flutter Guide: Build Android, iOS, and Web Apps" width="280" height="147" loading="lazy"><div class="blog-inline-course__body"><p class="blog-inline-course__label">My Flutter course on Udemy</p><h3 class="blog-inline-course__title">The Complete Flutter Guide</h3><p class="blog-inline-course__desc">Build Android, iOS, and web apps from scratch — including state management, navigation, and production architecture.</p><a href="https://www.udemy.com/course/flutter-the-guide-to-build-android-ios-and-web-apps/?referralCode=0895EF14011CB08E80A0" target="_blank" rel="noopener noreferrer" class="blog-inline-course__link">View on Udemy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div><h2>Provider — The Established Default</h2>
 <p>Provider was the first state management solution officially recommended by the Flutter team. It's built on top of <code>InheritedWidget</code> — Flutter's native mechanism for passing data down the widget tree — and wraps it in a much friendlier API.</p>
 
 <h3>How Provider Works</h3>
@@ -182,7 +182,7 @@ Text('Total: \$${cart.total}');</code></pre>
 <li><strong>No auto-dispose</strong> — you have to manage provider lifecycles manually for anything beyond simple cases</li>
 </ul>
 
-<h2>Riverpod — Provider's Evolution</h2>
+<div class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Enjoying this? Follow me on Instagram for quick tips and behind-the-scenes content.</span><a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">@sagnikteaches</a></div><h2>Riverpod — Provider's Evolution</h2>
 <p>Riverpod was created by Remi Rousselet — the same developer who built Provider. Think of it as "Provider 2.0" — it fixes every major limitation of Provider while keeping the same philosophy of simplicity. The name itself is an anagram of "Provider."</p>
 
 <h3>How Riverpod Works</h3>
@@ -299,7 +299,7 @@ context.read&lt;CartBloc&gt;().add(AddToCart(product));</code></pre>
 <li><strong>Event-to-state mapping can get complex</strong> — when a single event triggers multiple async operations or depends on other Blocs, the handler logic can become hard to follow</li>
 </ul>
 
-<h2>Head-to-Head Comparison</h2>
+<div class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Let's connect — I share longer thoughts on LinkedIn.</span><a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">Add me on LinkedIn</a></div><h2>Head-to-Head Comparison</h2>
 <table><thead><tr><th>Factor</th><th>Provider</th><th>Riverpod</th><th>BLoC</th></tr></thead><tbody>
 <tr><td><strong>Learning curve</strong></td><td>Low</td><td>Medium</td><td>High</td></tr>
 <tr><td><strong>Boilerplate</strong></td><td>Minimal</td><td>Low</td><td>High</td></tr>
@@ -342,7 +342,7 @@ context.read&lt;CartBloc&gt;().add(AddToCart(product));</code></pre>
 <li>Your team has <strong>experience with reactive programming</strong> (RxDart, streams, or similar patterns from other platforms)</li>
 </ul>
 
-<h2>Can You Mix Them?</h2>
+<div class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">I also make videos — subscribe to Coding Liquids on YouTube.</span><a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">Subscribe on YouTube</a></div><h2>Can You Mix Them?</h2>
 <p>Yes — and many production apps do. A common pattern I see in successful projects:</p>
 <ul>
 <li><strong>Riverpod</strong> for dependency injection and simple state (theme, auth status, feature flags)</li>

@@ -110,7 +110,7 @@
   <li><strong>A terminal you are comfortable with.</strong> Claude Code runs in the terminal. VS Code's integrated terminal works perfectly, but familiarity with basic command-line navigation will help you get the most from the tool.</li>
 </ol>
 
-<h2>Installing Claude Code</h2>
+<div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Flutter and Excel with AI — <a href="/courses">explore my courses</a> if you want structured learning.</span></div><h2>Installing Claude Code</h2>
 <p>Installation is straightforward through npm. Open your terminal (either VS Code's integrated terminal or an external one) and run:</p>
 <pre><code>npm install -g @anthropic-ai/claude-code</code></pre>
 <p>This installs Claude Code globally so you can invoke it from any directory. Once installed, navigate to your project folder and run:</p>
@@ -120,7 +120,7 @@
 <p>To verify the installation worked, run <code>claude --version</code> in your terminal. You should see the current version number. Then run <code>claude</code> inside any project directory — Claude Code will analyse the project structure, read key files, and present you with an interactive prompt where you can start giving it instructions.</p>
 <p>If you encounter permission errors during the npm install, avoid using <code>sudo</code>. Instead, configure npm to use a directory you own by running <code>npm config set prefix ~/.npm-global</code> and adding <code>~/.npm-global/bin</code> to your PATH.</p>
 
-<h2>The VS Code Extension</h2>
+<div class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Enjoying this? Follow me on Instagram for quick tips and behind-the-scenes content.</span><a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">@sagnikteaches</a></div><h2>The VS Code Extension</h2>
 <p>While Claude Code works perfectly from any terminal, the official VS Code extension adds meaningful IDE integration that makes the experience substantially better.</p>
 
 <h3>Installing the Extension</h3>
@@ -158,7 +158,7 @@ claude "Write a comprehensive README for this project"
 claude "Find and fix the bug causing the test in tests/auth.test.ts to fail"</code></pre>
 <p>Each of these runs Claude Code, performs the task, and exits. This is particularly useful for scripting and automation — you can integrate Claude Code into pre-commit hooks, CI pipelines, or custom build scripts.</p>
 
-<h2>Practical Coding Workflows</h2>
+<div class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Let's connect — I share longer thoughts on LinkedIn.</span><a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">Add me on LinkedIn</a></div><h2>Practical Coding Workflows</h2>
 <p>Here are the workflows where Claude Code delivers the most value in day-to-day VS Code development. These are based on my actual usage, not theoretical examples.</p>
 
 <h3>Generating Code from Natural Language</h3>
@@ -220,7 +220,7 @@ This is a Next.js 14 application using the App Router, TypeScript, and Prisma OR
 <pre><code>claude --model claude-sonnet-4-20250514</code></pre>
 <p>For most coding tasks, the default model selection works well. Opus 4 is worth using for complex architectural decisions, large-scale refactoring, or debugging subtle issues where deeper reasoning matters.</p>
 
-<h2>Claude Code vs Copilot vs Cursor vs Gemini CLI</h2>
+<div class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">I also make videos — subscribe to Coding Liquids on YouTube.</span><a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">Subscribe on YouTube</a></div><h2>Claude Code vs Copilot vs Cursor vs Gemini CLI</h2>
 <p>This is the comparison most developers are looking for. Here is an honest, side-by-side assessment based on extensive use of all four tools.</p>
 <table>
   <thead>

@@ -111,7 +111,7 @@
 </ol>
 <p>Verify that Android Studio recognises your Flutter SDK by opening Settings &gt; Languages &amp; Frameworks &gt; Flutter and confirming the SDK path is set correctly. Also ensure the Flutter and Dart plugins are installed and enabled.</p>
 
-<h2>Installing Gemini CLI</h2>
+<div class="blog-inline-course"><img src="/images/the-complete-flutter-guide-build-android-ios-and-web-apps.jpg" alt="The Complete Flutter Guide: Build Android, iOS, and Web Apps" width="280" height="147" loading="lazy"><div class="blog-inline-course__body"><p class="blog-inline-course__label">My Flutter course on Udemy</p><h3 class="blog-inline-course__title">The Complete Flutter Guide</h3><p class="blog-inline-course__desc">Build Android, iOS, and web apps from scratch — including state management, navigation, and production architecture.</p><a href="https://www.udemy.com/course/flutter-the-guide-to-build-android-ios-and-web-apps/?referralCode=0895EF14011CB08E80A0" target="_blank" rel="noopener noreferrer" class="blog-inline-course__link">View on Udemy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div><h2>Installing Gemini CLI</h2>
 <p>Gemini CLI is Google's open-source, terminal-based AI assistant. It runs directly in any terminal — including the one built into Android Studio — and connects to Gemini models via the Google AI API.</p>
 <ol>
   <li>Open a terminal (either your system terminal or Android Studio's integrated terminal) and run:
@@ -124,7 +124,7 @@
 </ol>
 <p>Gemini CLI stores its configuration in a <code>.gemini</code> directory. For project-level settings, this directory sits in your project root. For global settings, it uses <code>~/.gemini/settings.json</code>. We will use the project-level configuration when connecting MCP servers later.</p>
 
-<h2>Using Gemini CLI in Android Studio's Terminal</h2>
+<div class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Enjoying this? Follow me on Instagram for quick tips and behind-the-scenes content.</span><a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">@sagnikteaches</a></div><h2>Using Gemini CLI in Android Studio's Terminal</h2>
 <p>Android Studio includes a built-in terminal panel (View &gt; Tool Windows &gt; Terminal, or Alt+F12). This terminal runs in your project's root directory by default, which is exactly what Gemini CLI needs — it automatically picks up your project context when launched from within a Flutter project.</p>
 <p>Open the terminal in Android Studio and type <code>gemini</code> to start an interactive session. From here, you can ask questions about your Flutter project, and Gemini CLI will reference files in your working directory when you use the <code>@</code> file reference syntax:</p>
 <pre><code>gemini&gt; Explain the state management approach in @lib/main.dart and suggest improvements
@@ -153,7 +153,7 @@ gemini&gt; Generate a unit test for the UserRepository class in @lib/data/user_r
 </ul>
 <p>These tools transform Gemini CLI from a generic AI chatbot into a Flutter-aware development assistant. The difference is significant — instead of answers based on training data that may be months out of date, you get responses grounded in your actual project state.</p>
 
-<h2>Connecting Gemini CLI to the Dart MCP Server</h2>
+<div class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Let's connect — I share longer thoughts on LinkedIn.</span><a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">Add me on LinkedIn</a></div><h2>Connecting Gemini CLI to the Dart MCP Server</h2>
 <p>Now for the configuration that ties everything together. You need to tell Gemini CLI where to find the Dart MCP server and how to start it.</p>
 
 <h3>Step 1: Activate the Dart MCP Server</h3>
@@ -233,7 +233,7 @@ gemini&gt; Create integration tests for the checkout flow starting from
         @lib/screens/cart_screen.dart through to @lib/screens/order_confirmation.dart.</code></pre>
 <p>Because the MCP server provides analysis data, Gemini CLI knows the exact types, method signatures, and dependencies in your widget files. The generated tests use correct constructor arguments, proper mock setups, and appropriate finder queries. They are not perfect — you will still need to review and adjust — but they provide a much better starting point than tests generated without project context.</p>
 
-<h2>Advanced: Custom MCP Servers for Flutter</h2>
+<div class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">I also make videos — subscribe to Coding Liquids on YouTube.</span><a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">Subscribe on YouTube</a></div><h2>Advanced: Custom MCP Servers for Flutter</h2>
 <p>The official Dart MCP server covers common scenarios, but you can extend the MCP ecosystem by creating project-specific servers that expose custom tooling. This is an advanced topic, but worth mentioning because it unlocks powerful possibilities.</p>
 <p>An MCP server is essentially a programme that speaks the MCP protocol — it receives tool invocation requests over stdio or HTTP and returns structured results. You can write one in Dart using the <code>mcp_server</code> package:</p>
 <pre><code>// custom_mcp_server.dart

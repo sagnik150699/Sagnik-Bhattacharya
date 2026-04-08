@@ -112,7 +112,7 @@
 </ol>
 <p>One additional note for Android developers: if you are already using Gemini Code Assist (Google's cloud-based AI built into Android Studio), Ollama and Gemma 4 complement it rather than replace it. I will cover how the two compare later in this article.</p>
 
-<h2>Connecting Ollama to Android Studio</h2>
+<div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Flutter and Excel with AI — <a href="/courses">explore my courses</a> if you want structured learning.</span></div><h2>Connecting Ollama to Android Studio</h2>
 <p>Unlike VS Code, Android Studio does not have a one-click Ollama integration out of the box. The connection happens through two channels: the integrated terminal and JetBrains-compatible plugins.</p>
 
 <h3>Verifying Ollama Is Running</h3>
@@ -133,7 +133,7 @@ curl http://localhost:11434</code></pre>
 }'</code></pre>
 <p>If you get a JSON response containing Kotlin code, your local AI pipeline is working. Everything from here is about making this connection more convenient through plugins and workflow patterns.</p>
 
-<h2>Method 1: Continue Plugin in Android Studio</h2>
+<div class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Enjoying this? Follow me on Instagram for quick tips and behind-the-scenes content.</span><a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">@sagnikteaches</a></div><h2>Method 1: Continue Plugin in Android Studio</h2>
 <p>Continue is the best option for integrating a local LLM into Android Studio. It is the same open-source tool I recommended for VS Code, and it has a JetBrains version available on the JetBrains Marketplace.</p>
 
 <h3>Installation</h3>
@@ -284,7 +284,7 @@ fun UserProfileCard(
 <h3>Room Database Entities</h3>
 <p>Ask Gemma 4 to generate Room entity classes, DAOs, and database definitions. It handles the annotation-heavy boilerplate that Room requires and correctly generates <code>@Entity</code>, <code>@PrimaryKey</code>, <code>@Dao</code>, and <code>@Database</code> annotations. I find it especially useful for generating the DAO interface with common query patterns — it produces <code>@Insert(onConflict = OnConflictStrategy.REPLACE)</code>, <code>@Query</code> with Flow return types, and <code>@Transaction</code> annotations where appropriate.</p>
 
-<h2>Flutter and Dart Workflows</h2>
+<div class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Let's connect — I share longer thoughts on LinkedIn.</span><a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">Add me on LinkedIn</a></div><h2>Flutter and Dart Workflows</h2>
 <p>Many Android developers use Android Studio for Flutter development as well. Gemma 4 supports Dart, though its Dart knowledge is not as deep as its Kotlin coverage. Here is what works well.</p>
 
 <h3>Widget Generation</h3>
@@ -487,7 +487,7 @@ dependencies {
   }
 }</code></pre>
 
-<h2>Gemma 4 vs Gemini Code Assist vs GitHub Copilot in Android Studio</h2>
+<div class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">I also make videos — subscribe to Coding Liquids on YouTube.</span><a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">Subscribe on YouTube</a></div><h2>Gemma 4 vs Gemini Code Assist vs GitHub Copilot in Android Studio</h2>
 <p>Android Studio developers have three main AI assistant options. Here is how they compare.</p>
 <table>
   <thead>

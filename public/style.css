@@ -291,6 +291,45 @@ footer a:hover{color:var(--warm-600)}
 .blog-embed-frame{max-width:700px;margin:0 auto;border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 24px 60px rgba(44,24,16,0.12);aspect-ratio:700/900}
 .blog-embed-frame iframe{width:100%;height:100%;border:0;display:block}
 
+/* ═══════════ BLOG SOCIAL NUDGES ═══════════ */
+.blog-social-nudge{display:flex;align-items:center;gap:12px;margin:32px 0;padding:14px 20px;border-radius:var(--radius-md);background:var(--warm-50);border-left:3px solid var(--warm-300);font-size:.9rem}
+.blog-social-nudge__icon{flex-shrink:0;display:flex}
+.blog-social-nudge__text{color:var(--text-secondary);flex:1}
+.blog-social-nudge__link{flex-shrink:0;font-weight:600;color:var(--warm-600);white-space:nowrap;transition:color .2s}
+.blog-social-nudge__link:hover{color:var(--warm-700)}
+.blog-social-nudge--insta{border-left-color:#E1306C}
+.blog-social-nudge--insta .blog-social-nudge__icon{color:#E1306C}
+.blog-social-nudge--linkedin{border-left-color:#0A66C2}
+.blog-social-nudge--linkedin .blog-social-nudge__icon{color:#0A66C2}
+.blog-social-nudge--youtube{border-left-color:#FF0000}
+.blog-social-nudge--youtube .blog-social-nudge__icon{color:#FF0000}
+
+/* ═══════════ BLOG INLINE COURSE CARD ═══════════ */
+.blog-inline-course{display:flex;gap:20px;margin:32px 0;padding:20px;border-radius:var(--radius-lg);border:1px solid var(--warm-200);background:var(--warm-50);position:relative}
+.blog-inline-course img{width:140px;height:auto;border-radius:var(--radius-sm);object-fit:cover;flex-shrink:0}
+.blog-inline-course__badge{position:absolute;top:12px;right:12px;background:var(--sage-100);color:#2d6a2e;padding:3px 12px;border-radius:50px;font-size:.75rem;font-weight:600}
+.blog-inline-course__body{flex:1;display:flex;flex-direction:column;justify-content:center}
+.blog-inline-course__label{font-size:.78rem;color:var(--text-light);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.blog-inline-course__title{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--earth-800);margin-bottom:6px}
+.blog-inline-course__desc{font-size:.88rem;color:var(--text-secondary);margin-bottom:10px;line-height:1.5}
+.blog-inline-course__link{font-size:.88rem;font-weight:600;color:var(--warm-600);display:inline-flex;align-items:center;gap:6px;transition:color .2s}
+.blog-inline-course__link:hover{color:var(--warm-700)}
+.blog-inline-course__link svg{transition:transform .2s}
+.blog-inline-course__link:hover svg{transform:translateX(3px)}
+
+/* ═══════════ BLOG COURSES HINT (AI posts) ═══════════ */
+.blog-inline-courses-hint{display:flex;align-items:center;gap:10px;margin:28px 0;padding:12px 18px;border-radius:var(--radius-sm);background:var(--sage-100);font-size:.88rem;color:var(--text-secondary)}
+.blog-inline-courses-hint__icon{flex-shrink:0;color:#2d6a2e;display:flex}
+.blog-inline-courses-hint a{font-weight:600;color:var(--warm-600)}
+.blog-inline-courses-hint a:hover{color:var(--warm-700)}
+
+@media(max-width:640px){
+  .blog-inline-course{flex-direction:column}
+  .blog-inline-course img{width:100%;max-width:280px}
+  .blog-social-nudge{flex-wrap:wrap}
+  .blog-social-nudge__link{width:100%;margin-top:4px}
+}
+
 /* ═══════════ HERO MORPHING BLOB ═══════════ */
 .hero-blob{position:absolute;right:-5%;top:50%;transform:translateY(-50%);width:500px;height:500px;z-index:0;opacity:0.12;pointer-events:none}
 .hero-blob svg{width:100%;height:100%}

@@ -111,7 +111,7 @@
 </ol>
 <p>If you are migrating from VS Code, Windsurf can import your existing settings, keybindings, and extensions on first launch. I recommend doing this — it saves considerable setup time and means your muscle memory transfers immediately.</p>
 
-<h2>Setting Up Flutter in Windsurf</h2>
+<div class="blog-inline-course"><img src="/images/the-complete-flutter-guide-build-android-ios-and-web-apps.jpg" alt="The Complete Flutter Guide: Build Android, iOS, and Web Apps" width="280" height="147" loading="lazy"><div class="blog-inline-course__body"><p class="blog-inline-course__label">My Flutter course on Udemy</p><h3 class="blog-inline-course__title">The Complete Flutter Guide</h3><p class="blog-inline-course__desc">Build Android, iOS, and web apps from scratch — including state management, navigation, and production architecture.</p><a href="https://www.udemy.com/course/flutter-the-guide-to-build-android-ios-and-web-apps/?referralCode=0895EF14011CB08E80A0" target="_blank" rel="noopener noreferrer" class="blog-inline-course__link">View on Udemy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div><h2>Setting Up Flutter in Windsurf</h2>
 <p>Because Windsurf is a VS Code fork, it supports the same extension marketplace. This means the official Dart and Flutter extensions work exactly as they do in VS Code, which is a significant advantage over editors that require custom language support.</p>
 
 <h3>Installing the Dart and Flutter Extensions</h3>
@@ -142,7 +142,7 @@
 </ol>
 <p>If everything is configured correctly, you should see the default Flutter counter app running on your device or emulator. At this point, the Flutter development experience in Windsurf is identical to VS Code — hot reload (Ctrl+Shift+F5), hot restart, DevTools integration, and the widget inspector all work as expected. The AI features are where things diverge.</p>
 
-<h2>Cascade: The AI Agent</h2>
+<div class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Enjoying this? Follow me on Instagram for quick tips and behind-the-scenes content.</span><a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">@sagnikteaches</a></div><h2>Cascade: The AI Agent</h2>
 <p>Cascade is Windsurf's headline feature and the primary reason to choose it over plain VS Code. It is a multi-step AI agent that can plan, write, and execute code across multiple files in your project. Think of it as a junior developer who can read your entire codebase, understand the task you describe, and make coordinated changes across models, views, services, and test files.</p>
 
 <h3>How Cascade Works</h3>
@@ -184,7 +184,7 @@
 <h3>Accuracy Assessment</h3>
 <p>Across my two Flutter projects, I tracked acceptance rates informally. For standard Flutter patterns (layouts, navigation, forms), I accepted about 60-65% of Supercomplete suggestions, which is comparable to what I get from Cursor. For custom business logic and domain-specific code, the acceptance rate dropped to around 30-35%. These numbers are roughly in line with other AI autocomplete tools — the technology is best at boilerplate and common patterns, and less helpful for novel logic.</p>
 
-<h2>Chat and Inline Editing</h2>
+<div class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Let's connect — I share longer thoughts on LinkedIn.</span><a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">Add me on LinkedIn</a></div><h2>Chat and Inline Editing</h2>
 <p>Beyond Cascade and Supercomplete, Windsurf provides standard AI chat and inline editing features that are useful for day-to-day Flutter development.</p>
 
 <h3>Code Explanation</h3>
@@ -216,7 +216,7 @@
 </ul>
 <p>The generated code followed my existing project conventions (it picked up my naming patterns, folder structure, and Riverpod usage from the rest of the codebase). I needed to make adjustments — the form validators were basic, the error messages were generic, and it did not implement "forgot password" functionality — but the structural foundation was solid and consistent. Generating this by hand would have taken me well over an hour; with Cascade, I spent about 20 minutes refining the output.</p>
 
-<h2>Windsurf vs Cursor vs VS Code + Copilot for Flutter</h2>
+<div class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">I also make videos — subscribe to Coding Liquids on YouTube.</span><a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">Subscribe on YouTube</a></div><h2>Windsurf vs Cursor vs VS Code + Copilot for Flutter</h2>
 <p>This is the comparison most Flutter developers want. Here is how the three options stack up based on my experience using all three for real Flutter projects.</p>
 <table>
   <thead>
