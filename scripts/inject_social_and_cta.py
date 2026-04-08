@@ -27,36 +27,36 @@ BLOG_DIR = os.path.join(os.path.dirname(__file__), '..', 'public', 'blog')
 
 SOCIAL_HTML = {
     'insta': (
-        '<div class="blog-social-nudge blog-social-nudge--insta">'
+        '<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta">'
         '<span class="blog-social-nudge__icon">'
         '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
         '<rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>'
         '<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>'
         '<line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>'
-        '<span class="blog-social-nudge__text">Enjoying this? Follow me on Instagram for quick tips and behind-the-scenes content.</span>'
-        '<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">@sagnikteaches</a>'
-        '</div>'
+        '<span class="blog-social-nudge__text">Follow me on Instagram</span>'
+        '<span class="blog-social-nudge__handle">@sagnikteaches</span>'
+        '</a>'
     ),
     'linkedin': (
-        '<div class="blog-social-nudge blog-social-nudge--linkedin">'
+        '<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin">'
         '<span class="blog-social-nudge__icon">'
         '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
         '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/>'
         '<rect x="2" y="9" width="4" height="12"/>'
         '<circle cx="4" cy="4" r="2"/></svg></span>'
-        '<span class="blog-social-nudge__text">Let\'s connect \u2014 I share longer thoughts on LinkedIn.</span>'
-        '<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">Add me on LinkedIn</a>'
-        '</div>'
+        '<span class="blog-social-nudge__text">Connect on LinkedIn</span>'
+        '<span class="blog-social-nudge__handle">Sagnik Bhattacharya</span>'
+        '</a>'
     ),
     'youtube': (
-        '<div class="blog-social-nudge blog-social-nudge--youtube">'
+        '<a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--youtube">'
         '<span class="blog-social-nudge__icon">'
         '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
         '<path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>'
         '<polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span>'
-        '<span class="blog-social-nudge__text">I also make videos \u2014 subscribe to Coding Liquids on YouTube.</span>'
-        '<a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge__link">Subscribe on YouTube</a>'
-        '</div>'
+        '<span class="blog-social-nudge__text">Subscribe on YouTube</span>'
+        '<span class="blog-social-nudge__handle">@codingliquids</span>'
+        '</a>'
     ),
 }
 
@@ -67,15 +67,13 @@ SOCIAL_ORDER = ['insta', 'linkedin', 'youtube']
 FLUTTER_COURSE_CARD = (
     '<div class="blog-inline-course">'
     '<img src="/images/the-complete-flutter-guide-build-android-ios-and-web-apps.jpg" '
-    'alt="The Complete Flutter Guide: Build Android, iOS, and Web Apps" width="280" height="147" loading="lazy">'
+    'alt="The Complete Flutter Guide" width="280" height="147" loading="lazy">'
     '<div class="blog-inline-course__body">'
-    '<p class="blog-inline-course__label">My Flutter course on Udemy</p>'
-    '<h3 class="blog-inline-course__title">The Complete Flutter Guide</h3>'
-    '<p class="blog-inline-course__desc">Build Android, iOS, and web apps from scratch \u2014 '
-    'including state management, navigation, and production architecture.</p>'
+    '<h3 class="blog-inline-course__title">The Complete Flutter Guide: Build Android, iOS and Web Apps</h3>'
+    '<p class="blog-inline-course__sub">Flutter 2026: Build fast, production-grade apps for Android, iOS &amp; Web with Flutter &amp; Dart</p>'
     '<a href="https://www.udemy.com/course/flutter-the-guide-to-build-android-ios-and-web-apps/'
     '?referralCode=0895EF14011CB08E80A0" target="_blank" rel="noopener noreferrer" '
-    'class="blog-inline-course__link">View on Udemy '
+    'class="btn-primary blog-inline-course__btn">Enroll on Udemy '
     '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'
     '<path d="M5 12h14M12 5l7 7-7 7"/></svg></a>'
     '</div></div>'
@@ -85,11 +83,9 @@ EXCEL_COURSE_CARD = (
     '<div class="blog-inline-course">'
     '<div class="blog-inline-course__badge">Coming Soon</div>'
     '<div class="blog-inline-course__body">'
-    '<p class="blog-inline-course__label">My upcoming Excel course</p>'
     '<h3 class="blog-inline-course__title">Complete Excel Guide with AI Integration</h3>'
-    '<p class="blog-inline-course__desc">From formulas to production-grade spreadsheets, '
-    'with real projects and AI-assisted workflows.</p>'
-    '<a href="/courses#excel" class="blog-inline-course__link">Learn more '
+    '<p class="blog-inline-course__sub">Master formulas, pivot tables, data analysis, and charts \u2014 with AI integration.</p>'
+    '<a href="/courses#excel" class="btn-primary blog-inline-course__btn">Learn more '
     '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'
     '<path d="M5 12h14M12 5l7 7-7 7"/></svg></a>'
     '</div></div>'
@@ -116,7 +112,12 @@ BOILERPLATE_KEYWORDS = [
 
 
 def detect_category(html_str):
-    """Detect blog category from article:section meta tag."""
+    """Detect blog category from article:section meta tag and title."""
+    title_m = re.search(r'<title>([^<]*)</title>', html_str)
+    title = title_m.group(1).lower() if title_m else ''
+    if 'flutter' in title or 'android studio' in title or 'dart' in title:
+        return 'flutter'
+
     m = re.search(r'article:section"\s+content="([^"]*)"', html_str)
     if not m:
         return 'other'
@@ -159,9 +160,12 @@ def inject_into_file(filepath, dry_run=False):
     with open(filepath, 'r', encoding='utf-8') as f:
         html_str = f.read()
 
-    # Idempotency: skip if already injected
-    if 'blog-social-nudge' in html_str or 'blog-inline-course' in html_str or 'blog-inline-courses-hint' in html_str:
+    # Idempotency: skip if already fully injected
+    has_nudges = 'blog-social-nudge' in html_str
+    has_courses = 'blog-inline-course' in html_str or 'blog-inline-courses-hint' in html_str
+    if has_nudges and has_courses:
         return False, None, {}
+    skip_courses = has_courses
 
     category = detect_category(html_str)
 
@@ -210,12 +214,13 @@ def inject_into_file(filepath, dry_run=False):
 
     # Course card / courses hint: after first content h2 section
     course_idx = content_indices[0]
-    if category == 'flutter':
-        injections[course_idx] = FLUTTER_COURSE_CARD
-    elif category == 'ai':
-        injections[course_idx] = AI_COURSES_HINT
-    else:
-        injections[course_idx] = EXCEL_COURSE_CARD
+    if not skip_courses:
+        if category == 'flutter':
+            injections[course_idx] = FLUTTER_COURSE_CARD
+        elif category == 'ai':
+            injections[course_idx] = AI_COURSES_HINT
+        else:
+            injections[course_idx] = EXCEL_COURSE_CARD
 
     # Social nudges: distribute across remaining content sections
     available = [i for i in content_indices[1:] if i not in boilerplate_indices]
