@@ -612,6 +612,170 @@ function AiModelNeuroScene($g,$p){
   Glow $g 1128 326 58 $p.S 12
   Glow $g 842 308 46 $p.P 12
 }
+function AiWorkflowScene($g,$p){
+  $chips=@($p.K | Select-Object -First 3)
+  if($chips.Count -eq 0){$chips=@('AI','Workflow','Tools')}
+
+  GlassPanel $g 842 82 308 222 34 '#101E2A' 216 '#E7EDFF' 24
+  Tag $g 'AI WORKFLOW' 868 104 '#FFFFFF' '#0F172A' 12 10 26 | Out-Null
+  TagRow $g $chips 868 142 '#102734' '#ECFEFF' 12 10 24
+
+  $card=New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb(228,11,24,38))
+  $cardStroke=New-Object Drawing.Pen (C '#FFFFFF' 26),1
+  $muted=New-Object Drawing.SolidBrush (C '#FFFFFF' 22)
+  $link=New-Object Drawing.Pen (C '#FFFFFF' 52),2
+  $primary=New-Object Drawing.SolidBrush (C $p.P 230)
+  $secondary=New-Object Drawing.SolidBrush (C $p.S 220)
+  try{
+    $link.StartCap='Round'
+    $link.EndCap='Round'
+    FillRR $g $card 872 188 78 72 18
+    FillRR $g $card 958 174 78 88 18
+    FillRR $g $card 1044 188 78 72 18
+    StrokeRR $g $cardStroke 872 188 78 72 18
+    StrokeRR $g $cardStroke 958 174 78 88 18
+    StrokeRR $g $cardStroke 1044 188 78 72 18
+    $g.DrawLine($link,950,224,958,218)
+    $g.DrawLine($link,1036,218,1044,224)
+
+    FillRR $g $primary 886 202 34 10 5
+    FillRR $g $muted 886 220 46 8 4
+    FillRR $g $muted 886 236 34 8 4
+    FillRR $g $secondary 914 238 16 16 8
+
+    FillRR $g $secondary 972 188 42 10 5
+    FillRR $g $muted 972 208 50 8 4
+    FillRR $g $muted 972 224 36 8 4
+    FillRR $g $primary 972 240 22 10 5
+    FillRR $g $secondary 1000 240 20 10 5
+
+    FillRR $g $secondary 1058 202 34 10 5
+    FillRR $g $muted 1058 220 46 8 4
+    FillRR $g $muted 1058 236 34 8 4
+    FillRR $g $primary 1086 238 16 16 8
+  }finally{$card.Dispose();$cardStroke.Dispose();$muted.Dispose();$link.Dispose();$primary.Dispose();$secondary.Dispose()}
+
+  GlassPanel $g 888 330 224 132 28 '#101E2A' 214 '#D8F7E5' 22
+  Tag $g 'SYSTEM MAP' 912 352 '#FFFFFF' '#0F172A' 11 10 24 | Out-Null
+
+  $window=New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb(228,13,27,41))
+  $chrome=New-Object Drawing.SolidBrush (C '#FFFFFF' 30)
+  $lineA=New-Object Drawing.SolidBrush (C $p.P 224)
+  $lineB=New-Object Drawing.SolidBrush (C $p.S 214)
+  $lineMuted=New-Object Drawing.SolidBrush (C '#FFFFFF' 26)
+  $pulse=New-Object Drawing.SolidBrush (C '#FFFFFF' 42)
+  try{
+    FillRR $g $window 912 380 176 60 16
+    FillRR $g $chrome 926 392 10 10 5
+    FillRR $g $chrome 942 392 10 10 5
+    FillRR $g $chrome 958 392 10 10 5
+    FillRR $g $lineA 926 414 70 8 4
+    FillRR $g $lineMuted 926 430 124 6 3
+    FillRR $g $lineB 926 442 54 6 3
+    FillRR $g $lineA 998 414 28 8 4
+    FillRR $g $lineB 1032 414 34 8 4
+    $g.FillEllipse($pulse,1062,392,10,10)
+  }finally{$window.Dispose();$chrome.Dispose();$lineA.Dispose();$lineB.Dispose();$lineMuted.Dispose();$pulse.Dispose()}
+
+  GlassPanel $g 848 494 270 68 24 $p.P 230 '#FFFFFF' 28
+  $ctaLine=New-Object Drawing.SolidBrush (C '#FFFFFF' 64)
+  $ctaAccent=New-Object Drawing.SolidBrush (C '#FFF7ED' 218)
+  try{
+    FillRR $g $ctaLine 878 512 144 10 5
+    FillRR $g $ctaLine 878 532 106 10 5
+    FillRR $g $ctaAccent 1036 510 40 12 6
+    FillRR $g $ctaAccent 1082 526 16 16 8
+  }finally{$ctaLine.Dispose();$ctaAccent.Dispose()}
+
+  Glow $g 1128 326 58 $p.S 12
+  Glow $g 842 308 46 $p.P 12
+}
+function PlayBadge($g,[float]$x,[float]$y,[string]$accent,[float]$size=56){
+  $shadow=New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb(26,0,12,24))
+  $orb=New-Object Drawing.SolidBrush (C $accent 234)
+  $ring=New-Object Drawing.Pen (C '#FFFFFF' 44),1.2
+  $icon=New-Object Drawing.SolidBrush ([Drawing.Color]::White)
+  $glint=New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb(42,255,255,255))
+  try{
+    $g.FillEllipse($shadow,$x+6,$y+8,$size,$size)
+    $g.FillEllipse($orb,$x,$y,$size,$size)
+    $g.DrawEllipse($ring,$x,$y,$size,$size)
+    $g.FillEllipse($glint,$x+8,$y+8,($size*0.34),($size*0.22))
+    $g.FillPolygon($icon,[Drawing.PointF[]]@(
+      [Drawing.PointF]::new($x + ($size*0.40),$y + ($size*0.30)),
+      [Drawing.PointF]::new($x + ($size*0.40),$y + ($size*0.70)),
+      [Drawing.PointF]::new($x + ($size*0.74),$y + ($size*0.50))
+    ))
+  }finally{$shadow.Dispose();$orb.Dispose();$ring.Dispose();$icon.Dispose();$glint.Dispose()}
+}
+function VideoScene($g,$p){
+  $chips=@($p.K | Select-Object -First 3)
+  if($chips.Count -eq 0){$chips=@('Video','Motion','Prompt')}
+
+  GlassPanel $g 842 82 308 226 34 '#101E2A' 216 '#FFE7C2' 24
+  Tag $g 'VIDEO FLOW' 868 104 '#FFFFFF' '#0F172A' 12 10 26 | Out-Null
+  TagRow $g $chips 868 142 '#102734' '#ECFEFF' 12 10 24
+
+  $frame=New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb(232,12,26,40))
+  $frameStroke=New-Object Drawing.Pen (C '#FFFFFF' 24),1
+  $track=New-Object Drawing.Pen (C '#FFFFFF' 54),2
+  $waveA=New-Object Drawing.SolidBrush (C $p.P 224)
+  $waveB=New-Object Drawing.SolidBrush (C $p.S 218)
+  $ghost=New-Object Drawing.SolidBrush (C '#FFFFFF' 18)
+  try{
+    FillRR $g $frame 872 182 250 96 18
+    StrokeRR $g $frameStroke 872 182 250 96 18
+    FillRR $g $ghost 886 196 66 60 14
+    FillRR $g $ghost 964 196 66 60 14
+    FillRR $g $ghost 1042 196 66 60 14
+    FillRR $g $waveA 900 242 38 8 4
+    FillRR $g $waveB 978 242 38 8 4
+    FillRR $g $waveA 1056 242 38 8 4
+    $g.DrawLine($track,898,266,1092,266)
+    FillRR $g $waveB 928 262 56 8 4
+    FillRR $g $waveA 1002 262 38 8 4
+    PlayBadge $g 968 202 $p.P 56
+  }finally{$frame.Dispose();$frameStroke.Dispose();$track.Dispose();$waveA.Dispose();$waveB.Dispose();$ghost.Dispose()}
+
+  GlassPanel $g 894 330 228 132 28 '#101E2A' 214 '#D8F7E5' 22
+  Tag $g 'TIMELINE' 918 352 '#FFFFFF' '#0F172A' 11 10 24 | Out-Null
+
+  $timeline=New-Object Drawing.Pen (C '#FFFFFF' 54),2
+  $timeline.StartCap='Round'
+  $timeline.EndCap='Round'
+  $barA=New-Object Drawing.SolidBrush (C $p.P 226)
+  $barB=New-Object Drawing.SolidBrush (C $p.S 220)
+  $muted=New-Object Drawing.SolidBrush (C '#FFFFFF' 22)
+  $playhead=New-Object Drawing.SolidBrush (C '#FFF7ED' 226)
+  try{
+    $g.DrawLine($timeline,920,440,1094,440)
+    for($i=0;$i -lt 6;$i++){
+      FillRR $g $muted (924+($i*28)) 392 18 40 6
+    }
+    FillRR $g $barA 924 404 18 28 6
+    FillRR $g $barB 952 396 18 36 6
+    FillRR $g $barA 980 386 18 46 6
+    FillRR $g $barB 1008 400 18 32 6
+    FillRR $g $barA 1036 394 18 38 6
+    FillRR $g $barB 1064 406 18 26 6
+    FillRR $g $playhead 1004 374 4 74 2
+    FillRR $g $muted 922 448 132 8 4
+    FillRR $g $barA 922 448 88 8 4
+  }finally{$timeline.Dispose();$barA.Dispose();$barB.Dispose();$muted.Dispose();$playhead.Dispose()}
+
+  GlassPanel $g 848 494 270 68 24 $p.P 230 '#FFFFFF' 28
+  $ctaLine=New-Object Drawing.SolidBrush (C '#FFFFFF' 64)
+  $ctaAccent=New-Object Drawing.SolidBrush (C '#FFF7ED' 218)
+  try{
+    FillRR $g $ctaLine 878 512 144 10 5
+    FillRR $g $ctaLine 878 532 106 10 5
+    FillRR $g $ctaAccent 1036 510 40 12 6
+    FillRR $g $ctaAccent 1082 526 16 16 8
+  }finally{$ctaLine.Dispose();$ctaAccent.Dispose()}
+
+  Glow $g 1128 324 58 $p.S 12
+  Glow $g 842 306 46 $p.P 12
+}
 function TitleSize([string]$title){
   $len=$title.Length
   if($len -gt 80){32}
@@ -702,6 +866,12 @@ function NewCover($p,$img,[string]$title,[string]$tag,[string]$path){
     }elseif($variant -eq 'ai-model-neuro'){
       AiModelNeuroScene $g $p
       GlassPanel $g 520 84 498 470 38 '#07131B' 212 '#E6EDFF' 24
+    }elseif($variant -eq 'ai-workflow'){
+      AiWorkflowScene $g $p
+      GlassPanel $g 520 84 498 470 38 '#07131B' 212 '#E6EDFF' 24
+    }elseif($variant -eq 'video-scene'){
+      VideoScene $g $p
+      GlassPanel $g 520 84 498 470 38 '#07131B' 212 '#FFE7C2' 28
     }elseif($variant -eq 'neuro-prompts'){
       NeuroPromptScene $g $p
       ExcelLogo $g 1034 26 132
@@ -835,6 +1005,8 @@ if(Test-Path $manifestPath){
     $palette=switch($item.category){
       'Flutter' { @{P='#2563EB';S='#22D3EE';Variant='flutter-general'} }
       'AI + Excel' { @{P='#2563EB';S='#22C55E';Variant=''} }
+      'AI' { @{P='#7C3AED';S='#22C55E';Variant='ai-workflow'} }
+      'Video' { @{P='#F97316';S='#14B8A6';Variant='video-scene'} }
       default { @{P='#0F766E';S='#34D399';Variant=''} }
     }
     $primary=if($item.PSObject.Properties['primaryColor'] -and $item.primaryColor){[string]$item.primaryColor}elseif($item.PSObject.Properties['primary'] -and $item.primary){[string]$item.primary}else{[string]$palette.P}
