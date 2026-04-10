@@ -127,7 +127,7 @@
 
 <p>OpenCode is a terminal-based AI coding assistant with over 126,000 GitHub stars, released under the MIT licence. It supports more than 75 models out of the box — including local models through Ollama, cloud providers like OpenAI, Anthropic, and Google, and practically any OpenAI-compatible API endpoint. It runs entirely in your terminal, which means it integrates naturally with VS Code's built-in terminal panel. I have spent the past two weeks setting it up, configuring multiple providers, and testing it across real coding workflows. This guide covers everything you need to get started.</p>
 
-<h2>Prerequisites</h2>
+<div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Flutter and Excel with AI — <a href="/courses">explore my courses</a> if you want structured learning.</span></div><h2>Prerequisites</h2>
 <p>Before installing OpenCode, make sure the following are in place:</p>
 <ol>
   <li><strong>VS Code installed.</strong> Any recent stable version works. OpenCode runs in the integrated terminal, so no special extension is required.</li>
@@ -137,7 +137,7 @@
 </ol>
 <p>If you plan to use only cloud providers (OpenAI, Anthropic, Google), you do not need Go or Ollama — just the pre-built binary and your API key.</p>
 
-<div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Flutter and Excel with AI — <a href="/courses">explore my courses</a> if you want structured learning.</span></div><h2>Installing OpenCode</h2>
+<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>Installing OpenCode</h2>
 <p>OpenCode offers several installation methods. Choose the one that suits your setup:</p>
 
 <h3>Method 1: Go Install (Requires Go 1.23+)</h3>
@@ -162,7 +162,7 @@ export PATH="$PATH:/usr/local/bin/opencode"</code></pre>
 <pre><code>opencode --version</code></pre>
 <p>You should see the version number printed. If you get a "command not found" error, double-check that the binary location is in your PATH.</p>
 
-<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>Connecting to Model Providers</h2>
+<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>Connecting to Model Providers</h2>
 <p>OpenCode's greatest strength is its model flexibility. It supports over 75 models across multiple providers, and you can switch between them freely. Configuration is handled through a <code>.opencode.json</code> file in your project root or through environment variables.</p>
 
 <h3>OpenAI</h3>
@@ -234,7 +234,7 @@ export PATH="$PATH:/usr/local/bin/opencode"</code></pre>
 }</code></pre>
 <p>This means you can use a free local model for routine tasks and switch to Claude or GPT-4o when you need higher quality output for complex logic — all within the same terminal session.</p>
 
-<h2>Using OpenCode in the VS Code Terminal</h2>
+<a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">Subscribe on YouTube</span><span class="blog-social-nudge__handle">@codingliquids</span></a><h2>Using OpenCode in the VS Code Terminal</h2>
 <p>OpenCode is a terminal application, and VS Code's integrated terminal is the perfect environment for it. Open the terminal panel (Ctrl+` or Cmd+`), navigate to your project directory, and launch OpenCode:</p>
 <pre><code>opencode</code></pre>
 <p>This starts OpenCode in interactive mode. You are presented with a terminal-based interface where you can type prompts, reference files, and receive AI-generated responses — all without leaving VS Code.</p>
@@ -261,7 +261,7 @@ export PATH="$PATH:/usr/local/bin/opencode"</code></pre>
 <h3>Split Terminal Workflow</h3>
 <p>A workflow I find highly productive is to split the VS Code terminal into two panes: one running OpenCode and the other for your normal terminal commands (git, npm, running tests). This way, you can ask OpenCode to write a test, then immediately run it in the adjacent pane to verify it passes. Press Ctrl+Shift+5 (or Cmd+Shift+5 on Mac) to split the terminal panel.</p>
 
-<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>Key Features</h2>
+<h2>Key Features</h2>
 <p>OpenCode packs a surprising number of features for a terminal-based tool. Here are the ones that matter most for day-to-day development:</p>
 
 <h3>Multi-Model Support</h3>
@@ -353,7 +353,7 @@ export PATH="$PATH:/usr/local/bin/opencode"</code></pre>
   <li><strong>Keep-alive:</strong> By default, Ollama unloads models after 5 minutes of inactivity. Set <code>OLLAMA_KEEP_ALIVE=-1</code> to keep models loaded permanently during your coding session.</li>
 </ul>
 
-<a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">Subscribe on YouTube</span><span class="blog-social-nudge__handle">@codingliquids</span></a><h2>Practical Workflows</h2>
+<h2>Practical Workflows</h2>
 <p>Here are the workflows where I have found OpenCode most useful in day-to-day development:</p>
 
 <h3>Code Generation</h3>

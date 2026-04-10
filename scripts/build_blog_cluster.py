@@ -209,6 +209,7 @@ class Post:
     intro_text: str
     category_section: str
     in_scope: bool
+    faq_json: str
 
     @property
     def url(self) -> str:
@@ -378,6 +379,7 @@ def parse_existing_posts() -> dict[str, Post]:
             intro_text=britishise(intro_text),
             category_section=category,
             in_scope=False,
+            faq_json="",
         )
     return posts
 
@@ -466,6 +468,32 @@ def image_schema(post: Post) -> str:
     return json.dumps(schema, ensure_ascii=False, separators=(",", ":"))
 
 
+def faq_schema(post: Post, post_def: dict[str, Any]) -> str:
+    """Generate FAQPage schema from post content."""
+    faqs: list[dict[str, Any]] = []
+    # Q1: from the title + quick_answer
+    qa = post_def.get("quick_answer", "")
+    if qa:
+        q_text = post.title.rstrip(".")
+        if not q_text.endswith("?"):
+            q_text = q_text + "?"
+        faqs.append({"@type": "Question", "name": q_text, "acceptedAnswer": {"@type": "Answer", "text": qa}})
+    # Q2-Q4: from section headings + first paragraph
+    sections = post_def.get("sections", [])
+    for sec in sections[:3]:
+        heading = sec.get("heading", "")
+        paras = sec.get("paragraphs", [])
+        if heading and paras:
+            q = heading.rstrip(".").rstrip("?") + "?"
+            # Strip HTML tags from answer
+            answer = re.sub(r"<[^>]+>", "", paras[0])
+            faqs.append({"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": answer}})
+    if not faqs:
+        return ""
+    schema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs}
+    return json.dumps(schema, ensure_ascii=False, separators=(",", ":"))
+
+
 def page_head(post: Post) -> str:
     title = html_escape(post.title)
     desc = html_escape(post.description)
@@ -510,6 +538,7 @@ def page_head(post: Post) -> str:
   <script type="application/ld+json">{organisation_schema()}</script>
   <script type="application/ld+json">{breadcrumb_schema(post)}</script>
   <script type="application/ld+json">{image_schema(post)}</script>
+  <script type="application/ld+json">{post.faq_json}</script>
   <link rel="stylesheet" href="/style.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag("js",new Date());gtag("config","{GA_ID}");</script>"""
@@ -649,8 +678,9 @@ def render_archive_page(all_posts: list[Post]) -> str:
     cards = []
     for index, post in enumerate(all_posts):
         loading = "eager" if index < 6 else "lazy"
+        tags = html_escape(" ".join(post.keywords[:6]) + " " + post.category)
         cards.append(
-            f'<a href="/blog/{post.slug}" class="blog-card reveal">'
+            f'<a href="/blog/{post.slug}" class="blog-card reveal" data-tags="{tags}">'
             '<div class="blog-card-accent"></div>'
             f'<img src="{post.image_src}" alt="{html_escape(post.title)}" class="blog-card-thumb" loading="{loading}" width="600" height="315" decoding="async">'
             '<div class="blog-card-body">'
@@ -712,9 +742,14 @@ def render_archive_page(all_posts: list[Post]) -> str:
     </div>
     <section style="padding-top:40px">
       <div class="container">
+        <div class="blog-search-wrap">
+          <input type="search" id="blogSearch" placeholder="Search guides..." autocomplete="off">
+        </div>
         <div class="blog-grid">
           {''.join(cards)}
         </div>
+        <p id="blogNoResults" style="display:none;text-align:center;color:var(--text-light);padding:40px 0;">No guides match your search.</p>
+        <nav class="blog-pagination" id="blogPagination" aria-label="Blog pagination"></nav>
       </div>
     </section>
     <div class="cta-banner">
@@ -728,6 +763,86 @@ def render_archive_page(all_posts: list[Post]) -> str:
     </div>
   </main>
 {footer_html()}
+  <script>
+  (function(){{
+    var POSTS_PER_PAGE=12;
+    var grid=document.querySelector('.blog-grid');
+    var nav=document.getElementById('blogPagination');
+    var input=document.getElementById('blogSearch');
+    var noRes=document.getElementById('blogNoResults');
+    if(!grid)return;
+    var allCards=[].slice.call(grid.querySelectorAll('.blog-card'));
+    var filtered=allCards.slice();
+    var searching=false;
+
+    function getPage(){{
+      var p=parseInt(new URLSearchParams(location.search).get('page'));
+      var totalPages=Math.ceil(filtered.length/POSTS_PER_PAGE);
+      return(p>=1&&p<=totalPages)?p:1;
+    }}
+
+    var initialLoad=true;
+    function showPage(page){{
+      var totalPages=Math.ceil(filtered.length/POSTS_PER_PAGE);
+      if(totalPages<1)totalPages=1;
+      if(page>totalPages)page=totalPages;
+      allCards.forEach(function(c){{c.style.display='none';}});
+      filtered.forEach(function(c,i){{
+        var show=i>=(page-1)*POSTS_PER_PAGE&&i<page*POSTS_PER_PAGE;
+        c.style.display=show?'':'none';
+      }});
+      noRes.style.display=filtered.length?'none':'block';
+      renderNav(page,totalPages);
+      if(!initialLoad&&!searching){{window.scrollTo({{top:0,behavior:'smooth'}});}}
+      initialLoad=false;
+    }}
+
+    function renderNav(page,totalPages){{
+      if(totalPages<=1){{nav.innerHTML='';return;}}
+      var html='';
+      if(page>1)html+='<a href="?page='+(page-1)+'" class="prev" rel="prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Prev</a>';
+      for(var i=1;i<=totalPages;i++){{
+        if(i===page){{html+='<span class="active">'+i+'</span>';}}
+        else if(i===1||i===totalPages||Math.abs(i-page)<=1){{html+='<a href="?page='+i+'">'+i+'</a>';}}
+        else if(Math.abs(i-page)===2){{html+='<span class="ellipsis">...</span>';}}
+      }}
+      if(page<totalPages)html+='<a href="?page='+(page+1)+'" class="next" rel="next">Next <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>';
+      nav.innerHTML=html;
+      nav.querySelectorAll('a').forEach(function(a){{
+        a.addEventListener('click',function(e){{
+          e.preventDefault();
+          var p=parseInt(new URL(this.href).searchParams.get('page'));
+          history.pushState(null,'','?page='+p);
+          showPage(p);
+        }});
+      }});
+    }}
+
+    if(input){{
+      var timer;
+      input.addEventListener('input',function(){{
+        clearTimeout(timer);
+        timer=setTimeout(function(){{
+          var q=input.value.trim().toLowerCase();
+          searching=!!q;
+          if(!q){{filtered=allCards.slice();}}
+          else{{
+            filtered=allCards.filter(function(c){{
+              var text=(c.querySelector('h3')||{{}}).textContent||'';
+              var desc=(c.querySelector('p')||{{}}).textContent||'';
+              var tags=c.getAttribute('data-tags')||'';
+              return text.toLowerCase().indexOf(q)>-1||desc.toLowerCase().indexOf(q)>-1||tags.toLowerCase().indexOf(q)>-1;
+            }});
+          }}
+          showPage(1);
+        }},200);
+      }});
+    }}
+
+    showPage(getPage());
+    window.addEventListener('popstate',function(){{showPage(getPage());}});
+  }})();
+  </script>
 </body>
 </html>
 """
@@ -866,7 +981,7 @@ def create_post(post_def: dict[str, Any], new_lookup: dict[str, dict[str, Any]],
     read_time = post_def.get("read_time") or estimate_read_time(body_html)
     image_src = f"/blog/images/{post_def['slug']}-sagnik-bhattacharya-coding-liquids.jpg"
     category = post_def["category"]
-    return Post(
+    post = Post(
         slug=post_def["slug"],
         title=britishise(post_def["title"]),
         category=category,
@@ -891,7 +1006,10 @@ def create_post(post_def: dict[str, Any], new_lookup: dict[str, dict[str, Any]],
         intro_text=britishise(tidy_spaces(strip_tags(" ".join(post_def["intro"][:1])))),
         category_section=SECTION_META[category]["section"],
         in_scope=True,
+        faq_json="",
     )
+    post.faq_json = faq_schema(post, post_def)
+    return post
 
 
 NEW_POSTS: list[dict[str, Any]] = [
@@ -5389,6 +5507,24 @@ CATEGORY_REALITY: dict[str, dict[str, Any]] = {
             "Turn the useful part of the lesson into a team convention so the next feature starts from a stronger baseline.",
         ],
     },
+    "AI": {
+        "stack": "model selection, prompt design, tool integration, evaluation, and the operational reality of shipping AI features",
+        "support_heading": "How to apply this in a real AI project",
+        "support_bullets": [
+            "Test with realistic inputs before shipping, not just the examples that inspired the idea.",
+            "Keep the human review step visible so the workflow stays trustworthy as it scales.",
+            "Measure what matters for your use case instead of relying on general benchmarks.",
+        ],
+    },
+    "Video": {
+        "stack": "prompt structure, motion control, visual consistency, and the editing workflow around generated clips",
+        "support_heading": "How to get reliable results in your video workflow",
+        "support_bullets": [
+            "Start with simple prompts and add complexity only after the basic version works.",
+            "Generate multiple variations and select the best rather than trying to get perfection in one shot.",
+            "Build prompt templates for your recurring content types so quality stays consistent.",
+        ],
+    },
 }
 
 
@@ -5603,8 +5739,11 @@ def main() -> None:
     existing = {slug: post for slug, post in existing.items() if slug not in new_lookup}
     start = date(2026, 4, 10)
     rendered_posts: list[Post] = []
+    total = len(NEW_POSTS)
     for index, post_def in enumerate(NEW_POSTS):
-        published = start.fromordinal(start.toordinal() - index)
+        # Assign dates so that the last post in the list gets the most recent date
+        # This way newly appended posts always appear first
+        published = start.fromordinal(start.toordinal() - (total - 1 - index))
         rendered_posts.append(create_post(post_def, new_lookup, existing, published))
 
     for post in rendered_posts:

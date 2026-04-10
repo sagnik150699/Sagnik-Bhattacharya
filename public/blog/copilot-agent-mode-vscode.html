@@ -126,7 +126,7 @@
 <p>If you have been using GitHub Copilot for inline completions or quick chat questions, Agent Mode is a fundamentally different experience. It does not just suggest the next line of code. It reads your workspace, creates a plan, writes code across multiple files, runs terminal commands, checks the output, and iterates until the task is done — all from a single natural-language prompt. Think of it less as an autocomplete tool and more as a junior developer who can follow instructions autonomously inside your editor.</p>
 <p>I have been using Agent Mode daily for the past several weeks across real projects — a Node.js API, a Flutter mobile app, and a Next.js marketing site. This guide covers everything from enabling it to the specific workflows where it genuinely saves time, along with an honest assessment of where it still falls short. Most coverage of Agent Mode so far has been news articles and feature announcements. This is the practical how-to guide I wish I had when I started.</p>
 
-<h2>Prerequisites</h2>
+<div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Flutter and Excel with AI — <a href="/courses">explore my courses</a> if you want structured learning.</span></div><h2>Prerequisites</h2>
 <p>Before you can use Agent Mode, you need the following in place:</p>
 <ol>
   <li><strong>Visual Studio Code</strong> — version 1.99 or later. Agent Mode is built into the Copilot Chat experience in VS Code, and older versions do not include it. Run <code>code --version</code> in your terminal to check. If you are below 1.99, update from <a href="https://code.visualstudio.com" target="_blank" rel="noopener">code.visualstudio.com</a>.</li>
@@ -136,7 +136,7 @@
 </ol>
 <p>Once all four are in place, you are ready to enable Agent Mode.</p>
 
-<div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Flutter and Excel with AI — <a href="/courses">explore my courses</a> if you want structured learning.</span></div><h2>Enabling Agent Mode</h2>
+<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>Enabling Agent Mode</h2>
 <p>Agent Mode is accessed through the Copilot Chat panel, not through inline completions. Here is how to find and activate it:</p>
 <ol>
   <li>Open the Copilot Chat panel by clicking the Copilot icon in the sidebar or pressing Ctrl+Shift+I (Cmd+Shift+I on Mac).</li>
@@ -150,7 +150,7 @@
 }</code></pre>
 <p>Once enabled, Agent Mode persists as your selected mode until you switch back. I recommend keeping it as your default — you can always give it a simple question and it will respond normally, but having agent capabilities available means you do not need to switch modes when you want it to take autonomous action.</p>
 
-<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>How Agent Mode Works</h2>
+<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>How Agent Mode Works</h2>
 <p>Understanding the internal loop Agent Mode follows helps you write better prompts and anticipate its behaviour. The process works in four stages:</p>
 <h3>1. Plan</h3>
 <p>When you submit a prompt, Agent Mode first analyses what you are asking for. It reads relevant files in your workspace, examines your project structure, and creates an internal plan of steps needed to complete the task. You can see this plan in the chat — it will list out what it intends to do before taking action.</p>
@@ -162,7 +162,7 @@
 <p>When verification reveals issues, Agent Mode automatically attempts to fix them. It reads the error output, identifies the cause, modifies the relevant code, and runs the verification step again. This loop continues until the task passes or it determines it cannot resolve the issue and asks for your input.</p>
 <p>This plan-execute-verify-iterate loop is what makes Agent Mode fundamentally different from regular Copilot Chat. Chat mode gives you an answer and stops. Agent Mode gives you an answer, checks whether it actually works, and fixes it if it does not. In practice, this means that roughly 70% of the tasks I give it are completed without any manual intervention beyond reviewing and accepting the final result.</p>
 
-<h2>Practical Workflows</h2>
+<a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">Subscribe on YouTube</span><span class="blog-social-nudge__handle">@codingliquids</span></a><h2>Practical Workflows</h2>
 <p>Here are the workflows where I have found Agent Mode most valuable in day-to-day development.</p>
 
 <h3>Adding a New Feature End-to-End</h3>
@@ -178,7 +178,7 @@
 <h3>Refactoring Across Files</h3>
 <p>Agent Mode handles cross-file refactoring well because it can read multiple files and understand dependencies. Prompt: "Refactor the authentication middleware to use a shared validateToken utility. Currently, token validation logic is duplicated in src/middleware/auth.ts, src/middleware/adminAuth.ts, and src/routes/webhook.ts. Extract it into src/utils/auth.ts and update all three files to use it." Agent Mode creates the shared utility, updates all three consuming files, and ensures imports are correct.</p>
 
-<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>Built-In Tools and Participants</h2>
+<h2>Built-In Tools and Participants</h2>
 <p>Agent Mode has access to several built-in tools and extension-provided participants that expand what it can do.</p>
 <h3>@workspace</h3>
 <p>This tool lets Agent Mode search and read files across your entire project. When you ask it to make changes, it uses @workspace automatically to find relevant files, understand your project structure, and locate dependencies. You do not need to type @workspace explicitly in Agent Mode — it is always available.</p>
@@ -259,7 +259,7 @@
 </table>
 <p>My recommended workflow: keep inline completions enabled at all times for routine coding. Use Chat Mode for quick questions ("What does this function do?" or "Write a regex for UK postcodes"). Switch to Agent Mode when you have a task that spans multiple files, requires terminal commands, or involves more than two or three steps.</p>
 
-<a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">Subscribe on YouTube</span><span class="blog-social-nudge__handle">@codingliquids</span></a><h2>Tips for Better Results</h2>
+<h2>Tips for Better Results</h2>
 <p>Agent Mode is powerful, but the quality of its output depends heavily on the quality of your prompts and project setup. Here is what I have learnt from daily use.</p>
 
 <h3>Write Clear, Specific Task Descriptions</h3>

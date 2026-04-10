@@ -1,6 +1,6 @@
 # Sagnik Bhattacharya — Tutorials, Courses, and Tech Consulting
 
-> Hands-on tutorial blog, Hands-on Udemy courses, software development, and tech consulting for learners, teams, and businesses using Flutter, Excel, AI-assisted workflows, and modern developer tools.
+> Hands-on tutorial blog, hands-on Udemy courses, software development, and tech consulting for learners, teams, and businesses using Flutter, Excel, AI-assisted workflows, AI development, AI video generation, and modern developer tools.
 
 This site is best understood as a practical tutorial and professional services website.
 
@@ -8,8 +8,16 @@ Use the blog for step-by-step learning content. Use the courses, services, and p
 
 ## Tutorials
 
-- [Blog](https://sagnikbhattacharya.com/blog): Main tutorial library covering Flutter, Excel, Excel with AI, AI coding tools, and developer workflows.
+- [Blog](https://sagnikbhattacharya.com/blog): Main tutorial library with 130+ tutorials covering Flutter, Excel, Excel with AI, AI development, AI video generation, AI coding tools, and developer workflows.
 - [RSS Feed](https://sagnikbhattacharya.com/feed.xml): Recent tutorial updates and new posts.
+
+### AI Development
+
+- MCP, agents, RAG, tool calling, prompt testing, and cost optimisation tutorials.
+
+### AI Video Generation
+
+- Seedance 2.0 guides, comparisons, and workflow tutorials.
 
 ## Courses & Training
 

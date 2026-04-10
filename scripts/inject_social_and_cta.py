@@ -155,10 +155,25 @@ def extract_h2_title(section):
     return ''
 
 
-def inject_into_file(filepath, dry_run=False):
+def strip_injections(html_str):
+    """Remove previously injected social nudges and course cards."""
+    # Remove social nudges
+    html_str = re.sub(r'<a href="[^"]*" target="_blank" rel="noopener noreferrer" class="blog-social-nudge[^"]*">.*?</a>', '', html_str, flags=re.DOTALL)
+    # Remove course cards
+    html_str = re.sub(r'<div class="blog-inline-course">.*?</div></div>', '', html_str, flags=re.DOTALL)
+    # Remove AI courses hint
+    html_str = re.sub(r'<div class="blog-inline-courses-hint">.*?</div>', '', html_str, flags=re.DOTALL)
+    return html_str
+
+
+def inject_into_file(filepath, dry_run=False, force=False):
     """Process a single blog file. Returns (changed, category, stats)."""
     with open(filepath, 'r', encoding='utf-8') as f:
         html_str = f.read()
+
+    # Force mode: strip existing injections first
+    if force:
+        html_str = strip_injections(html_str)
 
     # Idempotency: skip if already fully injected
     has_nudges = 'blog-social-nudge' in html_str
@@ -212,8 +227,8 @@ def inject_into_file(filepath, dry_run=False):
     # Determine injection points
     injections = {}  # index -> html to append after that part
 
-    # Course card / courses hint: after first content h2 section
-    course_idx = content_indices[0]
+    # Course card / courses hint: after intro (before first h2)
+    course_idx = 0
     if not skip_courses:
         if category == 'flutter':
             injections[course_idx] = FLUTTER_COURSE_CARD
@@ -222,11 +237,8 @@ def inject_into_file(filepath, dry_run=False):
         else:
             injections[course_idx] = EXCEL_COURSE_CARD
 
-    # Social nudges: distribute across remaining content sections
-    available = [i for i in content_indices[1:] if i not in boilerplate_indices]
-    # Remove last content section (too close to CTA)
-    if len(available) > 1:
-        available = available[:-1]
+    # Social nudges: all placed after first few content h2 sections (near top)
+    available = [i for i in content_indices if i not in boilerplate_indices]
 
     if n <= 4:
         social_count = min(1, len(available))
@@ -235,13 +247,8 @@ def inject_into_file(filepath, dry_run=False):
     else:
         social_count = min(3, len(available))
 
-    social_indices = []
-    if social_count > 0 and len(available) > 0:
-        step = max(1, len(available) // social_count)
-        for j in range(social_count):
-            idx = j * step
-            if idx < len(available):
-                social_indices.append(available[idx])
+    # Place all social nudges on the first N content sections (near the top)
+    social_indices = available[:social_count]
 
     for j, idx in enumerate(social_indices):
         platform = SOCIAL_ORDER[j]
@@ -280,9 +287,12 @@ def inject_into_file(filepath, dry_run=False):
 
 def main():
     dry_run = '--dry-run' in sys.argv
+    force = '--force' in sys.argv
 
     if dry_run:
         print("=== DRY RUN MODE (no files will be written) ===\n")
+    if force:
+        print("=== FORCE MODE (stripping existing injections first) ===\n")
 
     files = sorted([
         f for f in os.listdir(BLOG_DIR)
@@ -294,7 +304,7 @@ def main():
 
     for filename in files:
         filepath = os.path.join(BLOG_DIR, filename)
-        changed, category, stats = inject_into_file(filepath, dry_run=dry_run)
+        changed, category, stats = inject_into_file(filepath, dry_run=dry_run, force=force)
 
         if changed:
             counts[category] += 1

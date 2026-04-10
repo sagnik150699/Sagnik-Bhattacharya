@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-adsense-account" content="ca-pub-1443974359047569">
+  <title>How to Build an AI Agent With File Search and Tools</title>
+  <meta name="description" content="Learn how to build an AI agent that can search files, read documents, and use tools to answer questions about your codebase or document collection.">
+  <meta name="keywords" content="AI agent file search, build AI agent tools, AI agent codebase search, file search agent, AI agent tutorial">
+  <meta name="author" content="Sagnik Bhattacharya">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/build-ai-agent-file-search-tools">
+  <meta property="og:title" content="How to Build an AI Agent With File Search and Tools">
+  <meta property="og:description" content="Learn how to build an AI agent that can search files, read documents, and use tools to answer questions about your codebase or document collection.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/build-ai-agent-file-search-tools">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/build-ai-agent-file-search-tools-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/build-ai-agent-file-search-tools-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for building an AI agent with file search and tools.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Sagnik Bhattacharya">
+  <meta property="article:author" content="Sagnik Bhattacharya">
+  <meta property="article:published_time" content="2026-03-09">
+  <meta property="article:modified_time" content="2026-03-09">
+  <meta property="article:section" content="AI &amp; Automation">
+  <meta property="article:tag" content="AI agent file search">
+  <meta property="article:tag" content="build AI agent tools">
+  <meta property="article:tag" content="AI agent codebase search">
+  <meta property="article:tag" content="file search agent">
+  <meta property="article:tag" content="AI agent tutorial">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Build an AI Agent With File Search and Tools">
+  <meta name="twitter:description" content="Learn how to build an AI agent that can search files, read documents, and use tools to answer questions about your codebase or document collection.">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/build-ai-agent-file-search-tools-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for building an AI agent with file search and tools.">
+  <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Build an AI Agent With File Search and Tools","description":"Learn how to build an AI agent that can search files, read documents, and use tools to answer questions about your codebase or document collection.","datePublished":"2026-03-09","dateModified":"2026-03-09","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/build-ai-agent-file-search-tools"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/build-ai-agent-file-search-tools-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/build-ai-agent-file-search-tools-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"How to Build an AI Agent With File Search and Tools by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"AI agent file search, build AI agent tools, AI agent codebase search, file search agent, AI agent tutorial","articleSection":"AI & Automation"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"How to Build an AI Agent With File Search and Tools","item":"https://sagnikbhattacharya.com/blog/build-ai-agent-file-search-tools"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"How to Build an AI Agent With File Search and Tools","url":"https://sagnikbhattacharya.com/blog/images/build-ai-agent-file-search-tools-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/build-ai-agent-file-search-tools-sagnik-bhattacharya-coding-liquids.jpg","caption":"How to Build an AI Agent With File Search and Tools by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How to Build an AI Agent With File Search and Tools?","acceptedAnswer":{"@type":"Answer","text":"Define tools for file listing, content search, and file reading. Connect them to an agent loop that decides which tool to call, processes the result, and continues until it has enough information to answer the question."}},{"@type":"Question","name":"The agent loop pattern?","acceptedAnswer":{"@type":"Answer","text":"Every tool-using agent follows the same basic loop: receive a question, decide which tool to call, process the result, and either call another tool or return an answer."}},{"@type":"Question","name":"Essential file tools?","acceptedAnswer":{"@type":"Answer","text":"For a file search agent, you need three core tools: list files (by pattern or directory), search content (grep-like text search), and read file (get the full content of a specific file)."}},{"@type":"Question","name":"Building the tools?","acceptedAnswer":{"@type":"Answer","text":"Each tool is a function with a clear schema. The schema tells the agent what parameters to pass and what to expect back."}}]}</script>
+  <link rel="stylesheet" href="/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">sagnik<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about">About</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">How to Build an AI Agent With File Search and Tools</span></nav>
+    </div>
+  </div>
+  <section style="padding-top:0">
+    <div class="container">
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-tags"><span class="blog-post-tag">AI</span></div>
+          <h1 class="blog-post-title">How to Build an AI Agent With File Search and Tools</h1>
+          <div class="blog-post-meta">
+            <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
+              <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
+            </a>
+            <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
+            <span>9 Mar 2026</span>
+            <span>5 min read</span>
+          </div>
+        </div>
+        <figure class="blog-cover">
+          <img src="/blog/images/build-ai-agent-file-search-tools-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for building an AI agent with file search and tools." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for building an AI agent with file search and tools.</figcaption>
+        </figure>
+        <div class="blog-post-content">
+<p>An AI agent that can search files and use tools is genuinely useful — it can answer questions about a codebase, find relevant documents, extract information, and chain multiple operations to solve problems.</p><p>This guide shows you how to build one from scratch, with practical patterns you can extend to your own use case.</p><div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Flutter and Excel with AI — <a href="/courses">explore my courses</a> if you want structured learning.</span></div><h2>Quick answer</h2><p>Define tools for file listing, content search, and file reading. Connect them to an agent loop that decides which tool to call, processes the result, and continues until it has enough information to answer the question.</p><ul><li>You want to build a question-answering agent over a codebase or document set.</li><li>You need an agent that can explore files dynamically rather than relying on pre-indexed content.</li><li>You are learning how agent loops and tool use work in practice.</li></ul><a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>The agent loop pattern</h2><p>Every tool-using agent follows the same basic loop: receive a question, decide which tool to call, process the result, and either call another tool or return an answer.</p><p>The key design decision is how much autonomy to give the agent. Start conservative — let it call tools but limit the number of steps, and always show the user what tools were called.</p><a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>Essential file tools</h2><p>For a file search agent, you need three core tools: list files (by pattern or directory), search content (grep-like text search), and read file (get the full content of a specific file).</p><p>These three tools are enough for an agent to navigate a codebase — it lists files to orient itself, searches for relevant terms, then reads the specific files it needs.</p><ul><li>list_files: accepts a directory and optional glob pattern, returns file paths</li><li>search_content: accepts a query string and optional file pattern, returns matching lines with file paths</li><li>read_file: accepts a file path, returns the file contents</li></ul><a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">Subscribe on YouTube</span><span class="blog-social-nudge__handle">@codingliquids</span></a><h2>Building the tools</h2><p>Each tool is a function with a clear schema. The schema tells the agent what parameters to pass and what to expect back.</p><p>Keep the return values simple and consistent. For file listing, return paths. For search, return matching lines with context. For file reading, return the content with line numbers.</p><pre><code># Core file tools
+def list_files(directory: str = &quot;.&quot;, pattern: str = &quot;*&quot;) -&gt; str:
+    &quot;&quot;&quot;List files in a directory matching a glob pattern.&quot;&quot;&quot;
+    import glob, os
+    files = glob.glob(os.path.join(directory, &quot;**&quot;, pattern), recursive=True)
+    return &quot;\n&quot;.join(files[:50])
+
+def search_content(query: str, file_pattern: str = &quot;*&quot;) -&gt; str:
+    &quot;&quot;&quot;Search for text in files matching a pattern.&quot;&quot;&quot;
+    # Use subprocess to call grep/rg for efficiency
+    ...
+
+def read_file(file_path: str) -&gt; str:
+    &quot;&quot;&quot;Read and return the contents of a file.&quot;&quot;&quot;
+    with open(file_path) as f:
+        return f.read()</code></pre><h2>Connecting tools to the agent</h2><p>Wire the tools into your agent framework. If using the Anthropic SDK, pass them as tool definitions. If using LangChain or a similar framework, register them as tools in the agent executor.</p><p>The critical step is writing good tool descriptions. The agent reads these descriptions to decide which tool to call, so vague descriptions lead to wrong tool choices.</p><h2>Handling multi-step reasoning</h2><p>The interesting part of file search agents is multi-step reasoning. The agent might search for a function name, find it in three files, read each one, then synthesise the answer.</p><p>Set a reasonable step limit (5-10 tool calls) and log each step. If the agent hits the limit without answering, it likely needs better tools or a more specific question.</p><h2>Worked example: codebase Q&A agent</h2><p>You build an agent with file tools and ask it 'How does the authentication middleware work?' The agent searches for 'auth' in the codebase, finds three relevant files, reads them, and returns a summary explaining the authentication flow with references to specific files and functions.</p><h2>Common mistakes</h2><ul><li>Giving the agent too many tools at once — start with the three core file tools.</li><li>Writing vague tool descriptions that make the agent guess.</li><li>Not setting a step limit, which can lead to runaway tool-calling loops.</li></ul><h2>When to use something else</h2><p>If you need MCP-based tool servers instead of building tools directly, see <a href="/blog/mcp-servers-ai-agents">MCP servers for AI agents</a>. For RAG over documents instead of live file search, see <a href="/blog/build-rag-app-own-documents">building a RAG app</a>.</p><h2>How to apply this in a real AI project</h2><p>How to Build an AI Agent With File Search and Tools becomes much more useful once it is tied to the rest of the workflow around it. In real work, the result depends on model selection, prompt design, tool integration, evaluation, and the operational reality of shipping AI features, not only on following one local tip correctly.</p><p>That is why the biggest win rarely comes from one clever move in isolation. It comes from making the surrounding process easier to review, easier to repeat, and easier to hand over when another person inherits the workbook or codebase later.</p><ul><li>Test with realistic inputs before shipping, not just the examples that inspired the idea.</li><li>Keep the human review step visible so the workflow stays trustworthy as it scales.</li><li>Measure what matters for your use case instead of relying on general benchmarks.</li></ul><h2>How to extend the workflow after this guide</h2><p>Once the core technique works, the next leverage usually comes from standardising it. That might mean naming inputs more clearly, keeping one review checklist, or pairing this page with neighbouring guides so the process becomes repeatable rather than person-dependent.</p><p>The follow-on guides below are the most natural next steps from How to Build an AI Agent With File Search and Tools. They help move the reader from one useful page into a stronger connected system.</p><ul><li>Go next to <a href="/blog/mcp-servers-ai-agents">How to Use MCP Servers for AI Agents Step by Step</a> if you want to deepen the surrounding workflow instead of treating How to Build an AI Agent With File Search and Tools as an isolated trick.</li><li>Go next to <a href="/blog/tool-calling-ai-apps">How to Use Tool Calling in AI Apps Without Broken Workflows</a> if you want to deepen the surrounding workflow instead of treating How to Build an AI Agent With File Search and Tools as an isolated trick.</li><li>Go next to <a href="/blog/build-rag-app-own-documents">How to Build a RAG App With Your Own Documents</a> if you want to deepen the surrounding workflow instead of treating How to Build an AI Agent With File Search and Tools as an isolated trick.</li></ul><h2>Related guides on this site</h2><p>These guides cover related agent patterns, tool calling, and document retrieval approaches.</p><ul><li><a href="/blog/mcp-servers-ai-agents">How to Use MCP Servers for AI Agents Step by Step</a></li><li><a href="/blog/tool-calling-ai-apps">How to Use Tool Calling in AI Apps Without Broken Workflows</a></li><li><a href="/blog/build-rag-app-own-documents">How to Build a RAG App With Your Own Documents</a></li><li><a href="/blog/structured-json-outputs-llms">How to Use Structured JSON Outputs With LLMs</a></li><li><a href="/blog/copilot-agent-mode-vscode">How to Use GitHub Copilot Agent Mode in VS Code: Autonomous Coding in 2026</a></li></ul>
+<div class="blog-cta-box"><h3>Want to use AI tools more effectively?</h3><p>My courses cover practical AI workflows, from spreadsheet automation to app development, with real projects and honest tool comparisons.</p><a href="/courses" class="btn-primary">Browse AI courses <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/animations.js" defer></script>
+  <script src="/tracking.js" defer></script>
+</body>
+</html>

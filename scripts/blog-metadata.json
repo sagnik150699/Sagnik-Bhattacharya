@@ -1,4 +1,4 @@
-﻿[
+[
     {
         "Slug":  "add-flutter-to-existing-app",
         "Title":  "Add Flutter to an Existing App: Mobile and Web Integration Patterns",
@@ -433,5 +433,180 @@
         "Slug":  "claude-code-vscode",
         "Title":  "How to Use Claude Code in VS Code: Setup, Extensions, and AI Coding Workflows",
         "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Claude Code in VS Code, with terminal AI agent and IDE extension visuals."
+    },
+    {
+        "Slug":  "background-jobs-ai-apps",
+        "Title":  "How to Use Background Jobs in AI Apps for Long Tasks",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using background jobs in AI apps for long tasks."
+    },
+    {
+        "Slug":  "better-prompts-seedance",
+        "Title":  "How to Write Better Prompts for Seedance 2.0",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for writing better prompts for Seedance 2.0."
+    },
+    {
+        "Slug":  "build-ai-agent-file-search-tools",
+        "Title":  "How to Build an AI Agent With File Search and Tools",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for building an AI agent with file search and tools."
+    },
+    {
+        "Slug":  "build-rag-app-own-documents",
+        "Title":  "How to Build a RAG App With Your Own Documents",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for building a RAG app with your own documents."
+    },
+    {
+        "Slug":  "choose-open-models-vs-api-models",
+        "Title":  "How to Choose Between Open Models and API Models",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for choosing between open models and API models."
+    },
+    {
+        "Slug":  "chunk-documents-rag",
+        "Title":  "How to Chunk Documents for Better RAG Results",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for chunking documents for better RAG results."
+    },
+    {
+        "Slug":  "consistent-characters-seedance",
+        "Title":  "How to Make Consistent Characters in Seedance 2.0",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for making consistent characters in Seedance 2.0."
+    },
+    {
+        "Slug":  "cut-ai-api-costs-caching-routing",
+        "Title":  "How to Cut AI API Costs With Caching and Routing",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for cutting AI API costs with caching and routing."
+    },
+    {
+        "Slug":  "evaluate-ai-outputs-real-apps",
+        "Title":  "How to Evaluate AI Outputs in Real Apps",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for evaluating AI outputs in real apps."
+    },
+    {
+        "Slug":  "fix-bad-motion-seedance",
+        "Title":  "How to Fix Bad Motion in Seedance 2.0 Videos",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for fixing bad motion in Seedance 2.0 videos."
+    },
+    {
+        "Slug":  "gemma-4-local-ai-workflows",
+        "Title":  "How to Use Gemma 4 for Local AI Workflows",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Gemma 4 for local AI workflows."
+    },
+    {
+        "Slug":  "improve-rag-reranking",
+        "Title":  "How to Improve RAG Answers With Reranking",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for improving RAG answers with reranking."
+    },
+    {
+        "Slug":  "local-ai-own-files",
+        "Title":  "How to Use Local AI on Your Own Files",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using local AI on your own files."
+    },
+    {
+        "Slug":  "mcp-chatgpt-tools",
+        "Title":  "How to Use MCP With ChatGPT and Your Own Tools",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using MCP with ChatGPT and custom tools."
+    },
+    {
+        "Slug":  "mcp-servers-ai-agents",
+        "Title":  "How to Use MCP Servers for AI Agents Step by Step",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for setting up MCP servers for AI agents."
+    },
+    {
+        "Slug":  "open-models-private-ai-apps",
+        "Title":  "How to Use Open Models for Private AI Apps",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using open models for private AI apps."
+    },
+    {
+        "Slug":  "reasoning-summaries-production-ai",
+        "Title":  "How to Use Reasoning Summaries in Production AI Apps",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using reasoning summaries in production AI apps."
+    },
+    {
+        "Slug":  "reduce-hallucinations-tool-ai",
+        "Title":  "How to Reduce Hallucinations in Tool-Based AI Apps",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for reducing hallucinations in tool-based AI apps."
+    },
+    {
+        "Slug":  "remote-mcp-servers-ai-apps",
+        "Title":  "How to Use Remote MCP Servers in AI Apps",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for deploying remote MCP servers in AI apps."
+    },
+    {
+        "Slug":  "run-gemma-4-own-machine",
+        "Title":  "How to Run Gemma 4 on Your Own Machine",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for running Gemma 4 on your own machine."
+    },
+    {
+        "Slug":  "seedance-anime-video",
+        "Title":  "How to Use Seedance 2.0 for Anime Style Video Generation",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for anime style video generation."
+    },
+    {
+        "Slug":  "seedance-audio-prompts",
+        "Title":  "How to Use Seedance 2.0 With Audio Prompts Step by Step",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 with audio prompts step by step."
+    },
+    {
+        "Slug":  "seedance-cinematic-camera-movement",
+        "Title":  "How to Use Seedance 2.0 for Cinematic Camera Movement Prompts",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for cinematic camera movement prompts."
+    },
+    {
+        "Slug":  "seedance-dreamina-guide",
+        "Title":  "How to Use Seedance 2.0 in Dreamina Step by Step",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 in Dreamina step by step."
+    },
+    {
+        "Slug":  "seedance-image-to-video",
+        "Title":  "How to Use Seedance 2.0 for Image to Video Prompts",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for image to video prompts."
+    },
+    {
+        "Slug":  "seedance-marketing-videos",
+        "Title":  "How to Use Seedance 2.0 for AI Marketing Videos",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for AI marketing videos."
+    },
+    {
+        "Slug":  "seedance-product-ad-videos",
+        "Title":  "How to Use Seedance 2.0 for Product Ad Videos",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for product ad videos."
+    },
+    {
+        "Slug":  "seedance-reference-images-characters",
+        "Title":  "How to Use Seedance 2.0 With Reference Images for Consistent Characters",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 with reference images for consistent characters."
+    },
+    {
+        "Slug":  "seedance-vs-kling",
+        "Title":  "Seedance 2.0 vs Kling for Realistic Motion",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for comparing Seedance 2.0 vs Kling for realistic motion."
+    },
+    {
+        "Slug":  "seedance-vs-sora-2",
+        "Title":  "Seedance 2.0 vs Sora 2 for Prompt Control",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for comparing Seedance 2.0 vs Sora 2 for prompt control."
+    },
+    {
+        "Slug":  "seedance-vs-veo-3",
+        "Title":  "Seedance 2.0 vs Veo 3 for Short AI Videos",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for comparing Seedance 2.0 vs Veo 3 for short AI videos."
+    },
+    {
+        "Slug":  "seedance-youtube-shorts",
+        "Title":  "How to Use Seedance 2.0 for YouTube Shorts Creation",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for YouTube Shorts creation."
+    },
+    {
+        "Slug":  "structured-json-outputs-llms",
+        "Title":  "How to Use Structured JSON Outputs With LLMs",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using structured JSON outputs with LLMs."
+    },
+    {
+        "Slug":  "test-ai-prompts-before-shipping",
+        "Title":  "How to Test AI Prompts Before Shipping",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for testing AI prompts before shipping."
+    },
+    {
+        "Slug":  "tool-calling-ai-apps",
+        "Title":  "How to Use Tool Calling in AI Apps Without Broken Workflows",
+        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using tool calling in AI apps without broken workflows."
     }
 ]

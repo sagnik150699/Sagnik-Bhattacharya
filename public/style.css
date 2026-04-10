@@ -234,6 +234,10 @@ footer a:hover{color:var(--warm-600)}
 .project-card:hover .project-link{gap:12px;color:var(--warm-500)}
 
 /* ═══════════ BLOG ═══════════ */
+.blog-search-wrap{max-width:480px;margin:0 auto 32px}
+#blogSearch{width:100%;padding:14px 20px;border:1px solid var(--warm-200);border-radius:var(--radius-md);background:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;color:var(--text-primary);box-shadow:var(--shadow-sm);outline:none;transition:border-color .2s,box-shadow .2s}
+#blogSearch:focus{border-color:var(--warm-400);box-shadow:var(--shadow-md)}
+#blogSearch::placeholder{color:var(--text-light)}
 .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
 .blog-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid rgba(44,24,16,0.06);transition:all .4s cubic-bezier(0.16,1,0.3,1);display:flex;flex-direction:column;text-decoration:none;color:inherit;content-visibility:auto;contain-intrinsic-size:auto 420px}
 .blog-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-xl)}

@@ -748,382 +748,530 @@
     "cue": "geographic charts, location data, and comparison visuals",
     "category": "Excel",
     "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for map charts in Excel, with geographic chart visuals."
-  }
-,
-  {
-    "slug": "gemma-4-vs-chatgpt-vs-claude",
-    "title": "Gemma 4 vs ChatGPT vs Claude vs Copilot: Best AI Model Comparison in 2026",
-    "tag": "AI Tools",
-    "hook": "See where Gemma 4 wins, where Claude thinks deeper, and where Copilot still fits better.",
-    "cta": "Compare The Best Fits",
-    "keywords": [
-      "Gemma 4",
-      "ChatGPT",
-      "Claude"
-    ],
-    "cue": "AI model comparison cards, local-vs-cloud workflow panels, and benchmark-style visuals",
-    "category": "AI Tools",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemma 4 vs ChatGPT vs Claude vs Copilot, with AI model comparison visuals.",
-    "primaryColor": "#2563EB",
-    "secondaryColor": "#F97316",
-    "variant": "ai-model-neuro",
-    "portraitFocus": "headshot",
-    "coverTitle": "Gemma 4 vs ChatGPT vs Claude vs Copilot"
   },
   {
-    "slug": "gemma-4-vs-gpt-vs-llama-excel",
-    "title": "Gemma 4 vs GPT-4o vs Llama 4: Which Free AI Model Is Best for Excel Formulas?",
-    "tag": "AI + Excel",
-    "hook": "Test free models on real formulas so you know which one helps before you copy anything into Excel.",
-    "cta": "Pick The Best Free Model",
+    "slug": "mcp-chatgpt-tools",
+    "title": "How to Use MCP With ChatGPT and Your Own Tools",
+    "tag": "AI",
+    "hook": "Give ChatGPT access to your own tools through a standard protocol instead of building custom integrations.",
+    "cta": "Connect Your Tools via MCP",
     "keywords": [
-      "Gemma 4",
-      "GPT-4o",
-      "Llama 4"
-    ],
-    "cue": "spreadsheet formula cards, model comparison cues, and AI workflow panels",
-    "category": "AI + Excel",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemma 4 vs GPT-4o vs Llama 4 for Excel formulas, with spreadsheet and model comparison visuals.",
-    "primaryColor": "#2563EB",
-    "secondaryColor": "#22C55E",
-    "variant": "ai-model-neuro",
-    "portraitFocus": "headshot",
-    "coverTitle": "Gemma 4 vs GPT-4o vs Llama 4 For Excel"
-  },
-  {
-    "slug": "gemma-4-data-analysis-excel",
-    "title": "Gemma 4 for Data Analysis: Can It Replace ChatGPT for Spreadsheet Work?",
-    "tag": "AI + Excel",
-    "hook": "Compare Gemma 4 and ChatGPT on analysis tasks before you trust either one with the workbook.",
-    "cta": "Test Spreadsheet Reasoning",
-    "keywords": [
-      "Gemma 4",
-      "Analysis",
-      "Excel"
-    ],
-    "cue": "spreadsheet grids, analysis cards, and model-comparison visuals",
-    "category": "AI + Excel",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemma 4 for data analysis, with spreadsheet and AI comparison visuals.",
-    "primaryColor": "#1D4ED8",
-    "secondaryColor": "#22C55E",
-    "variant": "ai-model-neuro",
-    "portraitFocus": "headshot",
-    "coverTitle": "Can Gemma 4 Replace ChatGPT For Spreadsheet Work?"
-  },
-  {
-    "slug": "gemma-4-vs-gemini",
-    "title": "Gemma 4 vs Gemini: What's the Difference and When to Use Which",
-    "tag": "AI Tools",
-    "hook": "Understand the open-model versus cloud-model tradeoff so you choose based on privacy, cost, and control.",
-    "cta": "Choose The Right Google AI",
-    "keywords": [
-      "Gemma 4",
-      "Gemini",
-      "Privacy"
-    ],
-    "cue": "open-model badges, cloud AI cards, and side-by-side decision visuals",
-    "category": "AI Tools",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemma 4 vs Gemini, with open-model and cloud AI comparison visuals.",
-    "primaryColor": "#2563EB",
-    "secondaryColor": "#14B8A6",
-    "variant": "ai-model-neuro",
-    "portraitFocus": "headshot",
-    "coverTitle": "Gemma 4 vs Gemini"
-  },
-  {
-    "slug": "gemma-4-vs-paid-ai-models",
-    "title": "5 Real-World Tasks Where Gemma 4 Beats Paid AI Models",
-    "tag": "AI Tools",
-    "hook": "Spot the tasks where free, local, and open workflows beat the paid defaults.",
-    "cta": "Find Gemma's Edge",
-    "keywords": [
-      "Gemma 4",
-      "Value",
-      "Benchmarks"
-    ],
-    "cue": "benchmark panels, value comparison charts, and practical-task visuals",
-    "category": "AI Tools",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for tasks where Gemma 4 beats paid AI models, with benchmark visuals.",
-    "primaryColor": "#F97316",
-    "secondaryColor": "#22C55E",
-    "variant": "ai-model-neuro",
-    "portraitFocus": "headshot",
-    "coverTitle": "5 Tasks Where Gemma 4 Beats Paid AI"
-  },
-  {
-    "slug": "run-gemma-4-locally",
-    "title": "How to Run Gemma 4 Locally for Free: A Beginner's Guide With Ollama and LM Studio",
-    "tag": "AI Tools",
-    "hook": "Set up local AI step by step so privacy, cost, and speed all work in your favour.",
-    "cta": "Run It Locally",
-    "keywords": [
-      "Ollama",
-      "LM Studio",
-      "Local"
-    ],
-    "cue": "local-model dashboards, terminal cues, and on-device AI workflow visuals",
-    "category": "AI Tools",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for running Gemma 4 locally, with local AI and terminal visuals.",
-    "primaryColor": "#2563EB",
-    "secondaryColor": "#22C55E",
-    "variant": "ai-model-neuro",
-    "portraitFocus": "headshot",
-    "coverTitle": "Run Gemma 4 Locally For Free"
-  },
-  {
-    "slug": "gemma-4-vscode",
-    "title": "How to Use Gemma 4 in VS Code: Setup, Extensions, and Coding Workflows",
-    "tag": "AI Tools",
-    "hook": "Use Gemma 4 inside VS Code without losing the coding flow or sending every file to the cloud.",
-    "cta": "Code With Gemma Faster",
-    "keywords": [
-      "VS Code",
-      "Gemma 4",
-      "Local AI"
-    ],
-    "cue": "editor-style cards, coding workflow panels, and local AI assistant visuals",
-    "category": "AI Tools",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Gemma 4 in VS Code, with coding workflow visuals.",
-    "primaryColor": "#2563EB",
-    "secondaryColor": "#06B6D4",
-    "variant": "ai-model-neuro",
-    "portraitFocus": "headshot",
-    "coverTitle": "Use Gemma 4 In VS Code"
-  },
-  {
-    "slug": "gemini-cli-vscode",
-    "title": "How to Use Gemini CLI in VS Code: Setup, IDE Integration, and Coding Workflows",
-    "tag": "AI Tools",
-    "hook": "Get 1,000 free AI requests per day with a terminal-first coding tool that stays inside your editor.",
-    "cta": "Set Up Gemini CLI",
-    "keywords": [
-      "Gemini CLI",
-      "VS Code",
-      "Terminal AI"
-    ],
-    "cue": "terminal panels, VS Code editor, and AI coding workflow visuals",
-    "category": "AI Tools",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemini CLI in VS Code, with terminal AI workflow and IDE integration visuals.",
-    "primaryColor": "#4285F4",
-    "secondaryColor": "#34A853",
-    "variant": "ai-model-neuro",
-    "portraitFocus": "headshot",
-    "coverTitle": "Use Gemini CLI In VS Code"
-  },
-  {
-    "slug": "gemini-code-assist-android-studio",
-    "title": "How to Use Gemini Code Assist in Android Studio: Free AI Coding for Flutter and Kotlin",
-    "tag": "Flutter",
-    "hook": "Google's own AI assistant inside their own IDE — free tier included, Flutter and Kotlin ready.",
-    "cta": "Enable Gemini Code Assist",
-    "keywords": [
-      "Gemini",
-      "Android Studio",
-      "Flutter"
-    ],
-    "cue": "Android Studio panels, inline completions, and Flutter widget generation visuals",
-    "category": "Flutter",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemini Code Assist in Android Studio, with AI coding assistant and Flutter development visuals.",
-    "primaryColor": "#4285F4",
-    "secondaryColor": "#0175C2",
-    "variant": "ai-model-neuro",
-    "portraitFocus": "headshot",
-    "coverTitle": "Gemini Code Assist In Android Studio"
-  },
-  {
-    "slug": "cursor-flutter-development",
-    "title": "How to Use Cursor for Flutter Development: The Complete 2026 Guide",
-    "tag": "Flutter",
-    "hook": "The #1 AI IDE with 2M+ users, configured specifically for Flutter widget trees and Dart code.",
-    "cta": "Set Up Cursor For Flutter",
-    "keywords": [
-      "Cursor",
-      "Flutter",
-      "AI IDE"
-    ],
-    "cue": "AI IDE panels, widget generation, and Dart code completion visuals",
-    "category": "Flutter",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Cursor IDE Flutter development, with AI-powered coding and widget generation visuals.",
-    "primaryColor": "#7C3AED",
-    "secondaryColor": "#0175C2",
-    "variant": "ai-model-neuro",
-    "portraitFocus": "headshot",
-    "coverTitle": "Cursor For Flutter Development"
-  },
-  {
-    "slug": "windsurf-flutter-development",
-    "title": "How to Use Windsurf for Flutter Development: Free AI IDE Setup and Review",
-    "tag": "Flutter",
-    "hook": "The free Cursor alternative with Cascade agent mode — set up and tested for Flutter projects.",
-    "cta": "Try Windsurf For Flutter",
-    "keywords": [
-      "Windsurf",
-      "Flutter",
-      "Free AI IDE"
-    ],
-    "cue": "AI IDE panels, Cascade agent, and Flutter development workflow visuals",
-    "category": "Flutter",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Windsurf IDE Flutter development, with free AI coding and Cascade agent visuals.",
-    "primaryColor": "#06B6D4",
-    "secondaryColor": "#0175C2",
-    "variant": "ai-model-neuro",
-    "portraitFocus": "headshot",
-    "coverTitle": "Windsurf For Flutter Development"
-  },
-  {
-    "slug": "claude-code-android-studio",
-    "title": "How to Use Claude Code in Android Studio: AI-Powered Coding for Kotlin, Flutter, and Gradle Projects",
-    "tag": "AI Tools",
-    "hook": "The #1 SWE-bench AI agent running in Android Studio's terminal for Kotlin, Flutter, and Gradle.",
-    "cta": "Use Claude Code In Android Studio",
-    "keywords": [
-      "Claude Code",
-      "Android Studio",
-      "Kotlin"
-    ],
-    "cue": "terminal AI panels, Android Studio editor, and Kotlin-Flutter workflow visuals",
-    "category": "AI Tools",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Claude Code in Android Studio, with terminal AI agent and Kotlin-Flutter-Gradle workflow visuals.",
-    "primaryColor": "#D97706",
-    "secondaryColor": "#3DDC84",
-    "variant": "ai-model-neuro",
-    "portraitFocus": "headshot",
-    "coverTitle": "Claude Code In Android Studio"
-  },
-  {
-    "slug": "opencode-vscode",
-    "title": "How to Use OpenCode in VS Code: The Free Open-Source AI Coding Alternative",
-    "tag": "AI Tools",
-    "hook": "126K+ stars, MIT licensed, 75+ models — the open-source Cursor alternative most developers haven't tried.",
-    "cta": "Set Up OpenCode",
-    "keywords": [
-      "OpenCode",
-      "Open Source",
-      "VS Code"
-    ],
-    "cue": "terminal panels, multi-model selection, and open-source coding workflow visuals",
-    "category": "AI Tools",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for OpenCode in VS Code, with open-source AI coding and multi-model terminal visuals.",
-    "primaryColor": "#22C55E",
-    "secondaryColor": "#2563EB",
-    "variant": "ai-model-neuro",
-    "portraitFocus": "headshot",
-    "coverTitle": "OpenCode In VS Code"
-  },
-  {
-    "slug": "gemma-4-android-studio-ollama",
-    "title": "How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle",
-    "tag": "AI Tools",
-    "hook": "The Android Studio companion to the VS Code guide — free, local, offline AI for Kotlin and Flutter.",
-    "cta": "Run Gemma In Android Studio",
-    "keywords": [
-      "Gemma 4",
-      "Android Studio",
-      "Ollama"
-    ],
-    "cue": "Android Studio terminal, local model panels, and Kotlin-Flutter coding visuals",
-    "category": "AI Tools",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemma 4 in Android Studio with Ollama, with local AI coding and Kotlin-Flutter-Gradle visuals.",
-    "primaryColor": "#2563EB",
-    "secondaryColor": "#3DDC84",
-    "variant": "ai-model-neuro",
-    "portraitFocus": "headshot",
-    "coverTitle": "Gemma 4 In Android Studio"
-  },
-  {
-    "slug": "copilot-agent-mode-vscode",
-    "title": "How to Use GitHub Copilot Agent Mode in VS Code: Autonomous Coding in 2026",
-    "tag": "AI Tools",
-    "hook": "Agent Mode plans, executes, and iterates autonomously — here is how to use it without losing control.",
-    "cta": "Use Agent Mode Effectively",
-    "keywords": [
-      "Copilot",
-      "Agent Mode",
-      "Autonomous"
-    ],
-    "cue": "agent workflow panels, multi-step task cards, and autonomous coding visuals",
-    "category": "AI Tools",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for GitHub Copilot Agent Mode in VS Code, with autonomous AI coding and multi-step workflow visuals.",
-    "primaryColor": "#1F2937",
-    "secondaryColor": "#F97316",
-    "variant": "ai-model-neuro",
-    "portraitFocus": "headshot",
-    "coverTitle": "Copilot Agent Mode In VS Code"
-  },
-  {
-    "slug": "deepseek-vscode",
-    "title": "How to Use DeepSeek in VS Code: The $2/Month AI Coding Assistant Setup Guide",
-    "tag": "AI Tools",
-    "hook": "Near-GPT-4 coding quality at a fraction of the price — set up and tested inside VS Code.",
-    "cta": "Set Up DeepSeek",
-    "keywords": [
-      "DeepSeek",
-      "Budget AI",
-      "VS Code"
-    ],
-    "cue": "API cost cards, VS Code terminal, and budget AI coding workflow visuals",
-    "category": "AI Tools",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for DeepSeek in VS Code, with budget AI coding assistant and API configuration visuals.",
-    "primaryColor": "#4F46E5",
-    "secondaryColor": "#22C55E",
-    "variant": "ai-model-neuro",
-    "portraitFocus": "headshot",
-    "coverTitle": "DeepSeek In VS Code"
-  },
-  {
-    "slug": "gemini-cli-android-studio-flutter",
-    "title": "How to Use Gemini CLI in Android Studio for Flutter: MCP Server, Dart Integration, and Workflows",
-    "tag": "Flutter",
-    "hook": "Four trending keywords in one workflow — Gemini CLI, Android Studio, Flutter, and MCP together.",
-    "cta": "Connect Gemini CLI To Flutter",
-    "keywords": [
-      "Gemini CLI",
       "MCP",
-      "Flutter"
+      "ChatGPT",
+      "Tools"
     ],
-    "cue": "MCP server panels, Dart tooling cards, and Flutter AI workflow visuals",
-    "category": "Flutter",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemini CLI in Android Studio for Flutter, with MCP server and Dart integration visuals.",
-    "primaryColor": "#4285F4",
-    "secondaryColor": "#0175C2",
-    "variant": "ai-model-neuro",
-    "portraitFocus": "headshot",
-    "coverTitle": "Gemini CLI + MCP For Flutter"
+    "cue": "protocol diagrams, tool connections, and server setup visuals",
+    "category": "AI",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using MCP with ChatGPT and custom tools."
   },
   {
-    "slug": "claude-code-vscode",
-    "title": "How to Use Claude Code in VS Code: Setup, Extensions, and AI Coding Workflows",
-    "tag": "AI Tools",
-    "hook": "The #1 SWE-bench AI agent now has a native VS Code extension — set up and use it effectively.",
-    "cta": "Set Up Claude Code",
+    "slug": "mcp-servers-ai-agents",
+    "title": "How to Use MCP Servers for AI Agents Step by Step",
+    "tag": "AI",
+    "hook": "Give AI agents reliable tool access through a standard protocol that works across providers.",
+    "cta": "Build Agent Tool Servers",
     "keywords": [
-      "Claude Code",
-      "VS Code",
-      "Terminal AI"
+      "MCP",
+      "Agents",
+      "Tools"
     ],
-    "cue": "VS Code extension panels, terminal AI agent, and coding workflow visuals",
-    "category": "AI Tools",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Claude Code in VS Code, with terminal AI agent and IDE extension visuals.",
-    "primaryColor": "#D97706",
-    "secondaryColor": "#2563EB",
-    "variant": "ai-model-neuro",
-    "portraitFocus": "headshot",
-    "coverTitle": "Claude Code In VS Code"
+    "cue": "server architecture, agent workflows, and tool-chaining visuals",
+    "category": "AI",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for setting up MCP servers for AI agents."
   },
   {
-    "slug": "flutter-renderflex-overflow-row-listview",
-    "title": "How to Fix RenderFlex Overflowed in Flutter Row inside ListView",
-    "tag": "Flutter",
-    "hook": "Use constraints, Expanded, and wrapping so long content stops breaking list items.",
-    "cta": "Fix Row Overflow Fast",
+    "slug": "build-ai-agent-file-search-tools",
+    "title": "How to Build an AI Agent With File Search and Tools",
+    "tag": "AI",
+    "hook": "Build an agent that can actually explore files and answer questions about your codebase or documents.",
+    "cta": "Build a File Search Agent",
     "keywords": [
-      "Expanded",
-      "Flexible",
-      "Wrap"
+      "Agent",
+      "File Search",
+      "Tools"
     ],
-    "cue": "layout constraints, warning stripes, and row-fix visuals",
-    "category": "Flutter",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for fixing RenderFlex overflowed in Flutter Row inside ListView, with layout constraints, warning stripes, and row-fix visuals.",
-    "coverTitle": "Fix RenderFlex Overflow In Flutter Rows"
+    "cue": "agent workflow diagrams, file search interfaces, and tool-calling visuals",
+    "category": "AI",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for building an AI agent with file search and tools."
+  },
+  {
+    "slug": "remote-mcp-servers-ai-apps",
+    "title": "How to Use Remote MCP Servers in AI Apps",
+    "tag": "AI",
+    "hook": "Move your MCP tool servers from local development to production with proper deployment, authentication, and scaling.",
+    "cta": "Deploy Remote MCP Servers",
+    "keywords": [
+      "Remote",
+      "MCP",
+      "Deploy"
+    ],
+    "cue": "deployment diagrams, server architecture, and cloud setup visuals",
+    "category": "AI",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for deploying remote MCP servers in AI apps."
+  },
+  {
+    "slug": "structured-json-outputs-llms",
+    "title": "How to Use Structured JSON Outputs With LLMs",
+    "tag": "AI",
+    "hook": "Get guaranteed structured JSON from language models instead of parsing free text and hoping for the best.",
+    "cta": "Use Structured Outputs",
+    "keywords": [
+      "JSON",
+      "Structured",
+      "LLM"
+    ],
+    "cue": "JSON schema diagrams, structured output examples, and pipeline visuals",
+    "category": "AI",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using structured JSON outputs with LLMs."
+  },
+  {
+    "slug": "tool-calling-ai-apps",
+    "title": "How to Use Tool Calling in AI Apps Without Broken Workflows",
+    "tag": "AI",
+    "hook": "Build tool-calling workflows that work reliably in production, not just in demos.",
+    "cta": "Fix Tool Calling Issues",
+    "keywords": [
+      "Tool Calling",
+      "AI Apps",
+      "Reliable"
+    ],
+    "cue": "tool workflow diagrams, error handling patterns, and debugging visuals",
+    "category": "AI",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using tool calling in AI apps without broken workflows."
+  },
+  {
+    "slug": "background-jobs-ai-apps",
+    "title": "How to Use Background Jobs in AI Apps for Long Tasks",
+    "tag": "AI",
+    "hook": "Move long AI tasks to background queues so your app stays responsive and your users stay informed.",
+    "cta": "Handle Long AI Tasks",
+    "keywords": [
+      "Background",
+      "Jobs",
+      "AI Apps"
+    ],
+    "cue": "queue architecture, progress tracking, and worker processing visuals",
+    "category": "AI",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using background jobs in AI apps for long tasks."
+  },
+  {
+    "slug": "reasoning-summaries-production-ai",
+    "title": "How to Use Reasoning Summaries in Production AI Apps",
+    "tag": "AI",
+    "hook": "Show users how the AI reached its answer so they can trust the result or catch mistakes early.",
+    "cta": "Add Reasoning Transparency",
+    "keywords": [
+      "Reasoning",
+      "Summaries",
+      "AI"
+    ],
+    "cue": "reasoning trace displays, collapsible UI sections, and transparency visuals",
+    "category": "AI",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using reasoning summaries in production AI apps."
+  },
+  {
+    "slug": "gemma-4-local-ai-workflows",
+    "title": "How to Use Gemma 4 for Local AI Workflows",
+    "tag": "AI",
+    "hook": "Build useful AI workflows that run entirely on your machine with zero data leakage and zero API costs.",
+    "cta": "Automate With Local AI",
+    "keywords": [
+      "Gemma 4",
+      "Local",
+      "Workflows"
+    ],
+    "cue": "local processing pipelines, file workflow diagrams, and automation visuals",
+    "category": "AI",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Gemma 4 for local AI workflows."
+  },
+  {
+    "slug": "run-gemma-4-own-machine",
+    "title": "How to Run Gemma 4 on Your Own Machine",
+    "tag": "AI",
+    "hook": "Get Gemma 4 running on your own computer in minutes with zero ongoing costs and complete data privacy.",
+    "cta": "Run Gemma 4 Locally",
+    "keywords": [
+      "Gemma 4",
+      "Local",
+      "Install"
+    ],
+    "cue": "installation steps, hardware requirements table, and local setup visuals",
+    "category": "AI",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for running Gemma 4 on your own machine."
+  },
+  {
+    "slug": "open-models-private-ai-apps",
+    "title": "How to Use Open Models for Private AI Apps",
+    "tag": "AI",
+    "hook": "Build AI apps where sensitive data never leaves your infrastructure using open-weight models.",
+    "cta": "Build Private AI Apps",
+    "keywords": [
+      "Open Models",
+      "Private",
+      "AI"
+    ],
+    "cue": "infrastructure diagrams, privacy shields, and self-hosted deployment visuals",
+    "category": "AI",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using open models for private AI apps."
+  },
+  {
+    "slug": "local-ai-own-files",
+    "title": "How to Use Local AI on Your Own Files",
+    "tag": "AI",
+    "hook": "Process your own files with AI that runs entirely on your machine — no uploads, no API costs, no data leakage.",
+    "cta": "Process Files Locally",
+    "keywords": [
+      "Local AI",
+      "Files",
+      "Private"
+    ],
+    "cue": "file processing pipelines, local model interfaces, and document handling visuals",
+    "category": "AI",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using local AI on your own files."
+  },
+  {
+    "slug": "build-rag-app-own-documents",
+    "title": "How to Build a RAG App With Your Own Documents",
+    "tag": "AI",
+    "hook": "Build an AI that answers questions from your own documents instead of making things up from training data.",
+    "cta": "Build a RAG App",
+    "keywords": [
+      "RAG",
+      "Documents",
+      "AI"
+    ],
+    "cue": "retrieval pipeline diagrams, vector search interfaces, and document processing visuals",
+    "category": "AI",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for building a RAG app with your own documents."
+  },
+  {
+    "slug": "improve-rag-reranking",
+    "title": "How to Improve RAG Answers With Reranking",
+    "tag": "AI",
+    "hook": "Add a reranking step to your RAG pipeline to retrieve the right documents instead of just similar ones.",
+    "cta": "Improve RAG Retrieval",
+    "keywords": [
+      "RAG",
+      "Reranking",
+      "Retrieval"
+    ],
+    "cue": "retrieval pipeline diagrams, relevance scoring, and comparison visuals",
+    "category": "AI",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for improving RAG answers with reranking."
+  },
+  {
+    "slug": "chunk-documents-rag",
+    "title": "How to Chunk Documents for Better RAG Results",
+    "tag": "AI",
+    "hook": "Fix the chunking layer first — it is where most RAG applications silently fail.",
+    "cta": "Chunk Documents Better",
+    "keywords": [
+      "Chunking",
+      "RAG",
+      "Documents"
+    ],
+    "cue": "document splitting diagrams, chunk boundary visuals, and comparison tables",
+    "category": "AI",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for chunking documents for better RAG results."
+  },
+  {
+    "slug": "test-ai-prompts-before-shipping",
+    "title": "How to Test AI Prompts Before Shipping",
+    "tag": "AI",
+    "hook": "Test AI prompts like you test code — systematically, with edge cases, and before every deployment.",
+    "cta": "Test Prompts Before Shipping",
+    "keywords": [
+      "Prompt",
+      "Testing",
+      "AI"
+    ],
+    "cue": "test suite interfaces, evaluation dashboards, and regression comparison visuals",
+    "category": "AI",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for testing AI prompts before shipping."
+  },
+  {
+    "slug": "evaluate-ai-outputs-real-apps",
+    "title": "How to Evaluate AI Outputs in Real Apps",
+    "tag": "AI",
+    "hook": "Measure whether your AI outputs are actually good, not just whether they look plausible.",
+    "cta": "Evaluate AI Outputs",
+    "keywords": [
+      "Evaluate",
+      "AI Outputs",
+      "Quality"
+    ],
+    "cue": "evaluation dashboards, quality metrics, and scoring interface visuals",
+    "category": "AI",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for evaluating AI outputs in real apps."
+  },
+  {
+    "slug": "reduce-hallucinations-tool-ai",
+    "title": "How to Reduce Hallucinations in Tool-Based AI Apps",
+    "tag": "AI",
+    "hook": "Reduce AI hallucinations by design, not by hoping the model gets it right.",
+    "cta": "Reduce AI Hallucinations",
+    "keywords": [
+      "Hallucinations",
+      "AI",
+      "Tools"
+    ],
+    "cue": "validation pipeline diagrams, citation requirement visuals, and accuracy comparison charts",
+    "category": "AI",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for reducing hallucinations in tool-based AI apps."
+  },
+  {
+    "slug": "cut-ai-api-costs-caching-routing",
+    "title": "How to Cut AI API Costs With Caching and Routing",
+    "tag": "AI",
+    "hook": "Cut AI API costs 50-80% with caching, routing, and prompt optimisation — without sacrificing quality.",
+    "cta": "Reduce AI Costs Now",
+    "keywords": [
+      "AI Costs",
+      "Caching",
+      "Routing"
+    ],
+    "cue": "cost comparison charts, routing diagrams, and savings calculation visuals",
+    "category": "AI",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for cutting AI API costs with caching and routing."
+  },
+  {
+    "slug": "choose-open-models-vs-api-models",
+    "title": "How to Choose Between Open Models and API Models",
+    "tag": "AI",
+    "hook": "Choose between open and API models based on practical criteria — not ideology, benchmarks, or what worked for someone else.",
+    "cta": "Choose the Right Model Strategy",
+    "keywords": [
+      "Open vs API",
+      "Models",
+      "Decision"
+    ],
+    "cue": "comparison tables, decision flowcharts, and cost analysis visuals",
+    "category": "AI",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for choosing between open models and API models."
+  },
+  {
+    "slug": "seedance-image-to-video",
+    "title": "How to Use Seedance 2.0 for Image to Video Prompts",
+    "tag": "Video",
+    "hook": "Turn still images into smooth, realistic video clips with the right Seedance 2.0 prompts and settings.",
+    "cta": "Animate Your Images",
+    "keywords": [
+      "Seedance 2.0",
+      "Image to Video",
+      "AI"
+    ],
+    "cue": "before/after image-to-video examples, prompt structure, and settings interface visuals",
+    "category": "Video",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for image to video prompts."
+  },
+  {
+    "slug": "seedance-anime-video",
+    "title": "How to Use Seedance 2.0 for Anime Style Video Generation",
+    "tag": "Video",
+    "hook": "Generate anime-style video clips with consistent aesthetics using the right Seedance 2.0 prompts and settings.",
+    "cta": "Create Anime Videos",
+    "keywords": [
+      "Seedance 2.0",
+      "Anime",
+      "Video"
+    ],
+    "cue": "anime-style video frames, style comparison, and prompt structure visuals",
+    "category": "Video",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for anime style video generation."
+  },
+  {
+    "slug": "seedance-reference-images-characters",
+    "title": "How to Use Seedance 2.0 With Reference Images for Consistent Characters",
+    "tag": "Video",
+    "hook": "Keep your characters looking the same across multiple AI video clips using reference images.",
+    "cta": "Master Character Consistency",
+    "keywords": [
+      "Reference Images",
+      "Characters",
+      "Seedance"
+    ],
+    "cue": "character consistency examples, reference image setups, and multi-clip comparison visuals",
+    "category": "Video",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 with reference images for consistent characters."
+  },
+  {
+    "slug": "seedance-product-ad-videos",
+    "title": "How to Use Seedance 2.0 for Product Ad Videos",
+    "tag": "Video",
+    "hook": "Create professional product ad videos from a single product photo using Seedance 2.0.",
+    "cta": "Make Product Ad Videos",
+    "keywords": [
+      "Product Ads",
+      "Seedance 2.0",
+      "Video"
+    ],
+    "cue": "product video examples, camera movement diagrams, and ad composition visuals",
+    "category": "Video",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for product ad videos."
+  },
+  {
+    "slug": "seedance-cinematic-camera-movement",
+    "title": "How to Use Seedance 2.0 for Cinematic Camera Movement Prompts",
+    "tag": "Video",
+    "hook": "Make AI video look intentionally directed with specific cinematic camera movement prompts.",
+    "cta": "Master Camera Movement",
+    "keywords": [
+      "Cinematic",
+      "Camera",
+      "Seedance 2.0"
+    ],
+    "cue": "camera movement diagrams, cinematic frame examples, and movement comparison visuals",
+    "category": "Video",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for cinematic camera movement prompts."
+  },
+  {
+    "slug": "seedance-audio-prompts",
+    "title": "How to Use Seedance 2.0 With Audio Prompts Step by Step",
+    "tag": "Video",
+    "hook": "Generate AI video that naturally syncs with music and audio using Seedance 2.0's audio prompt feature.",
+    "cta": "Sync Video to Audio",
+    "keywords": [
+      "Audio Prompts",
+      "Seedance 2.0",
+      "Sync"
+    ],
+    "cue": "audio waveform synced with video frames, music visualiser, and timeline visuals",
+    "category": "Video",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 with audio prompts step by step."
+  },
+  {
+    "slug": "seedance-vs-veo-3",
+    "title": "Seedance 2.0 vs Veo 3 for Short AI Videos",
+    "tag": "Video",
+    "hook": "Choose the right AI video tool by comparing what Seedance 2.0 and Veo 3 actually do differently.",
+    "cta": "Compare Seedance vs Veo 3",
+    "keywords": [
+      "Seedance 2.0",
+      "Veo 3",
+      "Compare"
+    ],
+    "cue": "side-by-side video comparison, feature tables, and output quality visuals",
+    "category": "Video",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for comparing Seedance 2.0 vs Veo 3 for short AI videos."
+  },
+  {
+    "slug": "seedance-vs-kling",
+    "title": "Seedance 2.0 vs Kling for Realistic Motion",
+    "tag": "Video",
+    "hook": "Compare Seedance 2.0 and Kling specifically on motion quality — the factor that matters most for realistic AI video.",
+    "cta": "Compare Motion Quality",
+    "keywords": [
+      "Seedance 2.0",
+      "Kling",
+      "Motion"
+    ],
+    "cue": "motion comparison frames, consistency analysis, and movement quality visuals",
+    "category": "Video",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for comparing Seedance 2.0 vs Kling for realistic motion."
+  },
+  {
+    "slug": "seedance-vs-sora-2",
+    "title": "Seedance 2.0 vs Sora 2 for Prompt Control",
+    "tag": "Video",
+    "hook": "Compare how Seedance 2.0 and Sora 2 handle specific prompts — precision vs creative interpretation.",
+    "cta": "Compare Prompt Control",
+    "keywords": [
+      "Seedance 2.0",
+      "Sora 2",
+      "Control"
+    ],
+    "cue": "prompt adherence comparison, output examples, and control precision visuals",
+    "category": "Video",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for comparing Seedance 2.0 vs Sora 2 for prompt control."
+  },
+  {
+    "slug": "fix-bad-motion-seedance",
+    "title": "How to Fix Bad Motion in Seedance 2.0 Videos",
+    "tag": "Video",
+    "hook": "Fix warping, flickering, and distortion in Seedance 2.0 videos with specific diagnosis and solutions.",
+    "cta": "Fix Motion Problems",
+    "keywords": [
+      "Fix Motion",
+      "Seedance 2.0",
+      "Artifacts"
+    ],
+    "cue": "before/after comparison, problem diagnosis table, and settings adjustment visuals",
+    "category": "Video",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for fixing bad motion in Seedance 2.0 videos."
+  },
+  {
+    "slug": "better-prompts-seedance",
+    "title": "How to Write Better Prompts for Seedance 2.0",
+    "tag": "Video",
+    "hook": "Write prompts that consistently produce impressive Seedance 2.0 videos instead of hoping for the best.",
+    "cta": "Write Better Prompts",
+    "keywords": [
+      "Prompts",
+      "Seedance 2.0",
+      "Better"
+    ],
+    "cue": "prompt structure templates, keyword examples, and before/after output visuals",
+    "category": "Video",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for writing better prompts for Seedance 2.0."
+  },
+  {
+    "slug": "consistent-characters-seedance",
+    "title": "How to Make Consistent Characters in Seedance 2.0",
+    "tag": "Video",
+    "hook": "Keep your characters looking the same across multiple AI video clips with practical consistency techniques.",
+    "cta": "Master Character Consistency",
+    "keywords": [
+      "Characters",
+      "Consistent",
+      "Seedance 2.0"
+    ],
+    "cue": "character consistency comparison, reference image workflow, and multi-clip sequence visuals",
+    "category": "Video",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for making consistent characters in Seedance 2.0."
+  },
+  {
+    "slug": "seedance-dreamina-guide",
+    "title": "How to Use Seedance 2.0 in Dreamina Step by Step",
+    "tag": "Video",
+    "hook": "Get started with Seedance 2.0 on Dreamina with a clear step-by-step walkthrough of the platform.",
+    "cta": "Start Using Dreamina",
+    "keywords": [
+      "Dreamina",
+      "Seedance 2.0",
+      "Guide"
+    ],
+    "cue": "platform interface screenshots, settings panels, and generation workflow visuals",
+    "category": "Video",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 in Dreamina step by step."
+  },
+  {
+    "slug": "seedance-youtube-shorts",
+    "title": "How to Use Seedance 2.0 for YouTube Shorts Creation",
+    "tag": "Video",
+    "hook": "Create scroll-stopping YouTube Shorts with AI-generated video clips from Seedance 2.0.",
+    "cta": "Make YouTube Shorts with AI",
+    "keywords": [
+      "YouTube Shorts",
+      "Seedance 2.0",
+      "Create"
+    ],
+    "cue": "vertical video examples, editing workflow, and Shorts content structure visuals",
+    "category": "Video",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for YouTube Shorts creation."
+  },
+  {
+    "slug": "seedance-marketing-videos",
+    "title": "How to Use Seedance 2.0 for AI Marketing Videos",
+    "tag": "Video",
+    "hook": "Create professional marketing videos with AI in hours instead of days, at a fraction of the production cost.",
+    "cta": "Make Marketing Videos with AI",
+    "keywords": [
+      "Marketing",
+      "Seedance 2.0",
+      "Videos"
+    ],
+    "cue": "marketing video examples, brand template workflow, and campaign composition visuals",
+    "category": "Video",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for AI marketing videos."
   }
 ]
