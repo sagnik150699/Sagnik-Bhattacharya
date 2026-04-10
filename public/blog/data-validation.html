@@ -99,6 +99,30 @@
                         ]
 }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I add a dropdown list in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Select the cells where you want the dropdown, go to Data tab then Data Validation, choose List from the Allow dropdown, then enter your options separated by commas or reference a range containing the list items. Using a named range or Excel Table column for the source list makes the dropdown automatically update when you add new items."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I create a dependent dropdown list in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Create named ranges for each primary category's sub-options. Use the first dropdown with a regular list. For the second dropdown, use INDIRECT in the Data Validation source field referencing the first dropdown's value as a named range. For example, if the first dropdown selects a country, the second dropdown shows cities from a named range matching that country name."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

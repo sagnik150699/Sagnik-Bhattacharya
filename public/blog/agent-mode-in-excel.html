@@ -48,6 +48,38 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Agent Mode in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Agent Mode is an advanced AI capability in Microsoft Excel that allows Copilot to perform multi-step, autonomous actions on your workbook. Unlike basic Copilot Chat which answers questions, Agent Mode can chain together multiple operations like cleaning data, applying formulas, creating charts, and formatting in a single supervised workflow. It requires Microsoft 365 Copilot licensing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is Agent Mode different from Copilot in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard Copilot in Excel handles single-step tasks: write one formula, create one chart, answer one question. Agent Mode handles multi-step workflows autonomously: it can analyse your data, identify issues, clean it, add calculated columns, and build a summary, all from a single prompt. Agent Mode operates with supervision, showing each proposed action for your approval before executing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can Agent Mode do in Excel that Copilot cannot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Agent Mode can chain multiple operations together autonomously. For example, it can clean messy data, standardise formats, add formula columns, create pivot summaries, and build charts all in one workflow. Regular Copilot handles these as separate, individual requests. Agent Mode also has better contextual understanding of multi-sheet workbooks and can reason across related data."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

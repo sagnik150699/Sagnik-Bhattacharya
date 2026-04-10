@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I fix RenderFlex overflowed in Flutter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most common fix is to wrap the overflowing child inside a Flexible or Expanded widget, which tells Flutter to constrain the child to the available space. If the overflow happens in a Row inside a ListView, wrap the Row text or wide children with Flexible and set overflow to TextOverflow.ellipsis on the Text widget. Other fixes include using Wrap instead of Row, adding SingleChildScrollView, or constraining with SizedBox."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my Flutter Row overflow inside a ListView?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Row inside a ListView has unbounded width from the Row children but constrained width from the ListView. If the Row children, especially Text widgets, try to take more horizontal space than available, Flutter cannot lay them out and throws a RenderFlex overflow error. The fix is to wrap wide children with Flexible or Expanded to make them respect the available width."
+      }
+    }
+  ]
+}
+  </script>
   <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

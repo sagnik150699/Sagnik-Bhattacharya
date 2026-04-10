@@ -111,6 +111,30 @@
                         ]
 }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I highlight rows based on cell values in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Select the entire data range, go to Conditional Formatting and choose New Rule, select Use a formula, then enter a formula that references the first cell of the criteria column with the row locked but not the column. For example, to highlight rows where column D equals 'Late': =$D2='Late'. The dollar sign on D locks the column while the row number adjusts for each row."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my conditional formatting not working in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common causes: the formula references are not set correctly (missing dollar signs for column locking), the rule applies to the wrong range, rules are in the wrong priority order (higher rules override lower ones), the formula returns text instead of TRUE/FALSE, or the cell format conflicts with the conditional format. Use Manage Rules to check and reorder your formatting rules."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

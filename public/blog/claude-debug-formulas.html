@@ -99,6 +99,30 @@
                         ]
 }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can Claude AI fix broken Excel formulas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Claude is excellent at debugging Excel formulas. Paste the broken formula along with a description of your data layout and the error you see. Claude can diagnose issues like circular references, incorrect range references, mismatched parentheses, wrong XLOOKUP arguments, and logic errors in nested IF statements. It also explains why the error occurs and how to prevent it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I use Claude to debug Excel errors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Provide Claude with three things: the formula that is not working, the error message or unexpected result you see, and a description of your data layout including column headers and sample values. Claude will analyse the formula, identify the error, provide a corrected version, and explain what went wrong. This works for all common Excel errors including #VALUE, #REF, #N/A, #SPILL, and logic errors."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

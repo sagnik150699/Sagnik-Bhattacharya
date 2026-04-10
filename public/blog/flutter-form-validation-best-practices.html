@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best way to validate forms in Flutter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the built-in Form and TextFormField widgets with a GlobalKey for form state. Define validation logic in the validator parameter of each field. For complex validation (async checks like username availability), use a state management solution to handle loading states. Always validate on the client side for UX and on the server side for security."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I show validation errors in Flutter forms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TextFormField automatically displays validation errors below the field when the validator returns a non-null string and the form is validated. Customise the error style with the decoration's errorStyle property. For real-time validation, use autovalidateMode: AutovalidateMode.onUserInteraction so errors appear as the user types, not just on submit."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

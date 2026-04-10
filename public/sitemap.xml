@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
@@ -1082,4 +1082,27 @@
       <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Claude Code in VS Code, with terminal AI agent and IDE extension visuals.</image:caption>
     </image:image>
   </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/best-flutter-courses-2026</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/best-flutter-courses-2026-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>Best Flutter Courses in 2026: What to Learn and Where to Start</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for Best Flutter Courses in 2026.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/best-ai-tools-for-excel-2026</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/best-ai-tools-for-excel-2026-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>7 Best AI Tools for Excel in 2026 (Tested and Ranked)</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for 7 Best AI Tools for Excel in 2026.</image:caption>
+    </image:image>
+  </url>
 </urlset>
+

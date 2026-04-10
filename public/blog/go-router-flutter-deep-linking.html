@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is go_router in Flutter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "go_router is the recommended routing package for Flutter in 2026. It provides declarative routing with support for deep linking, nested navigation, URL-based routing for web, route guards for authentication, and shell routes for persistent navigation (like a bottom nav bar that stays across screens). It replaces the imperative Navigator.push pattern for most apps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I set up deep linking in Flutter with go_router?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Define your routes using GoRouter with path-based route definitions. go_router automatically handles deep links by matching incoming URLs to your defined routes. For Android, configure intent filters in AndroidManifest.xml. For iOS, set up Associated Domains. For web, it works automatically since go_router uses URL-based navigation. No additional deep linking plugin is needed."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

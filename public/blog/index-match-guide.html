@@ -100,6 +100,30 @@
                         ]
 }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I use INDEX MATCH in Excel with multiple criteria?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For multiple criteria, use an array-based INDEX-MATCH formula: =INDEX(return_range, MATCH(1, (criteria1_range=criteria1)*(criteria2_range=criteria2), 0)). Press Ctrl+Shift+Enter in older Excel versions to make it an array formula. In Microsoft 365, it works as a regular formula with dynamic arrays. This approach is more flexible than VLOOKUP because it supports multiple conditions and can look in any direction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is INDEX MATCH better than VLOOKUP in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "INDEX-MATCH is more flexible than VLOOKUP because it can look left, handle column insertions without breaking, and supports multiple criteria. However, XLOOKUP has largely replaced both for new formulas in Microsoft 365. If you are on Microsoft 365 or Excel 2021+, use XLOOKUP. If you need backward compatibility with older Excel versions, INDEX-MATCH is the superior alternative to VLOOKUP."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

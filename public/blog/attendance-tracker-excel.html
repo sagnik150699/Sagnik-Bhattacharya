@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I create an attendance tracker in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Create a table with employee names in rows and dates in columns. Use data validation dropdowns for attendance codes like P (present), A (absent), L (leave), H (holiday). Add COUNTIF formulas to calculate total present days, absent days, and attendance percentage per employee. Use conditional formatting to colour-code different attendance statuses for visual clarity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I automate attendance tracking in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, use data validation for consistent entry, COUNTIF and COUNTIFS for automatic summaries, conditional formatting for visual status indicators, and pivot tables or GROUPBY for department-level reports. You can also add formulas that calculate leave balances, flag excessive absences, and generate monthly attendance reports automatically."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

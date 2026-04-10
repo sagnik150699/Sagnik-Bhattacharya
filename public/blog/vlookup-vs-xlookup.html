@@ -111,6 +111,38 @@
                         ]
 }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between VLOOKUP and XLOOKUP in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XLOOKUP is the modern replacement for VLOOKUP. Key differences: XLOOKUP can look in any direction (left, right, up, down), returns exact matches by default, supports multiple return values, and does not require a column index number. VLOOKUP only looks right, defaults to approximate match, and breaks if you insert columns. XLOOKUP is available in Microsoft 365 and Excel 2021+."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use VLOOKUP or XLOOKUP in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use XLOOKUP whenever possible. It is simpler, more flexible, and less error-prone than VLOOKUP. The only reason to use VLOOKUP is if you need backward compatibility with Excel 2019 or earlier versions that do not support XLOOKUP."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does XLOOKUP replace VLOOKUP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, XLOOKUP is designed as a complete replacement for both VLOOKUP and HLOOKUP. It handles everything they do plus additional capabilities like reverse lookups, multiple return columns, and built-in error handling with the if_not_found parameter."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

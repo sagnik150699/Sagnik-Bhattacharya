@@ -99,6 +99,38 @@
                         ]
 }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I use ChatGPT to write Excel formulas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Describe your data layout and what you want to calculate in plain English. For example: I have sales data in column A with dates and column B with amounts, write a SUMIFS formula to total sales for March 2026. ChatGPT works best when you specify the exact columns, data types, and desired output. Always review and test the generated formula before relying on it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can ChatGPT create complex Excel formulas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, ChatGPT can generate complex nested formulas including XLOOKUP, INDEX-MATCH, dynamic arrays, LAMBDA functions, and multi-criteria SUMIFS. It handles nested IF statements, array formulas, and even VBA macros. However, complex formulas should always be reviewed against your actual data since ChatGPT may make assumptions about your data structure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the best ChatGPT prompts for Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The best prompts include your data context. Instead of write a VLOOKUP formula, describe your exact layout: I have a product list in Sheet1 A2:C100 with columns Product ID, Name, Price. In Sheet2 I have Order ID in A2:A50 and Product ID in B2:B50. Write a formula in Sheet2 C2 to pull the Price from Sheet1 using the Product ID. Specific prompts with column references produce far better results."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

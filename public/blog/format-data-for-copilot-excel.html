@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I format data for Copilot in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Copilot works best with data formatted as Excel Tables (Ctrl+T). Ensure your data has clear header row labels, no merged cells, no blank rows within the data, consistent data types per column, and no mixed content in cells. Avoid multi-level headers or complex nested layouts. The cleaner and simpler your data structure, the better Copilot performs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is Copilot not working on my Excel data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most common reasons: your data is not formatted as an Excel Table, there are merged cells in the range, blank rows split the data into multiple regions, headers are missing or span multiple rows, or the data contains mixed types in a single column. Convert your data to an Excel Table (Ctrl+T) and clean up any structural issues first."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

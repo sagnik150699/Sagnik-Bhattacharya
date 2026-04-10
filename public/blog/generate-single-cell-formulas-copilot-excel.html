@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can Copilot write formulas for a single cell in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, use Copilot to generate single-cell formulas like SUMIFS, COUNTIFS, AVERAGEIFS, and other aggregation formulas. Describe what you want: 'Calculate the total revenue for the North region in Q1'. Copilot generates the formula and places it in a cell. This is faster than writing complex formulas manually, especially for multi-criteria aggregations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How reliable are Copilot single-cell formulas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For simple aggregations like SUM, AVERAGE, and COUNT with one or two criteria, Copilot is very reliable. For complex formulas with multiple criteria, nested logic, or array operations, reliability drops. Common failures include referencing wrong ranges, using incorrect criteria logic, or producing formulas that work on sample data but fail on edge cases. Always verify the result against a manual check."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

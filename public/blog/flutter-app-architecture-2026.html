@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best Flutter app architecture in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The recommended Flutter app architecture in 2026 is a feature-first structure with clean separation of concerns. Each feature gets its own folder containing data (repositories, API clients), domain (models, entities), and presentation (screens, widgets, state management) layers. This scales cleanly from small apps to large codebases and works with both Riverpod and BLoC."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use feature-first or layer-first architecture in Flutter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Feature-first is recommended for most Flutter apps in 2026. In feature-first architecture, code is organised by feature (auth, cart, products) with each feature containing its own data, domain, and presentation layers. Layer-first (all repositories in one folder, all screens in another) becomes hard to maintain as apps grow. Feature-first keeps related code together and makes features independently testable and maintainable."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

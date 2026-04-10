@@ -111,6 +111,30 @@
                         ]
 }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Power Query in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Power Query is Excel's built-in data transformation tool. It connects to data sources (files, databases, web APIs), transforms the data (remove columns, filter rows, merge tables, change types, unpivot), and loads clean data into your workbook. The key advantage is that transformations are repeatable — when source data changes, you click Refresh and all transformations re-apply automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should I use Power Query instead of formulas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use Power Query when you repeatedly import and clean data from external sources, when you need to combine data from multiple files or tables, when data cleaning requires many steps (removing columns, filtering, splitting, reshaping), or when the same transformation needs to run weekly or monthly. Power Query records your steps and replays them on new data, eliminating repetitive manual work."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

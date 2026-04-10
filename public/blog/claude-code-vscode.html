@@ -46,6 +46,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I use Claude Code in VS Code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude Code runs as a terminal-based AI agent that integrates with VS Code. Install it via npm, authenticate with your Anthropic API key, and run it from the integrated terminal. It can read your project files, write code, run commands, and make multi-file edits autonomously. It works particularly well for refactoring and implementing features across multiple files."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Claude Code better than GitHub Copilot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They serve different purposes. GitHub Copilot excels at inline code completions as you type. Claude Code is an autonomous agent that can understand your entire codebase, plan changes across multiple files, and execute them. Copilot is better for line-by-line assistance. Claude Code is better for larger tasks like implementing features, debugging complex issues, or refactoring."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

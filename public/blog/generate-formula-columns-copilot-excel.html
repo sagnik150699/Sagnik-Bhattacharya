@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I use Copilot to add formula columns in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Select your data table, open Copilot, and describe the calculation you need. For example: 'Add a column that calculates profit margin as (Revenue - Cost) / Revenue'. Copilot generates the formula and fills the entire column. It works well for straightforward calculations. For complex formulas, describe the logic step by step for better results."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the best prompts for Copilot formula columns?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Be specific about inputs and outputs. Good prompt: 'Add a column called Status that shows Late if the Due Date is before today and the Complete column is No, otherwise shows On Track'. Bad prompt: 'Add a status column'. Include column names as they appear in your headers, specify conditions clearly, and describe the expected output format."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

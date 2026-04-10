@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I make a Gantt chart in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Create a table with Task Name, Start Date, Duration, and End Date columns. Insert a stacked bar chart using Start Date and Duration. Format the Start Date series to be invisible (no fill, no border). This leaves only the Duration bars visible, creating a Gantt chart. Add conditional formatting to show progress, and use data validation for task dependencies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I make a Gantt chart in Excel without special software?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Excel's built-in stacked bar chart can create effective Gantt charts. The trick is using the start date as an invisible base bar and the duration as the visible bar. For small to medium projects with up to 50 tasks, Excel Gantt charts work well. For complex projects with resource levelling and critical path analysis, dedicated project management tools are more suitable."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

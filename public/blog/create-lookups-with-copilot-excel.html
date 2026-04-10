@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can Copilot write XLOOKUP formulas in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Copilot can generate XLOOKUP, VLOOKUP, and INDEX-MATCH formulas. Ask something like 'Look up the price for each product ID from the Products table'. Copilot reads your table headers and generates the appropriate lookup formula. It handles simple lookups well but sometimes makes errors on multi-criteria lookups or nested formulas that need manual review."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate are Copilot lookup formulas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For simple single-criteria lookups, Copilot is about 85% accurate. For multi-criteria lookups or nested formulas, accuracy drops to around 60-70%. Common issues include referencing wrong columns, using approximate match when exact is needed, or creating formulas that work for the first row but break when copied down. Always test Copilot formulas on a few rows before applying broadly."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

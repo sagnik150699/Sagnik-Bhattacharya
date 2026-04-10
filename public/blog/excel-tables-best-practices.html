@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why should I use Excel Tables instead of plain ranges?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Excel Tables (Ctrl+T) provide automatic expansion when you add new data, structured references that are more readable than cell references, automatic formatting and banding, built-in filter and sort buttons, automatic total rows, and they make formulas auto-fill when you add new rows. Tables also work better with Copilot, Power Query, and pivot tables."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do structured references work in Excel Tables?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Structured references use column names instead of cell addresses. Instead of =SUM(B2:B100), you write =SUM(Table1[Revenue]). This is more readable, automatically adjusts when rows are added or removed, and does not break when columns are inserted. Use [@Column] to reference the current row's value in a calculated column."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

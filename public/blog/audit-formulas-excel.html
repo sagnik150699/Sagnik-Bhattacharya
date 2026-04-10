@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I trace formula errors in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the Formula Auditing tools on the Formulas tab. Trace Precedents shows which cells feed into a formula. Trace Dependents shows which formulas use a cell. Evaluate Formula steps through a formula calculation one part at a time. Error Checking scans for common issues. These tools help you follow the chain of calculations to find where an error originates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I find which cells a formula depends on in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Select the cell with the formula and click Trace Precedents on the Formulas tab. Blue arrows show which cells feed into the formula. Click again to trace another level back. To find all cells that depend on a specific cell, select it and click Trace Dependents. Use Ctrl+[ to select all direct precedent cells, or Ctrl+] to select direct dependent cells."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

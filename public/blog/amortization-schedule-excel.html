@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I create a loan amortization schedule in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use PMT to calculate the fixed monthly payment, then for each period: interest = remaining balance times monthly rate, principal = payment minus interest, new balance = old balance minus principal. The key formulas are PMT(rate/12, term, -loan_amount) for the payment, and iterative calculations for each row showing how principal and interest change over time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I add extra payments to an amortization schedule?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Add an Extra Payment column next to the standard payment. In the balance calculation, subtract both the regular principal portion and the extra payment. Add a conditional check: if the remaining balance minus extra payment goes below zero, cap the extra payment at the remaining balance. This shows how extra payments reduce total interest and shorten the loan term."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

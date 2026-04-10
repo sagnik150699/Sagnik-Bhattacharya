@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I improve Flutter app performance in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The key strategies for Flutter performance in 2026 are: use Impeller (the new rendering engine) for smoother animations, reduce unnecessary widget rebuilds with const constructors and selective state management, use DevTools to profile and identify bottlenecks, lazy-load images and heavy content, and avoid expensive operations on the main isolate. The Flutter DevTools Performance tab is the best tool for diagnosing issues."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Impeller in Flutter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Impeller is Flutter's new rendering engine that replaces Skia for most platforms. It pre-compiles shaders during build time, eliminating shader compilation jank (stuttering during animations). Impeller is enabled by default on iOS and Android in 2026 and provides significantly smoother animations and faster first-frame rendering compared to the older Skia renderer."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

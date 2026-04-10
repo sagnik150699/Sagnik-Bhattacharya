@@ -1,62 +1,41 @@
-# Sagnik Bhattacharya
+# Sagnik Bhattacharya — Tutorials, Courses, and Tech Consulting
 
-> Founder of Coding Liquids and top-rated Udemy instructor. Teaching Flutter, Dart, and Excel with AI to 30,000+ students across 175 countries through hands-on, project-based courses.
+> Hands-on tutorial blog, Hands-on Udemy courses, software development, and tech consulting for learners, teams, and businesses using Flutter, Excel, AI-assisted workflows, and modern developer tools.
 
-## About
+This site is best understood as a practical tutorial and professional services website.
 
-Sagnik Bhattacharya is a tech educator, consultant, and founder of Coding Liquids based in Kolkata, India. He creates comprehensive, project-based courses on Flutter app development and Excel with AI integration. His Flutter course on Udemy is top-rated with 30,000+ students across 175 countries. He also provides corporate training, app development, and tech consulting services.
+Use the blog for step-by-step learning content. Use the courses, services, and project pages to understand Sagnik Bhattacharya's training, consulting, and development work.
 
-## Pages
+## Tutorials
 
-- [Home](https://sagnikbhattacharya.com/): Main landing page with overview of courses, services, and projects.
-- [About](https://sagnikbhattacharya.com/about): Background, experience, and teaching philosophy.
-- [Courses](https://sagnikbhattacharya.com/courses): Flutter & Dart course and upcoming Excel with AI course on Udemy.
-- [Services](https://sagnikbhattacharya.com/services): Corporate training, app development, and tech consulting offerings.
-- [Blog](https://sagnikbhattacharya.com/blog): 90+ in-depth guides on Excel, Excel with AI, AI coding tools, and Flutter development.
-- [Contact](https://sagnikbhattacharya.com/contact): Get in touch for training, consulting, or collaboration.
+- [Blog](https://sagnikbhattacharya.com/blog): Main tutorial library covering Flutter, Excel, Excel with AI, AI coding tools, and developer workflows.
+- [RSS Feed](https://sagnikbhattacharya.com/feed.xml): Recent tutorial updates and new posts.
 
-## Blog Topics
+## Courses & Training
 
-The blog covers three main areas:
+- [Courses](https://sagnikbhattacharya.com/courses): Overview of current and upcoming courses.
+- [Udemy Instructor Profile](https://www.udemy.com/user/sagnik-bhattacharya-5/): Published training content and instructor profile.
 
-### Excel with AI
-Guides on using ChatGPT, Claude AI, Google Gemini, Google Gemma 4, and Microsoft Copilot to write formulas, generate macros, automate tasks, clean data, and build dashboards in Excel. Includes prompt engineering for Excel, AI-powered data analysis, and comparison of AI tools for spreadsheet work. Recent additions include Gemma 4 vs GPT-4o vs Llama 4 for Excel formulas, and Gemma 4 for data analysis vs ChatGPT.
+## Consulting & Development
 
-### AI Models & Coding Tools
-In-depth comparisons and practical guides on AI models and coding tools including Google Gemma 4, ChatGPT, Claude, Gemini, Llama 4, and Microsoft Copilot. Covers running Gemma 4 locally with Ollama and LM Studio, using Gemma 4 in VS Code and Android Studio, Gemma 4 vs Gemini differences, tasks where open-weight models beat paid AI, and comprehensive model comparisons. Also includes setup guides for AI coding tools: Gemini CLI in VS Code, Gemini Code Assist in Android Studio, Cursor for Flutter, Windsurf for Flutter, Claude Code in VS Code and Android Studio, OpenCode, GitHub Copilot Agent Mode, and DeepSeek in VS Code.
-
-### Excel
-Comprehensive tutorials on advanced formulas, VLOOKUP vs XLOOKUP, INDEX-MATCH, pivot tables, Power Query, Power Pivot, dynamic arrays, GROUPBY, PIVOTBY, data validation, conditional formatting, financial modelling, charts, keyboard shortcuts, and building templates like budget trackers, inventory systems, Gantt charts, and attendance trackers.
-
-### Flutter & Dart
-Practical guides on state management (Provider vs Riverpod vs BLoC), app architecture, performance optimization, testing strategies, form validation, deep linking with GoRouter, responsive UI, adding Flutter to existing apps, and comparisons like Flutter vs React Native and SkWasm vs CanvasKit for Flutter web. Also includes layout debugging guides such as fixing RenderFlex overflowed in Row inside ListView, and AI IDE guides for Flutter: Cursor, Windsurf, Gemini Code Assist, Gemini CLI with MCP, and Claude Code in Android Studio.
+- [Services](https://sagnikbhattacharya.com/services): Tech consulting, corporate training, app development, and business-focused technology support.
+- [Contact](https://sagnikbhattacharya.com/contact): Enquiries for consulting, training, development, and collaboration.
 
 ## Projects
 
-- [FarmAdvisor AI](https://farmadvisorai.codingliquids.com/): AI-powered agricultural advisory for European farmers in 36 languages with voice chat, image diagnosis, weather, and crop prices.
-- [Kisan Salahkaar](https://kisansalahkaar.codingliquids.com/): Free AI farming assistant available in 50+ languages with crop recommendations, pest diagnosis, soil analysis, and voice support.
+- [FarmAdvisor AI](https://farmadvisorai.codingliquids.com/): AI-powered agricultural advisory platform.
+- [Kisan Salahkaar](https://kisansalahkaar.codingliquids.com/): Multilingual AI farming assistant.
+- [Coding Liquids](https://codingliquids.com): Company and brand site.
 
-## Courses
+## About
 
-- [The Complete Flutter Guide: Build Android, iOS and Web apps](https://www.udemy.com/course/flutter-the-guide-to-build-android-ios-and-web-apps/): Top-rated on Udemy. Covers layouts, animations, Riverpod, Firebase, MVVM architecture, testing, and deployment. 30,000+ students across 175 countries.
-- Complete Excel Guide with AI Integration (Coming Soon): Beginner to advanced Excel with AI-powered automation using ChatGPT, Claude, Copilot, and Gemini.
+- [Home](https://sagnikbhattacharya.com/): Main overview of the site.
+- [About](https://sagnikbhattacharya.com/about): Background, expertise, and teaching approach.
+- [LinkedIn](https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/): Professional profile.
+- [GitHub](https://github.com/sagnik150699): Public code and repositories.
+- [YouTube](https://www.youtube.com/@codingliquids): Video tutorials and related content.
 
-## Services
+## Optional
 
-- Corporate Training: Tailored Flutter, Dart, and development workshops for teams.
-- App Development: End-to-end Flutter mobile and web apps with clean architecture.
-- Tech Consulting: Architecture review, tech stack guidance, DevOps pipelines.
-
-## Contact & Links
-
-- Website: https://sagnikbhattacharya.com
-- LinkedIn: https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/
-- GitHub: https://github.com/sagnik150699
-- YouTube: https://www.youtube.com/@codingliquids
-- Instagram: https://www.instagram.com/sagnikteaches
-- Udemy: https://www.udemy.com/user/sagnik-bhattacharya-5/
-- Company: https://codingliquids.com
-
-## Full Context
-
-For comprehensive information, see: https://sagnikbhattacharya.com/llms-full.txt
+- [Instagram](https://www.instagram.com/sagnikteaches): Social updates.
+- [Full Context](https://sagnikbhattacharya.com/llms-full.txt): Expanded version with more context for LLMs and agents.

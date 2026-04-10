@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I check if an AI-generated Excel formula is correct?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Follow these steps: 1) Read the formula and understand what each part does. 2) Test it on a few rows where you know the expected result and verify it manually. 3) Check edge cases: what happens with blank cells, zeros, text in number columns, or dates at month boundaries. 4) Verify the cell references point to the correct columns. 5) Test with both small and large values to catch overflow issues."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are AI-generated Excel formulas safe to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI-generated formulas are generally accurate for standard patterns but should always be reviewed before deploying on important data. Common issues include: wrong column references, incorrect match types in lookups, logic errors in nested conditions, and formulas that work on sample data but fail on edge cases. The risk is low for simple formulas but increases significantly for complex nested logic. Always test before trusting."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

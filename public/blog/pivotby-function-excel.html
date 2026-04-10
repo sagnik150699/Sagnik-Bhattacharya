@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the PIVOTBY function in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PIVOTBY is a dynamic array function that creates pivot-style cross-tabulation reports using a formula. Unlike GROUPBY which only groups by rows, PIVOTBY groups by both rows and columns, producing a matrix layout similar to a pivot table. The syntax is PIVOTBY(row_fields, col_fields, values, function). It is available in Microsoft 365."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is PIVOTBY different from GROUPBY?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GROUPBY produces a one-dimensional grouped summary with rows only. PIVOTBY produces a two-dimensional cross-tabulation with both row and column groupings, like a traditional pivot table layout. Use GROUPBY for simple aggregations by category. Use PIVOTBY when you need to see values broken down by two dimensions simultaneously."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

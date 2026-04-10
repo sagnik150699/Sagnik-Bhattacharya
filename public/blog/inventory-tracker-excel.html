@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I build an inventory tracker in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Create three sheets: Products (master list with SKU, name, reorder point), Transactions (date, SKU, type, quantity for every stock-in and stock-out), and Dashboard (current stock levels calculated from transactions). Use SUMIFS to calculate current stock per product, conditional formatting to flag items below reorder point, and a data entry form with data validation for consistent transaction logging."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I track inventory in Excel instead of using special software?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, for small to medium businesses with up to a few hundred products. Excel handles inventory tracking well when structured properly with separate sheets for product master data, transactions, and reporting. The key is disciplined data entry and formula-driven calculations rather than manual updates. For businesses with thousands of SKUs or multiple warehouses, dedicated inventory software is more appropriate."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

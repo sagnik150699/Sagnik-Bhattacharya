@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I protect an Excel workbook without blocking collaboration?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use sheet protection (Review tab then Protect Sheet) to lock formulas and structure while leaving input cells unlocked. Select the cells users need to edit, right-click Format Cells, go to Protection, and uncheck Locked before applying sheet protection. This allows collaborative editing of data entry cells while preventing accidental changes to formulas and layout."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I protect formulas but allow data entry in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, unlock the data entry cells first (select them, Format Cells, Protection, uncheck Locked), then protect the sheet. All cells are locked by default when you protect a sheet, so only the explicitly unlocked cells will be editable. This is the standard approach for creating protected templates where users can enter data but cannot modify the formulas or structure."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

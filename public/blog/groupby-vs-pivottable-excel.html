@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "When should I use GROUPBY instead of a PivotTable in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use GROUPBY when you need a formula-based summary that auto-updates, integrates with other formulas, and stays in your worksheet layout. Use PivotTable when you need interactive slicers, drill-down, calculated fields, or are exploring data without a fixed layout. GROUPBY is better for automated reports. PivotTable is better for exploratory analysis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can GROUPBY replace PivotTables?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For simple summaries, yes. GROUPBY can group, aggregate, and sort data entirely with formulas. However, PivotTables offer features GROUPBY cannot match: slicers for interactive filtering, calculated fields, timeline filters, drill-down, and percentage-of-total calculations. For most users, both tools complement each other rather than one replacing the other."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

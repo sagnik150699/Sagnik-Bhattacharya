@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best testing strategy for Flutter apps in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A practical Flutter testing strategy has four layers: unit tests for business logic and state management, widget tests for UI component behaviour, integration tests for critical user flows, and golden tests for visual regression detection. Start with unit tests for your most important business logic, then add widget tests for complex UI components, and integration tests for key user journeys."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use unit tests or widget tests in Flutter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use both, but prioritise unit tests for business logic, repository methods, and state management. Widget tests are for verifying UI behaviour like tap handling, form validation, and conditional rendering. Unit tests run faster and are easier to maintain. Widget tests catch visual and interaction bugs that unit tests miss. A good ratio is roughly 60% unit tests, 30% widget tests, and 10% integration tests."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

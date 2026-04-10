@@ -45,6 +45,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I use Gemini CLI for Flutter development in Android Studio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Gemini CLI works in Android Studio through the integrated terminal and can be configured as an MCP server for deeper integration. It understands Dart, Flutter widgets, pubspec.yaml, and Android build configurations. You can use it for code generation, debugging, refactoring, and implementing features across your Flutter project."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is MCP server integration with Gemini CLI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MCP (Model Context Protocol) allows Gemini CLI to integrate more deeply with your IDE. When configured as an MCP server in Android Studio, Gemini CLI can access project context, file trees, and build information more efficiently. This results in better code suggestions that are more aware of your project structure and dependencies."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

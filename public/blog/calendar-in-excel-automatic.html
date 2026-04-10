@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I create an automatic calendar in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a dropdown or cell reference for the month and year. Calculate the first day of the month with DATE(year, month, 1), find its weekday with WEEKDAY, then use a formula grid to fill dates into a 7-column calendar layout. Dates outside the current month can be hidden or greyed out with conditional formatting. The calendar updates automatically when you change the month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I make a calendar in Excel without VBA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, you can build a fully functional auto-updating calendar using only formulas and conditional formatting. Use DATE, WEEKDAY, and simple arithmetic to place dates in a 7-column grid. Use conditional formatting to highlight today, weekends, and events. Data validation dropdowns let users select the month and year. No VBA or macros required."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

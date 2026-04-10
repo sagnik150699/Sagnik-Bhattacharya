@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I fix a #SPILL error in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The #SPILL error occurs when a dynamic array formula cannot expand because cells in the spill range are not empty. To fix it: clear all cells in the range where the formula needs to spill, check for merged cells in the spill area and unmerge them, remove any hidden characters or spaces in seemingly empty cells, and ensure no other formulas or data occupy the spill range."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What causes #SPILL errors in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The main causes are: non-empty cells in the spill range blocking the output, merged cells in the spill area, the spill range extending beyond the worksheet edge, another spilling formula conflicting with the range, or hidden characters like spaces in cells that appear empty. Use Find and Replace to search for spaces in the spill area if cells look empty but still cause errors."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

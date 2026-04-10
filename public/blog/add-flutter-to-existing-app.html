@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I add Flutter to an existing Android or iOS app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Flutter supports add-to-app integration. You can embed Flutter as a module in an existing native Android (Kotlin/Java) or iOS (Swift/Objective-C) app. This lets you gradually migrate screens to Flutter without rewriting the entire app. Flutter runs as a FlutterEngine inside your native app and can share data through platform channels."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I rewrite my native app in Flutter or add Flutter gradually?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most teams, adding Flutter gradually is the safer approach. Start with one or two new screens built in Flutter while keeping the existing native code. This lets you evaluate Flutter's performance, developer experience, and maintainability before committing to a full rewrite. A full rewrite is only justified if the existing codebase has severe technical debt."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should I use skwasm or CanvasKit for Flutter web?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In 2026, skwasm is the recommended renderer for most Flutter web apps. It uses WebAssembly for better performance and smaller bundle sizes compared to CanvasKit. CanvasKit still produces more pixel-perfect rendering for complex custom painting. Use skwasm for general web apps and CanvasKit only when exact rendering fidelity with mobile is critical."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Flutter good for web development in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flutter web has improved significantly in 2026 with the skwasm renderer and better WebAssembly support. It is a strong choice for web apps that need to share code with mobile (dashboards, admin panels, internal tools). For content-heavy public websites that need SEO, traditional web frameworks like Next.js or Astro are still better choices."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

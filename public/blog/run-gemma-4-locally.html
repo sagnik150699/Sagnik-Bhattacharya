@@ -50,6 +50,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I run Gemma 4 locally for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The easiest way is to install Ollama (free, available for Windows, Mac, and Linux), then run 'ollama pull gemma3' (or the latest gemma version) from your terminal. The model downloads once and runs locally. You can also use LM Studio for a graphical interface. Minimum hardware: 8GB RAM for the smaller model, 16GB recommended for the full model."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What hardware do I need to run Gemma 4?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Minimum requirements: 8GB RAM for the smaller Gemma 4 model, 16GB RAM for the full model. A modern CPU with AVX2 support is needed. A GPU is optional but significantly speeds up inference. On a Mac with Apple Silicon (M1 or later), Gemma 4 runs particularly well using unified memory. Most modern laptops from 2020 onwards can run the smaller model."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

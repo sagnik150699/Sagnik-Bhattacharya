@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I make a Flutter app responsive for all screen sizes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use LayoutBuilder and MediaQuery to detect screen dimensions, then adapt your layout using breakpoints (typically 600px for tablet, 1200px for desktop). Use Flexible and Expanded widgets for proportional sizing. For navigation, switch between BottomNavigationBar on mobile and NavigationRail on tablet/desktop. The key pattern is building adaptive layouts that reorganise for each form factor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Flutter support desktop and web responsive design?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Flutter's layout system supports responsive design across mobile, tablet, desktop, and web. Use MediaQuery for breakpoints, LayoutBuilder for parent-constraint-aware layouts, and conditional widget trees that show different layouts per screen size. Flutter handles window resizing natively on desktop and web, so your layouts can adapt dynamically as the user resizes the window."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

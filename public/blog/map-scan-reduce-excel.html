@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are MAP, SCAN, and REDUCE in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MAP applies a LAMBDA function to each element in an array and returns the results. SCAN applies a LAMBDA cumulatively across an array, returning a running result at each step. REDUCE applies a LAMBDA cumulatively and returns a single final value. Together they bring functional programming patterns to Excel formulas, enabling complex array transformations without VBA."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should I use MAP instead of regular formulas in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use MAP when you need to apply a custom transformation to every element in an array that cannot be done with simple arithmetic. For example, applying conditional logic, text manipulation, or multi-step calculations to each row. MAP is cleaner than nested IF statements and more flexible than helper columns for array-based transformations."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}

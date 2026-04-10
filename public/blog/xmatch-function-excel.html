@@ -48,6 +48,30 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is XMATCH in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XMATCH is the modern replacement for MATCH. It returns the position of a value in a range, with support for exact match, wildcard match, and binary search. Unlike MATCH, XMATCH can search from bottom to top (reverse search), does not require sorted data for approximate matches, and supports wildcard characters by default."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should I use XMATCH instead of MATCH?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use XMATCH whenever possible since it is more capable and less error-prone. XMATCH defaults to exact match (MATCH defaults to approximate), supports reverse search to find the last occurrence, and has cleaner syntax. The only reason to use MATCH is backward compatibility with Excel versions before Microsoft 365."
+      }
+    }
+  ]
+}
+  </script>
     <style>
     @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
     @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}
