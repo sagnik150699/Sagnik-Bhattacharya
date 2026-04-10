@@ -4,10 +4,8 @@ import html
 import json
 import math
 import re
-import subprocess
 from dataclasses import dataclass
 from datetime import date, datetime
-from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
@@ -292,40 +290,6 @@ def britishise(value: str) -> str:
 
 def html_escape(value: str) -> str:
     return html.escape(value, quote=True)
-
-
-def repo_relative_path(path: Path) -> str:
-    candidate = path if path.is_absolute() else ROOT / path
-    return candidate.relative_to(ROOT).as_posix()
-
-
-@lru_cache(maxsize=None)
-def git_lastmod(repo_path: str) -> str | None:
-    try:
-        result = subprocess.run(
-            ["git", "log", "--follow", "-1", "--format=%cs", "--", repo_path],
-            cwd=ROOT,
-            capture_output=True,
-            text=True,
-            encoding="utf-8",
-            errors="replace",
-            check=False,
-        )
-    except OSError:
-        return None
-    if result.returncode != 0:
-        return None
-    value = result.stdout.strip()
-    return value or None
-
-
-def resolve_lastmod(path: Path, fallback: str | None = None) -> str:
-    from_git = git_lastmod(repo_relative_path(path))
-    if from_git:
-        return from_git
-    if fallback:
-        return fallback
-    return datetime.fromtimestamp(path.stat().st_mtime).date().isoformat()
 
 
 def strip_tags(value: str) -> str:
@@ -984,7 +948,7 @@ def build_static_sitemap_entries() -> list[SitemapEntry]:
         entries.append(
             SitemapEntry(
                 loc=spec["loc"],
-                lastmod=resolve_lastmod(path),
+                lastmod=datetime.fromtimestamp(path.stat().st_mtime).date().isoformat(),
                 changefreq=spec["changefreq"],
                 priority=spec["priority"],
                 images=images,
@@ -1019,7 +983,7 @@ def update_sitemap(posts: list[Post]) -> str:
         entries.append(
             SitemapEntry(
                 loc=post.url,
-                lastmod=resolve_lastmod(post.path, fallback=post.modified.isoformat()),
+                lastmod=post.modified.isoformat(),
                 changefreq="monthly",
                 priority="0.7",
                 images=[SitemapImage(loc=post.image_url, title=post.title, caption=post.image_alt)],
