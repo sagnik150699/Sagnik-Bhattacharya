@@ -232,12 +232,26 @@ def main() -> None:
     if sitemap_path.exists():
         sitemap_text = read_text(sitemap_path)
         locs = re.findall(r"<loc>([^<]+)</loc>", sitemap_text)
+        url_blocks = {
+            loc_match.group(1): match.group(0)
+            for match in re.finditer(r"<url>\s*(.*?)\s*</url>", sitemap_text, re.S)
+            if (loc_match := re.search(r"<loc>([^<]+)</loc>", match.group(0)))
+            for _ in (loc_match,)
+        }
         duplicate_locs = [url for url, count in Counter(locs).items() if count > 1]
         if duplicate_locs:
             highs.append(f"`public/sitemap.xml` has duplicate `<loc>` values: {', '.join(f'`{url}`' for url in duplicate_locs[:8])}.")
+        if 'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"' not in sitemap_text:
+            blockers.append("`public/sitemap.xml` is missing the image sitemap namespace.")
         for url in new_urls:
             if url not in locs:
                 blockers.append(f"`public/sitemap.xml` is missing `{url}`.")
+                continue
+            block = url_blocks.get(url, "")
+            if "<lastmod>" not in block:
+                blockers.append(f"`public/sitemap.xml` is missing `<lastmod>` for `{url}`.")
+            if "<image:image>" not in block:
+                blockers.append(f"`public/sitemap.xml` is missing `<image:image>` for `{url}`.")
     else:
         blockers.append("`public/sitemap.xml` is missing.")
 

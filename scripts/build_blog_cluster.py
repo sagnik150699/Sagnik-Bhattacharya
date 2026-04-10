@@ -4,11 +4,12 @@ import html
 import json
 import math
 import re
+import subprocess
 from dataclasses import dataclass
 from datetime import date, datetime
+from functools import lru_cache
 from pathlib import Path
 from typing import Any
-import xml.etree.ElementTree as ET
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -31,6 +32,25 @@ BLOG_INDEX_PATH = PUBLIC / "blog.html"
 RSS_FILE = PUBLIC / "feed.xml"
 SITEMAP_FILE = PUBLIC / "sitemap.xml"
 AUDIT_REPORT = ROOT / "reports" / "blog-seo-audit-2026-04-01.md"
+
+STATIC_SITEMAP_SPECS = (
+    {"path": PUBLIC / "index.html", "loc": f"{SITE_URL}/", "changefreq": "weekly", "priority": "1.0"},
+    {"path": PUBLIC / "about.html", "loc": f"{SITE_URL}/about", "changefreq": "monthly", "priority": "0.8"},
+    {"path": PUBLIC / "courses.html", "loc": f"{SITE_URL}/courses", "changefreq": "monthly", "priority": "0.9"},
+    {"path": PUBLIC / "services.html", "loc": f"{SITE_URL}/services", "changefreq": "monthly", "priority": "0.8"},
+    {"path": PUBLIC / "contact.html", "loc": f"{SITE_URL}/contact", "changefreq": "monthly", "priority": "0.7"},
+    {"path": PUBLIC / "blog.html", "loc": f"{SITE_URL}/blog", "changefreq": "daily", "priority": "0.9"},
+)
+
+STATIC_SITEMAP_EXTRA_IMAGES = {
+    "courses.html": (
+        {
+            "loc": f"{SITE_URL}/images/the-complete-flutter-guide-build-android-ios-and-web-apps.jpg",
+            "title": "The Complete Flutter Guide: Build Android, iOS and Web apps",
+            "caption": "The Complete Flutter Guide: Build Android, iOS and Web apps course thumbnail featuring the Flutter logo, Virginia Thorn, and Sagnik Bhattacharya.",
+        },
+    ),
+}
 
 BRITISH_REPLACEMENTS = {
     "analyze": "analyse",
@@ -232,6 +252,22 @@ class Post:
         return self.published.strftime("%a, %d %b %Y 00:00:00 +0530")
 
 
+@dataclass
+class SitemapImage:
+    loc: str
+    title: str = ""
+    caption: str = ""
+
+
+@dataclass
+class SitemapEntry:
+    loc: str
+    lastmod: str
+    changefreq: str
+    priority: str
+    images: list[SitemapImage]
+
+
 def normalise_text(value: str) -> str:
     for bad, good in MOJIBAKE_REPLACEMENTS.items():
         value = value.replace(bad, good)
@@ -256,6 +292,40 @@ def britishise(value: str) -> str:
 
 def html_escape(value: str) -> str:
     return html.escape(value, quote=True)
+
+
+def repo_relative_path(path: Path) -> str:
+    candidate = path if path.is_absolute() else ROOT / path
+    return candidate.relative_to(ROOT).as_posix()
+
+
+@lru_cache(maxsize=None)
+def git_lastmod(repo_path: str) -> str | None:
+    try:
+        result = subprocess.run(
+            ["git", "log", "--follow", "-1", "--format=%cs", "--", repo_path],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            check=False,
+        )
+    except OSError:
+        return None
+    if result.returncode != 0:
+        return None
+    value = result.stdout.strip()
+    return value or None
+
+
+def resolve_lastmod(path: Path, fallback: str | None = None) -> str:
+    from_git = git_lastmod(repo_relative_path(path))
+    if from_git:
+        return from_git
+    if fallback:
+        return fallback
+    return datetime.fromtimestamp(path.stat().st_mtime).date().isoformat()
 
 
 def strip_tags(value: str) -> str:
@@ -337,6 +407,7 @@ def parse_existing_posts() -> dict[str, Post]:
         h1_match = re.search(r"<h1[^>]*>(.*?)</h1>", text, re.S)
         tag_match = re.search(r'<span class="blog-post-tag">(.*?)</span>', text, re.S)
         date_match = re.search(r'<meta property="article:published_time" content="([^"]+)"', text)
+        modified_match = re.search(r'<meta property="article:modified_time" content="([^"]+)"', text)
         image_match = re.search(r'<meta property="og:image" content="([^"]+)"', text)
         alt_match = re.search(r'<meta property="og:image:alt" content="([^"]+)"', text)
         read_time_match = re.search(r'<span>(\d+)\s+min read</span>', text)
@@ -347,6 +418,7 @@ def parse_existing_posts() -> dict[str, Post]:
         description = html.unescape(desc_match.group(1)) if desc_match else title
         category = tidy_spaces(html.unescape(strip_tags(tag_match.group(1)))) if tag_match else "Blog"
         published = date.fromisoformat(date_match.group(1)[:10]) if date_match else date(2026, 3, 1)
+        modified = date.fromisoformat(modified_match.group(1)[:10]) if modified_match else published
         image_url = image_match.group(1) if image_match else f"{SITE_URL}/sagnik-bhattacharya.png"
         image_src = image_url.replace(SITE_URL, "")
         image_alt = html.unescape(alt_match.group(1)) if alt_match else title
@@ -362,7 +434,7 @@ def parse_existing_posts() -> dict[str, Post]:
             keywords=[],
             body_html=body_html,
             published=published,
-            modified=published,
+            modified=modified,
             read_time=read_time,
             image_src=image_src,
             image_alt=britishise(image_alt),
@@ -884,23 +956,82 @@ def render_feed(all_posts: list[Post]) -> str:
     )
 
 
-def update_sitemap(new_posts: list[Post]) -> str:
-    existing = []
-    if SITEMAP_FILE.exists():
-        root = ET.fromstring(read_utf8(SITEMAP_FILE))
-        namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
-        for loc in root.findall("sm:url/sm:loc", namespace):
-            if loc.text:
-                existing.append(loc.text.strip())
-    wanted = existing[:]
-    for post in new_posts:
-        if post.url not in wanted:
-            wanted.append(post.url)
-    lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for url in wanted:
-        lines.append("  <url>")
-        lines.append(f"    <loc>{url}</loc>")
-        lines.append("  </url>")
+def build_static_sitemap_entries() -> list[SitemapEntry]:
+    entries: list[SitemapEntry] = []
+    for spec in STATIC_SITEMAP_SPECS:
+        path = spec["path"]
+        text = normalise_text(read_utf8(path))
+        title_match = re.search(r"<title>(.*?)</title>", text, re.S)
+        title = (
+            britishise(tidy_spaces(html.unescape(strip_tags(title_match.group(1)))))
+            if title_match
+            else spec["loc"]
+        )
+        image_match = re.search(r'<meta property="og:image" content="([^"]+)"', text)
+        alt_match = re.search(r'<meta property="og:image:alt" content="([^"]+)"', text)
+        images: list[SitemapImage] = []
+        if image_match:
+            caption = html.unescape(alt_match.group(1)) if alt_match else title
+            images.append(
+                SitemapImage(
+                    loc=html.unescape(image_match.group(1)),
+                    title=title,
+                    caption=britishise(caption),
+                )
+            )
+        for extra in STATIC_SITEMAP_EXTRA_IMAGES.get(path.name, ()):
+            images.append(SitemapImage(**extra))
+        entries.append(
+            SitemapEntry(
+                loc=spec["loc"],
+                lastmod=resolve_lastmod(path),
+                changefreq=spec["changefreq"],
+                priority=spec["priority"],
+                images=images,
+            )
+        )
+    return entries
+
+
+def render_sitemap_entry(entry: SitemapEntry) -> list[str]:
+    lines = [
+        "  <url>",
+        f"    <loc>{html_escape(entry.loc)}</loc>",
+        f"    <lastmod>{entry.lastmod}</lastmod>",
+        f"    <changefreq>{entry.changefreq}</changefreq>",
+        f"    <priority>{entry.priority}</priority>",
+    ]
+    for image in entry.images:
+        lines.append("    <image:image>")
+        lines.append(f"      <image:loc>{html_escape(image.loc)}</image:loc>")
+        if image.title:
+            lines.append(f"      <image:title>{html_escape(image.title)}</image:title>")
+        if image.caption:
+            lines.append(f"      <image:caption>{html_escape(image.caption)}</image:caption>")
+        lines.append("    </image:image>")
+    lines.append("  </url>")
+    return lines
+
+
+def update_sitemap(posts: list[Post]) -> str:
+    entries = build_static_sitemap_entries()
+    for post in posts:
+        entries.append(
+            SitemapEntry(
+                loc=post.url,
+                lastmod=resolve_lastmod(post.path, fallback=post.modified.isoformat()),
+                changefreq="monthly",
+                priority="0.7",
+                images=[SitemapImage(loc=post.image_url, title=post.title, caption=post.image_alt)],
+            )
+        )
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+        '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
+    ]
+    for entry in entries:
+        lines.extend(render_sitemap_entry(entry))
     lines.append("</urlset>")
     return "\n".join(lines) + "\n"
 
@@ -5752,7 +5883,7 @@ def main() -> None:
     all_posts = sorted(list(existing.values()) + rendered_posts, key=lambda item: (item.published, item.slug), reverse=True)
     BLOG_INDEX_PATH.write_text(render_archive_page(all_posts), encoding="utf-8", newline="\n")
     RSS_FILE.write_text(render_feed(all_posts), encoding="utf-8", newline="\n")
-    SITEMAP_FILE.write_text(update_sitemap(rendered_posts), encoding="utf-8", newline="\n")
+    SITEMAP_FILE.write_text(update_sitemap(all_posts), encoding="utf-8", newline="\n")
 
     cover_payload = []
     for post in rendered_posts:
