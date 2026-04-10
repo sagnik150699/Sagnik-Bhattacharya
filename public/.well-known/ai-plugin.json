@@ -9,7 +9,7 @@
   },
   "api": {
     "type": "openapi",
-    "url": "https://sagnikbhattacharya.com/sitemap.xml"
+    "url": "https://sagnikbhattacharya.com/.well-known/openapi.yaml"
   },
   "logo_url": "https://sagnikbhattacharya.com/sagnik-bhattacharya.png",
   "contact_email": "",
