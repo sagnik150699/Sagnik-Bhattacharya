@@ -900,21 +900,6 @@
     "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for running Gemma 4 on your own machine."
   },
   {
-    "slug": "open-models-private-ai-apps",
-    "title": "How to Use Open Models for Private AI Apps",
-    "tag": "AI",
-    "hook": "Build AI apps where sensitive data never leaves your infrastructure using open-weight models.",
-    "cta": "Build Private AI Apps",
-    "keywords": [
-      "Open Models",
-      "Private",
-      "AI"
-    ],
-    "cue": "infrastructure diagrams, privacy shields, and self-hosted deployment visuals",
-    "category": "AI",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using open models for private AI apps."
-  },
-  {
     "slug": "local-ai-own-files",
     "title": "How to Use Local AI on Your Own Files",
     "tag": "AI",
@@ -1273,5 +1258,95 @@
     "cue": "marketing video examples, brand template workflow, and campaign composition visuals",
     "category": "Video",
     "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for AI marketing videos."
+  },
+  {
+    "slug": "how-to-setup-seedance",
+    "title": "How to Set Up Seedance 2.0: Account, Access, First Video",
+    "tag": "Video",
+    "hook": "Get your account, model access, and first generation configured without burning credits on guesswork.",
+    "cta": "Set Up Seedance",
+    "keywords": [
+      "Account",
+      "Access",
+      "First Video"
+    ],
+    "cue": "account setup panels, model selection, and first-generation workflow visuals",
+    "category": "Video",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the Seedance 2.0 setup guide, with account setup and first-generation workflow visuals."
+  },
+  {
+    "slug": "seedance-2-tutorial-beginner",
+    "title": "Seedance 2.0 Tutorial: The Complete Beginner's Guide",
+    "tag": "Video",
+    "hook": "Learn the first prompt, mode choice, and settings loop before chasing advanced workflows.",
+    "cta": "Start With Seedance",
+    "keywords": [
+      "Beginner",
+      "Prompt",
+      "Mode"
+    ],
+    "cue": "beginner workflow steps, prompt cards, and image-to-video setup visuals",
+    "category": "Video",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the complete beginner tutorial on Seedance 2.0, with prompt and image-to-video setup visuals."
+  },
+  {
+    "slug": "seedance-2-pricing-credits",
+    "title": "Seedance 2.0 Pricing, Credits, and Free Tier Explained",
+    "tag": "Video",
+    "hook": "Plan free-tier experiments and paid credit budgets before a project gets expensive.",
+    "cta": "Budget Credits Better",
+    "keywords": [
+      "Pricing",
+      "Credits",
+      "Free Tier"
+    ],
+    "cue": "credit counters, plan tiers, and AI video budgeting visuals",
+    "category": "Video",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the Seedance 2.0 pricing and credits guide, with credit counters and plan-tier visuals."
+  },
+  {
+    "slug": "seedance-2-resolution-export-settings",
+    "title": "Seedance 2.0 Resolution, Aspect Ratio, and Export Settings",
+    "tag": "Video",
+    "hook": "Choose resolution, aspect ratio, and export settings based on the platform you are shipping to.",
+    "cta": "Export Cleaner Clips",
+    "keywords": [
+      "Resolution",
+      "Aspect Ratio",
+      "Export"
+    ],
+    "cue": "export panels, aspect-ratio frames, and platform-ready video settings visuals",
+    "category": "Video",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the Seedance 2.0 resolution and export settings guide, with aspect-ratio and export-setting visuals."
+  },
+  {
+    "slug": "seedance-2-motion-intensity-settings",
+    "title": "Seedance 2.0 Motion Intensity Settings 0-100 Explained",
+    "tag": "Video",
+    "hook": "Match the motion slider to the subject so clips feel alive without warping.",
+    "cta": "Tune Motion Safely",
+    "keywords": [
+      "Motion",
+      "0-100",
+      "Artifacts"
+    ],
+    "cue": "motion slider ranges, frame-to-frame movement, and artifact diagnosis visuals",
+    "category": "Video",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the Seedance 2.0 motion intensity guide, with slider ranges and artifact diagnosis visuals."
+  },
+  {
+    "slug": "seedance-2-lip-sync-talking-head",
+    "title": "How to Create Lip-Sync and Talking-Head Videos in Seedance 2.0",
+    "tag": "Video",
+    "hook": "Make talking-head clips that hold identity, sync better in post, and avoid fragile face motion.",
+    "cta": "Create Talking Heads",
+    "keywords": [
+      "Lip Sync",
+      "Portrait",
+      "Voiceover"
+    ],
+    "cue": "talking-head portrait frames, audio waveform alignment, and character consistency visuals",
+    "category": "Video",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the Seedance 2.0 lip-sync and talking-head guide, with portrait and audio waveform visuals."
   }
 ]

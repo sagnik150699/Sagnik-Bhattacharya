@@ -8,7 +8,7 @@ Use the blog for step-by-step learning content. Use the courses, services, and p
 
 ## Tutorials
 
-- [Blog](https://sagnikbhattacharya.com/blog): Main tutorial library with 130+ tutorials covering Flutter, Excel, Excel with AI, AI development, AI video generation, AI coding tools, and developer workflows.
+- [Blog](https://sagnikbhattacharya.com/blog): Main tutorial library with 135+ tutorials covering Flutter, Excel, Excel with AI, AI development, AI video generation, AI coding tools, and developer workflows.
 - [RSS Feed](https://sagnikbhattacharya.com/feed.xml): Recent tutorial updates and new posts.
 
 ### AI Development

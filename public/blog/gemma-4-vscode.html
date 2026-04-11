@@ -138,7 +138,7 @@
 <p>Gemma 4 loads entirely into your GPU's VRAM or system RAM, so hardware matters. Here are the minimum requirements:</p>
 <ul>
   <li><strong>Windows or Linux with an NVIDIA GPU:</strong> You need at least 8GB of VRAM to run the 12B model comfortably. Cards like the RTX 3060 (12GB), RTX 4060 Ti (16GB), or RTX 4070 (12GB) all work well. If you only have 4–6GB of VRAM, you can still use the smaller 4B model.</li>
-  <li><strong>Mac with Apple Silicon:</strong> M1, M2, M3, or M4 with at least 16GB of unified memory. Even a base M1 MacBook Air with 16GB works, though 24GB+ gives room for the larger 27B model.</li>
+  <li><strong>Mac with Apple Silicon:</strong> M1, M2, M3, or M4 with at least 16GB of unified memory. 24GB gives room for the 27B, and 32GB+ for the 31B.</li>
   <li><strong>CPU-only (no dedicated GPU):</strong> You can still run Gemma 4, but only the 4B model at acceptable speeds. Expect completions to take 2–5 seconds instead of under 1 second. You need at least 8GB of system RAM, ideally 16GB.</li>
 </ul>
 <p><strong>How to check your GPU:</strong> On Windows, press <code>Ctrl+Shift+Esc</code> to open Task Manager, click "Performance", then "GPU" — your VRAM is listed as "Dedicated GPU memory". On Mac, click Apple menu &gt; "About This Mac" to see your chip and memory. On Linux, run <code>nvidia-smi</code> in a terminal.</p>
@@ -177,81 +177,37 @@
 <p>This is a one-time download. Once the model is on your machine, it loads from local storage every time.</p>
 <ol>
   <li>Open a terminal (or the VS Code integrated terminal with <code>Ctrl+`</code>).</li>
-  <li>Pull the default 12B model (~7–8GB download):
+  <li>Pull the default 12B model (~7–8GB):
     <pre><code>ollama pull gemma4</code></pre>
   </li>
-  <li><strong>16GB+ VRAM?</strong> Also pull the higher quality 27B model (~16GB):
-    <pre><code>ollama pull gemma4:27b</code></pre>
-  </li>
-  <li><strong>Weak GPU or CPU-only?</strong> Pull the lighter 4B model instead (~2–3GB):
-    <pre><code>ollama pull gemma4:4b</code></pre>
-  </li>
+  <li><strong>Low VRAM / CPU only?</strong> Pull the 4B (~2–3GB): <code>ollama pull gemma4:4b</code></li>
+  <li><strong>16GB VRAM?</strong> Pull the 27B (~16GB): <code>ollama pull gemma4:27b</code></li>
+  <li><strong>24GB+ VRAM?</strong> Pull the 31B (~19GB) — the largest Gemma 4 size, best reasoning: <code>ollama pull gemma4:31b</code></li>
   <li><strong>Verify:</strong> Run <code>ollama list</code> — you should see your downloaded model listed with its size.</li>
   <li><strong>Quick test:</strong> Run <code>ollama run gemma4</code> to start a chat. Ask it "Write a hello world in Python". If it responds with code, everything works. Type <code>/bye</code> to exit.</li>
 </ol>
 
-<h2>Step 5: Choose Your VS Code Extension</h2>
-<p>You need a VS Code extension to connect everything together. Three good options below — I recommend Method 1 (Continue) for the most Copilot-like experience.</p>
-
-<h2>Method 1: Continue Extension — The Most Complete Option</h2>
-<p>Continue is an open-source extension that gives you chat, inline editing, and tab-autocomplete — the closest experience to GitHub Copilot with a local model.</p>
-
-<h3>Installation and Setup</h3>
+<h2>Step 5: Install the Continue Extension</h2>
+<p>Continue is a VS Code extension. It gives you chat, inline edits, and tab autocomplete — the closest thing to GitHub Copilot, but pointed at your local Gemma 4.</p>
 <ol>
-  <li>In VS Code, press <code>Ctrl+Shift+X</code> (Windows/Linux) or <code>Cmd+Shift+X</code> (Mac) to open Extensions.</li>
-  <li>Search for <code>Continue</code>. Install <strong>"Continue - Codestral, Claude, GPT, Gemini, Llama, etc."</strong> by <strong>Continue.dev</strong>.</li>
-  <li>A Continue icon (forward-slash symbol) appears in the left sidebar. Click it.</li>
-  <li>If asked to sign in — skip it. Look for "Skip" or "Use local models". No account is needed for local models.</li>
-  <li>Open the config file: press <code>Ctrl+Shift+P</code> (<code>Cmd+Shift+P</code> on Mac), type <code>Continue: Open Config File</code>, press Enter.
-    <ul>
-      <li>Windows path: <code>C:\Users\YourName\.continue\config.json</code></li>
-      <li>Mac/Linux path: <code>~/.continue/config.json</code></li>
-    </ul>
-  </li>
-  <li>Replace the file contents with:
-    <pre><code>{
-  "models": [
-    {
-      "title": "Gemma 4 27B",
-      "provider": "ollama",
-      "model": "gemma4:27b"
-    },
-    {
-      "title": "Gemma 4 12B",
-      "provider": "ollama",
-      "model": "gemma4"
-    }
-  ],
-  "tabAutocompleteModel": {
-    "title": "Gemma 4 12B",
-    "provider": "ollama",
-    "model": "gemma4"
-  },
-  "tabAutocompleteOptions": {
-    "debounceDelay": 500,
-    "multilineCompletions": "always"
-  }
-}</code></pre>
-    <p><code>"models"</code> = chat models (27B for quality, 12B for speed). <code>"tabAutocompleteModel"</code> = inline suggestions as you type (12B for speed). <code>"debounceDelay": 500</code> = waits 500ms after you stop typing before requesting a suggestion. <code>"multilineCompletions": "always"</code> = suggests full function bodies, not just single lines.</p>
-    <p>If you only downloaded the 4B model, replace all model values with <code>"gemma4:4b"</code>.</p>
-  </li>
-  <li>Save the file (<code>Ctrl+S</code>). Continue reloads automatically.</li>
-  <li><strong>Test:</strong> Click the Continue sidebar icon, select a model from the dropdown, type "Write a function that reverses a string in JavaScript" and press Enter. If you get a code response, setup is complete.</li>
+  <li>In VS Code, press <code>Ctrl+Shift+X</code> (<code>Cmd+Shift+X</code> on Mac) and search <strong>Continue</strong>. Install the one by <strong>Continue.dev</strong>.</li>
+  <li>Click the Continue icon in the left sidebar. Its onboarding screen opens automatically — it already knows you have Ollama and lists the models it wants. You do not need to edit any config file.</li>
+  <li>If it asks you to sign in, click <em>Skip</em> or <em>Use local models</em>.</li>
+  <li>Click <strong>Connect</strong>. That is the whole setup. Pick <strong>Gemma 4</strong> from the model dropdown at the top of the chat panel and start asking questions.</li>
 </ol>
+<p>That is it. No JSON, no paths, no restart. If Continue shows a different model in the dropdown (like Llama), click the dropdown and switch to <code>gemma4</code>.</p>
 
-<h3>Key Shortcuts</h3>
+<h3>The three shortcuts you will actually use</h3>
 <ul>
-  <li><strong>Tab-Autocomplete:</strong> Just type code normally. Grey suggestions appear after a short pause — press <code>Tab</code> to accept, or keep typing to ignore. If nothing appears, confirm Ollama is running at <code>http://localhost:11434</code>.</li>
-  <li><strong>Chat:</strong> Highlight code, press <code>Ctrl+L</code> (<code>Cmd+L</code> on Mac) to send it to the chat panel. Ask things like "Explain this code" or "Find bugs in this".</li>
-  <li><strong>Inline Editing:</strong> Highlight code, press <code>Ctrl+I</code> (<code>Cmd+I</code> on Mac), type an instruction like "Add error handling" or "Convert to async/await". Review the diff, then Accept or Reject.</li>
+  <li><strong>Chat about selected code:</strong> highlight code, press <code>Ctrl+L</code> (<code>Cmd+L</code> on Mac). Ask "explain this" or "find bugs".</li>
+  <li><strong>Edit selected code:</strong> highlight, press <code>Ctrl+I</code> (<code>Cmd+I</code> on Mac), type an instruction like "add error handling". Review the diff, accept or reject.</li>
+  <li><strong>Tab autocomplete:</strong> just type. Grey suggestions appear after a short pause — press <code>Tab</code> to accept.</li>
 </ul>
 
-<h3>Troubleshooting Continue</h3>
+<h3>If something is not working</h3>
 <ul>
-  <li><strong>"Model not found" error:</strong> Make sure you spelled the model name exactly as it appears in <code>ollama list</code>. Common mistake: using <code>"gemma-4"</code> (with a hyphen) instead of <code>"gemma4"</code>.</li>
-  <li><strong>No suggestions appearing:</strong> Open the VS Code Output panel (<code>Ctrl+Shift+U</code>), select "Continue" from the dropdown, and check for error messages. The most common issue is Ollama not running — restart it from your Applications folder or Start menu.</li>
-  <li><strong>Very slow responses:</strong> Check if Ollama is using your GPU by running <code>ollama ps</code> in a terminal while a request is active. If it says "cpu" instead of your GPU name, see the Performance Tips section below for how to fix this.</li>
-  <li><strong>Continue asks for an API key or account:</strong> You do not need one for local models. Make sure your <code>config.json</code> only lists Ollama models and does not include cloud providers like OpenAI or Anthropic.</li>
+  <li><strong>No suggestions at all:</strong> open <code>http://localhost:11434</code> in your browser. If it does not say "Ollama is running", relaunch Ollama from your Start menu or Applications folder.</li>
+  <li><strong>Very slow:</strong> you are probably running on CPU. Run <code>ollama ps</code> in a terminal — if it says <code>cpu</code>, drop to a smaller model (<code>gemma4:4b</code>).</li>
 </ul>
 
 <h2>Method 2: CodeGPT Extension — Chat-Focused Alternative</h2>
@@ -340,7 +296,14 @@
       <td>16GB</td>
       <td>Moderate (800ms-2s)</td>
       <td>Very good — complex logic</td>
-      <td>Chat-based workflows, complex code generation</td>
+      <td>Chat workflows, complex code generation</td>
+    </tr>
+    <tr>
+      <td>Gemma 4 31B</td>
+      <td>24GB</td>
+      <td>Slower (1.5-3s)</td>
+      <td>Best — strongest reasoning</td>
+      <td>Hard refactors, architecture questions, long explanations</td>
     </tr>
   </tbody>
 </table>

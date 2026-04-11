@@ -105,7 +105,6 @@ These tutorials cover MCP, agents, RAG, tool calling, prompt testing, cost optim
 - [How to Use Local AI on Your Own Files](https://sagnikbhattacharya.com/blog/local-ai-own-files)
 - [How to Use MCP Servers for AI Agents Step by Step](https://sagnikbhattacharya.com/blog/mcp-servers-ai-agents)
 - [How to Use MCP With ChatGPT and Your Own Tools](https://sagnikbhattacharya.com/blog/mcp-chatgpt-tools)
-- [How to Use Open Models for Private AI Apps](https://sagnikbhattacharya.com/blog/open-models-private-ai-apps)
 - [How to Use Reasoning Summaries in Production AI Apps](https://sagnikbhattacharya.com/blog/reasoning-summaries-production-ai)
 - [How to Use Remote MCP Servers in AI Apps](https://sagnikbhattacharya.com/blog/remote-mcp-servers-ai-apps)
 - [How to Use Structured JSON Outputs With LLMs](https://sagnikbhattacharya.com/blog/structured-json-outputs-llms)
@@ -147,7 +146,6 @@ Practical tutorials on MCP, AI agents, RAG, tool calling, prompt testing, and co
 - [How to Use Reasoning Summaries in Production AI Apps](https://sagnikbhattacharya.com/blog/reasoning-summaries-production-ai) — Reasoning transparency
 - [How to Use Gemma 4 for Local AI Workflows](https://sagnikbhattacharya.com/blog/gemma-4-local-ai-workflows) — Local AI automation
 - [How to Run Gemma 4 on Your Own Machine](https://sagnikbhattacharya.com/blog/run-gemma-4-own-machine) — Local model setup
-- [How to Use Open Models for Private AI Apps](https://sagnikbhattacharya.com/blog/open-models-private-ai-apps) — Self-hosted AI
 - [How to Use Local AI on Your Own Files](https://sagnikbhattacharya.com/blog/local-ai-own-files) — Private file processing
 - [How to Build a RAG App With Your Own Documents](https://sagnikbhattacharya.com/blog/build-rag-app-own-documents) — RAG tutorial
 - [How to Improve RAG Answers With Reranking](https://sagnikbhattacharya.com/blog/improve-rag-reranking) — RAG quality improvement
@@ -162,6 +160,12 @@ Practical tutorials on MCP, AI agents, RAG, tool calling, prompt testing, and co
 
 These tutorials cover Seedance 2.0 prompting, image-to-video workflows, consistent characters, motion fixes, and model comparisons:
 
+- [Seedance 2.0 Tutorial: The Complete Beginner's Guide](https://sagnikbhattacharya.com/blog/seedance-2-tutorial-beginner)
+- [How to Set Up Seedance 2.0: Account, Access, First Video](https://sagnikbhattacharya.com/blog/how-to-setup-seedance)
+- [Seedance 2.0 Pricing, Credits, and Free Tier Explained](https://sagnikbhattacharya.com/blog/seedance-2-pricing-credits)
+- [Seedance 2.0 Resolution, Aspect Ratio, and Export Settings](https://sagnikbhattacharya.com/blog/seedance-2-resolution-export-settings)
+- [Seedance 2.0 Motion Intensity Settings 0–100 Explained](https://sagnikbhattacharya.com/blog/seedance-2-motion-intensity-settings)
+- [How to Create Lip-Sync and Talking-Head Videos in Seedance 2.0](https://sagnikbhattacharya.com/blog/seedance-2-lip-sync-talking-head)
 - [How to Fix Bad Motion in Seedance 2.0 Videos](https://sagnikbhattacharya.com/blog/fix-bad-motion-seedance)
 - [How to Make Consistent Characters in Seedance 2.0](https://sagnikbhattacharya.com/blog/consistent-characters-seedance)
 - [How to Use Seedance 2.0 for AI Marketing Videos](https://sagnikbhattacharya.com/blog/seedance-marketing-videos)
