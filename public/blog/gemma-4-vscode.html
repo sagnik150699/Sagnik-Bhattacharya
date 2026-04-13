@@ -66,6 +66,14 @@
         "@type": "Answer",
         "text": "Yes, Gemma 4 provides solid code completions for Python, JavaScript, TypeScript, Dart, and most popular languages. Its completions are not quite as fast or accurate as GitHub Copilot for complex multi-line suggestions, but it is completely free and private. For individual developers who want AI assistance without subscriptions, it is an excellent option."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use Gemma 4 from the terminal to analyse my project files?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. With Ollama installed, you can pipe any file directly to Gemma 4 from PowerShell, Bash, or any terminal using commands like Get-Content app.py -Raw | ollama run gemma4 followed by your prompt. You can also feed multiple files, set system prompts, or use tools like Aider for full repo-aware AI pair programming from the command line without needing VS Code at all."
+      }
     }
   ]
 }
@@ -131,7 +139,7 @@
             </a>
             <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
             <span>5 Apr 2026</span>
-            <span>12 min read</span>
+            <span>16 min read</span>
           </div>
         </div>
         <figure class="blog-cover">
@@ -139,8 +147,8 @@
           <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemma 4 in VS Code with Ollama, showing VS Code editor with AI coding assistant integration.</figcaption>
         </figure>
         <div class="blog-post-content">
-<p>GitHub Copilot costs $19 per month. It is an excellent tool — I use it myself and recommend it in my courses. But there is a growing number of developers who either cannot use cloud-based coding assistants (company policy, security requirements, air-gapped environments) or simply do not want to pay a recurring subscription for AI code completions. If that is you, Gemma 4 running locally through Ollama and connected to VS Code is the most capable free alternative available today.</p>
-<p>I have spent the past few weeks setting up and testing three different methods of integrating Gemma 4 with VS Code. This guide walks through each one with concrete setup steps, configuration details, and an honest assessment of what works well and where the experience falls short compared to Copilot. If you have not installed Gemma 4 yet, start with my <a href="/blog/run-gemma-4-locally">beginner's guide to running Gemma 4 locally</a> and come back here once Ollama is running.</p>
+<p>Every developer I talk to has the same question: can I get a proper AI coding assistant without paying $19 a month and without sending my code to someone else's servers? The answer, as of mid-2026, is yes — and Gemma 4 running locally through Ollama inside VS Code is the best way to do it. Not a toy. Not a compromise you have to apologise for. A genuinely useful coding companion that lives entirely on your machine.</p>
+<p>I have been running this setup full-time for over a month now, across Flutter, Python, and TypeScript projects. This guide is the result of that daily use — not a quick test, but a real workflow built on top of Gemma 4. I will walk you through three different ways to wire it into VS Code, plus a fourth method that skips VS Code entirely and lets you use Gemma 4 from the terminal or PowerShell to analyse your entire project folder. I will show you which method I actually use every day, and give you the specific settings that make the experience feel fast rather than frustrating. If you have not installed Gemma 4 yet, start with my <a href="/blog/run-gemma-4-locally">beginner's guide to running Gemma 4 locally</a> and come back here once Ollama is running.</p>
 
 <div class="blog-embed-card">
   <h3>See the LinkedIn post</h3>
@@ -150,138 +158,222 @@
   </div>
 </div>
 
-<div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Flutter and Excel with AI — <a href="/courses">explore my courses</a> if you want structured learning.</span></div><h2>Step 1: Check Your Hardware</h2>
-<p>Gemma 4 loads entirely into your GPU's VRAM or system RAM, so hardware matters. Here are the minimum requirements:</p>
+<div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Flutter and Excel with AI — <a href="/courses">explore my courses</a> if you want structured learning.</span></div><h2>Before You Start: Does Your Machine Have Enough Power?</h2>
+<p>Gemma 4 runs entirely on your hardware — there is no cloud fallback. If your machine cannot handle it, you will get painfully slow completions that break your flow instead of helping it. Here is what you actually need:</p>
 <ul>
-  <li><strong>Windows or Linux with an NVIDIA GPU:</strong> You need at least 8GB of VRAM to run the 12B model comfortably. Cards like the RTX 3060 (12GB), RTX 4060 Ti (16GB), or RTX 4070 (12GB) all work well. If you only have 4–6GB of VRAM, you can still use the smaller 4B model.</li>
-  <li><strong>Mac with Apple Silicon:</strong> M1, M2, M3, or M4 with at least 16GB of unified memory. 24GB gives room for the 27B, and 32GB+ for the 31B.</li>
-  <li><strong>CPU-only (no dedicated GPU):</strong> You can still run Gemma 4, but only the 4B model at acceptable speeds. Expect completions to take 2–5 seconds instead of under 1 second. You need at least 8GB of system RAM, ideally 16GB.</li>
+  <li><strong>Windows or Linux with an NVIDIA GPU:</strong> 8GB of VRAM is the sweet spot for the 12B model — that means cards like the RTX 3060 (12GB), RTX 4060 Ti (16GB), or RTX 4070 (12GB). If your GPU only has 4–6GB of VRAM, the smaller 4B model still works but you will notice the difference in code quality.</li>
+  <li><strong>Mac with Apple Silicon:</strong> Any M1, M2, M3, or M4 chip with 16GB of unified memory handles the 12B model comfortably. With 24GB you can run the 27B, and 32GB+ opens the door to the full 31B model.</li>
+  <li><strong>No dedicated GPU at all:</strong> The 4B model still runs on CPU, but expect 2–5 seconds per completion instead of under a second. You need 8GB of RAM minimum, 16GB preferred. It is usable for chat workflows but frustrating for inline autocomplete.</li>
 </ul>
-<p><strong>How to check your GPU:</strong> On Windows, press <code>Ctrl+Shift+Esc</code> to open Task Manager, click "Performance", then "GPU" — your VRAM is listed as "Dedicated GPU memory". On Mac, click Apple menu &gt; "About This Mac" to see your chip and memory. On Linux, run <code>nvidia-smi</code> in a terminal.</p>
+<p><strong>Quick hardware check:</strong> On Windows, press <code>Ctrl+Shift+Esc</code> to open Task Manager, go to "Performance" then "GPU" — look for "Dedicated GPU memory". On Mac, click the Apple menu and check "About This Mac" for your chip and memory. On Linux, run <code>nvidia-smi</code> in a terminal.</p>
 
-<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>Step 2: Install VS Code</h2>
-<p>If you already have VS Code installed, skip to Step 3.</p>
+<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>Install VS Code (Skip If You Already Have It)</h2>
+<p>If VS Code is already on your machine, jump straight to the Ollama section below.</p>
 <ol>
-  <li>Go to <a href="https://code.visualstudio.com" target="_blank" rel="noopener">code.visualstudio.com</a> and click the download button (it auto-detects your OS).
+  <li>Head to <a href="https://code.visualstudio.com" target="_blank" rel="noopener">code.visualstudio.com</a> and grab the installer for your OS.
     <ul>
-      <li><strong>Windows:</strong> Run the <code>.exe</code> installer. During setup, check "Add to PATH" and "Register Code as an editor for supported file types".</li>
-      <li><strong>Mac:</strong> Open the downloaded <code>.zip</code>, drag VS Code into Applications. First launch: right-click &gt; "Open" to bypass the macOS security prompt.</li>
-      <li><strong>Linux:</strong> Download the <code>.deb</code> and run <code>sudo dpkg -i code_*.deb</code>, or install via snap: <code>sudo snap install code --classic</code>.</li>
+      <li><strong>Windows:</strong> Run the <code>.exe</code>. During installation, tick "Add to PATH" and "Register Code as an editor for supported file types" — both save you headaches later.</li>
+      <li><strong>Mac:</strong> Unzip the download, drag VS Code into Applications. On first launch, right-click the icon and select "Open" to get past the macOS Gatekeeper warning.</li>
+      <li><strong>Linux:</strong> Download the <code>.deb</code> package and run <code>sudo dpkg -i code_*.deb</code>, or install via snap with <code>sudo snap install code --classic</code>.</li>
     </ul>
   </li>
-  <li>Open VS Code. Press <code>Ctrl+`</code> (backtick, above Tab) to open the integrated terminal — you will use this in the next steps.</li>
+  <li>Open VS Code and press <code>Ctrl+`</code> (the backtick key above Tab) to open the integrated terminal. You will need this for the next steps.</li>
 </ol>
 
-<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>Step 3: Install Ollama</h2>
-<p>Ollama downloads and runs AI models locally on your machine. It runs as a background server that VS Code extensions connect to.</p>
+<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>Install Ollama — The Engine Behind Everything</h2>
+<p>Ollama is the piece that actually downloads and runs Gemma 4 on your machine. Think of it as a local server that sits quietly in the background, waiting for VS Code extensions to send it prompts. Every method in this guide relies on it.</p>
 <ol>
-  <li>Go to <a href="https://ollama.com" target="_blank" rel="noopener">ollama.com</a> and click Download.
+  <li>Go to <a href="https://ollama.com" target="_blank" rel="noopener">ollama.com</a> and download the installer.
     <ul>
-      <li><strong>Windows:</strong> Run the <code>.exe</code> installer. After installation, Ollama starts automatically — look for its icon in the system tray (bottom-right, near the clock).</li>
-      <li><strong>Mac:</strong> Open the <code>.dmg</code>, drag Ollama to Applications, and launch it. It appears as an icon in your menu bar.</li>
-      <li><strong>Linux:</strong> Run <code>curl -fsSL https://ollama.com/install.sh | sh</code> in a terminal. It installs and starts as a background service.</li>
+      <li><strong>Windows:</strong> Run the <code>.exe</code>. After installation, Ollama starts automatically and shows up as an icon in your system tray (bottom-right corner, near the clock).</li>
+      <li><strong>Mac:</strong> Open the <code>.dmg</code>, drag Ollama into Applications, and launch it. You will see its icon appear in the menu bar.</li>
+      <li><strong>Linux:</strong> Run <code>curl -fsSL https://ollama.com/install.sh | sh</code> in your terminal. It installs and starts as a background service automatically.</li>
     </ul>
   </li>
-  <li><strong>Verify:</strong> In your terminal, run:
+  <li><strong>Verify the installation:</strong> Open a terminal and run:
     <pre><code>ollama --version</code></pre>
-    You should see a version number. If you get "command not found", restart your terminal or computer.
+    If you see a version number, you are good. If you get "command not found", restart your terminal or reboot your machine.
   </li>
-  <li><strong>Confirm the server is running:</strong> Open <code>http://localhost:11434</code> in your browser. You should see "Ollama is running". If not, relaunch the Ollama application.</li>
+  <li><strong>Confirm the server is live:</strong> Visit <code>http://localhost:11434</code> in your browser. You should see the text "Ollama is running". If not, relaunch the Ollama app from your Start menu or Applications folder.</li>
 </ol>
 
-<a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">Subscribe on YouTube</span><span class="blog-social-nudge__handle">@codingliquids</span></a><h2>Step 4: Download the Gemma 4 Model</h2>
-<p>This is a one-time download. Once the model is on your machine, it loads from local storage every time.</p>
+<a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">Subscribe on YouTube</span><span class="blog-social-nudge__handle">@codingliquids</span></a><h2>Download Gemma 4 — One Command, One-Time Download</h2>
+<p>This step downloads the model weights to your local disk. It only happens once — after that, the model loads from storage in seconds every time you start coding.</p>
 <ol>
-  <li>Open a terminal (or the VS Code integrated terminal with <code>Ctrl+`</code>).</li>
-  <li>Pull the default 12B model (~7–8GB):
+  <li>Open a terminal (or use the VS Code integrated terminal with <code>Ctrl+`</code>).</li>
+  <li>Pull the 12B model, which is the best balance of speed and quality for most developers (~7–8GB download):
     <pre><code>ollama pull gemma4</code></pre>
   </li>
-  <li><strong>Low VRAM / CPU only?</strong> Pull the 4B (~2–3GB): <code>ollama pull gemma4:4b</code></li>
-  <li><strong>16GB VRAM?</strong> Pull the 27B (~16GB): <code>ollama pull gemma4:27b</code></li>
-  <li><strong>24GB+ VRAM?</strong> Pull the 31B (~19GB) — the largest Gemma 4 size, best reasoning: <code>ollama pull gemma4:31b</code></li>
-  <li><strong>Verify:</strong> Run <code>ollama list</code> — you should see your downloaded model listed with its size.</li>
-  <li><strong>Quick test:</strong> Run <code>ollama run gemma4</code> to start a chat. Ask it "Write a hello world in Python". If it responds with code, everything works. Type <code>/bye</code> to exit.</li>
+  <li><strong>Limited VRAM or CPU only?</strong> Pull the lighter 4B model (~2–3GB): <code>ollama pull gemma4:4b</code></li>
+  <li><strong>Got 16GB VRAM?</strong> Pull the 27B for noticeably smarter completions (~16GB): <code>ollama pull gemma4:27b</code></li>
+  <li><strong>Got 24GB+ VRAM?</strong> Pull the flagship 31B — the strongest reasoning of any Gemma 4 variant (~19GB): <code>ollama pull gemma4:31b</code></li>
+  <li><strong>Verify the download:</strong> Run <code>ollama list</code> — your model should appear with its size.</li>
+  <li><strong>Quick sanity check:</strong> Run <code>ollama run gemma4</code> to open a chat. Ask it something simple like "Write a hello world in Python". If you get working code back, everything is set up correctly. Type <code>/bye</code> to exit.</li>
 </ol>
 
-<h2>Step 5: Install the Continue Extension</h2>
-<p>Continue is a VS Code extension. It gives you chat, inline edits, and tab autocomplete — the closest thing to GitHub Copilot, but pointed at your local Gemma 4.</p>
+<h2>Method 1: Continue Extension — The Full Copilot Replacement (Recommended)</h2>
+<p>This is the method I use every day and the one I recommend to most developers. Continue gives you chat, inline code edits, and tab-autocomplete — essentially everything GitHub Copilot does, but pointed at your local Gemma 4 model.</p>
+
+<h3>Setup</h3>
 <ol>
-  <li>In VS Code, press <code>Ctrl+Shift+X</code> (<code>Cmd+Shift+X</code> on Mac) and search <strong>Continue</strong>. Install the one by <strong>Continue.dev</strong>.</li>
-  <li>Click the Continue icon in the left sidebar. Its onboarding screen opens automatically — it already knows you have Ollama and lists the models it wants. You do not need to edit any config file.</li>
-  <li>If it asks you to sign in, click <em>Skip</em> or <em>Use local models</em>.</li>
-  <li>Click <strong>Connect</strong>. That is the whole setup. Pick <strong>Gemma 4</strong> from the model dropdown at the top of the chat panel and start asking questions.</li>
+  <li>In VS Code, press <code>Ctrl+Shift+X</code> (<code>Cmd+Shift+X</code> on Mac) and search for <strong>Continue</strong>. Install the one published by <strong>Continue.dev</strong>.</li>
+  <li>Click the Continue icon in the left sidebar. The onboarding wizard launches and detects Ollama automatically — it lists every model you have pulled. Select <strong>Ollama</strong> as your provider.</li>
+  <li>If it prompts you to sign in, click <em>Skip</em> or <em>Use local models</em>. You do not need an account for local usage.</li>
+  <li>Pick <strong>Gemma 4</strong> from the model dropdown at the top of the chat panel. Chat and inline edit work immediately after this step.</li>
 </ol>
-<p>That is it. No JSON, no paths, no restart. If Continue shows a different model in the dropdown (like Llama), click the dropdown and switch to <code>gemma4</code>.</p>
 
-<h3>The three shortcuts you will actually use</h3>
+<h3>Enable tab autocomplete (important — it is off by default)</h3>
+<p>Continue's chat and inline edit features work out of the box, but <strong>tab autocomplete is not enabled by default</strong>. You need to configure it separately:</p>
+<ol>
+  <li>Open Continue's config file. Press <code>Ctrl+Shift+P</code> (<code>Cmd+Shift+P</code> on Mac), type <code>Continue: Open Config</code>, and select it. This opens either <code>config.json</code> or <code>config.yaml</code> depending on your version (the file lives in <code>~/.continue/</code> on Mac/Linux or <code>C:\Users\YourName\.continue\</code> on Windows).</li>
+  <li>Add a <code>tabAutocompleteModel</code> entry. If your config is JSON:
+    <pre><code>{
+  "tabAutocompleteModel": {
+    "title": "Gemma 4 Autocomplete",
+    "provider": "ollama",
+    "model": "gemma4"
+  }
+}</code></pre>
+    If your config is YAML:
+    <pre><code>tabAutocompleteModel:
+  title: Gemma 4 Autocomplete
+  provider: ollama
+  model: gemma4</code></pre>
+  </li>
+  <li>Save the file. Continue reloads the config automatically — no VS Code restart needed.</li>
+</ol>
+<p><strong>Tip:</strong> For faster autocomplete, you can set a smaller model specifically for tab completions (like <code>gemma4:4b</code>) while keeping the larger 12B or 27B model for chat. Speed matters more than quality for inline suggestions.</p>
+
+<h3>Three shortcuts you will use constantly</h3>
 <ul>
-  <li><strong>Chat about selected code:</strong> highlight code, press <code>Ctrl+L</code> (<code>Cmd+L</code> on Mac). Ask "explain this" or "find bugs".</li>
-  <li><strong>Edit selected code:</strong> highlight, press <code>Ctrl+I</code> (<code>Cmd+I</code> on Mac), type an instruction like "add error handling". Review the diff, accept or reject.</li>
-  <li><strong>Tab autocomplete:</strong> just type. Grey suggestions appear after a short pause — press <code>Tab</code> to accept.</li>
+  <li><strong>Chat about selected code:</strong> Highlight any block of code and press <code>Ctrl+L</code> (<code>Cmd+L</code> on Mac). Ask things like "explain this", "find bugs", or "what happens if the input is null?". You can also type <code>@file</code> or <code>@codebase</code> in the chat to reference other files without manually pasting them.</li>
+  <li><strong>Edit code inline:</strong> Highlight code, press <code>Ctrl+I</code> (<code>Cmd+I</code> on Mac), and type an instruction — "add error handling", "convert to async/await", "add TypeScript types". You get a diff to review before accepting.</li>
+  <li><strong>Tab autocomplete:</strong> Just start typing. Grey ghost text appears after a brief pause — press <code>Tab</code> to accept the suggestion, or keep typing to ignore it. Press <code>Esc</code> to dismiss.</li>
 </ul>
 
-<h3>If something is not working</h3>
+<h3>Troubleshooting</h3>
 <ul>
-  <li><strong>No suggestions at all:</strong> open <code>http://localhost:11434</code> in your browser. If it does not say "Ollama is running", relaunch Ollama from your Start menu or Applications folder.</li>
-  <li><strong>Very slow:</strong> you are probably running on CPU. Run <code>ollama ps</code> in a terminal — if it says <code>cpu</code>, drop to a smaller model (<code>gemma4:4b</code>).</li>
+  <li><strong>No suggestions or chat responses:</strong> Open <code>http://localhost:11434</code> in your browser. If it does not say "Ollama is running", relaunch Ollama from your Start menu or Applications folder.</li>
+  <li><strong>Tab autocomplete not appearing:</strong> Make sure you have added the <code>tabAutocompleteModel</code> config as described above. Without it, only chat and inline edit will work.</li>
+  <li><strong>Suggestions are painfully slow:</strong> Run <code>ollama ps</code> in a terminal. If the processor column says <code>cpu</code> instead of <code>gpu</code>, switch to a smaller model like <code>gemma4:4b</code> or update your GPU drivers.</li>
 </ul>
 
-<h2>Method 2: CodeGPT Extension — Chat-Focused Alternative</h2>
-<p>CodeGPT focuses on the chat experience rather than inline completions. Easier to set up than Continue if you mainly want a coding Q&amp;A assistant.</p>
+<h2>Method 2: CodeGPT Extension — Best for Chat-Heavy Workflows</h2>
+<p>If you spend more time asking questions about code than you do writing it — debugging, explaining legacy code, brainstorming architecture — CodeGPT is worth considering. It focuses heavily on the chat experience and has a cleaner conversation interface than Continue, though its inline completions lag behind.</p>
 
 <h3>Setup</h3>
 <ol>
   <li>Press <code>Ctrl+Shift+X</code> (<code>Cmd+Shift+X</code> on Mac), search for <code>CodeGPT</code>, and install it.</li>
-  <li>Click the CodeGPT icon in the sidebar. Select <strong>"Ollama"</strong> as your AI provider.</li>
-  <li>CodeGPT auto-detects your local models. Select <strong>Gemma 4</strong> from the dropdown. If it does not appear, confirm Ollama is running (<code>ollama list</code>) and click refresh.</li>
-  <li><strong>Optional:</strong> Set a system prompt in CodeGPT settings for better responses:
+  <li>Click the CodeGPT icon in the sidebar and select <strong>"Ollama"</strong> as your AI provider.</li>
+  <li>CodeGPT scans for locally available models automatically. Pick <strong>Gemma 4</strong> from the dropdown. If it does not show up, confirm Ollama is running with <code>ollama list</code> and click the refresh button.</li>
+  <li><strong>Optional but recommended:</strong> Set a system prompt in CodeGPT's settings to steer the output quality:
     <pre><code>You are an expert software developer. Write clean, well-structured code. When explaining, break it down step by step.</code></pre>
   </li>
-  <li><strong>Test:</strong> Type "Write a Python function that checks if a number is prime" in the chat. If you get working code, you are set.</li>
+  <li><strong>Test it:</strong> Ask "Write a Python function that checks if a number is prime". If you get working code, the setup is complete.</li>
 </ol>
 
-<h3>Usage</h3>
-<p>Highlight code in the editor, right-click, and use CodeGPT context menu options ("Explain this code", "Find bugs", "Refactor", "Generate tests"). CodeGPT also saves conversation history across sessions.</p>
-<p><strong>Note:</strong> CodeGPT's inline tab-autocomplete with local models is less reliable than Continue's. If you want real-time code suggestions as you type, use Continue (Method 1) instead.</p>
+<h3>How to use it</h3>
+<p>Highlight code in your editor, right-click, and you will see CodeGPT context menu options — "Explain this code", "Find bugs", "Refactor", "Generate tests". CodeGPT also preserves your conversation history across VS Code sessions, which is useful when you are working through a multi-step debugging problem over several hours.</p>
+<p><strong>Heads up:</strong> CodeGPT's tab-autocomplete with local models is noticeably less reliable than Continue's. If real-time inline suggestions matter to you, stick with Continue (Method 1) and use CodeGPT purely for chat.</p>
 
-<h2>Method 3: Ollama Extension — The Simplest Option</h2>
-<p>A minimal chat-only extension. No accounts, no config files — just install and ask questions.</p>
+<h2>Method 3: Ollama Extension — Minimal and Lightweight</h2>
+<p>If you just want a simple chat window to ask Gemma 4 questions without any extra features, the standalone Ollama extension is the fastest path. No accounts, no config files, no learning curve.</p>
 
 <h3>Setup</h3>
 <ol>
-  <li>Press <code>Ctrl+Shift+X</code>, search for <code>Ollama</code>, install the one with the highest download count.</li>
-  <li>Press <code>Ctrl+Shift+P</code> (<code>Cmd+Shift+P</code> on Mac), type <code>Ollama</code>, select "Ollama: Chat".</li>
-  <li>Choose <strong>Gemma 4</strong> from the model list. If the list is empty, confirm Ollama is running.</li>
-  <li><strong>Test:</strong> Ask "What does the map function do in JavaScript?" — if you get a response, done.</li>
+  <li>Press <code>Ctrl+Shift+X</code>, search for <code>Ollama</code>, and install the extension with the highest download count.</li>
+  <li>Press <code>Ctrl+Shift+P</code> (<code>Cmd+Shift+P</code> on Mac), type <code>Ollama</code>, and select "Ollama: Chat".</li>
+  <li>Pick <strong>Gemma 4</strong> from the model list. If the list is empty, Ollama is not running — restart it.</li>
+  <li><strong>Test:</strong> Ask "What does the map function do in JavaScript?" — if you get a coherent response, you are done.</li>
 </ol>
-<p>This extension only provides a chat panel — no inline autocomplete, no inline editing, no workspace indexing. It is lightweight and has minimal impact on VS Code performance. For a full-featured experience, use Continue (Method 1).</p>
+<p>This extension provides nothing beyond a chat panel — no inline autocomplete, no inline editing, no workspace indexing. That is the trade-off for its simplicity. It has almost zero impact on VS Code performance, which makes it a good choice for older machines. For the full experience, go with Continue (Method 1).</p>
 
-<h2>Configuring Inline Code Completions</h2>
-<p>Tab-autocomplete is where the practical value of an AI coding assistant is felt most directly. Here is how to optimise the experience with Gemma 4:</p>
+<h2>Method 4: Skip VS Code Entirely — Use Gemma 4 from the Terminal</h2>
+<p>This is the method most guides never mention, and it is one of the most practical. You do not need any VS Code extension at all. If Ollama is running, you can use Gemma 4 directly from PowerShell, Command Prompt, or any terminal to read your project files and get AI-powered code analysis, explanations, and suggestions.</p>
+
+<h3>Ask Gemma 4 about a single file</h3>
+<p>The simplest workflow: pipe a file's contents directly into Ollama with a prompt. Open a terminal in your project folder and run:</p>
+<p><strong>PowerShell:</strong></p>
+<pre><code>Get-Content .\public\index.html -Raw | ollama run gemma4 "Explain what this code does and suggest improvements"</code></pre>
+<p><strong>Bash / Git Bash / macOS / Linux:</strong></p>
+<pre><code>cat public/index.html | ollama run gemma4 "Explain what this code does and suggest improvements"</code></pre>
+<p>The model sees your full prompt followed by the file contents. You can ask anything — "find bugs", "add accessibility attributes", "convert this to React", "explain the CSS layout" — and Gemma 4 responds in the terminal with its analysis.</p>
+
+<h3>Analyse multiple files at once</h3>
+<p>To feed several files in a single prompt, concatenate them with file markers so Gemma 4 knows which code belongs to which file:</p>
+<p><strong>PowerShell:</strong></p>
+<pre><code>$allCode = Get-ChildItem -Path .\scripts -Recurse -Include *.js,*.py | ForEach-Object {
+    "--- $($_.Name) ---`n$(Get-Content $_.FullName -Raw)"
+}
+$allCode -join "`n" | ollama run gemma4 "Review this code. Describe the architecture and flag any issues."</code></pre>
+<p><strong>Bash:</strong></p>
+<pre><code>find ./scripts -type f \( -name "*.js" -o -name "*.py" \) \
+  -exec echo "--- {} ---" \; -exec cat {} \; \
+  | ollama run gemma4 "Review this code. Describe the architecture and flag any issues."</code></pre>
+
+<h3>Set a system prompt for better results</h3>
+<p>You can tell Gemma 4 to behave like a specific kind of reviewer by adding a <code>--system</code> flag:</p>
+<pre><code>Get-Content .\public\blog\gemma-4-vscode.html -Raw | ollama run gemma4 --system "You are a senior web developer and SEO expert. Be concise and specific." "Audit this HTML for SEO issues, accessibility problems, and performance improvements"</code></pre>
+
+<h3>Build a reusable PowerShell function</h3>
+<p>If you find yourself doing this regularly, add a function to your PowerShell profile (<code>$PROFILE</code>) so you can ask Gemma 4 about any file with a single command:</p>
+<pre><code>function Ask-Code {
+    param(
+        [string]$Prompt,
+        [string[]]$Files,
+        [string]$Model = "gemma4"
+    )
+    $context = $Files | ForEach-Object {
+        "--- $_ ---`n$(Get-Content $_ -Raw)"
+    }
+    ($context -join "`n") | ollama run $Model $Prompt
+}
+
+# Usage examples:
+Ask-Code -Prompt "Find bugs in this code" -Files .\scripts\build_blog_cluster.py
+Ask-Code -Prompt "Explain the relationship between these files" -Files .\public\index.html, .\public\animations.js
+Ask-Code -Prompt "Suggest performance improvements" -Files .\public\blog\*.html -Model "gemma4:27b"</code></pre>
+
+<h3>For serious codebase work: use Aider</h3>
+<p>If you want a full terminal-based AI pair programmer — one that understands your entire repo, tracks file context, and can make edits directly — <a href="https://aider.chat" target="_blank" rel="noopener">Aider</a> is the best option. It works with Ollama out of the box:</p>
+<ol>
+  <li>Install it: <code>pip install aider-chat</code></li>
+  <li>Navigate to your project folder in the terminal.</li>
+  <li>Start a session:
+    <pre><code>aider --model ollama_chat/gemma4</code></pre>
+  </li>
+</ol>
+<p>Aider automatically maps your entire repository, lets you add specific files to the conversation with <code>/add filename</code>, and applies code changes directly to your files with git-tracked diffs. It is the closest thing to having a full AI pair programmer in your terminal — no VS Code required.</p>
+
+<h3>Context window limits to keep in mind</h3>
+<p>When piping files into Ollama, you are limited by Gemma 4's context window. A rough rule: 1 token is approximately 4 characters, so 128K tokens gives you roughly 500KB of code in a single prompt. For a typical web project, that covers dozens of files comfortably. For larger codebases, be selective about which files you include, or use Aider which handles intelligent file selection automatically.</p>
+
+<h2>Getting the Most Out of Inline Code Completions</h2>
+<p>Tab-autocomplete is where a local AI assistant either feels magical or feels like a drag on your workflow. The difference comes down to configuration. Here is what I have learned from a month of daily use:</p>
 <ul>
-  <li><strong>Model size matters for speed.</strong> For autocomplete specifically, response time is more important than response quality. A 200ms completion with an adequate suggestion beats a 3-second completion with a perfect suggestion. Start with the 12B model and drop to 4B if it feels sluggish.</li>
-  <li><strong>GPU offloading.</strong> Make sure Ollama is using your GPU rather than CPU. Run <code>ollama ps</code> to check which processor is being used. On NVIDIA systems, set the <code>OLLAMA_GPU_LAYERS</code> environment variable if needed.</li>
-  <li><strong>Context window.</strong> Reduce the context window size in your extension settings if completions are slow. A context of 2048 tokens is usually sufficient for inline completions and reduces memory pressure.</li>
-  <li><strong>Fill-in-the-middle (FIM).</strong> Gemma 4 supports FIM, which means it can look at code both before and after the cursor position to generate better suggestions. Make sure your extension has FIM enabled in its settings — Continue supports this by default.</li>
+  <li><strong>Speed beats quality for autocomplete.</strong> A 200ms suggestion that is 80% right is far more useful than a 3-second suggestion that is 95% right. You lose your train of thought waiting for the perfect completion. Start with the 12B model and drop to 4B if completions take longer than a second.</li>
+  <li><strong>Verify GPU offloading.</strong> This is the single most impactful performance check. Run <code>ollama ps</code> in a terminal — the output shows which processor is handling inference. If it says <code>cpu</code> instead of <code>gpu</code>, your completions will be 5–10x slower than they should be. On NVIDIA systems, make sure your drivers are current and set the <code>OLLAMA_GPU_LAYERS</code> environment variable if Ollama is not loading the full model onto the GPU.</li>
+  <li><strong>Shrink the context window.</strong> If completions feel sluggish even on GPU, reduce the context window in your extension settings. A window of 2048 tokens is more than enough for inline completions and significantly reduces memory pressure and latency.</li>
+  <li><strong>Enable fill-in-the-middle (FIM).</strong> Gemma 4 supports FIM natively, meaning it reads code both before and after your cursor to generate contextually aware suggestions. Continue has this on by default. If you are using another extension, check its settings — turning FIM on makes a noticeable difference in suggestion relevance.</li>
 </ul>
 
-<h2>Chat-Based Coding Workflows</h2>
-<p>Beyond autocomplete, the chat interface is where Gemma 4 provides the most value in day-to-day development. Here are the workflows I use most frequently:</p>
+<h2>Real Coding Workflows I Use Every Day</h2>
+<p>Autocomplete gets the headlines, but the chat interface is where Gemma 4 delivers the most practical value. These are the four workflows I reach for constantly:</p>
 
-<h3>Explaining Unfamiliar Code</h3>
-<p>Select a block of code you inherited or found in a library, send it to the chat, and ask: "Explain what this code does, step by step. Highlight any potential issues or anti-patterns." Gemma 4 27B does this well across most popular languages. It correctly identifies design patterns, explains control flow, and flags issues like missing error handling or potential memory leaks.</p>
+<h3>Understanding inherited or unfamiliar code</h3>
+<p>Select a block of code — a function you did not write, a library method with a confusing signature, a regex that looks like hieroglyphics — and send it to the chat with <code>Ctrl+L</code>. Ask "Explain what this does step by step and flag anything that looks fragile." The 27B model handles this remarkably well across Python, JavaScript, TypeScript, Dart, Go, and Java. It identifies design patterns, traces control flow correctly, and catches things like missing null checks or silent exception swallowing.</p>
 
-<h3>Refactoring</h3>
-<p>Select a function and ask: "Refactor this to be more readable. Extract any magic numbers into named constants. Add TypeScript types if possible." Gemma 4 produces clean refactored code, though it occasionally over-refactors — splitting code into more functions than necessary. I find a follow-up prompt like "simplify — keep it to two functions maximum" corrects this tendency.</p>
+<h3>Refactoring with guardrails</h3>
+<p>Highlight a function, press <code>Ctrl+I</code>, and type something like "Refactor this for readability. Extract magic numbers into named constants. Add types." Gemma 4 produces clean diffs that you review before accepting. One thing to watch for: it tends to over-decompose code into too many tiny functions. If that happens, a follow-up prompt like "simplify — keep it under three functions" pulls it back to something sensible.</p>
 
-<h3>Generating Tests</h3>
-<p>Paste a function and ask: "Write unit tests for this function using Jest. Cover the happy path, edge cases (empty input, null values), and error conditions." Gemma 4 generates reasonable test suites. The coverage is not as thorough as what Claude or ChatGPT produce — it tends to cover the main paths but misses some edge cases. For production test suites, use Gemma 4 as a starting point and add the edge cases manually.</p>
+<h3>Generating test scaffolds</h3>
+<p>Paste a function into the chat and ask: "Write unit tests for this using Jest. Cover the happy path, edge cases like empty input and null values, and error conditions." Gemma 4 produces usable test scaffolds that cover the main scenarios. It is not as thorough as Claude or GPT-4o at finding obscure edge cases — but it saves you the tedium of writing boilerplate assertions. Treat the output as a starting point, then add the edge cases you know matter for your specific use case.</p>
 
-<h3>Debugging Errors</h3>
-<p>Paste an error message along with the relevant code and ask: "What is causing this error and how do I fix it?" This is one of Gemma 4's stronger use cases. Stack traces and common error patterns are well-represented in its training data, so it correctly diagnoses most issues on the first attempt.</p>
+<h3>Diagnosing errors from stack traces</h3>
+<p>Copy an error message and the surrounding code, paste both into the chat, and ask "What is causing this and how do I fix it?" This is where Gemma 4 consistently impresses me. Common runtime errors, dependency conflicts, type mismatches, off-by-one bugs — it nails the diagnosis on the first try more often than not. Stack traces and standard error patterns are well-represented in its training data, and the local model has the full context of your pasted code without any truncation.</p>
 
-<h2>Performance Tips: Model Size and Hardware Trade-Offs</h2>
-<p>Choosing the right model size for your hardware is critical for a good experience. Here is a practical guide:</p>
+<h2>Choosing the Right Model Size for Your Hardware</h2>
+<p>Getting this wrong is the number one reason developers try Gemma 4, have a bad experience, and give up. The right model depends on what you are using it for and what your machine can handle:</p>
 <table>
   <thead>
     <tr>
@@ -296,38 +388,38 @@
     <tr>
       <td>Gemma 4 4B</td>
       <td>4GB</td>
-      <td>Very fast (100-300ms)</td>
+      <td>Very fast (100–300ms)</td>
       <td>Basic — simple completions</td>
-      <td>Low-end GPUs, CPU-only, quick suggestions</td>
+      <td>Low-end GPUs, CPU-only machines, quick inline suggestions</td>
     </tr>
     <tr>
       <td>Gemma 4 12B</td>
       <td>8GB</td>
-      <td>Fast (300-800ms)</td>
-      <td>Good — handles most tasks</td>
-      <td>Most developers, best balance</td>
+      <td>Fast (300–800ms)</td>
+      <td>Good — handles most tasks well</td>
+      <td>Most developers — the best all-round choice</td>
     </tr>
     <tr>
       <td>Gemma 4 27B</td>
       <td>16GB</td>
-      <td>Moderate (800ms-2s)</td>
-      <td>Very good — complex logic</td>
-      <td>Chat workflows, complex code generation</td>
+      <td>Moderate (800ms–2s)</td>
+      <td>Very good — complex logic and reasoning</td>
+      <td>Chat workflows, architecture questions, code reviews</td>
     </tr>
     <tr>
       <td>Gemma 4 31B</td>
       <td>24GB</td>
-      <td>Slower (1.5-3s)</td>
-      <td>Best — strongest reasoning</td>
-      <td>Hard refactors, architecture questions, long explanations</td>
+      <td>Slower (1.5–3s)</td>
+      <td>Best — strongest reasoning ability</td>
+      <td>Difficult refactors, detailed explanations, less common languages</td>
     </tr>
   </tbody>
 </table>
-<p>If you have an NVIDIA RTX 3060 (12GB VRAM), the 12B model runs comfortably with room to spare. The RTX 4070 (12GB) handles it faster due to the newer architecture. Apple Silicon Macs with M1 Pro/Max (16GB+) run the 12B model smoothly and can handle the 27B model with slightly longer response times.</p>
-<p>A practical approach I recommend: run the 12B model for autocomplete and keep the 27B model available for chat tasks. Most extensions let you configure different models for different features, as shown in the Continue configuration above.</p>
+<p>Concrete examples: an NVIDIA RTX 3060 (12GB VRAM) runs the 12B model with room to spare. The RTX 4070 (12GB) handles it even faster thanks to the newer Ada Lovelace architecture. Apple Silicon Macs with M1 Pro/Max and 16GB unified memory run the 12B model smoothly and can stretch to the 27B with slightly longer response times.</p>
+<p>My recommendation: run the 12B model for autocomplete and keep the 27B loaded for chat tasks. Continue lets you configure different models for different features, so you can get the speed of the smaller model where it matters and the quality of the larger one where you need it.</p>
 
-<h2>Gemma 4 vs GitHub Copilot for Coding: Honest Comparison</h2>
-<p>This is the comparison most developers want. Here is an honest assessment based on several weeks of using both side by side.</p>
+<h2>Gemma 4 vs GitHub Copilot: What I Actually Found After a Month</h2>
+<p>This is the comparison that matters, so here is the honest version based on running both tools side by side on the same projects for several weeks.</p>
 <table>
   <thead>
     <tr>
@@ -339,87 +431,90 @@
   <tbody>
     <tr>
       <td>Inline autocomplete quality</td>
-      <td>Good for common patterns</td>
-      <td>Excellent across all contexts</td>
+      <td>Good for common patterns, occasionally misses context</td>
+      <td>Excellent — reads your project structure</td>
     </tr>
     <tr>
       <td>Autocomplete speed</td>
-      <td>Hardware-dependent (300ms-2s)</td>
-      <td>Consistently fast (100-300ms)</td>
+      <td>Depends on your GPU (300ms–2s)</td>
+      <td>Consistently fast (100–300ms)</td>
     </tr>
     <tr>
       <td>Project context awareness</td>
-      <td>Limited to active file + prompt</td>
-      <td>Indexes workspace and open files</td>
+      <td>Limited to active file and whatever you paste into chat</td>
+      <td>Indexes your workspace and open tabs</td>
     </tr>
     <tr>
-      <td>Chat / code explanation</td>
-      <td>Good (27B model)</td>
-      <td>Very good (Copilot Chat)</td>
+      <td>Chat and code explanation</td>
+      <td>Strong with the 27B model</td>
+      <td>Very strong via Copilot Chat</td>
     </tr>
     <tr>
       <td>Test generation</td>
-      <td>Adequate — covers main paths</td>
-      <td>Good — better edge case coverage</td>
+      <td>Covers main paths, sometimes misses edge cases</td>
+      <td>Better edge case coverage overall</td>
     </tr>
     <tr>
-      <td>Language support breadth</td>
-      <td>Strong in popular languages</td>
-      <td>Strong across all languages</td>
+      <td>Language support</td>
+      <td>Strong in popular languages (Python, JS, TS, Go, Dart)</td>
+      <td>Strong across almost everything, including niche languages</td>
     </tr>
     <tr>
       <td>Privacy</td>
-      <td>Fully local — code never transmitted</td>
-      <td>Cloud-based — code sent to GitHub servers</td>
+      <td>Fully local — your code never leaves your machine</td>
+      <td>Cloud-based — code sent to GitHub/Microsoft servers</td>
     </tr>
     <tr>
       <td>Offline availability</td>
-      <td>Yes</td>
-      <td>No</td>
+      <td>Yes — works without any internet connection</td>
+      <td>No — requires an active connection</td>
     </tr>
     <tr>
       <td>Cost</td>
-      <td>Free</td>
+      <td>Free forever</td>
       <td>$19/month individual, $39/month business</td>
     </tr>
     <tr>
       <td>Setup effort</td>
-      <td>Moderate (install Ollama, pull model, configure extension)</td>
-      <td>Minimal (install extension, sign in)</td>
+      <td>Moderate — install Ollama, pull model, configure extension</td>
+      <td>Minimal — install extension, sign in with GitHub</td>
     </tr>
   </tbody>
 </table>
 
-<h2>When Local Gemma 4 Makes Sense vs When Copilot Is Worth the Subscription</h2>
-<p><strong>Choose Gemma 4</strong> when:</p>
+<h2>Who Should Use Gemma 4 and Who Should Stick With Copilot</h2>
+<p><strong>Gemma 4 is the right choice when:</strong></p>
 <ul>
-  <li>Your organisation prohibits sending code to external servers. This is common in finance, defence, healthcare, and any company with strict IP policies. Gemma 4 is the only option that keeps everything local.</li>
-  <li>You work offline frequently — on flights, in restricted network environments, or in locations with unreliable internet.</li>
-  <li>You are a student or early-career developer and $19/month is a meaningful expense. Gemma 4 gives you a capable coding assistant for free.</li>
-  <li>You want to learn about AI infrastructure. Setting up and configuring local models is a valuable skill that translates directly to deploying AI in production environments.</li>
-  <li>You primarily need chat-based assistance (explain, refactor, debug) rather than inline completions. The quality gap between Gemma 4 and Copilot is smaller for chat tasks than for autocomplete.</li>
+  <li>Your company prohibits sending code to external servers. This is standard in finance, defence, healthcare, and any organisation with strict IP or compliance policies. Gemma 4 is the only serious option that keeps everything on-premises.</li>
+  <li>You regularly code offline — on flights, in restricted networks, or in areas with patchy internet. Gemma 4 works identically with no connection at all.</li>
+  <li>You are a student, freelancer, or early-career developer who would rather not spend $228 a year on a coding assistant. Gemma 4 gives you a capable alternative at zero ongoing cost.</li>
+  <li>You want hands-on experience with local AI infrastructure. Running models locally is an increasingly relevant skill in production engineering, and this is a low-stakes way to build that expertise.</li>
+  <li>Your primary use case is chat-based — explaining code, refactoring, debugging. The quality gap between Gemma 4 and Copilot is much narrower for these tasks than it is for inline autocomplete.</li>
 </ul>
-<p><strong>Choose Copilot</strong> when:</p>
+<p><strong>Copilot is still worth the subscription when:</strong></p>
 <ul>
-  <li>Inline autocomplete speed and quality are your top priority. Copilot is still meaningfully better at predicting what you want to type next, especially in complex codebases.</li>
-  <li>You work across many languages and frameworks. Copilot's training data and architecture give it broader coverage of less common languages and newer frameworks.</li>
-  <li>You value zero-configuration setup. Copilot works out of the box with a single sign-in. No GPU requirements, no model downloads, no configuration files.</li>
-  <li>Your team or company already has a Copilot Business licence. At that point, the cost is covered and Copilot's team features (organisation-wide policy controls, audit logs) add value.</li>
+  <li>Fast, accurate inline autocomplete is your top priority. Copilot is still meaningfully better at predicting your next line of code, especially in large codebases with complex interdependencies.</li>
+  <li>You work across many languages and frameworks, including newer or less common ones. Copilot's cloud-based models have broader training coverage.</li>
+  <li>You want a zero-configuration experience. Install the extension, sign in, done. No GPU requirements, no model downloads, no troubleshooting driver issues.</li>
+  <li>Your team already has a Copilot Business or Enterprise licence. At that point, the cost is covered and the team-level features (audit logs, policy controls, organisational context) add genuine value.</li>
 </ul>
-<p>For a broader perspective on how Gemma 4 compares to paid AI tools across all categories, see my <a href="/blog/gemma-4-vs-chatgpt-vs-claude">full AI model comparison for 2026</a>. And for specific use cases where Gemma 4 outperforms paid alternatives, see <a href="/blog/gemma-4-vs-paid-ai-models">5 real-world tasks where Gemma 4 beats paid models</a>.</p>
+<p>For a wider comparison across all AI tools, see my <a href="/blog/gemma-4-vs-chatgpt-vs-claude">full AI model comparison for 2026</a>. And for specific tasks where the free model outperforms paid alternatives, read <a href="/blog/gemma-4-vs-paid-ai-models">5 real-world tasks where Gemma 4 beats paid models</a>.</p>
 
 <h2>Frequently Asked Questions</h2>
 <h3>What hardware do I need to run Gemma 4 as a coding assistant in VS Code?</h3>
-<p>For comfortable inline code completions, you need a GPU with at least 8GB VRAM to run the Gemma 4 12B model. The 27B model requires 16GB+ VRAM for reasonable speed. If you only have a CPU, the 4B model works but completions will be noticeably slower (2-5 seconds per suggestion instead of under 1 second). For most developers, a mid-range NVIDIA GPU like the RTX 3060 (12GB) or RTX 4060 Ti (16GB) provides a good experience. Apple Silicon Macs with 16GB unified memory also handle the 12B model well through Ollama.</p>
+<p>A GPU with 8GB of VRAM gives you a comfortable experience with the Gemma 4 12B model — that covers cards like the RTX 3060, RTX 4060 Ti, or RTX 4070. For the more capable 27B model, you need 16GB or more. If you are on CPU only, the 4B model works but completions take 2–5 seconds instead of under a second, which makes inline autocomplete frustrating. Apple Silicon Macs with 16GB unified memory handle the 12B model well through Ollama, and 24GB opens up the 27B.</p>
 
 <h3>Is Gemma 4 in VS Code as good as GitHub Copilot?</h3>
-<p>For inline code completions, GitHub Copilot is still ahead — its suggestions are faster, more contextually aware across your entire project, and handle a wider range of languages and frameworks. Where Gemma 4 closes the gap is in chat-based coding workflows (explaining code, refactoring, generating tests) where the quality difference is smaller. Gemma 4's advantages are cost (completely free), privacy (code never leaves your machine), and offline availability. For developers who cannot use cloud-based tools due to company policy or who want to avoid the $19/month Copilot subscription, Gemma 4 is a genuinely capable alternative.</p>
+<p>Not quite for inline autocomplete — Copilot's suggestions are faster, more contextually aware across your workspace, and handle a wider range of languages. Where Gemma 4 closes the gap significantly is in chat-based workflows: explaining code, refactoring, debugging from stack traces, and generating test scaffolds. The real advantages of Gemma 4 are privacy (your code stays on your machine), cost (completely free), and offline access. For developers whose company policies prohibit cloud-based tools or who want a capable assistant without the subscription, Gemma 4 is a genuinely strong option.</p>
 
 <h3>Can I use Gemma 4 and GitHub Copilot together in VS Code?</h3>
-<p>Yes, you can run both simultaneously. A practical setup is to use Copilot for inline tab-completions (where it excels) and Gemma 4 through Continue for chat-based tasks like code explanation, refactoring, and test generation (where keeping your code local matters). This gives you the best of both worlds — fast cloud-powered completions for routine coding and a private local model for when you are working with sensitive codebases or need detailed architectural discussions.</p>
+<p>Absolutely, and this is actually my recommended setup for developers who have access to both. Use Copilot for inline tab-completions where speed and project context matter most, and use Gemma 4 through Continue for chat-based tasks where you want your code to stay local — explaining sensitive codebases, refactoring proprietary algorithms, having architectural discussions you would rather not send to a cloud API. You get the best of both worlds without them interfering with each other.</p>
 
 <h3>Which Gemma 4 model size is best for coding in VS Code?</h3>
-<p>The 12B model offers the best balance for most developers. It is fast enough for interactive use (sub-second completions on a decent GPU), handles most programming languages well, and produces good quality code for standard tasks. The 27B model produces better code for complex logic, architectural decisions, and less common languages, but it is slower and requires more VRAM. The 4B model is usable for simple completions but struggles with anything requiring multi-step reasoning. Start with 12B and upgrade to 27B if you find yourself hitting quality limitations.</p>
+<p>Start with the 12B model — it gives you sub-second completions on a decent GPU, handles Python, JavaScript, TypeScript, Dart, and most popular languages well, and produces solid code for everyday tasks. Move up to the 27B if you find yourself hitting quality limitations on complex logic, architecture questions, or less common languages. The 4B model is fine for simple completions and quick chat questions but noticeably weaker on anything requiring multi-step reasoning. The 31B is only worth it if you have 24GB+ VRAM and primarily use the chat interface for deep code analysis.</p>
+
+<h3>Can I use Gemma 4 from the terminal to analyse my project files without VS Code?</h3>
+<p>Yes. If Ollama is installed and running, you can pipe any file directly to Gemma 4 from PowerShell or any terminal. For example: <code>Get-Content .\app.py -Raw | ollama run gemma4 "Explain this code and find bugs"</code>. You can also concatenate multiple files, set system prompts with <code>--system</code>, or use a dedicated tool like Aider (<code>pip install aider-chat</code>) for full repo-aware AI pair programming from the command line. No VS Code or any editor extension required.</p>
 
 <h2>Sources and Further Reading</h2>
 <ul>
@@ -427,6 +522,7 @@
   <li><a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a></li>
   <li><a href="https://continue.dev" target="_blank" rel="noopener">Continue — open-source AI code assistant</a></li>
   <li><a href="https://github.com/features/copilot" target="_blank" rel="noopener">GitHub Copilot</a></li>
+  <li><a href="https://aider.chat" target="_blank" rel="noopener">Aider — AI pair programming in your terminal</a></li>
 </ul>
 
 <h2>Related Posts</h2>
