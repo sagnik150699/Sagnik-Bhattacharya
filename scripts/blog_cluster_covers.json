@@ -1348,5 +1348,69 @@
     "cue": "talking-head portrait frames, audio waveform alignment, and character consistency visuals",
     "category": "Video",
     "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the Seedance 2.0 lip-sync and talking-head guide, with portrait and audio waveform visuals."
+  },
+  {
+    "slug": "excel-ai-guide",
+    "title": "The Complete Guide to Excel with AI in 2026",
+    "tag": "AI + Excel",
+    "hook": "Compare the AI tools, prompts, and review habits that make Excel work faster.",
+    "cta": "Use AI In Excel",
+    "keywords": [
+      "AI",
+      "Excel",
+      "Prompts"
+    ],
+    "cue": "Excel spreadsheet, AI chat interface, and formula visuals",
+    "category": "AI + Excel",
+    "coverTag": "AI + Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the Complete Guide to Excel with AI in 2026, with Excel spreadsheet, AI chat interface, and formula visuals."
+  },
+  {
+    "slug": "excel-formulas-guide",
+    "title": "Complete Excel Formulas Guide: From VLOOKUP to LAMBDA",
+    "tag": "Excel",
+    "hook": "Learn the formulas, lookup patterns, and dynamic arrays that make workbooks reliable.",
+    "cta": "Master Excel Formulas",
+    "keywords": [
+      "VLOOKUP",
+      "LAMBDA",
+      "Arrays"
+    ],
+    "cue": "formula reference visuals and dynamic array examples",
+    "category": "Excel",
+    "coverTag": "Excel",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the Complete Excel Formulas Guide from VLOOKUP to LAMBDA, with formula reference visuals and dynamic array examples."
+  },
+  {
+    "slug": "flutter-guide",
+    "title": "Flutter Development Guide 2026: Architecture, State, Testing",
+    "tag": "Flutter",
+    "hook": "Build production Flutter apps with clearer architecture, state, testing, and performance choices.",
+    "cta": "Build Flutter Better",
+    "keywords": [
+      "Architecture",
+      "State",
+      "Testing"
+    ],
+    "cue": "Flutter widget trees, state management diagrams, and architecture visuals",
+    "category": "Flutter",
+    "coverTag": "Flutter",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the Flutter Development Guide 2026, with Flutter widget trees, state management diagrams, and architecture visuals."
+  },
+  {
+    "slug": "seedance-guide",
+    "title": "Complete Seedance 2.0 Guide: Prompts, Settings, Video Generation",
+    "tag": "Video",
+    "hook": "Prompt and tune Seedance 2.0 clips with cleaner settings, camera movement, and comparison workflows.",
+    "cta": "Create AI Video Better",
+    "keywords": [
+      "Seedance 2.0",
+      "Prompts",
+      "Settings"
+    ],
+    "cue": "video generation interface, prompt examples, and AI video creation visuals",
+    "category": "Video",
+    "coverTag": "Seedance 2.0",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the Complete Seedance 2.0 Guide, with video generation interface, prompt examples, and AI video creation visuals."
   }
 ]
