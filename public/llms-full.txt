@@ -111,7 +111,6 @@ These tutorials cover MCP, agents, RAG, tool calling, prompt testing, cost optim
 - [How to Evaluate AI Outputs in Real Apps](https://sagnikbhattacharya.com/blog/evaluate-ai-outputs-real-apps)
 - [How to Improve RAG Answers With Reranking](https://sagnikbhattacharya.com/blog/improve-rag-reranking)
 - [How to Reduce Hallucinations in Tool-Based AI Apps](https://sagnikbhattacharya.com/blog/reduce-hallucinations-tool-ai)
-- [How to Run Gemma 4 on Your Own Machine](https://sagnikbhattacharya.com/blog/run-gemma-4-own-machine)
 - [How to Test AI Prompts Before Shipping](https://sagnikbhattacharya.com/blog/test-ai-prompts-before-shipping)
 - [How to Use Background Jobs in AI Apps for Long Tasks](https://sagnikbhattacharya.com/blog/background-jobs-ai-apps)
 - [How to Use Gemma 4 for Local AI Workflows](https://sagnikbhattacharya.com/blog/gemma-4-local-ai-workflows)
@@ -158,7 +157,6 @@ Practical tutorials on MCP, AI agents, RAG, tool calling, prompt testing, and co
 - [How to Use Background Jobs in AI Apps for Long Tasks](https://sagnikbhattacharya.com/blog/background-jobs-ai-apps) — Async AI task handling
 - [How to Use Reasoning Summaries in Production AI Apps](https://sagnikbhattacharya.com/blog/reasoning-summaries-production-ai) — Reasoning transparency
 - [How to Use Gemma 4 for Local AI Workflows](https://sagnikbhattacharya.com/blog/gemma-4-local-ai-workflows) — Local AI automation
-- [How to Run Gemma 4 on Your Own Machine](https://sagnikbhattacharya.com/blog/run-gemma-4-own-machine) — Local model setup
 - [How to Use Local AI on Your Own Files](https://sagnikbhattacharya.com/blog/local-ai-own-files) — Private file processing
 - [How to Build a RAG App With Your Own Documents](https://sagnikbhattacharya.com/blog/build-rag-app-own-documents) — RAG tutorial
 - [How to Improve RAG Answers With Reranking](https://sagnikbhattacharya.com/blog/improve-rag-reranking) — RAG quality improvement
@@ -189,7 +187,6 @@ These tutorials cover Seedance 2.0 prompting, image-to-video workflows, consiste
 - [How to Use Seedance 2.0 for YouTube Shorts Creation](https://sagnikbhattacharya.com/blog/seedance-youtube-shorts)
 - [How to Use Seedance 2.0 in Dreamina Step by Step](https://sagnikbhattacharya.com/blog/seedance-dreamina-guide)
 - [How to Use Seedance 2.0 With Audio Prompts Step by Step](https://sagnikbhattacharya.com/blog/seedance-audio-prompts)
-- [How to Use Seedance 2.0 With Reference Images for Consistent Characters](https://sagnikbhattacharya.com/blog/seedance-reference-images-characters)
 - [How to Write Better Prompts for Seedance 2.0](https://sagnikbhattacharya.com/blog/better-prompts-seedance)
 - [Seedance 2.0 vs Kling for Realistic Motion](https://sagnikbhattacharya.com/blog/seedance-vs-kling)
 - [Seedance 2.0 vs Sora 2 for Prompt Control](https://sagnikbhattacharya.com/blog/seedance-vs-sora-2)

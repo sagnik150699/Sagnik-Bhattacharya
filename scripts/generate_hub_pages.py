@@ -200,7 +200,7 @@ HUBS = {
                 ("seedance-cinematic-camera-movement", "How to Use Seedance 2.0 for Cinematic Camera Movement Prompts", "Camera movement prompt patterns."),
                 ("seedance-audio-prompts", "How to Use Seedance 2.0 With Audio Prompts Step by Step", "Audio-driven video generation."),
                 ("seedance-image-to-video", "How to Use Seedance 2.0 for Image to Video Prompts", "Image-to-video workflow."),
-                ("seedance-reference-images-characters", "How to Use Seedance 2.0 With Reference Images for Consistent Characters", "Reference image workflow for character consistency."),
+                ("consistent-characters-seedance", "How to Use Seedance 2.0 With Reference Images for Consistent Characters", "Reference image workflow for character consistency."),
             ]),
             ("Use Cases", [
                 ("seedance-marketing-videos", "How to Use Seedance 2.0 for AI Marketing Videos", "Marketing-specific video generation patterns."),

@@ -1,607 +1,597 @@
 [
-    {
-        "Slug":  "add-flutter-to-existing-app",
-        "Title":  "Add Flutter to an Existing App: Mobile and Web Integration Patterns",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for adding Flutter to an existing app, with integration and migration visuals."
-    },
-    {
-        "Slug":  "advanced-formulas",
-        "Title":  "15 Excel Formulas That Save Hours of Manual Work (With Examples)",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for 15 Advanced Excel Formulas Every Professional Should Know, with formula blocks, dynamic arrays, and advanced spreadsheet logic."
-    },
-    {
-        "Slug":  "agent-mode-in-excel",
-        "Title":  "Agent Mode in Excel: What It Does, What It Can’t, and Who Should Use It",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Agent Mode in Excel, with workbook action panels and supervised AI workflow cues."
-    },
-    {
-        "Slug":  "ai-forecasting-model-excel",
-        "Title":  "Build a Forecasting Model in Excel With AI Assistance Step by Step",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for building a forecasting model in Excel with AI assistance, with forecast and scenario visuals."
-    },
-    {
-        "Slug":  "ai-power-query-m-code",
-        "Title":  "Use AI to Write and Fix Power Query M Code for Excel",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using AI to write and fix Power Query M code in Excel, with query-step visuals."
-    },
-    {
-        "Slug":  "amortization-schedule-excel",
-        "Title":  "How to Create an Amortization Schedule in Excel With Extra Payment Scenarios",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for creating an amortisation schedule in Excel, with loan and paydown visuals."
-    },
-    {
-        "Slug":  "analyst-vs-agent-mode-vs-copilot-chat",
-        "Title":  "Analyst vs Agent Mode vs Copilot Chat: Which Excel AI Workflow Fits Best?",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Analyst vs Agent Mode vs Copilot Chat in Excel, with AI workflow comparison visuals."
-    },
-    {
-        "Slug":  "attendance-tracker-excel",
-        "Title":  "How to Create an Attendance Tracker in Excel for Teams, Schools, or Training",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for creating an attendance tracker in Excel, with roster and attendance-grid visuals."
-    },
-    {
-        "Slug":  "audit-formulas-excel",
-        "Title":  "How to Audit Formulas in Excel: Trace Precedents, Dependents, and Error Sources",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for auditing formulas in Excel, with dependency-trace and error-source visuals."
-    },
-    {
-        "Slug":  "calendar-in-excel-automatic",
-        "Title":  "How to Create a Calendar in Excel That Updates Automatically Every Month",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for creating an automatic calendar in Excel, with date-grid and planning visuals."
-    },
-    {
-        "Slug":  "charts-visualisations",
-        "Title":  "How to Make Professional Charts in Excel (Step-by-Step Guide)",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Creating Professional Charts and Visualisations in Excel, with bold charts, trend lines, and presentation-ready visuals."
-    },
-    {
-        "Slug":  "chatgpt-excel-guide",
-        "Title":  "How to Use ChatGPT to Write Excel Formulas (With Real Examples)",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use ChatGPT for Excel Formulas and Analysis, with AI chat interface, spreadsheet grids, and formula visuals."
-    },
-    {
-        "Slug":  "chatgpt-vs-claude-vs-copilot-vs-gemini-excel",
-        "Title":  "ChatGPT vs Claude vs Copilot vs Gemini for Excel in 2026",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for ChatGPT vs Claude vs Copilot vs Gemini for Excel, with AI comparison visuals."
-    },
-    {
-        "Slug":  "choosecols-chooserows-take-drop-excel",
-        "Title":  "CHOOSECOLS, CHOOSEROWS, TAKE, and DROP in Excel: Slice Data Faster",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for CHOOSECOLS, CHOOSEROWS, TAKE, and DROP in Excel, with sliced array and report-grid visuals."
-    },
-    {
-        "Slug":  "claude-agent-mode-excel",
-        "Title":  "Use Claude With Agent Mode in Excel: Setup, Limits, and Best Workflows",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Claude with Agent Mode in Excel, with reasoning panels and workbook analysis visuals."
-    },
-    {
-        "Slug":  "claude-ai-excel-formulas",
-        "Title":  "How to Use Claude AI to Write Excel Formulas Instantly",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Claude AI to Write Excel Formulas Instantly, with AI prompt styling, formulas, and spreadsheet visuals."
-    },
-    {
-        "Slug":  "claude-ai-excel-macros",
-        "Title":  "How to Use Claude AI to Write Excel Macros and VBA Code",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Using Claude AI to Generate Excel Macros and VBA, with macro automation cues, code blocks, and workflow visuals."
-    },
-    {
-        "Slug":  "claude-debug-formulas",
-        "Title":  "How to Fix Excel Formula Errors with Claude AI (Fast)",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Using Claude AI to Debug and Fix Excel Formulas, with formula debugging cues, alerts, and clean fixes."
-    },
-    {
-        "Slug":  "clean-messy-data",
-        "Title":  "How to Clean Messy Data in Excel: Step-by-Step Guide",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Clean Messy Data in Excel Fast, with messy spreadsheet elements transforming into organised rows."
-    },
-    {
-        "Slug":  "conditional-formatting-tips",
-        "Title":  "How to Highlight Rows Based on Cell Value in Excel",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Conditional Formatting Tips and Tricks, with highlighted cells, colour scales, and formatting triggers."
-    },
-    {
-        "Slug":  "copilot-automate-tasks",
-        "Title":  "How to Automate Excel Tasks with Microsoft Copilot",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Automating Repetitive Excel Tasks with Copilot, with automation loops, task cards, and spreadsheet workflow elements."
-    },
-    {
-        "Slug":  "copilot-data-analysis",
-        "Title":  "How to Use Microsoft Copilot for Data Analysis in Excel",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Copilot for Data Analysis — A Practical Guide, with data analysis cards, charts, and insight panels."
-    },
-    {
-        "Slug":  "copilot-excel-python-analysis",
-        "Title":  "Copilot in Excel With Python: Forecasting, Risk Analysis, and Deeper Reasoning",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Copilot in Excel with Python, with analysis and forecasting visuals."
-    },
-    {
-        "Slug":  "copilot-function-excel",
-        "Title":  "COPILOT Function in Excel: Syntax, Use Cases, Limits, and Risks",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for the COPILOT function in Excel, with AI-filled cells and review-focused spreadsheet visuals."
-    },
-    {
-        "Slug":  "create-charts-with-copilot-excel",
-        "Title":  "Create Charts With Copilot in Excel: What Works, What Needs Manual Cleanup",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for creating charts with Copilot in Excel, with chart-draft and review visuals."
-    },
-    {
-        "Slug":  "create-lookups-with-copilot-excel",
-        "Title":  "Create Lookups With Copilot in Excel: When It Writes XLOOKUP Well and When It Doesn’t",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for creating lookups with Copilot in Excel, with XLOOKUP and review visuals."
-    },
-    {
-        "Slug":  "create-with-ai-flutter",
-        "Title":  "Create With AI in Flutter: Gemini CLI, MCP, and the AI Toolkit Explained",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for creating with AI in Flutter, with tooling nodes and production-minded AI workflow visuals."
-    },
-    {
-        "Slug":  "data-validation",
-        "Title":  "How to Add a Dropdown List in Excel Using Data Validation",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Data Validation — Prevent Errors Before They Happen, with validation controls, dropdowns, and error-prevention signals."
-    },
-    {
-        "Slug":  "dynamic-dashboards",
-        "Title":  "How to Build an Interactive Dashboard in Excel (No VBA)",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Creating Dynamic Dashboards in Excel, with dashboard cards, KPIs, and interactive chart elements."
-    },
-    {
-        "Slug":  "excel-ai-for-accountants",
-        "Title":  "Excel + AI for Accountants: Reconciliations, Variance Reviews, and Close Prep",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel and AI for accountants, with reconciliation and close-prep visuals."
-    },
-    {
-        "Slug":  "excel-ai-for-hr-teams",
-        "Title":  "Excel + AI for HR Teams: Hiring Trackers, Attrition Analysis, and Reporting",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel and AI for HR teams, with hiring and reporting visuals."
-    },
-    {
-        "Slug":  "excel-ai-for-sales-ops",
-        "Title":  "Excel + AI for Sales Ops: Pipeline Cleanup, Forecasts, and Territory Reporting",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel and AI for Sales Ops, with pipeline and forecast visuals."
-    },
-    {
-        "Slug":  "excel-ai-prompts",
-        "Title":  "60 AI Prompts for Excel That Actually Work (Copy, Paste, Get Results)",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for 60 AI Prompts for Excel That Actually Work, with prompt cards, formula visuals, and spreadsheet grids."
-    },
-    {
-        "Slug":  "excel-tables-best-practices",
-        "Title":  "Excel Tables Best Practices: Structured References, Growth, and Cleaner Models",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel tables best practices, with clean table and structured-reference visuals."
-    },
-    {
-        "Slug":  "excel-vs-google-sheets",
-        "Title":  "Excel vs Google Sheets: Which Is Better for You in 2026?",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel vs Google Sheets — Which Should You Use in 2026, with side-by-side spreadsheet comparison panels and decision cues."
-    },
-    {
-        "Slug":  "financial-modelling",
-        "Title":  "How to Build a Financial Model in Excel From Scratch",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel for Financial Modelling — A Beginner\u0026#39;s Guide, with forecast visuals, tables, and financial model elements."
-    },
-    {
-        "Slug":  "fix-spill-errors-excel",
-        "Title":  "How to Fix #SPILL! Errors in Excel and Prevent Them in Dynamic Array Models",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for fixing #SPILL! errors in Excel, with dynamic-array troubleshooting visuals."
-    },
-    {
-        "Slug":  "flutter-app-architecture-2026",
-        "Title":  "Flutter App Architecture in 2026: A Practical Feature-First Guide",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter app architecture, with feature-first app structure visuals."
-    },
-    {
-        "Slug":  "flutter-form-validation-best-practices",
-        "Title":  "Flutter Form Validation Best Practices for Production Apps",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter form validation best practices, with mobile form and validation-state visuals."
-    },
-    {
-        "Slug":  "flutter-performance-2026",
-        "Title":  "Flutter Performance in 2026: Impeller, DevTools, and Rebuild Reduction",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter performance in 2026, with profiling and rebuild visuals."
-    },
-    {
-        "Slug":  "flutter-state-management",
-        "Title":  "Flutter State Management in 2026: Provider vs Riverpod vs BLoC",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter State Management in 2026 — Provider vs Riverpod vs BLoC, with comparison cards, a dark grid background, and choice-focused messaging."
-    },
-    {
-        "Slug":  "flutter-testing-strategy-2026",
-        "Title":  "Flutter Testing Strategy in 2026: Unit, Widget, Integration, and Goldens",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter testing strategy in 2026, with testing-layer visuals."
-    },
-    {
-        "Slug":  "flutter-vs-react-native",
-        "Title":  "Flutter vs React Native in 2026: Which Should You Choose?",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter vs React Native in 2026 — Which One Should You Pick?, with Flutter and React Native logos, mobile UI cards, and a framework comparison visual."
-    },
-    {
-        "Slug":  "flutter-web-skwasm-vs-canvaskit",
-        "Title":  "Flutter Web in 2026: skwasm vs CanvasKit vs WebAssembly Builds",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter web renderers, with skwasm, CanvasKit, and web performance comparison visuals."
-    },
-    {
-        "Slug":  "flutter-widget-previewer",
-        "Title":  "Flutter Widget Previewer: Real-Time UI Iteration Without Running the Full App",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter Widget Previewer, with isolated UI previews and rapid-iteration visuals."
-    },
-    {
-        "Slug":  "format-data-for-copilot-excel",
-        "Title":  "Format Data for Copilot in Excel: Tables, Supported Ranges, and Common Failures",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for formatting data for Copilot in Excel, with clean table and workbook structure visuals."
-    },
-    {
-        "Slug":  "gantt-chart-excel",
-        "Title":  "How to Make a Gantt Chart in Excel for Real Project Planning",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for making a Gantt chart in Excel, with project-timeline visuals."
-    },
-    {
-        "Slug":  "gemini-ai-excel",
-        "Title":  "How to Use Google Gemini to Write Excel Formulas for Free",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Google Gemini for Excel Formulas and Data, with AI prompt styling and spreadsheet visuals."
-    },
-    {
-        "Slug":  "generate-formula-columns-copilot-excel",
-        "Title":  "Generate Formula Columns With Copilot in Excel: Best Prompts and Review Steps",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for generating formula columns with Copilot in Excel, with prompt and column-fill visuals."
-    },
-    {
-        "Slug":  "generate-single-cell-formulas-copilot-excel",
-        "Title":  "Generate Single-Cell Formulas With Copilot in Excel: Fast Wins and Failure Modes",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for generating single-cell formulas with Copilot in Excel, with prompt and formula visuals."
-    },
-    {
-        "Slug":  "getting-started-copilot-excel",
-        "Title":  "How to Set Up and Use Microsoft Copilot in Excel (2026)",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Getting Started with Microsoft Copilot in Excel, with AI assistant styling, onboarding cues, and spreadsheet cards."
-    },
-    {
-        "Slug":  "go-router-flutter-deep-linking",
-        "Title":  "go_router in Flutter: Deep Linking, Nested Navigation, and Web URLs",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for go_router in Flutter, with nested routes and deep-link visuals."
-    },
-    {
-        "Slug":  "groupby-function-excel",
-        "Title":  "GROUPBY Function in Excel: Formula-Based Summaries Without a Pivot Table",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for the GROUPBY function in Excel, with spill summaries and grouped reporting visuals."
-    },
-    {
-        "Slug":  "groupby-vs-pivottable-excel",
-        "Title":  "GROUPBY vs PivotTable in Excel: When Formula Summaries Beat the Ribbon",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for GROUPBY vs PivotTable in Excel, with formula summaries and comparison visuals."
-    },
-    {
-        "Slug":  "index-match-guide",
-        "Title":  "How to Use INDEX MATCH in Excel with Multiple Criteria",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for INDEX-MATCH — The Superior Alternative to VLOOKUP, with lookup references, match arrows, and formula comparison cues."
-    },
-    {
-        "Slug":  "inventory-tracker-excel",
-        "Title":  "How to Build an Inventory Tracker in Excel That Stays Maintainable",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for building an inventory tracker in Excel, with stock and movement visuals."
-    },
-    {
-        "Slug":  "keyboard-shortcuts",
-        "Title":  "30 Excel Keyboard Shortcuts That Save Hours Every Week",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for 30 Excel Keyboard Shortcuts That Save Hours, with keyboard cues, fast actions, and productivity shortcuts."
-    },
-    {
-        "Slug":  "let-and-lambda-excel",
-        "Title":  "LET and LAMBDA in Excel: Turn Repeated Formulas Into Reusable Logic",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for LET and LAMBDA in Excel, with reusable formula logic visuals."
-    },
-    {
-        "Slug":  "map-charts-excel",
-        "Title":  "Map Charts in Excel: When to Use Them, Data Prep, and Common Mistakes",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for map charts in Excel, with geographic chart visuals."
-    },
-    {
-        "Slug":  "map-scan-reduce-excel",
-        "Title":  "MAP, SCAN, and REDUCE in Excel: Modern Array Logic for Power Users",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for MAP, SCAN, and REDUCE in Excel, with dynamic-array logic visuals."
-    },
-    {
-        "Slug":  "mastering-pivot-tables",
-        "Title":  "How to Create a Pivot Table in Excel Step by Step",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Mastering Pivot Tables — A Complete Guide, with pivot layouts, summary visuals, and grouped data blocks."
-    },
-    {
-        "Slug":  "monthly-budget-spreadsheet-excel",
-        "Title":  "How to Build a Monthly Budget Spreadsheet in Excel From Scratch",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for building a monthly budget spreadsheet in Excel, with budget and cashflow visuals."
-    },
-    {
-        "Slug":  "pivotby-function-excel",
-        "Title":  "PIVOTBY Function in Excel: Build Pivot-Style Reports With a Formula",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for the PIVOTBY function in Excel, with cross-tab report grids and formula-led summary visuals."
-    },
-    {
-        "Slug":  "power-pivot-guide",
-        "Title":  "How to Use Power Pivot in Excel to Analyse Millions of Rows",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Power Pivot — Handle Millions of Rows, with connected data tables, model relationships, and scale cues."
-    },
-    {
-        "Slug":  "power-query-guide",
-        "Title":  "How to Use Power Query in Excel to Automate Data Cleaning",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Power Query — Automate Data Transformation, with data pipelines, transformation steps, and import flow elements."
-    },
-    {
-        "Slug":  "project-tracker-excel",
-        "Title":  "How to Build a Project Tracker in Excel Without Turning It Into a Mess",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for building a project tracker in Excel, with task and status visuals."
-    },
-    {
-        "Slug":  "protect-excel-workbook-collaboration",
-        "Title":  "Protect an Excel Workbook Without Breaking Collaboration and Shared Editing",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for protecting an Excel workbook without breaking collaboration, with lock and collaboration visuals."
-    },
-    {
-        "Slug":  "py-function-excel",
-        "Title":  "PY Function in Excel: What It Is, How It Works, and When to Use It",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for the PY function in Excel, with Python-in-workbook visuals."
-    },
-    {
-        "Slug":  "python-in-excel-beginners",
-        "Title":  "Python in Excel for Beginners: The First 10 Things Worth Learning",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Python in Excel for beginners, with Python cell and analytics visuals."
-    },
-    {
-        "Slug":  "responsive-flutter-ui-all-screens",
-        "Title":  "Responsive Flutter UI for Mobile, Tablet, Desktop, and Web",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for responsive Flutter UI across mobile, tablet, desktop, and web."
-    },
-    {
-        "Slug":  "review-ai-generated-excel-formulas",
-        "Title":  "How to Review AI-Generated Excel Formulas Before You Trust Them",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for reviewing AI-generated Excel formulas, with formula-check and risk visuals."
-    },
-    {
-        "Slug":  "sales-pipeline-tracker-excel",
-        "Title":  "How to Build a Sales Pipeline Tracker in Excel for Small Teams",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for building a sales pipeline tracker in Excel, with deal-stage visuals."
-    },
-    {
-        "Slug":  "text-analysis-excel-with-ai",
-        "Title":  "Text Analysis in Excel With AI: Survey Comments, Reviews, and Open Feedback",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for text analysis in Excel with AI, with survey-comment and theme-tag visuals."
-    },
-    {
-        "Slug":  "vlookup-vs-xlookup",
-        "Title":  "VLOOKUP vs XLOOKUP: Differences and When to Use Each",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for VLOOKUP vs XLOOKUP — When to Use Which, with lookup comparisons, arrows, and side-by-side formula cues."
-    },
-    {
-        "Slug":  "what-if-analysis",
-        "Title":  "How to Use What-If Analysis in Excel: Goal Seek and Scenarios",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel What-If Analysis — Goal Seek, Scenarios and Data Tables, with spreadsheet visuals and scenario comparison elements."
-    },
-    {
-        "Slug":  "xmatch-function-excel",
-        "Title":  "XMATCH in Excel: Smarter Lookups, Reverse Searches, and Binary Search Use Cases",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for XMATCH in Excel, with reverse-search and lookup-position visuals."
-    },
-    {
-        "Slug":  "gemini-cli-vscode",
-        "Title":  "How to Use Gemini CLI in VS Code: Setup, IDE Integration, and Coding Workflows",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemini CLI in VS Code, with terminal AI workflow and IDE integration visuals."
-    },
-    {
-        "Slug":  "gemini-code-assist-android-studio",
-        "Title":  "How to Use Gemini Code Assist in Android Studio: Free AI Coding for Flutter and Kotlin",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemini Code Assist in Android Studio, with AI coding assistant and Flutter development visuals."
-    },
-    {
-        "Slug":  "cursor-flutter-development",
-        "Title":  "How to Use Cursor for Flutter Development: The Complete 2026 Guide",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Cursor IDE Flutter development, with AI-powered coding and widget generation visuals."
-    },
-    {
-        "Slug":  "windsurf-flutter-development",
-        "Title":  "How to Use Windsurf for Flutter Development: Free AI IDE Setup and Review",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Windsurf IDE Flutter development, with free AI coding and Cascade agent visuals."
-    },
-    {
-        "Slug":  "claude-code-android-studio",
-        "Title":  "How to Use Claude Code in Android Studio: AI-Powered Coding for Kotlin, Flutter, and Gradle Projects",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Claude Code in Android Studio, with terminal AI agent and Kotlin-Flutter-Gradle workflow visuals."
-    },
-    {
-        "Slug":  "opencode-vscode",
-        "Title":  "How to Use OpenCode in VS Code: The Free Open-Source AI Coding Alternative",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for OpenCode in VS Code, with open-source AI coding and multi-model terminal visuals."
-    },
-    {
-        "Slug":  "gemma-4-android-studio-ollama",
-        "Title":  "How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemma 4 in Android Studio with Ollama, with local AI coding and Kotlin-Flutter-Gradle visuals."
-    },
-    {
-        "Slug":  "copilot-agent-mode-vscode",
-        "Title":  "How to Use GitHub Copilot Agent Mode in VS Code: Autonomous Coding in 2026",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for GitHub Copilot Agent Mode in VS Code, with autonomous AI coding and multi-step workflow visuals."
-    },
-    {
-        "Slug":  "deepseek-vscode",
-        "Title":  "How to Use DeepSeek in VS Code: The $2/Month AI Coding Assistant Setup Guide",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for DeepSeek in VS Code, with budget AI coding assistant and API configuration visuals."
-    },
-    {
-        "Slug":  "gemini-cli-android-studio-flutter",
-        "Title":  "How to Use Gemini CLI in Android Studio for Flutter: MCP Server, Dart Integration, and Workflows",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemini CLI in Android Studio for Flutter, with MCP server and Dart integration visuals."
-    },
-    {
-        "Slug":  "claude-code-vscode",
-        "Title":  "How to Use Claude Code in VS Code: Setup, Extensions, and AI Coding Workflows",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for Claude Code in VS Code, with terminal AI agent and IDE extension visuals."
-    },
-    {
-        "Slug":  "background-jobs-ai-apps",
-        "Title":  "How to Use Background Jobs in AI Apps for Long Tasks",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using background jobs in AI apps for long tasks."
-    },
-    {
-        "Slug":  "better-prompts-seedance",
-        "Title":  "How to Write Better Prompts for Seedance 2.0",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for writing better prompts for Seedance 2.0."
-    },
-    {
-        "Slug":  "build-ai-agent-file-search-tools",
-        "Title":  "How to Build an AI Agent With File Search and Tools",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for building an AI agent with file search and tools."
-    },
-    {
-        "Slug":  "build-rag-app-own-documents",
-        "Title":  "How to Build a RAG App With Your Own Documents",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for building a RAG app with your own documents."
-    },
-    {
-        "Slug":  "choose-open-models-vs-api-models",
-        "Title":  "How to Choose Between Open Models and API Models",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for choosing between open models and API models."
-    },
-    {
-        "Slug":  "chunk-documents-rag",
-        "Title":  "How to Chunk Documents for Better RAG Results",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for chunking documents for better RAG results."
-    },
-    {
-        "Slug":  "consistent-characters-seedance",
-        "Title":  "How to Make Consistent Characters in Seedance 2.0",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for making consistent characters in Seedance 2.0."
-    },
-    {
-        "Slug":  "cut-ai-api-costs-caching-routing",
-        "Title":  "How to Cut AI API Costs With Caching and Routing",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for cutting AI API costs with caching and routing."
-    },
-    {
-        "Slug":  "evaluate-ai-outputs-real-apps",
-        "Title":  "How to Evaluate AI Outputs in Real Apps",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for evaluating AI outputs in real apps."
-    },
-    {
-        "Slug":  "fix-bad-motion-seedance",
-        "Title":  "How to Fix Bad Motion in Seedance 2.0 Videos",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for fixing bad motion in Seedance 2.0 videos."
-    },
-    {
-        "Slug":  "gemma-4-local-ai-workflows",
-        "Title":  "How to Use Gemma 4 for Local AI Workflows",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Gemma 4 for local AI workflows."
-    },
-    {
-        "Slug":  "improve-rag-reranking",
-        "Title":  "How to Improve RAG Answers With Reranking",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for improving RAG answers with reranking."
-    },
-    {
-        "Slug":  "local-ai-own-files",
-        "Title":  "How to Use Local AI on Your Own Files",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using local AI on your own files."
-    },
-    {
-        "Slug":  "mcp-chatgpt-tools",
-        "Title":  "How to Use MCP With ChatGPT and Your Own Tools",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using MCP with ChatGPT and custom tools."
-    },
-    {
-        "Slug":  "mcp-servers-ai-agents",
-        "Title":  "How to Use MCP Servers for AI Agents Step by Step",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for setting up MCP servers for AI agents."
-    },
-    {
-        "Slug":  "reasoning-summaries-production-ai",
-        "Title":  "How to Use Reasoning Summaries in Production AI Apps",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using reasoning summaries in production AI apps."
-    },
-    {
-        "Slug":  "reduce-hallucinations-tool-ai",
-        "Title":  "How to Reduce Hallucinations in Tool-Based AI Apps",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for reducing hallucinations in tool-based AI apps."
-    },
-    {
-        "Slug":  "remote-mcp-servers-ai-apps",
-        "Title":  "How to Use Remote MCP Servers in AI Apps",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for deploying remote MCP servers in AI apps."
-    },
-    {
-        "Slug":  "run-gemma-4-own-machine",
-        "Title":  "How to Run Gemma 4 on Your Own Machine",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for running Gemma 4 on your own machine."
-    },
-    {
-        "Slug":  "seedance-anime-video",
-        "Title":  "How to Use Seedance 2.0 for Anime Style Video Generation",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for anime style video generation."
-    },
-    {
-        "Slug":  "seedance-audio-prompts",
-        "Title":  "How to Use Seedance 2.0 With Audio Prompts Step by Step",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 with audio prompts step by step."
-    },
-    {
-        "Slug":  "seedance-cinematic-camera-movement",
-        "Title":  "How to Use Seedance 2.0 for Cinematic Camera Movement Prompts",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for cinematic camera movement prompts."
-    },
-    {
-        "Slug":  "seedance-dreamina-guide",
-        "Title":  "How to Use Seedance 2.0 in Dreamina Step by Step",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 in Dreamina step by step."
-    },
-    {
-        "Slug":  "seedance-image-to-video",
-        "Title":  "How to Use Seedance 2.0 for Image to Video Prompts",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for image to video prompts."
-    },
-    {
-        "Slug":  "seedance-marketing-videos",
-        "Title":  "How to Use Seedance 2.0 for AI Marketing Videos",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for AI marketing videos."
-    },
-    {
-        "Slug":  "seedance-product-ad-videos",
-        "Title":  "How to Use Seedance 2.0 for Product Ad Videos",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for product ad videos."
-    },
-    {
-        "Slug":  "seedance-reference-images-characters",
-        "Title":  "How to Use Seedance 2.0 With Reference Images for Consistent Characters",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 with reference images for consistent characters."
-    },
-    {
-        "Slug":  "seedance-vs-kling",
-        "Title":  "Seedance 2.0 vs Kling for Realistic Motion",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for comparing Seedance 2.0 vs Kling for realistic motion."
-    },
-    {
-        "Slug":  "seedance-vs-sora-2",
-        "Title":  "Seedance 2.0 vs Sora 2 for Prompt Control",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for comparing Seedance 2.0 vs Sora 2 for prompt control."
-    },
-    {
-        "Slug":  "seedance-vs-veo-3",
-        "Title":  "Seedance 2.0 vs Veo 3 for Short AI Videos",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for comparing Seedance 2.0 vs Veo 3 for short AI videos."
-    },
-    {
-        "Slug":  "seedance-youtube-shorts",
-        "Title":  "How to Use Seedance 2.0 for YouTube Shorts Creation",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for YouTube Shorts creation."
-    },
-    {
-        "Slug":  "structured-json-outputs-llms",
-        "Title":  "How to Use Structured JSON Outputs With LLMs",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using structured JSON outputs with LLMs."
-    },
-    {
-        "Slug":  "test-ai-prompts-before-shipping",
-        "Title":  "How to Test AI Prompts Before Shipping",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for testing AI prompts before shipping."
-    },
-    {
-        "Slug":  "tool-calling-ai-apps",
-        "Title":  "How to Use Tool Calling in AI Apps Without Broken Workflows",
-        "Alt":  "Coding Liquids blog cover featuring Sagnik Bhattacharya for using tool calling in AI apps without broken workflows."
-    }
+  {
+    "Slug": "add-flutter-to-existing-app",
+    "Title": "Add Flutter to an Existing App: Mobile and Web Integration Patterns",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for adding Flutter to an existing app, with integration and migration visuals."
+  },
+  {
+    "Slug": "advanced-formulas",
+    "Title": "15 Excel Formulas That Save Hours of Manual Work (With Examples)",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for 15 Advanced Excel Formulas Every Professional Should Know, with formula blocks, dynamic arrays, and advanced spreadsheet logic."
+  },
+  {
+    "Slug": "agent-mode-in-excel",
+    "Title": "Agent Mode in Excel: What It Does, What It Can’t, and Who Should Use It",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Agent Mode in Excel, with workbook action panels and supervised AI workflow cues."
+  },
+  {
+    "Slug": "ai-forecasting-model-excel",
+    "Title": "Build a Forecasting Model in Excel With AI Assistance Step by Step",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for building a forecasting model in Excel with AI assistance, with forecast and scenario visuals."
+  },
+  {
+    "Slug": "ai-power-query-m-code",
+    "Title": "Use AI to Write and Fix Power Query M Code for Excel",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using AI to write and fix Power Query M code in Excel, with query-step visuals."
+  },
+  {
+    "Slug": "amortization-schedule-excel",
+    "Title": "How to Create an Amortization Schedule in Excel With Extra Payment Scenarios",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for creating an amortisation schedule in Excel, with loan and paydown visuals."
+  },
+  {
+    "Slug": "analyst-vs-agent-mode-vs-copilot-chat",
+    "Title": "Analyst vs Agent Mode vs Copilot Chat: Which Excel AI Workflow Fits Best?",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Analyst vs Agent Mode vs Copilot Chat in Excel, with AI workflow comparison visuals."
+  },
+  {
+    "Slug": "attendance-tracker-excel",
+    "Title": "How to Create an Attendance Tracker in Excel for Teams, Schools, or Training",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for creating an attendance tracker in Excel, with roster and attendance-grid visuals."
+  },
+  {
+    "Slug": "audit-formulas-excel",
+    "Title": "How to Audit Formulas in Excel: Trace Precedents, Dependents, and Error Sources",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for auditing formulas in Excel, with dependency-trace and error-source visuals."
+  },
+  {
+    "Slug": "calendar-in-excel-automatic",
+    "Title": "How to Create a Calendar in Excel That Updates Automatically Every Month",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for creating an automatic calendar in Excel, with date-grid and planning visuals."
+  },
+  {
+    "Slug": "charts-visualisations",
+    "Title": "How to Make Professional Charts in Excel (Step-by-Step Guide)",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Creating Professional Charts and Visualisations in Excel, with bold charts, trend lines, and presentation-ready visuals."
+  },
+  {
+    "Slug": "chatgpt-excel-guide",
+    "Title": "How to Use ChatGPT to Write Excel Formulas (With Real Examples)",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use ChatGPT for Excel Formulas and Analysis, with AI chat interface, spreadsheet grids, and formula visuals."
+  },
+  {
+    "Slug": "chatgpt-vs-claude-vs-copilot-vs-gemini-excel",
+    "Title": "ChatGPT vs Claude vs Copilot vs Gemini for Excel in 2026",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for ChatGPT vs Claude vs Copilot vs Gemini for Excel, with AI comparison visuals."
+  },
+  {
+    "Slug": "choosecols-chooserows-take-drop-excel",
+    "Title": "CHOOSECOLS, CHOOSEROWS, TAKE, and DROP in Excel: Slice Data Faster",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for CHOOSECOLS, CHOOSEROWS, TAKE, and DROP in Excel, with sliced array and report-grid visuals."
+  },
+  {
+    "Slug": "claude-agent-mode-excel",
+    "Title": "Use Claude With Agent Mode in Excel: Setup, Limits, and Best Workflows",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Claude with Agent Mode in Excel, with reasoning panels and workbook analysis visuals."
+  },
+  {
+    "Slug": "claude-ai-excel-formulas",
+    "Title": "How to Use Claude AI to Write Excel Formulas Instantly",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Claude AI to Write Excel Formulas Instantly, with AI prompt styling, formulas, and spreadsheet visuals."
+  },
+  {
+    "Slug": "claude-ai-excel-macros",
+    "Title": "How to Use Claude AI to Write Excel Macros and VBA Code",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Using Claude AI to Generate Excel Macros and VBA, with macro automation cues, code blocks, and workflow visuals."
+  },
+  {
+    "Slug": "claude-debug-formulas",
+    "Title": "How to Fix Excel Formula Errors with Claude AI (Fast)",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Using Claude AI to Debug and Fix Excel Formulas, with formula debugging cues, alerts, and clean fixes."
+  },
+  {
+    "Slug": "clean-messy-data",
+    "Title": "How to Clean Messy Data in Excel: Step-by-Step Guide",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Clean Messy Data in Excel Fast, with messy spreadsheet elements transforming into organised rows."
+  },
+  {
+    "Slug": "conditional-formatting-tips",
+    "Title": "How to Highlight Rows Based on Cell Value in Excel",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Conditional Formatting Tips and Tricks, with highlighted cells, colour scales, and formatting triggers."
+  },
+  {
+    "Slug": "copilot-automate-tasks",
+    "Title": "How to Automate Excel Tasks with Microsoft Copilot",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Automating Repetitive Excel Tasks with Copilot, with automation loops, task cards, and spreadsheet workflow elements."
+  },
+  {
+    "Slug": "copilot-data-analysis",
+    "Title": "How to Use Microsoft Copilot for Data Analysis in Excel",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Copilot for Data Analysis — A Practical Guide, with data analysis cards, charts, and insight panels."
+  },
+  {
+    "Slug": "copilot-excel-python-analysis",
+    "Title": "Copilot in Excel With Python: Forecasting, Risk Analysis, and Deeper Reasoning",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Copilot in Excel with Python, with analysis and forecasting visuals."
+  },
+  {
+    "Slug": "copilot-function-excel",
+    "Title": "COPILOT Function in Excel: Syntax, Use Cases, Limits, and Risks",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the COPILOT function in Excel, with AI-filled cells and review-focused spreadsheet visuals."
+  },
+  {
+    "Slug": "create-charts-with-copilot-excel",
+    "Title": "Create Charts With Copilot in Excel: What Works, What Needs Manual Cleanup",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for creating charts with Copilot in Excel, with chart-draft and review visuals."
+  },
+  {
+    "Slug": "create-lookups-with-copilot-excel",
+    "Title": "Create Lookups With Copilot in Excel: When It Writes XLOOKUP Well and When It Doesn’t",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for creating lookups with Copilot in Excel, with XLOOKUP and review visuals."
+  },
+  {
+    "Slug": "create-with-ai-flutter",
+    "Title": "Create With AI in Flutter: Gemini CLI, MCP, and the AI Toolkit Explained",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for creating with AI in Flutter, with tooling nodes and production-minded AI workflow visuals."
+  },
+  {
+    "Slug": "data-validation",
+    "Title": "How to Add a Dropdown List in Excel Using Data Validation",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Data Validation — Prevent Errors Before They Happen, with validation controls, dropdowns, and error-prevention signals."
+  },
+  {
+    "Slug": "dynamic-dashboards",
+    "Title": "How to Build an Interactive Dashboard in Excel (No VBA)",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Creating Dynamic Dashboards in Excel, with dashboard cards, KPIs, and interactive chart elements."
+  },
+  {
+    "Slug": "excel-ai-for-accountants",
+    "Title": "Excel + AI for Accountants: Reconciliations, Variance Reviews, and Close Prep",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel and AI for accountants, with reconciliation and close-prep visuals."
+  },
+  {
+    "Slug": "excel-ai-for-hr-teams",
+    "Title": "Excel + AI for HR Teams: Hiring Trackers, Attrition Analysis, and Reporting",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel and AI for HR teams, with hiring and reporting visuals."
+  },
+  {
+    "Slug": "excel-ai-for-sales-ops",
+    "Title": "Excel + AI for Sales Ops: Pipeline Cleanup, Forecasts, and Territory Reporting",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel and AI for Sales Ops, with pipeline and forecast visuals."
+  },
+  {
+    "Slug": "excel-ai-prompts",
+    "Title": "60 AI Prompts for Excel That Actually Work (Copy, Paste, Get Results)",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for 60 AI Prompts for Excel That Actually Work, with prompt cards, formula visuals, and spreadsheet grids."
+  },
+  {
+    "Slug": "excel-tables-best-practices",
+    "Title": "Excel Tables Best Practices: Structured References, Growth, and Cleaner Models",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel tables best practices, with clean table and structured-reference visuals."
+  },
+  {
+    "Slug": "excel-vs-google-sheets",
+    "Title": "Excel vs Google Sheets: Which Is Better for You in 2026?",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel vs Google Sheets — Which Should You Use in 2026, with side-by-side spreadsheet comparison panels and decision cues."
+  },
+  {
+    "Slug": "financial-modelling",
+    "Title": "How to Build a Financial Model in Excel From Scratch",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel for Financial Modelling — A Beginner&#39;s Guide, with forecast visuals, tables, and financial model elements."
+  },
+  {
+    "Slug": "fix-spill-errors-excel",
+    "Title": "How to Fix #SPILL! Errors in Excel and Prevent Them in Dynamic Array Models",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for fixing #SPILL! errors in Excel, with dynamic-array troubleshooting visuals."
+  },
+  {
+    "Slug": "flutter-app-architecture-2026",
+    "Title": "Flutter App Architecture in 2026: A Practical Feature-First Guide",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter app architecture, with feature-first app structure visuals."
+  },
+  {
+    "Slug": "flutter-form-validation-best-practices",
+    "Title": "Flutter Form Validation Best Practices for Production Apps",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter form validation best practices, with mobile form and validation-state visuals."
+  },
+  {
+    "Slug": "flutter-performance-2026",
+    "Title": "Flutter Performance in 2026: Impeller, DevTools, and Rebuild Reduction",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter performance in 2026, with profiling and rebuild visuals."
+  },
+  {
+    "Slug": "flutter-state-management",
+    "Title": "Flutter State Management in 2026: Provider vs Riverpod vs BLoC",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter State Management in 2026 — Provider vs Riverpod vs BLoC, with comparison cards, a dark grid background, and choice-focused messaging."
+  },
+  {
+    "Slug": "flutter-testing-strategy-2026",
+    "Title": "Flutter Testing Strategy in 2026: Unit, Widget, Integration, and Goldens",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter testing strategy in 2026, with testing-layer visuals."
+  },
+  {
+    "Slug": "flutter-vs-react-native",
+    "Title": "Flutter vs React Native in 2026: Which Should You Choose?",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter vs React Native in 2026 — Which One Should You Pick?, with Flutter and React Native logos, mobile UI cards, and a framework comparison visual."
+  },
+  {
+    "Slug": "flutter-web-skwasm-vs-canvaskit",
+    "Title": "Flutter Web in 2026: skwasm vs CanvasKit vs WebAssembly Builds",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter web renderers, with skwasm, CanvasKit, and web performance comparison visuals."
+  },
+  {
+    "Slug": "flutter-widget-previewer",
+    "Title": "Flutter Widget Previewer: Real-Time UI Iteration Without Running the Full App",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Flutter Widget Previewer, with isolated UI previews and rapid-iteration visuals."
+  },
+  {
+    "Slug": "format-data-for-copilot-excel",
+    "Title": "Format Data for Copilot in Excel: Tables, Supported Ranges, and Common Failures",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for formatting data for Copilot in Excel, with clean table and workbook structure visuals."
+  },
+  {
+    "Slug": "gantt-chart-excel",
+    "Title": "How to Make a Gantt Chart in Excel for Real Project Planning",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for making a Gantt chart in Excel, with project-timeline visuals."
+  },
+  {
+    "Slug": "gemini-ai-excel",
+    "Title": "How to Use Google Gemini to Write Excel Formulas for Free",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Google Gemini for Excel Formulas and Data, with AI prompt styling and spreadsheet visuals."
+  },
+  {
+    "Slug": "generate-formula-columns-copilot-excel",
+    "Title": "Generate Formula Columns With Copilot in Excel: Best Prompts and Review Steps",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for generating formula columns with Copilot in Excel, with prompt and column-fill visuals."
+  },
+  {
+    "Slug": "generate-single-cell-formulas-copilot-excel",
+    "Title": "Generate Single-Cell Formulas With Copilot in Excel: Fast Wins and Failure Modes",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for generating single-cell formulas with Copilot in Excel, with prompt and formula visuals."
+  },
+  {
+    "Slug": "getting-started-copilot-excel",
+    "Title": "How to Set Up and Use Microsoft Copilot in Excel (2026)",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Getting Started with Microsoft Copilot in Excel, with AI assistant styling, onboarding cues, and spreadsheet cards."
+  },
+  {
+    "Slug": "go-router-flutter-deep-linking",
+    "Title": "go_router in Flutter: Deep Linking, Nested Navigation, and Web URLs",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for go_router in Flutter, with nested routes and deep-link visuals."
+  },
+  {
+    "Slug": "groupby-function-excel",
+    "Title": "GROUPBY Function in Excel: Formula-Based Summaries Without a Pivot Table",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the GROUPBY function in Excel, with spill summaries and grouped reporting visuals."
+  },
+  {
+    "Slug": "groupby-vs-pivottable-excel",
+    "Title": "GROUPBY vs PivotTable in Excel: When Formula Summaries Beat the Ribbon",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for GROUPBY vs PivotTable in Excel, with formula summaries and comparison visuals."
+  },
+  {
+    "Slug": "index-match-guide",
+    "Title": "How to Use INDEX MATCH in Excel with Multiple Criteria",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for INDEX-MATCH — The Superior Alternative to VLOOKUP, with lookup references, match arrows, and formula comparison cues."
+  },
+  {
+    "Slug": "inventory-tracker-excel",
+    "Title": "How to Build an Inventory Tracker in Excel That Stays Maintainable",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for building an inventory tracker in Excel, with stock and movement visuals."
+  },
+  {
+    "Slug": "keyboard-shortcuts",
+    "Title": "30 Excel Keyboard Shortcuts That Save Hours Every Week",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for 30 Excel Keyboard Shortcuts That Save Hours, with keyboard cues, fast actions, and productivity shortcuts."
+  },
+  {
+    "Slug": "let-and-lambda-excel",
+    "Title": "LET and LAMBDA in Excel: Turn Repeated Formulas Into Reusable Logic",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for LET and LAMBDA in Excel, with reusable formula logic visuals."
+  },
+  {
+    "Slug": "map-charts-excel",
+    "Title": "Map Charts in Excel: When to Use Them, Data Prep, and Common Mistakes",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for map charts in Excel, with geographic chart visuals."
+  },
+  {
+    "Slug": "map-scan-reduce-excel",
+    "Title": "MAP, SCAN, and REDUCE in Excel: Modern Array Logic for Power Users",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for MAP, SCAN, and REDUCE in Excel, with dynamic-array logic visuals."
+  },
+  {
+    "Slug": "mastering-pivot-tables",
+    "Title": "How to Create a Pivot Table in Excel Step by Step",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Mastering Pivot Tables — A Complete Guide, with pivot layouts, summary visuals, and grouped data blocks."
+  },
+  {
+    "Slug": "monthly-budget-spreadsheet-excel",
+    "Title": "How to Build a Monthly Budget Spreadsheet in Excel From Scratch",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for building a monthly budget spreadsheet in Excel, with budget and cashflow visuals."
+  },
+  {
+    "Slug": "pivotby-function-excel",
+    "Title": "PIVOTBY Function in Excel: Build Pivot-Style Reports With a Formula",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the PIVOTBY function in Excel, with cross-tab report grids and formula-led summary visuals."
+  },
+  {
+    "Slug": "power-pivot-guide",
+    "Title": "How to Use Power Pivot in Excel to Analyse Millions of Rows",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Power Pivot — Handle Millions of Rows, with connected data tables, model relationships, and scale cues."
+  },
+  {
+    "Slug": "power-query-guide",
+    "Title": "How to Use Power Query in Excel to Automate Data Cleaning",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Power Query — Automate Data Transformation, with data pipelines, transformation steps, and import flow elements."
+  },
+  {
+    "Slug": "project-tracker-excel",
+    "Title": "How to Build a Project Tracker in Excel Without Turning It Into a Mess",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for building a project tracker in Excel, with task and status visuals."
+  },
+  {
+    "Slug": "protect-excel-workbook-collaboration",
+    "Title": "Protect an Excel Workbook Without Breaking Collaboration and Shared Editing",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for protecting an Excel workbook without breaking collaboration, with lock and collaboration visuals."
+  },
+  {
+    "Slug": "py-function-excel",
+    "Title": "PY Function in Excel: What It Is, How It Works, and When to Use It",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the PY function in Excel, with Python-in-workbook visuals."
+  },
+  {
+    "Slug": "python-in-excel-beginners",
+    "Title": "Python in Excel for Beginners: The First 10 Things Worth Learning",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Python in Excel for beginners, with Python cell and analytics visuals."
+  },
+  {
+    "Slug": "responsive-flutter-ui-all-screens",
+    "Title": "Responsive Flutter UI for Mobile, Tablet, Desktop, and Web",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for responsive Flutter UI across mobile, tablet, desktop, and web."
+  },
+  {
+    "Slug": "review-ai-generated-excel-formulas",
+    "Title": "How to Review AI-Generated Excel Formulas Before You Trust Them",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for reviewing AI-generated Excel formulas, with formula-check and risk visuals."
+  },
+  {
+    "Slug": "sales-pipeline-tracker-excel",
+    "Title": "How to Build a Sales Pipeline Tracker in Excel for Small Teams",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for building a sales pipeline tracker in Excel, with deal-stage visuals."
+  },
+  {
+    "Slug": "text-analysis-excel-with-ai",
+    "Title": "Text Analysis in Excel With AI: Survey Comments, Reviews, and Open Feedback",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for text analysis in Excel with AI, with survey-comment and theme-tag visuals."
+  },
+  {
+    "Slug": "vlookup-vs-xlookup",
+    "Title": "VLOOKUP vs XLOOKUP: Differences and When to Use Each",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for VLOOKUP vs XLOOKUP — When to Use Which, with lookup comparisons, arrows, and side-by-side formula cues."
+  },
+  {
+    "Slug": "what-if-analysis",
+    "Title": "How to Use What-If Analysis in Excel: Goal Seek and Scenarios",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel What-If Analysis — Goal Seek, Scenarios and Data Tables, with spreadsheet visuals and scenario comparison elements."
+  },
+  {
+    "Slug": "xmatch-function-excel",
+    "Title": "XMATCH in Excel: Smarter Lookups, Reverse Searches, and Binary Search Use Cases",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for XMATCH in Excel, with reverse-search and lookup-position visuals."
+  },
+  {
+    "Slug": "gemini-cli-vscode",
+    "Title": "How to Use Gemini CLI in VS Code: Setup, IDE Integration, and Coding Workflows",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemini CLI in VS Code, with terminal AI workflow and IDE integration visuals."
+  },
+  {
+    "Slug": "gemini-code-assist-android-studio",
+    "Title": "How to Use Gemini Code Assist in Android Studio: Free AI Coding for Flutter and Kotlin",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemini Code Assist in Android Studio, with AI coding assistant and Flutter development visuals."
+  },
+  {
+    "Slug": "cursor-flutter-development",
+    "Title": "How to Use Cursor for Flutter Development: The Complete 2026 Guide",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Cursor IDE Flutter development, with AI-powered coding and widget generation visuals."
+  },
+  {
+    "Slug": "windsurf-flutter-development",
+    "Title": "How to Use Windsurf for Flutter Development: Free AI IDE Setup and Review",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Windsurf IDE Flutter development, with free AI coding and Cascade agent visuals."
+  },
+  {
+    "Slug": "claude-code-android-studio",
+    "Title": "How to Use Claude Code in Android Studio: AI-Powered Coding for Kotlin, Flutter, and Gradle Projects",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Claude Code in Android Studio, with terminal AI agent and Kotlin-Flutter-Gradle workflow visuals."
+  },
+  {
+    "Slug": "opencode-vscode",
+    "Title": "How to Use OpenCode in VS Code: The Free Open-Source AI Coding Alternative",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for OpenCode in VS Code, with open-source AI coding and multi-model terminal visuals."
+  },
+  {
+    "Slug": "gemma-4-android-studio-ollama",
+    "Title": "How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemma 4 in Android Studio with Ollama, with local AI coding and Kotlin-Flutter-Gradle visuals."
+  },
+  {
+    "Slug": "copilot-agent-mode-vscode",
+    "Title": "How to Use GitHub Copilot Agent Mode in VS Code: Autonomous Coding in 2026",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for GitHub Copilot Agent Mode in VS Code, with autonomous AI coding and multi-step workflow visuals."
+  },
+  {
+    "Slug": "deepseek-vscode",
+    "Title": "How to Use DeepSeek in VS Code: The $2/Month AI Coding Assistant Setup Guide",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for DeepSeek in VS Code, with budget AI coding assistant and API configuration visuals."
+  },
+  {
+    "Slug": "gemini-cli-android-studio-flutter",
+    "Title": "How to Use Gemini CLI in Android Studio for Flutter: MCP Server, Dart Integration, and Workflows",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemini CLI in Android Studio for Flutter, with MCP server and Dart integration visuals."
+  },
+  {
+    "Slug": "claude-code-vscode",
+    "Title": "How to Use Claude Code in VS Code: Setup, Extensions, and AI Coding Workflows",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Claude Code in VS Code, with terminal AI agent and IDE extension visuals."
+  },
+  {
+    "Slug": "background-jobs-ai-apps",
+    "Title": "How to Use Background Jobs in AI Apps for Long Tasks",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using background jobs in AI apps for long tasks."
+  },
+  {
+    "Slug": "better-prompts-seedance",
+    "Title": "How to Write Better Prompts for Seedance 2.0",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for writing better prompts for Seedance 2.0."
+  },
+  {
+    "Slug": "build-ai-agent-file-search-tools",
+    "Title": "How to Build an AI Agent With File Search and Tools",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for building an AI agent with file search and tools."
+  },
+  {
+    "Slug": "build-rag-app-own-documents",
+    "Title": "How to Build a RAG App With Your Own Documents",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for building a RAG app with your own documents."
+  },
+  {
+    "Slug": "choose-open-models-vs-api-models",
+    "Title": "How to Choose Between Open Models and API Models",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for choosing between open models and API models."
+  },
+  {
+    "Slug": "chunk-documents-rag",
+    "Title": "How to Chunk Documents for Better RAG Results",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for chunking documents for better RAG results."
+  },
+  {
+    "Slug": "consistent-characters-seedance",
+    "Title": "How to Make Consistent Characters in Seedance 2.0",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for making consistent characters in Seedance 2.0."
+  },
+  {
+    "Slug": "cut-ai-api-costs-caching-routing",
+    "Title": "How to Cut AI API Costs With Caching and Routing",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for cutting AI API costs with caching and routing."
+  },
+  {
+    "Slug": "evaluate-ai-outputs-real-apps",
+    "Title": "How to Evaluate AI Outputs in Real Apps",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for evaluating AI outputs in real apps."
+  },
+  {
+    "Slug": "fix-bad-motion-seedance",
+    "Title": "How to Fix Bad Motion in Seedance 2.0 Videos",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for fixing bad motion in Seedance 2.0 videos."
+  },
+  {
+    "Slug": "gemma-4-local-ai-workflows",
+    "Title": "How to Use Gemma 4 for Local AI Workflows",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Gemma 4 for local AI workflows."
+  },
+  {
+    "Slug": "improve-rag-reranking",
+    "Title": "How to Improve RAG Answers With Reranking",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for improving RAG answers with reranking."
+  },
+  {
+    "Slug": "local-ai-own-files",
+    "Title": "How to Use Local AI on Your Own Files",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using local AI on your own files."
+  },
+  {
+    "Slug": "mcp-chatgpt-tools",
+    "Title": "How to Use MCP With ChatGPT and Your Own Tools",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using MCP with ChatGPT and custom tools."
+  },
+  {
+    "Slug": "mcp-servers-ai-agents",
+    "Title": "How to Use MCP Servers for AI Agents Step by Step",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for setting up MCP servers for AI agents."
+  },
+  {
+    "Slug": "reasoning-summaries-production-ai",
+    "Title": "How to Use Reasoning Summaries in Production AI Apps",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using reasoning summaries in production AI apps."
+  },
+  {
+    "Slug": "reduce-hallucinations-tool-ai",
+    "Title": "How to Reduce Hallucinations in Tool-Based AI Apps",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for reducing hallucinations in tool-based AI apps."
+  },
+  {
+    "Slug": "remote-mcp-servers-ai-apps",
+    "Title": "How to Use Remote MCP Servers in AI Apps",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for deploying remote MCP servers in AI apps."
+  },
+  {
+    "Slug": "seedance-anime-video",
+    "Title": "How to Use Seedance 2.0 for Anime Style Video Generation",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for anime style video generation."
+  },
+  {
+    "Slug": "seedance-audio-prompts",
+    "Title": "How to Use Seedance 2.0 With Audio Prompts Step by Step",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 with audio prompts step by step."
+  },
+  {
+    "Slug": "seedance-cinematic-camera-movement",
+    "Title": "How to Use Seedance 2.0 for Cinematic Camera Movement Prompts",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for cinematic camera movement prompts."
+  },
+  {
+    "Slug": "seedance-dreamina-guide",
+    "Title": "How to Use Seedance 2.0 in Dreamina Step by Step",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 in Dreamina step by step."
+  },
+  {
+    "Slug": "seedance-image-to-video",
+    "Title": "How to Use Seedance 2.0 for Image to Video Prompts",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for image to video prompts."
+  },
+  {
+    "Slug": "seedance-marketing-videos",
+    "Title": "How to Use Seedance 2.0 for AI Marketing Videos",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for AI marketing videos."
+  },
+  {
+    "Slug": "seedance-product-ad-videos",
+    "Title": "How to Use Seedance 2.0 for Product Ad Videos",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for product ad videos."
+  },
+  {
+    "Slug": "seedance-vs-kling",
+    "Title": "Seedance 2.0 vs Kling for Realistic Motion",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for comparing Seedance 2.0 vs Kling for realistic motion."
+  },
+  {
+    "Slug": "seedance-vs-sora-2",
+    "Title": "Seedance 2.0 vs Sora 2 for Prompt Control",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for comparing Seedance 2.0 vs Sora 2 for prompt control."
+  },
+  {
+    "Slug": "seedance-vs-veo-3",
+    "Title": "Seedance 2.0 vs Veo 3 for Short AI Videos",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for comparing Seedance 2.0 vs Veo 3 for short AI videos."
+  },
+  {
+    "Slug": "seedance-youtube-shorts",
+    "Title": "How to Use Seedance 2.0 for YouTube Shorts Creation",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for YouTube Shorts creation."
+  },
+  {
+    "Slug": "structured-json-outputs-llms",
+    "Title": "How to Use Structured JSON Outputs With LLMs",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using structured JSON outputs with LLMs."
+  },
+  {
+    "Slug": "test-ai-prompts-before-shipping",
+    "Title": "How to Test AI Prompts Before Shipping",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for testing AI prompts before shipping."
+  },
+  {
+    "Slug": "tool-calling-ai-apps",
+    "Title": "How to Use Tool Calling in AI Apps Without Broken Workflows",
+    "Alt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using tool calling in AI apps without broken workflows."
+  }
 ]

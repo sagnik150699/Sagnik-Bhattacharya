@@ -56,7 +56,7 @@ POSTS = {
         ('Character ages or changes gender', 'Description missing key anchor words', 'Always include age range and one distinctive feature.'),
         ('Same prompt gives different faces', 'Seed varies each run', 'Lock the seed if your interface exposes it. Otherwise generate 3 takes and pick the closest.'),
     ],
-    'For reference-image prep, read <a href="/blog/seedance-reference-images-characters">Seedance reference images for characters</a>. For the full lip-sync workflow on a consistent character, see <a href="/blog/seedance-2-lip-sync-talking-head">Seedance 2.0 lip-sync and talking heads</a>.'
+    'For reference-image prep, read <a href="/blog/consistent-characters-seedance">Seedance reference images for characters</a>. For the full lip-sync workflow on a consistent character, see <a href="/blog/seedance-2-lip-sync-talking-head">Seedance 2.0 lip-sync and talking heads</a>.'
 ),
 
 'fix-bad-motion-seedance.html': block(
@@ -170,7 +170,7 @@ POSTS = {
         ('Background moves but subject stands still', 'Prompt described scene, not subject motion', 'Rewrite prompt to describe what the subject does.'),
         ('Aspect ratio changes unexpectedly', 'Uploaded a different ratio', 'Pre-crop the image to match your target ratio.'),
     ],
-    'For aspect ratio and export rules, see <a href="/blog/seedance-2-resolution-export-settings">resolution and export settings</a>. For character consistency across multiple clips, see <a href="/blog/seedance-reference-images-characters">reference images for characters</a>.'
+    'For aspect ratio and export rules, see <a href="/blog/seedance-2-resolution-export-settings">resolution and export settings</a>. For character consistency across multiple clips, see <a href="/blog/consistent-characters-seedance">reference images for characters</a>.'
 ),
 
 'seedance-marketing-videos.html': block(
@@ -211,7 +211,7 @@ POSTS = {
     'For broader ad production, see <a href="/blog/seedance-marketing-videos">Seedance marketing videos</a>. For resolution and export settings, see <a href="/blog/seedance-2-resolution-export-settings">export settings</a>.'
 ),
 
-'seedance-reference-images-characters.html': block(
+'consistent-characters-seedance.html': block(
     'Step by step: build a reference image a model can actually use',
     steps(
         '<strong>Shoot or generate three angles.</strong> Front, 3/4, side. Same lighting, same background, same clothes.',

@@ -885,21 +885,6 @@
     "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Gemma 4 for local AI workflows."
   },
   {
-    "slug": "run-gemma-4-own-machine",
-    "title": "How to Run Gemma 4 on Your Own Machine",
-    "tag": "AI",
-    "hook": "Get Gemma 4 running on your own computer in minutes with zero ongoing costs and complete data privacy.",
-    "cta": "Run Gemma 4 Locally",
-    "keywords": [
-      "Gemma 4",
-      "Local",
-      "Install"
-    ],
-    "cue": "installation steps, hardware requirements table, and local setup visuals",
-    "category": "AI",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for running Gemma 4 on your own machine."
-  },
-  {
     "slug": "local-ai-own-files",
     "title": "How to Use Local AI on Your Own Files",
     "tag": "AI",
@@ -1063,21 +1048,6 @@
     "cue": "anime-style video frames, style comparison, and prompt structure visuals",
     "category": "Video",
     "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 for anime style video generation."
-  },
-  {
-    "slug": "seedance-reference-images-characters",
-    "title": "How to Use Seedance 2.0 With Reference Images for Consistent Characters",
-    "tag": "Video",
-    "hook": "Keep your characters looking the same across multiple AI video clips using reference images.",
-    "cta": "Master Character Consistency",
-    "keywords": [
-      "Reference Images",
-      "Characters",
-      "Seedance"
-    ],
-    "cue": "character consistency examples, reference image setups, and multi-clip comparison visuals",
-    "category": "Video",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for using Seedance 2.0 with reference images for consistent characters."
   },
   {
     "slug": "seedance-product-ad-videos",
