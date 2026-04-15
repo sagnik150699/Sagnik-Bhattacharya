@@ -271,7 +271,7 @@ footer a:hover{color:var(--warm-600)}
 .blog-post-content p{color:var(--text-secondary);font-size:1.02rem;margin-bottom:18px;line-height:1.8}
 .blog-post-content ul,.blog-post-content ol{color:var(--text-secondary);font-size:1.02rem;margin-bottom:18px;padding-left:24px;line-height:1.8}
 .blog-post-content li{margin-bottom:6px}
-.blog-post-content strong{color:var(--text-primary)}
+.blog-post-content strong{color:var(--text-primary)}.blog-post-content a{color:var(--warm-600);font-weight:600;text-decoration:underline;text-decoration-color:var(--warm-400);text-underline-offset:3px;transition:color .2s,text-decoration-color .2s}.blog-post-content a:hover{color:var(--warm-500);text-decoration-color:var(--warm-500)}
 .blog-post-content code{background:var(--warm-100);color:var(--warm-700);padding:2px 8px;border-radius:4px;font-size:.9rem;font-family:'Courier New',monospace}
 .blog-post-content pre{background:var(--earth-800);color:var(--warm-100);padding:24px;border-radius:var(--radius-md);overflow-x:auto;margin-bottom:24px;font-size:.88rem;line-height:1.6}
 .blog-post-content pre code{background:none;color:inherit;padding:0;font-size:inherit}
