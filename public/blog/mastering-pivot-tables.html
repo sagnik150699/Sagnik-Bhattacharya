@@ -46,7 +46,7 @@
                    "name":  "Sagnik Bhattacharya",
                    "url":  "https://sagnikbhattacharya.com"
                },
-    "datePublished":  "2026-03-05","dateModified":"2026-03-05",
+    "datePublished":  "2026-03-05","dateModified":"2026-04-18",
     "inLanguage":  "en-GB",
     "description":  "Never built a pivot table? This guide walks you through creating your first pivot table in Excel with a real sales data example — no experience needed.",
     "publisher":  {
@@ -121,7 +121,7 @@
       "name": "How do I create a pivot table in Excel?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Select your data range ensuring it has headers, go to Insert then PivotTable, choose where to place it, then drag fields into the Rows, Columns, Values, and Filters areas. The key to good pivot tables: use Excel Tables as your source so new data is automatically included, keep your source data clean with no blank rows or merged cells, and use one row per record."
+        "text": "Select your data (or click inside an Excel Table), go to Insert then PivotTable, confirm the range covers all your data, choose New Worksheet, and click OK. Then drag fields from the Field List into the Rows, Columns, Values, and Filters drop zones. Convert your source to a Table with Ctrl+T before inserting — it's the single change that prevents most 'new rows didn't show up' problems later."
       }
     },
     {
@@ -129,7 +129,31 @@
       "name": "When should I use a pivot table instead of formulas in Excel?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Use pivot tables when you need to quickly summarise, group, or cross-tabulate large datasets without writing formulas. Pivot tables are best for exploratory analysis when you want to slice data by different dimensions interactively. Use formulas like SUMIFS, GROUPBY, and PIVOTBY when you need the output to be formula-driven, auto-updating, and part of a structured report or dashboard."
+        "text": "Use pivot tables for exploratory analysis — when you want to slice data by different dimensions interactively and change your mind quickly. Use formulas like SUMIFS, COUNTIFS, and the newer GROUPBY and PIVOTBY when the output must live in specific cells, auto-update as part of a structured report, or feed into other calculations. Pivot tables are faster for ad-hoc questions; formulas are better for dashboards someone will rebuild next quarter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my pivot table say 'Cannot Group That Selection'?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Almost always a data-type problem in the column you're trying to group. The column has blanks, text values mixed in with numbers or dates, or 'dates' that are actually text strings. Fix the source: sort the column ascending, remove or correct any stray text or blank cells, then Refresh the pivot. For columns of text-formatted dates, use Data → Text to Columns → Finish to reparse them as real dates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I add a calculated field to a pivot table?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Click inside the pivot, go to PivotTable Analyse → Fields, Items & Sets → Calculated Field. Type a name, enter a formula like =Revenue - Cost, and click OK. The new field appears in the Field List and can be dragged into Values. Calculated fields operate on aggregated values, so =Revenue / Units gives you (total revenue) / (total units) per group, not the average unit price. For row-level formulas, add a helper column in your source data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my pivot table show outdated data after I edit the source?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pivot tables don't auto-recalculate — you must refresh them. Right-click the pivot and choose Refresh, or press Alt+F5. To refresh every pivot in the workbook at once, Ctrl+Alt+F5. To auto-refresh on file open, PivotTable Analyse → Options → Data → tick 'Refresh data when opening the file'. If Refresh appears to work but new rows don't appear, your source is a plain range rather than a Table — convert it with Ctrl+T and change the pivot source."
       }
     }
   ]
@@ -185,102 +209,147 @@
         <div class="blog-post-content">
           
 <p>Pivot tables are arguably the most powerful feature in Excel. They can summarise thousands of rows of data into meaningful insights in seconds — no formulas required. If you work with data and don't know pivot tables, this guide will change your Excel life.</p>
+<p><strong>Who this is for:</strong> anyone who has ever stared at a spreadsheet of thousands of rows and thought "I need to know the totals by region / by month / by product" and reached for a calculator or SUMIF. By the end you'll know how to build a pivot table from a real sales dataset, add a calculated field, wire up slicers, and fix the five errors that stop most beginners — "Cannot Group That Selection", blank cells, #REF! after deleting rows, stale totals, and mixed data types.</p>
+<p><strong>What you need:</strong> Excel 2013 or newer (the workflow is identical in Excel 365, 2019, 2021, and Excel for Mac 2016+). For the Slicers section you need Excel 2013 or newer; Timelines need Excel 2013 or newer. Power Pivot (covered briefly at the end) requires Excel 365 or the Professional Plus version of older Office editions.</p>
 
 <div class="blog-inline-course"><div class="blog-inline-course__badge">Coming Soon</div><div class="blog-inline-course__body"><h3 class="blog-inline-course__title">Complete Excel Guide with AI Integration</h3><p class="blog-inline-course__sub">Master formulas, pivot tables, data analysis, and charts — with AI integration.</p><a href="/courses#excel" class="btn-primary blog-inline-course__btn">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div><h2>What Is a Pivot Table?</h2>
 <p>A pivot table is an interactive summary of your data. It lets you group, count, sum, average, and analyse data by dragging and dropping fields. Think of it as a dynamic report that updates automatically when your data changes.</p>
+<p>The name comes from the ability to <em>pivot</em> your analysis — you can drag the same field between Rows, Columns, Values, and Filters in seconds to see the data from a completely different angle, something that would take a separate set of formulas each time. For exploratory analysis ("what patterns are in this data?") a pivot table beats writing formulas every time; for formula-driven dashboards where the output must live in specific cells, SUMIFS or the newer <a href="/blog/groupby-function-excel">GROUPBY</a> and <a href="/blog/pivotby-function-excel">PIVOTBY</a> functions are the right tool.</p>
 
 <a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>Creating Your First Pivot Table</h2>
 <h3>Step 1: Prepare Your Data</h3>
+<p>This step determines whether your pivot table will work at all. Every error covered in the troubleshooting section traces back to a problem here.</p>
 <ul>
-<li>Each column must have a <strong>unique header</strong></li>
-<li>No blank rows or columns within your data</li>
-<li>Consistent data types in each column (don't mix text and numbers). See <a href="/blog/clean-messy-data">how to clean messy data</a> if your source needs preparation</li>
-<li>Convert your data to an Excel Table (<code>Ctrl+T</code>) for auto-expansion — see more <a href="/blog/keyboard-shortcuts">time-saving shortcuts</a></li>
+<li>Each column must have a <strong>unique header</strong> — blank headers are silently dropped, and duplicate headers produce ambiguous field names like "Revenue" and "Revenue2" that are easy to confuse.</li>
+<li>No blank rows or columns within your data. A blank row terminates the auto-detected range. A blank column splits it.</li>
+<li>Consistent data types in each column. Mixing dates with text ("01/04/2026" and "pending") makes the column behave as text — and the #1 cause of the "Cannot Group That Selection" error later. See <a href="/blog/clean-messy-data">how to clean messy data</a> if your source needs preparation.</li>
+<li>Convert your data to an Excel Table with <code>Ctrl+T</code>. This is the single most important step. A Table auto-expands when you add rows, so your pivot table keeps working as the data grows — no more "refreshed but new rows didn't appear". See more <a href="/blog/keyboard-shortcuts">time-saving shortcuts</a> for faster navigation.</li>
+<li>Flat data only: one row per record, no merged cells, no subtotal rows. If your data already has "Total" rows baked in, the pivot table will double-count.</li>
 </ul>
 
 <h3>Step 2: Insert the Pivot Table</h3>
 <ol>
-<li>Click anywhere in your data</li>
-<li>Go to <strong>Insert → Pivot Table</strong></li>
-<li>Choose "New Worksheet" (recommended for beginners)</li>
-<li>Click OK</li>
+<li>Click anywhere inside your data (or inside your Excel Table).</li>
+<li>Go to <strong>Insert → PivotTable</strong>. Excel will auto-detect the range — verify the "Table/Range" box covers your data. If you used <code>Ctrl+T</code>, it will show the Table name instead (e.g. <code>Table1</code>), which is better because it auto-expands.</li>
+<li>Choose <strong>New Worksheet</strong> (recommended for beginners — keeps your source clean).</li>
+<li>Click OK. An empty pivot table appears on the left with the Field List panel on the right.</li>
 </ol>
+<p><strong>Shortcut:</strong> <code>Alt + N + V</code> (Excel on Windows) opens the PivotTable dialog directly without hunting through the ribbon.</p>
 
 <h3>Step 3: Build Your Report</h3>
-<p>You'll see a field list panel on the right with four areas:</p>
+<p>You'll see a field list panel on the right with four drop zones:</p>
 <ul>
-<li><strong>Rows</strong> — Categories to display as row labels</li>
-<li><strong>Columns</strong> — Categories to display as column headers</li>
-<li><strong>Values</strong> — Numbers to calculate (sum, count, average)</li>
-<li><strong>Filters</strong> — Fields to filter the entire pivot table</li>
+<li><strong>Rows</strong> — Categories to display as row labels. Usually the thing you want to group by (region, product, customer).</li>
+<li><strong>Columns</strong> — Categories to display as column headers. Usually a second grouping dimension, often dates (months, quarters, years).</li>
+<li><strong>Values</strong> — Numbers to calculate — sum, count, average, min, max, distinct count, or a custom calculation.</li>
+<li><strong>Filters</strong> — Fields to filter the entire pivot table with a single dropdown at the top.</li>
 </ul>
+<p>The golden rule: <em>drag dimensions to Rows and Columns, drag measures to Values</em>. A dimension is a category (text, dates, regions); a measure is a number to aggregate (revenue, units sold, cost).</p>
 
 <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>Practical Example: Sales Analysis</h2>
 <p>Imagine you have 10,000 rows of sales data with columns: Date, Product, Region, Sales Rep, and Revenue.</p>
 
 <h3>Report 1: Revenue by Region</h3>
-<p>Drag "Region" to <strong>Rows</strong> and "Revenue" to <strong>Values</strong>. Instantly see total revenue for each region.</p>
+<p>Drag <strong>Region</strong> to Rows and <strong>Revenue</strong> to Values. Instantly see total revenue for each region with a Grand Total at the bottom. To sort by revenue descending, right-click any revenue cell → Sort → Largest to Smallest. This alone replaces a SUMIF formula per region.</p>
 
 <h3>Report 2: Monthly Sales Trend</h3>
-<p>Drag "Date" to <strong>Rows</strong> and "Revenue" to <strong>Values</strong>. Excel automatically groups dates by month. Right-click any date → Group → select Months and Years.</p>
+<p>Drag <strong>Date</strong> to Rows and <strong>Revenue</strong> to Values. In Excel 365, dates group automatically into Years / Quarters / Months. If yours doesn't, right-click any date cell → <strong>Group</strong> → tick <em>Months</em> and <em>Years</em>. (If this fails with "Cannot Group That Selection", the Date column has text values mixed in — see troubleshooting below.)</p>
 
 <h3>Report 3: Product Performance by Region</h3>
-<p>Drag "Region" to <strong>Rows</strong>, "Product" to <strong>Columns</strong>, and "Revenue" to <strong>Values</strong>. You get a cross-tabulation showing every product's revenue in every region.</p>
+<p>Drag <strong>Region</strong> to Rows, <strong>Product</strong> to Columns, and <strong>Revenue</strong> to Values. You get a cross-tabulation showing every product's revenue in every region, with row totals and column totals automatically. To convert the raw totals into "% of row total" (i.e. each region's product mix), right-click a value cell → <strong>Show Values As → % of Row Total</strong>. This turns a raw data dump into a mix analysis in two clicks.</p>
+<h3>Report 4: Top 10 Sales Reps</h3>
+<p>Drag <strong>Sales Rep</strong> to Rows and <strong>Revenue</strong> to Values. Right-click any rep name → <strong>Filter → Top 10</strong>. You can tune it to top 5, bottom 10, or top 10% — handy for leaderboard-style reports without writing a single LARGE() formula.</p>
 
 <h2>Essential Pivot Table Techniques</h2>
 
 <h3>Changing the Calculation</h3>
-<p>By default, pivot tables sum numeric fields. To change it:</p>
+<p>By default, pivot tables sum numeric fields and count text fields. To change it:</p>
 <ol>
-<li>Right-click any value cell</li>
-<li>Select "Value Field Settings"</li>
-<li>Choose Count, Average, Max, Min, or other calculations</li>
+<li>Right-click any value cell.</li>
+<li>Select <strong>Summarise Values By</strong> (for quick Sum / Count / Average / Max / Min) or <strong>Value Field Settings</strong> for the full dialog.</li>
+<li>Pick the aggregation. For counting unique customers per region use <strong>Distinct Count</strong> (only available when your pivot was built with "Add this data to the Data Model" ticked at creation).</li>
 </ol>
+<p>The same dialog lets you change the display format (e.g. Currency, Percentage, two decimal places) without formatting every cell by hand — a frequent beginner mistake.</p>
 
 <h3>Adding Calculated Fields</h3>
-<p>Go to <strong>PivotTable Analyse → Fields, Items & Sets → Calculated Field</strong>. You can create new calculations like profit margin: <code>=Revenue - Cost</code></p>
+<p>Go to <strong>PivotTable Analyse → Fields, Items &amp; Sets → Calculated Field</strong>. You can create new calculations like profit margin: <code>=Revenue - Cost</code> or <code>=(Revenue - Cost) / Revenue</code>. Calculated Fields operate on the <em>aggregated</em> numbers, not the raw rows — which is why <code>=Revenue / UnitsSold</code> in a calculated field gives you (total revenue) / (total units) per group, not the average of each row's unit price. For row-level calculations, add a helper column in your source data instead.</p>
 
 <h3>Using Slicers for Interactive Filtering</h3>
-<p>Slicers add visual, clickable filter buttons:</p>
+<p>Slicers add visual, clickable filter buttons that are much more discoverable than dropdown filters — perfect for dashboards you share with non-Excel users:</p>
 <ol>
-<li>Click your pivot table</li>
-<li>Go to <strong>PivotTable Analyse → Insert Slicer</strong></li>
-<li>Select the fields you want to filter by</li>
-<li>Click buttons to filter — much more intuitive than dropdown filters</li>
+<li>Click your pivot table.</li>
+<li>Go to <strong>PivotTable Analyse → Insert Slicer</strong>.</li>
+<li>Select the fields you want to filter by (e.g. Region, Product). Each field becomes its own slicer panel.</li>
+<li>Click buttons to filter; Ctrl-click for multi-select; click the clear-filter icon (top right of each slicer) to reset.</li>
 </ol>
+<p>One slicer can drive multiple pivot tables on the same sheet — right-click slicer → <strong>Report Connections</strong> → tick every pivot table you want it to control. This is how professional dashboards tie charts and summary blocks together.</p>
+
+<h3>Adding a Timeline for Date Filtering</h3>
+<p>For date fields there's a dedicated timeline slicer that shows a draggable band across years / quarters / months / days:</p>
+<ol>
+<li>Click the pivot table.</li>
+<li><strong>PivotTable Analyse → Insert Timeline</strong>, pick your date field.</li>
+<li>Drag the bar or the level selector (top right) to change granularity.</li>
+</ol>
+<p>Timelines only work on columns formatted as actual dates — if yours show up as text, the timeline option won't appear.</p>
 
 <h3>Refreshing Data</h3>
-<p>When your source data changes, right-click the pivot table and select <strong>Refresh</strong>, or press <code>Alt+F5</code>. To auto-refresh when opening the file, go to PivotTable Options → Data → check "Refresh data when opening the file".</p>
+<p>When your source data changes, right-click the pivot table and select <strong>Refresh</strong>, or press <code>Alt+F5</code>. To refresh every pivot table in the workbook in one go, use <code>Ctrl+Alt+F5</code>. To auto-refresh when opening the file, go to <strong>PivotTable Analyse → Options → Data</strong> tab → tick "Refresh data when opening the file".</p>
+<p><strong>Why a Table source matters here:</strong> if your source is a plain range like <code>A1:E1000</code> and you paste 50 new rows starting at A1001, a Refresh alone will miss them — the range is fixed. If your source is an Excel Table (<code>Ctrl+T</code>), new rows extend the Table and Refresh picks them up automatically.</p>
 
 <h2>Common Pivot Table Mistakes</h2>
 <ol>
-<li><strong>Blank headers</strong> — Every column must have a header or the pivot table won't include it</li>
-<li><strong>Mixed data types</strong> — Numbers stored as text won't sum correctly. Use <a href="/blog/data-validation">data validation</a> to prevent this upfront</li>
-<li><strong>Not using Tables</strong> — If you add new rows, a regular range won't include them automatically</li>
-<li><strong>Too many fields</strong> — Start simple with 2-3 fields, then add complexity</li>
-<li><strong>Forgetting to refresh</strong> — Pivot tables don't auto-update unless configured</li>
+<li><strong>Blank headers</strong> — Every column must have a header or the pivot table won't include it. Add headers to every column, even placeholder ones like "Notes".</li>
+<li><strong>Mixed data types</strong> — Numbers stored as text won't sum correctly. Symptoms: your revenue column returns a Count instead of a Sum. Fix: select the column → Data → Text to Columns → Finish (this reparses text-numbers as real numbers). Use <a href="/blog/data-validation">data validation</a> to prevent this upfront.</li>
+<li><strong>Not using Tables</strong> — If you add new rows, a regular range won't include them automatically. Convert your source to a Table with <code>Ctrl+T</code> before inserting the pivot.</li>
+<li><strong>Too many fields</strong> — Start simple with 2-3 fields, then add complexity. Five-level nested Rows are unreadable; use Filters or Slicers for extra dimensions instead.</li>
+<li><strong>Forgetting to refresh</strong> — Pivot tables don't auto-update unless configured. Enable auto-refresh on open (see the Refreshing Data section above).</li>
+<li><strong>Using cell references to pivot output</strong> — Writing <code>=B5</code> to pull a pivot value into another sheet is fragile: if the pivot layout changes, <code>B5</code> now contains something else. Use <code>GETPIVOTDATA</code> (which Excel auto-generates when you click-reference a pivot cell) — it binds to the field + row + column, so it survives layout changes.</li>
 </ol>
 
 <h2>Next Steps</h2>
 <p>Once you're comfortable with basic pivot tables, explore:</p>
 <ul>
-<li><strong>Pivot Charts</strong> — Visual representations of your pivot table data</li>
-<li><strong>Timelines</strong> — Date-specific slicers for time-based filtering</li>
-<li><strong>Power Pivot</strong> — For data models with multiple related tables (see the <a href="/blog/power-pivot-guide">Power Pivot guide</a>)</li>
-<li><strong>DAX formulas</strong> — Advanced calculations within Power Pivot</li>
+<li><strong>Pivot Charts</strong> — Visual representations of your pivot table data. Insert → PivotChart, pick a type. The chart stays linked to the pivot — slicers filter both in sync. See <a href="/blog/charts-visualisations">creating professional charts in Excel</a> for style tips that work on PivotCharts too.</li>
+<li><strong>Timelines</strong> — Date-specific slicers for time-based filtering (covered above).</li>
+<li><strong>GROUPBY and PIVOTBY (Excel 365)</strong> — formula-based alternatives that produce live, spilled pivot-style output. See the <a href="/blog/groupby-vs-pivottable-excel">GROUPBY vs PivotTable comparison</a> to decide which tool fits the job.</li>
+<li><strong>Power Pivot</strong> — For data models with multiple related tables, measures, and millions of rows (see the <a href="/blog/power-pivot-guide">Power Pivot guide</a>).</li>
+<li><strong>DAX formulas</strong> — Advanced calculations within Power Pivot, including year-over-year, running totals, and time intelligence.</li>
 </ul>
 
+<h2 id="troubleshooting">Troubleshooting: 5 pivot table errors every beginner hits</h2>
+<ol>
+  <li><strong>"Cannot Group That Selection"</strong> when right-clicking a date and choosing Group. This is the most common pivot table error and it almost always means the Date column has at least one non-date value (blank, text, or an invalid date like "2026-02-30"). Fix: sort the source data by the Date column ascending, any bad values will float to the top or bottom. Replace or delete them, then Refresh the pivot table. If the values look fine, they may be stored as <em>text</em> — select the column, Data → Text to Columns → Finish to force Excel to reparse as dates.</li>
+  <li><strong>Revenue column shows a Count instead of a Sum</strong>. Pivot tables default to Count for any field with even one text cell or blank cell. Fix: click any value cell → <strong>Value Field Settings → Sum</strong>. If that still produces a tiny number, your revenue cells are text-formatted numbers. Select the column → Data → Text to Columns → Finish to reparse.</li>
+  <li><strong>#REF! errors in the pivot after deleting rows from the source</strong>. This happens when a cell elsewhere in the workbook references a pivot cell that no longer exists (usually an old <code>=Sheet1!B5</code>). Fix: use <code>GETPIVOTDATA</code> references instead of direct cell references. To remove existing #REF! errors, Ctrl+H → Find <code>#REF!</code> → Replace with empty → Replace All. Then rewrite the lookup with GETPIVOTDATA.</li>
+  <li><strong>New rows added to the source don't show up after Refresh</strong>. Your pivot source is a fixed range, not a Table. Fix: select the source → <code>Ctrl+T</code> to convert to a Table, then change the pivot source: <strong>PivotTable Analyse → Change Data Source</strong> → type the Table name (e.g. <code>Table1</code>) and click OK. From now on, new rows are included automatically.</li>
+  <li><strong>Pivot table has blank cells or "(blank)" row labels</strong>. Blanks in the Rows or Columns field become "(blank)" entries, and blanks in Values are skipped. To hide "(blank)" rows, click the Row Labels filter → untick (blank). To replace empty Values cells with zero, right-click the pivot → <strong>PivotTable Options → Layout &amp; Format</strong> → tick "For empty cells show" → type <code>0</code>. To prevent blanks in the source, use <a href="/blog/data-validation">data validation</a> or fix upstream.</li>
+</ol>
+<h2 id="faq">FAQ</h2>
+<h3>How do I create a pivot table in Excel?</h3>
+<p>Select your data (or click inside an Excel Table), go to <strong>Insert → PivotTable</strong>, confirm the range covers all your data, choose New Worksheet, and click OK. Then drag fields from the Field List on the right into the Rows, Columns, Values, and Filters drop zones. Convert your source to a Table with <code>Ctrl+T</code> before inserting — it's the single change that prevents most "new rows didn't show up" problems later.</p>
+<h3>When should I use a pivot table instead of formulas in Excel?</h3>
+<p>Use pivot tables for exploratory analysis — when you want to slice data by different dimensions interactively and change your mind quickly. Use formulas like SUMIFS, COUNTIFS, and the newer GROUPBY / PIVOTBY when the output must live in specific cells, auto-update as part of a structured report, or feed into other calculations. Pivot tables are faster for ad-hoc "what does this data look like?" questions; formulas are better for dashboards someone will rebuild next quarter.</p>
+<h3>Why does my pivot table say "Cannot Group That Selection"?</h3>
+<p>Almost always a data-type problem in the column you're trying to group. The column has blanks, text values mixed in with numbers / dates, or "dates" that are actually text strings. Fix the source: sort the column ascending, remove or correct any stray text or blank cells, then Refresh the pivot. For columns of text-formatted dates, use Data → Text to Columns → Finish to reparse them as real dates.</p>
+<h3>How do I add a calculated field to a pivot table?</h3>
+<p>Click inside the pivot, go to <strong>PivotTable Analyse → Fields, Items &amp; Sets → Calculated Field</strong>. Type a name, enter a formula like <code>=Revenue - Cost</code> or <code>=(Revenue - Cost) / Revenue</code>, and click OK. The new field appears in the Field List and can be dragged into Values. Note: calculated fields operate on aggregated values, so <code>=Revenue / Units</code> gives you (total revenue) / (total units) per group, not the average unit price. For row-level formulas, add a helper column in your source data instead.</p>
+<h3>Why does my pivot table show outdated data after I edit the source?</h3>
+<p>Pivot tables don't auto-recalculate — you must refresh them. Right-click the pivot and choose <strong>Refresh</strong>, or press <code>Alt+F5</code>. To refresh every pivot in the workbook at once, <code>Ctrl+Alt+F5</code>. To auto-refresh on file open, <strong>PivotTable Analyse → Options → Data</strong> → tick "Refresh data when opening the file". If Refresh appears to work but new rows don't appear, your source is a plain range rather than a Table — convert it with <code>Ctrl+T</code> and change the pivot source.</p>
           <h2>Sources &amp; Further Reading</h2>
 <ul>
 <li><a href="https://support.microsoft.com/en-us/excel" target="_blank" rel="noopener">Microsoft Excel Documentation</a></li>
 <li><a href="https://www.microsoft.com/en-us/microsoft-365/blog/" target="_blank" rel="noopener">Microsoft 365 Blog</a></li>
 <li><a href="https://exceljet.net/functions" target="_blank" rel="noopener">ExcelJet Function Reference</a></li>
 </ul>
-<h2>Related Posts</h2>
+<h2>Related tutorials</h2>
 <ul>
-  <li><a href="/blog/dynamic-dashboards">Creating Dynamic Dashboards in Excel</a></li>
-  <li><a href="/blog/charts-visualisations">Creating Professional Charts and Visualisations in Excel</a></li>
-  <li><a href="/blog/power-pivot-guide">Excel Power Pivot — Handle Millions of Rows</a></li>
+  <li><a href="/blog/excel-formulas-guide">The Complete Excel Formulas Guide</a> — the hub indexing every formula tutorial on this site, grouped by task.</li>
+  <li><a href="/blog/groupby-vs-pivottable-excel">GROUPBY vs PivotTable</a> — when the newer formula alternatives make sense, and when the interactive pivot still wins.</li>
+  <li><a href="/blog/dynamic-dashboards">Creating Dynamic Dashboards in Excel</a> — wires pivot tables, slicers, and charts into a shared dashboard driven by one slicer.</li>
+  <li><a href="/blog/charts-visualisations">Creating Professional Charts and Visualisations in Excel</a> — applies to PivotCharts too; use slicers to drive them in real time.</li>
+  <li><a href="/blog/power-pivot-guide">Excel Power Pivot — Handle Millions of Rows</a> — for multi-table data models and DAX measures beyond what a regular pivot can do.</li>
+  <li><a href="/blog/advanced-formulas">15 Excel Formulas That Save Hours of Manual Work</a> — SUMPRODUCT, FILTER, and XLOOKUP often work together with pivots.</li>
 </ul><div class="blog-cta-box">
             <h3>Want to master Excel with AI?</h3>
             <p>My Complete Excel Course with AI Integration covers everything from formulas to AI-powered workflows.</p>
