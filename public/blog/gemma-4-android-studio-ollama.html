@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-adsense-account" content="ca-pub-1443974359047569">
-  <title>How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle</title>
-  <meta name="description" content="Run Gemma 4 locally in Android Studio with Ollama for free AI coding. Setup guide for Kotlin, Flutter, and Gradle projects with workflow examples.">
-  <meta name="keywords" content="Gemma 4 Android Studio, Ollama Android Studio, local AI Android Studio, Gemma 4 Kotlin, Gemma 4 Flutter, free AI coding, Sagnik Bhattacharya, Coding Liquids">
+  <title>Gemma 4 + Continue Plugin in Android Studio: Free Offline Ollama Setup (Gemini Alternative, 2026)</title>
+  <meta name="description" content="Set up Gemma 4 in Android Studio with the Continue plugin and Ollama for free, offline AI coding — a privacy-first alternative to Gemini Code Assist.">
+  <meta name="keywords" content="Gemma 4 Continue plugin, Continue plugin Android Studio, Gemma 4 Ollama Android Studio, Gemini Code Assist alternative, offline AI Android Studio, free local AI coding JetBrains, Sagnik Bhattacharya, Coding Liquids">
   <meta name="author" content="Sagnik Bhattacharya">
   <meta name="robots" content="index, follow">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -15,8 +15,8 @@
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#3E2723">
   <link rel="canonical" href="https://sagnikbhattacharya.com/blog/gemma-4-android-studio-ollama">
-  <meta property="og:title" content="How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle">
-  <meta property="og:description" content="Run Gemma 4 locally in Android Studio with Ollama for free AI coding. Setup guide for Kotlin, Flutter, and Gradle projects with workflow examples.">
+  <meta property="og:title" content="Gemma 4 + Continue Plugin in Android Studio: Free Offline Ollama Setup (Gemini Alternative, 2026)">
+  <meta property="og:description" content="Set up Gemma 4 in Android Studio with the Continue plugin and Ollama for free, offline AI coding — a privacy-first alternative to Gemini Code Assist.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://sagnikbhattacharya.com/blog/gemma-4-android-studio-ollama">
   <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/gemma-4-android-studio-ollama-sagnik-bhattacharya-coding-liquids.jpg">
@@ -24,25 +24,26 @@
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemma 4 in Android Studio with Ollama, showing Android Studio IDE with local AI coding assistant integration.">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemma 4 with the Continue plugin and Ollama in Android Studio, showing the Continue side panel connected to a local Gemma 4 model.">
   <meta property="og:locale" content="en_GB">
   <meta property="og:site_name" content="Sagnik Bhattacharya">
   <meta property="article:author" content="Sagnik Bhattacharya">
   <meta property="article:published_time" content="2026-04-05">
+  <meta property="article:modified_time" content="2026-04-17">
   <meta property="article:section" content="AI &amp; Automation">
   <meta property="article:tag" content="AI Tools">
   <meta property="article:tag" content="Android Studio">
   <meta property="article:tag" content="Gemma 4">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle">
-  <meta name="twitter:description" content="Run Gemma 4 locally in Android Studio with Ollama for free AI coding. Setup guide for Kotlin, Flutter, and Gradle projects with workflow examples.">
+  <meta name="twitter:title" content="Gemma 4 + Continue Plugin in Android Studio: Free Offline Ollama Setup (Gemini Alternative, 2026)">
+  <meta name="twitter:description" content="Set up Gemma 4 in Android Studio with the Continue plugin and Ollama for free, offline AI coding — a privacy-first alternative to Gemini Code Assist.">
   <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/gemma-4-android-studio-ollama-sagnik-bhattacharya-coding-liquids.jpg">
-  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemma 4 in Android Studio with Ollama, showing Android Studio IDE with local AI coding assistant integration.">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemma 4 with the Continue plugin and Ollama in Android Studio, showing the Continue side panel connected to a local Gemma 4 model.">
   <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle","description":"Run Gemma 4 locally in Android Studio with Ollama for free AI coding. Setup guide for Kotlin, Flutter, and Gradle projects with workflow examples.","datePublished":"2026-04-05","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/gemma-4-android-studio-ollama"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/gemma-4-android-studio-ollama-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/gemma-4-android-studio-ollama-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"\u00a9 Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"Gemma 4 Android Studio, Ollama Android Studio, local AI Android Studio, Gemma 4 Kotlin, Gemma 4 Flutter, free AI coding, Sagnik Bhattacharya, Coding Liquids","articleSection":"AI & Automation"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Gemma 4 + Continue Plugin in Android Studio: Free Offline Ollama Setup (Gemini Alternative, 2026)","description":"Set up Gemma 4 in Android Studio with the Continue plugin and Ollama for free, offline AI coding — a privacy-first alternative to Gemini Code Assist.","datePublished":"2026-04-05","dateModified":"2026-04-17","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/gemma-4-android-studio-ollama"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/gemma-4-android-studio-ollama-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/gemma-4-android-studio-ollama-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"Gemma 4 + Continue Plugin in Android Studio: Free Offline Ollama Setup (Gemini Alternative, 2026) by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"\u00a9 Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"Gemma 4 Android Studio, Ollama Android Studio, local AI Android Studio, Gemma 4 Kotlin, Gemma 4 Flutter, free AI coding, Sagnik Bhattacharya, Coding Liquids","articleSection":"AI & Automation"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle","item":"https://sagnikbhattacharya.com/blog/gemma-4-android-studio-ollama"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle","url":"https://sagnikbhattacharya.com/blog/images/gemma-4-android-studio-ollama-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/gemma-4-android-studio-ollama-sagnik-bhattacharya-coding-liquids.jpg","caption":"How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"\u00a9 Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"Gemma 4 + Continue Plugin in Android Studio: Free Offline Ollama Setup (Gemini Alternative, 2026)","item":"https://sagnikbhattacharya.com/blog/gemma-4-android-studio-ollama"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"Gemma 4 + Continue Plugin in Android Studio: Free Offline Ollama Setup (Gemini Alternative, 2026)","url":"https://sagnikbhattacharya.com/blog/images/gemma-4-android-studio-ollama-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/gemma-4-android-studio-ollama-sagnik-bhattacharya-coding-liquids.jpg","caption":"Gemma 4 + Continue Plugin in Android Studio: Free Offline Ollama Setup (Gemini Alternative, 2026) by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"\u00a9 Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -53,10 +54,26 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Can I use Gemma 4 locally in Android Studio?",
+      "name": "Why use the Continue plugin instead of Android Studio's built-in Agent Mode for Gemma 4?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, install Ollama and download the Gemma 4 model, then configure an Android Studio AI plugin to connect to your local Ollama endpoint. This gives you AI-powered code completions and chat assistance for Kotlin, Flutter, Dart, and Gradle projects, all running locally with no API costs or data leaving your machine."
+        "text": "The Continue plugin is the better choice when you want one config that follows you across VS Code and JetBrains IDEs, when you need finer control over parameters like contextLength or debounce delay, or when your employer prohibits the Google sign-in that Agent Mode requires. Continue runs entirely against your local Ollama endpoint with no cloud dependency. The native Settings > Tools > AI panel is simpler if you only work in Android Studio and are happy with Agent Mode's interface."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the Continue plugin show a blank panel in Android Studio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This is a known IntelliJ JCEF browser sandbox issue, not a Continue bug. Open Find Action with Ctrl+Shift+A (Cmd+Shift+A on macOS), search for Registry, untick ide.browser.jcef.sandbox.enable, and restart Android Studio. The Continue panel will render correctly on the next launch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use Gemma 4 in Android Studio for Flutter development specifically?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The setup is identical: install Ollama, pull Gemma 4, and configure Continue in Android Studio. Gemma 4 generates Dart code and Flutter widgets, though its Flutter knowledge is not as deep as its Kotlin knowledge. For widget generation, state management boilerplate, and basic Dart functions it works well. For Flutter-specific platform channel code or complex animations, use the 27B model for better results."
       }
     },
     {
@@ -116,7 +133,7 @@
   </nav>
   <div class="page-hero" style="padding-bottom:20px">
     <div class="container">
-      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">How to Use Gemma 4 in Android Studio with Ollama</span></nav>
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">Gemma 4 + Continue Plugin in Android Studio</span></nav>
     </div>
   </div>
   <section style="padding-top:0">
@@ -124,7 +141,7 @@
       <article class="blog-post">
         <div class="blog-post-header">
           <div class="blog-post-tags"><span class="blog-post-tag">AI Tools</span></div>
-          <h1 class="blog-post-title">How to Use Gemma 4 in Android Studio with Ollama: Local AI Coding for Kotlin, Flutter, and Gradle</h1>
+          <h1 class="blog-post-title">Gemma 4 + Continue Plugin in Android Studio: Free Offline Ollama Setup (Gemini Alternative, 2026)</h1>
           <div class="blog-post-meta">
             <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
               <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
@@ -135,13 +152,13 @@
           </div>
         </div>
         <figure class="blog-cover">
-          <img src="/blog/images/gemma-4-android-studio-ollama-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemma 4 in Android Studio with Ollama, showing Android Studio IDE with local AI coding assistant integration." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
-          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Gemma 4 in Android Studio with Ollama, showing Android Studio IDE with local AI coding assistant integration.</figcaption>
+          <img src="/blog/images/gemma-4-android-studio-ollama-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemma 4 with the Continue plugin and Ollama in Android Studio, showing the Continue side panel connected to a local Gemma 4 model." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for Gemma 4 with the Continue plugin and Ollama in Android Studio, showing the Continue side panel connected to a local Gemma 4 model.</figcaption>
         </figure>
         <div class="blog-post-content">
-<p>This is the companion guide to my <a href="/blog/gemma-4-vscode">VS Code setup post</a>, which became one of the most-read articles on this site within days of publishing. Dozens of readers asked the same follow-up question: "Does this work in Android Studio too?" The short answer is yes — with some important differences in how you connect Ollama to a JetBrains-based IDE versus VS Code. This guide covers everything you need to know.</p>
-<p>Android Studio is built on IntelliJ IDEA, which means the extension ecosystem is different from VS Code's marketplace. You will not find identical plugins, and the native inline completion behaviour works differently. But the core principle remains the same: Gemma 4 running locally through Ollama can serve as a free, private, offline-capable AI coding assistant for your Kotlin, Flutter, and Gradle workflows — all without sending a single line of code to an external server.</p>
-<p>I have tested these setups across native Kotlin Android projects, Flutter apps built in Android Studio, and complex multi-module Gradle builds. This guide walks through the practical steps, shows real workflow examples for each technology, and gives you an honest assessment of where local AI shines and where it falls short in the Android development ecosystem.</p>
+<p>Google now ships first-party Gemma 4 support directly inside Android Studio: open <em>Settings &gt; Tools &gt; AI &gt; Model Providers</em>, point it at LM Studio or Ollama, and Agent Mode picks up the model. If that is all you need, the official <a href="https://developer.android.com/studio/gemini/use-a-local-model" target="_blank" rel="noopener">Android Developers documentation</a> walks you through it in a few clicks. This guide is for the developer who wants something different.</p>
+<p>This is the companion to my <a href="/blog/gemma-4-vscode">VS Code setup post</a>, and it covers the <strong>Continue plugin</strong> path instead of Google's native Agent Mode. People reach for Continue + Ollama when they want a single config that follows them across VS Code, IntelliJ and Android Studio; when they need finer control over <code>contextLength</code>, debounce timings or model swaps; when their employer prohibits the Google sign-in flow that Agent Mode requires; or when they simply prefer an open-source plugin they can read and modify. It is the closest thing to a fully private, vendor-neutral, offline alternative to Gemini Code Assist that runs inside Android Studio today.</p>
+<p>I have tested this setup on native Kotlin projects, Flutter apps built in Android Studio, and multi-module Gradle builds. The walkthrough below is the practical version: install Ollama, install Continue, fix the one IntelliJ JCEF quirk that trips up new users, and then put Gemma 4 to work on real Kotlin, Dart, and <code>build.gradle.kts</code> files. The final section compares this stack head-to-head with Gemini Code Assist and GitHub Copilot so you can decide where each one belongs in your workflow.</p>
 
 <div class="blog-inline-course"><img src="/images/the-complete-flutter-guide-build-android-ios-and-web-apps.jpg" alt="The Complete Flutter Guide" width="280" height="147" loading="lazy"><div class="blog-inline-course__body"><h3 class="blog-inline-course__title">The Complete Flutter Guide: Build Android, iOS and Web Apps</h3><p class="blog-inline-course__sub">Flutter 2026: Build fast, production-grade apps for Android, iOS &amp; Web with Flutter &amp; Dart</p><a href="https://www.udemy.com/course/flutter-the-guide-to-build-android-ios-and-web-apps/?referralCode=0895EF14011CB08E80A0" target="_blank" rel="noopener noreferrer" class="btn-primary blog-inline-course__btn">Enroll on Udemy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div><h2>Prerequisites</h2>
 <p>Before you begin, make sure you have the following in place:</p>
@@ -184,6 +201,7 @@ curl http://localhost:11434</code></pre>
   <li>Install the plugin by Continue.dev and restart Android Studio when prompted.</li>
   <li>After restart, you will see a Continue icon in the right sidebar. Click it to open the panel.</li>
 </ol>
+<p><strong>If the Continue panel opens blank or shows "Nothing to show":</strong> this is a known IntelliJ JCEF browser issue, not a Continue bug. Press <kbd>Ctrl+Shift+A</kbd> (<kbd>Cmd+Shift+A</kbd> on macOS) to open Find Action, type "Registry", press Enter to open the registry editor, search for <code>ide.browser.jcef.sandbox.enable</code>, untick it, then restart Android Studio. The Continue panel will render correctly on the next launch. This single setting catches out almost every new Continue user on Android Studio — fix it once and forget about it.</p>
 
 <h3>Configuring for Ollama and Gemma 4</h3>
 <p>Continue stores its configuration in <code>~/.continue/config.json</code>. Open this file (Continue's settings panel has a link to it) and configure it for Gemma 4:</p>
@@ -528,6 +546,16 @@ dependencies {
   }
 }</code></pre>
 
+<h2>Troubleshooting Common Continue + Ollama Errors</h2>
+<p>These are the issues that come up most often when running this stack inside Android Studio. Work through them in order — most problems are one of these five.</p>
+<ol>
+  <li><strong>Continue panel is blank or shows "Nothing to show".</strong> This is the JCEF sandbox issue covered in the Installation section above. Open Find Action (<kbd>Ctrl+Shift+A</kbd>), search "Registry", untick <code>ide.browser.jcef.sandbox.enable</code>, restart Android Studio.</li>
+  <li><strong><code>curl: (7) Failed to connect to localhost port 11434</code>.</strong> Ollama is not running. On macOS and Windows, launch the Ollama tray app. On Linux, start the daemon with <code>ollama serve</code> in a separate terminal. Confirm with <code>curl http://localhost:11434</code> — you should see <em>Ollama is running</em>.</li>
+  <li><strong><code>error: model 'gemma4' not found, try pulling it first</code>.</strong> The model is referenced in <code>config.json</code> but not pulled locally. Run <code>ollama pull gemma4:12b</code> (or the variant in your config). Verify with <code>ollama list</code>.</li>
+  <li><strong>Android Studio freezes or swaps heavily during Gradle sync.</strong> The 27B model and Android Studio are competing for RAM. Either drop the autocomplete model to <code>gemma4:4b</code> in <code>config.json</code>, close the emulator while indexing, or set <code>OLLAMA_KEEP_ALIVE=0</code> as an environment variable so the model unloads between requests.</li>
+  <li><strong>First response after a long pause takes 10+ seconds.</strong> Ollama unloaded the model from VRAM after the keep-alive window expired (default 5 minutes). Set <code>OLLAMA_KEEP_ALIVE=30m</code> in your environment if you want the model to stay resident longer at the cost of GPU memory.</li>
+</ol>
+
 <h2>Gemma 4 vs Gemini Code Assist vs GitHub Copilot in Android Studio</h2>
 <p>Android Studio developers have three main AI assistant options. Here is how they compare.</p>
 <table>
@@ -622,6 +650,8 @@ dependencies {
 </ul>
 
 <h2>Frequently Asked Questions</h2>
+<h3>Why use the Continue plugin instead of Android Studio's built-in Agent Mode?</h3>
+<p>Android Studio's native AI panel (<em>Settings &gt; Tools &gt; AI &gt; Model Providers</em>) is the simpler choice if you only work in Android Studio and you are happy with Google's Agent Mode interface. The Continue plugin is the better choice in three situations. First, if you also use VS Code or other JetBrains IDEs, Continue gives you one <code>~/.continue/config.json</code> that follows you everywhere — same models, same prompts, same shortcuts. Second, if you need finer control over model parameters like <code>contextLength</code>, debounce delay, or per-task model routing, Continue exposes them in JSON; the native panel does not. Third, if your employer prohibits the Google account sign-in that Agent Mode requires, Continue runs entirely against your local Ollama endpoint with no cloud dependency. Many developers run both side by side: Agent Mode for tool-using agentic tasks, Continue for chat and inline edits.</p>
 <h3>Can I use Gemma 4 in Android Studio for Flutter development specifically?</h3>
 <p>Yes. The setup is identical — install Ollama, pull Gemma 4, and configure Continue in Android Studio. Gemma 4 generates Dart code and Flutter widgets, though its Flutter knowledge is not as deep as its Kotlin knowledge. For widget generation, state management boilerplate, and basic Dart functions, it works well. For Flutter-specific platform channel code or complex animations, you may need to provide more context in your prompts or use the 27B model for better results. If Flutter is your primary focus, I cover additional Flutter-specific AI workflows in my <a href="/blog/create-with-ai-flutter">guide to building Flutter apps with AI</a>.</p>
 

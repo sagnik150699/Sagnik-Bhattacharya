@@ -1,109 +1,25 @@
 # Blog SEO Audit
 
 - Audit date: `2026-04-01`
-- New posts audited: `84`
-- Legacy posts inspected: `53`
-- Internal links checked across in-scope HTML: `2789`
-- In-scope blockers: `85`
-- In-scope high findings: `2`
-- In-scope medium findings: `2`
+- New posts audited: `83`
+- Legacy posts inspected: `56`
+- Internal links checked across in-scope HTML: `2905`
+- In-scope blockers: `0`
+- In-scope high findings: `1`
+- In-scope medium findings: `3`
 
 ## In-Scope Findings
 
 ### Blocker
-- `agent-mode-in-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `groupby-function-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `flutter-widget-previewer.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `claude-agent-mode-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `pivotby-function-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `create-with-ai-flutter.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `copilot-function-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `groupby-vs-pivottable-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `flutter-web-skwasm-vs-canvaskit.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `analyst-vs-agent-mode-vs-copilot-chat.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `choosecols-chooserows-take-drop-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `flutter-app-architecture-2026.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `format-data-for-copilot-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `map-scan-reduce-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `go-router-flutter-deep-linking.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `create-lookups-with-copilot-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `let-and-lambda-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `flutter-form-validation-best-practices.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `generate-formula-columns-copilot-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `xmatch-function-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `flutter-performance-2026.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `generate-single-cell-formulas-copilot-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `excel-tables-best-practices.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `responsive-flutter-ui-all-screens.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `create-charts-with-copilot-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `fix-spill-errors-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `add-flutter-to-existing-app.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `text-analysis-excel-with-ai.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `audit-formulas-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `flutter-testing-strategy-2026.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `python-in-excel-beginners.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `protect-excel-workbook-collaboration.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `py-function-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `calendar-in-excel-automatic.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `copilot-excel-python-analysis.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `gantt-chart-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `chatgpt-vs-claude-vs-copilot-vs-gemini-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `inventory-tracker-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `review-ai-generated-excel-formulas.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `attendance-tracker-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `ai-power-query-m-code.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `project-tracker-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `ai-forecasting-model-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `sales-pipeline-tracker-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `excel-ai-for-accountants.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `monthly-budget-spreadsheet-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `excel-ai-for-hr-teams.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `amortization-schedule-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `excel-ai-for-sales-ops.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `map-charts-excel.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `mcp-chatgpt-tools.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `mcp-servers-ai-agents.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `build-ai-agent-file-search-tools.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `remote-mcp-servers-ai-apps.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `structured-json-outputs-llms.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `tool-calling-ai-apps.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `background-jobs-ai-apps.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `reasoning-summaries-production-ai.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `gemma-4-local-ai-workflows.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `run-gemma-4-own-machine.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `local-ai-own-files.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `build-rag-app-own-documents.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `improve-rag-reranking.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `chunk-documents-rag.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `test-ai-prompts-before-shipping.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `evaluate-ai-outputs-real-apps.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `reduce-hallucinations-tool-ai.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `cut-ai-api-costs-caching-routing.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `choose-open-models-vs-api-models.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `seedance-image-to-video.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `seedance-anime-video.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `seedance-reference-images-characters.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `seedance-product-ad-videos.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `seedance-cinematic-camera-movement.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `seedance-audio-prompts.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `seedance-vs-veo-3.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `seedance-vs-kling.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `seedance-vs-sora-2.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `fix-bad-motion-seedance.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `better-prompts-seedance.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `consistent-characters-seedance.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `seedance-dreamina-guide.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `seedance-youtube-shorts.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `seedance-marketing-videos.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
-- `public/blog.html` has broken internal links: `/apple-touch-icon.png`, `/favicon.svg`.
+- None.
 
 ### High
 
-- `seedance-anime-video` has no inbound link from another new post.
-- `seedance-audio-prompts` has no inbound link from another new post.
+- `chatgpt-vs-claude-vs-copilot-vs-gemini-excel.html` is missing `article:modified_time`.
 
 ### Medium
 
+- `local-ai-own-files.html` has only 4 internal links inside the article body.
 - `build-rag-app-own-documents.html` has only 4 internal links inside the article body.
 - `improve-rag-reranking.html` has only 4 internal links inside the article body.
 
@@ -116,8 +32,6 @@
 - `chatgpt-excel-guide.html`: missing article:modified_time, missing newer image-licence metadata.
 - `claude-ai-excel-formulas.html`: missing article:modified_time, missing newer image-licence metadata.
 - `claude-ai-excel-macros.html`: missing article:modified_time, missing newer image-licence metadata.
-- `claude-code-android-studio.html`: missing article:modified_time.
-- `claude-code-vscode.html`: missing article:modified_time.
 - `claude-debug-formulas.html`: missing article:modified_time, missing newer image-licence metadata.
 - `clean-messy-data.html`: missing article:modified_time, missing newer image-licence metadata.
 - `conditional-formatting-tips.html`: missing article:modified_time, missing newer image-licence metadata.
@@ -128,9 +42,12 @@
 - `data-validation.html`: missing article:modified_time, missing newer image-licence metadata.
 - `deepseek-vscode.html`: missing article:modified_time.
 - `dynamic-dashboards.html`: missing article:modified_time, missing newer image-licence metadata.
+- `excel-ai-guide.html`: title/H1 mismatch, missing article:modified_time, missing newer image-licence metadata.
 - `excel-ai-prompts.html`: missing article:modified_time, missing newer image-licence metadata.
+- `excel-formulas-guide.html`: title/H1 mismatch, missing article:modified_time, missing newer image-licence metadata.
 - `excel-vs-google-sheets.html`: missing article:modified_time, missing newer image-licence metadata.
 - `financial-modelling.html`: missing article:modified_time, missing newer image-licence metadata.
+- `flutter-guide.html`: title/H1 mismatch, missing article:modified_time, missing newer image-licence metadata.
 - `flutter-renderflex-overflow-row-listview.html`: missing article:modified_time.
 - `flutter-state-management.html`: missing article:modified_time, missing newer image-licence metadata.
 - `flutter-vs-react-native.html`: missing article:modified_time, missing newer image-licence metadata.
@@ -138,27 +55,19 @@
 - `gemini-cli-android-studio-flutter.html`: missing article:modified_time.
 - `gemini-cli-vscode.html`: missing article:modified_time.
 - `gemini-code-assist-android-studio.html`: missing article:modified_time.
-- `gemma-4-android-studio-ollama.html`: missing article:modified_time.
-- `gemma-4-data-analysis-excel.html`: missing article:modified_time.
 - `gemma-4-vs-chatgpt-vs-claude.html`: missing article:modified_time.
 - `gemma-4-vs-gemini.html`: missing article:modified_time.
 - `gemma-4-vs-gpt-vs-llama-excel.html`: missing article:modified_time.
 - `gemma-4-vs-paid-ai-models.html`: missing article:modified_time.
 - `gemma-4-vscode.html`: missing article:modified_time.
 - `getting-started-copilot-excel.html`: missing article:modified_time, missing newer image-licence metadata.
-- `how-to-setup-seedance.html`: broken internal link(s).
 - `index-match-guide.html`: missing article:modified_time, missing newer image-licence metadata.
 - `keyboard-shortcuts.html`: missing article:modified_time, missing newer image-licence metadata.
 - `mastering-pivot-tables.html`: missing article:modified_time, missing newer image-licence metadata.
 - `opencode-vscode.html`: missing article:modified_time.
 - `power-pivot-guide.html`: missing article:modified_time, missing newer image-licence metadata.
 - `power-query-guide.html`: missing article:modified_time, missing newer image-licence metadata.
-- `run-gemma-4-locally.html`: missing article:modified_time.
-- `seedance-2-lip-sync-talking-head.html`: broken internal link(s).
-- `seedance-2-motion-intensity-settings.html`: broken internal link(s).
-- `seedance-2-pricing-credits.html`: broken internal link(s).
-- `seedance-2-resolution-export-settings.html`: broken internal link(s).
-- `seedance-2-tutorial-beginner.html`: broken internal link(s).
+- `seedance-guide.html`: title/H1 mismatch, missing article:modified_time, missing newer image-licence metadata.
 - `vlookup-vs-xlookup.html`: missing article:modified_time, missing newer image-licence metadata.
 - `what-if-analysis.html`: missing article:modified_time, missing newer image-licence metadata.
 - `windsurf-flutter-development.html`: missing article:modified_time.

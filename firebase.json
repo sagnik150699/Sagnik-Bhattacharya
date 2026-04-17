@@ -7,6 +7,10 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "redirects": [
+      { "source": "/blog/run-gemma-4-own-machine", "destination": "/blog/run-gemma-4-locally", "type": 301 },
+      { "source": "/blog/seedance-reference-images-characters", "destination": "/blog/consistent-characters-seedance", "type": 301 }
+    ],
     "headers": [
       {
         "source": "**/*.html",
