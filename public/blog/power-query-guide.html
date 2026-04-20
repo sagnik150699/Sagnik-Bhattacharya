@@ -34,8 +34,57 @@
   <meta property="og:site_name" content="Sagnik Bhattacharya">
   <meta property="article:author" content="Sagnik Bhattacharya">
   <meta property="article:published_time" content="2026-03-09">
+  <meta property="article:modified_time" content="2026-04-18">
   <meta property="article:section" content="Advanced Excel"><meta property="article:tag" content="Power Query"><meta property="article:tag" content="Data Transformation"><meta property="article:tag" content="Excel Automation">
   <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Power Query free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Power Query is built into every version of Excel from 2016 onwards on Windows, and is also in Excel for Mac on Microsoft 365 (with some connectors still Windows-only). There is nothing extra to install or pay for. Earlier versions (Excel 2010 and 2013) need a free Microsoft add-in download."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Power Query and Power Pivot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Power Query is the ETL tool — it gets, cleans, and reshapes data before analysis. Power Pivot is the modelling and DAX engine that runs after the data is clean — relationships between tables, measures, KPIs, and pivot reports over millions of rows. The standard pipeline is Power Query → Power Pivot data model → Pivot Table report."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to learn the M language to use Power Query?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The visual editor records every click as M code in the background, so you can build and maintain production queries without writing a single line. M only becomes useful when you want to do something the UI does not expose (custom column logic, dynamic file paths, reusable functions)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I refresh Power Query automatically when the file opens?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Right-click the query in the Queries and Connections pane, choose Properties, and tick 'Refresh data when opening the file'. For dashboards distributed to non-technical users this is essential — they get the latest data without having to know what Refresh All means."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should I use Power Query versus a Python or VBA script?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Power Query for anything that ends in an Excel workbook and is run by an Excel user. VBA only for legacy macros that already exist or for hooks the Excel UI cannot trigger. Python (or Power BI) when the data volume exceeds a few million rows, when you need version control on the cleaning logic, or when the output is consumed by something other than Excel."
+      }
+    }
+  ]
+}
+  </script>
     <script type="application/ld+json">
 {
     "@context":  "https://schema.org",
@@ -46,7 +95,7 @@
                    "name":  "Sagnik Bhattacharya",
                    "url":  "https://sagnikbhattacharya.com"
                },
-    "datePublished":  "2026-03-09","dateModified":"2026-03-09",
+    "datePublished":  "2026-03-09","dateModified":"2026-04-18",
     "inLanguage":  "en-GB",
     "description":  "Power Query records every transformation step and replays it automatically. Learn how to import, clean, and reshape data from any source in Excel.",
     "publisher":  {
@@ -184,16 +233,20 @@
         </figure>
         <div class="blog-post-content">
           
-<p>If you're still <a href="/blog/clean-messy-data">manually cleaning and reshaping data</a> every week or month, Power Query will change your life. It's a built-in ETL (Extract, Transform, Load) tool in Excel that lets you automate repetitive data preparation — once you set it up, it runs with a single click.</p>
+<p>If you're still <a href="/blog/clean-messy-data">manually cleaning and reshaping data</a> every week or month, Power Query will change your life. It's a built-in ETL (Extract, Transform, Load) tool in Excel that lets you automate repetitive data preparation — once you set it up, it runs with a single click. The same 30-minute manual cleaning ritual you do every Monday morning becomes a one-click Refresh All. The same end-of-month report that takes a full afternoon becomes a 10-second job.</p>
+<p>This tutorial is written for Excel beginners who have never opened the Power Query Editor before, but who already know enough to feel the pain of repetitive cleaning. If you are comfortable with the techniques in the <a href="/blog/clean-messy-data">data cleaning guide</a> and the <a href="/blog/excel-formulas-guide">Excel formulas guide</a>, you have everything you need. Power Query ships with Excel 2016 and later on Windows, Excel for Microsoft 365 on both Windows and Mac (Mac support is partial — folder imports and some web connectors are still Windows-only as of 2026), and is the same engine that powers Power BI, so anything you learn here transfers directly the day you graduate to dashboards.</p>
+<p>One myth to drop before you start: Power Query is <em>not</em> a programming tool. The visual editor records every click as a step, and the underlying M language is auto-generated for you. You can build production-grade pipelines without typing a single line of M. We will show one short M tweak in the troubleshooting section because it solves a specific recurring error, but everything else in this tutorial is point-and-click.</p>
 
 <div class="blog-inline-course"><div class="blog-inline-course__badge">Coming Soon</div><div class="blog-inline-course__body"><h3 class="blog-inline-course__title">Complete Excel Guide with AI Integration</h3><p class="blog-inline-course__sub">Master formulas, pivot tables, data analysis, and charts — with AI integration.</p><a href="/courses#excel" class="btn-primary blog-inline-course__btn">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div><h2>What Is Power Query?</h2>
-<p>Power Query (found under the <strong>Data</strong> tab as "Get & Transform Data") is a data connection and transformation engine. It can:</p>
+<p>Power Query (found under the <strong>Data</strong> tab as "Get &amp; Transform Data") is a data connection and transformation engine. It can:</p>
 <ul>
 <li>Import data from files, databases, web pages, APIs, and more</li>
 <li>Clean and reshape data with a visual, step-by-step interface</li>
 <li>Merge and append data from multiple sources</li>
 <li>Automate the entire process — refresh with one click</li>
 </ul>
+<p>The mental model that makes everything else click: a Power Query is a <em>recorded sequence of steps</em> that lives in your workbook, separate from the worksheet. The worksheet shows the <em>output</em>; the query shows the <em>recipe</em>. Change the source data, click Refresh, and the recipe re-runs from scratch on the new input. This is fundamentally different from formulas (which calculate live as you type) and from manual cleaning (which has to be redone every time).</p>
+<p><strong>Real-world scenario:</strong> A small accounting team imports the same 12-column trial balance from their accounting system every month. Before Power Query: open file → delete columns A, C, F → unmerge cells → fill blanks down → change currency type → paste into the master workbook. 25 minutes, every month, every time. After Power Query: drop the new file in the source folder, click Refresh All, done. The 25-minute ritual collapses to under 10 seconds.</p>
 
 <a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>Getting Started</h2>
 <h3>Importing Data</h3>
@@ -204,9 +257,10 @@
 <li><strong>Online</strong> — SharePoint, web pages, OData feeds</li>
 <li><strong>Other</strong> — Folder (import all files in a folder), ODBC connections</li>
 </ul>
+<p><strong>Beginner pitfall:</strong> When you import a CSV or Excel file, Power Query stores the <em>file path</em>, not the file contents. If you move or rename the source file, the next refresh fails with "DataSource.Error: The file ... could not be found". Either keep the source file in a stable folder (best practice: a dedicated <code>data-sources/</code> folder you never reorganise), or use a folder import (covered later) which resolves filenames dynamically.</p>
 
 <h3>The Power Query Editor</h3>
-<p>When you import data, the Power Query Editor opens. This is where you build your transformation steps. Every action you take is recorded as a step that can be replayed:</p>
+<p>When you import data, the Power Query Editor opens. This is where you build your transformation steps. Every action you take is recorded as a step on the right-hand <strong>Applied Steps</strong> pane and can be replayed, edited, reordered, or deleted:</p>
 <ol>
 <li>Remove unwanted columns</li>
 <li>Filter rows</li>
@@ -216,6 +270,8 @@
 <li>Pivot or unpivot data</li>
 <li>Group and aggregate</li>
 </ol>
+<p>The Applied Steps pane is the single most important habit to form: rename each step the moment you create it (right-click → Rename) so a six-month-old query reads like a recipe ("Remove Header Garbage" → "Promote Headers" → "Cast Revenue To Currency") instead of an opaque list ("Changed Type" → "Changed Type1" → "Changed Type2").</p>
+<p><strong>Beginner pitfall:</strong> Resist the urge to do every transformation as a separate step out of caution. Each step costs refresh time, and 40-step queries on a 1M-row source can take minutes to refresh. Combine related operations: change all data types in <em>one</em> Changed Type step, remove all unwanted columns in <em>one</em> Remove Other Columns step, and so on.</p>
 
 <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>Practical Example: Monthly Sales Report</h2>
 <p>Suppose you receive a CSV sales report every month and need to clean it the same way each time:</p>
@@ -223,16 +279,18 @@
 <li>Go to <strong>Data → From Text/CSV</strong>, select your file</li>
 <li>In Power Query Editor, apply your cleaning steps:
   <ul>
-  <li>Remove the first 3 header rows</li>
-  <li>Promote the 4th row to headers</li>
-  <li>Remove blank rows</li>
-  <li>Change "Revenue" column to currency type</li>
-  <li>Add a "Month" column extracted from the date</li>
+  <li>Remove the first 3 header rows (<strong>Home → Remove Rows → Remove Top Rows → 3</strong>)</li>
+  <li>Promote the 4th row to headers (<strong>Home → Use First Row as Headers</strong>)</li>
+  <li>Remove blank rows (<strong>Home → Remove Rows → Remove Blank Rows</strong>)</li>
+  <li>Change "Revenue" column to currency type (click the data-type icon in the column header → Currency)</li>
+  <li>Add a "Month" column extracted from the date (<strong>Add Column → Date → Month → Name of Month</strong>)</li>
   </ul>
 </li>
-<li>Click <strong>Close & Load</strong> to load the clean data into your worksheet</li>
+<li>Click <strong>Close &amp; Load</strong> to load the clean data into your worksheet, or <strong>Close &amp; Load To… → Only Create Connection</strong> if you only want it for a pivot table</li>
 </ol>
 <p>Next month, simply replace the CSV file and click <strong>Data → Refresh All</strong>. All your cleaning steps run automatically on the new data.</p>
+<p><strong>Real-world scenario:</strong> A retail analyst gets a fresh point-of-sale CSV from each of 14 store managers on the first of every month. The old workflow: open each CSV, run the same six cleaning steps, paste into the consolidation sheet, save, repeat 14 times. Roughly 90 minutes. The Power Query workflow: drop all 14 files into <code>data-sources/pos-monthly/</code>, run a folder import (covered below) once, and every month after that is one click on Refresh All.</p>
+<p><strong>Beginner pitfall:</strong> Always lock the column data types as the <em>last</em> step before Close &amp; Load. New monthly data sometimes has a stray text value in a number column ("N/A", "—", "TBD"), and if your data-type step is in the middle of the query, every later step that depends on numeric values silently breaks. Putting Changed Type last means errors surface immediately on refresh, where you can spot them, instead of cascading through filter and group operations first.</p>
 
 <h2>Key Transformations</h2>
 <table>
@@ -251,29 +309,58 @@
 <h2>Merging Data from Multiple Sources</h2>
 <p>Power Query's Merge feature is like a database JOIN. Import two tables, then:</p>
 <ol>
-<li>Go to <strong>Home → Merge Queries</strong></li>
-<li>Select the matching columns from each table</li>
-<li>Choose the join type (Left, Right, Inner, Full, Anti)</li>
-<li>Expand the columns you want from the second table</li>
+<li>Go to <strong>Home → Merge Queries</strong> (or <strong>Merge Queries as New</strong> if you want a third query and to keep both originals untouched)</li>
+<li>Select the matching columns from each table (Ctrl+click for multi-column matches)</li>
+<li>Choose the join type: <strong>Left Outer</strong> (keep all rows from your main table — the safe default), <strong>Inner</strong> (only matched rows), <strong>Full Outer</strong> (everything from both), <strong>Left Anti</strong> (rows in your table that have NO match — useful for finding missing customers)</li>
+<li>Expand the columns you want from the second table (click the double-arrow icon on the new merged column header → untick "Use original column name as prefix" unless you need disambiguation)</li>
 </ol>
 <p>This is far more reliable than <a href="/blog/vlookup-vs-xlookup">VLOOKUP or XLOOKUP</a> for large datasets and multiple match columns.</p>
+<p><strong>Real-world scenario:</strong> An e-commerce team has an Orders table (1.2M rows) and a Customers table (180k rows). A VLOOKUP from Orders into Customers locks Excel for 30+ seconds every time the workbook recalculates. A Power Query Merge runs once on refresh, takes 4 seconds, and the result lives as a static loaded table — no more recalc penalty during every cell edit.</p>
+<p><strong>Beginner pitfall:</strong> The match column data types must be identical on both sides. A "1234" stored as text on the left and 1234 stored as a number on the right will produce zero matches with no warning. Run a Changed Type step on both source queries to coerce the match columns to the same type before you merge — Whole Number is the safest default for IDs.</p>
 
 <h2>Importing All Files from a Folder</h2>
-<p>One of Power Query's killer features. If you have monthly reports in a folder:</p>
+<p>One of Power Query's killer features, and the one that pays back the time cost of learning Power Query within the first month. If you have monthly reports in a folder:</p>
 <ol>
 <li><strong>Data → Get Data → From File → From Folder</strong></li>
 <li>Select the folder</li>
-<li>Power Query shows all files — click "Combine & Transform"</li>
-<li>Apply your cleaning steps once — they apply to every file</li>
+<li>Power Query shows all files in a preview pane — click <strong>Combine &amp; Transform</strong></li>
+<li>Pick a sample file (Power Query uses its structure as a template), then apply your cleaning steps once — they apply to every file</li>
 <li>When you add new files to the folder, just click Refresh</li>
 </ol>
+<p><strong>Real-world scenario:</strong> A finance team gets one Excel invoice file per supplier per month — by year three, the folder has 4,000+ files across 110 suppliers. Combining them by hand is no longer humanly possible. Power Query's folder import reads every file, applies the same cleaning template (skip the first 8 rows of supplier branding, promote headers, cast amounts to currency), and produces one consolidated 200k-row table. Adding a new supplier means dropping their file in the folder — no code, no template change.</p>
+<p><strong>Beginner pitfall:</strong> Folder imports follow ALL subfolders by default. If you point Power Query at <code>C:/Data/</code> and there is an unrelated <code>archive/</code> subfolder with 50,000 old files, every refresh will scan all of them. Either point at the most specific subfolder you can, or add a Filter step on the <code>Folder Path</code> column right after the import to scope the read.</p>
 
 <h2>When to Use Power Query vs Formulas</h2>
 <ul>
-<li><strong>Power Query</strong>: Recurring data imports, multi-source data, complex reshaping, large datasets</li>
-<li><strong>Formulas</strong>: One-time calculations, real-time updates as you type, simple transformations</li>
+<li><strong>Power Query</strong>: Recurring data imports, multi-source data, complex reshaping, large datasets, anywhere the same cleaning has to repeat each month</li>
+<li><strong>Formulas</strong>: One-time calculations, real-time updates as you type, simple transformations, anything users will actively edit by hand on the worksheet</li>
 </ul>
-<p>Power Query is a preparation tool — it gets your data ready. Formulas and <a href="/blog/mastering-pivot-tables">pivot tables</a> are analysis tools — they help you understand the prepared data. Load your Power Query output into pivot tables, then build <a href="/blog/dynamic-dashboards">auto-refreshing dashboards</a> on top.</p>
+<p>Power Query is a preparation tool — it gets your data ready. Formulas and <a href="/blog/mastering-pivot-tables">pivot tables</a> are analysis tools — they help you understand the prepared data. Load your Power Query output into pivot tables, then build <a href="/blog/dynamic-dashboards">auto-refreshing dashboards</a> on top. The standard architecture for any reporting workbook in 2026: Power Query for ETL → Excel Table for storage → Pivot Table or formula for analysis → Chart or dashboard for presentation.</p>
+
+<h2>Troubleshooting: Common Power Query Errors</h2>
+<p>These five errors trip up almost every beginner the first month they use Power Query.</p>
+<h3>"DataSource.Error: Could not find the file"</h3>
+<p>Power Query stored the absolute file path of your source file (e.g. <code>C:/Users/jane/Downloads/sales-march.csv</code>), and the file has since moved, been renamed, or was opened from email by a different user whose Downloads folder is at a different path. Fix: open the query → click the <strong>Source</strong> step in Applied Steps → edit the file path in the formula bar to the new location. For a permanent fix, move source files into a <em>shared, stable</em> folder structure (e.g. <code>C:/Reports/data-sources/</code>) so the path never changes.</p>
+<h3>"Expression.Error: The column ... was not found"</h3>
+<p>The source data has a different schema than when you built the query — usually a column was renamed, deleted, or had its case changed upstream. Open the query, find the step that fails (it will be flagged in red in Applied Steps), and either rename the column reference inside the step or insert a Renamed Columns step earlier to bring the upstream change in line with what later steps expect.</p>
+<h3>Refresh is slow (minutes for tens of thousands of rows)</h3>
+<p>Three common causes, in order of likelihood: (1) you have a Changed Type step early in the query that forces the entire dataset to be cast before later filters cut it down — move Changed Type to the end so filters run on the raw data first, (2) your filters are below a sort step (sorts cannot be folded back to the source — put filters above sorts), (3) you are loading to a worksheet when you only need a pivot — change Close &amp; Load to <strong>Only Create Connection</strong> and let pivots read directly from the connection.</p>
+<h3>Numbers showing as text after import (and SUMs return 0)</h3>
+<p>The source file had a CSV column with mixed values (numbers in most rows, the occasional "N/A"), and Power Query cast the whole column to text to be safe. Add a Replace Values step to swap "N/A" with <code>null</code>, then add a Changed Type step after it to cast the column to a number — Power Query handles <code>null</code> in number columns gracefully where it cannot handle "N/A".</p>
+<h3>"Formula.Firewall" error when combining queries</h3>
+<p>Power Query's privacy engine is blocking a query from reading from another query because their privacy levels are incompatible. Quick fix: <strong>File → Options and settings → Query Options → Current Workbook → Privacy → Always ignore Privacy Level settings</strong>. Long-term fix: stage your data — create a separate connection-only query that reads each source, then merge those staged queries instead of merging across sources directly.</p>
+
+<h2>FAQ</h2>
+<h3>Is Power Query free?</h3>
+<p>Yes. Power Query is built into every version of Excel from 2016 onwards on Windows, and is also in Excel for Mac on Microsoft 365 (with some connectors still Windows-only). There is nothing extra to install or pay for. Earlier versions (Excel 2010 and 2013) need a free Microsoft add-in download — but those versions are out of mainstream support and you should be on a newer Excel anyway.</p>
+<h3>What is the difference between Power Query and Power Pivot?</h3>
+<p>Power Query is the ETL tool — it gets, cleans, and reshapes data <em>before</em> analysis. <a href="/blog/power-pivot-guide">Power Pivot</a> is the modelling and DAX engine that runs <em>after</em> the data is clean — relationships between tables, measures, KPIs, and pivot reports over millions of rows. The standard pipeline is Power Query → Power Pivot data model → Pivot Table report.</p>
+<h3>Do I need to learn the M language to use Power Query?</h3>
+<p>No. The visual editor records every click as M code in the background, so you can build and maintain production queries without writing a single line. M only becomes useful when you want to do something the UI does not expose (custom column logic, dynamic file paths, reusable functions). The first month, ignore M entirely — by month three, look at the formula bar after each click to start associating UI actions with their M equivalents.</p>
+<h3>How do I refresh Power Query automatically when the file opens?</h3>
+<p>Right-click the query in the Queries &amp; Connections pane → <strong>Properties</strong> → tick <strong>Refresh data when opening the file</strong>. For dashboards distributed to non-technical users this is essential — they get the latest data without having to know what Refresh All means. Add a backup <strong>Refresh every N minutes</strong> tick if the workbook stays open all day on a shared screen.</p>
+<h3>When should I use Power Query versus a Python or VBA script?</h3>
+<p>Power Query for anything that ends in an Excel workbook and is run by an Excel user. VBA only for legacy macros that already exist or for hooks the Excel UI cannot trigger. Python (or Power BI) when the data volume exceeds a few million rows, when you need version control on the cleaning logic, or when the output is consumed by something other than Excel. The honest answer for 90% of office data work in 2026: Power Query is the right tool, and the people reaching for VBA or Python are usually solving a problem that Power Query already solved.</p>
 
           <h2>Sources &amp; Further Reading</h2>
 <ul>
@@ -281,11 +368,14 @@
 <li><a href="https://www.microsoft.com/en-us/microsoft-365/blog/" target="_blank" rel="noopener">Microsoft 365 Blog</a></li>
 <li><a href="https://exceljet.net/functions" target="_blank" rel="noopener">ExcelJet Function Reference</a></li>
 </ul>
-<h2>Related Posts</h2>
+<h2>Related tutorials</h2>
 <ul>
-  <li><a href="/blog/power-pivot-guide">Excel Power Pivot — Handle Millions of Rows</a></li>
-  <li><a href="/blog/clean-messy-data">How to Clean Messy Data in Excel Fast</a></li>
-  <li><a href="/blog/dynamic-dashboards">Creating Dynamic Dashboards in Excel</a></li>
+  <li><a href="/blog/excel-formulas-guide">The Complete Excel Formulas Guide (hub)</a> — start here if you are new to Excel; Power Query assumes you are comfortable with formula references and basic worksheet structure.</li>
+  <li><a href="/blog/clean-messy-data">How to Clean Messy Data in Excel Fast</a> — learn the manual techniques first, then come back here when you start repeating them every month.</li>
+  <li><a href="/blog/power-pivot-guide">Excel Power Pivot — Handle Millions of Rows</a> — the next step after Power Query: build a data model on top of your cleaned tables.</li>
+  <li><a href="/blog/dynamic-dashboards">Creating Dynamic Dashboards in Excel</a> — what to build with the data once Power Query has prepared it.</li>
+  <li><a href="/blog/mastering-pivot-tables">Mastering Pivot Tables — A Complete Guide</a> — the natural analysis layer above a Power Query output.</li>
+  <li><a href="/blog/excel-tables-best-practices">Excel Tables Best Practices</a> — load Power Query output into a Table so downstream formulas auto-extend.</li>
 </ul><div class="blog-cta-box">
             <h3>Want to master Excel with AI?</h3>
             <p>My Complete Excel Course with AI Integration covers everything from formulas to AI-powered workflows.</p>
