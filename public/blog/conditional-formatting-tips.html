@@ -34,6 +34,7 @@
   <meta property="og:site_name" content="Sagnik Bhattacharya">
   <meta property="article:author" content="Sagnik Bhattacharya">
   <meta property="article:published_time" content="2026-03-06">
+  <meta property="article:modified_time" content="2026-04-20">
   <meta property="article:section" content="Excel Basics"><meta property="article:tag" content="Conditional Formatting"><meta property="article:tag" content="Data Visualization"><meta property="article:tag" content="Excel Tips">
   <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
     <script type="application/ld+json">
@@ -46,7 +47,7 @@
                    "name":  "Sagnik Bhattacharya",
                    "url":  "https://sagnikbhattacharya.com"
                },
-    "datePublished":  "2026-03-06","dateModified":"2026-03-06",
+    "datePublished":  "2026-03-06","dateModified":"2026-04-20",
     "inLanguage":  "en-GB",
     "description":  "Use conditional formatting to highlight rows, add colour scales, create data bars, and build custom rules in Excel — with step-by-step instructions.",
     "publisher":  {
@@ -121,7 +122,7 @@
       "name": "How do I highlight rows based on cell values in Excel?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Select the entire data range, go to Conditional Formatting and choose New Rule, select Use a formula, then enter a formula that references the first cell of the criteria column with the row locked but not the column. For example, to highlight rows where column D equals 'Late': =$D2='Late'. The dollar sign on D locks the column while the row number adjusts for each row."
+        "text": "Select the entire data range starting from the first data row (not the header), go to Conditional Formatting → New Rule → 'Use a formula to determine which cells to format'. Enter a formula that references the first cell of the criteria column with the COLUMN locked but not the row, for example =$D2=\"Overdue\". The dollar sign before D locks the column while the row number adjusts for each evaluated row, so Excel checks column D for every row in your range."
       }
     },
     {
@@ -129,7 +130,31 @@
       "name": "Why is my conditional formatting not working in Excel?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Common causes: the formula references are not set correctly (missing dollar signs for column locking), the rule applies to the wrong range, rules are in the wrong priority order (higher rules override lower ones), the formula returns text instead of TRUE/FALSE, or the cell format conflicts with the conditional format. Use Manage Rules to check and reorder your formatting rules."
+        "text": "Five common causes, in order of frequency: (1) missing dollar signs on column references (=$D2 vs =D2); (2) rule applies to the wrong range — open Manage Rules and check Applies To; (3) rules are in the wrong priority order and a higher rule wins; (4) the comparison uses quotes in a non-text cell, or compares a text-typed number to a real number; (5) cell-level formatting overrides the conditional format. Open Home → Conditional Formatting → Manage Rules to audit all three."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use conditional formatting on an entire Excel Table?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and you should. When the range is defined as an Excel Table (Ctrl+T), conditional formatting rules automatically extend to new rows as the table grows — no need to edit the Applies To range every time someone pastes in new data. Use structured references in the formula, for example =[@Status]=\"Overdue\" instead of =$D2=\"Overdue\"."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many conditional formatting rules can slow down a workbook?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Performance starts to degrade noticeably above about 50 active rules or when a single rule's Applies To range exceeds roughly 100,000 cells with a formula-based condition. Symptoms: slow scroll, lag on typing, slow file save. Fixes: consolidate rules (one rule with OR beats three separate rules), tighten the Applies To range to real data only, and replace volatile functions (TODAY, NOW, INDIRECT) with static anchors where possible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I copy conditional formatting rules to another sheet or workbook?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use Format Painter: select a cell with the rule applied, press Ctrl+Shift+C (or click Format Painter on the Home ribbon), then paint over the destination range. For cross-workbook copies, copy an entire formatted column or row, paste-special with 'Formats' option into the target workbook. After pasting, open Manage Rules in the destination and fix any references that still point to the source workbook."
       }
     }
   ]
@@ -185,6 +210,8 @@
         <div class="blog-post-content">
           
 <p>Conditional formatting is one of Excel's most underused features. It automatically changes the appearance of cells based on their values — making patterns, outliers, and trends instantly visible without a single chart.</p>
+<p>This tutorial is beginner-first. It covers every built-in rule (Highlight Cell Rules, Top/Bottom, Data Bars, Colour Scales, Icon Sets), then graduates to the one concept 90% of beginners get wrong the first time: formula-based rules with mixed cell references, which is how you highlight an entire row based on the value in a single column. You'll also get a full Troubleshooting section because conditional formatting silently misbehaves more often than any other Excel feature.</p>
+<p>Everything shown works in Excel 2019, Excel 2021, Microsoft 365, and Excel for the web. For the broader Excel skill set, see the <a href="/blog/excel-formulas-guide">Excel formulas and analysis hub</a>, which links every Excel tutorial on this site in a recommended reading order.</p>
 
 <div class="blog-inline-course"><div class="blog-inline-course__badge">Coming Soon</div><div class="blog-inline-course__body"><h3 class="blog-inline-course__title">Complete Excel Guide with AI Integration</h3><p class="blog-inline-course__sub">Master formulas, pivot tables, data analysis, and charts — with AI integration.</p><a href="/courses#excel" class="btn-primary blog-inline-course__btn">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div><h2>The Basics: Built-in Rules</h2>
 <p>Select your data range, then go to <strong>Home → Conditional Formatting</strong>. You'll find these categories:</p>
@@ -205,6 +232,9 @@
 <li>Above or below average</li>
 </ul>
 
+<p><strong>Real-world scenario:</strong> A sales manager reviews a 2,000-row quarterly pipeline and wants to see at a glance which deals are stuck. One rule (Highlight Cells → Greater Than → 30 days since last activity → fill red) turns a spreadsheet into a triage tool in ten seconds — no pivot, no chart, no formula to maintain.</p>
+<p><strong>Beginner pitfall:</strong> Built-in rules apply to the selected range only, but they don't extend automatically as new rows are added to a plain range. Convert the range to an Excel Table first (Ctrl+T) — then the rule auto-extends. Without this, you'll have to re-open Manage Rules every time someone pastes new data, and sooner or later you'll forget. The <a href="/blog/excel-tables-best-practices">Excel Tables best-practices tutorial</a> explains why this behaviour is baked in.</p>
+
 <a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>Visual Formats</h2>
 
 <h3>Data Bars</h3>
@@ -216,6 +246,9 @@
 <h3>Icon Sets</h3>
 <p>Add arrows, traffic lights, stars, or flags to cells based on value ranges. Useful for KPI dashboards — green arrow up for targets met, red arrow down for missed targets.</p>
 
+<p><strong>Real-world scenario:</strong> A marketing analyst turns a monthly KPI tracker into a glanceable status card by applying a 3-colour scale on "% of target" — dark green near 120%, yellow at 100%, dark red at 60%. The executive reading the report doesn't scan the numbers; they scan the colours, and the eye lands on the two red cells that need attention in under two seconds. That is the real win of conditional formatting: it externalises cognitive load.</p>
+<p><strong>Beginner pitfall:</strong> Colour scales and data bars re-compute their reference range every time you add a row, so outliers skew the scale after a bad paste. If every number suddenly looks pale green, open Manage Rules → Edit Rule → and set explicit Type = Number with hard min and max values instead of the default Lowest/Highest. This also protects accessibility — automatic gradients often fail the WCAG 3:1 contrast minimum for colour-blind readers.</p>
+
 <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>Custom Formula-Based Rules</h2>
 <p>This is where conditional formatting becomes truly powerful. The formulas used here — IF, MOD, WEEKDAY, TODAY — are covered in depth in the <a href="/blog/advanced-formulas">advanced formulas guide</a>. Go to <strong>Conditional Formatting → New Rule → Use a formula</strong>.</p>
 
@@ -223,6 +256,8 @@
 <p>To highlight the entire row if column D says "Overdue":</p>
 <pre><code>=$D1="Overdue"</code></pre>
 <p>The <code>$D</code> locks the column reference while letting the row number change — so the rule checks column D for every row.</p>
+<p><strong>The rule every beginner gets wrong on the first try:</strong> Select the data range <em>starting from the first data row</em> (not the header row). If your headers are in row 1 and your data starts in row 2, select A2:F100 and write <code>=$D2="Overdue"</code>. If the first selected row is row 2 but you write <code>=$D1="Overdue"</code>, Excel will be off by one, and every row will be highlighted based on the row <em>above</em> it. This is the single most common "conditional formatting not working" problem reported on Excel forums — fix it by matching the row number in the formula to the first row of your selection.</p>
+<p><strong>Excel Table version:</strong> If your data is in a Table called <code>tblSales</code>, use structured references: <code>=[@Status]="Overdue"</code>. Cleaner, self-documenting, and auto-extends as new rows are added.</p>
 
 <h3>Example 2: Alternating Row Colours</h3>
 <pre><code>=MOD(ROW(),2)=0</code></pre>
@@ -234,6 +269,19 @@
 
 <h3>Example 4: Cells Older Than 30 Days</h3>
 <pre><code>=TODAY()-$A1>30</code></pre>
+
+<h3>Example 5: Highlight Duplicates Within a Single Column</h3>
+<p>To highlight rows where a value in column B appears more than once across the whole column:</p>
+<pre><code>=COUNTIF($B:$B,$B1)>1</code></pre>
+<p>Useful for invoice numbers, customer emails, or any field that should be unique. Note both dollar signs on <code>$B:$B</code> — locking the entire column — but only one on <code>$B1</code> so the row moves per evaluated row.</p>
+
+<h3>Example 6: Highlight a Row Only When Two Conditions Are True</h3>
+<p>To highlight rows where status is "Overdue" AND amount is above £10,000:</p>
+<pre><code>=AND($D1="Overdue", $E1>10000)</code></pre>
+<p>Use <code>OR()</code> for either-or logic. Nesting <code>AND</code>/<code>OR</code> inside the condition is how you build multi-criteria flags without extra helper columns.</p>
+
+<p><strong>Real-world scenario:</strong> A project manager tracking 400 tasks applies three formula rules in priority order: "Overdue AND unassigned" (red), "Due this week AND unassigned" (amber), "Due this week" (yellow). Running the same three checks by hand would take 20 minutes every Monday; with rules, the spreadsheet colours itself on every refresh. The time saved compounds week after week — this is the quiet ROI beginners miss.</p>
+<p><strong>Beginner pitfall:</strong> Dollar signs work on both axes — <code>$A1</code>, <code>A$1</code>, <code>$A$1</code>, and <code>A1</code> all behave differently. For row-based rules, 99% of the time you want column-locked-only (<code>$D1</code>). If your rule only highlights the first row or highlights diagonally, the dollar signs are wrong. Press F4 while the cursor is inside the reference to cycle through lock modes.</p>
 
 <h2>Pro Tips</h2>
 <ol>
@@ -254,17 +302,38 @@
 </ul>
 <p>All without writing a single formula or creating a chart. That's the power of conditional formatting. Ready to take it further? See the full guide to <a href="/blog/dynamic-dashboards">building a complete interactive dashboard</a>.</p>
 
-          <h2>Sources &amp; Further Reading</h2>
+<h2>Troubleshooting</h2>
+<p>Five problems almost every beginner hits when using conditional formatting, with exact fixes.</p>
+<ol>
+<li><strong>Rule highlights the wrong row, or every row, or no row.</strong> The formula's row number doesn't match the first row of the Applies To range. Open Manage Rules → Edit Rule → look at both the Applies To range and the formula. If Applies To starts at row 2, the formula must reference row 2 (for example, <code>=$D2="Overdue"</code>, not <code>=$D1</code>). Fix it and press OK — every row in the range snaps into place.</li>
+<li><strong>Rule stopped working after you sorted or filtered the data.</strong> Sorting can split the Applies To range into fragments (you'll see a comma-separated list in Applies To). The fix is to re-select the whole range and re-apply the rule once. Better long-term fix: convert the range to a Table (Ctrl+T) so sorting doesn't fragment rules.</li>
+<li><strong>Icon Sets show the wrong icons even though numbers look right.</strong> The underlying cells are text-typed, not numbers (common after CSV import). Select the column → Data → Text to Columns → Next → Next → Finish. Excel re-parses text-numbers as real numbers and the icons correct themselves.</li>
+<li><strong>Two rules are conflicting and you want only one to win.</strong> Open Manage Rules, drag the winning rule to the top of the list, then tick "Stop If True" next to it. Excel evaluates top-down and stops evaluating further rules once the first matching rule with "Stop If True" hits.</li>
+<li><strong>Workbook crawls or locks up on save.</strong> Rules have multiplied — usually because copy-paste duplicates them. Open Manage Rules → This Worksheet view. If the list is more than 20–30 rules, many will be near-duplicates from paste operations. Delete the orphans. For a permanent fix, use Format Painter to copy formatting instead of copying whole cells.</li>
+</ol>
+
+<h2>Frequently Asked Questions</h2>
+<p><strong>How do I highlight rows based on cell values in Excel?</strong><br>Select the data range starting from the first data row (not the header), go to Conditional Formatting → New Rule → "Use a formula to determine which cells to format". Enter a formula with the column locked, for example <code>=$D2="Overdue"</code>. The <code>$</code> before D locks the column so Excel checks column D for every row in the range.</p>
+<p><strong>Why is my conditional formatting not working in Excel?</strong><br>Five common causes in order of frequency: missing dollar signs on column references, Applies To range is wrong, rule priority order wrong (higher rule wins), comparing text-typed number to real number, and cell-level formatting overrides. Open Home → Conditional Formatting → Manage Rules to audit.</p>
+<p><strong>Can I use conditional formatting on an entire Excel Table?</strong><br>Yes, and you should. When the range is a Table (Ctrl+T), rules auto-extend as new rows are added. Use structured references like <code>=[@Status]="Overdue"</code> instead of <code>=$D2="Overdue"</code>.</p>
+<p><strong>How many conditional formatting rules can slow down a workbook?</strong><br>Performance degrades above ~50 active rules or when a single rule's Applies To exceeds ~100,000 cells with a formula condition. Fixes: consolidate rules with OR, tighten Applies To to real data only, replace volatile functions (TODAY, NOW, INDIRECT) with static anchors where possible.</p>
+<p><strong>How do I copy conditional formatting rules to another sheet?</strong><br>Use Format Painter: select a formatted cell, press Ctrl+Shift+C, paint over the destination. For cross-workbook: copy a formatted column, paste-special with "Formats" option. Then open Manage Rules in the destination and fix any source-workbook references.</p>
+
+<h2>Sources &amp; Further Reading</h2>
 <ul>
 <li><a href="https://support.microsoft.com/en-us/excel" target="_blank" rel="noopener">Microsoft Excel Documentation</a></li>
 <li><a href="https://www.microsoft.com/en-us/microsoft-365/blog/" target="_blank" rel="noopener">Microsoft 365 Blog</a></li>
 <li><a href="https://exceljet.net/functions" target="_blank" rel="noopener">ExcelJet Function Reference</a></li>
 </ul>
-<h2>Related Posts</h2>
+<h2>Related tutorials</h2>
 <ul>
-  <li><a href="/blog/charts-visualisations">Creating Professional Charts and Visualisations in Excel</a></li>
-  <li><a href="/blog/data-validation">Excel Data Validation — Prevent Errors Before They Happen</a></li>
-  <li><a href="/blog/keyboard-shortcuts">30 Excel Keyboard Shortcuts That Save Hours</a></li>
+  <li><a href="/blog/excel-formulas-guide">Excel formulas and analysis hub</a> — the cluster hub linking every Excel + AI tutorial on this site</li>
+  <li><a href="/blog/advanced-formulas">15 Excel Formulas That Save Hours of Manual Work</a> — IF, COUNTIF, MOD, WEEKDAY — the functions used in formula-based rules</li>
+  <li><a href="/blog/excel-tables-best-practices">Excel Tables Best Practices</a> — why you should convert ranges to Tables before applying rules</li>
+  <li><a href="/blog/dynamic-dashboards">How to Build an Interactive Dashboard in Excel (No VBA)</a> — where conditional formatting meets slicers and charts</li>
+  <li><a href="/blog/charts-visualisations">Creating Professional Charts and Visualisations in Excel</a> — when to graduate from data bars to full charts</li>
+  <li><a href="/blog/clean-messy-data">How to Clean Messy Data in Excel</a> — strip the text-number issues that break icon-set rules</li>
+  <li><a href="/blog/data-validation">Excel Data Validation — Prevent Errors Before They Happen</a> — pairs well with conditional formatting for bulletproof sheets</li>
 </ul><div class="blog-cta-box">
             <h3>Want to master Excel with AI?</h3>
             <p>My Complete Excel Course with AI Integration covers everything from formulas to AI-powered workflows.</p>

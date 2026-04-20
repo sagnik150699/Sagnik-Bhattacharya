@@ -22,7 +22,7 @@
   <meta name="twitter:title" content="How to Build an Interactive Dashboard in Excel (No VBA)">
   <meta name="twitter:description" content="Build a professional Excel dashboard using pivot tables, charts, and slicers \u2014 no VBA or add-ins required. Includes a step-by-step walkthrough with a real sales dataset.">
   <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/dynamic-dashboards-sagnik-bhattacharya-coding-liquids.jpg">
-  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Creating Dynamic Dashboards in Excel, with dashboard cards, KPIs, and interactive chart elements."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-10">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Creating Dynamic Dashboards in Excel, with dashboard cards, KPIs, and interactive chart elements."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-10"><meta property="article:modified_time" content="2026-04-20">
   <meta property="article:section" content="Data Analysis"><meta property="article:tag" content="Dashboards"><meta property="article:tag" content="Data Visualization"><meta property="article:tag" content="Interactive Reports">
   <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
     <script type="application/ld+json">
@@ -35,7 +35,7 @@
                    "name":  "Sagnik Bhattacharya",
                    "url":  "https://sagnikbhattacharya.com"
                },
-    "datePublished":  "2026-03-10","dateModified":"2026-03-10",
+    "datePublished":  "2026-03-10","dateModified":"2026-04-20",
     "inLanguage":  "en-GB",
     "description":  "Build a professional Excel dashboard using pivot tables, charts, and slicers — no VBA required. Step-by-step walkthrough with a real sales dataset.",
     "publisher":  {
@@ -107,18 +107,42 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How do I build an interactive dashboard in Excel without VBA?",
+      "name": "How long does it take to build a dashboard like this from scratch?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Use a combination of Excel Tables, pivot tables or dynamic array formulas like FILTER, SORT, and GROUPBY, data validation dropdowns for interactivity, and charts linked to the filtered data. Slicers connected to pivot tables provide point-and-click filtering. Use named ranges or structured table references so everything updates automatically when new data is added."
+        "text": "If your data is already clean and in an Excel Table, a first dashboard with four charts, two slicers, and three KPI cards takes about 45 to 90 minutes. The slowest steps are deciding what to show and formatting — the mechanical pivot-and-chart work is fast once you have done it twice."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I create a professional dashboard in Excel without coding?",
+      "name": "Do slicers work in Excel for the web and on Mac?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Excel built-in features including pivot tables, slicers, charts, conditional formatting, data validation dropdowns, and sparklines are enough to build professional, interactive dashboards without any VBA or coding. The key is clean data structure, consistent formatting, and linking charts to filtered or summarised data ranges."
+        "text": "Yes. Slicers connected to pivot tables work in Excel 2016 and later on Windows, Excel for Mac 2021 and later, and Excel for the web. Timelines also work. A few power features such as VBA-driven slicer events do not exist on the web — but nothing in a no-VBA dashboard depends on them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do my charts lose their formatting every time I refresh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PivotChart refresh resets formatting by default. Right-click the pivot table, choose PivotTable Options, open the Layout and Format tab, and tick 'Preserve cell formatting on update' and untick 'Autofit column widths on update'. For chart colours and fonts, save the chart as a template (right-click chart → Save as Template) so you can reapply it in two clicks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use GROUPBY and PIVOTBY formulas instead of pivot tables?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use GROUPBY or PIVOTBY if your dashboard lives in Microsoft 365 and you want the output to recalculate automatically without pressing Refresh. Use classic pivot tables if you need slicers, users on older Excel versions, or datasets above about 500,000 rows — pivot tables compress better and feel faster to filter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I stop users breaking the dashboard when I share the file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Protect the Dashboard sheet (Review → Protect Sheet) and untick everything except 'Select unlocked cells' and 'Use PivotTable & PivotChart'. Hide the Calculations and Data sheets (right-click tab → Hide) and then set workbook structure protection so they cannot be unhidden. Slicers keep working while users cannot delete charts or edit formulas."
       }
     }
   ]
@@ -167,41 +191,79 @@
         </figure>
         <div class="blog-post-content">
 <p>A well-built Excel dashboard gives decision-makers instant visibility into key metrics without wading through rows of raw data. The best part? You don't need VBA, Power BI, or any add-ins — just native Excel features.</p>
+<p>This tutorial walks through every component a beginner needs to build a one-screen dashboard that updates itself: a properly structured data source, pivot tables for summarisation, charts for visualisation, slicers for interactivity, and a refresh strategy so the dashboard stays current without manual work. We use a sales dataset as the running example, but the same pattern works for marketing funnels, HR headcount reports, or finance variance dashboards.</p>
+<p>It works in Excel 2019, Excel 2021, Microsoft 365, and Excel for the web. If you are new to pivot tables or charts, read the linked deep-dives first — this guide assumes you can create a basic pivot and insert a chart. For the broader Excel skill stack, the <a href="/blog/excel-formulas-guide">Excel formulas and analysis hub</a> collects every tutorial referenced here into a single reading order.</p>
+<p><strong>What you will build:</strong> four connected pivot tables feeding four charts, three KPI cards at the top, two slicers that filter every chart at once, one timeline for date filtering, and an auto-refresh setting so opening the file pulls in yesterday's data without you lifting a finger.</p>
 <div class="blog-inline-course"><div class="blog-inline-course__badge">Coming Soon</div><div class="blog-inline-course__body"><h3 class="blog-inline-course__title">Complete Excel Guide with AI Integration</h3><p class="blog-inline-course__sub">Master formulas, pivot tables, data analysis, and charts — with AI integration.</p><a href="/courses#excel" class="btn-primary blog-inline-course__btn">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div><h2>Dashboard Building Blocks</h2>
 <p>Every effective Excel dashboard uses these four components:</p>
 <ul><li><strong>Data source</strong> — Your raw data, ideally in an Excel Table</li><li><strong>Pivot tables</strong> — To summarise and aggregate the data</li><li><strong>Charts</strong> — To visualise the summarised data</li><li><strong>Slicers</strong> — To add interactive filtering</li></ul>
 <a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>Step 1: Structure Your Data</h2>
 <p>Your data should be in a flat table format with clear column headers. Convert it to an Excel Table with <code>Ctrl+T</code>. This ensures new data is automatically included when you refresh. For recurring data imports, <a href="/blog/power-query-guide">use Power Query to automate data preparation</a> before it reaches your dashboard.</p>
+<p><strong>Real-world scenario:</strong> A regional sales manager pastes a 12,000-row export from the CRM into <code>Sheet1</code> every Monday. Without a Table, the pivot range is fixed to the first paste, so the new rows never appear in the dashboard — revenue silently reads last week's number. With the range converted to a Table (rename it <code>tblSales</code> on the Table Design tab), every paste-append grows the range, and one click of Refresh pulls the new rows into every chart.</p>
+<p><strong>Beginner pitfall:</strong> Tables hate merged cells, blank rows used as visual spacers, and totals in the data range. Strip all three before pressing Ctrl+T. If your raw export has a "grand total" row at the bottom, delete it — you are going to recreate that total from the pivot. For messy source data in general, run it through the <a href="/blog/clean-messy-data">clean messy data tutorial</a> first; a dashboard built on dirty data will lie to you at the KPI-card level.</p>
 <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>Step 2: Create Pivot Tables</h2>
 <p>Create multiple pivot tables from the same data source — one for each metric you want to display. If you're new to pivot tables, start with the <a href="/blog/mastering-pivot-tables">complete guide to mastering pivot tables</a>.</p>
 <ul><li>Revenue by month (for a line chart)</li><li>Sales by region (for a bar chart)</li><li>Product category breakdown (for a pie chart)</li><li>Top 10 customers (for a table)</li></ul>
 <p>Place all pivot tables on a separate "Calculations" sheet — keep them hidden from the dashboard view.</p>
+<p><strong>Real-world scenario:</strong> An e-commerce analyst needs to show revenue trend, basket size by category, conversion by traffic source, and a top-SKU league table. Instead of building one giant pivot with 15 fields, create four focused pivots on a <code>Calc</code> sheet, one per visual. Each pivot is cheap to refresh (under 200 ms on 100k rows), slicer-responsive, and easy to re-point at a new chart if the design changes.</p>
+<p><strong>Beginner pitfall:</strong> Do not use "Summarise With PivotTable" from a Table for every metric — Excel creates a new pivot cache each time, which bloats the file and breaks slicer sharing. Instead, build the first pivot, then for subsequent pivots choose Insert → PivotTable → "Use this workbook's Data Model" or right-click an existing pivot and duplicate the sheet. One shared cache means one shared slicer set.</p>
 <a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">Subscribe on YouTube</span><span class="blog-social-nudge__handle">@codingliquids</span></a><h2>Step 3: Build Charts</h2>
 <p>Create charts from each pivot table. For a deep dive into chart design, see the <a href="/blog/charts-visualisations">professional chart formatting guide</a>. Key formatting tips:</p>
 <ul><li>Remove chart titles — use text boxes instead for consistent styling</li><li>Remove gridlines for a cleaner look</li><li>Use a consistent colour palette across all charts</li><li>Format axes to show abbreviated numbers (e.g., "50K" instead of "50,000")</li><li>Remove chart borders and set background to "No fill"</li></ul>
+<p><strong>Real-world scenario:</strong> An operations lead presents a weekly KPI deck to the exec team. The original dashboard used three different colour palettes across four charts — the exec team repeatedly asked "why is green good here and bad there?" Setting a shared palette (brand primary + one accent + one neutral grey) and locking chart templates ended the question permanently. Consistency outranks cleverness in dashboard visuals.</p>
+<p><strong>Beginner pitfall:</strong> Pie charts mislead above six slices. If the product-category breakdown has twenty categories, use a bar chart sorted descending, or group the long tail into "Other" (right-click the pivot row → Filter → Top 10 by Value). The same rule applies to doughnut and 3-D pie — never use 3-D pie in a serious dashboard, the perspective distortion misrepresents the share of the front slice.</p>
+<p>For chart-by-chart formatting walkthroughs — axis tick formats, data-label tricks, sparkline placement — the <a href="/blog/charts-visualisations">professional charts and visualisations tutorial</a> covers each chart type in depth.</p>
 <h2>Step 4: Add Slicers</h2>
 <p>Slicers are the magic that makes dashboards interactive:</p>
 <ol><li>Click any pivot table → PivotTable Analyse → Insert Slicer</li><li>Select fields like Region, Product Category, or Year</li><li>Connect each slicer to ALL your pivot tables: right-click slicer → Report Connections → check all pivot tables</li></ol>
 <p>Now clicking a slicer button filters every chart simultaneously.</p>
+<p><strong>Also add a Timeline</strong> for date filtering: PivotTable Analyse → Insert Timeline → tick your date field. Timelines give users month, quarter, or year granularity with a draggable range selector — much better than a slicer for dates, because slicers list every date separately and become unreadable once you pass a year of data.</p>
+<p><strong>Real-world scenario:</strong> A marketing analyst's dashboard has Region, Channel, and Campaign slicers plus a date timeline. The CMO asks "show me paid search in EMEA for Q2" — three clicks. Without slicers, the same question required editing the filter on each of four pivot tables individually (twelve clicks) and risked forgetting one, which would silently desync the visuals.</p>
+<p><strong>Beginner pitfall:</strong> Report Connections only appears if pivots share a cache. If "Report Connections" shows fewer pivots than you expect, you have accidentally made a second cache — recreate the offending pivot by copying an existing one rather than building it from scratch. Symptom in the wild: one chart "stubbornly ignores" the slicer. Fix: delete that pivot and duplicate a working one.</p>
 <h2>Step 5: Arrange the Dashboard</h2>
 <ul><li>Create a dedicated "Dashboard" sheet</li><li>Hide gridlines (View → uncheck Gridlines)</li><li>Hide row and column headers</li><li>Move all charts and slicers to this sheet</li><li>Add a title bar with your company/project name</li><li>Use shape fill for section backgrounds</li><li>Protect the sheet to prevent accidental edits</li></ul>
+<p><strong>Layout guidance:</strong> Think in a <strong>three-row grid</strong>. Top row = three KPI cards showing the headline numbers (total revenue, growth %, units). Middle row = one large trend chart (revenue by month) spanning the width. Bottom row = two or three smaller breakdown charts (by region, category, channel). Slicers go on the right as a vertical strip, or above the charts as a horizontal strip — pick one and stay consistent. Place the timeline at the very top, above the KPI cards, so users know date context applies to everything below it.</p>
+<p><strong>Real-world scenario:</strong> A finance controller's first dashboard crammed seven charts at 300×200 pixels each onto one screen. The CFO called it "unreadable". The second version used the three-row grid with only four charts and passed review. Fewer, larger charts almost always beat more, smaller ones — if a chart would not be readable on a projector, it should not be on the dashboard.</p>
+<p><strong>Beginner pitfall:</strong> Align charts to gridlines before you hide the gridlines. Hold Alt while dragging to snap a chart's corner to the nearest cell boundary, or select all charts with Ctrl+Click then use Shape Format → Align → Align Middle / Distribute Horizontally. Misaligned charts look amateurish at a glance even when the numbers are correct.</p>
 <h2>Auto-Refresh Setup</h2>
 <p>To make your dashboard update automatically:</p>
 <ol><li>Right-click any pivot table → PivotTable Options → Data</li><li>Check "Refresh data when opening the file"</li><li>For periodic refresh, use Data → Connections → Properties → Refresh every X minutes</li></ol>
 <p>If your dashboard needs to handle large datasets beyond Excel's row limit, consider upgrading to <a href="/blog/power-pivot-guide">Power Pivot for million-row dashboards</a>.</p>
+<p><strong>Set a single refresh button</strong> on the Dashboard sheet — Insert → Illustrations → Shapes → pick a rounded rectangle, label it "Refresh", right-click → Assign Macro → record a one-line macro that calls <code>ActiveWorkbook.RefreshAll</code>. Yes, this is technically VBA, but it is one line recorded by Excel (you write nothing) and saves the user a trip to the Data ribbon. If your team bans VBA entirely, skip the button — the Data → Refresh All ribbon command does the same thing.</p>
+<p><strong>Real-world scenario:</strong> A weekly sales dashboard pulls from a Power Query connection to the company's SQL data warehouse. On Monday morning the manager opens the file and the "Refresh data when opening" checkbox pulls yesterday's numbers automatically — by the time the coffee is poured, the dashboard is current. For this flow to work end-to-end, the Power Query step must be set up first; the <a href="/blog/power-query-guide">Power Query tutorial</a> shows the connection-configuration side.</p>
+<p><strong>Beginner pitfall:</strong> "Refresh data when opening" only refreshes the source data — it does <em>not</em> refresh pivot tables that read from a Data Model unless the Data Model itself is refreshed. If you see stale values despite the checkbox, add a one-line macro in <code>Workbook_Open</code> that calls <code>ThisWorkbook.Model.Refresh</code>, or simply tick "Refresh data when opening" on every pivot individually.</p>
 <h2>Pro Tips</h2>
-<ol><li>Use <strong>KPI cards</strong> — Large numbers at the top showing total revenue, growth %, and key metrics using simple cell references with bold formatting</li><li>Use <strong>Sparklines</strong> — Tiny inline charts (Insert → Sparklines) for trend indicators next to KPIs</li><li>Use <strong>conditional formatting</strong> on data tables within the dashboard for visual emphasis</li><li>Keep it to <strong>one screen</strong> — The best dashboards don't require scrolling</li></ol>
-      <h2>Sources &amp; Further Reading</h2>
+<ol><li>Use <strong>KPI cards</strong> — Large numbers at the top showing total revenue, growth %, and key metrics using simple cell references with bold formatting. A KPI card is just a merged cell with a 36pt number above a 10pt label. Link it with <code>=GETPIVOTDATA("Revenue",Calc!$A$3)</code> so the KPI follows slicer state.</li><li>Use <strong>Sparklines</strong> — Tiny inline charts (Insert → Sparklines) for trend indicators next to KPIs. Colour the high point green and the low point red to communicate direction at a glance.</li><li>Use <strong>conditional formatting</strong> on data tables within the dashboard for visual emphasis. Data bars on the Top-10 table turn a flat list into a quick visual ranking. The <a href="/blog/conditional-formatting-tips">conditional formatting tips tutorial</a> covers the exact patterns that look professional.</li><li>Keep it to <strong>one screen</strong> — The best dashboards don't require scrolling. If you need more, split into multiple dashboard sheets with tab names like "Sales", "Ops", "Finance" — never a scroll bar.</li><li>Use <strong>named ranges for KPI targets</strong> — Put targets on a "Config" sheet (<code>TargetRevenue</code>, <code>TargetConversion</code>) so non-technical users can edit them without touching pivots or formulas.</li></ol>
+<h2>Troubleshooting</h2>
+<p>These are the five errors beginners hit most often when building their first dashboard. Each has a one-step fix.</p>
+<ol>
+<li><strong>"Cannot group that selection" when trying to group dates into months.</strong> At least one cell in the date column is blank or text-typed. Filter the pivot's date field for <code>(blank)</code> and look for empty rows in the source, or use <code>=ISNUMBER(A2)</code> to find text-typed dates. Fix the source, refresh, then group — never group on a dirty date column.</li>
+<li><strong>Slicer greys out every button you click.</strong> The pivot cache is filtered upstream (by a report filter or earlier slicer selection) so no rows match the combination. Clear the upstream filter first — the slicer is telling the truth, there really are zero matching rows for the chosen combination.</li>
+<li><strong>"PivotTable field name is not valid" on refresh.</strong> A column header in the source Table was deleted or renamed. Open the Calc sheet, check each pivot's field list for a field marked in red, and either restore the column name in the source or drag a new field in to replace it.</li>
+<li><strong>Chart shows dates in serial-number form (45678) instead of "Jan 2026".</strong> PivotChart inherited the raw data format. Right-click the chart axis → Format Axis → Number → choose Date category → pick the format. If the issue comes back on refresh, tick "Preserve cell formatting on update" in PivotTable Options (see the FAQ above).</li>
+<li><strong>Workbook opens to a grey screen for 30+ seconds.</strong> You saved with too many pivot caches. Run Data → Queries and Connections → inspect each connection and delete orphans. Also tick "Refresh data when opening" on ONE pivot only, not all — the others piggyback on the shared cache.</li>
+</ol>
+<h2>Frequently Asked Questions</h2>
+<p><strong>How long does it take to build a dashboard like this from scratch?</strong><br>If your data is already clean and in an Excel Table, a first dashboard with four charts, two slicers, and three KPI cards takes 45–90 minutes. The slowest steps are deciding what to show and formatting — the mechanical pivot-and-chart work is fast once you have done it twice.</p>
+<p><strong>Do slicers work in Excel for the web and on Mac?</strong><br>Yes. Slicers connected to pivot tables work in Excel 2016+ on Windows, Excel for Mac 2021+, and Excel for the web. Timelines also work. A few power features such as VBA-driven slicer events do not exist on the web — but nothing in a no-VBA dashboard depends on them.</p>
+<p><strong>Why do my charts lose their formatting every time I refresh?</strong><br>PivotChart refresh resets formatting by default. Right-click the pivot table → PivotTable Options → Layout &amp; Format tab → tick "Preserve cell formatting on update" and untick "Autofit column widths on update". For chart colours and fonts, save the chart as a template (right-click chart → Save as Template) so you can reapply it in two clicks.</p>
+<p><strong>Should I use GROUPBY and PIVOTBY formulas instead of pivot tables?</strong><br>Use GROUPBY or PIVOTBY if your dashboard lives in Microsoft 365 and you want the output to recalculate automatically without pressing Refresh. Use classic pivot tables if you need slicers, users on older Excel versions, or datasets above ~500k rows — pivot tables compress better and feel faster to filter. See the <a href="/blog/groupby-vs-pivottable-excel">GROUPBY vs PivotTable comparison</a> for a full decision matrix.</p>
+<p><strong>How do I stop users breaking the dashboard when I share the file?</strong><br>Protect the Dashboard sheet (Review → Protect Sheet) and untick everything except "Select unlocked cells" and "Use PivotTable &amp; PivotChart". Hide the Calculations and Data sheets (right-click tab → Hide) then set workbook structure protection so they cannot be unhidden. Slicers keep working while users cannot delete charts or edit formulas.</p>
+<h2>Sources &amp; Further Reading</h2>
 <ul>
 <li><a href="https://support.microsoft.com/en-us/excel" target="_blank" rel="noopener">Microsoft Excel Documentation</a></li>
 <li><a href="https://www.microsoft.com/en-us/microsoft-365/blog/" target="_blank" rel="noopener">Microsoft 365 Blog</a></li>
 <li><a href="https://exceljet.net/functions" target="_blank" rel="noopener">ExcelJet Function Reference</a></li>
 </ul>
-<h2>Related Posts</h2>
+<h2>Related tutorials</h2>
 <ul>
-  <li><a href="/blog/charts-visualisations">Creating Professional Charts and Visualisations in Excel</a></li>
-  <li><a href="/blog/mastering-pivot-tables">Mastering Pivot Tables — A Complete Guide</a></li>
-  <li><a href="/blog/conditional-formatting-tips">Excel Conditional Formatting Tips and Tricks</a></li>
+  <li><a href="/blog/excel-formulas-guide">Excel formulas and analysis hub</a> — the cluster hub linking every Excel + AI tutorial on this site; start here if you are building skills beyond dashboards</li>
+  <li><a href="/blog/mastering-pivot-tables">Mastering Pivot Tables — A Complete Guide</a> — the foundation every dashboard sits on</li>
+  <li><a href="/blog/charts-visualisations">Creating Professional Charts and Visualisations in Excel</a> — chart-by-chart formatting playbook</li>
+  <li><a href="/blog/conditional-formatting-tips">Excel Conditional Formatting Tips and Tricks</a> — for data bars and KPI highlighting inside the dashboard</li>
+  <li><a href="/blog/power-query-guide">Power Query Guide</a> — automate the data prep that feeds the dashboard</li>
+  <li><a href="/blog/power-pivot-guide">Power Pivot Guide</a> — graduate to million-row dashboards when you outgrow standard pivots</li>
+  <li><a href="/blog/groupby-vs-pivottable-excel">GROUPBY vs PivotTable — which to use</a> — formula-driven vs interactive dashboard choice</li>
 </ul><div class="blog-cta-box"><h3>Ready to level up your Excel skills?</h3><p>The Complete Excel Course with AI Integration takes you from formulas to production-grade spreadsheets, with real projects and AI-assisted workflows.</p><a href="/courses#excel" class="btn-primary">Explore the Excel + AI course <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
     </div>
   </article></div></section>

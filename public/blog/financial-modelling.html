@@ -21,7 +21,7 @@
   <meta name="twitter:title" content="How to Build a Financial Model in Excel From Scratch">
   <meta name="twitter:description" content="Learn how to build a revenue projection and cash flow model in Excel from scratch \u2014 covering assumptions, formulas, scenarios, and best practices for beginners.">
   <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/financial-modelling-sagnik-bhattacharya-coding-liquids.jpg">
-  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel for Financial Modelling — A Beginner&#39;s Guide, with forecast visuals, tables, and financial model elements."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-24">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel for Financial Modelling — A Beginner&#39;s Guide, with forecast visuals, tables, and financial model elements."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-24"><meta property="article:modified_time" content="2026-04-20">
   <meta property="article:section" content="Data Analysis"><meta property="article:tag" content="Financial Modeling"><meta property="article:tag" content="Cash Flow"><meta property="article:tag" content="Excel Finance">
   <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
     <script type="application/ld+json">
@@ -34,7 +34,7 @@
                    "name":  "Sagnik Bhattacharya",
                    "url":  "https://sagnikbhattacharya.com"
                },
-    "datePublished":  "2026-03-24","dateModified":"2026-03-24",
+    "datePublished":  "2026-03-24","dateModified":"2026-04-20",
     "inLanguage":  "en-GB",
     "description":  "Learn how to build a revenue projection and cash flow model in Excel from scratch — covering assumptions, formulas, scenarios, and best practices.",
     "publisher":  {
@@ -109,7 +109,7 @@
       "name": "How do I build a financial model in Excel from scratch?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Start with three linked financial statements: income statement, balance sheet, and cash flow statement. Build assumptions on a separate sheet. Use consistent formatting (blue for inputs, black for formulas). Link statements together so changes in assumptions flow through automatically. Add scenario analysis with data tables. Keep formulas simple and auditable."
+        "text": "Start with three linked financial statements: income statement, balance sheet, and cash flow statement. Put assumptions on a dedicated Assumptions sheet so every input can be changed in one place. Colour-code inputs blue, formulas black, and links to other sheets green. Use consistent period layout across every sheet (rows = line items, columns = months or years). Link statements so changes in assumptions flow through automatically. Add scenario analysis via Data Tables or Scenario Manager. Keep formulas simple and auditable — one formula per row, no nested IFs more than two deep."
       }
     },
     {
@@ -117,7 +117,31 @@
       "name": "What are the best practices for financial models in Excel?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Use one formula per row, never hard-code numbers in formulas, colour-code inputs versus calculations, keep each section on a logical sheet, use named ranges for key assumptions, add error checks on every sheet, build in sensitivity analysis, document assumptions clearly, and always have a summary dashboard that shows key outputs. Simplicity and auditability matter more than complexity."
+        "text": "One formula per row. Never hard-code numbers inside formulas (except 0, 1, -1). Colour-code inputs blue, formulas black, cross-sheet links green. Use named ranges or structured references for key assumptions so formulas read like English. Add error-check rows (assets = liabilities + equity, sum-of-parts = total). Build sensitivity analysis. Document assumptions on the same sheet they live. Always have a one-page Summary dashboard showing the key outputs. Simplicity and auditability beat complexity every time — auditors grade on clarity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between a 3-statement model and a DCF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 3-statement model projects the income statement, balance sheet, and cash flow statement over time — the foundation every other model sits on. A DCF (discounted cash flow) takes the free cash flows from the 3-statement model, projects them 5–10 years, applies a discount rate (WACC), and adds a terminal value to produce an enterprise valuation. You cannot build a DCF without a working 3-statement model first — the 3-statement is the input, the DCF is one of many possible outputs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use SUMIFS or SUMPRODUCT in financial models?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SUMIFS is faster, more readable, and the modern default — use it for almost all conditional sums. SUMPRODUCT still wins when you need to multiply two ranges element-wise before summing (weighted averages, portfolio math), or when you need to sum across multiple columns of a lookup range that SUMIFS cannot handle in one formula. Rule of thumb: SUMIFS first, SUMPRODUCT only when SUMIFS runs out of features."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I handle circular references in a financial model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Circular references usually appear in interest-expense calculations (interest depends on average debt balance, which depends on net income, which depends on interest). Two options: (1) turn on iterative calculation (File → Options → Formulas → tick Enable iterative calculation, set max iterations 100, max change 0.001) — simple but makes models fragile; (2) restructure with a 'circ breaker' toggle: use beginning-of-period debt instead of average for the interest calc, which removes the circularity entirely. Option 2 is the industry standard — iterative calc is fine for early drafts, not for audited models."
       }
     }
   ]
@@ -164,10 +188,16 @@
         </figure>
         <div class="blog-post-content">
 <p>Financial modelling is the art of building a mathematical representation of a company's financial performance. Excel remains the industry standard tool for this — from startup pitch decks to Wall Street analysis. Here's how to build your first model.</p>
+<p>This tutorial is beginner-first and opinionated. It walks through the actual sequence a junior analyst follows on day one: lay out assumptions, build the revenue calc, layer in costs, wire up scenarios, then polish for an audit. We use a SaaS startup as the running example (ARPC, churn, growth), but the same structure works for retail, services, or manufacturing — swap the drivers, keep the architecture.</p>
+<p>Everything shown works in Excel 2019, 2021, Microsoft 365, and Excel for the web. If you are still building the formula stack underneath, read the <a href="/blog/advanced-formulas">advanced formulas reference</a> first — this tutorial assumes comfort with SUMIFS, XLOOKUP, LET, IF, and named ranges. For the broader Excel skill set, the <a href="/blog/excel-formulas-guide">Excel formulas and analysis hub</a> collects every related tutorial in reading order.</p>
+<p><strong>What you will build:</strong> a 36-month revenue and cash-flow projection with colour-coded assumptions, three switchable scenarios (base/bull/bear), a cost model separated into fixed/variable/semi-variable, and a one-page Summary sheet with KPI cards. The techniques extend directly to 3-statement models and DCFs later.</p>
 <div class="blog-inline-course"><div class="blog-inline-course__badge">Coming Soon</div><div class="blog-inline-course__body"><h3 class="blog-inline-course__title">Complete Excel Guide with AI Integration</h3><p class="blog-inline-course__sub">Master formulas, pivot tables, data analysis, and charts — with AI integration.</p><a href="/courses#excel" class="btn-primary blog-inline-course__btn">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div><h2>Structure of a Financial Model</h2>
 <p>Every financial model has three core sections:</p>
 <ol><li><strong>Assumptions</strong> — Input variables that drive the model (growth rate, costs, prices)</li><li><strong>Calculations</strong> — Formulas that process the assumptions</li><li><strong>Outputs</strong> — Financial statements and charts. Present them using <a href="/blog/dynamic-dashboards">interactive dashboards</a> for maximum impact</li></ol>
 <p>Best practice: keep assumptions on a separate sheet, colour-code input cells (blue font for inputs, black for formulas), and never hardcode numbers inside formulas.</p>
+<p><strong>Colour convention (industry standard):</strong> blue for raw inputs/assumptions, black for formulas that reference same-sheet cells, green for formulas that reference OTHER sheets, red for external links (to other workbooks — avoid these if you can). Apply this with a saved cell style (Home → Cell Styles → New Cell Style) so you can one-click every cell type. Auditors scan colour before they read formulas — models that follow the convention are trusted faster.</p>
+<p><strong>Real-world scenario:</strong> A seed-stage founder preparing for a VC pitch hard-coded growth assumptions into formulas like <code>=B5*1.05</code>. When the lead VC asked "what happens if growth is 3%?", the founder had to find and change 36 formulas across 12 sheets — during the meeting. A properly-built model puts the 5% on the Assumptions sheet once, and every formula reads from that single cell. Change it to 3%, the whole model updates in one second. This is the single biggest skill difference between beginner and professional models.</p>
+<p><strong>Beginner pitfall:</strong> Resist the urge to copy-paste values into an output sheet "to freeze them for the board". The moment you do, someone updates an assumption and the board sheet silently lies. Instead, copy the whole file as <code>Model_v1_BoardApproved_2026-04-15.xlsx</code> for the audit trail and keep the live model live.</p>
 <a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>Building a Simple Revenue Model</h2>
 <h3>Step 1: Define Assumptions</h3>
 <table><thead><tr><th>Assumption</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr></thead><tbody>
@@ -181,6 +211,12 @@
 <ul><li><strong>New customers</strong> = Previous month customers × growth rate</li><li><strong>Churned customers</strong> = Previous month customers × churn rate</li><li><strong>End-of-month customers</strong> = Previous + New - Churned</li><li><strong>Monthly revenue</strong> = End-of-month customers × ARPC</li></ul>
 <h3>Step 3: Annual Summary</h3>
 <p>Sum the monthly figures into annual totals. Use <code>=SUMPRODUCT</code> or simple <code>=SUM</code> for annual revenue, total new customers, and total churned customers. These and other powerful functions are covered in the <a href="/blog/advanced-formulas">advanced formulas reference</a>.</p>
+
+<h3>Step 4: Corkscrew for Running Balances</h3>
+<p>For the customer count, cash balance, and headcount, use a <em>corkscrew</em> layout — the industry-standard pattern for any running total. Rows: Opening balance, + additions, − reductions, = Closing balance. The Closing of month 1 feeds the Opening of month 2 with a simple <code>=Month1!ClosingCell</code>. Corkscrews make every moving balance auditable at a glance and are the reason professional models feel "clean".</p>
+
+<p><strong>Real-world scenario:</strong> A B2B SaaS model projecting 36 months of customers uses three parallel corkscrews: customers, MRR, and headcount. When a VC asks "what drives the spike in Q3 of year 2?", the analyst points at the corkscrew — additions up from new marketing hire, reductions unchanged — and has an answer in 10 seconds. Without the corkscrew, the answer would require tracing formulas through multiple sheets.</p>
+<p><strong>Beginner pitfall:</strong> Don't mix the corkscrew pattern with dynamic array spills. Corkscrews depend on cell-to-cell relative references, which break if the source range spills unexpectedly. Keep dynamic arrays (FILTER, SORT, GROUPBY) on separate "helper" sheets and link into the corkscrew with plain references.</p>
 <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>Cost Modelling</h2>
 <p>Separate costs into:</p>
 <ul><li><strong>Fixed costs</strong> — Rent, salaries, subscriptions (same regardless of revenue)</li><li><strong>Variable costs</strong> — Cost of goods sold, transaction fees (scale with revenue)</li><li><strong>Semi-variable</strong> — Customer support, infrastructure (step-function increases)</li></ul>
