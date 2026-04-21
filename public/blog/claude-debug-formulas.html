@@ -21,7 +21,7 @@
   <meta name="twitter:title" content="How to Fix Excel Formula Errors with Claude AI (Fast)">
   <meta name="twitter:description" content="Getting #VALUE!, #REF!, or #N/A errors? Paste your broken formula into Claude AI and get an instant diagnosis and fix \u2014 no more staring at nested parentheses.">
   <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/claude-debug-formulas-sagnik-bhattacharya-coding-liquids.jpg">
-  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Using Claude AI to Debug and Fix Excel Formulas, with formula debugging cues, alerts, and clean fixes."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-22">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Using Claude AI to Debug and Fix Excel Formulas, with formula debugging cues, alerts, and clean fixes."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-22"><meta property="article:modified_time" content="2026-04-22">
   <meta property="article:section" content="AI &amp; Automation"><meta property="article:tag" content="Claude AI"><meta property="article:tag" content="Formula Debugging"><meta property="article:tag" content="Excel Errors">
   <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
     <script type="application/ld+json">
@@ -34,7 +34,7 @@
                    "name":  "Sagnik Bhattacharya",
                    "url":  "https://sagnikbhattacharya.com"
                },
-    "datePublished":  "2026-03-22","dateModified":"2026-03-22",
+    "datePublished":  "2026-03-22","dateModified":"2026-04-22",
     "inLanguage":  "en-GB",
     "description":  "Getting #VALUE!, #REF!, or #N/A errors? Paste your broken formula into Claude AI for an instant diagnosis — no more staring at nested parentheses.",
     "publisher":  {
@@ -119,6 +119,38 @@
         "@type": "Answer",
         "text": "Provide Claude with three things: the formula that is not working, the error message or unexpected result you see, and a description of your data layout including column headers and sample values. Claude will analyse the formula, identify the error, provide a corrected version, and explain what went wrong. This works for all common Excel errors including #VALUE, #REF, #N/A, #SPILL, and logic errors."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Claude diagnose wrong results as well as error codes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Describe the expected output and the actual output you are seeing, then paste the formula and explain the data layout. Claude identifies logic errors — such as an IF condition that evaluates the wrong way, a SUMIFS range that is off by one column, or a percentage calculation that forgets to divide by 100 — even when Excel shows no error code at all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What information should I give Claude to get the best formula fix?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Include: (1) the exact formula as it appears in the cell, (2) the error code or wrong result, (3) column headers and one or two sample data rows, and (4) what the formula should return. The more context you give — especially the data type in each column (numbers, dates, text, currency) — the more accurate the fix will be."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Claude fix VLOOKUP returning #N/A even though the value exists?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. This is the most common VLOOKUP problem. Tell Claude the exact lookup value and what column B in the lookup range contains. The usual culprits are trailing spaces (fix with TRIM), number-stored-as-text mismatches (fix with VALUE or NUMBERVALUE), or the lookup value being in a different column than the first column of the lookup range. Claude will identify which applies and return a corrected formula, often suggesting XLOOKUP as a more robust replacement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Claude work for debugging formulas in Google Sheets too?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Most Excel and Google Sheets formulas are identical (SUM, IF, VLOOKUP, INDEX/MATCH, SUMIFS). Tell Claude you are in Google Sheets and it will avoid Excel-only functions like XLOOKUP (not available in Sheets) and use ARRAYFORMULA or QUERY where appropriate."
+      }
     }
   ]
 }
@@ -163,48 +195,165 @@
           <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for Using Claude AI to Debug and Fix Excel Formulas, with formula debugging cues, alerts, and clean fixes.</figcaption>
         </figure>
         <div class="blog-post-content">
-<p>We've all been there — a formula that should work but throws #VALUE!, #REF!, #N/A, or #NAME?. Instead of spending 30 minutes staring at nested parentheses, paste the formula into Claude AI and get an instant diagnosis.</p>
-<div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Flutter and Excel with AI — <a href="/courses">explore my courses</a> if you want structured learning.</span></div><h2>Common Excel Errors Explained</h2>
-<table><thead><tr><th>Error</th><th>Meaning</th><th>Common Cause</th></tr></thead><tbody>
-<tr><td><code>#VALUE!</code></td><td>Wrong data type</td><td>Text in a math formula, or space characters</td></tr>
-<tr><td><code>#REF!</code></td><td>Invalid reference</td><td>Deleted column/row that the formula referenced</td></tr>
-<tr><td><code>#N/A</code></td><td>Value not found</td><td>VLOOKUP can't find the lookup value — consider switching to <a href="/blog/vlookup-vs-xlookup">XLOOKUP</a> which has built-in error handling</td></tr>
-<tr><td><code>#NAME?</code></td><td>Unrecognised name</td><td>Misspelled function name or missing quotes</td></tr>
-<tr><td><code>#DIV/0!</code></td><td>Division by zero</td><td>Denominator is zero or blank</td></tr>
-<tr><td><code>#NUM!</code></td><td>Invalid number</td><td>Result too large, or impossible calculation</td></tr>
-</tbody></table>
-<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>How to Ask Claude for Help</h2>
-<p>The most effective format:</p>
-<blockquote>"This Excel formula gives me a [error type] error:<br><br>[paste your formula]<br><br>Column A has [description], Column B has [description].<br>Expected result: [what you want]<br>Actual result: [error message]"</blockquote>
-<h3>Example 1: #N/A in VLOOKUP</h3>
-<pre><code>"This formula returns #N/A even though the value exists in my data:
+          <p>We've all been there — a formula that should work but throws #VALUE!, #REF!, #N/A, or #NAME?. The usual response is to stare at nested parentheses for 30 minutes, searching "Excel #VALUE error" on Google, and landing on a Microsoft Support page that lists every possible cause without telling you which one applies to your specific formula.</p>
+          <p>Claude AI changes that workflow. Instead of reading generic docs, you paste your exact formula, describe your data layout, and Claude tells you the specific cause and the corrected formula — usually in under a minute. This tutorial shows you the diagnostic format that gets the best results, walks through real examples for each major error code, and covers the cases where Claude's first answer might need a follow-up.</p>
+          <p>This works for all Excel error codes, logic errors (wrong result with no error code), nested formula breakdowns, and Google Sheets formulas too.</p>
+          <div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Excel with AI at Coding Liquids — <a href="/courses">explore my courses</a> if you want structured learning.</span></div>
+
+          <h2>Prerequisites</h2>
+          <ul>
+            <li>A Claude account at <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> — free tier is sufficient for all formula debugging.</li>
+            <li>The broken formula copied from Excel (use the formula bar, not a screenshot).</li>
+            <li>The error code or a description of the wrong result.</li>
+          </ul>
+
+          <h2>Excel Error Reference</h2>
+          <p>Every error code points to a specific class of problem. Knowing which bucket yours falls into helps you give Claude a better prompt.</p>
+          <table>
+            <thead><tr><th>Error</th><th>Meaning</th><th>Most Common Cause</th></tr></thead>
+            <tbody>
+              <tr><td><code>#VALUE!</code></td><td>Wrong data type in argument</td><td>Text where a number is expected; invisible spaces; dates stored as text</td></tr>
+              <tr><td><code>#REF!</code></td><td>Invalid cell reference</td><td>Deleted row/column that the formula pointed to; VLOOKUP column index larger than the lookup range</td></tr>
+              <tr><td><code>#N/A</code></td><td>Value not found</td><td>Trailing space in lookup value; number-stored-as-text mismatch; value genuinely absent</td></tr>
+              <tr><td><code>#NAME?</code></td><td>Unrecognised name</td><td>Typo in function name; text not wrapped in quotes; function not available in your Excel version</td></tr>
+              <tr><td><code>#DIV/0!</code></td><td>Division by zero or blank</td><td>Denominator cell is empty or zero; average of an empty range</td></tr>
+              <tr><td><code>#NUM!</code></td><td>Invalid numeric result</td><td>Negative under SQRT; result too large for Excel to store; impossible iteration</td></tr>
+              <tr><td><code>#SPILL!</code></td><td>Dynamic array blocked</td><td>A merged cell or non-blank cell sits in the spill range; see <a href="/blog/fix-spill-errors-excel">spill error guide</a></td></tr>
+              <tr><td><code>#CIRC</code> / circular</td><td>Formula references itself</td><td>Cell references its own row/column; accidental self-reference in a SUM range</td></tr>
+            </tbody>
+          </table>
+
+          <h2>The Diagnostic Format That Gets the Best Results</h2>
+          <p>The more specific context you give Claude, the more accurate the fix. Use this template:</p>
+          <blockquote>"This Excel formula gives me [error code / wrong result]:<br><br>[paste your formula exactly]<br><br>Column A: [what it contains, data type]<br>Column B: [what it contains, data type]<br>Expected result: [what you want the formula to return]<br>Actual result: [what it shows now]"</blockquote>
+          <p>If the formula references another sheet, say so: "The lookup range is on Sheet2, column B contains SKU codes as text (not numbers), and column D contains prices as numbers."</p>
+
+          <h2>Real Diagnostic Examples</h2>
+          <a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a>
+
+          <h3>Error 1: #N/A in VLOOKUP (most common support question)</h3>
+          <p><strong>Prompt to Claude:</strong></p>
+          <pre><code>"This formula returns #N/A even though I can see the value in my data:
 =VLOOKUP(A2, Sheet2!B:D, 3, FALSE)
-A2 contains 'Product-001' and I can see 'Product-001' in Sheet2 column B."</code></pre>
-<p>Claude will likely identify: trailing spaces in the lookup value, different character encoding, or the lookup value being in the wrong column position.</p>
-<h3>Example 2: #VALUE! in a Date Formula</h3>
-<pre><code>"=DATEDIF(A2, B2, 'y') gives #VALUE! error.
-A2 = 15/01/2024, B2 = 20/03/2026"</code></pre>
-<p>Claude will spot that straight quotes were used instead of double quotes — a common copy-paste error — and suggest: <code>=DATEDIF(A2, B2, "y")</code></p>
-<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>Debugging Nested Formulas</h2>
-<p>For complex formulas, ask Claude to break it down:</p>
-<blockquote>"Can you break down this formula step by step and tell me which part is causing the error?"</blockquote>
-<p>Claude will evaluate each nested function from the inside out, identifying exactly where the error originates.</p>
-<h2>Preventive Debugging Tips</h2>
-<ol><li><strong>Use the Evaluate Formula tool</strong> — Formulas → Evaluate Formula steps through each part</li><li><strong>Check for hidden spaces</strong> — Use <code>=LEN(A2)</code> to see if there are extra characters. See the full <a href="/blog/clean-messy-data">data cleaning guide</a> for fixing these issues</li><li><strong>Verify data types</strong> — Use <code>=ISNUMBER(A2)</code> or <code>=ISTEXT(A2)</code></li><li><strong>Wrap in IFERROR</strong> — <code>=IFERROR(your_formula, "Check input")</code>. Better yet, use <a href="/blog/data-validation">data validation</a> to prevent bad inputs at the source</li><li><strong>Build incrementally</strong> — Test each nested function separately before combining. The <a href="/blog/advanced-formulas">advanced formulas guide</a> explains each function in detail</li></ol>
-<h2>When to Use Claude vs Excel's Tools</h2>
-<ul><li><strong>Use Excel's Evaluate Formula</strong> when you want to step through a formula visually</li><li><strong>Use Claude</strong> when you can't figure out why a formula isn't working, need an explanation of the error, or want a rewritten version that handles edge cases</li></ul><h2>Sources &amp; Further Reading</h2>
-<ul>
-<li><a href="https://support.microsoft.com/en-us/copilot-excel" target="_blank" rel="noopener">Microsoft Copilot in Excel</a></li>
-<li><a href="https://openai.com/chatgpt" target="_blank" rel="noopener">OpenAI ChatGPT</a></li>
-<li><a href="https://www.anthropic.com/claude" target="_blank" rel="noopener">Anthropic Claude</a></li>
-</ul>
-<h2>Related Posts</h2>
-<ul>
-  <li><a href="/blog/claude-ai-excel-formulas">How to Use Claude AI to Write Excel Formulas Instantly</a></li>
-  <li><a href="/blog/claude-ai-excel-macros">Using Claude AI to Generate Excel Macros and VBA</a></li>
-  <li><a href="/blog/advanced-formulas">15 Advanced Excel Formulas Every Professional Should Know</a></li>
-  <li><a href="/blog/excel-ai-prompts">60 AI Prompts for Excel That Actually Work (Copy, Paste, Get Results)</a></li>
-</ul><div class="blog-cta-box"><h3>Ready to level up your Excel skills?</h3><p>The Complete Excel Course with AI Integration takes you from formulas to production-grade spreadsheets, with real projects and AI-assisted workflows.</p><a href="/courses#excel" class="btn-primary">Explore the Excel + AI course <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+A2 contains the text 'Product-001'.
+Sheet2 column B contains product codes. I can see 'Product-001' in that column.
+I want the formula to return the price from column D."</code></pre>
+          <p><strong>What Claude diagnoses:</strong> The three most common causes are (1) trailing spaces in either the lookup value or the source data — fix with <code>=VLOOKUP(TRIM(A2), Sheet2!B:D, 3, FALSE)</code>; (2) the source data stores codes as numbers while A2 stores them as text — fix with <code>=VLOOKUP(TEXT(A2,"0"), Sheet2!B:D, 3, FALSE)</code>; or (3) the lookup value is not in the first column of the range (you are looking in column B but Product-001 is actually in column A). Claude will ask which applies and return the corrected formula.</p>
+          <p><strong>Beginner pitfall:</strong> Switching to XLOOKUP avoids most of these issues — see <a href="/blog/vlookup-vs-xlookup">VLOOKUP vs XLOOKUP</a> for the comparison.</p>
+
+          <h3>Error 2: #VALUE! in a date formula</h3>
+          <p><strong>Prompt to Claude:</strong></p>
+          <pre><code>"=DATEDIF(A2, B2, 'y') gives #VALUE! error.
+A2 = 15/01/2024, B2 = 20/03/2026.
+I want the number of full years between the two dates."</code></pre>
+          <p><strong>What Claude diagnoses:</strong> Straight quotes (<code>'y'</code>) are used instead of double quotes (<code>"y"</code>) — a copy-paste artefact from web pages or Word. Corrected formula: <code>=DATEDIF(A2, B2, "y")</code>. Claude will also warn that DATEDIF is undocumented in newer Excel versions and suggest <code>=YEAR(B2)-YEAR(A2)</code> as the safer alternative.</p>
+
+          <h3>Error 3: #REF! after deleting a column</h3>
+          <p><strong>Prompt to Claude:</strong></p>
+          <pre><code>"My VLOOKUP started returning #REF! after I deleted column C from my sheet.
+Original formula was: =VLOOKUP(A2, B:E, 4, FALSE)
+I deleted column C. Now the formula shows #REF!."</code></pre>
+          <p><strong>What Claude diagnoses:</strong> Deleting column C shrinks the lookup range (B:E becomes B:D) so column index 4 now falls outside it. Fix: change the column index to 3, or rewrite as <code>=XLOOKUP(A2, B:B, D:D)</code> which uses a return range instead of an index number and survives column deletions.</p>
+
+          <h3>Error 4: #SPILL! from a dynamic array formula</h3>
+          <p><strong>Prompt to Claude:</strong></p>
+          <pre><code>"=UNIQUE(A2:A200) gives #SPILL! error. I can't see what's in the spill range."</code></pre>
+          <p><strong>What Claude diagnoses:</strong> Something is blocking the cells below the formula cell — a merged cell, a value in an adjacent row, or a hidden character. Ask Claude: "How do I find and clear a #SPILL! block?" and it will walk you through selecting the spill range via the formula's blue border, then clearing the obstruction. Full details in <a href="/blog/fix-spill-errors-excel">the #SPILL! error guide</a>.</p>
+
+          <h3>Error 5: No error code — wrong result</h3>
+          <p><strong>Prompt to Claude:</strong></p>
+          <pre><code>"This SUMIFS formula returns 0, but there should be matching values:
+=SUMIFS(C:C, A:A, "London", B:B, "Q1")
+Column A contains city names, Column B contains quarter labels (Q1, Q2 etc.), Column C contains revenue numbers.
+I can see rows with London and Q1 but the result is 0."</code></pre>
+          <p><strong>What Claude diagnoses:</strong> The most likely cause is that column B actually contains "Q1 2026" or " Q1" (with a leading space) rather than the bare "Q1" the formula expects. Claude will suggest <code>=SUMIFS(C:C, A:A, "*London*", B:B, "*Q1*")</code> as a wildcard version to confirm, then help tighten the criteria once the mismatch is confirmed.</p>
+          <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a>
+
+          <h2>Debugging Nested Formulas</h2>
+          <p>For complex formulas like <code>=IF(AND(ISNUMBER(A2),A2&gt;0),VLOOKUP(A2,Sheet2!B:D,3,FALSE)/SUM(C:C),"")</code> it's impossible to read the error by eye. Ask Claude to break it down:</p>
+          <blockquote>"Can you break this formula down step by step, evaluate what each nested function returns, and tell me which layer is producing the error?"</blockquote>
+          <p>Claude evaluates inside-out: it checks <code>ISNUMBER(A2)</code> first, then <code>AND()</code>, then the VLOOKUP branch, then the division — narrating what each level should return given your data. This usually pinpoints the exact layer that breaks within one or two replies.</p>
+          <p>You can also use Excel's own Evaluate Formula tool (Formulas tab → Evaluate Formula) to step through the formula visually; Claude is faster for complex cases where you need an explanation, not just a step trace.</p>
+
+          <h2>Preventive Debugging Habits</h2>
+          <ol>
+            <li><strong>Check for hidden spaces first</strong> — <code>=LEN(A2)</code> returning a higher number than expected means invisible characters are present. <code>=TRIM(A2)</code> removes them. Full data cleaning workflow: <a href="/blog/clean-messy-data">how to clean messy data in Excel</a>.</li>
+            <li><strong>Verify data types with ISNUMBER / ISTEXT</strong> — A column that looks like numbers but returns TRUE on <code>=ISTEXT(A2)</code> will break any arithmetic formula silently.</li>
+            <li><strong>Use IFERROR as a canary, not a fix</strong> — <code>=IFERROR(your_formula, "ERROR")</code> makes errors visible during testing, but do not leave it in production; it masks real data problems.</li>
+            <li><strong>Build incrementally</strong> — Test each nested function in a separate cell before combining. The <a href="/blog/advanced-formulas">advanced formulas guide</a> demonstrates this for each function family.</li>
+            <li><strong>Prevent bad inputs at the source</strong> — <a href="/blog/data-validation">Data validation dropdowns</a> stop users from entering text in number-only columns, eliminating the root cause of most #VALUE! errors.</li>
+            <li><strong>Convert text-numbers to real numbers before lookup</strong> — Paste Special → Values → Multiply by 1, or use the <code>=VALUE()</code> function wrapper, before running VLOOKUP/XLOOKUP against the column.</li>
+          </ol>
+
+          <h2>When to Use Claude vs Excel's Native Tools</h2>
+          <table>
+            <thead><tr><th>Situation</th><th>Best tool</th></tr></thead>
+            <tbody>
+              <tr><td>You can see the formula is wrong but don't know which part</td><td>Claude — paste and ask for layer-by-layer breakdown</td></tr>
+              <tr><td>You need to watch each nested evaluation step visually</td><td>Excel Evaluate Formula (Formulas tab)</td></tr>
+              <tr><td>You need to trace which cells feed into an error</td><td>Excel Trace Precedents / Dependents (Formulas tab) — see <a href="/blog/audit-formulas-excel">formula auditing guide</a></td></tr>
+              <tr><td>Claude's fix still doesn't work</td><td>Paste the corrected formula + new error back to Claude for a second pass</td></tr>
+              <tr><td>Wrong result with no error code</td><td>Claude — describe expected vs actual and data layout</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Troubleshooting</h2>
+          <ol>
+            <li>
+              <strong>Claude gave me a fixed formula but I still get the same error</strong><br>
+              The most likely cause is that Claude made an assumption about your data layout that was wrong. Reply with: "The fix still gives #N/A. Here is a sample row: A2='P-001', Sheet2 B2='P-001 '" — the extra trailing space in Sheet2 will immediately surface. The second pass is almost always correct once the actual data values are included.
+            </li>
+            <li>
+              <strong>Claude's formula uses XLOOKUP but I don't have it</strong><br>
+              XLOOKUP requires Excel 365 or Excel 2021. If you are on Excel 2019 or earlier, reply: "I am on Excel 2019, please use INDEX MATCH instead." Claude will rewrite the formula without XLOOKUP.
+            </li>
+            <li>
+              <strong>The formula works in one cell but breaks when I copy it down</strong><br>
+              This is usually a missing dollar sign in a reference that should be absolute — e.g. <code>B:D</code> accidentally becoming <code>B2:D2</code> when dragged. Ask Claude: "The formula works in row 2 but breaks in row 5. Here is the row-5 version: [paste]." Claude will spot the shifted reference instantly.
+            </li>
+            <li>
+              <strong>Circular reference warning and I can't find it</strong><br>
+              Go to Formulas → Error Checking → Circular References — Excel lists every cell in the chain. Paste the formula from the listed cell into Claude with the message "This formula is flagged as a circular reference. What is the cycle and how do I break it?"
+            </li>
+            <li>
+              <strong>Claude doesn't understand my formula because it uses a custom LAMBDA</strong><br>
+              Paste the LAMBDA definition as well as the formula that calls it. Claude handles LAMBDA, LET, and named ranges — it just needs the full definition to reason about the logic.
+            </li>
+          </ol>
+
+          <h2>FAQ</h2>
+          <dl>
+            <dt><strong>Can Claude diagnose wrong results as well as error codes?</strong></dt>
+            <dd>Yes. Describe the expected output and the actual output, then paste the formula and explain the data layout. Claude identifies logic errors — a SUMIFS range offset by one column, an IF condition evaluating the wrong branch, a percentage formula forgetting to divide by 100 — even when Excel shows no error code at all.</dd>
+
+            <dt><strong>What information should I give Claude to get the best fix?</strong></dt>
+            <dd>Include: (1) the exact formula as it appears in the formula bar, (2) the error code or wrong result, (3) column headers and one or two sample data rows, and (4) what the formula should return. Data types matter — state whether each column contains text, numbers, dates, or currency.</dd>
+
+            <dt><strong>Can Claude fix VLOOKUP returning #N/A even though the value exists?</strong></dt>
+            <dd>Yes — this is one of Claude's most reliable fixes. The usual culprits are trailing spaces (fix: TRIM the lookup value), number-stored-as-text mismatch (fix: VALUE wrapper), or the lookup value being in the wrong column of the range. Claude identifies which applies and often suggests switching to XLOOKUP which avoids these pitfalls by design.</dd>
+
+            <dt><strong>Can Claude diagnose formulas in Google Sheets too?</strong></dt>
+            <dd>Yes. Most formulas are identical between Excel and Sheets. Tell Claude you are in Google Sheets and it will avoid Excel-only functions (XLOOKUP is not in Sheets) and use ARRAYFORMULA or QUERY where appropriate.</dd>
+
+            <dt><strong>Can I ask Claude about a formula error in a screenshot?</strong></dt>
+            <dd>You can upload the screenshot, but Claude's fix will be more accurate if you also paste the formula as text. Screenshots can't be copy-pasted, so Claude has to re-type the formula — and small OCR misreads will lead to wrong output. Always include the text of the formula alongside any image.</dd>
+          </dl>
+
+          <h2>Sources</h2>
+          <ul>
+            <li><a href="https://support.microsoft.com/en-us/office/detect-formula-errors-in-excel-3a8acca5-1d61-4702-80e0-99a36a2822c1" target="_blank" rel="noopener">Microsoft — Detect formula errors in Excel</a></li>
+            <li><a href="https://support.claude.com/en/articles/12650343-use-claude-for-excel" target="_blank" rel="noopener">Anthropic Help Centre — Use Claude for Excel</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/office/troubleshoot/excel/formulas-not-update-automatically" target="_blank" rel="noopener">Microsoft — Formulas not updating automatically in Excel</a></li>
+          </ul>
+
+          <h2>Related tutorials</h2>
+          <ul>
+            <li><a href="/blog/excel-formulas-guide">Excel Formulas &amp; AI Hub — the canonical Excel + AI reference on this site</a></li>
+            <li><a href="/blog/claude-ai-excel-formulas">How to Use Claude AI to Write Excel Formulas Instantly</a></li>
+            <li><a href="/blog/claude-ai-excel-macros">How to Use Claude AI to Write Excel Macros and VBA Code</a></li>
+            <li><a href="/blog/audit-formulas-excel">How to Audit Formulas in Excel: Trace Precedents, Dependents, and Error Sources</a></li>
+            <li><a href="/blog/gemma-4-vscode">Run a Free Local AI in VS Code with Gemma 4 — for AI-assisted coding beyond Excel</a></li>
+          </ul><div class="blog-cta-box"><h3>Ready to level up your Excel skills?</h3><p>The Complete Excel Course with AI Integration takes you from formulas to production-grade spreadsheets, with real projects and AI-assisted workflows.</p><a href="/courses#excel" class="btn-primary">Explore the Excel + AI course <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
   </article></div></section>
   <footer><div class="container"><p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p></div></footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script><script src="/animations.js?v=f222c349" defer></script>

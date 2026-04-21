@@ -39,7 +39,7 @@
   <meta property="og:site_name" content="Sagnik Bhattacharya">
   <meta property="article:author" content="Sagnik Bhattacharya">
   <meta property="article:published_time" content="2026-03-13">
-  <meta property="article:modified_time" content="2026-04-20">
+  <meta property="article:modified_time" content="2026-04-22">
   <meta property="article:section" content="AI &amp; Automation"><meta property="article:tag" content="Claude AI"><meta property="article:tag" content="VBA Macros"><meta property="article:tag" content="Excel Automation">
   <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
     <script type="application/ld+json">
@@ -52,7 +52,7 @@
                    "name":  "Sagnik Bhattacharya",
                    "url":  "https://sagnikbhattacharya.com"
                },
-    "datePublished":  "2026-03-13","dateModified":"2026-04-20",
+    "datePublished":  "2026-03-13","dateModified":"2026-04-22",
     "inLanguage":  "en-GB",
     "description":  "Never written VBA before? Use Claude AI to generate Excel macros from plain English — automate repetitive tasks, format reports, and build custom tools without coding.",
     "publisher":  {
@@ -137,6 +137,30 @@
         "@type": "Answer",
         "text": "Describe your automation task to Claude in detail: what data do you have, what processing steps are needed, and what the output should look like. Claude will generate a complete VBA Sub or Function with error handling and comments. Copy the code into the VBA editor in Excel (Alt+F11), paste it into a module, and run it. Always review the code before running it on important data."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Claude write VBA for Mac Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, most macros Claude generates run on Mac Excel. However, a few Windows-only features — Shell commands, SendKeys, and Outlook COM automation — are unavailable on Mac. Tell Claude you are on Mac and it will avoid those APIs and suggest AppleScript or Office Scripts alternatives where needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I ask Claude to fix a broken macro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Paste the full VBA code into Claude along with the exact error message and line number Excel showed you. Claude will diagnose the problem and rewrite the affected section. For Runtime Error 9 (Subscript out of range) always include your actual sheet tab name — it is case-sensitive and that is the most common cause."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to enable macros every time I open the Excel file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you see the yellow security bar every time, add the folder where you save macro files to Excel's Trusted Locations: File → Options → Trust Center → Trust Center Settings → Trusted Locations → Add new location. Files in that folder will run macros without prompting."
+      }
     }
   ]
 }
@@ -199,34 +223,48 @@
           <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for Using Claude AI to Generate Excel Macros and VBA, with macro automation cues, code blocks, and workflow visuals.</figcaption>
         </figure>
         <div class="blog-post-content">
-          <p>VBA (Visual Basic for Applications) macros can automate virtually anything in Excel — formatting reports,
-            processing data, sending emails, generating files. The problem? Most people don't know how to code. Claude
-            AI solves this by writing VBA code for you from plain English descriptions.</p>
-          <div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Flutter and Excel with AI — <a href="/courses">explore my courses</a> if you want structured learning.</span></div><h2>Why Claude for VBA?</h2>
-          <p>Claude excels at VBA generation because:</p>
+          <p>VBA (Visual Basic for Applications) macros can automate virtually anything in Excel — formatting reports, processing data, sending emails, generating files. The problem? Most people have never written a line of code. Claude AI solves this by generating complete, ready-to-run VBA code from a plain English description of what you want to happen.</p>
+          <p>This tutorial walks you through the full cycle: how to describe a task so Claude understands it, how to paste the code into Excel's VBA editor, how to run it safely, and — crucially — how to hand an error message back to Claude when something goes wrong. You will also find five copy-paste macro templates covering the most common Excel automation jobs.</p>
+          <p>No coding background required. If you can describe what you do manually in Excel, Claude can automate it.</p>
+          <div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Excel with AI at Coding Liquids — <a href="/courses">explore my courses</a> if you want structured learning.</span></div>
+
+          <h2>Prerequisites</h2>
           <ul>
-            <li>It understands Excel's object model deeply</li>
-            <li>It can write complete, ready-to-run macros</li>
-            <li>It adds error handling and comments</li>
-            <li>It explains what each section does so you learn</li>
+            <li><strong>Excel 2016 or newer on Windows</strong> — the VBA editor is available on Mac too, but a few automation APIs (Outlook integration, Shell commands) are Windows-only. Tell Claude your platform if you are on Mac.</li>
+            <li><strong>A Claude account</strong> — free tier at <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> is enough for all the examples in this tutorial.</li>
+            <li><strong>Save as .xlsm before you start</strong> — Excel's standard .xlsx format strips all macro code on save. File → Save As → Excel Macro-Enabled Workbook (.xlsm) before pasting any VBA.</li>
           </ul>
-          <a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>Getting Started: Your First Macro via Claude</h2>
-          <h3>Step 1: Describe Your Task</h3>
-          <p>Be specific. Instead of "automate my report", say:</p>
-          <blockquote>"Write a VBA macro that loops through all rows in column A of Sheet1. For each cell, if the value
-            is 'Completed', colour the entire row green. If it's 'Pending', colour it yellow. If it's 'Overdue', colour
-            it red."</blockquote>
-          <h3>Step 2: Copy Claude's Code</h3>
-          <p>Claude will generate something like:</p>
-          <pre><code>Sub ColorRowsByStatus()
+
+          <h2>Why Claude for VBA?</h2>
+          <p>Claude understands Excel's object model deeply. It knows the difference between <code>ActiveSheet</code> and <code>ThisWorkbook.Sheets("Data")</code>, it adds <code>On Error GoTo</code> handlers without being asked, and it writes self-documenting comments so you can read the code later. Other AI tools often produce syntactically correct but logically broken macros; Claude tends to ask clarifying questions or flag assumptions inline as code comments.</p>
+          <ul>
+            <li>Generates complete, runnable <code>Sub</code> and <code>Function</code> procedures</li>
+            <li>Handles edge cases (empty rows, merged cells, protected sheets) when you describe them</li>
+            <li>Fixes its own mistakes when you paste an error message back</li>
+            <li>Explains every section so you learn as you go</li>
+          </ul>
+          <a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a>
+
+          <h2>The Prompt → Code → Paste Cycle</h2>
+          <p>Every Claude VBA session follows the same five steps.</p>
+          <h3>Step 1: Describe the task precisely</h3>
+          <p>Vague prompts produce vague macros. Instead of "automate my report", write something like:</p>
+          <blockquote>"Write a VBA macro that loops through all rows in column A of Sheet1. For each cell, if the value is 'Completed', colour the entire row green. If it is 'Pending', colour it yellow. If it is 'Overdue', colour it red. Data starts in row 2; row 1 is headers. Add error handling in case a cell is blank."</blockquote>
+          <p>The more context you give — sheet names, column layout, starting row, edge cases — the better the output.</p>
+          <h3>Step 2: Copy Claude's code</h3>
+          <p>Claude will return a complete <code>Sub</code> with comments. Example output for the prompt above:</p>
+          <pre><code>Sub ColourRowsByStatus()
     Dim ws As Worksheet
     Dim lastRow As Long
     Dim i As Long
-    
+
+    On Error GoTo ErrorHandler
+
     Set ws = ThisWorkbook.Sheets("Sheet1")
     lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
-    
+
     For i = 2 To lastRow
+        If IsEmpty(ws.Cells(i, 1)) Then GoTo NextRow
         Select Case ws.Cells(i, 1).Value
             Case "Completed"
                 ws.Rows(i).Interior.Color = RGB(198, 239, 206)
@@ -235,59 +273,281 @@
             Case "Overdue"
                 ws.Rows(i).Interior.Color = RGB(255, 199, 206)
         End Select
+NextRow:
     Next i
-    
+
     MsgBox "Formatting complete!", vbInformation
+    Exit Sub
+
+ErrorHandler:
+    MsgBox "Error " & Err.Number & ": " & Err.Description, vbCritical
 End Sub</code></pre>
-          <h3>Step 3: Add It to Excel</h3>
+          <h3>Step 3: Open the VBA Editor</h3>
           <ol>
-            <li>Press <code>Alt+F11</code> to open the VBA Editor</li>
-            <li>Go to Insert → Module</li>
-            <li>Paste the code</li>
-            <li>Press <code>F5</code> to run, or close the editor and run from Macros (Alt+F8)</li>
-            <li>Save the file as .xlsm (macro-enabled workbook)</li>
+            <li>Press <code>Alt + F11</code> — the VBA Editor opens.</li>
+            <li>In the Project panel on the left, right-click your workbook name → Insert → Module.</li>
+            <li>Paste the code into the blank module window.</li>
           </ol>
-          <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>Practical Macro Ideas to Ask Claude</h2>
-          <ul>
-            <li><strong>Auto-format reports</strong> — "Format all headers as bold, add borders, and auto-fit column
-              widths". For non-VBA formatting, see <a href="/blog/conditional-formatting-tips">conditional formatting tips</a></li>
-            <li><strong>Data cleanup</strong> — "Remove all rows where column D is blank and column E contains 'TEST'". For manual techniques, see <a href="/blog/clean-messy-data">how to clean messy data</a>
-            </li>
-            <li><strong>File generation</strong> — "Create a separate PDF for each unique value in column A"</li>
-            <li><strong>Email automation</strong> — "Draft an Outlook email for each row with the name in column A and
-              email in column B"</li>
-            <li><strong>Sheet management</strong> — "Copy rows matching criteria to a new worksheet"</li>
-            <li><strong>Data consolidation</strong> — "Combine all worksheets in this workbook into one master sheet". <a href="/blog/power-query-guide">Power Query</a> can also do this without code
-            </li>
-          </ul>
-          <h2>Tips for Better Results</h2>
+          <h3>Step 4: Run the macro</h3>
           <ol>
-            <li><strong>Mention sheet names</strong> — Claude needs to know which sheet to target</li>
-            <li><strong>Specify the starting row</strong> — "Data starts in row 2, row 1 is headers"</li>
-            <li><strong>Ask for error handling</strong> — "Add error handling so it doesn't crash on blank cells"</li>
-            <li><strong>Request a button</strong> — "Add a button on the sheet to run this macro"</li>
-            <li><strong>Ask for comments</strong> — "Add comments explaining each section"</li>
+            <li>Click anywhere inside the <code>Sub</code> procedure.</li>
+            <li>Press <code>F5</code> to run it directly, or close the editor and use <code>Alt + F8</code> to pick it from the Macros list.</li>
+            <li>Save the file again as .xlsm to preserve the code.</li>
           </ol>
+          <h3>Step 5: Iterate with Claude</h3>
+          <p>If Excel shows an error, copy the exact error message and line number, then send both back to Claude: <em>"I got Runtime Error 9 on line 8. Here is the code: [paste]. The sheet tab is actually called 'Status Tracker'. Please fix it."</em> Claude will correct the sheet name reference and return updated code instantly.</p>
+          <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a>
+
+          <h2>5 Ready-to-Use Macro Templates</h2>
+          <p>Ask Claude to generate these by pasting the prompt shown. Adapt sheet names and column letters to match your own workbook.</p>
+
+          <h3>Template 1: Auto-format a report header row</h3>
+          <p><strong>Prompt to Claude:</strong> "Write a VBA macro that on Sheet1 makes row 1 bold, sets the font to 12pt, adds a thick bottom border, fills the row with a dark blue background (hex #1F3864) with white text, and auto-fits all column widths."</p>
+          <pre><code>Sub FormatReportHeaders()
+    Dim ws As Worksheet
+    Set ws = ThisWorkbook.Sheets("Sheet1")
+
+    With ws.Rows(1)
+        .Font.Bold = True
+        .Font.Size = 12
+        .Font.Color = RGB(255, 255, 255)
+        .Interior.Color = RGB(31, 56, 100)
+        .Borders(xlEdgeBottom).LineStyle = xlContinuous
+        .Borders(xlEdgeBottom).Weight = xlThick
+    End With
+
+    ws.Columns.AutoFit
+    ws.Rows(1).RowHeight = 28
+
+    MsgBox "Headers formatted.", vbInformation
+End Sub</code></pre>
+          <p><strong>Beginner pitfall:</strong> If you have merged cells in row 1, <code>AutoFit</code> may not resize correctly. Ask Claude to "skip merged cells when auto-fitting".</p>
+
+          <h3>Template 2: Delete all blank rows in a dataset</h3>
+          <p><strong>Prompt to Claude:</strong> "Write a VBA macro that deletes every row in Sheet1 where column A is completely empty. Data starts in row 2. Loop from the bottom up so row numbers don't shift during deletion."</p>
+          <pre><code>Sub DeleteBlankRows()
+    Dim ws As Worksheet
+    Dim lastRow As Long
+    Dim i As Long
+
+    Set ws = ThisWorkbook.Sheets("Sheet1")
+    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+
+    ' Loop from bottom to top to avoid row-shift errors
+    For i = lastRow To 2 Step -1
+        If IsEmpty(ws.Cells(i, 1).Value) Or ws.Cells(i, 1).Value = "" Then
+            ws.Rows(i).Delete
+        End If
+    Next i
+
+    MsgBox "Blank rows removed. " & lastRow - ws.Cells(ws.Rows.Count, "A").End(xlUp).Row & " rows deleted.", vbInformation
+End Sub</code></pre>
+          <p><strong>Beginner pitfall:</strong> Looping top-to-bottom and deleting rows shifts all subsequent row numbers by one, causing the macro to skip rows. Always loop from the bottom up when deleting.</p>
+
+          <h3>Template 3: Copy rows matching a criterion to a new sheet</h3>
+          <p><strong>Prompt to Claude:</strong> "Write a VBA macro that copies all rows from Sheet1 where column C equals 'Approved' to a new sheet called 'Approved Items'. Include the header row. If the sheet already exists, clear it first."</p>
+          <pre><code>Sub CopyApprovedRows()
+    Dim wsSource As Worksheet
+    Dim wsDest As Worksheet
+    Dim lastRow As Long
+    Dim destRow As Long
+    Dim i As Long
+
+    Set wsSource = ThisWorkbook.Sheets("Sheet1")
+
+    ' Create or clear destination sheet
+    On Error Resume Next
+    Set wsDest = ThisWorkbook.Sheets("Approved Items")
+    On Error GoTo 0
+    If wsDest Is Nothing Then
+        Set wsDest = ThisWorkbook.Sheets.Add(After:=wsSource)
+        wsDest.Name = "Approved Items"
+    Else
+        wsDest.Cells.Clear
+    End If
+
+    ' Copy header row
+    wsSource.Rows(1).Copy Destination:=wsDest.Rows(1)
+    destRow = 2
+
+    lastRow = wsSource.Cells(wsSource.Rows.Count, "A").End(xlUp).Row
+    For i = 2 To lastRow
+        If wsSource.Cells(i, 3).Value = "Approved" Then
+            wsSource.Rows(i).Copy Destination:=wsDest.Rows(destRow)
+            destRow = destRow + 1
+        End If
+    Next i
+
+    MsgBox destRow - 2 & " rows copied to 'Approved Items'.", vbInformation
+End Sub</code></pre>
+
+          <h3>Template 4: Split data by unique value onto separate sheets</h3>
+          <p><strong>Prompt to Claude:</strong> "Write a VBA macro that reads all unique values in column B of Sheet1 (starting row 2) and creates a separate worksheet for each unique value, named after that value, containing all rows with that value plus the header row."</p>
+          <pre><code>Sub SplitByDepartment()
+    Dim wsSource As Worksheet
+    Dim wsDest As Worksheet
+    Dim lastRow As Long
+    Dim i As Long
+    Dim dept As String
+    Dim dict As Object
+
+    Set wsSource = ThisWorkbook.Sheets("Sheet1")
+    Set dict = CreateObject("Scripting.Dictionary")
+    lastRow = wsSource.Cells(wsSource.Rows.Count, "A").End(xlUp).Row
+
+    ' Collect unique department names
+    For i = 2 To lastRow
+        dept = CStr(wsSource.Cells(i, 2).Value)
+        If dept <> "" And Not dict.Exists(dept) Then dict.Add dept, True
+    Next i
+
+    ' Create/clear a sheet per department and copy matching rows
+    Dim key As Variant
+    For Each key In dict.Keys
+        On Error Resume Next
+        Set wsDest = ThisWorkbook.Sheets(CStr(key))
+        On Error GoTo 0
+        If wsDest Is Nothing Then
+            Set wsDest = ThisWorkbook.Sheets.Add(After:=ThisWorkbook.Sheets(ThisWorkbook.Sheets.Count))
+            wsDest.Name = Left(CStr(key), 31) ' Sheet names max 31 chars
+        Else
+            wsDest.Cells.Clear
+        End If
+
+        wsSource.Rows(1).Copy Destination:=wsDest.Rows(1) ' Header
+        Dim destRow As Long
+        destRow = 2
+        For i = 2 To lastRow
+            If CStr(wsSource.Cells(i, 2).Value) = CStr(key) Then
+                wsSource.Rows(i).Copy Destination:=wsDest.Rows(destRow)
+                destRow = destRow + 1
+            End If
+        Next i
+        Set wsDest = Nothing
+    Next key
+
+    MsgBox "Split complete. " & dict.Count & " sheets created.", vbInformation
+End Sub</code></pre>
+          <p><strong>Beginner pitfall:</strong> Excel sheet names cannot exceed 31 characters and cannot contain <code>/ \ ? * [ ]</code>. The template trims names to 31 chars; ask Claude to also strip illegal characters if your data might contain them.</p>
+
+          <h3>Template 5: Draft Outlook emails from a row-by-row list</h3>
+          <p><strong>Prompt to Claude:</strong> "Write a VBA macro that reads Sheet1 where column A is recipient name, column B is email address, and column C is a custom message. For each row, create a draft Outlook email with subject 'Follow-up from Sagnik' and body combining the name and message. Leave them as drafts — don't send."</p>
+          <pre><code>Sub DraftOutlookEmails()
+    ' Requires reference: Tools → References → Microsoft Outlook XX.0 Object Library
+    Dim ws As Worksheet
+    Dim outlookApp As Object
+    Dim mail As Object
+    Dim lastRow As Long
+    Dim i As Long
+
+    Set ws = ThisWorkbook.Sheets("Sheet1")
+    Set outlookApp = CreateObject("Outlook.Application")
+    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+
+    For i = 2 To lastRow
+        If ws.Cells(i, 2).Value = "" Then GoTo NextRow
+        Set mail = outlookApp.CreateItem(0) ' olMailItem
+        With mail
+            .To = ws.Cells(i, 2).Value
+            .Subject = "Follow-up from Sagnik"
+            .Body = "Hi " & ws.Cells(i, 1).Value & "," & vbCrLf & vbCrLf & _
+                    ws.Cells(i, 3).Value & vbCrLf & vbCrLf & "Best regards," & vbCrLf & "Sagnik"
+            .Save ' Saves to Drafts — does NOT send
+        End With
+        Set mail = Nothing
+NextRow:
+    Next i
+
+    MsgBox lastRow - 1 & " draft emails saved to Outlook Drafts.", vbInformation
+End Sub</code></pre>
+          <p><strong>Beginner pitfall:</strong> This macro requires Outlook to be installed and the Outlook Object Library reference enabled (Tools → References in the VBA Editor). It is Windows-only; on Mac, ask Claude for an AppleScript version instead.</p>
+
+          <h2>Tips for Better Prompts</h2>
+          <ol>
+            <li><strong>Name the sheet exactly</strong> — Claude will use whatever name you give; if the tab is "Data Entry" (with a space), say so.</li>
+            <li><strong>State the starting row</strong> — "data starts in row 2, row 1 is headers" prevents off-by-one errors.</li>
+            <li><strong>Describe edge cases</strong> — "some cells in column C may be blank; skip those rows".</li>
+            <li><strong>Ask for a progress indicator on long macros</strong> — "show a status bar message for every 100 rows processed".</li>
+            <li><strong>Ask for a confirmation prompt</strong> — "before running, ask the user to confirm with a Yes/No dialog"; useful for destructive operations like row deletion.</li>
+            <li><strong>Request a dry-run mode</strong> — "first run in read-only mode and print what would be deleted to the Immediate Window, then ask for confirmation before actually deleting".</li>
+          </ol>
+
+          <h2>How to Debug a Broken Macro with Claude</h2>
+          <p>When Excel throws an error, copy three things and paste them into Claude:</p>
+          <ol>
+            <li>The <strong>full error message</strong> — e.g. "Runtime Error 9: Subscript out of range".</li>
+            <li>The <strong>line number</strong> Excel highlighted (shown in yellow in the VBA editor after clicking Debug).</li>
+            <li>The <strong>complete macro code</strong>.</li>
+          </ol>
+          <p>Then describe the actual sheet tab name and column layout. Claude will rewrite the broken section and explain what was wrong. You can also ask Claude to add debug <code>MsgBox</code> statements to print variable values at key points — a faster way to trace logic errors than reading the code line by line.</p>
+          <p>For errors that involve formulas inside a macro (e.g. <code>WorksheetFunction.VLookup</code>), see <a href="/blog/claude-debug-formulas">Claude AI to debug Excel formulas</a> — the same diagnostic approach applies.</p>
+
           <h2>Safety Notes</h2>
           <ul>
-            <li>Always review the code before running — understand what it does</li>
-            <li>Test on a <strong>copy</strong> of your data first</li>
-            <li>VBA has full system access — never run macros from untrusted sources</li>
-            <li>Save your file before running any new macro</li>
+            <li><strong>Test on a copy of your data first</strong> — macros that delete rows or overwrite cells cannot be undone with Ctrl+Z after the macro finishes.</li>
+            <li><strong>Read the code before running it</strong> — Claude adds comments; spend 60 seconds reading them.</li>
+            <li><strong>Never run macros from untrusted sources</strong> — VBA has full access to your file system and can delete files or send emails without your knowledge if misused.</li>
+            <li><strong>Save as .xlsm before and after</strong> — accidental Save As .xlsx silently strips all macro code.</li>
+            <li><strong>Re-restrict macro security after testing</strong> — if you enabled all macros to get started, go back to File → Options → Trust Center → Macro Settings and select "Disable all macros with notification" when done.</li>
           </ul>
-          <h2>Sources &amp; Further Reading</h2>
-<ul>
-<li><a href="https://support.microsoft.com/en-us/copilot-excel" target="_blank" rel="noopener">Microsoft Copilot in Excel</a></li>
-<li><a href="https://openai.com/chatgpt" target="_blank" rel="noopener">OpenAI ChatGPT</a></li>
-<li><a href="https://www.anthropic.com/claude" target="_blank" rel="noopener">Anthropic Claude</a></li>
-</ul>
-<h2>Related Posts</h2>
-<ul>
-  <li><a href="/blog/claude-ai-excel-formulas">How to Use Claude AI to Write Excel Formulas Instantly</a></li>
-  <li><a href="/blog/claude-debug-formulas">Using Claude AI to Debug and Fix Excel Formulas</a></li>
-  <li><a href="/blog/copilot-automate-tasks">Automating Repetitive Excel Tasks with Copilot</a></li>
-  <li><a href="/blog/excel-ai-prompts">60 AI Prompts for Excel That Actually Work (Copy, Paste, Get Results)</a></li>
-</ul><div class="blog-cta-box">
+
+          <h2>Troubleshooting</h2>
+          <ol>
+            <li>
+              <strong>"Cannot run the macro" / macro blocked by security</strong><br>
+              Excel's default setting disables all macros. Go to File → Options → Trust Center → Trust Center Settings → Macro Settings → select "Enable all macros" (testing only). Reset to "Disable all macros with notification" once you're done testing. Permanently, add your working folder to Trusted Locations instead of enabling all macros globally.
+            </li>
+            <li>
+              <strong>Runtime Error 9 "Subscript out of range"</strong><br>
+              The sheet name in the code doesn't match the actual tab name — it is case-sensitive and space-sensitive. Open the VBA editor, find <code>Sheets("SheetName")</code>, and replace the name with the exact text shown on your tab. If the name contains spaces (e.g. "Sales Data"), both the tab and the code must match exactly.
+            </li>
+            <li>
+              <strong>Runtime Error 1004 "Application-defined or object-defined error"</strong><br>
+              Usually means the macro tried to write to a protected sheet, or referenced a range that doesn't exist (e.g. a column letter that has no data). Check: is the sheet protected? (Review → Unprotect Sheet). Does the referenced column/range actually contain data?
+            </li>
+            <li>
+              <strong>Macro code disappears after saving and reopening</strong><br>
+              The file was saved as .xlsx, which strips all VBA. File → Save As → Excel Macro-Enabled Workbook (.xlsm). You will need to re-paste the code if you didn't save a backup.
+            </li>
+            <li>
+              <strong>Security yellow bar appears every time you open the file</strong><br>
+              Excel is warning you about macros in the file. Click "Enable Content" once, or add the folder to Trusted Locations (File → Options → Trust Center → Trusted Locations → Add new location) so files there run without prompting.
+            </li>
+          </ol>
+
+          <h2>FAQ</h2>
+          <dl>
+            <dt><strong>Can Claude write VBA for Mac Excel?</strong></dt>
+            <dd>Yes, most macros work on Mac. The exceptions are Windows-only APIs: Shell commands, SendKeys, and Outlook COM automation (Outlook is not on Mac). Tell Claude "I am on Mac" at the start of your prompt and it will avoid those APIs automatically.</dd>
+
+            <dt><strong>Is there a complexity limit for macros Claude can generate?</strong></dt>
+            <dd>No hard limit, but for very large automations (50+ steps, multiple sheets, file-system operations) break the request into smaller macros that call each other. Claude can also write a "main" Sub that calls helper Subs — ask for that structure explicitly.</dd>
+
+            <dt><strong>Can I ask Claude to fix a broken macro?</strong></dt>
+            <dd>Yes — paste the full code plus the exact error message and line number. Claude diagnoses and rewrites the problem section. For Runtime Error 9 always include your actual sheet tab name, since that is the most frequent cause.</dd>
+
+            <dt><strong>Will Claude's VBA work in Excel 2019 vs Excel 365?</strong></dt>
+            <dd>Most VBA works in both. Newer worksheet functions like FILTER, UNIQUE, and XLOOKUP referenced inside VBA need Excel 365. If you are on Excel 2019, tell Claude and it will use legacy equivalents (INDEX/MATCH, helper columns, etc.).</dd>
+
+            <dt><strong>Do I need to enable macros every time I open the file?</strong></dt>
+            <dd>Only if the file's folder is not in Excel's Trusted Locations. Go to File → Options → Trust Center → Trust Center Settings → Trusted Locations → Add new location, and point it at your working folder. Files there run macros without any prompt.</dd>
+          </dl>
+
+          <h2>Sources</h2>
+          <ul>
+            <li><a href="https://learn.microsoft.com/en-us/office/vba/library-reference/concepts/getting-started-with-vba-in-office" target="_blank" rel="noopener">Microsoft — Getting Started with VBA in Office</a></li>
+            <li><a href="https://support.claude.com/en/articles/12650343-use-claude-for-excel" target="_blank" rel="noopener">Anthropic Help Centre — Use Claude for Excel</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/office/vba/excel/concepts/programming-for-the-single-document-interface-in-excel" target="_blank" rel="noopener">Microsoft — Excel VBA Object Model reference</a></li>
+          </ul>
+
+          <h2>Related tutorials</h2>
+          <ul>
+            <li><a href="/blog/excel-formulas-guide">Excel Formulas &amp; AI Hub — the canonical Excel + AI reference on this site</a></li>
+            <li><a href="/blog/claude-debug-formulas">Using Claude AI to Debug and Fix Excel Formulas</a></li>
+            <li><a href="/blog/claude-ai-excel-formulas">How to Use Claude AI to Write Excel Formulas Instantly</a></li>
+            <li><a href="/blog/copilot-automate-tasks">Automating Repetitive Excel Tasks with Copilot</a></li>
+            <li><a href="/blog/gemma-4-vscode">Run a Free Local AI in VS Code with Gemma 4 — for developers who want to extend automation beyond Excel</a></li>
+          </ul><div class="blog-cta-box">
             <h3>Want to master Excel with AI?</h3>
             <p>My Complete Excel Course with AI Integration covers everything from formulas to AI-powered
               workflows.</p><a href="/courses#excel" class="btn-primary">Explore the Excel + AI course <svg width="18" height="18"
