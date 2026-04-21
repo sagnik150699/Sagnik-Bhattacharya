@@ -130,6 +130,7 @@ These tutorials cover setup, comparison, and practical use of AI coding tools an
 - [How to Use Windsurf for Flutter Development: Free AI IDE Setup and Review](https://sagnikbhattacharya.com/blog/windsurf-flutter-development) — Free AI IDE setup
 - [How to Use Claude Code in VS Code: Setup, Extensions, and AI Coding Workflows](https://sagnikbhattacharya.com/blog/claude-code-vscode) — Claude Code setup
 - [How to Use Claude Code in Android Studio: AI-Powered Coding for Kotlin, Flutter, and Gradle Projects](https://sagnikbhattacharya.com/blog/claude-code-android-studio) — Claude in Android Studio
+- [How to Use Claude Design?](https://sagnikbhattacharya.com/blog/claude-design) — Claude Design (Anthropic Labs) beginner tutorial
 - [How to Use Gemini CLI in VS Code: Setup, IDE Integration, and Coding Workflows](https://sagnikbhattacharya.com/blog/gemini-cli-vscode) — Gemini CLI guide
 - [How to Use Gemini CLI in Android Studio for Flutter: MCP Server, Dart Integration, and Workflows](https://sagnikbhattacharya.com/blog/gemini-cli-android-studio-flutter) — Gemini CLI + Flutter
 - [How to Use Gemini Code Assist in Android Studio: Free AI Coding for Flutter and Kotlin](https://sagnikbhattacharya.com/blog/gemini-code-assist-android-studio) — Gemini Code Assist

@@ -459,13 +459,24 @@
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/claude-code-vscode</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
       <image:loc>https://sagnikbhattacharya.com/blog/images/claude-code-vscode-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
       <image:title>How to Use Claude Code in VS Code: Setup, Extensions, and AI Coding Workflows</image:title>
       <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Claude Code in VS Code, showing VS Code editor with Claude Code terminal AI agent integration.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sagnikbhattacharya.com/blog/claude-design</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sagnikbhattacharya.com/blog/images/claude-design-sagnik-bhattacharya-coding-liquids.jpg</image:loc>
+      <image:title>How to Use Claude Design?</image:title>
+      <image:caption>Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Claude Design, showing the Claude Design two-pane interface with chat on the left and a canvas of mockups on the right.</image:caption>
     </image:image>
   </url>
   <url>

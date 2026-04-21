@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-adsense-account" content="ca-pub-1443974359047569">
+  <title>How to Use Claude Design?</title>
+  <meta name="description" content="A beginner's step-by-step tutorial for Claude Design, Anthropic Labs' new Opus 4.7-powered tool for building prototypes, slides, and one-pagers at claude.ai/design.">
+  <meta name="keywords" content="Claude Design, How to use Claude Design, Anthropic Labs, claude.ai/design, Claude Opus 4.7 design, Claude prototypes, Claude pitch deck, Claude slides, Claude design system, Sagnik Bhattacharya, Coding Liquids">
+  <meta name="author" content="Sagnik Bhattacharya">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#3E2723">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/claude-design">
+  <meta property="og:title" content="How to Use Claude Design?">
+  <meta property="og:description" content="A beginner's step-by-step tutorial for Claude Design, Anthropic Labs' new Opus 4.7-powered tool for building prototypes, slides, and one-pagers at claude.ai/design.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/claude-design">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/claude-design-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/claude-design-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Claude Design, showing the Claude Design two-pane interface with chat on the left and a canvas of mockups on the right.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Sagnik Bhattacharya">
+  <meta property="article:author" content="Sagnik Bhattacharya">
+  <meta property="article:published_time" content="2026-04-21">
+  <meta property="article:modified_time" content="2026-04-21">
+  <meta property="article:section" content="AI &amp; Automation">
+  <meta property="article:tag" content="AI Tools">
+  <meta property="article:tag" content="Claude Design">
+  <meta property="article:tag" content="Anthropic Labs">
+  <meta property="article:tag" content="Design">
+  <meta property="article:tag" content="Prototyping">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Use Claude Design?">
+  <meta name="twitter:description" content="A beginner's step-by-step tutorial for Claude Design, Anthropic Labs' new Opus 4.7-powered tool for building prototypes, slides, and one-pagers at claude.ai/design.">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/claude-design-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Claude Design, showing the Claude Design two-pane interface with chat on the left and a canvas of mockups on the right.">
+  <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Use Claude Design?","description":"A beginner's step-by-step tutorial for Claude Design, Anthropic Labs' new Opus 4.7-powered tool for building prototypes, slides, and one-pagers at claude.ai/design.","datePublished":"2026-04-21","dateModified":"2026-04-21","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/claude-design"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/claude-design-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/claude-design-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"How to Use Claude Design? by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"Claude Design, How to use Claude Design, Anthropic Labs, claude.ai/design, Claude Opus 4.7 design, Claude prototypes, Claude pitch deck, Claude slides, Claude design system, Sagnik Bhattacharya, Coding Liquids","articleSection":"AI & Automation"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"How to Use Claude Design?","item":"https://sagnikbhattacharya.com/blog/claude-design"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"How to Use Claude Design?","url":"https://sagnikbhattacharya.com/blog/images/claude-design-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/claude-design-sagnik-bhattacharya-coding-liquids.jpg","caption":"How to Use Claude Design? by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Claude Design free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Claude Design is included with paid Claude plans only — Pro (from $20/month), Max ($100 or $200/month), Team, and Enterprise. There is no free tier and no standalone Claude Design subscription. Usage draws from the limits of whichever plan you are already on, with optional extra usage available on some tiers. If you already pay for Claude Pro or Max, Claude Design is unlocked at claude.ai/design at no extra cost. Free Claude accounts cannot access the tool."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Claude Design and Claude Artifacts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Artifacts are single rendered outputs that appear inside a normal Claude chat — for example, a React component or an HTML page Claude produces alongside a conversation. Claude Design is a dedicated product with its own two-pane canvas interface, a project concept that persists over time, inline editing tools (comments, direct text edits, sliders), a team design system, organisation-scoped sharing, and native exports to Canva, PDF, PPTX, and standalone HTML. Artifacts are good for one-off snippets. Claude Design is built for iterating on and shipping real visual deliverables."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use Claude Design without any design background?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — that is the primary audience. Anthropic explicitly positions Claude Design for founders, product managers, marketers, and account executives who need polished visual output without Figma or Adobe skills. You describe what you want in plain English, review the result on the canvas, and ask for changes in the chat. The one skill that helps is writing a clear prompt: be specific about audience, tone, the key message, and any constraints (brand colours, a logo, a target length). Vague prompts produce generic output; specific prompts produce usable output on the first draft."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does 'handoff to Claude Code' actually do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When a design is ready to ship as real code, Claude Design packages the design — including the component tree, the applied design system tokens, any assets, and the spec — into a handoff bundle that you pass to Claude Code with a single instruction. Claude Code then implements the design in your actual repository, matching your framework (React, Next.js, SwiftUI, Flutter, etc.), your file layout, and your existing conventions. This is the fastest way to get from 'I sketched a prototype with Claude Design' to 'the component is merged in the codebase' without manually redrawing the design in Figma and then reimplementing it from a spec."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Claude Design replace Figma or Canva for my team?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not fully, and it is not trying to. Figma remains the industry standard for high-fidelity UI design with pixel-precise components, design system libraries, and hand-off to engineering. Canva remains the go-to for print collateral, social templates, and brand assets with a massive stock library. Claude Design sits between them — it generates a first draft in seconds from a prompt, exports cleanly to Canva for further polish, and hands off directly to Claude Code for implementation. For most teams in 2026, the pattern is: start the first draft in Claude Design, refine polish in Figma or Canva depending on the asset, ship code through Claude Code. The three tools complement each other rather than replace each other."
+      }
+    }
+  ]
+}
+  </script>
+    <style>
+    @font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-serif-display-normal-latin.woff2') format('woff2')}
+    @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}
+    :root{--warm-50:#FFFBF5;--warm-100:#FFF3E0;--warm-200:#FFE0B2;--warm-300:#FFCC80;--warm-400:#FFA726;--warm-500:#E8852E;--warm-600:#C66A1A;--warm-700:#8B4513;--earth-800:#3E2723;--earth-900:#1C110A;--sage-100:#E8F0E8;--sage-200:#C8DCC8;--cream:#FDF8F0;--text-primary:#2C1810;--text-secondary:#6B5344;--text-light:#9A8578;--white:#FFFFFF;--shadow-sm:0 1px 3px rgba(44,24,16,0.06);--shadow-md:0 4px 16px rgba(44,24,16,0.08);--shadow-lg:0 8px 32px rgba(44,24,16,0.10);--shadow-xl:0 16px 48px rgba(44,24,16,0.12);--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--radius-xl:28px}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-primary);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}h1,h2,h3,h4{font-family:'DM Serif Display',serif;line-height:1.2;font-weight:400}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}.container{max-width:1140px;margin:0 auto;padding:0 24px}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,248,240,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(44,24,16,0.06)}nav .container{display:flex;align-items:center;justify-content:space-between;height:72px}.nav-logo{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--earth-800);letter-spacing:-.5px}.nav-logo span{color:var(--warm-500)}.nav-links{display:flex;gap:32px;list-style:none;align-items:center}.nav-links a{font-size:.9rem;font-weight:500;color:var(--text-secondary)}.nav-cta{background:var(--earth-800)!important;color:var(--warm-100)!important;padding:10px 22px;border-radius:50px;font-size:.85rem!important;font-weight:600!important}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}.hamburger span{width:24px;height:2px;background:var(--earth-800);border-radius:2px}
+    .blog-section{padding-top:100px}.blog-post{max-width:780px;margin:0 auto}.blog-post-title{font-size:2.6rem;color:var(--earth-800);margin-bottom:16px;letter-spacing:-.5px;line-height:1.15}
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}}@media(max-width:640px){.blog-section{padding-top:84px}.blog-post-title{font-size:1.7rem}}
+  </style>
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/style.css"></noscript>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "url": "https://sagnikbhattacharya.com/blog/claude-design",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-post-title",
+      ".blog-post-content > p:nth-of-type(1)",
+      ".blog-post-content > p:nth-of-type(2)",
+      ".blog-post-content h2"
+    ]
+  }
+}
+  </script>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">sagnik<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about">About</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">How to Use Claude Design?</span></nav>
+    </div>
+  </div>
+  <section style="padding-top:0">
+    <div class="container">
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-tags"><span class="blog-post-tag">AI Tools</span></div>
+          <h1 class="blog-post-title">How to Use Claude Design?</h1>
+          <div class="blog-post-meta">
+            <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
+              <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
+            </a>
+            <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
+            <span>21 Apr 2026</span>
+            <span>12 min read</span>
+          </div>
+        </div>
+        <figure class="blog-cover">
+          <img src="/blog/images/claude-design-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Claude Design, showing the Claude Design two-pane interface with chat on the left and a canvas of mockups on the right." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for How to Use Claude Design, showing the Claude Design two-pane interface with chat on the left and a canvas of mockups on the right.</figcaption>
+        </figure>
+        <div class="blog-post-content">
+<p>Claude Design is the newest product from Anthropic Labs, released in research preview on 17 April 2026. It lives at <a href="https://claude.ai/design" target="_blank" rel="noopener">claude.ai/design</a> and is powered by Claude Opus 4.7. In one sentence, it lets you collaborate with Claude to create polished visual work — designs, prototypes, slides, one-pagers, pitch decks, marketing collateral, and interactive UI mockups — without needing Figma skills or a design background.</p>
+<p>This tutorial is written for someone who has never touched Claude Design before. By the end of it you will have made your first project, learned the two-pane canvas interface, iterated on a design using the three editing modes, uploaded reference materials, set up a team design system, shared the result with colleagues, exported it to a usable format, and handed it off to <a href="/blog/claude-code-vscode">Claude Code in VS Code</a> to turn it into real shippable code. If Claude Design is not yet available in your account, this guide also covers why (and what to check) in the troubleshooting section at the end.</p>
+
+<div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Flutter and Excel with AI — <a href="/courses">explore my courses</a> if you want structured learning.</span></div><h2>Prerequisites</h2>
+<p>Before you open claude.ai/design, make sure the following are in place:</p>
+<ol>
+  <li><strong>A paid Claude plan.</strong> Claude Design is included with Pro (from $20/month), Max ($100 or $200/month), Team, and Enterprise. Free accounts cannot access it. You do not pay extra for Claude Design — usage draws from the limits of whichever plan you are already on.</li>
+  <li><strong>A modern browser.</strong> The canvas is a WebGL-assisted two-pane interface. Chrome, Edge, and Arc render it best. Safari works but occasionally lags on larger canvases. Firefox currently has known rendering quirks during research preview.</li>
+  <li><strong>Optional reference materials.</strong> You will get much better first drafts if you have one or more of: a rough sketch or screenshot of what you want, a PDF or DOCX brief, a PPTX deck to reskin, a logo PNG, or a public URL of a page whose style you want to borrow. Claude Design accepts all of these as inputs.</li>
+  <li><strong>Optional for teams:</strong> a link to your codebase (GitHub repo URL) or your existing design files (Figma export). Claude Design can read these during onboarding to build a design system your organisation will reuse automatically across every project.</li>
+</ol>
+
+<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>Step 1: Open claude.ai/design and sign in</h2>
+<p>Open your browser and go to <a href="https://claude.ai/design" target="_blank" rel="noopener">claude.ai/design</a>. If you are already signed in to Claude on the same browser, you will land directly on the Claude Design home screen. If not, sign in with the same Anthropic account you use for regular Claude chat — there is no separate Claude Design login.</p>
+<p>The home screen shows two things: a large "New project" button in the centre, and a list of recent projects on the left sidebar (empty on first visit). Above the sidebar, your active Claude plan is shown — if you see "Free" here, Claude Design will refuse to create a project; upgrade to Pro or Max from <code>Settings → Billing</code> before continuing.</p>
+<p>During research preview, Anthropic is rolling out access gradually. If claude.ai/design redirects you back to the regular Claude chat with a "Claude Design is not yet available on your account" banner, your account is on the waitlist — the fastest way off it today is to be on a Team or Enterprise plan, or to contact Anthropic support from the same email linked to your subscription.</p>
+<!-- screenshot: the claude.ai/design home screen with the New project button highlighted and the left sidebar empty -->
+
+<h2>Step 2: Create your first project with a plain-English prompt</h2>
+<p>Click "New project". A single prompt field appears. This is where you describe, in ordinary English, what you want Claude Design to make. The quality of your first draft is almost entirely determined by the quality of this prompt, so it is worth spending thirty seconds on it rather than typing one vague line.</p>
+<p>A weak prompt and a strong prompt produce very different first drafts. Compare these two, which I tested side-by-side:</p>
+<pre><code>Weak prompt:
+"Make a pitch deck for my startup."
+
+Strong prompt:
+"Create a 10-slide Series A pitch deck for Coding Liquids, an
+education company teaching Flutter and Excel with AI to 30,000+
+Udemy students across 175 countries. Audience: early-stage B2B
+SaaS investors. Tone: confident, warm, not flashy. Slides in this
+order: title, problem, solution, traction (show the 30k student
+number big), product demo, market size, business model,
+competitors, team, ask. Brand colours: warm earth tones (#3E2723
+dark brown, #E8852E orange, #FDF8F0 cream). Use Plus Jakarta
+Sans for body text and DM Serif Display for slide titles."</code></pre>
+<p>The strong prompt gives Claude four things the weak prompt does not: a specific deliverable (10 slides, ordered), an audience (Series A B2B SaaS investors), a tone, and brand constraints (colours and fonts). You will get a usable first draft from the strong prompt in under a minute. You will get a generic template from the weak one that you then have to throw away.</p>
+<p>Paste your prompt and press Enter. The interface immediately splits into two panes: <strong>chat on the left</strong> and <strong>canvas on the right</strong>. This is the working view you will spend the rest of the tutorial in.</p>
+<!-- screenshot: the two-pane Claude Design workspace with chat on left and canvas on right, a pitch deck rendering -->
+
+<h2>Step 3: Understand the two-pane canvas interface</h2>
+<p>Every Claude Design project uses the same layout. Learning the three zones of it is the single biggest productivity win in this tool, because once you know where to click, you stop switching back to the chat for every small edit.</p>
+<ol>
+  <li><strong>Chat pane (left).</strong> This is where you give Claude high-level instructions — "add a slide about our referral programme between traction and market size", "make the colour palette darker", "rewrite the solution slide to lead with the outcome, not the product". Claude responds in the chat and simultaneously updates the canvas on the right.</li>
+  <li><strong>Canvas pane (right).</strong> The live rendered output. You can zoom in and out, scroll between slides or screens, and click on any element to select it. Click-and-drag selections let you pick multiple elements at once.</li>
+  <li><strong>Inline edit toolbar (appears on selection).</strong> When you click an element on the canvas, a small floating toolbar appears with three actions: Comment (leave a note Claude will respond to), Edit text directly (type over the selection — no AI call), and Adjust (custom sliders for that element's specific properties). This is the pane most first-time users miss, and it is where the speed comes from.</li>
+</ol>
+<p>The rule of thumb: use the chat pane for anything conceptual or multi-element ("restructure the deck"). Use the canvas toolbar for anything that touches one specific element ("make this headline two sizes bigger"). Mixing these up wastes time — asking the chat to nudge one button by 4 pixels is slower than dragging the slider.</p>
+
+<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>Step 4: Iterate using the three editing modes</h2>
+<p>Once you have a first draft on the canvas, real work starts. Claude Design gives you three distinct ways to edit, and the trick is knowing which to use in which situation.</p>
+
+<h3>Mode 1 — Chat for conceptual changes</h3>
+<p>Use the chat pane when the change spans multiple elements or reshapes the design. Examples of good chat prompts once a draft is live:</p>
+<ul>
+  <li>"Make the whole deck darker and more premium — swap the cream background for deep navy and increase the contrast of the body text."</li>
+  <li>"Move the traction slide earlier, right after the problem. The 30k student number is our strongest hook."</li>
+  <li>"Rewrite every headline in the active voice and cut each one to under seven words."</li>
+  <li>"Add a subtle top-right watermark with our logo to every slide."</li>
+</ul>
+<p>Each of these produces a full-canvas regenerate. Claude updates in place — your existing work is preserved unless you explicitly ask for a redo.</p>
+
+<h3>Mode 2 — Inline comments for precise feedback on one element</h3>
+<p>Click an element, click the Comment icon, and type feedback like "this chart is too busy — show only the top three segments and group the rest as Other". Claude reads the comment, understands which element it applies to (because you selected it), and applies the change without you having to describe the element in prose. This is dramatically faster than typing "in the market size slide, the pie chart on the right has too many slices" into the chat.</p>
+
+<h3>Mode 3 — Direct edits and sliders for micro-adjustments</h3>
+<p>Two edit types do not need Claude at all and are instant:</p>
+<ul>
+  <li><strong>Direct text edit.</strong> Click a text element, then click the text again to enter an editable text box. Type your replacement. No AI call, no regenerate, no wait. Use this to fix typos, swap in your own copy, or try a wording variant without burning a turn.</li>
+  <li><strong>Adjustment sliders.</strong> Click an element and then the Adjust icon. Claude generates a small set of element-specific sliders — for a card component you might get padding, corner radius, shadow depth, background tint; for a chart you might get bar spacing, label rotation, colour saturation. Drag the slider and the element updates live. Once you are happy, ask Claude in chat to "apply these adjustments across the whole deck" and it will propagate your tweak to every equivalent element in the project.</li>
+</ul>
+<p>The propagate-across step is the secret. It is what turns a single tweak into a design-system-level change — and it is why the tool makes sense for people with no design background.</p>
+
+<h2>Step 5: Upload reference materials for better drafts</h2>
+<p>Text prompts are a starting point. The fastest upgrade you can make as a beginner is learning to upload references alongside your prompt, because it lets Claude borrow specifics it otherwise has to invent.</p>
+<p>Every project has an <strong>Attach</strong> button next to the chat input. The file types Claude Design accepts as of research preview are:</p>
+<ul>
+  <li><strong>Images (PNG, JPG).</strong> Paste a screenshot, a hand sketch, a moodboard, or a photo of a whiteboard. Claude will match the layout or style. A common use: screenshot a competitor's landing page and ask "match this structure but for our product".</li>
+  <li><strong>Documents (DOCX, PPTX, XLSX).</strong> Upload a brief in Word, a rough deck in PowerPoint, or a data table in Excel. Claude will read the content and produce a polished visual version. The XLSX path is particularly strong for data-driven slides — upload your quarterly numbers and ask for a "board-ready chart slide" and the data stays accurate.</li>
+  <li><strong>Codebase references.</strong> Paste a GitHub URL or upload a zip. Claude reads your components, extracts your existing colours, spacing, typography, and component patterns, and uses them in the design. This is the shortcut to "on-brand" without building a design system manually.</li>
+  <li><strong>Web capture.</strong> Click the capture tool in the Attach menu, paste a public URL, and Claude grabs the page's visual tokens — colours, typography, spacing rhythm — then applies them to your design. Useful for matching a corporate brand without any brand files.</li>
+</ul>
+<p>You can attach multiple references to a single prompt. A practical combination: a DOCX brief, a PNG logo, and the URL of your live marketing site. Claude will align tone with the brief, place the logo correctly, and match the style of the site — all in one draft.</p>
+
+<h2>Step 6: Set up a design system (optional but high-leverage)</h2>
+<p>If you are going to use Claude Design more than once, spend ten minutes on this step the first time and save yourself an hour on every future project.</p>
+<p>From the home screen, click <code>Organisation → Design system</code>. You will be asked to point Claude at one of:</p>
+<ul>
+  <li>Your live codebase (GitHub URL or zip upload)</li>
+  <li>Your existing Figma file (export as a <code>.fig</code> or linked library)</li>
+  <li>A manual set of tokens (colours, fonts, spacing, component screenshots)</li>
+</ul>
+<p>Claude reads whatever you provide and extracts a design system: the palette, the type scale, the spacing grid, the component shapes, the visual language. From that point on, every new project your organisation creates uses these automatically — you do not need to re-paste your brand colours into each prompt. The output is also noticeably more consistent across projects because it is not inventing a new visual language every time.</p>
+<p>One caveat during research preview: the design system extraction is best on codebases that already use a design-token library (Tailwind config, CSS variables, or a component library like shadcn). If your code is ad-hoc CSS with hand-picked hex codes scattered across files, Claude will still try, but the extracted palette may need a round of manual review before you trust it for team-wide use.</p>
+
+<h2>Step 7: Collaborate — organisation-scoped sharing</h2>
+<p>Every project has a Share button in the top-right of the canvas. Clicking it gives you three choices:</p>
+<ol>
+  <li><strong>Private (default).</strong> Only you can see the project. Use this while the design is rough.</li>
+  <li><strong>Anyone in your organisation with the link can view.</strong> Read-only for colleagues on the same Claude Team or Enterprise workspace. They can see the canvas but cannot edit or chat with Claude about it.</li>
+  <li><strong>Anyone in your organisation with the link can edit.</strong> Full collaborative mode. Multiple teammates can open the same project, see each other's cursors on the canvas, edit different elements in parallel, and participate in the same chat with Claude — so Claude responds to whoever asks, with everyone watching.</li>
+</ol>
+<p>Two things to know about the sharing model. First, "organisation-scoped" means exactly that — the link will not work for someone outside your Claude Team or Enterprise workspace. There is no public share link during research preview. If you need to show a design to an external client or investor, export to PDF or standalone HTML (Step 8 below). Second, the shared-edit mode does not have granular permissions yet — anyone with edit access can change anything, so use it with people you trust to iterate in good faith, not as a public review tool.</p>
+
+<h2>Step 8: Export to Canva, PDF, PPTX, or standalone HTML</h2>
+<p>Once a design is ready to leave Claude Design, click <code>Export</code> in the top-right. The four export formats cover almost every downstream use case.</p>
+<ul>
+  <li><strong>Canva.</strong> Opens the design directly in Canva as an editable file, preserving layers and text. Use this when a marketing teammate needs to tweak copy or swap stock imagery and they live in Canva. Requires a one-time OAuth sign-in the first time you export — Canva Free accounts work.</li>
+  <li><strong>PDF.</strong> A flat PDF at the canvas resolution. Best for investor decks, one-pagers sent over email, and anything that must render identically on any device. The PDF preserves hyperlinks in interactive prototypes.</li>
+  <li><strong>PPTX.</strong> A PowerPoint file with each slide as a real, editable slide (not a single image). Use this when the eventual reviewer lives in PowerPoint — fonts fall back to system defaults if you used a custom typeface, so embed your font or convert text to outlines if precise typography matters.</li>
+  <li><strong>Standalone HTML.</strong> A single self-contained <code>.html</code> file with the full interactive prototype, no build step required. Double-click it and it runs in any browser. Ideal for sending an interactive prototype to an external reviewer without asking them to install anything. For code-powered prototypes that use voice, video, shaders, or 3D, the standalone HTML export bundles all of that in.</li>
+</ul>
+<p>There is also a "Save as folder" option that exports every asset — images, fonts, source JSON — into a zip. Use this only if you plan to rebuild the design in another tool by hand.</p>
+
+<h2>Step 9: Hand off to Claude Code to ship real code</h2>
+<p>This is the feature that sets Claude Design apart from Figma or Canva. When a design is ready to be implemented as real, shipping code, you do not hand off a spec and hope your developer interprets it correctly. You hand off a bundle that Claude Code consumes directly.</p>
+<p>From the top-right menu, click <code>Hand off to Claude Code</code>. Claude Design packages everything Claude Code needs to implement the design faithfully: the component tree, the applied design system tokens, any embedded assets, and a structured spec. You get a single command you can paste into your terminal inside your project, for example:</p>
+<pre><code>claude "Implement the handoff bundle at ~/Downloads/claude-design-pitch-deck.zip in src/pages/pitch/. Match the existing Next.js App Router conventions and the design tokens already in src/styles/tokens.ts."</code></pre>
+<p>Claude Code unpacks the bundle, reads your project, matches your framework (React, Next.js, SwiftUI, Flutter, Vue), places components under your existing file layout, maps design tokens to whatever variable system you already use, and opens a diff for you to review. For anyone who has ever copy-pasted a Figma spec into a developer's Jira ticket and watched the shipped version drift 20% away from the design, this workflow is a meaningful upgrade.</p>
+<p>If you are new to Claude Code itself, I have written a full setup guide at <a href="/blog/claude-code-vscode">Claude Code in VS Code: Extension Setup and Hybrid Workflow with Copilot</a>. Complete that first, then come back to this step — handoff works best when Claude Code is already authenticated and configured against the target repo.</p>
+
+<h2>Five prompt patterns that work well on Claude Design</h2>
+<p>Prompts are the steering wheel of this tool. Five patterns consistently produce usable first drafts based on my testing since launch.</p>
+<ol>
+  <li><strong>The investor one-pager.</strong> "Create a one-page investor summary for &lt;company&gt;, a &lt;one-sentence description&gt;. Include: hero headline (10 words max), problem (2 sentences), solution (2 sentences), traction (three highlighted numbers — &lt;list them&gt;), team (three names with 10-word bios), and a single call-to-action with our contact email. Brand: &lt;colours and fonts&gt;."</li>
+  <li><strong>The landing page wireframe.</strong> "Design a landing page wireframe for &lt;product&gt;. Sections, in order: nav, hero with product shot on the right, three-feature row, social proof band, longer product explanation with side-by-side visual, pricing (three tiers — &lt;list&gt;), FAQ, footer. Use our existing brand system. Desktop-first, mobile second."</li>
+  <li><strong>The board deck slide.</strong> "Build one slide titled &lt;title&gt; that shows &lt;the specific message&gt;. Data: &lt;paste CSV or attach XLSX&gt;. Visualise as &lt;bar/line/stacked&gt;. Highlight the delta between &lt;X&gt; and &lt;Y&gt;. One-line takeaway at the bottom in our brand orange."</li>
+  <li><strong>The app screen mockup.</strong> "Mock up the &lt;onboarding/settings/checkout&gt; screen of a &lt;type of app&gt;. Include: &lt;list of UI elements&gt;. Match iOS/Android/web conventions. Use our design system. Include hover/pressed/disabled states for every interactive element."</li>
+  <li><strong>The marketing collateral variant.</strong> "Take the attached one-pager and generate three variants: (1) a 1080x1080 LinkedIn post, (2) a 1080x1920 Instagram story, (3) a 1200x630 OG image for the blog. Keep the headline and CTA the same, adapt the layout to each aspect ratio."</li>
+</ol>
+<p>The common thread across all five is <em>specificity</em>. Size, order, constraints, and a concrete deliverable. Vague prompts produce vague drafts — always.</p>
+
+<h2>Claude Design vs Figma vs Canva</h2>
+<p>This is the comparison most people will ask about. Here is an honest, side-by-side assessment.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Claude Design</th>
+      <th>Figma</th>
+      <th>Canva</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>First-draft speed from prompt</td>
+      <td>Seconds</td>
+      <td>Manual</td>
+      <td>Template + edits</td>
+    </tr>
+    <tr>
+      <td>Design background required</td>
+      <td>No</td>
+      <td>Yes (high)</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Team design system</td>
+      <td>Auto-extracted from codebase</td>
+      <td>Libraries (manual build)</td>
+      <td>Brand Kit (paid)</td>
+    </tr>
+    <tr>
+      <td>Developer handoff</td>
+      <td>Direct to Claude Code</td>
+      <td>Dev Mode + spec</td>
+      <td>Not a target</td>
+    </tr>
+    <tr>
+      <td>Pixel-precise UI work</td>
+      <td>Limited (research preview)</td>
+      <td>Industry standard</td>
+      <td>Limited</td>
+    </tr>
+    <tr>
+      <td>Stock imagery + templates</td>
+      <td>None built-in</td>
+      <td>Community files</td>
+      <td>Massive library</td>
+    </tr>
+    <tr>
+      <td>Interactive prototypes</td>
+      <td>Yes (HTML export runnable)</td>
+      <td>Yes (click-through)</td>
+      <td>Limited</td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td>Included with Claude Pro/Max/Team/Enterprise</td>
+      <td>Free tier + $15/editor/month</td>
+      <td>Free tier + $13/user/month</td>
+    </tr>
+    <tr>
+      <td>Best for</td>
+      <td>First drafts, prototypes, code handoff</td>
+      <td>Pixel-precise UI, design systems at scale</td>
+      <td>Marketing collateral, social posts</td>
+    </tr>
+  </tbody>
+</table>
+<p>The honest read as of April 2026 is that Claude Design is not replacing Figma or Canva. It is compressing the "blank page to first draft" step from hours to minutes, and in doing so it changes which tool you reach for at which moment. For most teams the pattern will be: start the first draft in Claude Design, refine in Figma (if pixel-precise) or Canva (if marketing collateral), ship via Claude Code. I expect that workflow to hold until at least one of these tools ships something that closes the gap — and Canva's AI features are the most likely to do so first.</p>
+
+<a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">Subscribe on YouTube</span><span class="blog-social-nudge__handle">@codingliquids</span></a><h2 id="troubleshooting">Troubleshooting the first-session gotchas</h2>
+<p>Most first-session pain resolves to one of five issues. Check them in this order before searching further.</p>
+<ol>
+  <li><strong>"Claude Design is not yet available on your account."</strong> Three possible causes. (a) You are on the Free plan — upgrade to Pro from <code>Settings → Billing</code>. (b) You are on Pro/Max but the research-preview rollout has not reached your account yet — Team and Enterprise plans get access first. (c) You signed in with a different email than the one on your subscription. Sign out, sign back in with the email that carries the paid plan, and refresh claude.ai/design.</li>
+  <li><strong>Canvas is blank or stuck on "Preparing workspace…"</strong> The canvas uses WebGL-assisted rendering. On Chrome and Edge, open <code>chrome://gpu</code> and confirm that <strong>WebGL2</strong> and <strong>Canvas</strong> are both marked "Hardware accelerated". If they are software-only, enable hardware acceleration in browser settings and restart. Browser extensions that block WebGL — some privacy extensions do — are the second most common cause; try an incognito window to isolate.</li>
+  <li><strong>Export to Canva fails with "authorisation expired".</strong> The Canva OAuth token expires after inactivity. In Claude Design, open <code>Settings → Integrations → Canva</code>, click "Reconnect", and sign back in. On the very first connect, make sure pop-ups are allowed for <code>claude.ai</code> — the OAuth flow opens a pop-up, and if it is blocked the connect silently fails.</li>
+  <li><strong>Design system extraction hangs on codebase import.</strong> Two causes. (a) The zip is too large — the current research-preview limit is 500 MB, and large repos with <code>node_modules</code> or <code>dist/</code> folders overshoot it fast. Strip build artefacts and upload again. (b) The repo is private on GitHub and the URL-import path cannot reach it — export the repo as a zip and upload that instead, or wait for the private-GitHub integration that Anthropic has on the roadmap.</li>
+  <li><strong>"Anyone with the link" share still prompts colleagues to sign in.</strong> This is working as intended. Organisation-scoped sharing means the viewer must be a member of the same Claude Team or Enterprise workspace — even with "view" permission, they must sign in so Claude knows which organisation they belong to. If you need to send a design to someone outside your workspace, export to PDF or standalone HTML (Step 8) instead.</li>
+</ol>
+
+<h2>Limitations and honest assessment</h2>
+<p>Claude Design is four days old at the time of writing. It is worth knowing what it is not good at yet.</p>
+
+<h3>Not pixel-precise</h3>
+<p>For production UI work that ships to millions of users — a consumer-grade mobile app, a public website where kerning matters — you will still finish in Figma. Claude Design gets you to a 90% draft in minutes that a designer can refine in Figma to 100% in hours. The 10% gap matters when the work is customer-facing at scale. It does not matter much for internal tools, prototypes, pitch decks, or marketing one-pagers.</p>
+
+<h3>Research preview rollout is uneven</h3>
+<p>Access is being rolled out gradually. If you are on Pro but have not received access, you may wait days or weeks. Team and Enterprise plans get faster access. This is a temporary situation and the tool is fully included in those plans — once the rollout completes, Pro users will have it automatically.</p>
+
+<h3>No offline mode</h3>
+<p>Everything runs in the browser and everything calls Claude. You cannot edit a design on a flight or in a coffee shop with bad Wi-Fi. The canvas is not local.</p>
+
+<h3>Limited stock library</h3>
+<p>Unlike Canva, there is no built-in million-image stock library. You either upload your own imagery, pull from a web capture, or let Claude generate simple illustrative graphics. For hero images, product photography, or anything requiring a real photograph, you still need a stock source.</p>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Is Claude Design free to use?</h3>
+<p>No. Claude Design is included with paid Claude plans only — Pro (from $20/month), Max ($100 or $200/month), Team, and Enterprise. There is no free tier and no standalone Claude Design subscription. Usage draws from the limits of whichever plan you are already on, with optional extra usage available on some tiers. If you already pay for Claude Pro or Max, Claude Design is unlocked at <a href="https://claude.ai/design" target="_blank" rel="noopener">claude.ai/design</a> at no extra cost. Free Claude accounts cannot access the tool.</p>
+
+<h3>What is the difference between Claude Design and Claude Artifacts?</h3>
+<p>Artifacts are single rendered outputs that appear inside a normal Claude chat — for example, a React component or an HTML page Claude produces alongside a conversation. Claude Design is a dedicated product with its own two-pane canvas interface, a project concept that persists over time, inline editing tools (comments, direct text edits, sliders), a team design system, organisation-scoped sharing, and native exports to Canva, PDF, PPTX, and standalone HTML. Artifacts are good for one-off snippets. Claude Design is built for iterating on and shipping real visual deliverables.</p>
+
+<h3>Can I use Claude Design without any design background?</h3>
+<p>Yes — that is the primary audience. Anthropic explicitly positions Claude Design for founders, product managers, marketers, and account executives who need polished visual output without Figma or Adobe skills. You describe what you want in plain English, review the result on the canvas, and ask for changes in the chat. The one skill that helps is writing a clear prompt: be specific about audience, tone, the key message, and any constraints (brand colours, a logo, a target length). Vague prompts produce generic output; specific prompts produce usable output on the first draft — see the prompt patterns section above.</p>
+
+<h3>What does "handoff to Claude Code" actually do?</h3>
+<p>When a design is ready to ship as real code, Claude Design packages the design — including the component tree, the applied design system tokens, any assets, and the spec — into a handoff bundle that you pass to <a href="/blog/claude-code-vscode">Claude Code</a> with a single instruction. Claude Code then implements the design in your actual repository, matching your framework (React, Next.js, SwiftUI, Flutter, etc.), your file layout, and your existing conventions. This is the fastest way to get from "I sketched a prototype with Claude Design" to "the component is merged in the codebase" without manually redrawing the design in Figma and then reimplementing it from a spec.</p>
+
+<h3>Can Claude Design replace Figma or Canva for my team?</h3>
+<p>Not fully, and it is not trying to. Figma remains the industry standard for high-fidelity UI design with pixel-precise components, design system libraries, and hand-off to engineering. Canva remains the go-to for print collateral, social templates, and brand assets with a massive stock library. Claude Design sits between them — it generates a first draft in seconds from a prompt, exports cleanly to Canva for further polish, and hands off directly to Claude Code for implementation. For most teams in 2026, the pattern is: start the first draft in Claude Design, refine polish in Figma or Canva depending on the asset, ship code through Claude Code. The three tools complement each other rather than replace each other.</p>
+
+<h2>Sources and Further Reading</h2>
+<ul>
+  <li><a href="https://www.anthropic.com/news/claude-design-anthropic-labs" target="_blank" rel="noopener">Introducing Claude Design by Anthropic Labs — official launch post</a></li>
+  <li><a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design" target="_blank" rel="noopener">Get started with Claude Design — Claude Help Centre</a></li>
+  <li><a href="https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design" target="_blank" rel="noopener">Set up your design system in Claude Design — Claude Help Centre</a></li>
+  <li><a href="https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans" target="_blank" rel="noopener">Claude Design admin guide for Team and Enterprise — Claude Help Centre</a></li>
+  <li><a href="https://claude.com/resources/tutorials/using-claude-design-for-prototypes-and-ux" target="_blank" rel="noopener">Using Claude Design for prototypes and UX — Anthropic</a></li>
+</ul>
+
+<h2>Related Tutorials</h2>
+<ul>
+  <li><a href="/blog/claude-code-vscode">Claude Code in VS Code: Extension Setup and Hybrid Workflow with Copilot (2026)</a> — the natural next step after Claude Design; this is where the handoff bundle lands and becomes real, shipping code.</li>
+  <li><a href="/blog/claude-code-android-studio">How to Use Claude Code in Android Studio: AI-Powered Coding for Kotlin, Flutter, and Gradle Projects</a> — if your handoff target is a mobile app rather than a web project.</li>
+  <li><a href="/blog/chatgpt-vs-claude-vs-copilot-vs-gemini-excel">ChatGPT vs Claude vs Copilot vs Gemini for Excel in 2026</a> — where Claude fits among the other big AI assistants for non-design work.</li>
+  <li><a href="/blog/gemma-4-vscode">How to Use Gemma 4 in VS Code: Setup, Extensions, and Coding Workflows</a> — the free, local alternative to Claude Code if cost is a blocker after you generate your design.</li>
+</ul>
+<div class="blog-cta-box"><h3>Want to use AI tools more effectively?</h3><p>My courses cover practical AI workflows, from spreadsheet formulas to app development, with real projects and honest tool comparisons.</p><a href="/courses" class="btn-primary">Browse all courses <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/animations.js" defer></script>
+  <script src="/tracking.js" defer></script>
+</body>
+</html>
