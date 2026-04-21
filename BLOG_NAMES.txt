@@ -25,7 +25,7 @@ How to Use Claude AI to Write Excel Formulas Instantly
 How to Use Claude AI to Write Excel Macros and VBA Code
 How to Use Claude Code in Android Studio: AI-Powered Coding for Kotlin, Flutter, and Gradle Projects
 Claude Code in VS Code: Extension Setup + Hybrid Workflow with Copilot (2026)
-How to Use Claude Design?
+How to Use Claude Design: Pitch Decks, Mockups, and Claude Code Handoffs (2026)
 How to Fix Excel Formula Errors with Claude AI (Fast)
 How to Clean Messy Data in Excel: Step-by-Step Guide
 How to Highlight Rows Based on Cell Value in Excel
