@@ -23,7 +23,7 @@
   <meta name="twitter:description" content="Use Microsoft Copilot to identify trends, find outliers, create charts, and generate insights from your Excel data using natural language prompts \u2014 no formulas needed.">
   <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/copilot-data-analysis-sagnik-bhattacharya-coding-liquids.jpg">
   <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Copilot for Data Analysis — A Practical Guide, with data analysis cards, charts, and insight panels."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-14">
-  <meta property="article:section" content="AI &amp; Automation"><meta property="article:tag" content="Microsoft Copilot"><meta property="article:tag" content="Data Analysis"><meta property="article:tag" content="AI Insights">
+  <meta property="article:section" content="AI &amp; Automation"><meta property="article:tag" content="Microsoft Copilot"><meta property="article:tag" content="Data Analysis"><meta property="article:tag" content="AI Insights"><meta property="article:modified_time" content="2026-04-20">
   <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
     <script type="application/ld+json">
 {
@@ -35,7 +35,7 @@
                    "name":  "Sagnik Bhattacharya",
                    "url":  "https://sagnikbhattacharya.com"
                },
-    "datePublished":  "2026-03-14","dateModified":"2026-03-14",
+    "datePublished":  "2026-03-14","dateModified":"2026-04-20",
     "inLanguage":  "en-GB",
     "description":  "Use Microsoft Copilot to identify trends, find outliers, create charts, and generate insights from your Excel data using natural language prompts.",
     "publisher":  {
@@ -110,7 +110,7 @@
       "name": "Can Copilot analyse data in Excel?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, Copilot can analyse data directly in Excel. Ask questions like 'What are the top 5 products by revenue' or 'Show me the trend in monthly sales'. Copilot reads your table, performs the analysis, and presents results as text summaries, charts, or new calculated columns. It is particularly effective for quick insights without writing formulas."
+        "text": "Yes, Copilot can analyse data directly in Excel. Ask questions like 'What are the top 5 products by revenue' or 'Show me the trend in monthly sales'. Copilot reads your table, performs the analysis, and presents results as text summaries, charts, or new calculated columns. It is particularly effective for quick insights without writing formulas. You need a Microsoft 365 Copilot licence and the data must live in an Excel Table in a OneDrive or SharePoint-saved workbook."
       }
     },
     {
@@ -118,7 +118,31 @@
       "name": "How do I use Copilot for data analysis in Excel?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Format your data as an Excel Table, open the Copilot panel, and ask questions in natural language. Effective prompts include: 'What are the key trends in this data', 'Which category has the highest growth rate', 'Create a chart showing monthly revenue by region', or 'Highlight outliers in the sales column'. Copilot works best with clean, well-structured data."
+        "text": "Format your data as an Excel Table (Ctrl+T), save to OneDrive, open the Copilot panel from the Home tab, and ask questions in natural language. Effective prompts include: 'What are the key trends in this data', 'Which category has the highest growth rate', 'Create a chart showing monthly revenue by region', or 'Highlight outliers in the sales column'. Copilot works best with clean, well-structured data — no merged cells, no blank rows, and one row per record."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is Copilot greyed out in my Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The three most common causes are: (1) the file is saved locally instead of OneDrive or SharePoint — Copilot requires cloud storage for document-level access; (2) the data is not formatted as an Excel Table, so Copilot cannot see a structured range; (3) your Microsoft 365 account does not have a Copilot licence attached. Check via File → Account and look for 'Copilot' in the subscription list. Also confirm your organisation admin has enabled Copilot for Excel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Copilot accurate for financial reporting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Copilot is useful for exploratory analysis and initial pattern-spotting, but it is not a substitute for auditable formulas in financial reporting. Always verify key figures independently using SUMIFS, pivot tables, or Power Query. Copilot occasionally miscounts when columns have mixed data types (numbers stored as text), ignores rows hidden by filters unless told otherwise, and cannot explain its calculation methodology the way a formula's audit trail can. Use Copilot to discover insights, then rebuild them as formulas for production reporting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Copilot data analysis and the Analyse Data button in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The older Analyse Data feature (previously Ideas) uses pre-built statistical templates to suggest pivots and charts based on data shape — it is rule-based and free with any Excel 365 licence. Copilot is a large language model: you ask free-form questions in natural language, it can drill into specific slices, and it can iterate on follow-ups. Analyse Data is better when you want a quick menu of pre-canned summaries; Copilot is better when you already have a specific question and want a conversational back-and-forth."
       }
     }
   ]
@@ -167,16 +191,23 @@
         </figure>
         <div class="blog-post-content">
 <p>Microsoft Copilot's data analysis capabilities in Excel go far beyond simple formula suggestions. It can identify trends, spot outliers, generate hypotheses, and create visualisations — all from conversational prompts. Here's how to use it effectively.</p>
+<p>This tutorial is written for analysts, ops managers, founders, and students who already know basic Excel (Tables, pivots, SUMIFS) and want to add Copilot as a faster first-pass analysis layer on top. You do not need a data-science background. You do need a Microsoft 365 Copilot licence (not free Copilot in the web browser — that cannot read your workbook), and your file must be saved to OneDrive or SharePoint for Copilot to access the data.</p>
+<p>By the end you will have: (1) a reliable data-prep checklist Copilot expects, (2) a library of exploratory, statistical, and segmentation prompts that work reliably, (3) a 6-step end-to-end analysis workflow, (4) a Troubleshooting reference for the five most common failures (greyed-out button, wrong totals from text-typed numbers, hidden-rows inclusion, "I can't help with that" refusals, slow responses), and (5) a calibration of where Copilot is genuinely reliable versus where manual analysis still wins.</p>
+<p>If you want the wider Excel + AI context, start at the <a href="/blog/excel-formulas-guide">Excel formulas and analysis hub</a> — it links every Copilot, ChatGPT, Gemini, Gemma, and Claude workflow on this site.</p>
 <div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Flutter and Excel with AI — <a href="/courses">explore my courses</a> if you want structured learning.</span></div><h2>Setting Up for Analysis</h2>
 <p>Before asking Copilot to analyse your data:</p>
-<ol><li>Format your data as an Excel Table (<code>Ctrl+T</code>)</li><li>Use descriptive column headers ("Revenue" not "Col3")</li><li>Save the file to OneDrive or SharePoint</li><li>Ensure no merged cells or irregular formatting — <a href="/blog/clean-messy-data">clean messy data</a> before analysis</li></ol>
+<ol><li>Format your data as an Excel Table (<code>Ctrl+T</code>) — Copilot refuses to analyse a plain range.</li><li>Use descriptive column headers ("Revenue" not "Col3") — Copilot uses headers as prompt anchors, so ambiguous names ("Amount", "Value", "Col1") lead to incorrect assumptions.</li><li>Save the file to OneDrive or SharePoint — a local-drive file will show the Copilot button greyed out.</li><li>Ensure no merged cells, no blank rows inside the Table, and consistent data types per column — <a href="/blog/clean-messy-data">clean messy data</a> before analysis.</li><li>Convert numbers-stored-as-text back to real numbers (use <code>VALUE()</code> or Paste-Special Multiply by 1) — this is the single most common source of Copilot returning zero or wrong totals.</li></ol>
+<p><strong>Real-world scenario.</strong> A retail ops analyst ran "Summarise weekly sales" on a 52-week sheet and got back summaries for only 40 weeks — the other 12 were numbers-stored-as-text from an imported CSV. After a single Paste-Special Multiply on the Revenue column, the same prompt returned the full year with correct totals. Copilot never flagged the issue; it silently ignored the text rows.</p>
+<p><strong>Beginner pitfall.</strong> Formatting the data as a Table, then naming it something generic like <code>Table1</code>. When Copilot's response refers to tables by name, a sheet with three <code>Table1</code>/<code>Table2</code>/<code>Table3</code> becomes unnavigable. Rename each Table via the Table Design tab (e.g. <code>tblSales</code>, <code>tblProducts</code>) before you prompt — the extra 10 seconds saves minutes per session.</p>
 <a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>Analysis Prompts That Work</h2>
 <h3>Exploratory Analysis</h3>
 <ul><li>"What are the key trends in this data?"</li><li>"Summarise this data and highlight anything unusual"</li><li>"Which month had the highest growth rate?"</li><li>"Compare Q1 and Q2 performance"</li></ul>
 <h3>Statistical Insights</h3>
 <ul><li>"What's the correlation between marketing spend and revenue?"</li><li>"Are there any outliers in the profit column?"</li><li>"Show me the distribution of order values"</li><li>"Calculate the moving average for the last 3 months"</li></ul>
 <h3>Segmentation</h3>
-<ul><li>"Break down revenue by customer segment and region"</li><li>"Which product category has the best profit margin?"</li><li>"Show me the top 10 and bottom 10 performing stores"</li></ul>
+<ul><li>"Break down revenue by customer segment and region"</li><li>"Which product category has the best profit margin?"</li><li>"Show me the top 10 and bottom 10 performing stores"</li><li>"Split the sales by channel and show me what percentage each channel contributes"</li><li>"Group customers by order frequency — one-time, occasional, repeat, loyal"</li></ul>
+<p><strong>Real-world scenario.</strong> A D2C founder preparing for a board meeting used the prompt sequence "Summarise this sales data → break this down by channel → for each channel, show me the top 3 SKUs by revenue → calculate month-on-month growth for the top SKU in each channel". Four prompts, under three minutes, produced an insight slide that would have taken 40 minutes of pivot-table work. She spent the saved time on interpretation instead of extraction.</p>
+<p><strong>Beginner pitfall.</strong> Asking one massive compound prompt ("Show me revenue by region, by channel, by product category, with growth rates and margin percentages, and highlight outliers") — Copilot tends to answer only the first or second clause and quietly drops the rest. Break compound prompts into a sequence of follow-ups. Each follow-up stays within the context of the previous response, so you are not repeating yourself.</p>
 <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>Working with Copilot's Responses</h2>
 <p>Copilot responds with a combination of text insights, charts, and data tables. For each response:</p>
 <ul><li><strong>Insert</strong> — Click "Add to a new sheet" to keep the analysis</li><li><strong>Iterate</strong> — Ask follow-up questions to drill deeper</li><li><strong>Challenge</strong> — Ask "Why?" or "What's driving this?" for root cause analysis</li></ul>
@@ -187,20 +218,47 @@
 <ul><li>Copilot may not understand domain-specific terminology — rephrase in simpler terms</li><li>Large datasets (100K+ rows) may take longer to process — for truly massive data, consider <a href="/blog/power-pivot-guide">Power Pivot</a></li><li>Always verify calculations independently, especially for financial reporting</li><li>Copilot can't access data from other workbooks or external sources</li></ul>
 <h2>Copilot vs Manual Analysis</h2>
 <p>Copilot is excellent for <strong>exploratory analysis</strong> — quickly understanding what's in your data. For <strong>precise, repeatable analysis</strong> (monthly reports, financial models), combine Copilot's insights with traditional formulas and pivot tables. Use Copilot to discover, then build robust formulas to automate.</p>
+<p><strong>Real-world scenario.</strong> A finance team uses Copilot every month-end to exploratorily review the GL close — "any unusual entries this month?", "which accounts have the largest variance vs last month?" — and then rebuilds the final reviewed variances as <a href="/blog/advanced-formulas">SUMIFS</a>-based worksheets with cell comments explaining each variance. The formulas are auditable; Copilot's output would not survive an external audit trail review.</p>
+<p><strong>Beginner pitfall.</strong> Trusting Copilot's totals without cross-checking. Copilot's answers look authoritative and polished, which makes it easy to miss when it quietly ignored text-typed numbers, filtered-out rows, or a column whose name it misinterpreted. Rule of thumb: before you quote a Copilot number in a meeting, check it against a <code>=SUBTOTAL(9, column)</code> or a pivot-table equivalent. Five-second sanity check, avoids hours of embarrassment.</p>
+<h2>Troubleshooting Common Copilot Errors</h2>
+<p>These are the five most common problems when running data analysis with Copilot in Excel, and the exact fix for each.</p>
+<h3>1. Copilot button is greyed out or missing</h3>
+<p>Three causes in order of likelihood: (a) the file is saved locally, not in OneDrive or SharePoint — Copilot requires cloud storage to access the document. <strong>Fix:</strong> File → Save As → OneDrive, then reopen. (b) You do not have a Microsoft 365 Copilot licence — free Copilot in the web browser does not count. <strong>Fix:</strong> File → Account, look for "Copilot" in the subscription list; if absent, contact your IT admin. (c) Autosave is off and the file is in a state the cloud copy has not synced. <strong>Fix:</strong> enable AutoSave (top-left toggle), confirm the sync icon in the title bar shows "Saved".</p>
+<h3>2. Copilot returns wrong totals ("zero" or impossibly low numbers)</h3>
+<p><strong>Cause:</strong> numbers stored as text. Imported CSVs, data pasted from web, and files from legacy systems frequently save numeric columns as strings. Copilot sums only the recognised numbers, silently drops the text ones, and presents the partial total as if complete. <strong>Fix:</strong> select the numeric column, Paste Special → Values → Multiply by 1 in an empty cell; or wrap the column in a helper column with <code>=VALUE(TRIM(A2))</code>. A small green-triangle warning in each cell's top-left corner is the telltale sign.</p>
+<h3>3. Copilot ignores filtered rows when you expected it to</h3>
+<p><strong>Cause:</strong> Copilot defaults to the entire Table regardless of active filters. If you filter to Q4 and ask "what was total revenue", it will return the full-year revenue, not Q4. <strong>Fix:</strong> name the scope in the prompt explicitly — "What was total revenue where Quarter equals Q4?" — or convert the filtered view into a new Table first.</p>
+<h3>4. "I can't help with that" or "I'm not able to analyse this data"</h3>
+<p><strong>Cause:</strong> usually data shape. Copilot refuses when it sees merged cells, blank header rows, multiple Tables in a single sheet with ambiguous references, or data that is not inside a recognised Table object. <strong>Fix:</strong> unmerge all cells (Home → Merge &amp; Center → Unmerge), remove blank header rows, ensure one Table per sheet, and confirm the data is inside an actual Excel Table (Ctrl+T). If the refusal persists, paste a small 10-row sample into a new sheet and ask the same question to confirm it's the data, not the prompt.</p>
+<h3>5. Copilot takes 60+ seconds to respond or times out</h3>
+<p><strong>Cause:</strong> datasets above ~100,000 rows, workbooks with many large pivot caches, or files with heavy volatile-function usage (<code>OFFSET</code>, <code>INDIRECT</code>, <code>NOW</code>) that recalculate on every Copilot read. <strong>Fix:</strong> for large datasets, either pre-aggregate with Power Query before asking Copilot (e.g. weekly rollups instead of raw transaction lines), or use <a href="/blog/power-pivot-guide">Power Pivot</a> for the full dataset and Copilot only on smaller summary tables. Also close unused workbooks — Copilot scans all open workbooks for context, which slows large sessions.</p>
+<h2>Frequently Asked Questions</h2>
+<h3>Can Copilot analyse data in Excel?</h3>
+<p>Yes. Copilot can summarise, segment, calculate statistics, spot outliers, and create charts from natural-language prompts — provided your data is in an Excel Table, saved to OneDrive or SharePoint, and you have a Microsoft 365 Copilot licence. It is strongest on exploratory analysis ("what's interesting here?") and weaker on precise reporting requiring audit trails.</p>
+<h3>How do I use Copilot for data analysis in Excel?</h3>
+<p>Prepare the data (Table, clean headers, cloud-saved), open the Copilot pane from the Home tab, and ask questions conversationally. Start broad ("summarise this data"), then drill into specifics ("break this down by region", "show the top 10"), then ask why ("what's driving the drop in August?"). Iterate — each follow-up keeps the previous context.</p>
+<h3>Why is Copilot greyed out in my Excel?</h3>
+<p>Most commonly because the file is saved locally instead of OneDrive/SharePoint, because the data is not formatted as an Excel Table, or because the account does not have a Copilot licence. Check File → Account for "Copilot" in the subscription list; save-as to OneDrive; convert the range to a Table with Ctrl+T.</p>
+<h3>Is Copilot accurate for financial reporting?</h3>
+<p>For production financial reporting, no — use Copilot for exploratory scanning and rebuild final numbers with <a href="/blog/advanced-formulas">SUMIFS / pivot tables / Power Query</a> so you have an audit trail. Copilot can miscount when columns contain mixed data types, can ignore filtered rows, and cannot explain its calculation methodology the way a formula can.</p>
+<h3>What is the difference between Copilot and the older "Analyse Data" button?</h3>
+<p>Analyse Data (formerly Ideas) is a rule-based feature that suggests pre-canned pivots and chart templates based on data shape — free with any Excel 365 licence. Copilot is a large language model: you ask free-form questions, iterate conversationally, and it generates bespoke responses. Use Analyse Data when you want a menu of standard summaries; use Copilot when you already have a specific question in mind.</p>
       <h2>Sources &amp; Further Reading</h2>
 <ul>
 <li><a href="https://support.microsoft.com/en-us/copilot" target="_blank" rel="noopener">Microsoft Copilot Documentation</a></li>
 <li><a href="https://www.microsoft.com/en-us/microsoft-365/blog/" target="_blank" rel="noopener">Microsoft 365 Copilot Blog</a></li>
 <li><a href="https://support.microsoft.com/en-us/excel" target="_blank" rel="noopener">Microsoft Excel Help</a></li>
 </ul>
-<h2>Related Posts</h2>
+<h2>Related tutorials</h2>
 <ul>
-  <li><a href="/blog/chatgpt-excel-guide">How to Use ChatGPT for Excel Formulas and Analysis</a></li>
-  <li><a href="/blog/gemini-ai-excel">How to Use Google Gemini for Excel Formulas and Data</a></li>
-  <li><a href="/blog/getting-started-copilot-excel">Getting Started with Microsoft Copilot in Excel</a></li>
-  <li><a href="/blog/copilot-automate-tasks">Automating Repetitive Excel Tasks with Copilot</a></li>
-  <li><a href="/blog/mastering-pivot-tables">Mastering Pivot Tables — A Complete Guide</a></li>
-  <li><a href="/blog/excel-ai-prompts">60 AI Prompts for Excel That Actually Work (Copy, Paste, Get Results)</a></li>
+  <li><a href="/blog/excel-formulas-guide">Excel formulas and analysis hub</a> — the cluster hub linking every Excel + AI tutorial on this site, including the ChatGPT, Gemini, and Gemma alternatives to Copilot</li>
+  <li><a href="/blog/getting-started-copilot-excel">Getting Started with Microsoft Copilot in Excel</a> — prerequisites, licensing, and first-time setup before you run the analysis prompts above</li>
+  <li><a href="/blog/copilot-automate-tasks">Automating Repetitive Excel Tasks with Copilot</a> — once exploratory analysis gives you the insight, automate the repeated steps</li>
+  <li><a href="/blog/chatgpt-excel-guide">How to Use ChatGPT for Excel Formulas and Analysis</a> — same workflow, different AI; useful when you are outside a Copilot-licensed tenant</li>
+  <li><a href="/blog/gemini-ai-excel">How to Use Google Gemini for Excel Formulas and Data</a> — Gemini's sidecar approach vs Copilot's integrated pane</li>
+  <li><a href="/blog/mastering-pivot-tables">How to Create a Pivot Table in Excel Step by Step</a> — the formula-free manual equivalent for when you need auditable output</li>
+  <li><a href="/blog/clean-messy-data">How to Clean Messy Data in Excel</a> — data prep that makes Copilot's analysis reliable</li>
+  <li><a href="/blog/excel-ai-prompts">60 AI Prompts for Excel That Actually Work</a> — the wider prompt library across Copilot, ChatGPT, Gemini, and Claude</li>
 </ul><div class="blog-cta-box"><h3>Ready to level up your Excel skills?</h3><p>The Complete Excel Course with AI Integration takes you from formulas to production-grade spreadsheets, with real projects and AI-assisted workflows.</p><a href="/courses#excel" class="btn-primary">Explore the Excel + AI course <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
     </div>
   </article></div></section>
