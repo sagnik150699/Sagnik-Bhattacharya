@@ -148,7 +148,7 @@
         </figure>
         <div class="blog-post-content">
 <p>Every developer I talk to has the same question: can I get a proper AI coding assistant without paying $19 a month and without sending my code to someone else's servers? The answer, as of mid-2026, is yes — and Gemma 4 running locally through Ollama inside VS Code is the best way to do it. Not a toy. Not a compromise you have to apologise for. A genuinely useful coding companion that lives entirely on your machine.</p>
-<p>I have been running this setup full-time for over a month now, across Flutter, Python, and TypeScript projects. This guide is the result of that daily use — not a quick test, but a real workflow built on top of Gemma 4. I will walk you through three different ways to wire it into VS Code, plus a fourth method that skips VS Code entirely and lets you use Gemma 4 from the terminal or PowerShell to analyse your entire project folder. I will show you which method I actually use every day, and give you the specific settings that make the experience feel fast rather than frustrating. If you have not installed Gemma 4 yet, start with my <a href="/blog/run-gemma-4-locally">beginner's guide to running Gemma 4 locally</a> and come back here once Ollama is running.</p>
+<p>I have been running this setup full-time for over a month now, across Flutter, Python, and TypeScript projects. This guide is the result of that daily use — not a quick test, but a real workflow built on top of Gemma 4. I will walk you through four different ways to wire it into VS Code — including wiring Gemma 4 directly into GitHub Copilot Chat via its new local-model support — plus a fifth method that skips VS Code entirely and lets you use Gemma 4 from the terminal or PowerShell to analyse your entire project folder. I will show you which method I actually use every day, and give you the specific settings that make the experience feel fast rather than frustrating. If you have not installed Gemma 4 yet, start with my <a href="/blog/run-gemma-4-locally">beginner's guide to running Gemma 4 locally</a> and come back here once Ollama is running.</p>
 
 <div class="blog-embed-card">
   <h3>See the LinkedIn post</h3>
@@ -288,7 +288,40 @@
 </ol>
 <p>This extension provides nothing beyond a chat panel — no inline autocomplete, no inline editing, no workspace indexing. That is the trade-off for its simplicity. It has almost zero impact on VS Code performance, which makes it a good choice for older machines. For the full experience, go with Continue (Method 1).</p>
 
-<h2>Method 4: Skip VS Code Entirely — Use Gemma 4 from the Terminal</h2>
+<h2>Method 4: Use Gemma 4 Locally Through GitHub Copilot (BYOK / Ollama Model)</h2>
+<p>If you already have a GitHub Copilot subscription but want specific prompts — sensitive code, client work, offline sessions — to run locally on Gemma 4, you do not need a second chat extension. VS Code's Copilot Chat now supports adding locally hosted Ollama models directly into the model picker, so you can flip between cloud Copilot and local Gemma 4 in the same chat panel without switching UIs. This is the setup I reach for when I want Copilot's editor integration but Gemma 4's privacy guarantees.</p>
+
+<h3>Setup</h3>
+<ol>
+  <li>Make sure GitHub Copilot and GitHub Copilot Chat are installed and signed in. Press <code>Ctrl+Shift+X</code> (<code>Cmd+Shift+X</code> on Mac), search for <strong>GitHub Copilot Chat</strong>, and update to the latest version — local model support requires a recent build.</li>
+  <li>Confirm Ollama is running in the background. Open <code>http://localhost:11434</code> in your browser and check that you see "Ollama is running". If not, relaunch the Ollama app.</li>
+  <li>Open Copilot Chat from the sidebar (or press <code>Ctrl+Alt+I</code> / <code>Cmd+Ctrl+I</code>). At the bottom of the chat panel, click the <strong>model picker dropdown</strong> (it shows the current model, e.g. "GPT-4o" or "Claude").</li>
+  <li>Click <strong>"Manage Models…"</strong> at the bottom of that dropdown. In the provider list that appears, select <strong>Ollama</strong>.</li>
+  <li>VS Code scans your local Ollama instance and lists every model you have pulled. Tick <strong>gemma4</strong> (and any other variants you want available, such as <code>gemma4:27b</code>). Click <strong>OK</strong>.</li>
+  <li>Go back to the model picker at the bottom of the chat. Gemma 4 now appears in the list alongside the cloud Copilot models. Select it.</li>
+</ol>
+
+<h3>How to use it</h3>
+<p>Once selected, every Copilot Chat feature routes through your local Gemma 4 instead of GitHub's servers:</p>
+<ul>
+  <li><strong>Chat panel:</strong> Ask questions exactly as you would with cloud Copilot. <code>@workspace</code>, <code>#file</code>, and slash commands like <code>/explain</code>, <code>/fix</code>, <code>/tests</code> all work — they just hit your local model.</li>
+  <li><strong>Inline chat:</strong> Highlight code, press <code>Ctrl+I</code> (<code>Cmd+I</code> on Mac), and type an instruction. The diff preview and accept/reject flow are identical to the cloud experience.</li>
+  <li><strong>Edits across files:</strong> Use Copilot's Edits view (the pencil icon in the chat panel) to make multi-file changes. Gemma 4 12B handles small edits well; bump up to 27B if you want sharper results on multi-file refactors.</li>
+</ul>
+<p><strong>Important caveat about inline autocomplete:</strong> the model picker controls Copilot <em>Chat</em>, not the grey-ghost-text tab completions you see while typing. Those are still handled by GitHub's cloud Copilot model — you cannot currently swap them out for Gemma 4. If you want local tab autocomplete, stick with Continue (Method 1). This method is best thought of as "local chat + edits inside Copilot's UI".</p>
+
+<h3>Why I use this alongside Method 1</h3>
+<p>My daily setup is Continue for tab autocomplete (fast, local, always on) plus Copilot Chat with the Gemma 4 model selected for longer-form questions. Two reasons: first, Copilot's <code>@workspace</code> indexer is genuinely good at pulling in relevant files from across the repo, and it now does that with a local model answering the prompt. Second, switching between Gemma 4 and cloud Copilot is a one-click model-picker change — I keep the cloud model for quick generic questions and flip to Gemma 4 the moment I am working on anything I would not want leaving my machine.</p>
+
+<h3>Troubleshooting</h3>
+<ul>
+  <li><strong>"Manage Models" option is missing:</strong> Update GitHub Copilot Chat. The BYOK/Ollama integration requires a recent release — older versions only show the cloud model list.</li>
+  <li><strong>Ollama not detected:</strong> Run <code>ollama list</code> in a terminal to confirm your models are visible. If the command works but VS Code sees nothing, restart VS Code entirely (close all windows) so it re-scans <code>localhost:11434</code>.</li>
+  <li><strong>Responses are much slower than cloud Copilot:</strong> That is expected — you are running a 12B+ parameter model on your GPU. Use <code>ollama ps</code> to confirm GPU offloading, and drop to <code>gemma4:4b</code> in the model picker if you need faster chat turnaround.</li>
+  <li><strong>Tab autocomplete did not change:</strong> That is correct behaviour. Only chat and inline-edit requests route to Gemma 4; ghost-text completions stay on cloud Copilot.</li>
+</ul>
+
+<h2>Method 5: Skip VS Code Entirely — Use Gemma 4 from the Terminal</h2>
 <p>This is the method most guides never mention, and it is one of the most practical. You do not need any VS Code extension at all. If Ollama is running, you can use Gemma 4 directly from PowerShell, Command Prompt, or any terminal to read your project files and get AI-powered code analysis, explanations, and suggestions.</p>
 
 <h3>Ask Gemma 4 about a single file</h3>

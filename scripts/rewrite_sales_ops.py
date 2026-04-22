@@ -1,109 +1,16 @@
-<!DOCTYPE html>
-<html lang="en-GB">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-adsense-account" content="ca-pub-1443974359047569">
-  <title>Excel + AI for Sales Ops: Pipeline Cleanup, Forecasts, and Territory Reporting</title>
-  <meta name="description" content="Learn practical Excel and AI workflows for Sales Ops, focused on pipeline cleanup, forecasting support, and territory reporting.">
-  <meta name="keywords" content="Excel AI Sales Ops, pipeline cleanup AI Excel, territory reporting Excel AI, sales forecast Excel AI, Sales Ops workflows">
-  <meta name="author" content="Sagnik Bhattacharya">
-  <meta name="robots" content="index, follow">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
-  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/excel-ai-for-sales-ops">
-  <meta property="og:title" content="Excel + AI for Sales Ops: Pipeline Cleanup, Forecasts, and Territory Reporting">
-  <meta property="og:description" content="Learn practical Excel and AI workflows for Sales Ops, focused on pipeline cleanup, forecasting support, and territory reporting.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/excel-ai-for-sales-ops">
-  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/excel-ai-for-sales-ops-sagnik-bhattacharya-coding-liquids.jpg">
-  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/excel-ai-for-sales-ops-sagnik-bhattacharya-coding-liquids.jpg">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel and AI for Sales Ops, with pipeline and forecast visuals.">
-  <meta property="og:locale" content="en_GB">
-  <meta property="og:site_name" content="Sagnik Bhattacharya">
-  <meta property="article:author" content="Sagnik Bhattacharya">
-  <meta property="article:published_time" content="2026-03-05">
-  <meta property="article:modified_time" content="2026-04-22">
-  <meta property="article:section" content="AI &amp; Automation">
-  <meta property="article:tag" content="Excel AI Sales Ops">
-  <meta property="article:tag" content="pipeline cleanup AI Excel">
-  <meta property="article:tag" content="territory reporting Excel AI">
-  <meta property="article:tag" content="sales forecast Excel AI">
-  <meta property="article:tag" content="Sales Ops workflows">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Excel + AI for Sales Ops: Pipeline Cleanup, Forecasts, and Territory Reporting">
-  <meta name="twitter:description" content="Learn practical Excel and AI workflows for Sales Ops, focused on pipeline cleanup, forecasting support, and territory reporting.">
-  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/excel-ai-for-sales-ops-sagnik-bhattacharya-coding-liquids.jpg">
-  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel and AI for Sales Ops, with pipeline and forecast visuals.">
-  <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Excel + AI for Sales Ops: Pipeline Cleanup, Forecasts, and Territory Reporting","description":"Learn practical Excel and AI workflows for Sales Ops, focused on pipeline cleanup, forecasting support, and territory reporting.","datePublished":"2026-03-05","dateModified":"2026-04-22","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/excel-ai-for-sales-ops"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/excel-ai-for-sales-ops-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/excel-ai-for-sales-ops-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"Excel + AI for Sales Ops: Pipeline Cleanup, Forecasts, and Territory Reporting by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"Excel AI Sales Ops, pipeline cleanup AI Excel, territory reporting Excel AI, sales forecast Excel AI, Sales Ops workflows","articleSection":"AI & Automation"}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"Excel + AI for Sales Ops: Pipeline Cleanup, Forecasts, and Territory Reporting","item":"https://sagnikbhattacharya.com/blog/excel-ai-for-sales-ops"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"Excel + AI for Sales Ops: Pipeline Cleanup, Forecasts, and Territory Reporting","url":"https://sagnikbhattacharya.com/blog/images/excel-ai-for-sales-ops-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/excel-ai-for-sales-ops-sagnik-bhattacharya-coding-liquids.jpg","caption":"Excel + AI for Sales Ops: Pipeline Cleanup, Forecasts, and Territory Reporting by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which Sales Ops tasks benefit most from AI in Excel?","acceptedAnswer":{"@type":"Answer","text":"Pipeline cleanup (deduplicating, standardising stages, flagging stale deals), weighted forecast first-drafts, territory summary narratives, and anomaly detection across CRM exports. All four produce a reviewable draft rather than a final decision, which keeps the human in control."}},{"@type":"Question","name":"How do I build a weighted pipeline forecast in Excel?","acceptedAnswer":{"@type":"Answer","text":"Create a Pipeline table with columns for Deal, Stage, Value, and Win Probability. Add a Weighted Value column: =[@Value]*[@Win Prob]. Summarise with =SUMIFS(tblPipeline[Weighted Value], tblPipeline[Stage], stage_name) per stage. AI can then generate commentary on the coverage ratio and flag deals whose Days in Stage exceeds the historical median."}},{"@type":"Question","name":"What is pipeline coverage ratio and why does it matter?","acceptedAnswer":{"@type":"Answer","text":"Coverage ratio = Total Weighted Pipeline ÷ Quota. A ratio of 3× means you need three pounds of pipeline for every pound of quota, based on your historical win rate. If coverage drops below your target, the forecast is at risk regardless of what individual reps commit."}},{"@type":"Question","name":"Can AI replace a Sales Ops analyst for quarter-end reporting?","acceptedAnswer":{"@type":"Answer","text":"No. AI can draft territory summaries, flag anomalies, and generate first-pass commentary, but the analyst must verify deal-level accuracy, apply business context (e.g. contract timing, procurement cycles), and own the narrative before it reaches leadership. Treat AI output as a draft, not a deliverable."}},{"@type":"Question","name":"How do I clean a messy CRM pipeline export in Excel?","acceptedAnswer":{"@type":"Answer","text":"Format as an Excel Table (Ctrl+T), then: 1) Remove Duplicates on the deal-ID column, 2) use Data Validation dropdowns for Stage to prevent free-text drift, 3) add a helper column =TODAY()-[@Last Activity Date] to surface stale deals, 4) use TRIM and CLEAN to strip whitespace from text fields. For bulk cleanup, paste the worst rows into an AI prompt asking it to standardise and flag inconsistencies, then review before pasting back."}}]}</script>
-  <link rel="stylesheet" href="/style.css">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G88BTBD73Q"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-G88BTBD73Q");</script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://sagnikbhattacharya.com/blog/excel-ai-for-sales-ops",
-  "speakable": {
-    "@type": "SpeakableSpecification",
-    "cssSelector": [
-      ".blog-post-title",
-      ".blog-post-content > p:nth-of-type(1)",
-      ".blog-post-content > p:nth-of-type(2)",
-      ".blog-post-content h2"
-    ]
-  }
-}
-  </script>
-</head>
-<body>
-  <nav id="navbar">
-    <div class="container">
-      <a href="/" class="nav-logo">sagnik<span>.</span></a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="/about">About</a></li>
-        <li><a href="/courses">Courses</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="/blog" class="active">Blog</a></li>
-        <li><a href="/contact" class="nav-cta">Get in Touch</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-  </nav>
-  <div class="page-hero" style="padding-bottom:20px">
-    <div class="container">
-      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">Excel + AI for Sales Ops: Pipeline Cleanup, Forecasts, and Territory Reporting</span></nav>
-    </div>
-  </div>
-  <section style="padding-top:0">
-    <div class="container">
-      <article class="blog-post">
-        <div class="blog-post-header">
-          <div class="blog-post-tags"><span class="blog-post-tag">AI + Excel</span></div>
-          <h1 class="blog-post-title">Excel + AI for Sales Ops: Pipeline Cleanup, Forecasts, and Territory Reporting</h1>
-          <div class="blog-post-meta">
-            <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
-              <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
-            </a>
-            <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
-            <span>5 Mar 2026</span>
-            <span>4 min read</span>
-          </div>
-        </div>
-        <figure class="blog-cover">
-          <img src="/blog/images/excel-ai-for-sales-ops-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel and AI for Sales Ops, with pipeline and forecast visuals." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
-          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel and AI for Sales Ops, with pipeline and forecast visuals.</figcaption>
-        </figure>
-        <div class="blog-post-content">
+"""Replace the body content of excel-ai-for-sales-ops.html with substantive tutorial content."""
+import re, pathlib
+
+fp = pathlib.Path(r"c:\Workspace\Sagnik Bhattacharya\public\blog\excel-ai-for-sales-ops.html")
+html = fp.read_text(encoding="utf-8")
+
+OLD_BODY_START = '<div class="blog-post-content">'
+OLD_BODY_END = '<div class="blog-cta-box">'
+
+start_i = html.index(OLD_BODY_START)
+end_i = html.index(OLD_BODY_END)
+
+new_body = r'''<div class="blog-post-content">
 <p>Every Sales Ops team runs on spreadsheets, even when a CRM exists. The CRM holds the record; Excel holds the analysis, the cleanup, and the quarter-end pack that leadership actually reads. This tutorial shows how to combine Excel formulas with AI prompts to speed up the three tasks that consume most of a Sales Ops analyst's week: pipeline cleanup, weighted forecasting, and territory reporting.</p>
 <p>The approach works with any AI assistant that accepts pasted tabular data — Copilot in Excel, ChatGPT, Claude, or <a href="/blog/gemma-4-vscode">Gemma 4 running locally</a>. The formulas work on Excel 365, 2021, and 2019. For the broader Excel learning path see the <a href="/blog/excel-formulas-guide">Excel Formulas Guide</a> hub.</p>
 <p>If you need a deal-level operational tracker rather than an analytical workflow, see <a href="/blog/sales-pipeline-tracker-excel">the sales pipeline tracker</a> instead.</p>
@@ -224,19 +131,8 @@
 <li><a href="/blog/review-ai-generated-excel-formulas">How to Review AI-Generated Excel Formulas Before You Trust Them</a> — the review discipline that keeps AI-assisted workflows safe.</li>
 <li><a href="/blog/clean-messy-data">How to Clean Messy Data in Excel Before It Breaks Everything Downstream</a> — the data-prep foundation for every pipeline cleanup.</li>
 </ul>
-<div class="blog-cta-box"><h3>Want a structured way to use Excel with AI at work?</h3><p>My Complete Excel Guide with AI Integration covers spreadsheet fundamentals, prompt design, and review habits that help you work faster without trusting AI blindly.</p><a href="/courses#excel" class="btn-primary">See the Excel + AI course <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-        </div>
-      </article>
-    </div>
-  </section>
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p>
-    </div>
-  </footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="/animations.js" defer></script>
-  <script src="/tracking.js" defer></script>
-</body>
-</html>
+'''
+
+html_new = html[:start_i] + new_body + html[end_i:]
+fp.write_text(html_new, encoding="utf-8")
+print("Done — body replaced.")
