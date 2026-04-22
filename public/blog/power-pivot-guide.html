@@ -21,7 +21,7 @@
   <meta name="twitter:title" content="How to Use Power Pivot in Excel to Analyse Millions of Rows">
   <meta name="twitter:description" content="Excel's row limit is 1 million \u2014 Power Pivot breaks it. Learn how to load multiple tables, create relationships, and write DAX formulas for advanced pivot analysis.">
   <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/power-pivot-guide-sagnik-bhattacharya-coding-liquids.jpg">
-  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Power Pivot — Handle Millions of Rows, with connected data tables, model relationships, and scale cues."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-21">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Power Pivot — Handle Millions of Rows, with connected data tables, model relationships, and scale cues."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-21"><meta property="article:modified_time" content="2026-04-22">
   <meta property="article:section" content="Advanced Excel"><meta property="article:tag" content="Power Pivot"><meta property="article:tag" content="DAX"><meta property="article:tag" content="Data Modeling">
   <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
     <script type="application/ld+json">
@@ -34,7 +34,7 @@
                    "name":  "Sagnik Bhattacharya",
                    "url":  "https://sagnikbhattacharya.com"
                },
-    "datePublished":  "2026-03-21","dateModified":"2026-03-21",
+    "datePublished":  "2026-03-21","dateModified":"2026-04-22",
     "inLanguage":  "en-GB",
     "description":  "Excel\u0027s row limit is 1 million — Power Pivot breaks it. Learn how to load multiple tables, create relationships, and write DAX formulas for advanced pivot analysis.",
     "publisher":  {
@@ -109,15 +109,39 @@
       "name": "What is Power Pivot in Excel?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Power Pivot is an Excel add-in that lets you analyse millions of rows of data that would be too large for regular Excel worksheets. It uses an in-memory data engine to compress and process large datasets, supports relationships between multiple tables (like a database), and uses DAX formulas for advanced calculations like year-over-year growth, running totals, and time intelligence."
+        "text": "Power Pivot is an Excel add-in with an in-memory columnar engine (VertiPaq) that compresses data 5-10x and lets you analyse tens of millions of rows, build multi-table data models with relationships (like a database), and write DAX formulas for advanced calculations including year-over-year growth, running totals, and time intelligence. It ships with Microsoft 365, Office Professional Plus (Excel 2016/2019/2021), and Office LTSC."
       }
     },
     {
       "@type": "Question",
-      "name": "When should I use Power Pivot instead of regular Excel?",
+      "name": "When should I use Power Pivot instead of regular pivot tables?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Use Power Pivot when your data exceeds 100,000 rows, when you need to combine data from multiple tables with relationships, when you need advanced calculations like year-over-year comparisons or distinct counts, or when regular pivot tables are too slow. For datasets under 100,000 rows with simple analysis needs, regular Excel formulas and pivot tables are sufficient."
+        "text": "Use Power Pivot when your data exceeds 100,000 rows, when you need to combine multiple tables through relationships (instead of VLOOKUP joins), when you need calculations that change based on filter/slicer context (like share-of-total or year-over-year), or when regular pivot tables are too slow. For single-table analysis under 100K rows, regular pivot tables are faster to build and share."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Power Pivot work on Excel for Mac?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Power Pivot is Windows-only. Excel for Mac cannot manage the Power Pivot data model, write DAX measures, or open the Power Pivot window. Mac users have a partial workaround: Power Query is available on Mac, and you can tick 'Add this data to the Data Model' on the Create PivotTable dialog to create relationships, but measure authoring and the Manage window are not available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to know DAX to use Power Pivot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No for basic use — loading tables, creating relationships, and dragging fields into a pivot table works without DAX. You need DAX once you want measures that respond to filter context (share-of-total, year-over-year, running totals, distinct counts). Start with three functions: SUM, DIVIDE, and CALCULATE. Those three cover most beginner scenarios."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Power Pivot or Power BI — which should I learn first?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Learn Power Pivot first if your analysis lives in Excel workbooks and gets shared over email or SharePoint. Learn Power BI first if your reports need to be interactive dashboards published to a web portal. The DAX and data-modelling skills are identical in both tools, so learning one transfers directly to the other. Power Pivot has a lower barrier because you already know Excel."
       }
     }
   ]
@@ -163,51 +187,174 @@
           <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Power Pivot — Handle Millions of Rows, with connected data tables, model relationships, and scale cues.</figcaption>
         </figure>
         <div class="blog-post-content">
-<p>Excel's worksheet limit is 1,048,576 rows. Power Pivot shatters this limit by loading data into a compressed, in-memory data model that can handle tens of millions of rows while keeping your file size small.</p>
-<div class="blog-inline-course"><div class="blog-inline-course__badge">Coming Soon</div><div class="blog-inline-course__body"><h3 class="blog-inline-course__title">Complete Excel Guide with AI Integration</h3><p class="blog-inline-course__sub">Master formulas, pivot tables, data analysis, and charts — with AI integration.</p><a href="/courses#excel" class="btn-primary blog-inline-course__btn">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div><h2>What Is Power Pivot?</h2>
-<p>Power Pivot is an Excel add-in (built into Microsoft 365 and Excel Professional) that provides:</p>
-<ul><li>A columnar data engine that compresses data efficiently</li><li>The ability to create relationships between multiple tables (like a database)</li><li>DAX (Data Analysis Expressions) — a formula language for advanced calculations</li><li>Integration with pivot tables for powerful reporting</li></ul>
-<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>Enabling Power Pivot</h2>
-<ol><li>Go to <strong>File → Options → Add-ins</strong></li><li>At the bottom, select "COM Add-ins" → Go</li><li>Check "Microsoft Power Pivot for Excel" → OK</li><li>A new "Power Pivot" tab appears in the ribbon</li></ol>
-<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>Loading Data</h2>
-<p>Click <strong>Power Pivot → Manage</strong> to open the Power Pivot window. Then:</p>
-<p>For best results, use <a href="/blog/power-query-guide">Power Query</a> to clean and transform your data before loading it into the data model.</p>
-<ul><li><strong>From Excel</strong> — Add linked tables from your workbook</li><li><strong>From Database</strong> — Connect directly to SQL Server, Access</li><li><strong>From Files</strong> — Import CSV, text files</li><li><strong>From Data Feeds</strong> — OData, Azure, web services</li></ul>
-<h2>Creating Relationships</h2>
-<p>The killer feature. Instead of VLOOKUP between tables, create relationships:</p>
-<ol><li>In Power Pivot, go to <strong>Design → Create Relationship</strong></li><li>Select the matching columns from each table</li><li>Click OK</li></ol>
-<p>Now your pivot tables can use fields from any related table seamlessly.</p>
-<h2>DAX Formulas: The Basics</h2>
-<p>DAX is Power Pivot's formula language. It looks similar to <a href="/blog/advanced-formulas">standard Excel formulas</a> but operates on entire tables:</p>
-<h3>Calculated Columns</h3>
-<pre><code>=Sales[Revenue] - Sales[Cost]</code></pre>
-<p>Creates a new column calculated per row.</p>
-<h3>Measures</h3>
-<pre><code>Total Revenue:=SUM(Sales[Revenue])</code></pre>
-<p>Measures calculate dynamically based on the pivot table context (filters, slicers).</p>
-<h3>Useful DAX Functions</h3>
-<table><thead><tr><th>Function</th><th>Purpose</th></tr></thead><tbody>
-<tr><td><code>CALCULATE</code></td><td>Change filter context for a calculation</td></tr>
-<tr><td><code>RELATED</code></td><td>Pull values from a related table</td></tr>
-<tr><td><code>DISTINCTCOUNT</code></td><td>Count unique values</td></tr>
-<tr><td><code>DIVIDE</code></td><td>Safe division (handles divide by zero)</td></tr>
-<tr><td><code>YEARTODATE</code></td><td>Running total from start of year</td></tr>
-</tbody></table>
-<h2>When to Use Power Pivot</h2>
-<p>If your data fits comfortably in a worksheet, start with <a href="/blog/mastering-pivot-tables">regular pivot tables</a> first. Upgrade to Power Pivot when:</p>
-<ul><li>Your data exceeds 100K rows</li><li>You have multiple related tables</li><li>You need calculations that change based on filter context</li><li>You want a single source of truth for multiple reports</li></ul>
-<h2>Power Pivot vs Power BI</h2>
-<p>Power Pivot is for Excel-based analysis — your reports live in Excel workbooks. Power BI is a standalone tool for interactive dashboards shared via the web. Learn Power Pivot first — the DAX skills transfer directly to Power BI.</p><h2>Sources &amp; Further Reading</h2>
+<p>Your Excel sheet caps out at 1,048,576 rows. Your dataset has 4 million. That is the moment Power Pivot exists for — and the same moment most analysts unnecessarily reach for a database migration when the tool they already have can handle it.</p>
+<p>This tutorial covers the full Power Pivot stack: enabling the add-in, loading data into the model through Power Query, building a star-schema layout, the crucial Calculated Columns vs Measures distinction, a practical DAX walkthrough centred on CALCULATE, a runnable 3-table worked example, and the five errors beginners hit first. By the end you will be able to take a raw 4M-row sales extract and produce year-over-year and share-of-total reports in a single pivot table.</p>
+<p><strong>Availability check first.</strong> Power Pivot ships with Microsoft 365, Office Professional Plus (Excel 2016/2019/2021), and Office LTSC on Windows. It is <em>not</em> available on Excel for Mac, Excel Home &amp; Student, or the Starter/Web SKUs. Open <strong>File → Account → Product Information</strong> to confirm before you begin. Pair this guide with the <a href="/blog/excel-formulas-guide">Excel Formulas Guide</a> hub for the full Excel learning path.</p>
+<div class="blog-inline-course"><div class="blog-inline-course__badge">Coming Soon</div><div class="blog-inline-course__body"><h3 class="blog-inline-course__title">Complete Excel Guide with AI Integration</h3><p class="blog-inline-course__sub">Master formulas, pivot tables, data analysis, and charts — with AI integration.</p><a href="/courses#excel" class="btn-primary blog-inline-course__btn">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+<h2>What Power Pivot actually is</h2>
+<p>Power Pivot is an Excel add-in containing an in-memory columnar engine called <strong>VertiPaq</strong>. Two technical details matter because they explain everything else.</p>
+<p><strong>Columnar storage.</strong> Regular Excel stores data row by row. VertiPaq stores each column separately and dictionary-encodes repeated values. A product category column with 20 distinct values across 4 million rows is stored as a 20-item dictionary plus a tight integer index, not 4 million text strings. Compression ratios of 5–10× are typical.</p>
+<p><strong>No cell references.</strong> You do not write formulas that reference cells. You write formulas that reference <em>columns</em> and <em>tables</em>. That is why a single DAX expression can summarise 4 million rows as fast as a normal Excel formula summarises 40.</p>
+<p>Four capabilities follow from those two facts:</p>
 <ul>
-<li><a href="https://support.microsoft.com/en-us/excel" target="_blank" rel="noopener">Microsoft Excel Documentation</a></li>
-<li><a href="https://www.microsoft.com/en-us/microsoft-365/blog/" target="_blank" rel="noopener">Microsoft 365 Blog</a></li>
+<li>Handle tens of millions of rows while keeping the .xlsx file under 200 MB.</li>
+<li>Relate multiple tables like a database, with one-to-many relationships and auto-propagating filters.</li>
+<li>Write DAX measures that respond dynamically to pivot filters and slicers.</li>
+<li>Use time intelligence functions (YTD, SAMEPERIODLASTYEAR, running totals) against a proper Date table.</li>
+</ul>
+<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a>
+<h2>Step 1 — Enable Power Pivot</h2>
+<ol>
+<li>Go to <strong>File → Options → Add-ins</strong>.</li>
+<li>At the bottom, change <strong>Manage</strong> to <strong>COM Add-ins</strong> and click <strong>Go</strong>.</li>
+<li>Tick <strong>Microsoft Power Pivot for Excel</strong> and click <strong>OK</strong>.</li>
+<li>A new <strong>Power Pivot</strong> tab appears between <strong>Data</strong> and <strong>Review</strong>.</li>
+</ol>
+<p><strong>Pitfall.</strong> If "Microsoft Power Pivot for Excel" is not listed in COM Add-ins, your SKU does not include it. This is the most common silent failure — the ribbon stays empty and nothing explains why. See Troubleshooting error #1 below for the SKU check path.</p>
+<h2>Step 2 — Load data (the modern way)</h2>
+<p>The recommended pattern is <strong>Power Query → Data Model</strong>, not the legacy Power Pivot → Manage → From Other Sources path. Power Query handles cleaning, type casting, and merging; Power Pivot stores the result and serves DAX queries on top. If you are new to Power Query, read the <a href="/blog/power-query-guide">Power Query tutorial</a> first.</p>
+<ol>
+<li><strong>Data → Get Data</strong> — pick the source (CSV, database, folder, workbook).</li>
+<li>Clean and type-cast in the Power Query Editor.</li>
+<li><strong>Home → Close &amp; Load → Close &amp; Load To…</strong></li>
+<li>In the Import Data dialog, select <strong>Only Create Connection</strong> and tick <strong>Add this data to the Data Model</strong>.</li>
+<li>The table is now in Power Pivot without bloating the worksheet.</li>
+</ol>
+<p><strong>Real-world scenario.</strong> 18-month grocery chain transaction log: 12 stores, 4.1M rows, 820 MB as CSV. Loading the raw CSV into a worksheet crashes Excel at 1M rows. Loading through Power Query into the data model produces a 62 MB .xlsx with all 4.1M rows queryable. That is VertiPaq compression in action.</p>
+<p><strong>Pitfall.</strong> If you tick <strong>Table</strong> (instead of <strong>Only Create Connection</strong>) while also adding to the model, Power Query materialises the first million rows into a worksheet <em>and</em> loads the full dataset into the model. You get a bloated file and the row limit still bites. Always pair "Only Create Connection" with "Add to Data Model" for multi-million-row tables.</p>
+<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a>
+<h2>Step 3 — Build a star schema (the foundation nobody explains up front)</h2>
+<p>The single biggest mistake beginners make is flattening everything into one huge table. Power Pivot is designed for a <strong>star schema</strong>: one central fact table surrounded by dimension tables.</p>
+<ul>
+<li><strong>Fact tables</strong> hold measurable events. One row per transaction. Columns: Date, ProductID, StoreID, Qty, Revenue, Cost. These are the tables you SUM, COUNT, and AVERAGE.</li>
+<li><strong>Dimension tables</strong> hold descriptive attributes. One row per thing. Examples: Products (ProductID, Name, Category, Supplier), Stores (StoreID, City, Region, Size), Dates (Date, Year, Quarter, Month, DayOfWeek). These are what you slice and group by.</li>
+</ul>
+<p>Each dimension table connects to the fact table through a shared key. That is the "star". A Date table is mandatory for time intelligence — do not reuse the date column on your fact table as a dimension.</p>
+<p><strong>Real-world scenario.</strong> The 4.1M-row grocery chain extract gets split into four tables: <code>Sales</code> (fact), <code>Products</code>, <code>Stores</code>, and <code>Dates</code>. Sales drops from 28 columns (pre-joined via legacy VLOOKUPs) to 6 columns. File size drops another 40% because the repeated product names, store cities, and day names now live once in the dimension tables instead of 4.1M times in the fact.</p>
+<p><strong>Pitfall.</strong> Analysts coming from single-sheet Excel often build one huge denormalised table and wonder why their DAX measures behave unpredictably. Flat tables break filter propagation and inflate file size. Split first, measure later.</p>
+<h2>Step 4 — Create relationships</h2>
+<p>Open the Power Pivot window (<strong>Power Pivot → Manage</strong>) and switch to <strong>Diagram View</strong> (bottom right). Drag the foreign-key column from the fact table onto the matching primary-key column in the dimension table.</p>
+<p>Or use the dialog: <strong>Design → Create Relationship</strong>, pick the two tables and columns, click OK.</p>
+<p>Every relationship has three properties Power Pivot infers automatically — and they all deserve a glance:</p>
+<ul>
+<li><strong>Cardinality</strong> — almost always Many-to-One (many Sales rows per Product).</li>
+<li><strong>Cross-filter direction</strong> — default Single (filter flows from dim to fact). Bi-directional exists but is rarely the right choice for beginners.</li>
+<li><strong>Active</strong> — only one active relationship between any two tables at a time. Others are inactive and only used via USERELATIONSHIP in DAX.</li>
+</ul>
+<p><strong>Pitfall.</strong> If the dimension side has duplicate keys, the relationship silently fails with the cryptic error <em>"The relationship cannot be created because each column contains duplicate values"</em>. Fix by deduplicating the dimension table in Power Query before loading — never dedupe inside Power Pivot.</p>
+<h2>Step 5 — Calculated Columns vs Measures (the concept that unlocks DAX)</h2>
+<p>Every DAX expression is one of two things. Getting this distinction right is the difference between a model that works and a model that confuses you forever.</p>
+<table>
+<thead><tr><th></th><th>Calculated Column</th><th>Measure</th></tr></thead>
+<tbody>
+<tr><td>Where it lives</td><td>Stored in the model, per row</td><td>Computed on demand</td></tr>
+<tr><td>Context</td><td>Row context</td><td>Filter context</td></tr>
+<tr><td>Cost</td><td>Uses RAM, slows refresh</td><td>Free at storage, cost at query</td></tr>
+<tr><td>When to use</td><td>Slicer categories, calculated keys</td><td>Aggregations, ratios, time intelligence</td></tr>
+<tr><td>Example</td><td><code>Sales[Margin] = Sales[Revenue] - Sales[Cost]</code></td><td><code>Total Margin := SUM(Sales[Margin])</code></td></tr>
+</tbody></table>
+<p><strong>Rule of thumb.</strong> If the result needs to be a sliceable category (e.g. Price Band: Low/Medium/High), use a calculated column. If the result is a number that should respond to pivot filters (totals, averages, ratios), use a measure. When in doubt, use a measure.</p>
+<p>Create a calculated column: in the Power Pivot window, click the first empty column in a table and type a formula starting with <code>=</code>. Create a measure: in the measure area below the table (or the Measures pane in Excel), type a name followed by <code>:=</code> then the expression.</p>
+<h2>Step 6 — DAX essentials (five functions that cover 80% of beginner needs)</h2>
+<h3>SUM — the starting point</h3>
+<pre><code>Total Revenue := SUM(Sales[Revenue])</code></pre>
+<p>This is the DAX equivalent of a pivot table's default Sum of Revenue. Put it in a pivot's Values area and it responds to every slicer, row, and column filter automatically.</p>
+<h3>DIVIDE — safe division</h3>
+<pre><code>Margin % := DIVIDE(SUM(Sales[Margin]), SUM(Sales[Revenue]))</code></pre>
+<p>Use DIVIDE instead of <code>/</code>. It returns blank on divide-by-zero instead of #DIV/0!, which keeps pivot tables clean.</p>
+<h3>CALCULATE — the most important DAX function</h3>
+<p>CALCULATE changes the filter context for a measure. Everything powerful in DAX uses it.</p>
+<pre><code>Revenue UK := CALCULATE([Total Revenue], Stores[Country] = "United Kingdom")</code></pre>
+<p>That measure returns UK revenue no matter what the pivot is sliced by. Combine CALCULATE with ALL to compute share-of-total:</p>
+<pre><code>% of Total := DIVIDE([Total Revenue], CALCULATE([Total Revenue], ALL(Products)))</code></pre>
+<p>ALL removes filters from the Products table. The pivot still shows each product's revenue; the denominator is the grand total across all products.</p>
+<h3>DISTINCTCOUNT — count unique values</h3>
+<pre><code>Unique Customers := DISTINCTCOUNT(Sales[CustomerID])</code></pre>
+<p>Regular pivot tables cannot do a distinct count. Power Pivot pivots can, and this single measure is often the reason teams upgrade.</p>
+<h3>Time intelligence — YTD and year-over-year</h3>
+<p>Mark your Date table first: in Power Pivot, select the Dates table, then <strong>Design → Mark as Date Table → Date</strong>.</p>
+<pre><code>Revenue YTD := TOTALYTD([Total Revenue], Dates[Date])
+Revenue LY  := CALCULATE([Total Revenue], SAMEPERIODLASTYEAR(Dates[Date]))
+YoY Growth  := DIVIDE([Total Revenue] - [Revenue LY], [Revenue LY])</code></pre>
+<p>Those three measures together produce a standard board report: this-year YTD, last-year same period, and the growth percentage.</p>
+<h2>Worked example — 3-table grocery model</h2>
+<p>Tables loaded via Power Query into the data model:</p>
+<ul>
+<li><strong>Sales</strong> (fact, 4.1M rows): Date, ProductID, StoreID, Qty, Revenue, Cost</li>
+<li><strong>Products</strong> (dim, 1,200 rows): ProductID, Name, Category, Supplier</li>
+<li><strong>Dates</strong> (dim, 1,460 rows): Date, Year, Quarter, Month, MonthNumber, DayOfWeek</li>
+</ul>
+<p>Relationships:</p>
+<pre><code>Sales[ProductID] → Products[ProductID]   (active, many-to-one)
+Sales[Date]      → Dates[Date]           (active, many-to-one)</code></pre>
+<p>Dates marked as Date Table. Six measures defined against Sales:</p>
+<pre><code>Total Revenue := SUM(Sales[Revenue])
+Total Cost    := SUM(Sales[Cost])
+Total Margin  := [Total Revenue] - [Total Cost]
+Margin %      := DIVIDE([Total Margin], [Total Revenue])
+Revenue LY    := CALCULATE([Total Revenue], SAMEPERIODLASTYEAR(Dates[Date]))
+YoY Growth %  := DIVIDE([Total Revenue] - [Revenue LY], [Revenue LY])</code></pre>
+<p>Insert a pivot from the data model: <strong>Insert → PivotTable → From Data Model</strong>. Put <strong>Dates[Year]</strong> on rows, <strong>Products[Category]</strong> on columns, and the six measures in values. Add a Store slicer. The same pivot now answers "which category grew fastest this year in the London stores?" in one click — a question that would take ten VLOOKUPs and three pivots in the old-fashioned approach.</p>
+<h2>Power Pivot vs Power Query vs Power BI — which tool, when?</h2>
+<table>
+<thead><tr><th>Tool</th><th>Strength</th><th>Where output lives</th></tr></thead>
+<tbody>
+<tr><td>Power Query</td><td>Cleaning, merging, reshaping data</td><td>Excel table, data model, or Power BI</td></tr>
+<tr><td>Power Pivot</td><td>Data modelling, DAX measures, large-row analysis</td><td>Excel workbook pivots and charts</td></tr>
+<tr><td>Power BI</td><td>Interactive dashboards, web sharing, scheduled refresh</td><td>Power BI Service (web) or Power BI Desktop</td></tr>
+</tbody></table>
+<p>In practice you will use Power Query inside Power Pivot inside Excel — all three on the same data flow. Power BI is the next step when your audience needs browser-based dashboards instead of Excel files.</p>
+<h2>When to upgrade from regular pivot tables</h2>
+<p>Stay on <a href="/blog/mastering-pivot-tables">regular pivot tables</a> if your data fits in a single sheet and a SUMIFS plus GROUPBY covers your analysis. Upgrade to Power Pivot when any of these apply:</p>
+<ul>
+<li>Data exceeds 500K rows and the workbook is getting slow.</li>
+<li>You are VLOOKUP-ing between multiple tables to build one analysis.</li>
+<li>You need calculations that change based on filter context (share of total, YoY, running total).</li>
+<li>You need a distinct count in a pivot value.</li>
+<li>You want one data model to drive five different pivot reports.</li>
+</ul>
+<h2>Troubleshooting</h2>
+<ol>
+<li><strong>"Microsoft Power Pivot for Excel" not listed in COM Add-ins.</strong> Your SKU does not include it. Check <strong>File → Account → About Excel</strong>. Power Pivot ships with Microsoft 365 (most business plans), Office Professional Plus, Office LTSC, and standalone Excel 2016/2019/2021 Professional. Office Home &amp; Student, Office Home &amp; Business, and Excel for Mac do NOT include it. If you have Home &amp; Student, upgrade the SKU or move to Power BI Desktop (free).</li>
+<li><strong>CALCULATE returns an unexpected value.</strong> This is almost always filter context confusion. Two common causes: (a) you used a boolean filter on a column that is already filtered by a slicer — CALCULATE overrides the slicer silently; use KEEPFILTERS to preserve it, e.g. <code>CALCULATE([Total Revenue], KEEPFILTERS(Products[Category] = "Produce"))</code>. (b) You are filtering on a fact-table column instead of a dimension column — the filter only applies to that table, not through relationships. Filter on dimensions, not facts.</li>
+<li><strong>"A circular dependency was detected" when creating a calculated column.</strong> The column references a measure that filters the same table, or two calculated columns reference each other. Fix by converting the calculated column to a measure, or by breaking the chain into intermediate steps. If you cannot see the cycle, temporarily disable each calculated column one at a time to isolate the offender.</li>
+<li><strong>"The relationship cannot be created because each column contains duplicate values."</strong> The dimension side has duplicates. Run this Power Query check: right-click the key column → Remove Duplicates. If you get fewer rows, the data has genuine duplicates; decide whether to dedupe or whether the "dim" table is actually a fact table in disguise.</li>
+<li><strong>Refresh is slow or file size balloons.</strong> Three likely causes: (a) too many calculated columns that should have been measures — calculated columns materialise at load time; (b) a high-cardinality column (transaction ID, timestamp to the millisecond) kept in the model when it is never analysed — drop it in Power Query; (c) duplicate data loaded as both a worksheet Table and a Data Model table — load as Connection Only + Data Model.</li>
+</ol>
+<h2>Common mistakes</h2>
+<ul>
+<li>Flattening everything into one big table instead of building a star schema.</li>
+<li>Using calculated columns where a measure would be correct (bloats the model).</li>
+<li>Reusing the fact table's date column as a dimension — breaks time intelligence.</li>
+<li>Filtering on fact-table columns inside CALCULATE instead of dimension columns.</li>
+<li>Loading raw CSV into a worksheet first, then adding to the model — doubles storage.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<h3>What is Power Pivot in Excel?</h3>
+<p>Power Pivot is an Excel add-in with an in-memory columnar engine (VertiPaq) that compresses data 5–10× and lets you analyse tens of millions of rows, build multi-table data models with relationships (like a database), and write DAX formulas for advanced calculations including year-over-year growth, running totals, and time intelligence. It ships with Microsoft 365, Office Professional Plus (Excel 2016/2019/2021), and Office LTSC.</p>
+<h3>When should I use Power Pivot instead of regular pivot tables?</h3>
+<p>Use Power Pivot when your data exceeds 100,000 rows, when you need to combine multiple tables through relationships (instead of VLOOKUP joins), when you need calculations that change based on filter/slicer context (like share-of-total or year-over-year), or when regular pivot tables are too slow. For single-table analysis under 100K rows, regular pivot tables are faster to build and share.</p>
+<h3>Does Power Pivot work on Excel for Mac?</h3>
+<p>No. Power Pivot is Windows-only. Excel for Mac cannot manage the Power Pivot data model, write DAX measures, or open the Power Pivot window. Mac users have a partial workaround: Power Query is available on Mac, and you can tick "Add this data to the Data Model" on the Create PivotTable dialog to create relationships, but measure authoring and the Manage window are not available.</p>
+<h3>Do I need to know DAX to use Power Pivot?</h3>
+<p>No for basic use — loading tables, creating relationships, and dragging fields into a pivot table works without DAX. You need DAX once you want measures that respond to filter context (share-of-total, year-over-year, running totals, distinct counts). Start with three functions: SUM, DIVIDE, and CALCULATE. Those three cover most beginner scenarios.</p>
+<h3>Power Pivot or Power BI — which should I learn first?</h3>
+<p>Learn Power Pivot first if your analysis lives in Excel workbooks and gets shared over email or SharePoint. Learn Power BI first if your reports need to be interactive dashboards published to a web portal. The DAX and data-modelling skills are identical in both tools, so learning one transfers directly to the other. Power Pivot has a lower barrier because you already know Excel.</p>
+<h2>Sources &amp; Further Reading</h2>
+<ul>
+<li><a href="https://support.microsoft.com/en-us/office/power-pivot-powerful-data-analysis-and-data-modeling-in-excel-a9c2c6e2-cc49-4976-a7d7-40896795d045" target="_blank" rel="noopener">Microsoft Support — Power Pivot overview</a></li>
+<li><a href="https://support.microsoft.com/en-us/office/data-analysis-expressions-dax-in-power-pivot-bab3fbe3-2385-485a-980b-5f64d3b0f730" target="_blank" rel="noopener">Microsoft Support — DAX in Power Pivot</a></li>
+<li><a href="https://dax.guide/" target="_blank" rel="noopener">DAX Guide — function reference</a></li>
 <li><a href="https://exceljet.net/functions" target="_blank" rel="noopener">ExcelJet Function Reference</a></li>
 </ul>
-<h2>Related Posts</h2>
+<h2>Related tutorials</h2>
 <ul>
-  <li><a href="/blog/power-query-guide">Excel Power Query — Automate Data Transformation</a></li>
-  <li><a href="/blog/mastering-pivot-tables">Mastering Pivot Tables — A Complete Guide</a></li>
-  <li><a href="/blog/financial-modelling">Excel for Financial Modelling — A Beginner’s Guide</a></li>
+<li><a href="/blog/excel-formulas-guide">Excel Formulas Guide</a> — the Excel cluster hub; use this as the index for every Excel tutorial on the site.</li>
+<li><a href="/blog/power-query-guide">How to Use Power Query in Excel to Automate Data Cleaning</a> — the preferred way to load and shape data before it enters the Power Pivot model.</li>
+<li><a href="/blog/mastering-pivot-tables">How to Create a Pivot Table in Excel Step by Step</a> — start here if you are not yet comfortable with regular pivot tables.</li>
+<li><a href="/blog/dynamic-dashboards">How to Build an Interactive Dashboard in Excel (No VBA)</a> — the natural next step once your data model is in place.</li>
+<li><a href="/blog/financial-modelling">How to Build a Financial Model in Excel From Scratch</a> — where DAX measures beat SUMIFS at scale.</li>
+<li><a href="/blog/advanced-formulas">15 Excel Formulas That Save Hours of Manual Work</a> — the worksheet-level formulas DAX replaces or complements.</li>
 </ul><div class="blog-cta-box"><h3>Ready to level up your Excel skills?</h3><p>The Complete Excel Course with AI Integration takes you from formulas to production-grade spreadsheets, with real projects and AI-assisted workflows.</p><a href="/courses#excel" class="btn-primary">Explore the Excel + AI course <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
   </article></div></section>
   <footer><div class="container"><p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p></div></footer>
