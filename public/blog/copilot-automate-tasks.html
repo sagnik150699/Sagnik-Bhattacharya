@@ -22,7 +22,8 @@
   <meta name="twitter:description" content="Use Microsoft Copilot to sort, filter, format, and summarise Excel data automatically \u2014 from plain text prompts. Save hours on weekly reporting tasks.">
   <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/copilot-automate-tasks-sagnik-bhattacharya-coding-liquids.jpg">
   <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Automating Repetitive Excel Tasks with Copilot, with automation loops, task cards, and spreadsheet workflow elements."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-23">
-  <meta property="article:section" content="AI &amp; Automation"><meta property="article:tag" content="Microsoft Copilot"><meta property="article:tag" content="Task Automation"><meta property="article:tag" content="Excel Productivity">
+  <meta property="article:modified_time" content="2026-04-22">
+  <meta property="article:section" content="AI &amp; Automation"><meta property="article:tag" content="Microsoft Copilot"><meta property="article:tag" content="Task Automation"><meta property="article:tag" content="Excel Productivity"><meta property="article:tag" content="Excel Agent Mode"><meta property="article:tag" content="COPILOT function">
   <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
     <script type="application/ld+json">
 {
@@ -34,7 +35,7 @@
                    "name":  "Sagnik Bhattacharya",
                    "url":  "https://sagnikbhattacharya.com"
                },
-    "datePublished":  "2026-03-23","dateModified":"2026-03-23",
+    "datePublished":  "2026-03-23","dateModified":"2026-04-22",
     "inLanguage":  "en-GB",
     "description":  "Use Microsoft Copilot to sort, filter, format, and summarise Excel data automatically — from plain text prompts. Save hours on weekly reporting tasks.",
     "publisher":  {
@@ -106,18 +107,42 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How do I automate Excel tasks with Copilot?",
+      "name": "How do I automate Excel tasks with Microsoft Copilot?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Type your request in the Copilot panel inside Excel. You can ask Copilot to add formula columns, sort and filter data, create summary tables, format cells, generate charts, and highlight data patterns. Copilot reads your table structure and applies changes directly to your workbook. Start with clear, specific requests like 'Add a column that calculates the year-over-year growth rate'."
+        "text": "Open the Copilot pane (Home → Copilot) and type a plain-English instruction like 'Add a column that calculates year-over-year growth' or 'Highlight the top 10 rows by Revenue in green'. Copilot reads your Excel Table structure and applies the change directly. For multi-step recurring workflows, switch Copilot to Agent Mode (Q1 2026 release) to let it chain actions — e.g. 'Every Friday, clean this week's sales import, summarise by region, and build the weekly chart'. The workbook must be saved to OneDrive or SharePoint and your data must be formatted as an Excel Table (Ctrl+T)."
       }
     },
     {
       "@type": "Question",
-      "name": "What can Microsoft Copilot automate in Excel?",
+      "name": "What is Agent Mode in Excel Copilot?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Copilot can automate: adding calculated formula columns, creating charts and pivot tables, formatting and conditional formatting, sorting and filtering data, generating summaries and insights, creating data validation rules, and answering questions about your data. It works best with data formatted as Excel Tables and handles most common spreadsheet automation tasks."
+        "text": "Agent Mode, released in the Q1 2026 Microsoft 365 Copilot update, turns one-shot prompts into multi-step workflows. Instead of prompting for each action individually, you describe the outcome ('prepare my weekly regional sales pack') and Copilot plans and executes the steps — import, clean, summarise, chart, insert totals, format — pausing for confirmation at key branches. It is available on the Home → Copilot split-button in Excel 365 for commercial and enterprise tenants where the admin has enabled the agent feature."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the COPILOT function in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "COPILOT is a cell-level formula function released in March 2026 that calls the Copilot language model directly from inside a worksheet. The syntax is =COPILOT(prompt, [context_range]). For example =COPILOT('Classify sentiment as positive, neutral, or negative:', A2) returns a one-word classification for every row when copied down. It is useful for per-row AI operations — classification, summarisation, translation, entity extraction — that previously needed a manual paste into the Copilot pane. Each cell invocation counts against the tenant's Copilot usage quota."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can Microsoft Copilot automate in Excel today?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sorting and filtering, adding formula columns (with both structured references and LAMBDA-style logic), conditional formatting, insertion of pivot tables and charts, per-row AI operations via the COPILOT() function, data validation rules, data cleanup (duplicates, trim, case, blanks), and with Agent Mode — entire multi-step recurring workflows. What it cannot do: write or edit VBA macros (use Claude AI or ChatGPT for VBA), trigger external systems (use Power Automate), or work on files stored only locally (OneDrive/SharePoint is a hard requirement)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is Microsoft Copilot not available in my Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Four common causes: (1) your Microsoft 365 plan does not include Copilot — it requires a Microsoft 365 Copilot add-on licence (around £24/user/month) on top of a Business Standard/Premium or Enterprise plan, (2) the file is not in a cloud location — save to OneDrive or SharePoint first, (3) data is not in an Excel Table — press Ctrl+T, (4) your admin has disabled Copilot via Microsoft 365 admin centre or DLP policies. If the button exists but responses fail, check Excel is up to date (File → Account → Update Options) and restart Excel."
       }
     }
   ]
@@ -156,43 +181,159 @@
   <section class="blog-section">
     <div class="container">
       <article class="blog-post">
-        <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/blog">Blog</a><span aria-hidden="true">/</span><span>How to Automate Excel Tasks with Microsoft Copilot</span></nav><div class="blog-post-header"><div class="blog-post-tags"><span class="blog-post-tag">Copilot + Excel</span></div><h1 class="blog-post-title">How to Automate Excel Tasks with Microsoft Copilot</h1><div class="blog-post-meta"><a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya"><img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48"></a><span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span><span>23 Mar 2026</span><span>8 min read</span>
+        <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/blog">Blog</a><span aria-hidden="true">/</span><span>How to Automate Excel Tasks with Microsoft Copilot</span></nav><div class="blog-post-header"><div class="blog-post-tags"><span class="blog-post-tag">Copilot + Excel</span></div><h1 class="blog-post-title">How to Automate Excel Tasks with Microsoft Copilot</h1><div class="blog-post-meta"><a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya"><img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48"></a><span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span><span>23 Mar 2026</span><span>12 min read</span>
           </div></div>
         <figure class="blog-cover">
           <img src="/blog/images/copilot-automate-tasks-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for Automating Repetitive Excel Tasks with Copilot, with automation loops, task cards, and spreadsheet workflow elements." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
           <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for Automating Repetitive Excel Tasks with Copilot, with automation loops, task cards, and spreadsheet workflow elements.</figcaption>
         </figure>
         <div class="blog-post-content">
-<p>If you spend time every week doing the same Excel tasks — sorting data, applying conditional formatting, creating summary rows, cleaning imports — Copilot can handle most of these from a simple text prompt. Here's how to automate the tedious stuff.</p>
-<div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Flutter and Excel with AI — <a href="/courses">explore my courses</a> if you want structured learning.</span></div><h2>Sorting and Filtering</h2>
-<ul><li>"Sort this table by Revenue, highest to lowest"</li><li>"Filter to show only rows where Region is North"</li><li>"Show only the top 20 customers by total orders"</li><li>"Remove all rows where the Status column is blank"</li></ul>
-<p>Copilot applies these changes directly to your table. You can undo with <code>Ctrl+Z</code> if needed.</p>
-<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>Formatting</h2>
-<ul><li>"Bold all headers and add filters"</li><li>"Highlight all cells in the Revenue column that are above average" — also see <a href="/blog/conditional-formatting-tips">conditional formatting tips</a> for manual control</li><li>"Add alternating row colours to this table"</li><li>"Format the Date column as DD/MM/YYYY"</li><li>"Add data bars to the Profit column"</li></ul>
-<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>Adding Formulas</h2>
-<ul><li>"Add a column that calculates the percentage of total for each row"</li><li>"Add a RANK column based on Revenue"</li><li>"Calculate the running total of Sales in a new column"</li><li>"Add a column showing the difference from the previous month"</li></ul>
-<p>Copilot adds the formula to one row and automatically applies it to all rows in the table. To understand what formulas Copilot writes, see the <a href="/blog/advanced-formulas">advanced formulas guide</a>.</p>
-<h2>Data Summarisation</h2>
-<ul><li>"Add a total row at the bottom"</li><li>"Create a summary table showing average revenue by region" — <a href="/blog/mastering-pivot-tables">pivot tables</a> do this interactively too</li><li>"Calculate the year-over-year growth rate"</li><li>"Show monthly totals in a new table"</li></ul>
-<h2>Building a Weekly Automation Workflow</h2>
-<p>Here's a real example — processing a weekly sales report:</p>
-<ol><li>Import the raw CSV data into an Excel Table</li><li>Ask Copilot: "Remove rows where Amount is zero or blank"</li><li>Ask: "Add a Month column extracted from the Date column"</li><li>Ask: "Sort by Date, newest first"</li><li>Ask: "Highlight the top 10 deals in green"</li><li>Ask: "Create a bar chart showing revenue by sales rep"</li><li>Ask: "Add a summary table with totals by region"</li></ol>
-<p>What used to take 30 minutes of manual work now takes 2 minutes of typing prompts.</p>
-<h2>Limitations</h2>
-<ul><li>Copilot can't create VBA macros — use Claude AI for automation that runs on a button click</li><li>Complex multi-step workflows still need a human to sequence the prompts</li><li>File must be saved to OneDrive and data must be in a Table format</li></ul>
-<h2>Copilot + Power Automate</h2>
-<p>For true automation (no prompts needed), combine Excel Copilot with Microsoft Power Automate. Create flows that automatically process new files, send notifications, and update dashboards — triggered by email, schedule, or file changes. For data transformation automation without Power Automate, <a href="/blog/power-query-guide">Power Query</a> is another powerful option.</p><h2>Sources &amp; Further Reading</h2>
+<p>If you spend time every week doing the same Excel tasks — sorting data, applying conditional formatting, creating summary rows, cleaning imports, building a weekly chart — Microsoft Copilot can handle most of them from a plain-English prompt, and as of the Q1 2026 release it can now chain those steps into a multi-action workflow through Agent Mode. A March 2026 Toshiba case study reported 5.6 hours per month saved per employee after adopting it properly. This tutorial shows you exactly which prompts earn those hours, how to use the new COPILOT() cell function for per-row AI operations, and how to set up a repeating weekly workflow in Agent Mode.</p>
+<p>Everything here works on Microsoft 365 Copilot in Excel on Windows and Mac, and on Excel for the web. You need a Microsoft 365 Copilot licence (around £24/user/month added to a Business Standard/Premium or Enterprise plan) and your workbook must be saved to OneDrive or SharePoint — the hard prerequisites I see people miss most often. For the broader Excel learning path see the <a href="/blog/excel-formulas-guide">Excel Formulas Guide</a> hub; for the first-time setup walk-through see <a href="/blog/getting-started-copilot-excel">Getting Started with Copilot in Excel</a>; for exploration-focused prompts see <a href="/blog/copilot-data-analysis">Copilot for Data Analysis</a>.</p>
+
+<h2>Prerequisites</h2>
 <ul>
-<li><a href="https://support.microsoft.com/en-us/copilot" target="_blank" rel="noopener">Microsoft Copilot Documentation</a></li>
-<li><a href="https://www.microsoft.com/en-us/microsoft-365/blog/" target="_blank" rel="noopener">Microsoft 365 Copilot Blog</a></li>
-<li><a href="https://support.microsoft.com/en-us/excel" target="_blank" rel="noopener">Microsoft Excel Help</a></li>
+  <li><strong>Microsoft 365 Copilot licence</strong> attached to a Business Standard/Premium, Enterprise, or Education plan. Personal and Family plans do not include it.</li>
+  <li><strong>OneDrive or SharePoint storage.</strong> The file must be auto-saved to a cloud location. Local-only files show Copilot as greyed out.</li>
+  <li><strong>Your data as an Excel Table.</strong> Select the range and press <code>Ctrl+T</code>. Copilot reads structure via Table metadata — plain ranges work intermittently, Tables work every time.</li>
+  <li><strong>Up-to-date Excel.</strong> Agent Mode and the COPILOT() function require Excel 365 version 2403 or later — File → Account → Update Options → Update Now.</li>
 </ul>
-<h2>Related Posts</h2>
+<div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Flutter and Excel with AI — <a href="/courses">explore my courses</a> if you want structured learning.</span></div><h2>Sorting and Filtering</h2>
 <ul>
-  <li><a href="/blog/getting-started-copilot-excel">Getting Started with Microsoft Copilot in Excel</a></li>
-  <li><a href="/blog/copilot-data-analysis">Excel Copilot for Data Analysis — A Practical Guide</a></li>
-  <li><a href="/blog/claude-ai-excel-macros">Using Claude AI to Generate Excel Macros and VBA</a></li>
-  <li><a href="/blog/excel-ai-prompts">60 AI Prompts for Excel That Actually Work (Copy, Paste, Get Results)</a></li>
+  <li>"Sort this table by Revenue, highest to lowest."</li>
+  <li>"Filter to show only rows where Region is North and Status is Active."</li>
+  <li>"Show only the top 20 customers by total orders."</li>
+  <li>"Remove all rows where the Status column is blank."</li>
+  <li>"Hide the Notes column temporarily — I'll restore it later."</li>
+</ul>
+<p>Copilot applies these changes directly to your Table and confirms in chat. Every action is reversible with <code>Ctrl+Z</code>, and filters can be cleared from the ribbon if Copilot over-scopes.</p>
+<p><strong>Beginner pitfall:</strong> ambiguous column names (two columns called "Date") make Copilot guess wrong. Rename one before prompting, or reference the column by its position ("the second Date column").</p>
+<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>Formatting</h2>
+<ul>
+  <li>"Bold all headers and add filters."</li>
+  <li>"Highlight all cells in the Revenue column that are above average in green." — see <a href="/blog/conditional-formatting-tips">conditional formatting tips</a> for manual control when the AI version is too coarse.</li>
+  <li>"Add alternating row colours to this Table (banded rows)."</li>
+  <li>"Format the Date column as DD/MM/YYYY and right-align the Amount column."</li>
+  <li>"Add data bars to the Profit column — green for positive, red for negative."</li>
+  <li>"Freeze the top row and the first two columns."</li>
+</ul>
+<p><strong>Beginner pitfall:</strong> Copilot-applied conditional formatting is applied to the current range snapshot, not to the Table's structured reference. Add rows later and the rule often doesn't extend. Prompt "apply to the entire Revenue column of tblSales so it extends with new rows" to force the structured-reference version.</p>
+<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>Adding Formulas</h2>
+<ul>
+  <li>"Add a column that calculates the percentage of total for each row."</li>
+  <li>"Add a RANK column based on Revenue, with ties broken by Date descending."</li>
+  <li>"Calculate the running total of Sales in a new column, resetting at each Month change."</li>
+  <li>"Add a column showing the difference from the previous month for each Customer."</li>
+  <li>"Add a Days Since column using TODAY() minus the Last Order column."</li>
+</ul>
+<p>Copilot writes the formula using structured references and applies it to every row of the Table. Always review the generated formula — Copilot is usually right, but misreads a column header every 20 prompts or so. See the <a href="/blog/advanced-formulas">advanced formulas guide</a> to sanity-check what it writes. For broken formulas, <a href="/blog/claude-debug-formulas">Claude AI debugging</a> pairs well.</p>
+<p><strong>Beginner pitfall:</strong> asking "add a total at the bottom" sometimes inserts a literal SUM formula <em>outside</em> the Table instead of toggling the Table's Total Row. Prompt "turn on the Total Row and set Revenue to Sum" for the Table-native version, which respects filters via SUBTOTAL(9).</p>
+
+<h2>Per-row AI with the COPILOT() function</h2>
+<p>The COPILOT() function, released in March 2026, runs a Copilot prompt from inside a cell formula. Syntax: <code>=COPILOT(prompt, [context])</code>. When copied down a column it evaluates once per row, which is how you apply AI classification, summarisation, or extraction to an entire dataset without copy-pasting into the Copilot pane.</p>
+<ul>
+  <li><strong>Sentiment:</strong> <code>=COPILOT("Classify this review as Positive, Neutral, or Negative. Reply with only one word.", [@Review])</code></li>
+  <li><strong>Category extraction:</strong> <code>=COPILOT("Extract the product category from this description.", [@Description])</code></li>
+  <li><strong>Summary:</strong> <code>=COPILOT("Summarise this email in one sentence.", [@Body])</code></li>
+  <li><strong>Entity pull:</strong> <code>=COPILOT("Extract the company name mentioned in this note. Return only the name or 'none'.", [@Notes])</code></li>
+</ul>
+<p>Each cell invocation counts against the tenant's Copilot usage quota, so batch carefully — 1,000 rows of <code>=COPILOT(...)</code> fires 1,000 API calls. For very large datasets, Agent Mode (next section) batches intelligently and is cheaper.</p>
+<p><strong>Beginner pitfall:</strong> volatile COPILOT() recalc. By default it recalculates on every workbook change, which is slow and expensive. Convert results to static values once you are happy: select the column → Copy → Paste Special → Values.</p>
+
+<h2>Agent Mode — multi-step automation from a single prompt</h2>
+<p>Agent Mode is the biggest 2026 change. Instead of prompting Copilot for each action one at a time, describe the end-to-end outcome and let Copilot plan and execute the sequence, pausing for confirmation at the steps that matter.</p>
+<p>Enable it by clicking the split-button on Home → Copilot and selecting <strong>Agent</strong> from the mode menu. The chat UI swaps from "Ask Copilot" to "Agent — describe the outcome". Try a prompt like:</p>
+<blockquote><em>"Every Friday I need a regional sales pack from the tblWeeklySales Table. Remove rows where Amount is 0 or blank, extract the Month from the Date column, sort by Date descending, highlight the top 10 deals in green, and insert a bar chart of Revenue by Rep. At the end, add a summary Table of totals by Region below the chart. Pause before the chart step so I can confirm the layout."</em></blockquote>
+<p>Agent Mode plans the seven steps, shows you the plan, and runs them — stopping before the chart step as you asked. You review; you approve; it completes. The plan is saved with the workbook, so next Friday you paste the new raw data and repeat with "Run the weekly pack plan on the new data" — no re-prompting.</p>
+<p><strong>Beginner pitfall:</strong> Agent Mode's admin default is off in many Microsoft 365 tenants. If the Agent option doesn't appear in the split-button, your tenant admin needs to enable it in the Microsoft 365 admin centre under Copilot → Settings → Agents.</p>
+<h2>Data Summarisation</h2>
+<ul>
+  <li>"Turn on the Total Row and set Revenue, Cost, and Profit to Sum, and Orders to Count."</li>
+  <li>"Create a summary pivot showing average revenue by region and month." — <a href="/blog/mastering-pivot-tables">pivot tables</a> do this interactively too.</li>
+  <li>"Calculate the year-over-year growth rate for each Region and show as a new Table below."</li>
+  <li>"Show monthly totals of Revenue and Profit in a new Table with a trend sparkline column."</li>
+  <li>"Insert a KPI card showing total Revenue, average deal size, and win rate at the top."</li>
+</ul>
+
+<h2>Worked example: weekly regional sales pack (classic mode)</h2>
+<p>Here is the same weekly pack worked out prompt-by-prompt if you are not yet on Agent Mode. A 12-person sales team, 340 weekly deals, 4 regions. Total wall-clock time: under 3 minutes of prompts against what used to be 30 minutes of manual work.</p>
+<ol>
+  <li>Open the raw weekly CSV, select the data, press <code>Ctrl+T</code> to create a Table. Rename it <code>tblWeeklySales</code> via Table Design → Table Name.</li>
+  <li>"Remove rows where Amount is 0 or blank." → Copilot deletes 14 empty rows.</li>
+  <li>"Add a Month column extracted from the Date column, formatted as MMM YYYY." → 340 rows populated.</li>
+  <li>"Sort by Date descending." → two keystrokes replaced.</li>
+  <li>"Add a column =COPILOT('Extract product category from this description:', [@Description])." → 340 AI classifications in one pass.</li>
+  <li>"Highlight the top 10 rows by Amount in green." → applied as a Top-10 conditional-formatting rule.</li>
+  <li>"Insert a bar chart showing total Revenue by Rep, sorted by value." → chart appears below the Table.</li>
+  <li>"Insert a summary Table below the chart with totals by Region and Month." → grouped summary rendered.</li>
+  <li><code>Ctrl+S</code> to save. The weekly pack is ready.</li>
+</ol>
+<p>Next week: replace the raw data, re-run the same prompts (or save the above as an Agent Mode plan per the previous section).</p>
+
+<h2>Limitations and what to use instead</h2>
+<ul>
+  <li><strong>Cannot write VBA macros.</strong> For macro-based automation that runs on a button click, use <a href="/blog/claude-ai-excel-macros">Claude AI to generate VBA</a>.</li>
+  <li><strong>Cannot trigger external systems</strong> (email sends, Teams posts, CRM updates). Chain Excel Copilot with Microsoft Power Automate for email/schedule/file-change triggers.</li>
+  <li><strong>Cannot work on local-only files.</strong> OneDrive or SharePoint is a hard requirement — no workaround.</li>
+  <li><strong>Struggles with free-text ambiguity.</strong> Duplicate column names, inconsistent category strings ("EMEA" vs "Emea" vs "Europe"), and merged cells cause silent mis-routing. Clean the data first — see <a href="/blog/clean-messy-data">how to clean messy data</a>.</li>
+  <li><strong>Quota-bound.</strong> Enterprise tenants get a per-user monthly Copilot allowance; heavy <code>=COPILOT()</code> use on 10k+ row datasets hits it fast. Paste-Special-Values to freeze results once happy.</li>
+</ul>
+
+<h2>Copilot + Power Automate for true hands-off runs</h2>
+<p>For end-to-end automation where no human touches Excel at all, chain Copilot with Power Automate. Typical flow:</p>
+<ol>
+  <li><strong>Trigger:</strong> new file in a SharePoint folder, new email with attachment, or scheduled run every Monday 8am.</li>
+  <li><strong>Excel steps:</strong> use the "Run script" or "Run Office Script" action to kick off a pre-recorded Excel script generated by Copilot (File → Automate → New Script → prompt Copilot to write it).</li>
+  <li><strong>Post steps:</strong> send a Teams message, email the result, update a Planner task.</li>
+</ol>
+<p>For pure data-transformation automation without Power Automate, <a href="/blog/power-query-guide">Power Query</a> remains the right tool — refresh-on-open gives you scheduled-style behaviour without a licensed flow.</p>
+
+<h2>Common mistakes</h2>
+<ul>
+  <li>Prompting a plain range instead of an Excel Table. Copilot's accuracy on ranges is maybe 70% of its Table accuracy.</li>
+  <li>Using Copilot for one-off exploration when a pivot would be faster to build and cheaper on quota.</li>
+  <li>Forgetting to freeze COPILOT() results. Volatile per-row AI on 500+ rows slows the workbook and burns quota on every recalc.</li>
+  <li>Relying on Agent Mode plans for workflows that change weekly. Agent shines on stable patterns; changing data shapes confuse it.</li>
+  <li>Skipping the review step on generated formulas, especially for financial columns. Copilot misreads column headers roughly 1 in 20 prompts — a human eye catches this in seconds.</li>
+</ul>
+
+<h2>Troubleshooting</h2>
+<ol>
+  <li><strong>"Copilot can't be used on this file right now."</strong> The file is saved to a local drive or to a personal OneDrive in a commercial tenant. Move to OneDrive for Business or SharePoint and reopen.</li>
+  <li><strong>Copilot button is greyed out.</strong> Four causes in order of likelihood: (1) no Copilot licence on your account, (2) file is local not cloud, (3) data is not in a Table, (4) admin has DLP-blocked Copilot for this site. Open File → Account to confirm the licence, then work through 2-4.</li>
+  <li><strong>Agent Mode option missing from the Copilot split-button.</strong> Your tenant admin has not enabled Agents. The admin centre path is Copilot → Settings → Agents → turn on "Agent Mode for Excel". Also requires Excel 365 version 2403+.</li>
+  <li><strong>COPILOT() returns #BUSY! or #CALC!.</strong> #BUSY is a rate-limit signal — wait 30 seconds and recalc with <code>F9</code>. #CALC means the prompt string is empty or the context range resolved to an error; check the referenced cell for #N/A or #REF! upstream.</li>
+  <li><strong>Agent plan pauses and never resumes.</strong> A previous step produced an unexpected result (usually column name drift). Click the plan's "Cancel" button, fix the upstream column, and re-run. Agent Mode does not retry automatically — that is by design, to prevent runaway edits.</li>
+</ol>
+
+<h2>Frequently asked questions</h2>
+<h3>How do I automate Excel tasks with Microsoft Copilot?</h3>
+<p>Open the Copilot pane (Home → Copilot) and type a plain-English instruction like "Add a column that calculates year-over-year growth". Copilot reads your Excel Table structure and applies the change directly. For multi-step recurring workflows, switch to Agent Mode (Q1 2026 release) and describe the outcome instead of each step. The file must be on OneDrive or SharePoint, and the data must be an Excel Table.</p>
+<h3>What is Agent Mode in Excel Copilot?</h3>
+<p>Agent Mode, released in the Q1 2026 Microsoft 365 Copilot update, turns one-shot prompts into multi-step workflows. Describe the outcome and Copilot plans and executes the steps — import, clean, summarise, chart, insert totals, format — pausing for confirmation at key branches. Enable via the Home → Copilot split-button; tenant admins may need to toggle it on in the Microsoft 365 admin centre first.</p>
+<h3>What is the COPILOT function in Excel?</h3>
+<p>COPILOT is a cell-level formula function released in March 2026. The syntax is <code>=COPILOT(prompt, [context_range])</code>. For example <code>=COPILOT("Classify sentiment:", A2)</code> returns a classification per row when copied down. Useful for per-row AI tasks — classification, summarisation, translation, entity extraction. Each call uses the tenant's Copilot quota; freeze results to values once happy.</p>
+<h3>What can Microsoft Copilot automate in Excel today?</h3>
+<p>Sorting and filtering, adding formula columns, conditional formatting, pivot tables and charts, per-row AI via COPILOT(), data validation, cleanup (duplicates, trim, blanks), and with Agent Mode entire multi-step recurring workflows. Cannot: write VBA macros (use Claude AI), trigger external systems (use Power Automate), work on local-only files.</p>
+<h3>Why is Microsoft Copilot not available in my Excel?</h3>
+<p>Four causes: (1) your Microsoft 365 plan does not include Copilot — it needs a Copilot add-on licence (~£24/user/month), (2) the file is not on OneDrive or SharePoint, (3) the data is not in an Excel Table — press Ctrl+T, (4) your admin has disabled Copilot via the admin centre or a DLP policy. If the button exists but responses fail, update Excel via File → Account → Update Options and restart.</p>
+
+<h2>Sources &amp; Further Reading</h2>
+<ul>
+  <li><a href="https://techcommunity.microsoft.com/blog/microsoftmechanicsblog/microsoft-excel-power-user-updates--agent-mode-copilot-function--formula-ai/4465676" target="_blank" rel="noopener">Microsoft Tech Community — Excel Power User Updates: Agent Mode, COPILOT function, Formula AI</a></li>
+  <li><a href="https://support.microsoft.com/en-us/topic/get-started-with-workflows-in-microsoft-365-copilot-8c6aba25-db31-443d-8319-bc79747b280a" target="_blank" rel="noopener">Microsoft Support — Workflows in Microsoft 365 Copilot</a></li>
+  <li><a href="https://support.microsoft.com/en-us/copilot" target="_blank" rel="noopener">Microsoft Copilot Documentation</a></li>
+  <li><a href="https://support.microsoft.com/en-us/excel" target="_blank" rel="noopener">Microsoft Excel Help</a></li>
+</ul>
+<h2>Related tutorials</h2>
+<ul>
+  <li><a href="/blog/excel-formulas-guide">Excel Formulas Guide</a> — the Excel cluster hub; start here for the full tutorial index.</li>
+  <li><a href="/blog/getting-started-copilot-excel">Getting Started with Microsoft Copilot in Excel</a> — the first-time setup walk-through that unlocks everything here.</li>
+  <li><a href="/blog/copilot-data-analysis">Excel Copilot for Data Analysis</a> — exploration-focused prompts that pair with the automation prompts above.</li>
+  <li><a href="/blog/claude-ai-excel-macros">Using Claude AI to Generate Excel Macros and VBA</a> — the VBA automation that Copilot itself cannot write.</li>
+  <li><a href="/blog/excel-ai-prompts">60 AI Prompts for Excel That Actually Work</a> — the full copy-paste prompt library.</li>
+  <li><a href="/blog/power-query-guide">How to Use Power Query in Excel</a> — for recurring data imports where refresh-on-open beats re-prompting.</li>
+  <li><a href="/blog/clean-messy-data">How to Clean Messy Data in Excel</a> — what to run before Copilot so its output is trustworthy.</li>
 </ul><div class="blog-cta-box"><h3>Ready to level up your Excel skills?</h3><p>The Complete Excel Course with AI Integration takes you from formulas to production-grade spreadsheets, with real projects and AI-assisted workflows.</p><a href="/courses#excel" class="btn-primary">Explore the Excel + AI course <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
   </article></div></section>
   <footer><div class="container"><p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p></div></footer>
