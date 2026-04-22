@@ -74,6 +74,14 @@
         "@type": "Answer",
         "text": "Yes. With Ollama installed, you can pipe any file directly to Gemma 4 from PowerShell, Bash, or any terminal using commands like Get-Content app.py -Raw | ollama run gemma4 followed by your prompt. You can also feed multiple files, set system prompts, or use tools like Aider for full repo-aware AI pair programming from the command line without needing VS Code at all."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I run Gemma 4 locally inside GitHub Copilot Chat in VS Code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Recent versions of the GitHub Copilot Chat extension support adding locally hosted Ollama models directly in the model picker. Open Copilot Chat, click the model dropdown at the bottom of the panel, choose Manage Models, select Ollama as the provider, and tick gemma4 from the list of models you have pulled. Once selected, all Copilot Chat, inline chat (Ctrl+I), and Edits requests route through your local Gemma 4 model instead of GitHub's servers. Note that ghost-text tab autocomplete still uses the cloud Copilot model — for local inline autocomplete, use the Continue extension instead."
+      }
     }
   ]
 }
@@ -139,7 +147,7 @@
             </a>
             <span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span>
             <span>5 Apr 2026</span>
-            <span>16 min read</span>
+            <span>18 min read</span>
           </div>
         </div>
         <figure class="blog-cover">
@@ -548,6 +556,9 @@ Ask-Code -Prompt "Suggest performance improvements" -Files .\public\blog\*.html 
 
 <h3>Can I use Gemma 4 from the terminal to analyse my project files without VS Code?</h3>
 <p>Yes. If Ollama is installed and running, you can pipe any file directly to Gemma 4 from PowerShell or any terminal. For example: <code>Get-Content .\app.py -Raw | ollama run gemma4 "Explain this code and find bugs"</code>. You can also concatenate multiple files, set system prompts with <code>--system</code>, or use a dedicated tool like Aider (<code>pip install aider-chat</code>) for full repo-aware AI pair programming from the command line. No VS Code or any editor extension required.</p>
+
+<h3>Can I run Gemma 4 locally inside GitHub Copilot Chat in VS Code?</h3>
+<p>Yes. Recent versions of the GitHub Copilot Chat extension support adding locally hosted Ollama models directly in the model picker. Open Copilot Chat, click the model dropdown at the bottom of the panel, choose <strong>Manage Models</strong>, select <strong>Ollama</strong> as the provider, and tick <code>gemma4</code> from the list of models you have pulled. Once selected, Copilot Chat, inline chat (<code>Ctrl+I</code>), and Edits all route through your local Gemma 4 model instead of GitHub's servers. One caveat: ghost-text tab autocomplete still uses the cloud Copilot model — for local inline autocomplete, pair this with the Continue extension (Method 1).</p>
 
 <h2>Sources and Further Reading</h2>
 <ul>
