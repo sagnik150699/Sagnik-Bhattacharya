@@ -235,7 +235,24 @@ These three are under-built but explicitly marketed in `llms.txt` as the canonic
 
 See [reports/delete-vs-expand-shortlist.md](reports/delete-vs-expand-shortlist.md) for full list (Excel rows tagged "expand").
 
-Priority order = inbound link count (highest ROI first): ~~advanced-formulas (29)~~ ✅ → ~~mastering-pivot-tables (20)~~ ✅ → ~~excel-tables-best-practices (20)~~ ✅ → ~~clean-messy-data (18)~~ ✅ → ~~power-query-guide (15)~~ ✅ → ~~dynamic-dashboards (14)~~ ✅ → ~~conditional-formatting-tips (14)~~ ✅ → ~~charts-visualisations (13)~~ ✅ → ~~financial-modelling (14)~~ ✅ → ~~copilot-data-analysis (14)~~ ✅ → ~~data-validation (12)~~ ✅ → ~~monthly-budget-spreadsheet-excel (12)~~ ✅ → ~~calendar-in-excel-automatic (11)~~ ✅ → ~~claude-ai-excel-macros (11)~~ ✅ → ~~claude-debug-formulas (10)~~ ✅ → ~~let-and-lambda-excel (9)~~ ✅ → ~~getting-started-copilot-excel (9)~~ ✅ → ~~audit-formulas-excel (7)~~ ✅ → ~~power-pivot-guide (7)~~ ✅ → ~~inventory-tracker-excel (7)~~ ✅ → ~~excel-ai-for-sales-ops (6)~~ ✅ → ~~keyboard-shortcuts (4)~~ ✅ → ~~copilot-automate-tasks (4)~~ ✅ → ~~amortization-schedule-excel (3)~~ ✅ → ~~index-match-guide (3)~~ ✅ → ~~map-charts-excel (1)~~ ✅ → excel-ai-for-hr-teams (1) → protect-excel-workbook-collaboration (1).
+Priority order = inbound link count (highest ROI first): ~~advanced-formulas (29)~~ ✅ → ~~mastering-pivot-tables (20)~~ ✅ → ~~excel-tables-best-practices (20)~~ ✅ → ~~clean-messy-data (18)~~ ✅ → ~~power-query-guide (15)~~ ✅ → ~~dynamic-dashboards (14)~~ ✅ → ~~conditional-formatting-tips (14)~~ ✅ → ~~charts-visualisations (13)~~ ✅ → ~~financial-modelling (14)~~ ✅ → ~~copilot-data-analysis (14)~~ ✅ → ~~data-validation (12)~~ ✅ → ~~monthly-budget-spreadsheet-excel (12)~~ ✅ → ~~calendar-in-excel-automatic (11)~~ ✅ → ~~claude-ai-excel-macros (11)~~ ✅ → ~~claude-debug-formulas (10)~~ ✅ → ~~let-and-lambda-excel (9)~~ ✅ → ~~getting-started-copilot-excel (9)~~ ✅ → ~~audit-formulas-excel (7)~~ ✅ → ~~power-pivot-guide (7)~~ ✅ → ~~inventory-tracker-excel (7)~~ ✅ → ~~excel-ai-for-sales-ops (6)~~ ✅ → ~~keyboard-shortcuts (4)~~ ✅ → ~~copilot-automate-tasks (4)~~ ✅ → ~~amortization-schedule-excel (3)~~ ✅ → ~~index-match-guide (3)~~ ✅ → ~~map-charts-excel (1)~~ ✅ → ~~excel-ai-for-hr-teams (1)~~ ✅ → ~~protect-excel-workbook-collaboration (1)~~ ✅.
+
+
+##### Completed: protect-excel-workbook-collaboration
+
+- [x] **2A.protect-excel-workbook-collaboration** WebSearch on exact title + workbook-protection/collaboration variants. SERP is split between Microsoft Support, generic "protect from editing" posts, and legacy Shared Workbook content; no strong competitor combines worksheet protection + workbook structure + co-authoring failure checks in one beginner-friendly workflow. **Kept title.** — 2026-04-25
+- [x] **2B.protect-excel-workbook-collaboration** Updated `article:modified_time`, BlogPosting `dateModified`, sitemap lastmod, blog card description, feed description, and read-time badge to 2026-04-25. — 2026-04-25
+- [x] **2C.protect-excel-workbook-collaboration** Rewrote filler body into a practical tutorial: risk-zone mapping, OneDrive/SharePoint co-authoring setup, unlocked input cells, locked/hidden formulas, Protect Sheet options, Protect Workbook structure guidance, Allow Edit Ranges caveats, collaboration test checklist, and monthly budget workbook example. — 2026-04-25
+- [x] **2D.protect-excel-workbook-collaboration** Added 5-item Troubleshooting H2 and 5-question visible FAQ; replaced FAQPage JSON-LD to match visible FAQ exactly. — 2026-04-25
+- [x] **2E.protect-excel-workbook-collaboration** Replaced generic Related guides with 6 curated Related tutorials, promoted `excel-formulas-guide` hub, added official Microsoft sources, and added reciprocal hub link in `excel-formulas-guide.html` Productivity and Best Practices section. URL unchanged, no firebase redirect needed. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-25
+
+##### Completed: excel-ai-for-hr-teams
+
+- [x] **2A.excel-ai-for-hr-teams** WebSearch on current/compound HR AI title variants showed broad competition from SaaS tools, templates, attrition dashboards, and HR formula lists, but no strong page combining hiring tracker formulas + attrition analysis + AI prompt guardrails in one beginner tutorial. **Kept title.** — 2026-04-25
+- [x] **2B.excel-ai-for-hr-teams** Updated `article:modified_time`, BlogPosting `dateModified`, sitemap lastmod, and read-time badge to 2026-04-25. — 2026-04-25
+- [x] **2C.excel-ai-for-hr-teams** Rewrote filler body into a practical tutorial: prerequisites, hiring tracker schema, Data Validation stages, COUNTIFS funnel formulas, time-to-offer, offer acceptance, attrition headcount/leaver formulas, dashboard blocks, worked quarterly HR review example, and AI prompt templates with human-review boundaries. — 2026-04-25
+- [x] **2D.excel-ai-for-hr-teams** Added 5-item Troubleshooting H2 and 5-question visible FAQ; replaced FAQPage JSON-LD to match visible FAQ exactly. — 2026-04-25
+- [x] **2E.excel-ai-for-hr-teams** Replaced generic Related guides with 6 curated Related tutorials, promoted `excel-formulas-guide` hub, added official sources, and added reciprocal hub link in `excel-formulas-guide.html` AI and Automation section. URL unchanged, no firebase redirect needed. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-25
 
 ##### Completed: map-charts-excel
 
@@ -413,7 +430,7 @@ Per file add: verdict H2 ("Which should you pick?"), FAQ H2 (3-5 Qs), links to 2
 ## Phase 6 — Final Verification Before AdSense Re-review
 
 - [x] **6.1** Crawl-checked 1620 internal /blog/ links across all 139 pages + blog.html grid. **0 broken links.** — 2026-04-17
-- [ ] **6.2** Mobile render spot-check: needs live server or post-deploy check. Cannot test local files in browser sandbox.
+- [x] **6.2** Mobile render spot-check completed with local Chrome/CDP script at 360x800 and 390x844 across Home, tutorial grid, Excel hub, HR tutorial, workbook-protection tutorial, long Flutter tutorial, long AI tutorial, and Seedance tutorial. **0 actionable overflow/clipped-element candidates.** Report: [reports/mobile-render-2026-04-25.md](../reports/mobile-render-2026-04-25.md). Screenshots: `.claude/responsive-checks/screenshots/2026-04-25/`. — 2026-04-25
 - [x] **6.3** `ads.txt` intact: `google.com, pub-1443974359047569, DIRECT, f08c47fec0942fa0` (58 bytes). — 2026-04-17
 - [x] **6.4** User deployed via `firebase deploy` — 309 files, release complete. — 2026-04-17
 - [x] **6.5** User clicked "Request review" in AdSense (no separate message needed). Review pending. — 2026-04-17

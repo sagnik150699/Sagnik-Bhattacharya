@@ -9,6 +9,7 @@ Output: reports/en-gb-violations-2026-04-17.md
 """
 from __future__ import annotations
 
+import html as html_module
 import re
 import sys
 from collections import Counter
@@ -25,6 +26,11 @@ OUT = ROOT / "reports" / f"en-gb-violations-{date.today().isoformat()}.md"
 
 AMERICAN_WORDS = tuple(sorted(BRITISH_REPLACEMENTS.keys(), key=len, reverse=True))
 PATTERN = re.compile(r"\b(" + "|".join(map(re.escape, AMERICAN_WORDS)) + r")\b", re.I)
+UI_LABEL_EXCEPTIONS = (
+    "Trust Center",
+    "Merge & Center",
+    "Center Across Selection",
+)
 
 
 def strip_invisible(html: str) -> str:
@@ -37,6 +43,9 @@ def strip_invisible(html: str) -> str:
     html = re.sub(r"<code[^>]*>.*?</code>", " ", html, flags=re.S | re.I)
     # Drop everything inside tag brackets (incl. attribute values)
     html = re.sub(r"<[^>]+>", " ", html)
+    html = html_module.unescape(html)
+    for label in UI_LABEL_EXCEPTIONS:
+        html = re.sub(re.escape(label), " ", html, flags=re.I)
     return re.sub(r"\s+", " ", html).strip()
 
 
