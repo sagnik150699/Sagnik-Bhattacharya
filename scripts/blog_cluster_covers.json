@@ -15,6 +15,46 @@
     "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Agent Mode in Excel, with workbook action panels and supervised AI workflow cues."
   },
   {
+    "slug": "copilot-agentic-ga-2026",
+    "title": "How to Use Copilot Agent Mode in Word, Excel, and PowerPoint: Step-by-Step Tutorial (2026)",
+    "tag": "Microsoft Copilot",
+    "hook": "Run multi-step Copilot tasks across Word, Excel, and PowerPoint without losing review control.",
+    "cta": "Start Using Agent Mode",
+    "keywords": [
+      "Word",
+      "Excel",
+      "PowerPoint"
+    ],
+    "cue": "Word, Excel, and PowerPoint agent panels, Copilot task cards, and Microsoft 365 workflow cues",
+    "category": "AI",
+    "variant": "office-agent",
+    "primaryColor": "#2563EB",
+    "secondaryColor": "#22C55E",
+    "coverTag": "Microsoft 365",
+    "coverTitle": "Copilot Agent Mode in Word, Excel & PowerPoint",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Copilot Agent Mode in Word, Excel, and PowerPoint, with Microsoft 365 agent workflow visuals."
+  },
+  {
+    "slug": "gpt-5-5-codex-comparison",
+    "title": "GPT-5.5 and GPT-5.5 Codex Explained: Benchmarks, Pricing, and How It Compares to Claude and Gemini (2026)",
+    "tag": "OpenAI",
+    "hook": "Compare GPT-5.5, Codex, Claude, and Gemini before you move real coding work.",
+    "cta": "Compare GPT-5.5 Codex",
+    "keywords": [
+      "GPT-5.5",
+      "Codex",
+      "Benchmarks"
+    ],
+    "cue": "OpenAI model comparison dashboards, Codex workflow cards, and benchmark visuals",
+    "category": "AI",
+    "variant": "ai-model-neuro",
+    "primaryColor": "#10A37F",
+    "secondaryColor": "#2563EB",
+    "coverTag": "OpenAI",
+    "coverTitle": "GPT-5.5 Codex vs Claude vs Gemini",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for GPT-5.5 Codex, with model comparison and benchmark dashboard visuals."
+  },
+  {
     "slug": "groupby-function-excel",
     "title": "GROUPBY Function in Excel: Formula-Based Summaries Without a Pivot Table",
     "tag": "Excel",

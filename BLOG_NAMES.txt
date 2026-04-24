@@ -26,6 +26,7 @@ How to Use Claude AI to Write Excel Macros and VBA Code
 How to Use Claude Code in Android Studio: AI-Powered Coding for Kotlin, Flutter, and Gradle Projects
 Claude Code in VS Code: Extension Setup + Hybrid Workflow with Copilot (2026)
 How to Use Claude Design: Pitch Decks, Mockups, and Claude Code Handoffs (2026)
+How to Use Copilot Agent Mode in Word, Excel, and PowerPoint: Step-by-Step Tutorial (2026)
 How to Fix Excel Formula Errors with Claude AI (Fast)
 How to Clean Messy Data in Excel: Step-by-Step Guide
 How to Highlight Rows Based on Cell Value in Excel
@@ -77,6 +78,7 @@ How to Use Gemma 4 for Local AI Workflows
 Gemma 4 vs ChatGPT vs Claude vs Copilot: Best AI Model Comparison in 2026
 Gemma 4 vs Gemini: What's the Difference and When to Use Which
 Gemma 4 vs GPT-4o vs Llama 4: Which Free AI Model Is Best for Excel Formulas?
+GPT-5.5 and GPT-5.5 Codex Explained: Benchmarks, Pricing, and How It Compares to Claude and Gemini (2026)
 5 Real-World Tasks Where Gemma 4 Beats Paid AI Models
 How to Use Gemma 4 in VS Code: Setup, Extensions, and Coding Workflows
 Generate Formula Columns With Copilot in Excel: Best Prompts and Review Steps

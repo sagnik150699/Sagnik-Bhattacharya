@@ -5,13 +5,31 @@
     <link>https://sagnikbhattacharya.com/blog</link>
     <description>Useful guides on Excel, Excel with AI, and Flutter by Sagnik Bhattacharya.</description>
     <language>en-gb</language>
-    <lastBuildDate>Sat, 11 Apr 2026 00:00:00 +0530</lastBuildDate>
+    <lastBuildDate>Fri, 24 Apr 2026 12:00:00 +0530</lastBuildDate>
     <atom:link href="https://sagnikbhattacharya.com/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://sagnikbhattacharya.com/sagnik-bhattacharya.png</url>
       <title>Sagnik Bhattacharya — Blog</title>
       <link>https://sagnikbhattacharya.com/blog</link>
     </image>
+    <item>
+      <title>GPT-5.5 and GPT-5.5 Codex Explained: Benchmarks, Pricing, and How It Compares to Claude and Gemini (2026)</title>
+      <link>https://sagnikbhattacharya.com/blog/gpt-5-5-codex-comparison</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/gpt-5-5-codex-comparison</guid>
+      <description>OpenAI released GPT-5.5 (codename 'Spud') on 23 April 2026 — the first fully retrained base model since GPT-4.5. A practical tutorial on the model, GPT-5.5 in Codex, real benchmarks, pricing, and how it stacks up against Claude Opus 4.6 and Gemini 3.1 Pro.</description>
+      <category>OpenAI</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Fri, 24 Apr 2026 12:00:00 +0530</pubDate>
+    </item>
+    <item>
+      <title>How to Use Copilot Agent Mode in Word, Excel, and PowerPoint: Step-by-Step Tutorial (2026)</title>
+      <link>https://sagnikbhattacharya.com/blog/copilot-agentic-ga-2026</link>
+      <guid isPermaLink="true">https://sagnikbhattacharya.com/blog/copilot-agentic-ga-2026</guid>
+      <description>A beginner's step-by-step tutorial for Microsoft 365 Copilot Agent Mode in Word, Excel, and PowerPoint — now generally available. Real prompts, real screenshots, real limits.</description>
+      <category>Microsoft Copilot</category>
+      <author>sagnik@codingliquids.com (Sagnik Bhattacharya)</author>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 +0530</pubDate>
+    </item>
     <item>
       <title>How to Use Claude Design: Pitch Decks, Mockups, and Claude Code Handoffs (2026)</title>
       <link>https://sagnikbhattacharya.com/blog/claude-design</link>

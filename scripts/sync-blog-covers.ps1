@@ -776,6 +776,102 @@ function VideoScene($g,$p){
   Glow $g 1128 324 58 $p.S 12
   Glow $g 842 306 46 $p.P 12
 }
+function OfficeAppBadge($g,[float]$x,[float]$y,[string]$letter,[string]$color,[float]$size=66){
+  $shadow=New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb(28,0,12,24))
+  $shell=New-Object Drawing.SolidBrush (C '#07131B' 226)
+  $panel=New-Object Drawing.SolidBrush (C $color 238)
+  $shine=New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb(36,255,255,255))
+  $font=New-Object Drawing.Font('Segoe UI',($size*0.42),[Drawing.FontStyle]::Bold,[Drawing.GraphicsUnit]::Pixel)
+  $text=New-Object Drawing.SolidBrush ([Drawing.Color]::White)
+  $stroke=New-Object Drawing.Pen (C '#FFFFFF' 28),1
+  try{
+    FillRR $g $shadow ($x+6) ($y+8) $size $size 18
+    FillRR $g $shell $x $y $size $size 18
+    StrokeRR $g $stroke $x $y $size $size 18
+    FillRR $g $panel ($x+10) ($y+10) ($size-20) ($size-20) 14
+    $g.FillEllipse($shine,$x+17,$y+16,($size*0.24),($size*0.16))
+    $sf=NewTextFormat
+    $sf.Alignment='Center'
+    $sf.LineAlignment='Center'
+    try{$g.DrawString($letter,$font,$text,[Drawing.RectangleF]::new($x+10,$y+7,$size-20,$size-16),$sf)}finally{$sf.Dispose()}
+  }finally{$shadow.Dispose();$shell.Dispose();$panel.Dispose();$shine.Dispose();$font.Dispose();$text.Dispose();$stroke.Dispose()}
+}
+function OfficeAgentScene($g,$p){
+  GlassPanel $g 842 82 308 226 34 '#101E2A' 216 '#D7ECFF' 24
+  Tag $g 'MICROSOFT 365' 868 104 '#FFFFFF' '#0F172A' 12 10 26 | Out-Null
+  TagRow $g @('Word','Excel','PowerPoint') 868 142 '#102734' '#ECFEFF' 12 10 24
+
+  $card=New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb(228,11,24,38))
+  $cardStroke=New-Object Drawing.Pen (C '#FFFFFF' 26),1
+  $muted=New-Object Drawing.SolidBrush (C '#FFFFFF' 24)
+  $word=New-Object Drawing.SolidBrush (C '#2563EB' 226)
+  $excel=New-Object Drawing.SolidBrush (C '#22C55E' 224)
+  $powerpoint=New-Object Drawing.SolidBrush (C '#F97316' 224)
+  $link=New-Object Drawing.Pen (C '#FFFFFF' 54),2
+  try{
+    $link.StartCap='Round'
+    $link.EndCap='Round'
+    FillRR $g $card 872 188 70 76 18
+    FillRR $g $card 968 174 84 98 20
+    FillRR $g $card 1078 188 70 76 18
+    StrokeRR $g $cardStroke 872 188 70 76 18
+    StrokeRR $g $cardStroke 968 174 84 98 20
+    StrokeRR $g $cardStroke 1078 188 70 76 18
+    $g.DrawLine($link,942,226,968,220)
+    $g.DrawLine($link,1052,220,1078,226)
+
+    FillRR $g $word 886 204 42 10 5
+    FillRR $g $muted 886 222 34 8 4
+    FillRR $g $muted 886 238 44 8 4
+
+    FillRR $g $excel 984 190 42 10 5
+    FillRR $g $muted 984 210 50 8 4
+    FillRR $g $muted 984 226 40 8 4
+    FillRR $g $word 984 246 18 12 6
+    FillRR $g $excel 1008 246 18 12 6
+    FillRR $g $powerpoint 1032 246 18 12 6
+
+    FillRR $g $powerpoint 1092 204 34 10 5
+    FillRR $g $muted 1092 222 42 8 4
+    FillRR $g $muted 1092 238 28 8 4
+  }finally{$card.Dispose();$cardStroke.Dispose();$muted.Dispose();$word.Dispose();$excel.Dispose();$powerpoint.Dispose();$link.Dispose()}
+
+  GlassPanel $g 886 330 236 132 28 '#101E2A' 214 '#D8F7E5' 22
+  Tag $g 'AGENT MODE' 912 352 '#FFFFFF' '#0F172A' 11 10 24 | Out-Null
+
+  $window=New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb(228,13,27,41))
+  $chrome=New-Object Drawing.SolidBrush (C '#FFFFFF' 30)
+  $lineA=New-Object Drawing.SolidBrush (C $p.P 224)
+  $lineB=New-Object Drawing.SolidBrush (C $p.S 214)
+  $lineC=New-Object Drawing.SolidBrush (C '#F97316' 214)
+  $lineMuted=New-Object Drawing.SolidBrush (C '#FFFFFF' 26)
+  try{
+    FillRR $g $window 912 382 184 58 16
+    FillRR $g $chrome 926 394 10 10 5
+    FillRR $g $chrome 942 394 10 10 5
+    FillRR $g $chrome 958 394 10 10 5
+    FillRR $g $lineA 928 416 58 8 4
+    FillRR $g $lineMuted 928 432 132 6 3
+    FillRR $g $lineB 994 416 26 8 4
+    FillRR $g $lineC 1028 416 34 8 4
+  }finally{$window.Dispose();$chrome.Dispose();$lineA.Dispose();$lineB.Dispose();$lineC.Dispose();$lineMuted.Dispose()}
+
+  GlassPanel $g 848 494 270 68 24 $p.P 230 '#FFFFFF' 28
+  $ctaLine=New-Object Drawing.SolidBrush (C '#FFFFFF' 64)
+  $ctaAccent=New-Object Drawing.SolidBrush (C '#FFF7ED' 218)
+  try{
+    FillRR $g $ctaLine 878 512 144 10 5
+    FillRR $g $ctaLine 878 532 106 10 5
+    FillRR $g $ctaAccent 1036 510 40 12 6
+    FillRR $g $ctaAccent 1082 526 16 16 8
+  }finally{$ctaLine.Dispose();$ctaAccent.Dispose()}
+
+  OfficeAppBadge $g 1018 28 'W' '#2563EB' 64
+  OfficeAppBadge $g 1088 58 'X' '#16A34A' 64
+  OfficeAppBadge $g 1052 126 'P' '#EA580C' 64
+  Glow $g 1128 326 58 $p.S 12
+  Glow $g 842 308 46 $p.P 12
+}
 function TitleSize([string]$title){
   $len=$title.Length
   if($len -gt 80){32}
@@ -869,6 +965,9 @@ function NewCover($p,$img,[string]$title,[string]$tag,[string]$path){
     }elseif($variant -eq 'ai-workflow'){
       AiWorkflowScene $g $p
       GlassPanel $g 520 84 498 470 38 '#07131B' 212 '#E6EDFF' 24
+    }elseif($variant -eq 'office-agent'){
+      OfficeAgentScene $g $p
+      GlassPanel $g 520 84 498 470 38 '#07131B' 212 '#D7ECFF' 24
     }elseif($variant -eq 'video-scene'){
       VideoScene $g $p
       GlassPanel $g 520 84 498 470 38 '#07131B' 212 '#FFE7C2' 28
