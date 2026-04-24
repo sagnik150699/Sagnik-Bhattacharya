@@ -23,7 +23,7 @@
   <meta name="twitter:description" content="INDEX MATCH is more powerful and flexible than VLOOKUP. Learn how to use it with one or multiple criteria, look left, and handle errors \u2014 with step-by-step examples.">
   <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/index-match-guide-sagnik-bhattacharya-coding-liquids.jpg">
   <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for INDEX-MATCH — The Superior Alternative to VLOOKUP, with lookup references, match arrows, and formula comparison cues."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-18">
-  <meta property="article:section" content="Excel Formulas"><meta property="article:tag" content="INDEX MATCH"><meta property="article:tag" content="Lookup Functions"><meta property="article:tag" content="Excel Formulas">
+  <meta property="article:modified_time" content="2026-04-24"><meta property="article:section" content="Excel Formulas"><meta property="article:tag" content="INDEX MATCH"><meta property="article:tag" content="Lookup Functions"><meta property="article:tag" content="Excel Formulas"><meta property="article:tag" content="INDEX MATCH troubleshooting"><meta property="article:tag" content="INDEX MATCH vs XLOOKUP">
   <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
     <script type="application/ld+json">
 {
@@ -35,7 +35,7 @@
                    "name":  "Sagnik Bhattacharya",
                    "url":  "https://sagnikbhattacharya.com"
                },
-    "datePublished":  "2026-03-18","dateModified":"2026-03-18",
+    "datePublished":  "2026-03-18","dateModified":"2026-04-24",
     "inLanguage":  "en-GB",
     "description":  "INDEX MATCH is more powerful and flexible than VLOOKUP. Learn how to use it with multiple criteria, look left, and handle errors — with examples.",
     "publisher":  {
@@ -107,18 +107,42 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How do I use INDEX MATCH in Excel with multiple criteria?",
+      "name": "Is INDEX MATCH better than VLOOKUP?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For multiple criteria, use an array-based INDEX-MATCH formula: =INDEX(return_range, MATCH(1, (criteria1_range=criteria1)*(criteria2_range=criteria2), 0)). Press Ctrl+Shift+Enter in older Excel versions to make it an array formula. In Microsoft 365, it works as a regular formula with dynamic arrays. This approach is more flexible than VLOOKUP because it supports multiple conditions and can look in any direction."
+        "text": "Yes, for everything except the simplest single-criterion lookup where the lookup column is leftmost and the table structure will never change. INDEX-MATCH handles left-lookups, survives column insertions, is faster on large datasets, and supports multi-criteria patterns natively."
       }
     },
     {
       "@type": "Question",
-      "name": "Is INDEX MATCH better than VLOOKUP in Excel?",
+      "name": "Should I use INDEX-MATCH or XLOOKUP in 2026?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "INDEX-MATCH is more flexible than VLOOKUP because it can look left, handle column insertions without breaking, and supports multiple criteria. However, XLOOKUP has largely replaced both for new formulas in Microsoft 365. If you are on Microsoft 365 or Excel 2021+, use XLOOKUP. If you need backward compatibility with older Excel versions, INDEX-MATCH is the superior alternative to VLOOKUP."
+        "text": "If your entire team is on Microsoft 365 or Excel 2021+, XLOOKUP is the right default because it is simpler and handles not-found values natively. Keep INDEX-MATCH for shared workbooks where anyone is still on Excel 2019 or earlier, because XLOOKUP will return #NAME? on their machines."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my multi-criteria INDEX-MATCH return the wrong row?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On Excel 2019 and earlier, the boolean multiplication pattern must be entered with Ctrl+Shift+Enter. Without it, Excel returns the first row's value regardless of criteria. Check the formula bar — you should see curly braces around the whole formula if it was entered correctly. On Microsoft 365, dynamic arrays handle this transparently."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I handle #N/A in INDEX-MATCH?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wrap the whole formula in IFERROR: =IFERROR(INDEX(..., MATCH(...)), \"Not found\"). For root-cause fixes before hiding the error, check for trailing spaces, numbers stored as text, or a missing 0 as the match type — these cause most #N/A issues."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can INDEX-MATCH look up across multiple sheets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — put the sheet name in the range reference: =INDEX(Prices!C:C, MATCH(\"Widget A\", Prices!A:A, 0)). For lookups across many sheets or workbooks, consider consolidating the source data with Power Query first, because sheet-hopping lookups become hard to maintain past three source sheets."
       }
     }
   ]
@@ -166,46 +190,125 @@
           <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for INDEX-MATCH — The Superior Alternative to VLOOKUP, with lookup references, match arrows, and formula comparison cues.</figcaption>
         </figure>
         <div class="blog-post-content">
-<p>Ask any experienced Excel user which lookup function they prefer, and most will say INDEX-MATCH. It's more flexible, more powerful, and more reliable than VLOOKUP — once you understand how it works.</p>
-<div class="blog-inline-course"><div class="blog-inline-course__badge">Coming Soon</div><div class="blog-inline-course__body"><h3 class="blog-inline-course__title">Complete Excel Guide with AI Integration</h3><p class="blog-inline-course__sub">Master formulas, pivot tables, data analysis, and charts — with AI integration.</p><a href="/courses#excel" class="btn-primary blog-inline-course__btn">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div><h2>How INDEX-MATCH Works</h2>
-<p>It's actually two functions working together:</p>
-<ul><li><strong>MATCH</strong> finds the position (row number) of your lookup value</li><li><strong>INDEX</strong> returns the value at that position from another column</li></ul>
+<p>Ask any experienced Excel user which lookup function they prefer, and most will say INDEX-MATCH. It is more flexible, more powerful, and more reliable than VLOOKUP — once you understand how the two functions work together.</p>
+<p>This tutorial walks through the single-criterion pattern, multi-criteria lookups (both the classic array trick and the cleaner helper-column approach), two-way row-and-column lookups, last-match and range lookups, and when you should stop using INDEX-MATCH and move to XLOOKUP. Every section includes a real-world scenario and the beginner pitfall that breaks the formula in practice. There is also a dedicated <a href="#troubleshooting">Troubleshooting</a> section that consolidates the six most common #N/A causes so you can fix a broken lookup in under a minute.</p>
+<p>INDEX-MATCH works in Excel 2013, 2016, 2019, 2021, Excel 365, and Excel for Mac. It is also the right answer on shared workbooks where some colleagues are still on Excel 2019 — XLOOKUP needs Excel 2021 or Microsoft 365, so it will break for them. For the cluster index of every Excel formula we cover, see the <a href="/blog/excel-formulas-guide">Excel formulas hub</a>.</p>
+<div class="blog-inline-course"><div class="blog-inline-course__badge">Coming Soon</div><div class="blog-inline-course__body"><h3 class="blog-inline-course__title">Complete Excel Guide with AI Integration</h3><p class="blog-inline-course__sub">Master formulas, pivot tables, data analysis, and charts — with AI integration.</p><a href="/courses#excel" class="btn-primary blog-inline-course__btn">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div><h2>Prerequisites</h2>
+<ul>
+<li>Excel 2013 or later on Windows or Mac, or Excel for the web. Microsoft 365 users get dynamic-array behaviour, which makes multi-criteria lookups easier (no Ctrl+Shift+Enter needed).</li>
+<li>A dataset arranged as a single rectangular block with headers in row 1 and no merged cells in the lookup column. Merged cells are the single most common cause of mysterious #N/A errors.</li>
+<li>Basic familiarity with cell references. Absolute references (<code>$A$2:$A$100</code>) matter once you start copying INDEX-MATCH formulas down a column — forget the dollar signs and the ranges shift.</li>
+</ul>
+<h2>How INDEX-MATCH Works</h2>
+<p>It is actually two functions working together:</p>
+<ul><li><strong>MATCH</strong> finds the <em>position</em> (row number) of your lookup value inside a range — it returns an integer, not the value itself.</li><li><strong>INDEX</strong> returns the <em>value</em> at that position from another range.</li></ul>
 <pre><code>=INDEX(return_range, MATCH(lookup_value, lookup_range, 0))</code></pre>
+<p>The third argument of MATCH is <code>0</code> for exact match. Using <code>1</code> (default) or <code>-1</code> requires sorted data and returns the nearest match — almost always the wrong thing on transactional datasets, and a surprisingly common source of silent wrong answers.</p>
 <h3>Practical Example</h3>
-<p>Find the price of "Widget A" where names are in column A and prices in column C:</p>
+<p>Find the price of "Widget A" where product names are in column A and prices in column C:</p>
 <pre><code>=INDEX(C2:C100, MATCH("Widget A", A2:A100, 0))</code></pre>
-<p>MATCH finds "Widget A" in A2:A100 and returns its row position (say, 5). INDEX then returns the 5th value from C2:C100.</p>
-<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>Why INDEX-MATCH Beats VLOOKUP</h2>
+<p>MATCH finds "Widget A" in <code>A2:A100</code> and returns its row position (say, 5). INDEX then returns the 5th value from <code>C2:C100</code>.</p>
+<p><strong>Real-world scenario.</strong> A Manchester wholesaler maintains a 4,800-row SKU price list. Sales reps paste 30–50 SKU codes into a pricing sheet every morning and need prices pulled across. INDEX-MATCH pulls each price in under a second; when the finance team added a new "Cost" column between Product and Price last quarter, nothing broke — with VLOOKUP, the <code>col_index_num</code> would have returned cost instead of price across every reference until someone noticed.</p>
+<p><strong>Beginner pitfall.</strong> The lookup range (<code>A2:A100</code>) and the return range (<code>C2:C100</code>) <em>must be the same number of rows</em>. Using <code>A2:A100</code> with <code>C2:C50</code> returns #REF! for any match found beyond row 50 — and no error at all for matches in the first 50 rows, which makes the bug easy to miss.</p>
+<h2>Why INDEX-MATCH Beats VLOOKUP</h2>
 <table><thead><tr><th>Advantage</th><th>Explanation</th></tr></thead><tbody>
-<tr><td>Look left</td><td>VLOOKUP can only return values to the right. INDEX-MATCH can look in any direction. For a full comparison of all lookup options, see <a href="/blog/vlookup-vs-xlookup">VLOOKUP vs XLOOKUP</a>.</td></tr>
-<tr><td>Column independence</td><td>VLOOKUP uses a column index number that breaks when columns are inserted. INDEX-MATCH uses direct range references.</td></tr>
-<tr><td>Performance</td><td>On large datasets, INDEX-MATCH is significantly faster because it only processes the lookup and return columns, not the entire table. For truly massive datasets (1M+ rows), consider <a href="/blog/power-pivot-guide">Power Pivot</a> instead.</td></tr>
-<tr><td>Multiple criteria</td><td>Combine with multiple MATCH functions for two-dimensional lookups.</td></tr>
+<tr><td>Look left</td><td>VLOOKUP can only return values to the right of the lookup column. INDEX-MATCH can look in any direction — useful when you need to return the product code given a product name in a later column. For a full comparison of all lookup options, see <a href="/blog/vlookup-vs-xlookup">VLOOKUP vs XLOOKUP</a>.</td></tr>
+<tr><td>Column independence</td><td>VLOOKUP uses a <code>col_index_num</code> (e.g. <code>3</code>) that silently returns the wrong column when anyone inserts a column into the table. INDEX-MATCH uses direct range references, so inserting a column shifts the references correctly.</td></tr>
+<tr><td>Performance</td><td>On large datasets, INDEX-MATCH is significantly faster than VLOOKUP because it only processes the lookup column and the return column, not every column in between. For datasets above about 500,000 rows with many lookups per workbook, consider <a href="/blog/power-pivot-guide">Power Pivot</a> instead.</td></tr>
+<tr><td>Multiple criteria</td><td>Combine with multiple MATCH calls (or a boolean array) for two-dimensional or multi-criteria lookups — impossible with pure VLOOKUP without concatenation hacks.</td></tr>
+<tr><td>Partial and reverse lookups</td><td>INDEX-MATCH handles wildcard lookups, return-last-match, and approximate-match on sorted data all with the same two-function pattern.</td></tr>
 </tbody></table>
-<h2>Advanced Patterns</h2>
-<h3>Two-Criteria Lookup</h3>
+<h2>Pattern 1: Two-Criteria Lookup (Array Formula)</h2>
+<p>The classic multi-criteria pattern uses boolean multiplication to build an array of 1s and 0s:</p>
 <pre><code>=INDEX(D2:D100, MATCH(1, (A2:A100="North")*(B2:B100="Electronics"), 0))</code></pre>
-<p>Enter with <code>Ctrl+Shift+Enter</code> in older Excel, or just Enter in Microsoft 365.</p>
-<h3>Two-Way Lookup (Row and Column)</h3>
-<pre><code>=INDEX(B2:F10, MATCH("Product A",A2:A10,0), MATCH("Q2",B1:F1,0))</code></pre>
-<p>Finds the intersection of a specific row and column — like coordinates on a grid. For more complex multi-criteria patterns, see the <a href="/blog/advanced-formulas">advanced formulas guide</a>.</p>
-<h3>Return Last Match</h3>
-<p>VLOOKUP returns the first match. For the last match:</p>
+<p>Enter with <code>Ctrl+Shift+Enter</code> in Excel 2019 and earlier (Excel shows the result wrapped in curly braces). In Microsoft 365 and Excel 2021, just press Enter — dynamic arrays handle the calculation transparently.</p>
+<p><strong>Real-world scenario.</strong> A 12-store retail chain runs a sales ledger with columns Region, Category, Manager, Revenue. The regional manager needs "Electronics revenue in the North region" pulled into a weekly pack. Two-criteria INDEX-MATCH returns the answer without sorting or reshaping the ledger.</p>
+<p><strong>Beginner pitfall.</strong> If you forget Ctrl+Shift+Enter on Excel 2019, the formula returns the value for the first row of the range regardless of the criteria — looks like it worked, but every answer is wrong. To check: click the formula and look at the formula bar. If you do not see the curly braces <code>{}</code> around the whole formula on Excel 2019, re-press <code>F2</code> then <code>Ctrl+Shift+Enter</code>.</p>
+<h2>Pattern 2: Helper Column (Cleaner Alternative to the Array Trick)</h2>
+<p>Shared workbooks with mixed Excel versions often break on Ctrl+Shift+Enter formulas — a colleague on Excel 2019 saves over the formula without the array entry, and every downstream cell starts returning the wrong answer. The helper-column pattern sidesteps this entirely:</p>
+<pre><code>Helper column E: =A2&"|"&B2
+Lookup: =INDEX(D2:D100, MATCH("North|Electronics", E2:E100, 0))</code></pre>
+<p>The pipe (<code>|</code>) is a separator that will not appear naturally in the data — important because <code>&amp;</code>-joining <code>A=Can</code>/<code>B=non</code> with <code>A=Canon</code>/<code>B=(blank)</code> would produce identical "Canon" strings and match the wrong row.</p>
+<p><strong>Real-world scenario.</strong> A UK logistics firm shares a courier-rate workbook between three analysts — one on Excel 365, two on Excel 2019. Switching from the array formula to a helper column eliminated three "why is my rate wrong?" Slack threads per week because the formula now entered the same way on every machine.</p>
+<p><strong>Beginner pitfall.</strong> Skipping the separator. <code>=A2&amp;B2</code> joins "North" + "East" to "NorthEast" — which then matches a region actually named NorthEast in a neighbouring row. Always use an unambiguous separator.</p>
+<h2>Pattern 3: Two-Way Lookup (Row and Column)</h2>
+<p>For data laid out as a matrix — months across, products down — use MATCH twice, once for the row position and once for the column position:</p>
+<pre><code>=INDEX(B2:F10, MATCH("Product A", A2:A10, 0), MATCH("Q2", B1:F1, 0))</code></pre>
+<p>INDEX with three arguments returns the intersection of a given row and column, like coordinates on a grid.</p>
+<p><strong>Real-world scenario.</strong> A finance team maintains an 8-product × 4-quarter revenue grid. A two-way INDEX-MATCH on the Executive Summary sheet pulls any product/quarter cell into the commentary without re-sorting the grid.</p>
+<p><strong>Beginner pitfall.</strong> The first INDEX argument (<code>B2:F10</code>) must <em>exclude</em> the header row and the label column — otherwise MATCH position 1 points to the header, not the first data row. If your result looks off by one, check that the INDEX range starts at the first data cell, not at A1.</p>
+<h2>Pattern 4: Return the Last Match</h2>
+<p>VLOOKUP returns the first match. When you need the most recent entry for a given value (last login date, last stock movement, last adjustment), use:</p>
 <pre><code>=INDEX(B:B, MATCH(2, 1/(A:A="SearchValue")))</code></pre>
-<h2>When to Stick with VLOOKUP</h2>
-<p>VLOOKUP is fine when your lookup column is the leftmost column and your data structure won't change. For shared spreadsheets with less experienced users, VLOOKUP's single-function syntax is easier to understand.</p>
-<p>For everything else — and especially for large, complex spreadsheets — INDEX-MATCH is the professional choice.</p>
+<p>The trick: <code>1/(A:A="SearchValue")</code> produces an array of 1s (for matches) and #DIV/0! (for non-matches). MATCH with lookup value <code>2</code> and no match-type argument searches for the largest value ≤ 2 in the array — which, since no value exceeds 1, returns the position of the last 1. That is your last match.</p>
+<p><strong>Real-world scenario.</strong> An inventory tracker logs every stock movement in one append-only sheet. Returning the last movement for each SKU on the dashboard uses this pattern against a SKU column and a date column.</p>
+<p><strong>Beginner pitfall.</strong> This pattern needs an implicit array evaluation. On Excel 2019 and earlier, enter with Ctrl+Shift+Enter. On Microsoft 365, a bare Enter works because dynamic arrays handle it.</p>
+<h2>Pattern 5: Approximate / Range Match</h2>
+<p>For banded lookups — commission tiers, tax brackets, shipping bands — sort your lookup table ascending and use <code>1</code> as the match type:</p>
+<pre><code>=INDEX(CommissionRate, MATCH(SalesAmount, RevenueBand, 1))</code></pre>
+<p>MATCH with type <code>1</code> returns the position of the largest value less than or equal to the lookup value. If your bands are 0, 5000, 10000, 25000 and SalesAmount is 7500, MATCH returns position 2 (the 5000 row) — which is the band that applies.</p>
+<p><strong>Real-world scenario.</strong> A sales ops analyst pays commission on a five-band schedule. Sorting the band column ascending and using the type-1 match gives the correct commission rate for any sales amount without a dozen nested IFs.</p>
+<p><strong>Beginner pitfall.</strong> Forgetting to sort the lookup column ascending. If the bands are not sorted, MATCH-type-1 returns arbitrary and wrong answers with no error message — and the error is easy to miss because most lookups still look plausible. The <a href="/blog/advanced-formulas">advanced formulas guide</a> walks through a similar pattern with LOOKUP and XLOOKUP's <code>match_mode</code> argument.</p>
+<h2>Worked Example: Lookup Dashboard for a 1,200-SKU Catalogue</h2>
+<p>Suppose you maintain a product catalogue in a Table named <code>tblProducts</code> with columns <code>SKU</code>, <code>Name</code>, <code>Category</code>, <code>Supplier</code>, <code>UnitCost</code>, <code>LastUpdated</code>. A "Lookup" sheet takes a user-typed SKU in <code>B2</code> and needs to show six attributes.</p>
+<pre><code>=INDEX(tblProducts[Name],     MATCH($B$2, tblProducts[SKU], 0))
+=INDEX(tblProducts[Category], MATCH($B$2, tblProducts[SKU], 0))
+=INDEX(tblProducts[Supplier], MATCH($B$2, tblProducts[SKU], 0))
+=INDEX(tblProducts[UnitCost], MATCH($B$2, tblProducts[SKU], 0))
+=INDEX(tblProducts[LastUpdated], MATCH($B$2, tblProducts[SKU], 0))</code></pre>
+<p>Because the lookup uses <a href="/blog/excel-tables-best-practices">Excel Tables</a> with structured references, adding new SKUs to the Table automatically extends the lookup range — no absolute references to update, no range to re-bless. Wrap each formula in <code>IFERROR(..., "SKU not found")</code> to handle typos gracefully.</p>
+<h2>When to Keep INDEX-MATCH vs Move to XLOOKUP</h2>
+<p>If everyone on your team is on Microsoft 365 or Excel 2021+, XLOOKUP is simpler, faster to write, and handles not-found values natively. But INDEX-MATCH is still the right answer when:</p>
+<ul>
+<li>You have colleagues on Excel 2019 or earlier — XLOOKUP does not exist there and your formulas will show #NAME? on their machines.</li>
+<li>You inherit a workbook where INDEX-MATCH is already used consistently — rewriting to XLOOKUP invites regressions without adding capability.</li>
+<li>You need the explicit two-way INDEX(..., row, col) syntax for matrix lookups — XLOOKUP's nested form works but reads less cleanly.</li>
+<li>Performance on very large ranges matters and every millisecond counts — INDEX-MATCH with a single MATCH cached in a helper cell is faster than XLOOKUP's compound call.</li>
+</ul>
+<p>For new formulas on a Microsoft 365–only workbook, use XLOOKUP. For everything else, INDEX-MATCH remains the professional choice — see <a href="/blog/vlookup-vs-xlookup">VLOOKUP vs XLOOKUP</a> for the full migration matrix.</p>
+<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a>
+<h2>Common Mistakes</h2>
+<ul>
+<li><strong>Mismatched lookup and return ranges.</strong> <code>A2:A100</code> for the MATCH lookup, <code>C2:C50</code> for the INDEX return — half the matches silently return #REF!.</li>
+<li><strong>Forgetting <code>0</code> as the third MATCH argument.</strong> Omitting it or passing <code>1</code> on unsorted data returns the wrong row with no error.</li>
+<li><strong>Relative references that shift when copied.</strong> Forgetting the dollar signs on the lookup range causes the range to drift as you copy down — use <code>$A$2:$A$100</code> or an Excel Table with structured references.</li>
+<li><strong>Wrong Ctrl+Shift+Enter behaviour.</strong> Entering the multi-criteria pattern with a bare Enter on Excel 2019 returns row 1's value regardless of criteria.</li>
+<li><strong>Trusting approximate match on unsorted data.</strong> MATCH type <code>1</code> on unsorted bands returns arbitrary positions without throwing an error.</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ol>
+<li><strong>#N/A even though the value is clearly there.</strong> Most common cause: a trailing space, or a non-breaking space (<code>CHAR(160)</code>) on values pasted from a web page. Fix: add <code>TRIM</code> to the lookup column via a helper column, or rewrite the MATCH as <code>MATCH(TRIM(B2), TRIM(A2:A100), 0)</code> entered with Ctrl+Shift+Enter. If the values look right but still fail, check the data type — numbers stored as text never match actual numbers. Select the column → Data → Text to Columns → Finish to coerce text-numbers to real numbers.</li>
+<li><strong>#REF! appears only for some rows.</strong> The return range is shorter than the lookup range. If MATCH finds a value at position 78 but the return range only has 50 rows, INDEX returns #REF!. Fix: make both ranges the same size, or use full-column references (<code>A:A</code>, <code>C:C</code>) if you can tolerate the slight performance cost.</li>
+<li><strong>Formula returns the first row's value regardless of criteria.</strong> On Excel 2019 and earlier, the two-criteria boolean pattern needs Ctrl+Shift+Enter to evaluate as an array. Fix: click the formula, press <code>F2</code>, then Ctrl+Shift+Enter. You should see curly braces <code>{}</code> wrap the formula in the formula bar. On Microsoft 365, this issue does not occur.</li>
+<li><strong>#N/A when the lookup value looks numerically identical.</strong> Dates are stored as serial numbers; a "date" typed as text in the lookup cell will never match a real date in the lookup column. Fix: select the lookup column → Number Format → Short Date; check whether one side is displayed aligned-left (text) and the other aligned-right (number). Use <code>=ISNUMBER(A2)</code> on both sides to confirm.</li>
+<li><strong>Sorted approximate-match returns wrong band.</strong> MATCH type <code>1</code> requires the lookup column sorted <em>ascending</em>. If it is unsorted, or sorted descending, matches drift arbitrarily and most answers look plausible. Fix: sort the band column ascending, or switch to <code>-1</code> with descending data. For tax brackets and commission tiers, ascending + type-1 is the conventional pairing.</li>
+</ol>
+<h2>Frequently Asked Questions</h2>
+<h3>Is INDEX MATCH better than VLOOKUP?</h3>
+<p>Yes, for everything except the simplest single-criterion lookup where the lookup column is leftmost and the table structure will never change. INDEX-MATCH handles left-lookups, survives column insertions, is faster on large datasets, and supports multi-criteria patterns natively.</p>
+<h3>Should I use INDEX-MATCH or XLOOKUP in 2026?</h3>
+<p>If your entire team is on Microsoft 365 or Excel 2021+, XLOOKUP is the right default — it is simpler and handles not-found values natively. Keep INDEX-MATCH for shared workbooks where anyone is still on Excel 2019 or earlier, because XLOOKUP will return #NAME? on their machines.</p>
+<h3>Why does my multi-criteria INDEX-MATCH return the wrong row?</h3>
+<p>On Excel 2019 and earlier, the boolean multiplication pattern must be entered with Ctrl+Shift+Enter. Without it, Excel returns the first row's value regardless of criteria. Check the formula bar — you should see curly braces <code>{}</code> around the whole formula if it was entered correctly. On Microsoft 365, dynamic arrays handle this transparently.</p>
+<h3>How do I handle #N/A in INDEX-MATCH?</h3>
+<p>Wrap the whole formula in <code>IFERROR</code>: <code>=IFERROR(INDEX(..., MATCH(...)), "Not found")</code>. For root-cause fixes before hiding the error, see the Troubleshooting section above — most #N/A issues come from trailing spaces, numbers stored as text, or a missing <code>0</code> as the match type.</p>
+<h3>Can INDEX-MATCH look up across multiple sheets?</h3>
+<p>Yes — put the sheet name in the range reference: <code>=INDEX(Prices!C:C, MATCH("Widget A", Prices!A:A, 0))</code>. For lookups across many sheets or workbooks, consider consolidating the source data with <a href="/blog/power-query-guide">Power Query</a> first; sheet-hopping lookups become hard to maintain past three source sheets.</p>
       <h2>Sources &amp; Further Reading</h2>
 <ul>
 <li><a href="https://support.microsoft.com/en-us/excel" target="_blank" rel="noopener">Microsoft Excel Documentation</a></li>
 <li><a href="https://www.microsoft.com/en-us/microsoft-365/blog/" target="_blank" rel="noopener">Microsoft 365 Blog</a></li>
 <li><a href="https://exceljet.net/functions" target="_blank" rel="noopener">ExcelJet Function Reference</a></li>
 </ul>
-<h2>Related Posts</h2>
+<h2>Related tutorials</h2>
 <ul>
-  <li><a href="/blog/vlookup-vs-xlookup">VLOOKUP vs XLOOKUP — When to Use Which</a></li>
-  <li><a href="/blog/advanced-formulas">15 Advanced Excel Formulas Every Professional Should Know</a></li>
-  <li><a href="/blog/data-validation">Excel Data Validation — Prevent Errors Before They Happen</a></li>
+  <li><a href="/blog/excel-formulas-guide">Excel Formulas Guide</a> — the cluster hub covering every formula pattern on this site, including where INDEX-MATCH fits alongside XLOOKUP, FILTER, and dynamic arrays.</li>
+  <li><a href="/blog/vlookup-vs-xlookup">VLOOKUP vs XLOOKUP — When to Use Which</a> — the migration matrix for deciding which lookup function to use on which workbook.</li>
+  <li><a href="/blog/advanced-formulas">15 Advanced Excel Formulas Every Professional Should Know</a> — LAMBDA, LET, FILTER, SORT, and the rest of the formula toolkit that complements INDEX-MATCH.</li>
+  <li><a href="/blog/excel-tables-best-practices">Excel Tables — Structured References, Growth, and Cleaner Models</a> — how Tables make INDEX-MATCH lookups self-extending and easier to audit.</li>
+  <li><a href="/blog/audit-formulas-excel">How to Audit Formulas in Excel</a> — the F9 + Evaluate Formula workflow for debugging a misbehaving INDEX-MATCH.</li>
+  <li><a href="/blog/clean-messy-data">How to Clean Messy Data in Excel</a> — the TRIM and Text-to-Columns workflow that fixes most #N/A errors before you write the lookup.</li>
+  <li><a href="/blog/data-validation">Excel Data Validation — Prevent Errors Before They Happen</a> — stop typos at the source so INDEX-MATCH never sees a missing SKU.</li>
 </ul><div class="blog-cta-box"><h3>Ready to level up your Excel skills?</h3><p>The Complete Excel Course with AI Integration takes you from formulas to production-grade spreadsheets, with real projects and AI-assisted workflows.</p><a href="/courses#excel" class="btn-primary">Explore the Excel + AI course <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
     </div>
   </article></div></section>
