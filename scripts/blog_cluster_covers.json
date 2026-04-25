@@ -35,15 +35,15 @@
     "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for Copilot Agent Mode in Word, Excel, and PowerPoint, with Microsoft 365 agent workflow visuals."
   },
   {
-    "slug": "gpt-5-5-codex-comparison",
-    "title": "GPT-5.5 and GPT-5.5 Codex Explained: Benchmarks, Pricing, and How It Compares to Claude and Gemini (2026)",
+    "slug": "chatgpt-5-5-vs-claude-opus-4-7-vs-gemini-3-1-pro",
+    "title": "ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro: Benchmarks, Pricing, and Codex (2026)",
     "tag": "OpenAI",
-    "hook": "Compare GPT-5.5, Codex, Claude, and Gemini before you move real coding work.",
-    "cta": "Compare GPT-5.5 Codex",
+    "hook": "Compare ChatGPT 5.5, Opus 4.7, Gemini 3.1 Pro, and Codex before you move real coding work.",
+    "cta": "Compare ChatGPT 5.5",
     "keywords": [
-      "GPT-5.5",
-      "Codex",
-      "Benchmarks"
+      "ChatGPT 5.5",
+      "Opus 4.7",
+      "Gemini 3.1"
     ],
     "cue": "OpenAI model comparison dashboards, Codex workflow cards, and benchmark visuals",
     "category": "AI",
@@ -51,8 +51,8 @@
     "primaryColor": "#10A37F",
     "secondaryColor": "#2563EB",
     "coverTag": "OpenAI",
-    "coverTitle": "GPT-5.5 Codex vs Claude vs Gemini",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for GPT-5.5 Codex, with model comparison and benchmark dashboard visuals."
+    "coverTitle": "ChatGPT 5.5 vs Opus 4.7",
+    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro, with model comparison and benchmark dashboard visuals."
   },
   {
     "slug": "groupby-function-excel",

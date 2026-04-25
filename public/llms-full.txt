@@ -87,7 +87,7 @@ These tutorials cover using AI tools (ChatGPT, Claude, Gemini, Copilot) to write
 - [Agent Mode in Excel: What It Does, What It Can't, and Who Should Use It](https://sagnikbhattacharya.com/blog/agent-mode-in-excel) — Excel AI agent capabilities
 - [Analyst vs Agent Mode vs Copilot Chat: Which Excel AI Workflow Fits Best?](https://sagnikbhattacharya.com/blog/analyst-vs-agent-mode-vs-copilot-chat) — AI workflow comparison
 - [How to Use Copilot Agent Mode in Word, Excel, and PowerPoint: Step-by-Step Tutorial (2026)](https://sagnikbhattacharya.com/blog/copilot-agentic-ga-2026) — Beginner tutorial for Agent Mode after 22 April 2026 GA across Word, Excel, and PowerPoint
-- [GPT-5.5 and GPT-5.5 Codex Explained: Benchmarks, Pricing, and How It Compares to Claude and Gemini (2026)](https://sagnikbhattacharya.com/blog/gpt-5-5-codex-comparison) — OpenAI's 23 April 2026 Spud release: base model, Codex variant, real benchmarks, pricing, vs Claude Opus 4.6 and Gemini 3.1 Pro
+- [ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro: Benchmarks, Pricing, and Codex (2026)](https://sagnikbhattacharya.com/blog/chatgpt-5-5-vs-claude-opus-4-7-vs-gemini-3-1-pro) — OpenAI GPT-5.5 / ChatGPT 5.5 comparison with Codex benchmarks, pricing, and model-picking advice vs Claude Opus 4.7 and Gemini 3.1 Pro
 - [How to Automate Excel Tasks with Microsoft Copilot](https://sagnikbhattacharya.com/blog/copilot-automate-tasks) — Copilot automation
 - [How to Use Microsoft Copilot for Data Analysis in Excel](https://sagnikbhattacharya.com/blog/copilot-data-analysis) — AI-powered analysis
 - [Copilot in Excel With Python: Forecasting, Risk Analysis, and Deeper Reasoning](https://sagnikbhattacharya.com/blog/copilot-excel-python-analysis) — Advanced analysis

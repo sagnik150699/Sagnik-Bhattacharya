@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-adsense-account" content="ca-pub-1443974359047569">
-  <title>GPT-5.5 and GPT-5.5 Codex Explained: Benchmarks, Pricing, and How It Compares to Claude and Gemini (2026)</title>
-  <meta name="description" content="OpenAI released GPT-5.5 (codename 'Spud') on 23 April 2026 — the first fully retrained base model since GPT-4.5. A practical tutorial on the model, GPT-5.5 in Codex, real benchmarks, pricing, and how it stacks up against Claude Opus 4.6 and Gemini 3.1 Pro.">
-  <meta name="keywords" content="GPT-5.5, GPT 5.5 Codex, GPT-5.5 Spud, GPT-5.5 benchmarks, GPT-5.5 pricing, GPT-5.5 vs Claude, GPT-5.5 vs Gemini, OpenAI Codex 2026, Codex SDK, agentic coding, Sagnik Bhattacharya, Coding Liquids">
+  <title>ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro: Benchmarks, Pricing, and Codex (2026)</title>
+  <meta name="description" content="ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro: real GPT-5.5 Codex benchmarks, pricing, context limits, coding wins, and which model to use in 2026.">
+  <meta name="keywords" content="ChatGPT 5.5, GPT-5.5, GPT 5.5 Codex, ChatGPT 5.5 vs Claude Opus 4.7, GPT-5.5 vs Claude Opus 4.7, Claude Opus 4.7, GPT-5.5 vs Gemini 3.1 Pro, Gemini 3.1 Pro, GPT-5.5 benchmarks, GPT-5.5 pricing, OpenAI Codex 2026, Codex SDK, agentic coding, Sagnik Bhattacharya, Coding Liquids">
   <meta name="author" content="Sagnik Bhattacharya">
   <meta name="robots" content="index, follow">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -14,38 +14,38 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#3E2723">
-  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/gpt-5-5-codex-comparison">
-  <meta property="og:title" content="GPT-5.5 and GPT-5.5 Codex Explained: Benchmarks, Pricing, and How It Compares to Claude and Gemini (2026)">
-  <meta property="og:description" content="OpenAI released GPT-5.5 (codename 'Spud') on 23 April 2026 — the first fully retrained base model since GPT-4.5. A practical tutorial on the model, GPT-5.5 in Codex, real benchmarks, pricing, and how it stacks up against Claude Opus 4.6 and Gemini 3.1 Pro.">
+  <link rel="canonical" href="https://sagnikbhattacharya.com/blog/chatgpt-5-5-vs-claude-opus-4-7-vs-gemini-3-1-pro">
+  <meta property="og:title" content="ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro: Benchmarks, Pricing, and Codex (2026)">
+  <meta property="og:description" content="ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro: real GPT-5.5 Codex benchmarks, pricing, context limits, coding wins, and which model to use in 2026.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/gpt-5-5-codex-comparison">
-  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/gpt-5-5-codex-comparison-sagnik-bhattacharya-coding-liquids.jpg">
-  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/gpt-5-5-codex-comparison-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:url" content="https://sagnikbhattacharya.com/blog/chatgpt-5-5-vs-claude-opus-4-7-vs-gemini-3-1-pro">
+  <meta property="og:image" content="https://sagnikbhattacharya.com/blog/images/chatgpt-5-5-vs-claude-opus-4-7-vs-gemini-3-1-pro-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta property="og:image:secure_url" content="https://sagnikbhattacharya.com/blog/images/chatgpt-5-5-vs-claude-opus-4-7-vs-gemini-3-1-pro-sagnik-bhattacharya-coding-liquids.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Coding Liquids tutorial cover featuring Sagnik Bhattacharya for GPT-5.5 and GPT-5.5 Codex explained, showing an OpenAI GPT-5.5 model comparison dashboard.">
+  <meta property="og:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro: Benchmarks, Pricing, and Codex (2026), with OpenAI model comparison dashboards, Codex workflow cards, and benchmark visuals.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/chatgpt-5-5-vs-claude-opus-4-7-vs-gemini-3-1-pro-sagnik-bhattacharya-coding-liquids.jpg">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro: Benchmarks, Pricing, and Codex (2026), with OpenAI model comparison dashboards, Codex workflow cards, and benchmark visuals.">
   <meta property="og:locale" content="en_GB">
   <meta property="og:site_name" content="Sagnik Bhattacharya">
   <meta property="article:author" content="Sagnik Bhattacharya">
   <meta property="article:published_time" content="2026-04-24">
-  <meta property="article:modified_time" content="2026-04-24">
+  <meta property="article:modified_time" content="2026-04-25">
   <meta property="article:section" content="AI &amp; Automation">
   <meta property="article:tag" content="GPT-5.5">
   <meta property="article:tag" content="OpenAI Codex">
   <meta property="article:tag" content="AI Coding">
   <meta property="article:tag" content="Benchmarks">
   <meta property="article:tag" content="Model Comparison">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="GPT-5.5 and GPT-5.5 Codex Explained: Benchmarks, Pricing, and How It Compares to Claude and Gemini (2026)">
-  <meta name="twitter:description" content="OpenAI released GPT-5.5 (codename 'Spud') on 23 April 2026 — the first fully retrained base model since GPT-4.5. Benchmarks, pricing, Codex details, and honest comparisons.">
-  <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/gpt-5-5-codex-comparison-sagnik-bhattacharya-coding-liquids.jpg">
-  <meta name="twitter:image:alt" content="Coding Liquids tutorial cover featuring Sagnik Bhattacharya for GPT-5.5 and GPT-5.5 Codex explained.">
+  <meta name="twitter:title" content="ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro: Benchmarks, Pricing, and Codex (2026)">
+  <meta name="twitter:description" content="ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro, with GPT-5.5 Codex benchmarks, pricing, and model-picking advice.">
   <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"GPT-5.5 and GPT-5.5 Codex Explained: Benchmarks, Pricing, and How It Compares to Claude and Gemini (2026)","description":"OpenAI released GPT-5.5 (codename 'Spud') on 23 April 2026 — the first fully retrained base model since GPT-4.5. A practical tutorial on the model, GPT-5.5 in Codex, real benchmarks, pricing, and how it stacks up against Claude Opus 4.6 and Gemini 3.1 Pro.","datePublished":"2026-04-24","dateModified":"2026-04-24","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/gpt-5-5-codex-comparison"},"image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/gpt-5-5-codex-comparison-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/gpt-5-5-codex-comparison-sagnik-bhattacharya-coding-liquids.jpg","width":1200,"height":630,"caption":"GPT-5.5 and GPT-5.5 Codex Explained: Benchmarks, Pricing, and How It Compares to Claude and Gemini (2026) by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}},"keywords":"GPT-5.5, GPT 5.5 Codex, GPT-5.5 Spud, GPT-5.5 benchmarks, GPT-5.5 pricing, GPT-5.5 vs Claude, GPT-5.5 vs Gemini, OpenAI Codex 2026, Codex SDK, agentic coding, Sagnik Bhattacharya, Coding Liquids","articleSection":"AI & Automation"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro: Benchmarks, Pricing, and Codex (2026)","description":"ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro: real GPT-5.5 Codex benchmarks, pricing, context limits, coding wins, and which model to use in 2026.","datePublished":"2026-04-24","dateModified":"2026-04-25","inLanguage":"en-GB","author":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sagnikbhattacharya.com/blog/chatgpt-5-5-vs-claude-opus-4-7-vs-gemini-3-1-pro"},"keywords":"ChatGPT 5.5, GPT-5.5, GPT 5.5 Codex, ChatGPT 5.5 vs Claude Opus 4.7, GPT-5.5 vs Claude Opus 4.7, Claude Opus 4.7, GPT-5.5 vs Gemini 3.1 Pro, Gemini 3.1 Pro, GPT-5.5 benchmarks, GPT-5.5 pricing, OpenAI Codex 2026, Codex SDK, agentic coding, Sagnik Bhattacharya, Coding Liquids","articleSection":"AI \u0026 Automation","image":{"@type":"ImageObject","url":"https://sagnikbhattacharya.com/blog/images/chatgpt-5-5-vs-claude-opus-4-7-vs-gemini-3-1-pro-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/chatgpt-5-5-vs-claude-opus-4-7-vs-gemini-3-1-pro-sagnik-bhattacharya-coding-liquids.jpg","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","width":1200,"height":630,"caption":"ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro: Benchmarks, Pricing, and Codex (2026) by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"},"publisher":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"},"copyrightHolder":{"@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com"}}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Coding Liquids","url":"https://codingliquids.com","logo":{"@type":"ImageObject","url":"https://www.codingliquids.com/logo.png?v=13"},"founder":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"GPT-5.5 and GPT-5.5 Codex Explained: Benchmarks, Pricing, and How It Compares to Claude and Gemini (2026)","item":"https://sagnikbhattacharya.com/blog/gpt-5-5-codex-comparison"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"GPT-5.5 and GPT-5.5 Codex Explained: Benchmarks, Pricing, and How It Compares to Claude and Gemini (2026)","url":"https://sagnikbhattacharya.com/blog/images/gpt-5-5-codex-comparison-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/gpt-5-5-codex-comparison-sagnik-bhattacharya-coding-liquids.jpg","caption":"GPT-5.5 and GPT-5.5 Codex Explained: Benchmarks, Pricing, and How It Compares to Claude and Gemini (2026) by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sagnikbhattacharya.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sagnikbhattacharya.com/blog"},{"@type":"ListItem","position":3,"name":"ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro: Benchmarks, Pricing, and Codex (2026)","item":"https://sagnikbhattacharya.com/blog/chatgpt-5-5-vs-claude-opus-4-7-vs-gemini-3-1-pro"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro: Benchmarks, Pricing, and Codex (2026)","url":"https://sagnikbhattacharya.com/blog/images/chatgpt-5-5-vs-claude-opus-4-7-vs-gemini-3-1-pro-sagnik-bhattacharya-coding-liquids.jpg","contentUrl":"https://sagnikbhattacharya.com/blog/images/chatgpt-5-5-vs-claude-opus-4-7-vs-gemini-3-1-pro-sagnik-bhattacharya-coding-liquids.jpg","caption":"ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro: Benchmarks, Pricing, and Codex (2026) by Sagnik Bhattacharya for Coding Liquids","creditText":"Sagnik Bhattacharya for Coding Liquids","license":"https://www.codingliquids.com/termsofuse","acquireLicensePage":"https://sagnikbhattacharya.com/contact","copyrightNotice":"© Sagnik Bhattacharya and Coding Liquids. All rights reserved.","creator":{"@type":"Person","name":"Sagnik Bhattacharya","url":"https://sagnikbhattacharya.com"}}</script>
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -75,15 +75,15 @@
       "name": "How much does GPT-5.5 cost to use through the API?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Per the OpenAI announcement, GPT-5.5 will be available in the Responses and Chat Completions APIs at $5 per 1 million input tokens and $30 per 1 million output tokens, with a 1 million token context window. GPT-5.5 Pro costs $30 per 1M input and $180 per 1M output — roughly 6x the base model price, for workloads where maximum accuracy matters more than cost. In Codex usage, GPT-5.5 consumes fewer tokens than GPT-5.4 for the same tasks, so the effective cost per completed task is lower even at identical token prices."
+        "text": "GPT-5.5 is available in the Responses and Chat Completions APIs at $5 per 1 million input tokens and $30 per 1 million output tokens, with a 1 million token context window. GPT-5.5 Pro costs $30 per 1M input and $180 per 1M output — roughly 6x the base model price, for workloads where maximum accuracy matters more than cost. In Codex usage, GPT-5.5 consumes fewer tokens than GPT-5.4 for the same tasks, so the effective cost per completed task is lower even at identical token prices."
       }
     },
     {
       "@type": "Question",
-      "name": "How does GPT-5.5 compare to Claude Opus 4.6 and Gemini 3.1 Pro for coding?",
+      "name": "How does GPT-5.5 compare to Claude Opus 4.7 and Gemini 3.1 Pro for coding?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "On headline coding numbers, GPT-5.5 leads on agentic workflows — 82.7% on Terminal-Bench 2.0 and 58.6% on SWE-Bench Pro through the Codex variant. Claude Opus 4.6 sits at 80.8% on SWE-bench Verified and is frequently preferred for code readability and long-context coherence. Gemini 3.1 Pro scores 80.6% on SWE-bench Verified and wins when a fix requires understanding many files at once, thanks to its larger effective context. Short answer: GPT-5.5 for autonomous multi-step work in Codex, Claude for review-quality code, Gemini for sprawling legacy repos."
+        "text": "OpenAI's launch comparison puts GPT-5.5 ahead on Terminal-Bench 2.0 at 82.7%, while Claude Opus 4.7 leads the same table on SWE-Bench Pro at 64.3%. Gemini 3.1 Pro trails those two on the coding rows but is much cheaper at standard API rates and remains attractive for large-context, cost-sensitive work. Short answer: GPT-5.5 Codex for terminal-heavy autonomous coding, Claude Opus 4.7 for hard code fixes and review-quality output, Gemini 3.1 Pro for budget-aware large-context workflows."
       }
     },
     {
@@ -114,7 +114,7 @@
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "url": "https://sagnikbhattacharya.com/blog/gpt-5-5-codex-comparison",
+  "url": "https://sagnikbhattacharya.com/blog/chatgpt-5-5-vs-claude-opus-4-7-vs-gemini-3-1-pro",
   "speakable": {
     "@type": "SpeakableSpecification",
     "cssSelector": [
@@ -143,7 +143,7 @@
   </nav>
   <div class="page-hero" style="padding-bottom:20px">
     <div class="container">
-      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">GPT-5.5 and GPT-5.5 Codex Explained: Benchmarks, Pricing, and How It Compares to Claude and Gemini (2026)</span></nav>
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span aria-current="page">ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro: Benchmarks, Pricing, and Codex (2026)</span></nav>
     </div>
   </div>
   <section style="padding-top:0">
@@ -151,7 +151,7 @@
       <article class="blog-post">
         <div class="blog-post-header">
           <div class="blog-post-tags"><span class="blog-post-tag">OpenAI</span></div>
-          <h1 class="blog-post-title">GPT-5.5 and GPT-5.5 Codex Explained: Benchmarks, Pricing, and How It Compares to Claude and Gemini (2026)</h1>
+          <h1 class="blog-post-title">ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro: Benchmarks, Pricing, and Codex (2026)</h1>
           <div class="blog-post-meta">
             <a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya">
               <img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48">
@@ -162,12 +162,16 @@
           </div>
         </div>
         <figure class="blog-cover">
-          <img src="/blog/images/gpt-5-5-codex-comparison-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids tutorial cover featuring Sagnik Bhattacharya for GPT-5.5 and GPT-5.5 Codex explained, showing an OpenAI GPT-5.5 model comparison dashboard." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
-          <figcaption class="sr-only">Coding Liquids tutorial cover featuring Sagnik Bhattacharya for GPT-5.5 and GPT-5.5 Codex explained, showing an OpenAI GPT-5.5 model comparison dashboard.</figcaption>
+          <img src="/blog/images/chatgpt-5-5-vs-claude-opus-4-7-vs-gemini-3-1-pro-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro: Benchmarks, Pricing, and Codex (2026), with OpenAI model comparison dashboards, Codex workflow cards, and benchmark visuals." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption class="sr-only">Coding Liquids blog cover featuring Sagnik Bhattacharya for ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro: Benchmarks, Pricing, and Codex (2026), with OpenAI model comparison dashboards, Codex workflow cards, and benchmark visuals.</figcaption>
         </figure>
         <div class="blog-post-content">
 <p>On 23 April 2026, OpenAI shipped <a href="https://openai.com/index/introducing-gpt-5-5/" target="_blank" rel="noopener">GPT-5.5</a> — internally codenamed <strong>Spud</strong> — and made it available the same day inside ChatGPT and Codex. Unlike the 5.2, 5.3, and 5.4 releases that preceded it, GPT-5.5 is not a post-training refinement of GPT-5; it is the first fully retrained base model since GPT-4.5. That distinction matters because the improvements are broad rather than task-specific: agentic coding, computer use, knowledge work, and early scientific research all move forward together.</p>
-<p>This tutorial is written for someone who wants a single, honest reference on GPT-5.5 and its Codex deployment. By the end of it you will know what changed versus GPT-5.4, what the Codex variant actually does differently, how the published benchmark numbers compare against Claude Opus 4.6 and Gemini 3.1 Pro, where pricing lands, and which of the three families deserves your default slot for different kinds of work. I have a companion guide on <a href="/blog/copilot-agent-mode-vscode">GitHub Copilot Agent Mode in VS Code</a> if you want the IDE-side story, and <a href="/blog/chatgpt-vs-claude-vs-copilot-vs-gemini-excel">ChatGPT vs Claude vs Copilot vs Gemini for Excel</a> for the non-coding comparison.</p>
+<p>This tutorial is written for someone who wants a single, honest reference on GPT-5.5 and its Codex deployment. By the end of it you will know what changed versus GPT-5.4, what the Codex variant actually does differently, how the published benchmark numbers compare against Claude Opus 4.7 and Gemini 3.1 Pro, where pricing lands, and which of the three families deserves your default slot for different kinds of work. I have a companion guide on <a href="/blog/copilot-agent-mode-vscode">GitHub Copilot Agent Mode in VS Code</a> if you want the IDE-side story, and <a href="/blog/chatgpt-vs-claude-vs-copilot-vs-gemini-excel">ChatGPT vs Claude vs Copilot vs Gemini for Excel</a> for the non-coding comparison.</p>
+
+<h2>Quick comparison: ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro</h2>
+<p>Short version: GPT-5.5 Codex is the safest default for autonomous coding and terminal-heavy work, Claude Opus 4.7 has the strongest public SWE-Bench Pro number in the current comparison, and Gemini 3.1 Pro is the value pick when you need strong reasoning with cheaper tokens and a large context window.</p>
+<div class="blog-table-wrap"><table><thead><tr><th scope="col">Model</th><th scope="col">Best for</th><th scope="col">Benchmark signal</th><th scope="col">Standard API price</th></tr></thead><tbody><tr><td>ChatGPT 5.5 / GPT-5.5 Codex</td><td>Autonomous coding, terminal tasks, Codex workflows</td><td>82.7% Terminal-Bench 2.0; 58.6% SWE-Bench Pro</td><td>$5 input / $30 output per 1M tokens; Pro is $30 / $180</td></tr><tr><td>Claude Opus 4.7</td><td>Hard code fixes, code review, sustained agentic work</td><td>64.3% SWE-Bench Pro; 69.4% Terminal-Bench 2.0 in OpenAI's comparison table</td><td>$5 input / $25 output per 1M tokens</td></tr><tr><td>Gemini 3.1 Pro</td><td>Cost-sensitive large-context work and Google-stack workflows</td><td>54.2% SWE-Bench Pro; 68.5% Terminal-Bench 2.0 in OpenAI's comparison table</td><td>$2 input / $12 output per 1M tokens for prompts up to 200K; higher above 200K</td></tr></tbody></table></div>
 
 <div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Flutter and Excel with AI — <a href="/courses">explore my courses</a> if you want structured learning.</span></div><h2>What GPT-5.5 actually is</h2>
 <p>GPT-5.5 is positioned by OpenAI as their "smartest and most intuitive to use model" at release. The framing in the announcement is worth paying attention to: it is sold less as a reasoning step-change and more as a <em>faster, sharper thinker for fewer tokens</em>. The model matches GPT-5.4's per-token latency in production serving while producing higher-quality output and consuming fewer output tokens to complete the same task. That combination — equal latency, higher quality, lower token count — is what makes the upgrade economically meaningful rather than just optically impressive.</p>
@@ -234,34 +238,30 @@ console.log(result.diff);           // full change diff, review before merging</
 </ul>
 <p>Two numbers that do <em>not</em> appear on the public slide but matter just as much: token efficiency (GPT-5.5 uses fewer output tokens than GPT-5.4 for identical tasks, which lowers per-task cost at identical per-token pricing), and per-token latency (matched to GPT-5.4, so the upgrade does not slow down production serving).</p>
 
-<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>GPT-5.5 vs Claude Opus 4.6 vs Gemini 3.1 Pro</h2>
-<p>Three frontier model families are live in April 2026: OpenAI's GPT-5.5, Anthropic's Claude Opus 4.6 (with Sonnet 4.6 as the cheaper sibling), and Google's Gemini 3.1 Pro. Benchmarks alone rarely pick a winner, but they do frame the tradeoffs.</p>
+<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>ChatGPT 5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro</h2>
+<p>Three frontier model families are live in April 2026: OpenAI's GPT-5.5, Anthropic's Claude Opus 4.7, and Google's Gemini 3.1 Pro. Benchmarks alone rarely pick a winner, but this comparison is much clearer if you separate autonomous terminal work, hard GitHub issue resolution, long-context reading, and token economics.</p>
 
 <h3>Coding benchmarks side by side</h3>
-<ul>
-  <li><strong>SWE-bench Verified (real GitHub issues).</strong> Claude Opus 4.6 at 80.8%, Gemini 3.1 Pro at 80.6%, Claude Sonnet 4.6 at 79.6%. The three are within a percentage point of each other on this benchmark.</li>
-  <li><strong>SWE-Bench Pro (harder real-world variant, multi-language).</strong> GPT-5.5 Codex at 58.6% — the only frontier model with a public number on this newer, harder benchmark at the time of writing.</li>
-  <li><strong>Terminal-Bench 2.0.</strong> GPT-5.5 at 82.7%, state-of-the-art at release. Anthropic and Google have not published directly comparable numbers on this specific benchmark.</li>
-</ul>
-<p>The quick takeaway: on the traditional SWE-bench Verified number the three models are effectively tied. On agentic and terminal-based coding — where you are running an autonomous loop across shells, tools, and files — GPT-5.5 Codex has the cleanest public lead.</p>
+<div class="blog-table-wrap"><table><thead><tr><th scope="col">Benchmark</th><th scope="col">GPT-5.5 / Codex</th><th scope="col">Claude Opus 4.7</th><th scope="col">Gemini 3.1 Pro</th><th scope="col">What it means</th></tr></thead><tbody><tr><td>SWE-Bench Pro</td><td>58.6%</td><td>64.3%</td><td>54.2%</td><td>Opus 4.7 has the strongest public hard-code-fix score in OpenAI's launch table.</td></tr><tr><td>Terminal-Bench 2.0</td><td>82.7%</td><td>69.4%</td><td>68.5%</td><td>GPT-5.5 is the stronger terminal and DevOps automation choice.</td></tr><tr><td>GDPval</td><td>84.9%</td><td>80.3%</td><td>67.3%</td><td>GPT-5.5 has the strongest professional knowledge-work signal.</td></tr><tr><td>BrowseComp</td><td>84.4%</td><td>79.3%</td><td>85.9%</td><td>Gemini edges the base model on web research; GPT-5.5 Pro leads at 90.1%.</td></tr></tbody></table></div>
+<p>The honest takeaway is not "GPT-5.5 wins everything." Claude Opus 4.7 is now the stronger published pick for hard SWE-Bench Pro coding fixes, GPT-5.5 has the cleanest lead for terminal-heavy autonomous work, and Gemini 3.1 Pro stays competitive because it gives teams a lower token bill with a large context window.</p>
 
 <h3>Where each family wins in practice</h3>
 <ul>
-  <li><strong>GPT-5.5 / Codex — agentic and multi-step work.</strong> If the task is "resolve this GitHub issue", "migrate this service from Express to Fastify", or "run the full release checklist", GPT-5.5 Codex is the current default. The 7+ hour autonomous budget, structured SDK, and top Terminal-Bench number tilt this way.</li>
-  <li><strong>Claude Opus 4.6 — review-quality code and reasoning.</strong> Opus produces code that is cleaner to read and more consistently commented. For work where a human has to <em>review</em> what the AI wrote (regulated industries, public SDKs, financial code), Opus is still my first reach. It is also generally stronger on long-context coherence — it holds a plot across 200K+ tokens more reliably.</li>
-  <li><strong>Gemini 3.1 Pro — sprawling legacy codebases.</strong> Gemini's effective long-context advantage shows up most on SWE-bench when the fix requires reading many files simultaneously to understand the change. If you are feeding a whole enterprise monorepo and asking for a cross-cutting fix, Gemini's context handling tends to be the most forgiving.</li>
+  <li><strong>GPT-5.5 / Codex — agentic and multi-step work.</strong> If the task is "resolve this GitHub issue", "migrate this service from Express to Fastify", or "run the full release checklist", GPT-5.5 Codex is still the cleanest default. The integrated Codex workflow, structured SDK, and top Terminal-Bench number tilt this way.</li>
+  <li><strong>Claude Opus 4.7 — hard code fixes and review-quality output.</strong> Opus 4.7 is the model I would now test first when the job is a difficult bug fix, a public SDK change, or code a human will review line by line. It has the strongest SWE-Bench Pro number in the current comparison and Anthropic positions it specifically for sustained coding and agentic work.</li>
+  <li><strong>Gemini 3.1 Pro — cost-sensitive large-context work.</strong> Gemini's value is less about winning the coding headline and more about being cheap enough to run across a lot of context. If you are feeding long documents, large repos, or batch analysis jobs through Google infrastructure, the pricing and 1M-context family make it hard to ignore.</li>
 </ul>
-<p>On cost, Claude Opus 4.6 is the most expensive of the three — you are paying roughly 2.5x Gemini 3.1 Pro for 0.2 points more on SWE-bench Verified. This is why many teams run Claude Sonnet 4.6 as the default (it handles 80%+ of coding tasks at Opus quality) and only escalate to Opus on hard reviews.</p>
+<p>One more nuance: Claude Opus 4.7 is no longer just the "expensive quality" option. At $5 input and $25 output per 1M tokens, it matches GPT-5.5's standard input price and undercuts GPT-5.5 on output tokens. The real decision is whether you need Codex's integrated agent loop, Opus's stronger hard-code-fix signal, or Gemini's lower large-context cost.</p>
 
 <h2>Pricing comparison</h2>
 <p>Rough per-token pricing, as of the GPT-5.5 launch:</p>
 <ul>
-  <li><strong>GPT-5.5 (base).</strong> $5 / 1M input, $30 / 1M output. 1M token context.</li>
-  <li><strong>GPT-5.5 Pro.</strong> $30 / 1M input, $180 / 1M output. 1M token context. Use sparingly.</li>
+  <li><strong>GPT-5.5 (base).</strong> $5 / 1M input, $30 / 1M output in the API, with a 1M token context window. In Codex, GPT-5.5 runs with a 400K context window.</li>
+  <li><strong>GPT-5.5 Pro.</strong> $30 / 1M input, $180 / 1M output. Use it only when the accuracy gain is worth the 6x output price.</li>
   <li><strong>GPT-5 / GPT-5.4 (for reference).</strong> $2.50 / 1M input, $15 / 1M output — still cheaper than 5.5, still the right call for bulk workloads where 5.5's quality uplift does not justify double the cost.</li>
-  <li><strong>Claude Opus 4.6.</strong> Premium pricing; positioned above GPT-5.5 on input, similar on output.</li>
-  <li><strong>Claude Sonnet 4.6.</strong> Mid-tier pricing, often the economic winner for coding at frontier quality.</li>
-  <li><strong>Gemini 3.1 Pro.</strong> The cheapest of the three frontier families for the quality level, which is why it is often the default for large-scale batch jobs.</li>
+  <li><strong>Claude Opus 4.7.</strong> $5 / 1M input, $25 / 1M output, with prompt caching and batch processing discounts available.</li>
+  <li><strong>Claude Sonnet 4.6.</strong> Mid-tier pricing, still the more economical Claude default for everyday coding if you do not need Opus 4.7.</li>
+  <li><strong>Gemini 3.1 Pro.</strong> $2 / 1M input and $12 / 1M output for prompts up to 200K tokens; $4 input and $18 output above 200K. Batch and Flex cut the standard rates in half.</li>
 </ul>
 <p>Two practical notes on pricing. First, prompt caching on GPT-5.5 gives roughly 90% input-token savings on repeated context — this is material when you are running Codex against the same repo many times per day. Second, GPT-5.5 genuinely consumes fewer output tokens than 5.4 for the same task, so the <em>effective</em> per-task cost is lower than the per-token price suggests. A realistic estimate: GPT-5.5 costs about 30–40% more per task than 5.4, not the full 100% implied by the input-token sticker price.</p>
 
@@ -272,7 +272,7 @@ console.log(result.diff);           // full change diff, review before merging</
 <p>You do not have to pick one model for everything. Most engineering teams end up with two or three in rotation, routed by task. A decision tree that has held up through GPT-5.5's first days:</p>
 <ol>
   <li><strong>Is the task autonomous coding inside a repo (resolve issue, migrate service, open PR)?</strong> → GPT-5.5 via Codex. Use the SDK, cap <code>maxDurationMinutes</code>, review the diff.</li>
-  <li><strong>Is the task producing code a human will review line-by-line (public SDK, regulated codepath, shared library)?</strong> → Claude Opus 4.6 or Sonnet 4.6. Better code readability and comment density.</li>
+  <li><strong>Is the task producing code a human will review line-by-line (public SDK, regulated codepath, shared library)?</strong> → Claude Opus 4.7 first, Sonnet 4.6 when cost matters more. Better hard-fix signal and strong review-quality output.</li>
   <li><strong>Is the task understanding a large, unfamiliar codebase to make one cross-cutting fix?</strong> → Gemini 3.1 Pro. Long-context behaviour is still the most forgiving at size.</li>
   <li><strong>Is the task high-stakes reasoning (scientific analysis, difficult maths, multi-hop investigation with real consequences)?</strong> → GPT-5.5 Pro. Accept the 6x price because being right is the whole point.</li>
   <li><strong>Is the task bulk and cost-sensitive (document summarisation, lightweight classification, background pipelines)?</strong> → GPT-5.4, Claude Sonnet 4.6, or Gemini 3.1 Pro depending on which API you are already paying for. Do not pay GPT-5.5 prices for work a cheaper model solves equally well.</li>
@@ -297,10 +297,10 @@ console.log(result.diff);           // full change diff, review before merging</
 <p>GPT-5.5 in Codex is the same underlying base model with a Codex-specific post-training pass layered on top. The base GPT-5.5 already improved on agentic coding versus GPT-5.4; the Codex variant adds coding-specific reinforcement, a longer autonomous-action budget (up to 7+ hours for complex refactors), and tighter integration with the Codex SDK, VS Code extension, Terminal CLI, and cloud async environments. You do not pick between the two manually — Codex routes automatically to the Codex-tuned variant when you are inside Codex surfaces.</p>
 
 <h3>How much does GPT-5.5 cost to use through the API?</h3>
-<p>Per the OpenAI announcement, GPT-5.5 will be available in the Responses and Chat Completions APIs at $5 per 1 million input tokens and $30 per 1 million output tokens, with a 1 million token context window. GPT-5.5 Pro costs $30 per 1M input and $180 per 1M output — roughly 6x the base model price, for workloads where maximum accuracy matters more than cost. In Codex usage, GPT-5.5 consumes fewer tokens than GPT-5.4 for the same tasks, so the effective cost per completed task is lower even at identical token prices.</p>
+<p>GPT-5.5 is available in the Responses and Chat Completions APIs at $5 per 1 million input tokens and $30 per 1 million output tokens, with a 1 million token context window. GPT-5.5 Pro costs $30 per 1M input and $180 per 1M output — roughly 6x the base model price, for workloads where maximum accuracy matters more than cost. In Codex usage, GPT-5.5 consumes fewer tokens than GPT-5.4 for the same tasks, so the effective cost per completed task is lower even at identical token prices.</p>
 
-<h3>How does GPT-5.5 compare to Claude Opus 4.6 and Gemini 3.1 Pro for coding?</h3>
-<p>On headline coding numbers, GPT-5.5 leads on agentic workflows — 82.7% on Terminal-Bench 2.0 and 58.6% on SWE-Bench Pro through the Codex variant. Claude Opus 4.6 sits at 80.8% on SWE-bench Verified and is frequently preferred for code readability and long-context coherence. Gemini 3.1 Pro scores 80.6% on SWE-bench Verified and wins when a fix requires understanding many files at once, thanks to its larger effective context. Short answer: GPT-5.5 for autonomous multi-step work in Codex, Claude for review-quality code, Gemini for sprawling legacy repos.</p>
+<h3>How does GPT-5.5 compare to Claude Opus 4.7 and Gemini 3.1 Pro for coding?</h3>
+<p>OpenAI's launch comparison puts GPT-5.5 ahead on Terminal-Bench 2.0 at 82.7%, while Claude Opus 4.7 leads the same table on SWE-Bench Pro at 64.3%. Gemini 3.1 Pro trails those two on the coding rows but is much cheaper at standard API rates and remains attractive for large-context, cost-sensitive work. Short answer: GPT-5.5 Codex for terminal-heavy autonomous coding, Claude Opus 4.7 for hard code fixes and review-quality output, Gemini 3.1 Pro for budget-aware large-context workflows.</p>
 
 <h3>Do I need GPT-5.5 Pro, or is the base GPT-5.5 enough?</h3>
 <p>Base GPT-5.5 is enough for almost all coding, knowledge work, and agentic tasks — it is the model that scored 82.7% on Terminal-Bench 2.0 and 84.9% on GDPval. Reach for GPT-5.5 Pro only when the task is high-stakes scientific reasoning, difficult mathematics, or a multi-step agentic job where one wrong step costs real time or money. At 6x the output price, Pro is a poor default. Start with base GPT-5.5, promote to Pro only when you can point at a specific failure it would have prevented.</p>
@@ -308,6 +308,9 @@ console.log(result.diff);           // full change diff, review before merging</
 <h2>Sources and Further Reading</h2>
 <ul>
   <li><a href="https://openai.com/index/introducing-gpt-5-5/" target="_blank" rel="noopener">Introducing GPT-5.5 — OpenAI (23 April 2026)</a></li>
+  <li><a href="https://www.anthropic.com/claude/opus?s=04" target="_blank" rel="noopener">Claude Opus 4.7 — Anthropic (16 April 2026)</a></li>
+  <li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/" target="_blank" rel="noopener">Gemini 3.1 Pro — Google (19 February 2026)</a></li>
+  <li><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Gemini Developer API pricing — Google AI for Developers</a></li>
   <li><a href="https://techcrunch.com/2026/04/23/openai-chatgpt-gpt-5-5-ai-model-superapp/" target="_blank" rel="noopener">OpenAI releases GPT-5.5, bringing company one step closer to an AI 'super app' — TechCrunch</a></li>
   <li><a href="https://blogs.nvidia.com/blog/openai-codex-gpt-5-5-ai-agents/" target="_blank" rel="noopener">OpenAI's New GPT-5.5 Powers Codex on NVIDIA Infrastructure — NVIDIA Blog</a></li>
   <li><a href="https://fortune.com/2026/04/23/openai-releases-gpt-5-5/" target="_blank" rel="noopener">OpenAI launches GPT-5.5 just weeks after GPT-5.4 as AI race accelerates — Fortune</a></li>
