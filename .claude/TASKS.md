@@ -72,6 +72,7 @@ Resume flow: read this file → jump straight to the paths below. Do not re-expl
 6. **Cross-check before creating.** Grep existing filenames/titles to avoid near-duplicates.
 7. **Delete cascade.** When a tutorial is deleted, also remove from: sitemap.xml, feed.xml, llms.txt, llms-full.txt, blog.html grid + add firebase.json 410/redirect.
 8. **Modified time placement.** `dateModified` goes in BlogPosting JSON-LD (for search snippet freshness) and `sitemap.xml` `<lastmod>`. Do NOT add `article:modified_time` meta tags — low value.
+9. **Hub-page sync on every new post.** When a new tutorial is added, also add it to the relevant hub in [scripts/generate_hub_pages.py](scripts/generate_hub_pages.py) `HUBS` dict (under the right section) and re-run the script. Hubs: `excel-ai-guide` (AI + Excel), `excel-formulas-guide` (Excel formulas/pivots/Power Query), `flutter-guide` (Flutter), `seedance-guide` (Seedance 2.0). If a post fits no hub, no action — but check first. The 4 hub cards in [public/blog.html](public/blog.html) are interleaved by date with normal posts; do NOT pin them to the top of the grid.
 
 ---
 
