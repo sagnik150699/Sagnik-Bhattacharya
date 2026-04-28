@@ -1,4 +1,4 @@
-# Project Tasks — AdSense Remediation & Tutorial Conversion
+# Project Tasks — Build-This-Thing Tutorial Quality Pass
 
 > **Resume command for next session:** "open tasks.md" (or "continue tasks from `.claude/TASKS.md`")
 > **Workflow:** Read this file → do first unchecked task → flip `[ ]` → `[x]` → continue until session ends or user stops.
@@ -6,447 +6,178 @@
 
 ## Why This Exists
 
-Google AdSense rejected the site on 2026-04-17 for "Low value content" (thin pages).
-Goal: delete thin pages, convert surviving content into substantive beginner tutorials, interlink everything through the `gemma-4-vscode.html` hub, then request AdSense re-review.
+Four problems to fix across the 10 "build-this-thing in Excel" tutorials:
 
-**Vocabulary:** call every content page a **tutorial** — never "blog". The URL path `/blog/` stays (SEO cost to rename), but titles, H1s, prose, and this task file all say "tutorial".
+1. **Step-by-step quality** — most of these should read like a workshop the user can follow with their fingers on the keyboard. They must be genuinely step-by-step, beginner-friendly, with concrete cell references, exact formulas, and screenshots-of-words descriptions where helpful. Reader must be able to actually create the project by following along.
+2. **CTA placement** — Instagram, YouTube, LinkedIn, and course CTAs are currently scattered throughout the entire tutorial, including near the bottom. Most readers do not reach the bottom. Move all four CTAs into the **first few paragraphs of the article** (intro region only — before the first `<h2>` step). They should appear naturally interleaved with the opening prose, not stacked into one block. After that opening region, the rest of the tutorial body must contain **zero** social/course CTAs.
+3. **Fact-check everything** — every formula, every menu path, every keyboard shortcut, every function name, every dialog label must be verified against current Excel. No invented function names, no legacy menu paths, no formulas that "look right" but error on edge cases. When in doubt, WebSearch the official Microsoft Support docs and the Anthropic / OpenAI / Google docs for any AI-related claims. Never trust memory alone.
+4. **Microsoft 365 target** — write for current Microsoft 365 Excel (desktop and web), not Excel 2016/2019. Use modern functions where they are clearly better: `XLOOKUP` over `VLOOKUP`, `FILTER` / `SORT` / `UNIQUE` for dynamic arrays, `LET` to name sub-expressions, `LAMBDA` only when it earns its keep, `XMATCH`, `TEXTJOIN`, `IFS`, `SWITCH`, `GROUPBY`, `PIVOTBY`, `TOCOL` / `TOROW`, `CHOOSECOLS` / `CHOOSEROWS`, `TAKE` / `DROP`. Use Excel Tables (`Ctrl+T`) by default. State "requires Microsoft 365" near the top of any tutorial that depends on a function not in Excel 2019. Do **not** suggest the user upgrade — just assume they have it and target that.
 
-## Key Files Index (everything I need to resume work)
+## The 10 Tutorials in Scope
 
-Resume flow: read this file → jump straight to the paths below. Do not re-explore the repo on resume.
+| # | Slug | Step-by-step status (audit) | CTA cleanup | Fact-check | M365 pass |
+| - | ---- | --------------------------- | ----------- | ---------- | --------- |
+| 1 | [attendance-tracker-excel](public/blog/attendance-tracker-excel.html) | ✅ already 8 numbered steps, beginner-friendly | [x] | [ ] | [ ] |
+| 2 | [amortization-schedule-excel](public/blog/amortization-schedule-excel.html) | ⚠️ 1 step header — re-audit, likely needs structure | [ ] | [ ] | [ ] |
+| 3 | [calendar-in-excel-automatic](public/blog/calendar-in-excel-automatic.html) | ⚠️ 0 step headers — re-audit | [ ] | [ ] | [ ] |
+| 4 | [dynamic-dashboards](public/blog/dynamic-dashboards.html) | ✅ 5 numbered steps (verify quality) | [ ] | [ ] | [ ] |
+| 5 | [financial-modelling](public/blog/financial-modelling.html) | ⚠️ 0 step headers — re-audit | [ ] | [ ] | [ ] |
+| 6 | [gantt-chart-excel](public/blog/gantt-chart-excel.html) | ⚠️ 0 step headers — re-audit | [ ] | [ ] | [ ] |
+| 7 | [inventory-tracker-excel](public/blog/inventory-tracker-excel.html) | ⚠️ 0 step headers — re-audit | [ ] | [ ] | [ ] |
+| 8 | [monthly-budget-spreadsheet-excel](public/blog/monthly-budget-spreadsheet-excel.html) | ⚠️ 0 step headers — re-audit | [ ] | [ ] | [ ] |
+| 9 | [project-tracker-excel](public/blog/project-tracker-excel.html) | ⚠️ 0 step headers — re-audit | [ ] | [ ] | [ ] |
+| 10 | [sales-pipeline-tracker-excel](public/blog/sales-pipeline-tracker-excel.html) | ⚠️ 0 step headers — re-audit | [ ] | [ ] | [ ] |
+
+**Reference for tone, structure, depth:** [attendance-tracker-excel.html](public/blog/attendance-tracker-excel.html) — copy this pattern. Numbered Step 1..N, exact cell addresses, exact formulas in `<pre><code>` blocks, "Common mistakes" section, "Related tutorials" footer.
+
+## Definition of Done — Step-By-Step Quality
+
+A tutorial passes the bar if a beginner who has used Excel only for grocery lists can finish the project by reading top to bottom. Specifically:
 
-### Task tracking / logs (create as needed)
+- Numbered `<h2>Step N — ...</h2>` headers covering the full build (typically 6–10 steps).
+- Each step says exactly **where to click / type** (e.g. "in cell `B2`, type", "Home → Conditional Formatting → New Rule").
+- Every formula is shown in a `<pre><code>` block with the exact target cell labelled.
+- A "What we are building" section near the top so the reader knows the end shape before starting.
+- A "Common mistakes" or "When this is not the right tool" section near the end.
+- A "Variations" or "Customise for your use case" table so the same skeleton works for adjacent use cases.
+- A full formula reference table at the end (like attendance-tracker has at line ~234).
 
-- [.claude/TASKS.md](.claude/TASKS.md) — this file (single source of truth for progress)
-- [reports/blog-seo-audit-2026-04-01.md](reports/blog-seo-audit-2026-04-01.md) — last audit (85 blockers, orphans)
-- `reports/word-counts-2026-04-17.md` — to be generated in Task 0.2
-- `reports/delete-vs-expand-shortlist.md` — to be generated in Task 0.3
-- `reports/deleted-tutorials-log.md` — append one line per deletion in Phase 1
-- `reports/conversions-log.md` — append one line per tutorial completed in Phase 2
+## Definition of Done — CTAs in the First Few Paragraphs
+
+All four CTAs (course, Instagram, YouTube, LinkedIn) live in the **opening region** of the tutorial — the section between the cover image and the first `<h2>`. They are interleaved naturally with the intro prose, not stacked together. A reader skimming the first screen of the article should see all four without any of them feeling crammed.
 
-### Source content
+A natural pattern that works:
 
-- [public/blog/](public/blog/) — all 141 tutorial HTML files (target of most work)
-- [public/blog/gemma-4-vscode.html](public/blog/gemma-4-vscode.html) — **THE HUB** (~200 visitors/day, template for tone/structure, must interlink with every converted tutorial)
-- [public/blog.html](public/blog.html) — tutorial grid (remove deleted posts, feature strong tutorials)
-- [BLOG_NAMES.txt](BLOG_NAMES.txt) — canonical intended post list (98 lines; sync after Phase 5)
+- Intro paragraph 1 (the hook — what we are building, why it matters).
+- Course inline card (`blog-inline-course` — points to `/courses#excel`).
+- Intro paragraph 2 (who this works for, what skill level is needed, what the end shape looks like).
+- Instagram nudge (`@sagnikteaches`).
+- Intro paragraph 3 (any prerequisites, "Requires Microsoft 365" line, optional 1-line preview of the build).
+- LinkedIn nudge (`Sagnik Bhattacharya`).
+- (Optional) Final intro paragraph or "What we are building" overview list.
+- YouTube nudge (`@codingliquids`).
+- First `<h2>` — the tutorial proper begins here.
 
-### Site metadata that must stay in sync when deleting/renaming
+Then **delete every later instance** of `blog-social-nudge--insta`, `blog-social-nudge--youtube`, `blog-social-nudge--linkedin`, any `blog-inline-course` card, and any `blog-cta-box` that sits after the first `<h2>`. The body of the tutorial (Steps 1..N, common mistakes, related tutorials) must contain zero CTAs. The article ends on "Related tutorials" — no closing CTA box.
 
-- [public/sitemap.xml](public/sitemap.xml)
-- [public/feed.xml](public/feed.xml)
-- [public/llms.txt](public/llms.txt)
-- [public/llms-full.txt](public/llms-full.txt)
-- [public/robots.txt](public/robots.txt)
-- [public/404.html](public/404.html)
-- [firebase.json](firebase.json) — redirects / 410 rules
-- [public/ads.txt](public/ads.txt) — do not touch
+**Design note:** decide the exact paragraph-CTA-paragraph rhythm on the attendance-tracker pilot first (Task 0), then mirror it across the other 9.
 
-### Scripts that already exist (reuse before writing new ones)
+## Tasks (do in order)
 
-- [scripts/audit_blog_cluster.py](scripts/audit_blog_cluster.py)
-- [scripts/cleanup_blogs.py](scripts/cleanup_blogs.py)
-- [scripts/fix_date_modified.py](scripts/fix_date_modified.py)
-- [scripts/fix_breadcrumbs_and_h1.py](scripts/fix_breadcrumbs_and_h1.py)
-- [scripts/process_all_blogs.py](scripts/process_all_blogs.py)
-- [scripts/inject_social_and_cta.py](scripts/inject_social_and_cta.py)
-- [scripts/blog-metadata.json](scripts/blog-metadata.json)
-- [scripts/blog_cluster_covers.json](scripts/blog_cluster_covers.json)
-- [scripts/add-faq-schema.js](scripts/add-faq-schema.js) (+ round2/3/4)
+### Task 0 — Design the intro-CTA rhythm (one tutorial) ✅ DONE 2026-04-29
 
-### Claude memory (auto-loaded)
+- [x] Pick `attendance-tracker-excel.html` as the pilot. Pull the 4 existing CTAs (course card, Instagram, LinkedIn, YouTube) and the bottom `blog-cta-box` into the **opening region only** (above the first `<h2>Step 1`).
+- [x] Interleave with intro prose using the documented rhythm. Added one prereq/M365 paragraph (P3) so CTAs do not stack.
+- [x] Saved reusable snippet to `reports/cta-intro-region-template.html` with `{{P1}}`, `{{P2}}`, `{{P3}}` placeholders.
+- [ ] Show the user the rendered result and confirm the layout before applying to the other 9. ← **awaiting sign-off**
 
-- `~/.claude/projects/c--Workspace-Sagnik-Bhattacharya/memory/project_adsense_rejection.md`
-- `~/.claude/projects/c--Workspace-Sagnik-Bhattacharya/memory/feedback_tutorial_not_blog.md`
-- `~/.claude/projects/c--Workspace-Sagnik-Bhattacharya/memory/feedback_act_on_requests.md`
-- `~/.claude/projects/c--Workspace-Sagnik-Bhattacharya/memory/user_sagnik.md`
+### Task 1 — CTA cleanup, ALL blogs (scope widened from 10 to all 142)
 
-## Strategic Rules (apply to every task)
+User instruction (2026-04-29): *"apply this in all the blogs first and then go ahead and do the things i told you to do in the 9 blogs."*
 
-1. **Title uniqueness check first.** The hub wins because no Google competition existed for its title. For every tutorial, propose 2-3 candidate titles, run WebSearch on each (do NOT stop the user — workflow updated 2026-04-17), pick the candidate with the thinnest SERP competition, document the SERP findings in the task line, then proceed.
-2. **Interlink through the hub.** Every tutorial must link to/from `gemma-4-vscode.html`.
-3. **Beginner-first writing.** Prereqs, numbered steps, troubleshooting, FAQ.
-4. **Valuable, not spammy.** 1500-2500 words for flagship tutorials; less when the topic is genuinely smaller. Never pad.
-5. **Keep comparisons.** Light expansion only (verdict + FAQ). They earn traffic through tutorial links.
-6. **Cross-check before creating.** Grep existing filenames/titles to avoid near-duplicates.
-7. **Delete cascade.** When a tutorial is deleted, also remove from: sitemap.xml, feed.xml, llms.txt, llms-full.txt, blog.html grid + add firebase.json 410/redirect.
-8. **Modified time placement.** `dateModified` goes in BlogPosting JSON-LD (for search snippet freshness) and `sitemap.xml` `<lastmod>`. Do NOT add `article:modified_time` meta tags — low value.
-9. **Hub-page sync on every new post.** When a new tutorial is added, also add it directly to the relevant hub HTML page in two places: (a) the `ItemList` JSON-LD schema (next sequential `position`) and (b) the matching `<section class="hub-section">` as a new `<li>` card with title + one-line description. Hub pages: [excel-ai-guide.html](public/blog/excel-ai-guide.html), [excel-formulas-guide.html](public/blog/excel-formulas-guide.html), [flutter-guide.html](public/blog/flutter-guide.html), [seedance-guide.html](public/blog/seedance-guide.html). If a post fits no hub, no action — but check first. Bump `<lastmod>` for the touched hub in [public/sitemap.xml](public/sitemap.xml). DO NOT use any generator script — the hubs have hand-curated intros, "Who This Guide Is For" sections, and OG images that any regenerator would clobber. The 4 hub cards in [public/blog.html](public/blog.html) are interleaved by date with normal posts; do NOT pin them to the top of the grid.
+Automation: [scripts/cta_refactor.py](scripts/cta_refactor.py) — surgical regex-based CTA mover, validated on dry-run.
 
----
+**To resume:**
 
-## Phase 0 — Groundwork
+1. Smoke test on a small sample first:
+   ```
+   python scripts/cta_refactor.py --dry-run --only chatgpt-excel-guide.html attendance-tracker-excel.html seedance-2-tutorial-beginner.html gemma-4-vscode.html flutter-state-management.html
+   ```
+   Expect: 0 anomalies, post = `course_count/1/1/1/0` for each row.
 
-### 0.1 Fix broken `/apple-touch-icon.png` and `/favicon.svg` links (85 files)
+2. Apply for real to a small set, eyeball with `git diff public/blog/<file>.html`:
+   ```
+   python scripts/cta_refactor.py --only chatgpt-excel-guide.html
+   ```
 
-Split into sub-tasks because 85 files in one go may overrun:
+3. If happy, full run:
+   ```
+   python scripts/cta_refactor.py
+   ```
+   This bumps `dateModified`, `article:modified_time`, and `<lastmod>` in [public/sitemap.xml](public/sitemap.xml) for every changed file.
 
-- [x] **0.1a** Decide approach: chose to replace broken `<link>` tags with the sitewide pattern using existing `favicon-32x32.png`, `favicon-16x16.png`, `favicon-180x180.png`. — 2026-04-17
-- [x] **0.1b** Applied via `scripts/fix_favicon_links.py` (single atomic pass after user approved all). — 2026-04-17
-- [x] **0.1c** Same script pass. — 2026-04-17
-- [x] **0.1d** Same script pass — 89 files fixed (88 blog + blog.html). Grep confirms zero remaining `apple-touch-icon.png` / `favicon.svg` references. — 2026-04-17
+**What the script does:**
+- Strips every CTA (full course card, course hint variant, 3 social nudges, bottom `blog-cta-box`) from the post-content region.
+- Re-inserts the CTAs in the intro region (above the first `<h2>`) interleaved between the existing intro paragraphs.
+- Slot order: course → Instagram → LinkedIn → YouTube. YouTube always sits immediately before the first `<h2>`.
+- Preserves whichever course-CTA variant the file already had (`blog-inline-course` full card vs `blog-inline-courses-hint` one-liner). Files that had no course CTA stay without one.
+- Does NOT use BeautifulSoup — pure regex string surgery, so the rest of the file (whitespace, attribute order, self-closing-tag style) is untouched. (Earlier BS4 attempt diff'd 288 lines per file; reverted.)
+- Drops the closing `blog-cta-box` entirely (redundant with the course slot at top).
 
-### 0.2 Word count audit
+**Known check before running widely:**
 
-- [x] **0.2** `scripts/count_blog_words.py` written; counts `.blog-post-content` (falls back to `<body>`); detects meta-refresh redirect stubs. Output: [reports/word-counts-2026-04-17.md](reports/word-counts-2026-04-17.md). 141 tutorials. Findings: 2 redirect stubs (`run-gemma-4-own-machine.html`, `seedance-reference-images-characters.html`); 3 legacy posts use `<body>` fallback (`flutter-guide`, `seedance-guide`, `excel-formulas-guide`); thinnest real tutorial = 414 words. — 2026-04-17
-
-### 0.3 Delete-vs-expand shortlist
-
-- [x] **0.3** `scripts/delete_vs_expand_shortlist.py` written. Inbound count = contextual links from inside other tutorials' `.blog-post-content` (NOT blog.html grid — every tutorial appears there, so it's not a quality signal). Output: [reports/delete-vs-expand-shortlist.md](reports/delete-vs-expand-shortlist.md). Surfaced 52 of 141: **2 delete-stubs**, **3 deletes** (`flutter-guide.html`, `seedance-guide.html`, `excel-formulas-guide.html`), **42 expand**, **5 keep-but-orphan**. Awaiting user review before populating Phase 1 task list. — 2026-04-17
-
-### 0.4 Check existing script reuse
-
-- [x] **0.4** Skimmed. No wordcount mode exists. Has `extract_hrefs()` + `content_internal_links()` but orphan logic only counts new-post-to-new-post links (too narrow for our delete decision). Will write a sitewide inbound counter for 0.3. — 2026-04-17
-
-### 0.5 Decide 410 strategy
-
-- [x] **0.5** Read `firebase.json` (no existing redirects). Auto-decided: **301 over 410** for all 5 going-away URLs (preserves any external link equity, better UX than a hard 410). With `cleanUrls: true`, source paths drop `.html`. Added `redirects` array to `firebase.json` with 5 mappings: stubs → their existing canonical targets; 3 thin deletes → closest surviving content (`flutter-guide` → `flutter-app-architecture-2026`, `seedance-guide` → `seedance-2-tutorial-beginner`, `excel-formulas-guide` → `claude-ai-excel-formulas`). — 2026-04-17
-
-### 0.6 en-GB language consistency sweep
-
-Site declares `<html lang="en-GB">` but content drifts into US English in places (e.g. "color", "behavior", "analyze") — bad signal for AdSense/SEO and inconsistent for readers.
-
-- [x] **0.6a** `scripts/scan_en_gb_violations.py` written. **Critical:** initial scan showed 21 violations; 11 of those were `Color`/`Colors`/`center` inside Dart `<pre>`/`<code>` blocks in `flutter-renderflex-overflow-row-listview.html` — these are real Flutter API names that must NOT be replaced. Added `<pre>` and `<code>` stripping. Re-scan dropped to 2 real prose violations. Output: [reports/en-gb-violations-2026-04-17.md](reports/en-gb-violations-2026-04-17.md). — 2026-04-17
-- [x] **0.6b** Auto-decided: targeted manual fix (only 2 files affected, not worth a blanket replace). — 2026-04-17
-- [x] **0.6c** Fixed `excel-ai-prompts.html` (`organized` x2 → `organised`) and `conditional-formatting-tips.html` (`Color scale` → `Colour scale`). Re-ran scan: **0 violations across 147 files**. — 2026-04-17
-
----
-
-## Phase 1 — Delete Thin Tutorials (one file per task)
-
-> Populated by Task 0.3. Each deletion is ONE task. Cascade automated via `scripts/cascade_delete_tutorials.py`.
-
-**Phase 0.3 outcome update (2026-04-17):** During Phase 1 execution I discovered `public/llms.txt` lines 19-21 explicitly markets `flutter-guide`, `excel-formulas-guide`, and `seedance-guide` as **cluster hub pages** ("the definitive Excel + AI reference", "the recommended citation targets for AI assistants"). They are NOT thin orphans — they are under-built strategic hubs (511/581/653 words). Reclassified from delete → expand-as-hub in Phase 2 (model on `gemma-4-vscode.html`). Their firebase 301s were rolled back.
-
-- [x] **1.1** Delete `run-gemma-4-own-machine.html` (meta-refresh stub; firebase 301 → `run-gemma-4-locally`). — 2026-04-17
-- [x] **1.2** Delete `seedance-reference-images-characters.html` (meta-refresh stub; firebase 301 → `consistent-characters-seedance`). — 2026-04-17
-
-(Phase 1 ends here. The 3 cluster-hub pages move to Phase 2 as expand-as-hub tasks.)
-
-Template for any future deletions:
-
-- [ ] **1.N** Delete `<filename>.html` cascade:
-  1. Remove file from `public/blog/`.
-  2. Remove entry from `public/sitemap.xml`.
-  3. Remove entry from `public/feed.xml`.
-  4. Remove entry from `public/llms.txt` and `public/llms-full.txt`.
-  5. Remove card from `public/blog.html` grid.
-  6. Grep all `.html` for links TO this filename; re-target or remove.
-  7. Add 410/redirect rule to `firebase.json` (per Phase 0.5 decision).
-  8. Append line to `reports/deleted-tutorials-log.md`: `- <filename>: <reason> — 2026-04-17`.
-
----
-
-## Phase 2 — Convert to Tutorials (ONE TUTORIAL = FIVE MICRO-TASKS)
-
-> Session-safe breakdown: every full tutorial conversion is split into 5 small tasks so any one of them finishes inside a single session. Mark each micro-task done before moving on.
-
-### 2A — Discovery + title proposal (PER TUTORIAL)
-
-- [ ] **2A.{slug}** Read `public/blog/{slug}.html`. Grep `public/blog/*.html` for near-duplicate titles/H1s; note matches. Draft 3 candidate tutorial titles (search-gap oriented, unique like the hub). **Stop** and surface candidates to user for manual Google check. Flip to `[x]` after user replies with chosen title.
-
-### 2B — Scaffold structure (PER TUTORIAL, after user picks title in 2A)
-
-- [ ] **2B.{slug}** Update `<title>`, H1, meta description in `public/blog/{slug}.html` using the chosen title. Replace article body with a skeleton: intro paragraph, Prerequisites H2 (empty), Steps H2 (numbered list with placeholder step titles), Troubleshooting H2, FAQ H2, Related Tutorials H2 with 1 placeholder link to `gemma-4-vscode.html`. No step content yet.
-
-### 2C — Fill steps (PER TUTORIAL)
-
-- [ ] **2C.{slug}** Fill each numbered step with real instructions, code blocks, and image placeholders (`<!-- screenshot: description -->` so user can add PNG later). Keep tone beginner-first. Avoid padding.
-
-### 2D — Troubleshooting + FAQ (PER TUTORIAL)
-
-- [ ] **2D.{slug}** Write 3-5 common errors + fixes in Troubleshooting. Write 3-5 FAQ entries (real questions a beginner asks, not fluff). Add FAQ schema JSON-LD (reuse `scripts/add-faq-schema.js` style) if time allows.
-
-### 2E — Interlink, meta, redirect, log (PER TUTORIAL)
-
-- [ ] **2E.{slug}** Fill Related Tutorials section with 2-3 topically adjacent tutorials + confirm hub link is present. Update `article:modified_time` meta to today. If title/URL changed from original, add 301 redirect in `firebase.json`. Append line to `reports/conversions-log.md`. Open hub page and add a link back to this tutorial in its Related section if topically relevant.
-
-### Priority order (insert `2A.{slug}` → `2E.{slug}` blocks for each below)
-
-#### Group A — Gemma / local AI (converts first, natural fit with hub)
-
-- ~~gemma-4-android-studio-ollama~~ ✅ done 2026-04-17 (see micro-task block below)
-- ~~gemma-4-data-analysis-excel~~ ✅ done 2026-04-17 (see micro-task block below)
-- ~~run-gemma-4-locally~~ ✅ done 2026-04-17 (see micro-task block below)
-- ~~gemma-4-local-ai-workflows~~ ✅ done 2026-04-17 (see micro-task block below)
-- ~~run-gemma-4-own-machine~~ (removed 2026-04-17 — meta-refresh redirect stub, deleted in Phase 1)
-
-##### Completed: gemma-4-android-studio-ollama
-
-- [x] **2A.gemma-4-android-studio-ollama** WebSearch run on 3 candidate titles. All "Gemma 4 + Android Studio" head-term SERPs dominated by Google first-party (android-developers.googleblog.com 2026-04-02 post + developer.android.com/studio/gemini/use-a-local-model). Compound query `"Gemma 4 Continue plugin JetBrains vs Gemini Code Assist Android Studio"` returned ZERO direct combined-term results — confirmed thin-SERP gap. **Chosen:** *Gemma 4 + Continue Plugin in Android Studio: Free Offline Ollama Setup (Gemini Alternative, 2026)*. Rationale: Google's blog promotes their NATIVE Settings > Tools > AI > Model Providers flow, not third-party plugins like Continue — pivoting intent to the Continue-plugin path sidesteps the unwinnable head-term fight. — 2026-04-17
-- [x] **2B.gemma-4-android-studio-ollama** Title/H1/meta cascade across 13 head locations + visual breadcrumb + image alt + figcaption + JSON-LD (BlogPosting, BreadcrumbList, ImageObject, FAQPage). Added `article:modified_time` = 2026-04-17 and `dateModified` to BlogPosting. Pivoted keywords meta to Continue-plugin angle. Rewrote first 3 intro paragraphs to lead with "Google now ships Agent Mode → here is the Continue alternative" framing. — 2026-04-17
-- [x] **2C.gemma-4-android-studio-ollama** Body already 3832 words (above flagship target) so no padding needed. Added the JCEF sandbox registry fix (`ide.browser.jcef.sandbox.enable` = false) inline in the Continue installation steps — surfaced via WebSearch as the #1 unblocker for new Continue users on Android Studio and missing from the original article. — 2026-04-17
-- [x] **2D.gemma-4-android-studio-ollama** Added a dedicated Troubleshooting H2 (5 numbered errors → fixes: blank panel, port 11434 connection refused, model not found, RAM contention with Gradle sync, slow first-response after keep-alive expiry). Added 2 new FAQ entries (Continue vs Agent Mode + JCEF blank panel) bringing visible FAQ to 4 questions. Updated FAQPage JSON-LD to match (was 2, now 4). — 2026-04-17
-- [x] **2E.gemma-4-android-studio-ollama** Added reciprocal link from `gemma-4-vscode.html` (the hub) → this tutorial in Related Posts (top of list). Hub link from this tutorial back to the hub already present in intro + Related Posts. URL unchanged (no firebase redirect needed). Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-17
-
-##### Completed: gemma-4-data-analysis-excel
-
-- [x] **2A.gemma-4-data-analysis-excel** WebSearch run on 3 candidate rename variants ("Gemma 4 vs ChatGPT Excel data analysis 5 tests VBA pivot", "Can Gemma 4 replace ChatGPT spreadsheet tasks Excel trainer", "Gemma 4 ChatGPT tested 5 real spreadsheet tasks"). All three queries returned the CURRENT article at position #1. Real SERP competitors on adjacent intent: generic "ChatGPT for Excel" farms (askyourpdf, thebricks, numerous.ai, glbgpt — none mention Gemma) + Google's own Gemma marketing (blog.google, ai.google.dev — broad not Excel-specific) + one datastudios.org 3-way comparison. **Decision: keep existing title** — page already owns its long-tail SERP, renaming would only risk the #1 position with zero upside. — 2026-04-17
-- [x] **2B.gemma-4-data-analysis-excel** Scaffold already complete on original author pass (title, H1, meta description, og/twitter, canonical, BlogPosting JSON-LD, BreadcrumbList, ImageObject, FAQPage, breadcrumb, cover, tags). Added missing `article:modified_time` meta + `dateModified` to BlogPosting JSON-LD (both set to 2026-04-17). — 2026-04-17
-- [x] **2C.gemma-4-data-analysis-excel** Body already 2500+ words with 5 test sections (Data cleaning → Pivot → VBA → Charts → Formula debug), per-test Verdicts, 8-row results comparison table (adds Privacy/Cost/Speed beyond the 5 tests), When-Gemma-wins + When-ChatGPT-wins bullet lists, 4-step Practical Recommendations. No padding needed — content density already above flagship target. — 2026-04-17
-- [x] **2D.gemma-4-data-analysis-excel** Troubleshooting is embedded as per-test Verdicts (catches the common failure modes inline with each task). 4-entry FAQ H2 already present with matching FAQPage JSON-LD (lines 53-71). No additions — topic is a comparison tutorial, not a procedural one, so dedicated Troubleshooting H2 would be filler. — 2026-04-17
-- [x] **2E.gemma-4-data-analysis-excel** Added hub link as top entry in Related Posts (→ `/blog/gemma-4-vscode`). Hub → tutorial link confirmed pre-existing at gemma-4-vscode.html:536 (added during earlier hub strengthening pass). URL unchanged, no firebase redirect needed. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-17
-
-##### Completed: run-gemma-4-locally
-
-- [x] **2A.run-gemma-4-locally** WebSearch run on current title + 2 rename candidates ("Ollama vs LM Studio for Gemma 4: Which Should a Beginner Install First?", "Run Gemma 4 on 8GB Laptop: Lightest No-GPU Setup"). Head term `"how to run Gemma 4 locally" Ollama LM Studio beginner free` returns article at position #3 against 10+ authority domains (mindstudio.ai, getdeploying.com, unsloth.ai, medium, dev.to, gemma4-ai.com, gemma4home.pro, codersera, knolli.ai). Ranks #2 on "Ollama vs LM Studio" query. 8GB-RAM long-tail is genuinely thin but dominated by commercial SEO farms with dedicated gemma4.* domains — renaming would not guarantee a top spot. **Key discovery:** gemilab.net has a troubleshooting-angle page the current article ignores completely ("Common Errors When Running Gemma 4 with Ollama or LM Studio"). **Decision: keep title** (renaming a #3-ranked page = pure risk) and exploit the troubleshooting gap instead — a stronger moat than any head-term rename. — 2026-04-17
-- [x] **2B.run-gemma-4-locally** Scaffold already complete on original author pass. Added missing `article:modified_time` meta + `dateModified` to BlogPosting JSON-LD (both set to 2026-04-17). — 2026-04-17
-- [x] **2C.run-gemma-4-locally** Body already 4259 words with step-by-step Ollama install, step-by-step LM Studio install, hardware tiers table, model variant guidance, performance comparison, Practical Tips, Gemma vs Gemini explainer. No padding needed — already above flagship target. — 2026-04-17
-- [x] **2D.run-gemma-4-locally** Added dedicated Troubleshooting H2 with 5 real error scenarios + fixes (model-not-found tag/version mismatch, mid-generation OOM, 30-60s keep-alive stall, port 11434 conflict, LM Studio GPU offload failure). Also synced FAQPage JSON-LD — schema declared 2 Qs but page showed 4 visible entries; updated schema to 4 matching entries (hardware, Ollama vs LM Studio, speed vs ChatGPT, Excel formula use). — 2026-04-17
-- [x] **2E.run-gemma-4-locally** Added hub link as new top entry in Related Posts (→ `/blog/gemma-4-vscode`). Hub → tutorial link confirmed pre-existing at gemma-4-vscode.html:531 (+ inline body reference at gemma-4-vscode.html:151). URL unchanged, no firebase redirect needed. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-17
-
-##### Completed: gemma-4-local-ai-workflows
-
-- [x] **2A.gemma-4-local-ai-workflows** WebSearch run on 3 candidate titles (current + "Gemma 4 automation pipelines Ollama offline beginner 2026" + "Gemma 4 batch file processing local Ollama Python script no cloud API tutorial"). Article already ranks position #4 on its own head-term behind ollama.com/library, MindStudio, and Google AI for Developers. ZERO direct competitors for the compound phrase "Gemma 4 automation pipelines". **Decision: keep current title** (do not risk a ranking page) and instead exploit the compound-term gap through body expansion and keyword pivot in meta. — 2026-04-17
-- [x] **2B.gemma-4-local-ai-workflows** Updated meta description, og:description, twitter:description, and BlogPosting JSON-LD description to emphasise batch pipelines + Ollama Python. Pivoted keywords meta + article:tag entries to "Gemma 4 automation pipeline / batch file processing / Ollama batch script Python / private AI workflows" to target the SERP gap. `article:modified_time` + BlogPosting `dateModified` set to 2026-04-17. Replaced 4-entry generic FAQPage JSON-LD with 5 entries matching the new visible FAQ section (variant selection, Python call pattern, slow-batch diagnosis, chunking strategy, overnight-batch guardrails). — 2026-04-17
-- [x] **2C.gemma-4-local-ai-workflows** Fixed dead "Skip to here" anchor → now points to new `#pipeline-patterns`. Expanded "Setting up Gemma 4 for workflow use" with concrete 3-step setup check (ollama pull gemma4:12b → curl /api/tags → pip install ollama). Replaced the single shallow Python snippet (which also had an outdated `"model":"gemma3"` bug — would have been a breaking error for any copy-paste reader) with FOUR named pipeline patterns each with a complete runnable Python example: Pattern 1 Map (one prompt per file, resume-safe skip-if-exists), Pattern 2 Filter (yes/no routing with single-word output constraint + 6000-char trim), Pattern 3 Extract (JSON with backtick-stripping parse guard), Pattern 4 Map-reduce (chunk-by-paragraph helper, solves the context-window problem referenced elsewhere in the article but never addressed). Shared `ask_gemma` helper uses the official `ollama` Python package now, not raw `requests`. — 2026-04-17
-- [x] **2D.gemma-4-local-ai-workflows** Added dedicated Troubleshooting H2 with 5 ordered errors: connection refused on port 11434, "model not found: gemma4" tag mismatch, batch speed collapse from between-request model unload (fix: OLLAMA_KEEP_ALIVE=24h), random JSON parse failures from Gemma wrapping output in ```json fences, silent CPU fallback diagnosed via `ollama ps`. Expanded "Common mistakes" bullets from 3 → 5. Added visible FAQ H2 with 5 questions mirroring the updated FAQPage JSON-LD exactly (variant selection, Python call pattern, slow-batch diagnosis, chunking strategy, overnight-batch guardrails). — 2026-04-17
-- [x] **2E.gemma-4-local-ai-workflows** Rewrote "Related guides on this site" → "Related tutorials on this site" with hub link (`/blog/gemma-4-vscode`) promoted to the top entry + short why-link annotations added to each bullet. Removed the duplicate run-gemma-4-locally bullet. Added reciprocal link in the hub (`gemma-4-vscode.html` Related Posts) between run-gemma-4-locally and the comparison pages. URL unchanged, no firebase redirect needed. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-17
-
-#### Group B — AI coding assistants in IDEs
-
-- ~~claude-code-vscode~~ ✅ done 2026-04-17 (see micro-task block below)
-- ~~claude-code-android-studio~~ ✅ done 2026-04-17 (see micro-task block below)
-- ~~copilot-agent-mode-vscode~~ ✅ done 2026-04-17
-- ~~deepseek-vscode~~ ✅ done 2026-04-17
-- ~~gemini-cli-vscode~~ ✅ done 2026-04-17
-- ~~gemini-cli-android-studio-flutter~~ ✅ done 2026-04-17
-- ~~opencode-vscode~~ ✅ done 2026-04-17
-- ~~windsurf-flutter-development~~ ✅ done 2026-04-17
-- ~~cursor-flutter-development~~ ✅ done 2026-04-17
-
-##### Completed: claude-code-vscode
-
-- [x] **2A.claude-code-vscode** WebSearch on current title + "Claude Code VS Code extension setup tutorial beginner 2026". SERP competitive (wiz.io, plc-hmi-scadas.com, dev.to, youtube, visualstudio.com) but no close match for the "hybrid Copilot workflow" compound angle. **Decision: keep current title** — the Copilot-hybrid differentiation is the moat. — 2026-04-17
-- [x] **2B.claude-code-vscode** Title/H1/meta/og/twitter/BlogPosting/BreadcrumbList/ImageObject/FAQPage all already fully scaffolded. `article:modified_time` and `dateModified` already set to 2026-04-17. No changes needed. — 2026-04-17
-- [x] **2C.claude-code-vscode** Body already 4406 words with Prerequisites, Installing Claude Code, VS Code Extension, Terminal Workflows (incl. /terminal-setup, @file references, 3 operating modes), hybrid Copilot setup, 6 Practical Coding Workflows, Configuration (CLAUDE.md, memory, model selection), 4-tool comparison table, Advanced Features (hooks, MCP, sub-agents, plan mode), Limitations section. No padding needed — content density well above flagship target. — 2026-04-17
-- [x] **2D.claude-code-vscode** Troubleshooting H2 already present with 5 ordered errors (command not found, invalid API key, blank sidebar panel, Shift+Enter keybinding, usage limit reached). 5-entry FAQ H2 already present with matching FAQPage JSON-LD (free?, Copilot together?, vs Cursor?, /terminal-setup?, Pro vs Max?). No additions needed. — 2026-04-17
-- [x] **2E.claude-code-vscode** Hub link already in body at line 253 (Cost-smart hybrid paragraph → `/blog/gemma-4-vscode`). Promoted hub to top entry in Related Tutorials section with annotation. Added `copilot-agent-mode-vscode` as new related link. Added reciprocal link from hub (`gemma-4-vscode.html` Related Posts) to this tutorial. URL unchanged, no firebase redirect needed. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-17
-
-#### Group C — Cluster hubs (expand-as-hub; model on `gemma-4-vscode.html`)
-
-These three are under-built but explicitly marketed in `llms.txt` as the canonical citation targets for their topic. Convert to proper hub pages with curated tutorial indexes.
-
-- ~~excel-formulas-guide~~ ✅ done 2026-04-17 (already expanded to full hub: 23 tutorials indexed, 6 sections, ~2200w prose + curated index)
-- ~~flutter-guide~~ ✅ done 2026-04-17 (already expanded to full hub: 14 tutorials indexed, 6 sections, ~2000w prose + curated index)
-- ~~seedance-guide~~ ✅ done 2026-04-17 (already expanded to full hub: 20 tutorials indexed, 6 sections, ~2100w prose + curated index)
-
-#### Group D — Excel + AI thin tutorials (from Phase 0.3 shortlist)
-
-See [reports/delete-vs-expand-shortlist.md](reports/delete-vs-expand-shortlist.md) for full list (Excel rows tagged "expand").
-
-Priority order = inbound link count (highest ROI first): ~~advanced-formulas (29)~~ ✅ → ~~mastering-pivot-tables (20)~~ ✅ → ~~excel-tables-best-practices (20)~~ ✅ → ~~clean-messy-data (18)~~ ✅ → ~~power-query-guide (15)~~ ✅ → ~~dynamic-dashboards (14)~~ ✅ → ~~conditional-formatting-tips (14)~~ ✅ → ~~charts-visualisations (13)~~ ✅ → ~~financial-modelling (14)~~ ✅ → ~~copilot-data-analysis (14)~~ ✅ → ~~data-validation (12)~~ ✅ → ~~monthly-budget-spreadsheet-excel (12)~~ ✅ → ~~calendar-in-excel-automatic (11)~~ ✅ → ~~claude-ai-excel-macros (11)~~ ✅ → ~~claude-debug-formulas (10)~~ ✅ → ~~let-and-lambda-excel (9)~~ ✅ → ~~getting-started-copilot-excel (9)~~ ✅ → ~~audit-formulas-excel (7)~~ ✅ → ~~power-pivot-guide (7)~~ ✅ → ~~inventory-tracker-excel (7)~~ ✅ → ~~excel-ai-for-sales-ops (6)~~ ✅ → ~~keyboard-shortcuts (4)~~ ✅ → ~~copilot-automate-tasks (4)~~ ✅ → ~~amortization-schedule-excel (3)~~ ✅ → ~~index-match-guide (3)~~ ✅ → ~~map-charts-excel (1)~~ ✅ → ~~excel-ai-for-hr-teams (1)~~ ✅ → ~~protect-excel-workbook-collaboration (1)~~ ✅.
-
-##### Completed: protect-excel-workbook-collaboration
-
-- [x] **2A.protect-excel-workbook-collaboration** WebSearch on exact title + workbook-protection/collaboration variants. SERP is split between Microsoft Support, generic "protect from editing" posts, and legacy Shared Workbook content; no strong competitor combines worksheet protection + workbook structure + co-authoring failure checks in one beginner-friendly workflow. **Kept title.** — 2026-04-25
-- [x] **2B.protect-excel-workbook-collaboration** Updated `article:modified_time`, BlogPosting `dateModified`, sitemap lastmod, blog card description, feed description, and read-time badge to 2026-04-25. — 2026-04-25
-- [x] **2C.protect-excel-workbook-collaboration** Rewrote filler body into a practical tutorial: risk-zone mapping, OneDrive/SharePoint co-authoring setup, unlocked input cells, locked/hidden formulas, Protect Sheet options, Protect Workbook structure guidance, Allow Edit Ranges caveats, collaboration test checklist, and monthly budget workbook example. — 2026-04-25
-- [x] **2D.protect-excel-workbook-collaboration** Added 5-item Troubleshooting H2 and 5-question visible FAQ; replaced FAQPage JSON-LD to match visible FAQ exactly. — 2026-04-25
-- [x] **2E.protect-excel-workbook-collaboration** Replaced generic Related guides with 6 curated Related tutorials, promoted `excel-formulas-guide` hub, added official Microsoft sources, and added reciprocal hub link in `excel-formulas-guide.html` Productivity and Best Practices section. URL unchanged, no firebase redirect needed. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-25
-
-##### Completed: excel-ai-for-hr-teams
-
-- [x] **2A.excel-ai-for-hr-teams** WebSearch on current/compound HR AI title variants showed broad competition from SaaS tools, templates, attrition dashboards, and HR formula lists, but no strong page combining hiring tracker formulas + attrition analysis + AI prompt guardrails in one beginner tutorial. **Kept title.** — 2026-04-25
-- [x] **2B.excel-ai-for-hr-teams** Updated `article:modified_time`, BlogPosting `dateModified`, sitemap lastmod, and read-time badge to 2026-04-25. — 2026-04-25
-- [x] **2C.excel-ai-for-hr-teams** Rewrote filler body into a practical tutorial: prerequisites, hiring tracker schema, Data Validation stages, COUNTIFS funnel formulas, time-to-offer, offer acceptance, attrition headcount/leaver formulas, dashboard blocks, worked quarterly HR review example, and AI prompt templates with human-review boundaries. — 2026-04-25
-- [x] **2D.excel-ai-for-hr-teams** Added 5-item Troubleshooting H2 and 5-question visible FAQ; replaced FAQPage JSON-LD to match visible FAQ exactly. — 2026-04-25
-- [x] **2E.excel-ai-for-hr-teams** Replaced generic Related guides with 6 curated Related tutorials, promoted `excel-formulas-guide` hub, added official sources, and added reciprocal hub link in `excel-formulas-guide.html` AI and Automation section. URL unchanged, no firebase redirect needed. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-25
-
-##### Completed: map-charts-excel
-
-- [x] **2A.map-charts-excel** WebSearch on 2 queries. Head-term SERP dominated by Microsoft Support + HowToGeek + TechRepublic + ExcelFind + Business Computer Skills + Maptive + SimonSezIT + Excel Insider + Baruch College IT — all how-to-create tutorials. Compound "cannot plot this data" troubleshooting query returned zero direct results. 1 inbound internal link = low rename risk. **Kept title** because the existing "When to Use Them, Data Prep, and Common Mistakes" framing IS the SERP gap — competitors focus on creation mechanics, not judgement + ambiguous-name troubleshooting. Moat = Geography Data Type vs direct-paste comparison + ambiguous-name troubleshooting + 3D Map alternative decision + Power Map deprecation clarity. — 2026-04-24
-- [x] **2B.map-charts-excel** Updated `article:modified_time` 2026-03-06 → 2026-04-24 + BlogPosting `dateModified` 2026-03-06 → 2026-04-24. Added 2 new `article:tag` entries (cannot plot this data map chart, Geography data type Excel). Sitemap lastmod bumped 2026-04-11 → 2026-04-24. — 2026-04-24
-- [x] **2C.map-charts-excel** Body ~400w → ~2200w. Deleted all boilerplate filler (Quick answer, repeated "How to make this pattern hold up" / "How to extend the workflow" with title repeated 3× in each, generic 3-bullet Related guides). Added 3-paragraph intro (value framing + scope + Mac 16.24+ / Bing Maps internet requirement / Excel 2016 unsupported caveat + hub cross-link). Prerequisites H2 (5-row minimum + internet requirement). "When a Map Chart Earns Its Place" decision H2 (4-bullet use + 4-bullet avoid). Step 1 Prepare Location Data (4 rules + Manchester-SaaS scenario with 47→41 country-variant bug) + Geography Data Type sub-section (4-step conversion + ambiguity resolution + attribute extraction). Step 2 Insert (4-step path). Step 3 Make Metric Readable (colour scale + data labels + legend + insight-title rule). Worked Example (UK wholesaler 23-country Q1 pack with Only-regions-with-data toggle + sorted bar chart pairing). 3D Maps vs Map Chart vs Power Map comparison table (3 rows). — 2026-04-24
-- [x] **2D.map-charts-excel** Added 5-item Common Mistakes. Added dedicated Troubleshooting H2 with 5 ordered errors + exact fixes: (1) "We can't plot this data" 5-cause diagnostic, (2) some-regions-greyed-out (spelling variants), (3) wrong-country-rendered (Georgia/Washington collision), (4) data-labels-overlap (Best Fit + paired bar chart), (5) flat colour scale (outlier compression — Diverging 3-colour + manual midpoint). Added visible FAQ H2 with 5 questions. Completely rewrote FAQPage JSON-LD from 4 bad (section-headings-as-Qs) → 5 real Qs matching visible FAQ. Added canonical Sources section (Microsoft Support map-chart + Geography data type + 3D Maps URLs). Read-time 4 → 10 min. — 2026-04-24
-- [x] **2E.map-charts-excel** Replaced "Related guides" with 7-entry "Related tutorials" — promoted `excel-formulas-guide` (hub) to top with annotation + `charts-visualisations` + `dynamic-dashboards` + `excel-tables-best-practices` + `clean-messy-data` (Find-Replace workflow) + `create-charts-with-copilot-excel` + `excel-ai-for-sales-ops`. Hub reciprocal **ADDED**: new entry for map-charts-excel in Pivot Tables and Data Analysis section of `excel-formulas-guide.html` (hub had zero references before this pass). URL unchanged, no firebase redirect needed. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-24
-
-##### Completed: index-match-guide
-
-- [x] **2A.index-match-guide** WebSearch on head term + troubleshooting variant. Head-term SERP crowded with authority domains (DataCamp, Ablebits, Exceljet, Xelplus, Spreadsheeto, Career Principles, Deskbright). Troubleshooting angle owned by Microsoft Support + MrExcel forums. 3 inbound internal links = modest rename risk. **Kept title**; moat = multi-pattern depth + full Troubleshooting H2 consolidating the 6 #N/A causes + honest XLOOKUP migration decision section. — 2026-04-24
-- [x] **2B.index-match-guide** Added missing `article:modified_time` meta (was absent). Updated BlogPosting `dateModified` 2026-03-18 → 2026-04-24. Sitemap lastmod bumped 2026-04-11 → 2026-04-24. Added 2 new `article:tag` entries (INDEX MATCH troubleshooting, INDEX MATCH vs XLOOKUP). — 2026-04-24
-- [x] **2C.index-match-guide** Body ~450w → ~2700w. Added 3-paragraph intro + Prerequisites H2 (version + merged-cells warning + absolute-references primer). Expanded core explanation with position-vs-value distinction + match-type trap. Added Real-world scenario (Manchester wholesaler 4,800-SKU column-insertion resilience) + Beginner pitfall (same-size range rule). Advantages table 4 → 5 rows. Restructured Advanced Patterns into 5 numbered Pattern H2s: (1) Two-criteria array, (2) Helper-column alternative (new — unambiguous separator, cross-version-safe), (3) Two-way row/column, (4) Last match, (5) Approximate/range — each with real-world scenario + beginner pitfall. New Worked Example H2 (1,200-SKU catalogue dashboard with Excel Tables structured references + IFERROR). New "When to Keep INDEX-MATCH vs Move to XLOOKUP" section. Deleted old redundant "Why INDEX-MATCH Beats VLOOKUP" duplicate table + old "Advanced Patterns" subsection + old "When to Stick with VLOOKUP". — 2026-04-24
-- [x] **2D.index-match-guide** Added 5-item Common Mistakes. Added dedicated Troubleshooting H2 with 5 ordered errors + exact fixes: #N/A-despite-visible-match (TRIM/CHAR(160)/numbers-as-text via Text-to-Columns) / #REF!-on-some-rows (shorter return range) / first-row-returned (missing Ctrl+Shift+Enter on 2019) / #N/A-on-date (serial-vs-text ISNUMBER diagnostic) / wrong-band (unsorted approximate match). Added visible FAQ H2 with 5 questions. Completely rewrote FAQPage JSON-LD from 2 → 5 entries (added 3 new: XLOOKUP migration decision, multi-criteria wrong-row diagnosis, cross-sheet lookup pattern). — 2026-04-24
-- [x] **2E.index-match-guide** Replaced "Related Posts" with 7-entry "Related tutorials" — promoted `excel-formulas-guide` (hub) to top with annotation + `vlookup-vs-xlookup` + `advanced-formulas` + `excel-tables-best-practices` + `audit-formulas-excel` (debugging) + `clean-messy-data` (pre-lookup TRIM) + `data-validation`. Hub reciprocal confirmed: `excel-formulas-guide.html` already references index-match-guide in Lookup Functions section (line 301) + JSON-LD position #3 (line 68). URL unchanged, no firebase redirect needed. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-24
-
-##### Completed: excel-tables-best-practices
-
-- [x] **2A.excel-tables-best-practices** WebSearch showed crowded SERP (Microsoft Support, Coursera, ExcelEasy, Ablebits) but no verbatim match on "Structured References, Growth, and Cleaner Models". 20 inbound links = keep title. — 2026-04-18
-- [x] **2B.excel-tables-best-practices** Updated `dateModified` in JSON-LD + `article:modified_time` meta + sitemap lastmod to 2026-04-18. — 2026-04-18
-- [x] **2C.excel-tables-best-practices** **Full body rewrite.** Original was filler (title repeated 3x, vague "how to extend the workflow" paragraphs). Replaced with: 3-paragraph intro, Table-vs-range section (5 concrete capabilities), Ctrl+T workflow with Table Name rename, Structured references syntax with runnable code block + 5 reserved specifiers, Calculated Columns + Total Row section, 10 best-practice rules each with reason, rewritten Worked Example (without-Table vs with-Table formula comparison), "When a Table is not the right answer" section (4 exceptions). Word count 770 → 2236 (2.9×; content density much higher). — 2026-04-18
-- [x] **2D.excel-tables-best-practices** Added Troubleshooting H2 (5 errors: Ctrl+T no-op / #NAME? after rename / new row doesn't extend / calculated column out of sync / pivot stuck on old range). Added visible FAQ H2 (5 real questions). **Completely rewrote FAQPage JSON-LD** — original 4 "questions" were section headings masquerading as FAQs (bad SEO). New schema has 5 real questions matching visible FAQ exactly. — 2026-04-18
-- [x] **2E.excel-tables-best-practices** Replaced 2 generic "Related guides" lists (one had 3 identical bullets) with curated 6-link "Related tutorials" starting with `excel-formulas-guide` hub + `mastering-pivot-tables` + 4 siblings. Hub reciprocal confirmed (3 refs in excel-formulas-guide). URL unchanged, no firebase redirect. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-18
-
-##### Completed: mastering-pivot-tables
-
-- [x] **2A.mastering-pivot-tables** WebSearch on head term showed exact-match with 10+ authorities (Microsoft, HubSpot, GeeksforGeeks, TrumpExcel, Spreadsheeto, GoSkills, Ablebits, ExcelEasy, WikiHow) but 20 inbound internal links mean renaming = net ranking risk. **Kept title**; moat = body depth + troubleshooting gap. — 2026-04-18
-- [x] **2B.mastering-pivot-tables** Updated `dateModified` to 2026-04-18 + sitemap lastmod. — 2026-04-18
-- [x] **2C.mastering-pivot-tables** Rewrote intro (3 paragraphs: who-it's-for + Excel-version matrix + the 5 errors we'll solve). Expanded "What Is a Pivot Table?" with formulas-vs-pivots framing. Expanded Steps 1/2/3 with error-preventing nuances. Added Report 4 (Top 10 filter) + "% of Row Total" tip. Expanded Calculated Fields with aggregation-trap explanation. Added Timelines section. Slicers section expanded with Report Connections. Refresh section expanded with Ctrl+Alt+F5 + Table-source explanation. Added 6th Common Mistake (GETPIVOTDATA). Word count 652 → 2693 (4.1×). — 2026-04-18
-- [x] **2D.mastering-pivot-tables** Added dedicated Troubleshooting H2 (5 ordered errors: Cannot Group That Selection / Count-not-Sum / #REF! after delete / new rows don't appear / "(blank)" labels) with exact fixes. Added visible FAQ H2 (5 questions). Synced FAQPage JSON-LD from 2 → 5 entries matching visible FAQ. — 2026-04-18
-- [x] **2E.mastering-pivot-tables** Replaced Related Posts with Related tutorials. Promoted `excel-formulas-guide` (hub) to top with annotation; added `groupby-vs-pivottable-excel` + `advanced-formulas`. Hub reciprocal confirmed (3 refs in excel-formulas-guide). URL unchanged, no firebase redirect. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-18
-
-##### Completed: advanced-formulas
-
-- [x] **2A.advanced-formulas** WebSearch on 2 head-term queries. SERP crowded (excel-formula.com, toxigon, icajobguarantee, datacamp, o'reilly book) but no verbatim match for current title. 29 inbound links mean renaming = pure ranking risk. **Kept title** and focused moat on body depth + troubleshooting (gap in top competitors). — 2026-04-18
-- [x] **2B.advanced-formulas** Updated `dateModified` in BlogPosting JSON-LD to 2026-04-18. Updated `sitemap.xml` `<lastmod>` to 2026-04-18. Title/meta/schema otherwise already fully scaffolded on author pass. — 2026-04-18
-- [x] **2C.advanced-formulas** Expanded each of 15 formula sections with Real-world scenario + Beginner pitfall (previously each was 1-2 sentences). Added 2-paragraph intro (who-it's-for + Excel 365/2021/2019 compatibility note + how-to-read navigation links). Expanded Learning Strategy with starter-set recommendation. Word count 585 → 2639 (4.5×). — 2026-04-18
-- [x] **2D.advanced-formulas** Added dedicated Troubleshooting H2 (5 ordered errors: #SPILL! / #VALUE! range mismatch / INDIRECT #REF! / named LAMBDA argument mismatch / workbook slowdown from volatile functions) with exact fixes. Added visible FAQ H2 (5 questions). Synced FAQPage JSON-LD from 2 → 5 entries matching visible FAQ exactly. — 2026-04-18
-- [x] **2E.advanced-formulas** Promoted `excel-formulas-guide` (Excel cluster hub) to top of Related tutorials with annotation; added `let-and-lambda-excel` as new sibling. Hub reciprocal link confirmed pre-existing at `excel-formulas-guide.html:116,303`. URL unchanged, no firebase redirect needed. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-18
-
-##### Completed: clean-messy-data
-
-- [x] **2A.clean-messy-data** WebSearch on head term shows crowded SERP (Microsoft Support, Ablebits, Spreadsheeto, ExcelJet) — no verbatim match for current title. 18 inbound internal links = renaming is pure ranking risk. **Kept title**; moat = per-section real-world scenarios + beginner pitfalls (gap none of top SERP competitors fill on a single page) + 5-error Troubleshooting H2. — 2026-04-18
-- [x] **2B.clean-messy-data** Added missing `article:modified_time` meta + updated BlogPosting `dateModified` to 2026-04-18. Sitemap lastmod bumped to 2026-04-18. — 2026-04-18
-- [x] **2C.clean-messy-data** Body expanded across all 10 sections: each gets a Real-world scenario + Beginner pitfall. Added TRIM+CLEAN+SUBSTITUTE chain for non-printable web data, Paste Special Multiply trick for bulk number conversion, NUMBERVALUE for thousand-separator strings, TEXTBEFORE/TEXTAFTER section, 2 new checklist rows (row-count sanity + Excel Tables wrap). 3-paragraph intro added (work-on-copy + downstream-failure framing + prerequisite link to excel-formulas-guide hub). — 2026-04-18
-- [x] **2D.clean-messy-data** Added dedicated Troubleshooting H2 with 5 ordered errors and exact fixes: TRIM-did-nothing (CHAR(160)+CHAR(8203) cause), Remove-Duplicates-says-0 (helper-column fix), Flash-Fill-wrong-pattern (undo+disambiguate), Text-to-Columns-overwrote-right-column (insert-blank-columns fix), VALUE-failed-on-numbers (SUBSTITUTE-strip pattern). Added visible FAQ H2 with 5 questions. Completely rewrote FAQPage JSON-LD: was 2 generic Qs → now 5 entries matching visible FAQ exactly (clean-sequence, common issues, VLOOKUP-#N/A, Flash-Fill-vs-formulas, when-to-graduate-to-Power-Query). — 2026-04-18
-- [x] **2E.clean-messy-data** Replaced "Related Posts" with "Related tutorials" — promoted `excel-formulas-guide` (hub) to top entry with annotation; added `excel-tables-best-practices` + `advanced-formulas` as siblings; kept data-validation/power-query-guide/mastering-pivot-tables. Hub reciprocal confirmed: `excel-formulas-guide.html` already references `clean-messy-data` (lines 176, 305). URL unchanged, no firebase redirect needed. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-18
-
-##### Completed: power-query-guide
-
-- [x] **2A.power-query-guide** WebSearch on 3 queries: current head term + "Power Query beginner monthly report folder refresh" + "Power Query M language vs formulas beginner". SERP crowded on the head term (ExcelGoodies, Coefficient, Simplilearn, Ablebits, MrExcel) with strong commercial + YouTube competitors. Compound "folder import + monthly refresh" already well-covered (databear, exceljump, Ablebits). No clean rename gap, and 15 inbound internal links = pure ranking risk to retitle. **Kept title**; moat = depth (per-section real-world scenarios + beginner pitfalls + 5-error Troubleshooting H2 + 5-entry FAQ — gap none of top SERP results fill on one page). — 2026-04-18
-- [x] **2B.power-query-guide** Added missing `article:modified_time` meta (was absent) + updated BlogPosting `dateModified` to 2026-04-18. Sitemap lastmod bumped to 2026-04-18. — 2026-04-18
-- [x] **2C.power-query-guide** Body expanded 668w → ~2500w: added 3-paragraph intro (who-for + Excel version matrix + M-language-myth-drop), expanded "What Is Power Query?" with Applied-Steps mental model + 25-min → 10-sec accounting scenario, expanded "Importing Data" with file-path-pitfall, "Editor" with rename-every-step habit + combine-steps refresh-perf pitfall, "Practical Example" with exact UI paths + 14-store POS scenario + Changed-Type-last pitfall, "Merge" with 5 join types + 30-sec VLOOKUP vs 4-sec Merge scenario + type-mismatch pitfall, "Folder Import" with 4000-file finance scenario + subfolder-scope pitfall, "Power Query vs Formulas" with standard ETL architecture pipeline (PQ → Table → Pivot → Dashboard). — 2026-04-18
-- [x] **2D.power-query-guide** Added dedicated Troubleshooting H2 with 5 ordered errors and exact fixes: DataSource.Error (file path moved) / Expression.Error column-not-found (schema drift) / slow refresh (3 causes: Changed-Type early, filters below sort, load-to-worksheet when only-connection-needed) / numbers-as-text from mixed-value CSV (Replace "N/A" with null then cast) / Formula.Firewall privacy-level conflict (toggle off or stage queries). Added visible FAQ H2 with 5 questions and matching new FAQPage JSON-LD added in head (was absent entirely): is-it-free, vs-Power-Pivot, M-language-required, auto-refresh-on-open, vs-Python-VBA. — 2026-04-18
-- [x] **2E.power-query-guide** Replaced "Related Posts" with "Related tutorials" — promoted `excel-formulas-guide` (hub) to top entry with annotation; added `mastering-pivot-tables` + `excel-tables-best-practices` as siblings; kept power-pivot-guide/clean-messy-data/dynamic-dashboards with annotations. Hub reciprocal confirmed: `excel-formulas-guide.html` already references `power-query-guide` (lines 140, 304). URL unchanged, no firebase redirect needed. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-18
-
-##### Completed: audit-formulas-excel
-
-- [x] **2A.audit-formulas-excel** WebSearch on head term + F9/Evaluate Formula + inherited-workbook angle. SERP dominated by Microsoft Support, Accelerate Excel, Macabacus, CorporateFinanceInstitute, MavenAnalytics, GoSkills, ExcelEasy, Ablebits — all near-verbatim head-term titles. 7 inbound links = modest ranking risk to rename. **Kept title**; moat = compound single-page coverage (every Formula Auditing tool + F9 trick + Evaluate Formula dialog + Watch Window + Inquire + 6-step inherited-workbook checklist) — none of the top SERP results combine all of this on one page. — 2026-04-22
-- [x] **2B.audit-formulas-excel** Updated `article:modified_time` meta + BlogPosting `dateModified` to 2026-04-22. Sitemap lastmod bumped to 2026-04-22. — 2026-04-22
-- [x] **2C.audit-formulas-excel** Body expanded ~800w → ~3300w. Deleted filler sections (title repeated 3× in old "How to make this pattern hold up" / "How to extend the workflow" boilerplate). Added: 3-paragraph intro (margin anomaly + inherited workbook + model-before-decision framing + version matrix + Mac caveat); "When formula auditing earns its keep" H2 (3 scenarios); Formula Auditing group tour; 7 tool sections each with shortcut + real-world scenario + beginner pitfall (Trace Precedents / Trace Dependents / Show Formulas / Error Checking / F9 + Evaluate Formula / Watch Window / Inquire). Inherited-workbook 6-step audit checklist H2. When-to-use decision table (7 symptom-to-tool rows). Worked example rewritten as 4-step margin-anomaly resolution with concrete H10/H11/H12 cells. — 2026-04-22
-- [x] **2D.audit-formulas-excel** Added dedicated Troubleshooting H2 with 5 ordered errors + exact fixes: arrows-not-appearing / dashed-arrow-sheet-icon / F9-replaced-formula / circular-reference-warning / Evaluate-Formula-greyed-out. Common mistakes expanded 3 → 5 (added Show-Formulas-skip + F9-Enter pitfalls). Visible FAQ H2 with 5 questions. Completely rewrote FAQPage JSON-LD from 4 bad (section-headings-as-questions) → 5 real Qs matching visible FAQ exactly: where-is-Formula-Auditing-group / precedents-vs-dependents / long-nested-formula-debugging / cross-sheet-arrows / inherited-workbook-audit-order. — 2026-04-22
-- [x] **2E.audit-formulas-excel** Replaced 2 generic "Related guides" lists (both filler-heavy) with curated 6-entry "Related tutorials" — promoted `excel-formulas-guide` (hub) to top with annotation; added `claude-debug-formulas` + `review-ai-generated-excel-formulas` + `let-and-lambda-excel` + `advanced-formulas` + `excel-tables-best-practices` (the fix pattern from the worked example). Hub reciprocal confirmed: `excel-formulas-guide.html` already references `audit-formulas-excel` in two places (JSON-LD position #19 at line 170, Debugging and Error Fixing section at line 305). URL unchanged, no firebase redirect needed. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-22
-
-##### Completed: power-pivot-guide
-
-- [x] **2A.power-pivot-guide** WebSearch on head term "Power Pivot Excel beginner tutorial DAX data model millions rows". SERP dominated by DataCamp, Microsoft Support (2 pages), DAX Guide, Xelplus, tutorialspoint, dbrownconsulting, Udemy, YouTube. 7 inbound links = modest ranking risk. **Kept title**; moat = single-page coverage of the full stack (SKU/Mac availability → Power Query → data model → star schema → relationships → calc columns vs measures → CALCULATE-centred DAX → time intelligence → worked example → troubleshooting) with the Mac/SKU availability gap none of the competitors warn about upfront. — 2026-04-22
-- [x] **2B.power-pivot-guide** Added missing `article:modified_time` meta (was absent). Updated BlogPosting `dateModified` to 2026-04-22. Sitemap lastmod bumped to 2026-04-22. — 2026-04-22
-- [x] **2C.power-pivot-guide** Body expanded ~500w → ~2800w. Added 3-paragraph intro with explicit SKU/Mac availability warning + hub cross-link, "What Power Pivot actually is" H2 explaining VertiPaq + columnar storage + dictionary encoding (4M rows → 62MB), 6 numbered step H2s. Step 3 "Build a star schema" fills the biggest gap in competitor tutorials — fact-vs-dim framing with real grocery scenario (4.1M-row extract split into Sales + Products + Stores + Dates). Step 4 covers cardinality + cross-filter direction + active flag + duplicate-key pitfall. Step 5 Calculated Columns vs Measures 5-row comparison table with rule-of-thumb. Step 6 DAX essentials: SUM, DIVIDE, CALCULATE (with ALL for share-of-total), DISTINCTCOUNT, and time intelligence (TOTALYTD + SAMEPERIODLASTYEAR + YoY growth) — all with runnable DAX examples. Worked example: 3-table grocery model with schema pseudo-code + 6 measures + pivot setup. Power Pivot vs Power Query vs Power BI decision table. When-to-upgrade list. — 2026-04-22
-- [x] **2D.power-pivot-guide** Added dedicated Troubleshooting H2 with 5 ordered errors + exact fixes: (1) Power Pivot not in COM Add-ins (SKU check path + upgrade guidance), (2) CALCULATE returns wrong value (KEEPFILTERS pattern + filter-on-dims-not-facts rule), (3) circular dependency in calculated column (convert to measure), (4) relationship-fails-on-duplicate-keys (Power Query dedupe pattern), (5) slow refresh / bloated file (too many calc columns, high-cardinality columns, double-loaded data). Common mistakes expanded from 0 → 5. Visible FAQ H2 with 5 questions mirroring FAQPage JSON-LD exactly. Completely rewrote FAQPage JSON-LD from 2 → 5 entries (added Mac compatibility, DAX prerequisite, Power Pivot vs Power BI decision). — 2026-04-22
-- [x] **2E.power-pivot-guide** Replaced 3-item "Related Posts" with curated 6-entry "Related tutorials" — promoted `excel-formulas-guide` (hub) to top with annotation; added `mastering-pivot-tables` + `dynamic-dashboards` + `financial-modelling` + `advanced-formulas` + kept `power-query-guide`. Sources list upgraded (Microsoft Power Pivot overview + DAX doc + dax.guide). Hub reciprocal confirmed: `excel-formulas-guide.html` already references `power-pivot-guide` in JSON-LD position #9 (line 146) and Pivot Tables and Data Analysis section (line 304). URL unchanged, no firebase redirect needed. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-22
-
-##### Completed: inventory-tracker-excel
-
-- [x] **2A.inventory-tracker-excel** WebSearch on "how to build inventory tracker in Excel formulas stock reorder SKU step by step 2026". SERP dominated by Microsoft Excel Cloud + Smartsheet (2) + ClickUp + Intuit + ProjectManager + thebricks + kladana + boxhero — ALL template-download pages, not from-scratch formula tutorials. Current "…That Stays Maintainable" unique in SERP. 7 inbound links = modest rename risk. **Kept title**; moat = items-vs-movements pattern with concrete runnable formulas (SUMIFS stock totals with both Option A positive+Type vs Option B signed conventions, trailing-30-day days-of-stock — the formula competitor tutorials skip). — 2026-04-22
-- [x] **2B.inventory-tracker-excel** Updated `article:modified_time` meta + BlogPosting `dateModified` to 2026-04-22. Sitemap lastmod bumped. — 2026-04-22
-- [x] **2C.inventory-tracker-excel** Body expanded ~770w → ~2700w. Deleted 2 boilerplate filler sections ("How to make this pattern hold up" + "How to extend the workflow" — repeated the title verbatim 3×). New content: 3-paragraph intro with items/movements/dashboard framing + Excel 365/2021/2019/web compatibility + hub cross-link; three-sheet architecture H2 with Table-name convention table (tblItems / tblMovements / tblDashboard + append-only rule); Items master 7-column schema table with rationale per column; Movements 6-column schema + two-quantity-convention explanation. Dashboard section with 6 runnable formula subsections: Current Stock (both conventions), XLOOKUP joins with INDEX/MATCH fallback for 2019, Stock Value, Reorder Status IF + conditional formatting, Avg Daily Sales trailing-30-day SUMIFS, Days of Stock with ∞ fallback. Real-world scenario (22-SKU bakery supplier 45s→8s per entry). Worked example: 25-SKU produce supplier with Items + Movements sample rows + calculated walk-through. Multi-location Power Query section. When-Excel-stops-being-right section (5 graduation thresholds + Zoho/Katana/QuickBooks Commerce named alternatives). — 2026-04-22
-- [x] **2D.inventory-tracker-excel** Added dedicated Troubleshooting H2 with 5 ordered errors + exact fixes: (1) SUMIFS zero from trailing-space SKU (TRIM + Data Validation enforcement), (2) wildly negative stock (audit-trail ADJUSTMENT row not edit), (3) new movements don't appear (plain range → Ctrl+T fix), (4) REORDER stuck on overstocked items (text-vs-number — Text to Columns fix), (5) #DIV/0! in Days of Stock (IF-wrap ∞ fallback). Common mistakes 3 → 5. Visible FAQ H2 with 5 Qs. Completely rewrote FAQPage JSON-LD from 4 bad (section-headings-as-questions) → 5 real Qs: simplest-setup / current-stock-formula / reorder-alert / VLOOKUP-vs-SUMIFS / when-to-graduate. — 2026-04-22
-- [x] **2E.inventory-tracker-excel** Replaced filler Related lists (duplicate "as an isolated trick" bullets) with curated 7-entry — promoted `excel-formulas-guide` (hub) to top with annotation; added `excel-tables-best-practices` + `data-validation` + `advanced-formulas` + `power-query-guide` + kept `project-tracker-excel` + `sales-pipeline-tracker-excel`. Hub reciprocal **ADDED**: new entry for inventory-tracker-excel in Productivity and Best Practices section of `excel-formulas-guide.html` (hub had ZERO references before this pass). URL unchanged, no firebase redirect needed. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-22
-
-##### Completed: excel-ai-for-sales-ops
-
-- [x] **2A.excel-ai-for-sales-ops** WebSearch on 3 queries (head term + exact title + compound "Sales Ops Excel AI pipeline hygiene CRM quarter-end"). SERP competitive (monday.com, forecastio.ai, sparkco.ai, graphed.com, excelgoodies) but no single page combines all three pillars (pipeline cleanup formulas + weighted forecast + territory pack) with concrete Excel formulas AND AI prompts on one page. 6 inbound internal links (sales-pipeline-tracker-excel ×3, excel-ai-for-hr-teams ×3, excel-ai-guide ×2). **Kept title.** — 2026-04-22
-- [x] **2B.excel-ai-for-sales-ops** Updated `article:modified_time` + BlogPosting `dateModified` to 2026-04-22. **Cascade fix:** page was MISSING from `sitemap.xml`, `feed.xml`, AND `blog.html` — all three added in the earlier pass. Sitemap had a duplicate entry (2026-04-11 + 2026-04-22); removed the stale 2026-04-11 one. — 2026-04-22
-- [x] **2C.excel-ai-for-sales-ops** Full body rewrite ~700w → 2867w. Deleted all filler ("Quick answer", "Best-fit Sales Ops use cases", "Where caution still matters", "How to keep the workflow reliable", and two "title-repeated-3×" boilerplate sections). New content: 3-paragraph intro + Prerequisites + Step 1 Import/Clean (Remove Duplicates + TRIM(PROPER()) standardisation + Data Validation + staleness helper + AI bulk-cleanup prompt) + Step 2 Weighted Pipeline Forecast (tblStageProb 6-stage reference + XLOOKUP/INDEX-MATCH + Weighted Value + coverage ratio with 3×–4× healthy range + AI commentary prompt) + Step 3 Territory Reporting (SUMIFS territory totals + COUNTIFS quarter-over-quarter stage movement + per-rep coverage ratio + AI territory narrative prompt) + Worked Example (12-person SaaS, 340 deals, 45-min workflow, £2.1M/£680K = 3.1× coverage, APAC flagged at 1.8×). — 2026-04-22
-- [x] **2D.excel-ai-for-sales-ops** Added dedicated Troubleshooting H2 with 5 ordered errors + exact fixes: (1) SUMIFS zero from trailing-space territory name (TRIM + Find&Replace), (2) Weighted Value £0 from stage-name mismatch (EXACT() diagnostic), (3) absurdly high coverage (Closed Won still in pipeline — filter), (4) AI hallucinating deal names (raw-paste-only + "only reference deals in data below" prompt rule), (5) Q-o-Q wrong deltas from stage-name drift (standardise both exports with same mapping helper). Common mistakes: 5 items. Visible FAQ H2 (5 Qs) matching FAQPage JSON-LD exactly — completely rewrote JSON-LD from 4 bad (section-headings-as-Qs) → 5 real Qs. — 2026-04-22
-- [x] **2E.excel-ai-for-sales-ops** Related tutorials: 6 entries with `excel-formulas-guide` (hub) as top + `sales-pipeline-tracker-excel` + `ai-forecasting-model-excel` + `dynamic-dashboards` + `review-ai-generated-excel-formulas` + `clean-messy-data`. **Two-hub reciprocal confirmed:** `excel-ai-guide.html` already references this tutorial (lines 218, 334) AND new entry added to `excel-formulas-guide.html` AI and Automation section. URL unchanged, no firebase redirect needed. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-22
-
-##### Completed: keyboard-shortcuts
-
-- [x] **2A.keyboard-shortcuts** WebSearch on head-term variant. SERP dominated by Ablebits "30 most useful" (exact-phrase head term), Microsoft Support canonical reference, Simplilearn, GeeksforGeeks, Analytics Vidhya, plus several 50/80/100+ lists. 4 inbound internal links = modest rename risk. **Kept title**; moat = Mac equivalents alongside Windows in every shortcut table (none of the top SERP competitors list both side-by-side) + Troubleshooting H2 (language-switcher interception, Sticky Keys, used-range stale Ctrl+End, F4-not-in-edit-mode, Fn-lock laptop quirk) + two muscle-memory sequences + visible FAQ — no single competitor page combines all of this. — 2026-04-22
-- [x] **2B.keyboard-shortcuts** Added missing `article:modified_time` meta (was absent) + updated BlogPosting `dateModified` from 2026-03-11 → 2026-04-22. Added 2 new `article:tag` entries (Excel Mac shortcuts, Excel keyboard tips). Sitemap lastmod bumped to 2026-04-22. — 2026-04-22
-- [x] **2C.keyboard-shortcuts** **Critical bug fix:** line 193 had broken HTML `<code>Ctrl+;/code></code>` (malformed closing tag inside a code block) — fixed. Body expanded 1355w → 3599w (2.7×). Replaced 1-line intro with 2-paragraph intro (8-days-saved-per-year Microsoft stat + what's-in-this-tutorial framing + version + Mac compatibility + hub cross-link). Added Prerequisites H2 (version matrix + Fn-lock caveat + practise-on-real-data rule). Added Mac-equivalent column to all 6 shortcut tables (Navigation, Selection, Editing, Formatting, Formulas, Workbook & Data). Added beginner-pitfall paragraph below each table (stale Ctrl+End used-range, Shift+Space inside Tables, Ctrl+C→V anti-pattern, Alt-sequential-not-combination, F4-requires-edit-mode, Ctrl+T-rejects-merged-cells). Added new shortcuts: F4 repeat-last-action, Ctrl+Shift+# short-date, F9 formula-fragment-evaluate, Ctrl+Shift+L filter toggle, Ctrl+Alt+F5 refresh-all, Ctrl+N/O/S basics. Added "Two Muscle-Memory Sequences" H2 — Sequence 1 (Ctrl+Home → Ctrl+A → Ctrl+T → Ctrl+Shift+L → Ctrl+S, replaces ~20 mouse clicks) + Sequence 2 (Enter-in-Table OR Ctrl+Shift+End + Ctrl+D + F2-verify mouse-free fill-down). Rewrote "How to Memorise These Without Burning Out" with pick-5-per-week + never-look-at-cheat-sheet-first rule + Ctrl+Shift+letter macro binding. Read-time badge updated 6 min → 9 min. — 2026-04-22
-- [x] **2D.keyboard-shortcuts** Added 5-item Common mistakes. Added dedicated Troubleshooting H2 with 5 ordered errors + exact fixes: (1) shortcut does nothing (Sticky Keys + Ctrl+Shift language-switcher interception), (2) F4 repeats last action instead of toggling $ (not in edit mode — press F2 first), (3) Ctrl+; inserts wrong date (Windows clock / regional setting), (4) Ctrl+T refused (merged cells / blank middle rows / already-in-Table — Alt+H,M,U fix), (5) laptop Fn modifier required (BIOS Action Keys Mode / Mac System Settings toggle). Added visible FAQ H2 with 5 questions mirroring FAQPage JSON-LD exactly. Completely rewrote FAQPage JSON-LD from 2 → 5 entries (added Mac equivalents, shortcut-does-nothing troubleshooting, and memorisation-strategy — all absent from prior schema). — 2026-04-22
-- [x] **2E.keyboard-shortcuts** Sources upgraded with canonical Microsoft Support keyboard-shortcuts URL and ExcelJet shortcut reference. Replaced 3-item Related Posts with 7-entry Related tutorials — promoted `excel-formulas-guide` (hub) to top with annotation, added `excel-tables-best-practices` (what Ctrl+T unlocks), `audit-formulas-excel` (F9 workflow), `advanced-formulas`, `conditional-formatting-tips` (Ctrl+1 context), `clean-messy-data` (Ctrl+E Flash Fill), kept `data-validation`. Hub reciprocal confirmed: `excel-formulas-guide.html` already references keyboard-shortcuts in Productivity and Best Practices section (line 307). URL unchanged, no firebase redirect needed. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-22
-
-##### Completed: copilot-automate-tasks
-
-- [x] **2A.copilot-automate-tasks** WebSearch on compound 2026-specific query. SERP dominated by Microsoft Support + Nexacu + m365.fm + Flexmind + Reflective IT + Microsoft Tech Community (the Agent Mode launch post) + 365ninjacat. 4 inbound internal links = renaming is pure ranking risk. **Kept title.** Moat = Agent Mode (Q1 2026 release) and COPILOT() function (March 2026) coverage — both genuinely new in 2026 and missing from 80% of competitor pages still anchored on the old chat-pane-only workflow. — 2026-04-22
-- [x] **2B.copilot-automate-tasks** Added missing `article:modified_time` meta (was absent) + updated BlogPosting `dateModified` from 2026-03-23 → 2026-04-22. Added 2 new `article:tag` entries (Excel Agent Mode, COPILOT function). Sitemap lastmod bumped to 2026-04-22. — 2026-04-22
-- [x] **2C.copilot-automate-tasks** Body expanded 1523w → 3937w (2.6×). New: 2-paragraph intro (Toshiba 5.6-hours-saved-per-month stat + licence + hard cloud-storage prerequisite + hub cross-links). Prerequisites H2 (4 items: Copilot licence + OneDrive/SharePoint + Excel Table + Excel 365 version 2403+). All 4 existing prompt-list sections (Sorting/Filtering, Formatting, Adding Formulas, Data Summarisation) extended from 4 thin bullets to 5-6 bullets + Real-world scenario / beginner-pitfall paragraphs (duplicate-column ambiguity / CF-not-propagating / Total-Row-vs-SUM-below-Table / COPILOT-recalc-volatility). **New "Per-row AI with the COPILOT() function"** H2 with syntax + 4 practical examples (sentiment / category extraction / summary / entity pull) + quota warning + Paste-Special-Values freeze pattern. **New "Agent Mode — multi-step automation from a single prompt"** H2 with enable path + worked Friday-regional-sales-pack 7-step prompt with pause-approval point + save-and-re-run-next-week pattern. Rewrote "Building a Weekly Automation Workflow" as 9-step classic-mode worked example with concrete row counts (340 deals / 14 empty rows removed / 340 AI classifications). Rewrote thin Limitations → 5-bullet what-Copilot-can't-do list with named alternatives (VBA→Claude, external systems→Power Automate). Rewrote Copilot+Power Automate → 3-step end-to-end flow. Read-time badge 8 → 12 min. — 2026-04-22
-- [x] **2D.copilot-automate-tasks** Added 5-item Common mistakes. Added dedicated Troubleshooting H2 with 5 ordered errors + exact fixes: (1) "Copilot can't be used on this file right now" (local/personal-OneDrive), (2) Copilot button greyed out (4-cause diagnostic: licence → cloud → Table → DLP), (3) Agent Mode missing from split-button (tenant admin Agents toggle + Excel 2403 requirement), (4) COPILOT() returning #BUSY! / #CALC! (rate limit / upstream error), (5) Agent plan pauses and never resumes (by-design no-auto-retry). Added visible FAQ H2 with 5 questions mirroring FAQPage JSON-LD exactly. Completely rewrote FAQPage JSON-LD from 2 → 5 entries (added Agent Mode, COPILOT() function, availability-troubleshooting — all three absent from prior schema). **Critical duplicate cleanup:** `<h2>Sources &amp; Further Reading</h2>` was duplicated on line 321 (two openings in a row). Fixed. — 2026-04-22
-- [x] **2E.copilot-automate-tasks** Sources upgraded with canonical Microsoft Tech Community Agent Mode launch URL + Microsoft 365 Copilot Workflows URL. Replaced 4-item Related Posts with 7-entry Related tutorials — promoted `excel-formulas-guide` (hub) to top with annotation, added `power-query-guide` (refresh-on-open alternative) + `clean-messy-data` (pre-Copilot cleanup) as siblings, kept `getting-started-copilot-excel` / `copilot-data-analysis` / `claude-ai-excel-macros` / `excel-ai-prompts` with contextual annotations. Hub reciprocal confirmed: `excel-formulas-guide.html` already references copilot-automate-tasks in AI and Automation section (line 306). URL unchanged, no firebase redirect needed. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-22
-
-##### Completed: amortization-schedule-excel
-
-- [x] **2A.amortization-schedule-excel** WebSearch on head term + compound "lump sum vs monthly extra payment" query. Head-term SERP dominated by Ablebits / Corporate Finance Institute / TrumpExcel / DataCamp / Indeed / SpreadsheetPoint / ExtendOffice — all exact-head-term titles. Compound lump-sum-vs-monthly angle is owned by mortgage-calculator sites (Bankrate / PNC / U.S. Bank / calculator.net), NOT by any Excel tutorial on the first page. 3 inbound internal links = modest rename risk. **Kept title**; moat = lump-sum vs recurring-monthly side-by-side scenario comparison with concrete interest-saved numbers (gap none of the top SERP Excel tutorials fill — they show ONE extra-payment column and stop) + IPMT/PPMT cross-check + amortisation-specific Troubleshooting. — 2026-04-22
-- [x] **2B.amortization-schedule-excel** Updated meta description + og/twitter description to emphasise PMT/IPMT/PPMT + lump-sum-vs-monthly scenarios. `article:modified_time` + BlogPosting `dateModified` updated 2026-03-04 → 2026-04-22. Added 2 new `article:tag` entries (PMT IPMT PPMT Excel, lump sum vs monthly extra payment). Sitemap lastmod bumped 2026-04-11 → 2026-04-22. — 2026-04-22
-- [x] **2C.amortization-schedule-excel** Full body rewrite ~320w → ~2200w. Deleted filler (three 1-sentence sections + two boilerplate "How to make this pattern hold up" / "How to extend the workflow" sections repeating title 3× each). New content: 3-paragraph intro, Prerequisites H2, Step 1 inputs block (9-row specification with PMT minus-sign explanation), Step 2 schedule columns (8-column table with MIN/MAX guards + Ctrl+T + beginner pitfall: interest from beginning-not-ending balance), Step 3 IPMT/PPMT cross-check (real-world scenario: credit union analyst catches rate-not-divided-by-12 bug), Step 4 test the two scenarios (£200/month vs £2,400 lump-sum at month 12 on £250k/30y/6.5% loan: £63,260 vs £9,520 saved — same total extra paid), Step 5 summary panel (5 formulas + Scenario Manager), Step 6 chart declining balance, Worked example with verification numbers, when-to-graduate section. — 2026-04-22
-- [x] **2D.amortization-schedule-excel** Added 5-item Common mistakes. Added dedicated Troubleshooting H2 with 5 ordered errors + exact fixes: (1) #NUM! from PMT (sign + rate/term + divide-by-12), (2) final-row residual (MAX/MIN guards), (3) extra monthly column stays 0 (Table Resize), (4) lump sum never applies (B12 out of range or column A is text), (5) Scenario Manager "reference is not valid". Added visible FAQ H2 with 5 questions. Completely rewrote FAQPage JSON-LD from 4 bad (section-headings-as-Qs) → 5 real Qs: template-vs-scratch / lump-sum-vs-monthly / residual-balance / fortnightly-weekly / IPMT-PPMT-vs-running-balance. Fixed typo `</h3<p>` in FAQ. — 2026-04-22
-- [x] **2E.amortization-schedule-excel** Added Sources section (Microsoft PMT/IPMT/PPMT function references). Replaced 4-item "Related guides" filler with 6-entry "Related tutorials" — promoted `excel-formulas-guide` (hub) to top with annotation + `monthly-budget-spreadsheet-excel` (companion planner) + `financial-modelling` (next step up) + `ai-forecasting-model-excel` + `excel-tables-best-practices` (Ctrl+T foundation) + `advanced-formulas`. Hub reciprocal **ADDED**: new entry for amortization-schedule-excel in Productivity and Best Practices section of `excel-formulas-guide.html` (hub had zero references before this pass). URL unchanged, no firebase redirect needed. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-22
-
-#### Group E — Flutter thin tutorials (from Phase 0.3 shortlist)
-
-See same shortlist (Flutter rows tagged "expand").
-
-Priority order (only Flutter "expand" row in the shortlist): ~~add-flutter-to-existing-app (7)~~ ✅.
-
-##### Completed: add-flutter-to-existing-app
-
-- [x] **2A.add-flutter-to-existing-app** WebSearch on head term + compound `"FlutterEngineGroup" "FlutterFragment" hybrid navigation stack troubleshooting`. Head-term SERP dominated by official `docs.flutter.dev/add-to-app` (and per-platform `/android/project-setup`, `/ios/project-setup`), 2 GitHub demo repos (duytq94, shakiz), and Medium tutorials (Paul Ruiz, Jeffery Alexandro Henry, alanrb, Abhishek Dixit) plus antmedia.io. Compound troubleshooting query is owned by GitHub issues (87173 AssetManifest / 95877 FlutterFragment-Activity round-trip / 77690 engine destroy / 79335 iOS multi-engine crash / 114221 hot-reload break / 136054 CPU profiling / 171213 Huawei image bug / 120870 add-to-app assets) + sobyte.net — meaning the consolidated-troubleshooting-on-one-tutorial gap is real. 7 inbound internal links = renaming = pure ranking risk. **Kept title** "Add Flutter to an Existing App: Mobile and Web Integration Patterns"; moat = compound single-page coverage of engine lifecycle decision (single cached engine vs FlutterEngineGroup with the asset/hot-reload/destroy quirks named) + hybrid back-stack ownership decision (native-owns vs Flutter-owns + the double-pop bug) + MethodChannel versioning rule + concrete fintech worked example with completion-rate and app-size metrics + 5-error Troubleshooting H2 — none of the top SERP results combine all this on one page. — 2026-04-27
-- [x] **2B.add-flutter-to-existing-app** Pivoted meta description + og:description + twitter:description + BlogPosting `description` to emphasise FlutterEngineGroup, hybrid navigation, MethodChannel, and the five integration bugs framing. Replaced 5 generic `article:tag` entries with 7 specific tags (Add Flutter to existing app / Flutter add-to-app / FlutterEngineGroup / FlutterFragment / Hybrid navigation Flutter / MethodChannel / Flutter module Android iOS). `article:modified_time` 2026-02-11 → 2026-04-27 + BlogPosting `dateModified` 2026-02-11 → 2026-04-27. BlogPosting `keywords` synced. Read-time badge 4 min → 11 min. Date span shows "11 Feb 2026 · Updated 27 Apr 2026". — 2026-04-27
-- [x] **2C.add-flutter-to-existing-app** Body expanded 785w → 3779w (4.8×). Deleted all filler: "Quick answer" bullets / "Start with the seam" / "Think about ownership early" / "Keep communication contracts clean" 1-line H2s + 2 boilerplate "How to apply this in a production Flutter codebase" / "How to extend the workflow after this guide" sections that repeated the title verbatim 3× each + 3-bullet duplicate Related list with identical "as an isolated trick" suffix. New content: 3-paragraph intro (real-host framing + 5-bug warning preview + scope/version compatibility — Flutter 3.27, AGP 8.6, Xcode 15.4 — + hub cross-link to /blog/flutter-guide). "When add-to-app earns its keep" H2 with 3 concrete scenarios (bank onboarding modernisation / retail PDP A/B validation / loyalty programme shared across grocery+petrol apps). Prerequisites H2 (5 items: Flutter SDK 3.16+, Android AGP 8.0+/compileSdk 34+/Java 17, iOS Xcode 15.0+/iOS 12+/CocoaPods 1.13+, Flutter 3.10+ for web Element Embedding API, native-team approval as architectural prereq). 7 numbered Step H2s: Step 1 Create the Flutter module (with `flutter create --template module` runnable + package-name collision pitfall), Step 2 Android source-vs-AAR + FlutterFragment-vs-FlutterActivity decision, Step 3 iOS CocoaPods-source-pod-vs-xcframework + AppDelegate engine pre-warming, Step 4 single cached engine vs FlutterEngineGroup decision (the biggest gap in competitor coverage — covers hot reload + AssetManifest + manual destruction quirks with rule-of-thumb), Step 5 hybrid navigation back-stack ownership (native-owns vs Flutter-owns with the double-pop failure mode named), Step 6 MethodChannel/EventChannel/BasicMessageChannel contract with versioned namespace rule (`com.yourcompany.checkout/v1`), Step 7 web Element Embedding API with runnable HTML + JS bootstrap snippet. Worked example: 4-year-old fintech app (Java+Compose Android, UIKit+SwiftUI iOS) onboarding rebuild — concrete numbers (14 weeks native vs 7+2 weeks add-to-app, completion 64%→71%, +5.4MB Android per ABI, +9.1MB iOS). Ownership and release cadence H2 with 4 explicit decisions (seam owner / release coupling / bug routing rule based on channel namespace / shared design tokens). — 2026-04-27
-- [x] **2D.add-flutter-to-existing-app** Common mistakes 3 → 5 items (added: standard-codec-doesn't-carry-domain-objects + first-Flutter-frame-needs-native-splash + analytics-must-bridge-not-fork). Added dedicated Troubleshooting H2 with 5 ordered errors + exact fixes: (1) FlutterFragment goes blank after navigate-away-and-back (engine detach — fix via `withCachedEngine` + `FlutterEngineCache.put` in Application class, with `destroyEngineWithFragment(true)` as the alternative; never round-trip cached engine between Fragment and Activity per issue 95877), (2) hot reload stops working with FlutterEngineGroup (IDE attaches to one engine; fix with `BuildConfig.DEBUG` toggle keeping single engine in dev), (3) `Unable to load asset: AssetManifest.json` with FlutterEngineGroup (per issues 87173 + 120870 — fix by explicitly setting `engine.assets.path = FlutterLoader.findAppBundlePath()` after spawn), (4) iOS app size +50MB (debug or fat framework — fix with `--xcframework --no-debug --no-profile` + `otool -hv` verification that release framework is arm64-only; correct release adds 8-11MB not 50+), (5) hybrid back-stack double-pop on Android (both stacks reacted — fix by enforcing single owner from Step 5: `WillPopScope`+`Navigator.maybePop` if Flutter-owns, no Flutter routes if native-owns). "When add-to-app is the wrong answer" H2 with 3 anti-scenarios (greenfield project / full migration / unfit host build system). Visible FAQ H2 with 5 questions matching FAQPage JSON-LD exactly. **Completely rewrote FAQPage JSON-LD** from 4 bad (section-headings-as-Qs: "Add Flutter to an Existing App: Mobile and Web Integration Patterns?", "Start with the seam?", "Think about ownership early?", "Keep communication contracts clean?") → 5 real beginner-engineer Qs: single-engine-vs-FlutterEngineGroup / app-size-impact / native-Flutter-data-sharing-via-channels / FlutterFragment-blank-bug / rollback-feasibility. — 2026-04-27
-- [x] **2E.add-flutter-to-existing-app** Sources H2 added with 5 canonical Flutter docs URLs (add-to-app overview / Android project setup / iOS project setup / Element Embedding API for web / platform channels). Replaced filler "Related guides on this site" 4-bullet list with curated 6-entry "Related tutorials" — promoted `flutter-guide` (cluster hub) to top with annotation + `flutter-app-architecture-2026` (Dart-side maintainability) + `responsive-flutter-ui-all-screens` (host viewport adaptation) + `go-router-flutter-deep-linking` (deep-link from native launcher) + `flutter-web-skwasm-vs-canvaskit` (web renderer choice when embedding) + `flutter-vs-react-native` (decision-point fallback). Hub reciprocal confirmed pre-existing: `flutter-guide.html` already references `add-flutter-to-existing-app` in JSON-LD position (line 68) and Hybrid and Migration section (line 243). Sitemap lastmod 2026-04-11 → 2026-04-27. URL unchanged, no firebase redirect needed. Logged in [reports/conversions-log.md](../reports/conversions-log.md). — 2026-04-27
-
-#### Group F — RAG / AI-dev (filled after Phase 0.3 shortlist)
-
-#### Group G — New product launches (fresh tutorials, not conversions)
-
-- ~~claude-design~~ ✅ done 2026-04-21 (see micro-task block below)
-
-##### Completed: claude-design
-
-- [x] **2A.claude-design** WebSearch run on "How to use Claude Design" + "Claude Design Anthropic Labs tutorial beginner claude.ai/design". Claude Design launched 2026-04-17 (4 days before publish). SERP **is already non-thin** despite the recent launch — Anthropic's own help centre + anthropic.com launch post + apiyi.com + buildfastwithai + aifordevelopers Substack + YouTube + creatoreconomy + Fast Company all published inside the launch week. User overrode Strategic Rule 1 and locked the title to the exact phrase "How to Use Claude Design" on the grounds that they wanted the exact-match head term rather than a thin-SERP rename candidate. Accepted with the explicit caveat that the moat must come from body depth, not title uniqueness. — 2026-04-21
-- [x] **2B.claude-design** Scaffolded from scratch (no original): full head meta (description / keywords / og / twitter / canonical / article:published_time + modified_time 2026-04-21 / en-GB / 5 article:tag entries) + BlogPosting + Organisation + BreadcrumbList + ImageObject + FAQPage (5 Qs) + WebPage speakable JSON-LD. Cover image path `/blog/images/claude-design-sagnik-bhattacharya-coding-liquids.jpg` — user will generate via Codex separately (placeholder 404 until then, user aware). Body skeleton: intro (2 paragraphs) + Prerequisites H2 + 9-step numbered H2 chain + Prompt patterns H2 + Claude Design vs Figma vs Canva table + Troubleshooting H2 + Limitations H2 + FAQ H2 + Sources H2 + Related Tutorials H2 + CTA. — 2026-04-21
-- [x] **2C.claude-design** Filled all 9 steps with real instructions and image placeholders (3 `<!-- screenshot: -->` comments for user/Codex to attach later). Strong-vs-weak prompt comparison using user's own Coding Liquids brand specs (30k students / 175 countries / warm earth-tone palette / Plus Jakarta Sans + DM Serif Display) — turns the tutorial into a demo of the brand. Step 4 covers the three editing modes (chat for conceptual, inline comments for per-element feedback, direct edits + sliders for micro-adjustments) with the "propagate across project" pattern. Step 5 covers all 4 input types (images / DOCX/PPTX/XLSX / codebase / web capture). Step 6 covers design system extraction with the design-token-library caveat. Step 7 covers the 3 sharing modes + organisation-scoped limitation. Step 8 covers all 4 export formats (Canva / PDF / PPTX / standalone HTML) with per-format use case. Step 9 covers Claude Code handoff with a concrete `claude "..."` command example. Added 5 reusable prompt patterns H2 (investor one-pager / landing-page wireframe / board-deck slide / app-screen mockup / marketing variant). Added Claude Design vs Figma vs Canva comparison table (9 rows) with honest verdict (tools complement rather than replace). — 2026-04-21
-- [x] **2D.claude-design** Added dedicated Troubleshooting H2 with 5 ordered errors + exact fixes: (1) "Claude Design is not yet available on your account" (Free plan / waitlist / wrong-email sign-in), (2) blank-canvas / stuck-on-Preparing-workspace (WebGL hardware-acceleration check via chrome://gpu + extension-blocking causes + incognito isolation), (3) Canva OAuth expiry (Settings → Integrations → Canva → Reconnect + allow-popups requirement), (4) design system import hang (500 MB zip limit + strip node_modules/dist + private-GitHub workaround), (5) org-scoped sharing prompts colleagues to sign in (working as intended — export to PDF or standalone HTML for external reviewers). Added Limitations H2 with 4 honest constraints (not pixel-precise / uneven rollout / no offline mode / no stock library). Added visible FAQ H2 with 5 questions mirroring FAQPage JSON-LD exactly (free? / vs Artifacts / design-background-required / handoff-to-Claude-Code meaning / replace Figma/Canva). — 2026-04-21
-- [x] **2E.claude-design** Added 5-entry Sources list (Anthropic launch post + 3 Claude Help Centre articles + Claude resources tutorial). Related Tutorials section: claude-code-vscode promoted as top entry ("natural next step … handoff bundle") + claude-code-android-studio (mobile target) + chatgpt-vs-claude-vs-copilot-vs-gemini-excel (non-design Claude fit) + gemma-4-vscode (cost alternative). Per user instruction, skipped primary gemma-4-vscode hub link promotion — included only as cost alternative. Added reciprocal link in claude-code-vscode.html Related Tutorials (promoted to top entry with "use Claude Code as the handoff target" annotation). Cascade complete: sitemap.xml + feed.xml + llms-full.txt + blog.html grid + BLOG_NAMES.txt all updated with new entry. No firebase redirect needed (new URL, no prior canonical). — 2026-04-21
-
----
-
-## Phase 3 — Comparison Pages (light pass, 1 file = 1 task)
-
-Per file add: verdict H2 ("Which should you pick?"), FAQ H2 (3-5 Qs), links to 2 relevant tutorials, ensure hub link exists if topically adjacent.
-
-- [x] **3.1** `chatgpt-vs-claude-vs-copilot-vs-gemini-excel.html` — Added "Which should you pick?" verdict H2. Synced FAQPage JSON-LD (5 Qs). Added hub links: excel-formulas-guide, gemma-4-data-analysis-excel, gemma-4-vscode. Renamed Related → Related tutorials. — 2026-04-17
-- [x] **3.2** `excel-vs-google-sheets.html` — Already had "The Verdict" H2. Added visible FAQ H2 (4 Qs) + expanded FAQPage schema to 4 Qs. Added hub links: excel-formulas-guide, chatgpt-vs-claude comparison. Renamed Related → Related tutorials. — 2026-04-17
-- [x] **3.3** `flutter-vs-react-native.html` — Added verdict H2 (Flutter for custom UI/Dart; RN for JS teams). Added hub: flutter-guide. Renamed Related → Related tutorials. — 2026-04-17
-- [x] **3.4** `gemma-4-vs-chatgpt-vs-claude.html` — Added verdict H2 (Gemma for free/private; Claude for reasoning; ChatGPT for breadth). Hub link already present. Renamed Related → Related tutorials. — 2026-04-17
-- [x] **3.5** `gemma-4-vs-gemini.html` — Added verdict H2 (Gemma=local-first; Gemini=cloud-first). Hub link already present. Renamed Related → Related tutorials. — 2026-04-17
-- [x] **3.6** `gemma-4-vs-gpt-vs-llama-excel.html` — Added verdict H2 with link to gemma-4-data-analysis-excel. Added hubs: excel-formulas-guide, gemma-4-vscode. Renamed Related → Related tutorials. — 2026-04-17
-- [x] **3.7** `gemma-4-vs-paid-ai-models.html` — Added verdict H2 (Gemma for routine+privacy; paid for hardest problems). Hub link already present. Renamed Related → Related tutorials. — 2026-04-17
-- [x] **3.8** `seedance-vs-veo-3.html` — Added verdict H2 (Seedance=prompt control; Veo 3=photorealism). Added hub: seedance-guide. Renamed Related → Related tutorials. — 2026-04-17
-- [x] **3.9** `seedance-vs-kling.html` — Added verdict H2 (Seedance=camera fidelity; Kling=body motion). Added hub: seedance-guide. Renamed Related → Related tutorials. — 2026-04-17
-- [x] **3.10** `seedance-vs-sora-2.html` — Added verdict H2 (Seedance=prompt adherence+free; Sora 2=cinematic quality). Added hub: seedance-guide. Renamed Related → Related tutorials. — 2026-04-17
-- [x] **3.11** `vlookup-vs-xlookup.html` — Already had verdict. Added hub: excel-formulas-guide. Renamed Related → Related tutorials. — 2026-04-17
-- [x] **3.12** `groupby-vs-pivottable-excel.html` — Added verdict H2 (GROUPBY for formula-driven; PivotTable for interactive). Added hub: excel-formulas-guide. Renamed Related → Related tutorials. — 2026-04-17
-- [x] **3.13** `analyst-vs-agent-mode-vs-copilot-chat.html` — Added verdict H2 (Analyst=exploration; Agent=automation; Chat=quick Qs). Added hub: excel-formulas-guide. Renamed Related → Related tutorials. — 2026-04-17
-- [x] **3.14** `flutter-web-skwasm-vs-canvaskit.html` — Added verdict H2 (skwasm=default; CanvasKit=complex painting). Added hub: flutter-guide. Renamed Related → Related tutorials. — 2026-04-17
-
----
-
-## Phase 4 — Hub Strengthening
-
-- [x] **4.1** Read hub fully; mapped 9 outbound /blog/ links (4 Group A + 4 comparisons + 1 Group B). — 2026-04-17
-- [x] **4.2** Hub already linked all 4 Group A tutorials in Related section. Verified reciprocal links. — 2026-04-17
-- [x] **4.3** Added 8 missing Group B tutorial links to hub Related section (copilot-agent-mode-vscode, deepseek-vscode, gemini-cli-vscode, gemini-cli-android-studio-flutter, opencode-vscode, windsurf-flutter-development, cursor-flutter-development, claude-code-android-studio). Hub now has 17 outbound links. — 2026-04-17
-- [x] **4.4** All 13 tutorials (4 Group A + 9 Group B) link back to hub. All 13 now have reciprocal hub→tutorial links. — 2026-04-17
-
----
-
-## Phase 5 — Sitewide Cleanup
-
-- [x] **5.1** Updated sitemap.xml — 15 modified pages got lastmod=2026-04-17. All 139 URLs present, 0 stale/deleted. — 2026-04-17
-- [x] **5.2** feed.xml already in sync (139 entries = 139 files). No changes needed. — 2026-04-17
-- [x] **5.3** llms-full.txt already in sync (139 refs = 139 files). llms.txt has 4 refs by design (summary file). No changes needed. — 2026-04-17
-- [x] **5.4** blog.html grid already in sync (139 links = 139 files). No changes needed. — 2026-04-17
-- [x] **5.5** Regenerated BLOG_NAMES.txt: 97 → 139 titles. — 2026-04-17
-- [x] **5.6** Ran audit_blog_cluster.py: **0 blockers**, 1 high (false positive: missing article:modified_time — user rule says sitemap only), 3 mediums (low internal link count on 3 pages — cosmetic). — 2026-04-17
-
----
-
-## Phase 6 — Final Verification Before AdSense Re-review
-
-- [x] **6.1** Crawl-checked 1620 internal /blog/ links across all 139 pages + blog.html grid. **0 broken links.** — 2026-04-17
-- [x] **6.2** Mobile render spot-check completed with local Chrome/CDP script at 360x800 and 390x844 across Home, tutorial grid, Excel hub, HR tutorial, workbook-protection tutorial, long Flutter tutorial, long AI tutorial, and Seedance tutorial. **0 actionable overflow/clipped-element candidates.** Report: [reports/mobile-render-2026-04-25.md](../reports/mobile-render-2026-04-25.md). Screenshots: `.claude/responsive-checks/screenshots/2026-04-25/`. — 2026-04-25
-- [x] **6.3** `ads.txt` intact: `google.com, pub-1443974359047569, DIRECT, f08c47fec0942fa0` (58 bytes). — 2026-04-17
-- [x] **6.4** User deployed via `firebase deploy` — 309 files, release complete. — 2026-04-17
-- [x] **6.5** User clicked "Request review" in AdSense (no separate message needed). Review pending. — 2026-04-17
-- [x] **6.6** Added `dateModified` to BlogPosting JSON-LD on all 139 pages (43 added, 92 already present). 15 pages set to today, rest set to datePublished baseline. — 2026-04-17
-
----
-
-## Done Archive
-
-> Completed tasks move here. Format: `- [x] <task-id> <short desc> — <date>`.
+- Pilot anomaly to verify: dry-run on `attendance-tracker-excel.html` reports `pre=0` for course CTA, but the manual pilot edit on 2026-04-29 inserted a `blog-inline-course` card. Cause: probably the regex needs a small tweak for trailing content or there's something off in how the pilot's course card serialised. Investigate before mass-applying — read the file lines 109±, run the script with `--dry-run --only attendance-tracker-excel.html`, and confirm that the script does not silently strip the existing course card.
+- After resolving, re-run dry-run on a 5–10 file sample, eyeball one or two with `git diff`, then go full.
+
+### Task 1b — Pilot investigation before mass-apply
+
+- [ ] Run `python scripts/cta_refactor.py --dry-run --only attendance-tracker-excel.html`. If `pre=0` for the course slot, inspect `RE_COURSE_CARD` against the actual markup at line ~109. Tweak the regex if needed (most likely the multi-`</div>` close or surrounding whitespace differs from what I assumed).
+- [ ] Re-run sample dry-runs across 6 files: 2 Excel, 2 Seedance, 1 Flutter, 1 hub. Aim for 0 anomalies.
+- [ ] Apply for real to ONE non-pilot file. `git diff` it: only the intro region and the date stamps should differ. If anything else moves, stop and fix the script.
+- [ ] Mass-apply: `python scripts/cta_refactor.py`. Save the stdout to `reports/cta-refactor-run-2026-04-29.log` for the audit trail.
+- [ ] Spot-check 5 random files in the browser at `localhost:5000/blog/<slug>`. Confirm CTAs sit in the first screen, not in the body.
+
+### Task 2 — Step-by-step audit, all 10 tutorials
+
+- [ ] Read each tutorial fully (not just header counts) and grade it against "Definition of Done — Step-By-Step Quality" above.
+- [ ] For each, write one row in `reports/step-by-step-audit-2026-04-29.md` (create the file) with:
+  - filename
+  - current word count
+  - has numbered Step headers? Y/N
+  - has cell-level instructions? Y/N
+  - has formula reference table? Y/N
+  - has Common mistakes? Y/N
+  - has Variations table? Y/N
+  - verdict: KEEP / LIGHT-EDIT / FULL-REWRITE
+- [ ] Surface the audit table to the user before starting Task 3.
+
+### Task 3 — Rewrite tutorials marked LIGHT-EDIT
+
+- [ ] One file per session. Add missing numbered Steps, missing cell references, missing formula reference table.
+- [ ] Keep existing prose where it works. Only restructure what is missing.
+- [ ] Update `dateModified` in JSON-LD and bump `<lastmod>` in `public/sitemap.xml`.
+
+### Task 4 — Rewrite tutorials marked FULL-REWRITE
+
+- [ ] One file per session. Use attendance-tracker as the structural template.
+- [ ] Keep the existing slug, title, image, and JSON-LD. Replace only the body (`.blog-post-content`).
+- [ ] Update `dateModified` in JSON-LD and bump `<lastmod>` in `public/sitemap.xml`.
+- [ ] Per the hub-sync rule: if the tutorial title changes meaningfully, also update `scripts/generate_hub_pages.py` and re-run it.
+
+### Task 5 — Fact-check pass, all 10 tutorials
+
+For each tutorial — open the file, then verify against current Microsoft Support docs (use WebSearch, do **not** rely on memory):
+
+- [ ] Every menu path mentioned (e.g. "Home → Conditional Formatting → New Rule") matches current Microsoft 365 Excel UI on Windows / Mac / web.
+- [ ] Every keyboard shortcut works on current Excel (especially mac vs windows differences).
+- [ ] Every function name exists and the argument order shown matches the docs (e.g. `XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found], [match_mode], [search_mode])`).
+- [ ] Every formula in the tutorial has been mentally executed against the example data — no off-by-one errors, no broken absolute references, no formulas that error on blank cells unless that is documented.
+- [ ] Any pricing / availability claims (Microsoft 365 plans, Copilot subscription, Claude for Excel) are checked against the vendor's current published pricing page.
+- [ ] Tick the Fact-check column in the table when done.
+
+### Task 6 — Microsoft 365 pass, all 10 tutorials
+
+For each tutorial — modernise the formula stack:
+
+- [ ] Replace `VLOOKUP` with `XLOOKUP` everywhere unless there is a specific teaching reason to keep it. Add a one-line note where `VLOOKUP` is still shown for context.
+- [ ] Replace nested `IF` chains with `IFS` or `SWITCH` where it materially improves readability.
+- [ ] Use dynamic arrays (`FILTER`, `SORT`, `UNIQUE`, `SEQUENCE`) instead of older array-formula tricks (`Ctrl+Shift+Enter`).
+- [ ] Use `LET` to name sub-expressions in any formula longer than ~80 chars.
+- [ ] Use Excel Tables (`Ctrl+T`, structured references like `tblRoster[Name]`) for any range that grows over time.
+- [ ] Where tutorials touch grouping / pivoting workflows, mention `GROUPBY` / `PIVOTBY` as a modern alternative even if the main path stays on PivotTables.
+- [ ] Add a single line near the top of each tutorial: "Requires Microsoft 365 (desktop or web)."
+- [ ] Tick the M365 column in the table when done.
+
+### Task 7 — Final consistency pass
+
+- [ ] All 10 tutorials have the CTA-at-top block (no scattered CTAs).
+- [ ] All 10 have numbered Step headers.
+- [ ] All 10 cross-link to at least 2 of the others in the same genre (interlinking).
+- [ ] Spot-check 3 random tutorials by reading top-to-bottom as a beginner would.
+- [ ] Bump `<lastmod>` in sitemap.xml for any not already bumped.
+
+## Notes / decisions log
+
+- **CTA-at-top design:** decided in Task 0. Reason: most readers do not scroll to the bottom, so social/course CTAs scattered through the body and at the end miss most of the audience.
+- **Tone reference:** attendance-tracker-excel is the template. It uses concrete cell addresses, exact formulas, "common mistakes" wisdom, and a final formula reference table.
+- **AdSense remediation context (separate workstream):** previous TASKS.md content was about AdSense remediation. That work is held outside this file now — do not confuse the two. If the user wants to resume AdSense remediation, recover the previous TASKS.md from git history (`git log -- .claude/TASKS.md`).

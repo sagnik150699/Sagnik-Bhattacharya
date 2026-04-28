@@ -1,0 +1,60 @@
+<!--
+Intro-region CTA template for "build-this-thing" Excel tutorials.
+
+Pattern (between <div class="blog-post-content"> and the first <h2>Step 1):
+  P1 (hook)            → COURSE card
+  P2 (audience fit)    → INSTAGRAM nudge
+  P3 (prereq + M365)   → LINKEDIN nudge
+  H2 "What we are building" + list + closing line
+                       → YOUTUBE nudge
+  H2 "Step 1 — ..."    (tutorial body begins)
+
+Pilot reference:
+  public/blog/attendance-tracker-excel.html, lines ~107..130
+  All four CTAs above the first <h2>Step 1, zero CTAs after that point.
+  Article ends on "Related tutorials" only — no closing blog-cta-box.
+
+When applying to another tutorial:
+  1. Replace the three placeholder paragraphs (P1/P2/P3) with that tutorial's own intro.
+  2. Move the existing course card to the slot after P1 (or insert if missing).
+  3. Move the existing in-body nudges (insta/linkedin/youtube) to the slots after P2/P3/"What we are building".
+  4. DELETE every later occurrence of blog-social-nudge--insta, --linkedin, --youtube,
+     blog-inline-course, and blog-cta-box from the rest of the article.
+  5. Bump dateModified in the BlogPosting JSON-LD and lastmod in public/sitemap.xml.
+
+The four CTA blocks below are verbatim from the live attendance-tracker pilot
+and can be pasted into other tutorials without modification.
+-->
+
+<!-- ============ P1 ============ -->
+<p>{{P1: 2–4 sentences. Hook the reader. Say what we are building and why most templates online get it wrong.}}</p>
+
+<!-- ============ COURSE CARD ============ -->
+<div class="blog-inline-course"><div class="blog-inline-course__badge">Coming Soon</div><div class="blog-inline-course__body"><h3 class="blog-inline-course__title">Complete Excel Guide with AI Integration</h3><p class="blog-inline-course__sub">Master formulas, pivot tables, data analysis, and charts — with AI integration.</p><a href="/courses#excel" class="btn-primary blog-inline-course__btn">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+
+<!-- ============ P2 ============ -->
+<p>{{P2: 1–3 sentences. Who is this for. Different sizes / use cases that the same skeleton supports.}}</p>
+
+<!-- ============ INSTAGRAM ============ -->
+<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a>
+
+<!-- ============ P3 ============ -->
+<p>{{P3: 1–2 sentences. Prerequisites + the Microsoft 365 line. Example phrasing: "If you can type a formula and right-click a sheet tab, you have every prerequisite. The whole build takes about N minutes the first time. I tested everything on Microsoft 365 (desktop and web) — Excel 2019 and 2021 will also work."}}</p>
+
+<!-- ============ LINKEDIN ============ -->
+<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a>
+
+<!-- ============ "WHAT WE ARE BUILDING" SECTION ============ -->
+<h2>What we are building</h2>
+<p>{{1-line preamble.}}</p>
+<ul>
+  <li><strong>{{Sheet/section 1}}</strong> — {{role}}.</li>
+  <li><strong>{{Sheet/section 2}}</strong> — {{role}}.</li>
+  <li><strong>{{Sheet/section 3}}</strong> — {{role}}.</li>
+</ul>
+<p>{{1-line closer that names the single biggest mistake in this kind of build, so the reader is primed to avoid it.}}</p>
+
+<!-- ============ YOUTUBE ============ -->
+<a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">Subscribe on YouTube</span><span class="blog-social-nudge__handle">@codingliquids</span></a>
+
+<!-- Tutorial body starts here with <h2>Step 1 — ...</h2> -->
