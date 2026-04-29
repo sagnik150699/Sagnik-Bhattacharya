@@ -34,7 +34,7 @@
                    "name":  "Sagnik Bhattacharya",
                    "url":  "https://sagnikbhattacharya.com"
                },
-    "datePublished":  "2026-03-31","dateModified":"2026-03-31",
+    "datePublished":  "2026-03-31","dateModified":"2026-04-29",
     "inLanguage":  "en-GB",
     "description":  "Compare Provider, Riverpod, and BLoC for Flutter state management in 2026 — with real code examples and architecture advice for every project size.",
     "publisher":  {
@@ -172,9 +172,18 @@
         </figure>
         <div class="blog-post-content">
 <p>If there's one topic that causes more confusion in the Flutter world than any other, it's state management. Every week I get asked: "Sagnik, should I use Provider, Riverpod, or BLoC?" I've trained hundreds of developers on Flutter, and I've seen teams succeed and struggle with all three. The answer isn't about which one is "best" — it's about which one fits your project, your team, and your architecture goals.</p>
+
+<div class="blog-inline-course"><div class="blog-inline-course__badge">Coming Soon</div><div class="blog-inline-course__body"><h3 class="blog-inline-course__title">Complete Excel Guide with AI Integration</h3><p class="blog-inline-course__sub">Master formulas, pivot tables, data analysis, and charts — with AI integration.</p><a href="/courses#excel" class="btn-primary blog-inline-course__btn">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+
 <p>This guide breaks down all three approaches with real code, honest trade-offs, and clear recommendations based on years of production experience.</p>
 
-<div class="blog-inline-course"><img src="/images/the-complete-flutter-guide-build-android-ios-and-web-apps.jpg" alt="The Complete Flutter Guide" width="280" height="147" loading="lazy"><div class="blog-inline-course__body"><h3 class="blog-inline-course__title">The Complete Flutter Guide: Build Android, iOS and Web Apps</h3><p class="blog-inline-course__sub">Flutter 2026: Build fast, production-grade apps for Android, iOS &amp; Web with Flutter &amp; Dart</p><a href="https://www.udemy.com/course/flutter-the-guide-to-build-android-ios-and-web-apps/?referralCode=0895EF14011CB08E80A0" target="_blank" rel="noopener noreferrer" class="btn-primary blog-inline-course__btn">Enroll on Udemy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div><h2>Why State Management Matters</h2>
+<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a>
+
+<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a>
+
+<a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">Subscribe on YouTube</span><span class="blog-social-nudge__handle">@codingliquids</span></a>
+
+<h2>Why State Management Matters</h2>
 <p>Every <a href="/blog/flutter-vs-react-native">Flutter</a> app has state — the data that determines what your UI displays at any given moment. A counter value, a list of products fetched from an API, whether a user is logged in, the current theme. When your app is small, managing state with <code>setState()</code> inside a StatefulWidget works fine. But the moment your app grows — multiple screens sharing data, API calls, authentication flows, caching — things get messy fast.</p>
 <p>State management solutions solve three core problems:</p>
 <ul>
@@ -184,7 +193,7 @@
 </ul>
 <p>Let's look at how Provider, Riverpod, and BLoC each tackle these problems differently.</p>
 
-<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>Provider — The Established Default</h2>
+<h2>Provider — The Established Default</h2>
 <p>Provider was the first state management solution officially recommended by the Flutter team. It's built on top of <code>InheritedWidget</code> — Flutter's native mechanism for passing data down the widget tree — and wraps it in a much friendlier API.</p>
 
 <h3>How Provider Works</h3>
@@ -231,7 +240,7 @@ Text('Total: \$${cart.total}');</code></pre>
 <li><strong>No auto-dispose</strong> — you have to manage provider lifecycles manually for anything beyond simple cases</li>
 </ul>
 
-<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>Riverpod — Provider's Evolution</h2>
+<h2>Riverpod — Provider's Evolution</h2>
 <p>Riverpod was created by Remi Rousselet — the same developer who built Provider. Think of it as "Provider 2.0" — it fixes every major limitation of Provider while keeping the same philosophy of simplicity. The name itself is an anagram of "Provider."</p>
 
 <h3>How Riverpod Works</h3>
@@ -285,7 +294,7 @@ class CartScreen extends ConsumerWidget {
 <li><strong>Migration effort</strong> — moving an existing Provider codebase to Riverpod is a significant refactor, not a drop-in replacement</li>
 </ul>
 
-<a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">Subscribe on YouTube</span><span class="blog-social-nudge__handle">@codingliquids</span></a><h2>BLoC — The Enterprise Choice</h2>
+<h2>BLoC — The Enterprise Choice</h2>
 <p>BLoC (Business Logic Component) takes a fundamentally different approach. Instead of notifiers and watchers, it uses <strong>events and states</strong> flowing through streams. You send an event into a Bloc, the Bloc processes it, and emits a new state. The UI listens to state changes and rebuilds accordingly.</p>
 
 <h3>How BLoC Works</h3>
@@ -449,7 +458,8 @@ context.read&lt;CartBloc&gt;().add(AddToCart(product));</code></pre>
   <li><a href="/blog/flutter-vs-react-native">Flutter vs React Native in 2026 — Which One Should You Pick?</a></li>
   <li><a href="/blog/excel-ai-prompts">60 AI Prompts for Excel That Actually Work (Copy, Paste, Get Results)</a></li>
   <li><a href="/blog/claude-ai-excel-formulas">How to Use Claude AI to Write Excel Formulas Instantly</a></li>
-</ul><div class="blog-cta-box"><h3>Want to learn Flutter from scratch?</h3><p>The Complete Flutter Guide: Build Android, iOS and Web apps takes you from zero to building production-ready Android, iOS, and web apps — including state management with Riverpod and BLoC.</p><a href="/courses#flutter" class="btn-primary">Explore The Complete Flutter Guide <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+</ul>
+</div>
   </article></div></section>
   <footer><div class="container"><p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p></div></footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script><script src="/animations.js?v=f222c349" defer></script>

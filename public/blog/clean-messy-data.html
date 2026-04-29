@@ -34,7 +34,7 @@
   <meta property="og:site_name" content="Sagnik Bhattacharya">
   <meta property="article:author" content="Sagnik Bhattacharya">
   <meta property="article:published_time" content="2026-03-07">
-  <meta property="article:modified_time" content="2026-04-18">
+  <meta property="article:modified_time" content="2026-04-29">
   <meta property="article:section" content="Data Analysis"><meta property="article:tag" content="Data Cleaning"><meta property="article:tag" content="Data Preparation"><meta property="article:tag" content="Spreadsheets">
   <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
     <script type="application/ld+json">
@@ -47,7 +47,7 @@
                    "name":  "Sagnik Bhattacharya",
                    "url":  "https://sagnikbhattacharya.com"
                },
-    "datePublished":  "2026-03-07","dateModified":"2026-04-18",
+    "datePublished":  "2026-03-07","dateModified":"2026-04-29",
     "inLanguage":  "en-GB",
     "description":  "Duplicates, blanks, inconsistent text, wrong formats — this step-by-step guide shows the fastest ways to clean messy spreadsheet data using Excel\u0027s built-in tools.",
     "publisher":  {
@@ -210,16 +210,26 @@
         <div class="blog-post-content">
           
 <p>Every data analyst knows the reality: 80% of the work is cleaning data, 20% is actual analysis. Messy data — duplicates, blanks, inconsistent formatting, extra spaces, mixed cases, numbers stored as text, stray non-printable characters — can silently derail any report. A VLOOKUP that returns #N/A, a SUMIFS that undercounts by half, a pivot table with "Kolkata" and "kolkata " showing as different cities: all of these trace back to data quality, not formulas.</p>
+
+<div class="blog-inline-course"><div class="blog-inline-course__badge">Coming Soon</div><div class="blog-inline-course__body"><h3 class="blog-inline-course__title">Complete Excel Guide with AI Integration</h3><p class="blog-inline-course__sub">Master formulas, pivot tables, data analysis, and charts — with AI integration.</p><a href="/courses#excel" class="btn-primary blog-inline-course__btn">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+
 <p>This tutorial walks through the ten techniques that handle roughly 95% of real-world cleaning tasks, using only Excel's built-in tools — no add-ins, no Power Query (though <a href="/blog/power-query-guide">Power Query</a> is what you graduate to once these techniques become muscle memory). Every section includes a real-world scenario taken from freelance client work and a beginner pitfall that will save you an hour of backtracking the first time you hit it.</p>
+
+<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a>
+
 <p>Work on a <em>copy</em> of your data, not the original. Press <code>Ctrl+Shift+End</code> to confirm how far your data extends before you run anything destructive, and keep the row count visible on the status bar so you notice when Remove Duplicates or a delete strips more than you expected. If you are new to Excel, start with the <a href="/blog/excel-formulas-guide">Excel formulas guide</a> — the techniques below assume you are comfortable with relative vs absolute references and the basic structure of an Excel worksheet.</p>
 
-<div class="blog-inline-course"><div class="blog-inline-course__badge">Coming Soon</div><div class="blog-inline-course__body"><h3 class="blog-inline-course__title">Complete Excel Guide with AI Integration</h3><p class="blog-inline-course__sub">Master formulas, pivot tables, data analysis, and charts — with AI integration.</p><a href="/courses#excel" class="btn-primary blog-inline-course__btn">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div><h2>1. Remove Duplicates</h2>
+<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a>
+
+<a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">Subscribe on YouTube</span><span class="blog-social-nudge__handle">@codingliquids</span></a>
+
+<h2>1. Remove Duplicates</h2>
 <p>The quickest win. Select your data, go to <strong>Data → Remove Duplicates</strong>. Choose which columns to check for duplicates. Excel will tell you how many duplicates were found and removed.</p>
 <p><strong>Real-world scenario:</strong> A marketing agency exports leads from three landing pages into one sheet. The same person has signed up twice using <code>priya@company.com</code> and <code>PRIYA@company.com</code>. Ticking the Email column alone still leaves both rows because Excel treats the two strings as different. The fix is to add a helper column <code>=LOWER(TRIM(B2))</code>, tick only that helper for Remove Duplicates, then delete the helper — you collapse the real duplicates without losing the original casing on the rows that survive.</p>
 <p><strong>Beginner pitfall:</strong> Remove Duplicates keeps the <em>first</em> occurrence and deletes the rest, which is usually fine — but if the later rows contain updated data (a newer phone number, a corrected postcode), you silently lose that update. Always sort by date descending first, so the freshest row is the one Excel keeps.</p>
 <p><strong>Pro tip:</strong> Before removing, use <a href="/blog/conditional-formatting-tips">conditional formatting</a> to <em>highlight</em> duplicates first (Home → Conditional Formatting → Highlight Cell Rules → Duplicate Values). Review them before deleting — sometimes duplicates are legitimate (two separate orders from the same customer on the same day is not the same as a data-entry error).</p>
 
-<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>2. Fix Extra Spaces</h2>
+<h2>2. Fix Extra Spaces</h2>
 <p>Hidden spaces are the #1 cause of failed VLOOKUP formulas. The <code>TRIM</code> function removes all leading, trailing, and double spaces (it keeps single spaces between words, so "John  Smith" with two spaces becomes "John Smith"):</p>
 <pre><code>=TRIM(A2)</code></pre>
 <p>For non-breaking spaces (CHAR(160), common in data copy-pasted from web pages and PDFs), <code>TRIM</code> alone does nothing because Excel treats CHAR(160) as a real character, not a space. Wrap it in <code>SUBSTITUTE</code> first:</p>
@@ -229,7 +239,7 @@
 <p><strong>Real-world scenario:</strong> A finance team reconciles invoice numbers from the accounting system against a CSV from the bank. The VLOOKUP returns #N/A for about 30 rows. Visual inspection shows nothing wrong. A quick <code>=LEN(A2)</code> on both sides reveals the bank export has a trailing space on every value — invisible, but enough to break equality. Wrapping both lookup columns in TRIM (then pasting as values) fixes every row in one pass.</p>
 <p><strong>Beginner pitfall:</strong> Running TRIM in a helper column and then deleting the original will blow up the helper's formulas because <code>=TRIM(A2)</code> now points at a deleted cell. The correct order is: TRIM in helper → copy helper → <strong>paste special → values</strong> into the original → delete helper.</p>
 
-<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>3. Standardise Text Case</h2>
+<h2>3. Standardise Text Case</h2>
 <p>"john smith", "JOHN SMITH", and "John Smith" are three different values to Excel. Any downstream <code>COUNTIFS</code>, pivot table, or dedupe will treat them as three distinct rows. Fix it with:</p>
 <ul>
 <li><code>=UPPER(A2)</code> — JOHN SMITH</li>
@@ -239,7 +249,7 @@
 <p><strong>Real-world scenario:</strong> An HR team imports employee names from three legacy HRIS systems, each with its own casing convention. Their headcount pivot shows 847 employees; the real number is 812. PROPER across the name column collapses the inflated count back to the truth — 35 ghost rows were just case variations of existing employees.</p>
 <p><strong>Beginner pitfall:</strong> <code>PROPER</code> is blind to context. It capitalises "mcDonald" as "Mcdonald", "O'Brien" as "O'brien", and acronyms like "NASA" as "Nasa". For a column that contains surnames, emails, or anything with acronyms, <code>LOWER</code> (for emails) or a manual pass with Find &amp; Replace for the known exceptions is safer than trusting PROPER blindly.</p>
 
-<a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">Subscribe on YouTube</span><span class="blog-social-nudge__handle">@codingliquids</span></a><h2>4. Find and Replace</h2>
+<h2>4. Find and Replace</h2>
 <p><code>Ctrl+H</code> opens Find and Replace. Powerful uses:</p>
 <ul>
 <li>Replace "N/A", "-", "NULL" with blank (leave the "Replace with" field empty)</li>
@@ -368,11 +378,7 @@
   <li><a href="/blog/mastering-pivot-tables">Mastering Pivot Tables — A Complete Guide</a> — what you build <em>after</em> the data is clean.</li>
   <li><a href="/blog/excel-tables-best-practices">Excel Tables Best Practices</a> — convert your cleaned range to a Table so new rows auto-inherit the format.</li>
   <li><a href="/blog/advanced-formulas">Advanced Excel Formulas</a> — for the trickier extraction and transformation cases.</li>
-</ul><div class="blog-cta-box">
-            <h3>Want to master Excel with AI?</h3>
-            <p>My Complete Excel Course with AI Integration covers everything from formulas to AI-powered workflows.</p>
-            <a href="/courses#excel" class="btn-primary">Explore the Excel + AI course <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
+</ul>
         </div>
       </article>
     </div>

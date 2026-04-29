@@ -23,7 +23,7 @@
   <meta name="twitter:description" content="Use Microsoft Copilot to identify trends, find outliers, create charts, and generate insights from your Excel data using natural language prompts \u2014 no formulas needed.">
   <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/copilot-data-analysis-sagnik-bhattacharya-coding-liquids.jpg">
   <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Copilot for Data Analysis — A Practical Guide, with data analysis cards, charts, and insight panels."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-14">
-  <meta property="article:section" content="AI &amp; Automation"><meta property="article:tag" content="Microsoft Copilot"><meta property="article:tag" content="Data Analysis"><meta property="article:tag" content="AI Insights"><meta property="article:modified_time" content="2026-04-20">
+  <meta property="article:section" content="AI &amp; Automation"><meta property="article:tag" content="Microsoft Copilot"><meta property="article:tag" content="Data Analysis"><meta property="article:tag" content="AI Insights"><meta property="article:modified_time" content="2026-04-29">
   <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
     <script type="application/ld+json">
 {
@@ -35,7 +35,7 @@
                    "name":  "Sagnik Bhattacharya",
                    "url":  "https://sagnikbhattacharya.com"
                },
-    "datePublished":  "2026-03-14","dateModified":"2026-04-20",
+    "datePublished":  "2026-03-14","dateModified":"2026-04-29",
     "inLanguage":  "en-GB",
     "description":  "Use Microsoft Copilot to identify trends, find outliers, create charts, and generate insights from your Excel data using natural language prompts.",
     "publisher":  {
@@ -191,15 +191,27 @@
         </figure>
         <div class="blog-post-content">
 <p>Microsoft Copilot's data analysis capabilities in Excel go far beyond simple formula suggestions. It can identify trends, spot outliers, generate hypotheses, and create visualisations — all from conversational prompts. Here's how to use it effectively.</p>
+
+<div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Flutter and Excel with AI — <a href="/courses">explore my courses</a> if you want structured learning.</span></div>
+
 <p>This tutorial is written for analysts, ops managers, founders, and students who already know basic Excel (Tables, pivots, SUMIFS) and want to add Copilot as a faster first-pass analysis layer on top. You do not need a data-science background. You do need a Microsoft 365 Copilot licence (not free Copilot in the web browser — that cannot read your workbook), and your file must be saved to OneDrive or SharePoint for Copilot to access the data.</p>
+
+<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a>
+
 <p>By the end you will have: (1) a reliable data-prep checklist Copilot expects, (2) a library of exploratory, statistical, and segmentation prompts that work reliably, (3) a 6-step end-to-end analysis workflow, (4) a Troubleshooting reference for the five most common failures (greyed-out button, wrong totals from text-typed numbers, hidden-rows inclusion, "I can't help with that" refusals, slow responses), and (5) a calibration of where Copilot is genuinely reliable versus where manual analysis still wins.</p>
+
+<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a>
+
 <p>If you want the wider Excel + AI context, start at the <a href="/blog/excel-formulas-guide">Excel formulas and analysis hub</a> — it links every Copilot, ChatGPT, Gemini, Gemma, and Claude workflow on this site.</p>
-<div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Flutter and Excel with AI — <a href="/courses">explore my courses</a> if you want structured learning.</span></div><h2>Setting Up for Analysis</h2>
+
+<a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">Subscribe on YouTube</span><span class="blog-social-nudge__handle">@codingliquids</span></a>
+
+<h2>Setting Up for Analysis</h2>
 <p>Before asking Copilot to analyse your data:</p>
 <ol><li>Format your data as an Excel Table (<code>Ctrl+T</code>) — Copilot refuses to analyse a plain range.</li><li>Use descriptive column headers ("Revenue" not "Col3") — Copilot uses headers as prompt anchors, so ambiguous names ("Amount", "Value", "Col1") lead to incorrect assumptions.</li><li>Save the file to OneDrive or SharePoint — a local-drive file will show the Copilot button greyed out.</li><li>Ensure no merged cells, no blank rows inside the Table, and consistent data types per column — <a href="/blog/clean-messy-data">clean messy data</a> before analysis.</li><li>Convert numbers-stored-as-text back to real numbers (use <code>VALUE()</code> or Paste-Special Multiply by 1) — this is the single most common source of Copilot returning zero or wrong totals.</li></ol>
 <p><strong>Real-world scenario.</strong> A retail ops analyst ran "Summarise weekly sales" on a 52-week sheet and got back summaries for only 40 weeks — the other 12 were numbers-stored-as-text from an imported CSV. After a single Paste-Special Multiply on the Revenue column, the same prompt returned the full year with correct totals. Copilot never flagged the issue; it silently ignored the text rows.</p>
 <p><strong>Beginner pitfall.</strong> Formatting the data as a Table, then naming it something generic like <code>Table1</code>. When Copilot's response refers to tables by name, a sheet with three <code>Table1</code>/<code>Table2</code>/<code>Table3</code> becomes unnavigable. Rename each Table via the Table Design tab (e.g. <code>tblSales</code>, <code>tblProducts</code>) before you prompt — the extra 10 seconds saves minutes per session.</p>
-<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>Analysis Prompts That Work</h2>
+<h2>Analysis Prompts That Work</h2>
 <h3>Exploratory Analysis</h3>
 <ul><li>"What are the key trends in this data?"</li><li>"Summarise this data and highlight anything unusual"</li><li>"Which month had the highest growth rate?"</li><li>"Compare Q1 and Q2 performance"</li></ul>
 <h3>Statistical Insights</h3>
@@ -208,7 +220,7 @@
 <ul><li>"Break down revenue by customer segment and region"</li><li>"Which product category has the best profit margin?"</li><li>"Show me the top 10 and bottom 10 performing stores"</li><li>"Split the sales by channel and show me what percentage each channel contributes"</li><li>"Group customers by order frequency — one-time, occasional, repeat, loyal"</li></ul>
 <p><strong>Real-world scenario.</strong> A D2C founder preparing for a board meeting used the prompt sequence "Summarise this sales data → break this down by channel → for each channel, show me the top 3 SKUs by revenue → calculate month-on-month growth for the top SKU in each channel". Four prompts, under three minutes, produced an insight slide that would have taken 40 minutes of pivot-table work. She spent the saved time on interpretation instead of extraction.</p>
 <p><strong>Beginner pitfall.</strong> Asking one massive compound prompt ("Show me revenue by region, by channel, by product category, with growth rates and margin percentages, and highlight outliers") — Copilot tends to answer only the first or second clause and quietly drops the rest. Break compound prompts into a sequence of follow-ups. Each follow-up stays within the context of the previous response, so you are not repeating yourself.</p>
-<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>Working with Copilot's Responses</h2>
+<h2>Working with Copilot's Responses</h2>
 <p>Copilot responds with a combination of text insights, charts, and data tables. For each response:</p>
 <ul><li><strong>Insert</strong> — Click "Add to a new sheet" to keep the analysis</li><li><strong>Iterate</strong> — Ask follow-up questions to drill deeper</li><li><strong>Challenge</strong> — Ask "Why?" or "What's driving this?" for root cause analysis</li></ul>
 <h2>Building a Complete Analysis Workflow</h2>
@@ -259,7 +271,7 @@
   <li><a href="/blog/mastering-pivot-tables">How to Create a Pivot Table in Excel Step by Step</a> — the formula-free manual equivalent for when you need auditable output</li>
   <li><a href="/blog/clean-messy-data">How to Clean Messy Data in Excel</a> — data prep that makes Copilot's analysis reliable</li>
   <li><a href="/blog/excel-ai-prompts">60 AI Prompts for Excel That Actually Work</a> — the wider prompt library across Copilot, ChatGPT, Gemini, and Claude</li>
-</ul><div class="blog-cta-box"><h3>Ready to level up your Excel skills?</h3><p>The Complete Excel Course with AI Integration takes you from formulas to production-grade spreadsheets, with real projects and AI-assisted workflows.</p><a href="/courses#excel" class="btn-primary">Explore the Excel + AI course <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+</ul>
     </div>
   </article></div></section>
   <footer><div class="container"><p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p></div></footer>

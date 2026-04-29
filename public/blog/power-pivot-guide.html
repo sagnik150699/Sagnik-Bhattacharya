@@ -21,7 +21,7 @@
   <meta name="twitter:title" content="How to Use Power Pivot in Excel to Analyse Millions of Rows">
   <meta name="twitter:description" content="Excel's row limit is 1 million \u2014 Power Pivot breaks it. Learn how to load multiple tables, create relationships, and write DAX formulas for advanced pivot analysis.">
   <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/power-pivot-guide-sagnik-bhattacharya-coding-liquids.jpg">
-  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Power Pivot — Handle Millions of Rows, with connected data tables, model relationships, and scale cues."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-21"><meta property="article:modified_time" content="2026-04-22">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel Power Pivot — Handle Millions of Rows, with connected data tables, model relationships, and scale cues."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-21"><meta property="article:modified_time" content="2026-04-29">
   <meta property="article:section" content="Advanced Excel"><meta property="article:tag" content="Power Pivot"><meta property="article:tag" content="DAX"><meta property="article:tag" content="Data Modeling">
   <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
     <script type="application/ld+json">
@@ -34,7 +34,7 @@
                    "name":  "Sagnik Bhattacharya",
                    "url":  "https://sagnikbhattacharya.com"
                },
-    "datePublished":  "2026-03-21","dateModified":"2026-04-22",
+    "datePublished":  "2026-03-21","dateModified":"2026-04-29",
     "inLanguage":  "en-GB",
     "description":  "Excel\u0027s row limit is 1 million — Power Pivot breaks it. Learn how to load multiple tables, create relationships, and write DAX formulas for advanced pivot analysis.",
     "publisher":  {
@@ -188,9 +188,19 @@
         </figure>
         <div class="blog-post-content">
 <p>Your Excel sheet caps out at 1,048,576 rows. Your dataset has 4 million. That is the moment Power Pivot exists for — and the same moment most analysts unnecessarily reach for a database migration when the tool they already have can handle it.</p>
-<p>This tutorial covers the full Power Pivot stack: enabling the add-in, loading data into the model through Power Query, building a star-schema layout, the crucial Calculated Columns vs Measures distinction, a practical DAX walkthrough centred on CALCULATE, a runnable 3-table worked example, and the five errors beginners hit first. By the end you will be able to take a raw 4M-row sales extract and produce year-over-year and share-of-total reports in a single pivot table.</p>
-<p><strong>Availability check first.</strong> Power Pivot ships with Microsoft 365, Office Professional Plus (Excel 2016/2019/2021), and Office LTSC on Windows. It is <em>not</em> available on Excel for Mac, Excel Home &amp; Student, or the Starter/Web SKUs. Open <strong>File → Account → Product Information</strong> to confirm before you begin. Pair this guide with the <a href="/blog/excel-formulas-guide">Excel Formulas Guide</a> hub for the full Excel learning path.</p>
+
 <div class="blog-inline-course"><div class="blog-inline-course__badge">Coming Soon</div><div class="blog-inline-course__body"><h3 class="blog-inline-course__title">Complete Excel Guide with AI Integration</h3><p class="blog-inline-course__sub">Master formulas, pivot tables, data analysis, and charts — with AI integration.</p><a href="/courses#excel" class="btn-primary blog-inline-course__btn">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+
+<p>This tutorial covers the full Power Pivot stack: enabling the add-in, loading data into the model through Power Query, building a star-schema layout, the crucial Calculated Columns vs Measures distinction, a practical DAX walkthrough centred on CALCULATE, a runnable 3-table worked example, and the five errors beginners hit first. By the end you will be able to take a raw 4M-row sales extract and produce year-over-year and share-of-total reports in a single pivot table.</p>
+
+<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a>
+
+<p><strong>Availability check first.</strong> Power Pivot ships with Microsoft 365, Office Professional Plus (Excel 2016/2019/2021), and Office LTSC on Windows. It is <em>not</em> available on Excel for Mac, Excel Home &amp; Student, or the Starter/Web SKUs. Open <strong>File → Account → Product Information</strong> to confirm before you begin. Pair this guide with the <a href="/blog/excel-formulas-guide">Excel Formulas Guide</a> hub for the full Excel learning path.</p>
+
+<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a>
+
+<a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">Subscribe on YouTube</span><span class="blog-social-nudge__handle">@codingliquids</span></a>
+
 <h2>What Power Pivot actually is</h2>
 <p>Power Pivot is an Excel add-in containing an in-memory columnar engine called <strong>VertiPaq</strong>. Two technical details matter because they explain everything else.</p>
 <p><strong>Columnar storage.</strong> Regular Excel stores data row by row. VertiPaq stores each column separately and dictionary-encodes repeated values. A product category column with 20 distinct values across 4 million rows is stored as a 20-item dictionary plus a tight integer index, not 4 million text strings. Compression ratios of 5–10× are typical.</p>
@@ -202,7 +212,6 @@
 <li>Write DAX measures that respond dynamically to pivot filters and slicers.</li>
 <li>Use time intelligence functions (YTD, SAMEPERIODLASTYEAR, running totals) against a proper Date table.</li>
 </ul>
-<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a>
 <h2>Step 1 — Enable Power Pivot</h2>
 <ol>
 <li>Go to <strong>File → Options → Add-ins</strong>.</li>
@@ -222,7 +231,6 @@
 </ol>
 <p><strong>Real-world scenario.</strong> 18-month grocery chain transaction log: 12 stores, 4.1M rows, 820 MB as CSV. Loading the raw CSV into a worksheet crashes Excel at 1M rows. Loading through Power Query into the data model produces a 62 MB .xlsx with all 4.1M rows queryable. That is VertiPaq compression in action.</p>
 <p><strong>Pitfall.</strong> If you tick <strong>Table</strong> (instead of <strong>Only Create Connection</strong>) while also adding to the model, Power Query materialises the first million rows into a worksheet <em>and</em> loads the full dataset into the model. You get a bloated file and the row limit still bites. Always pair "Only Create Connection" with "Add to Data Model" for multi-million-row tables.</p>
-<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a>
 <h2>Step 3 — Build a star schema (the foundation nobody explains up front)</h2>
 <p>The single biggest mistake beginners make is flattening everything into one huge table. Power Pivot is designed for a <strong>star schema</strong>: one central fact table surrounded by dimension tables.</p>
 <ul>
@@ -355,7 +363,8 @@ YoY Growth %  := DIVIDE([Total Revenue] - [Revenue LY], [Revenue LY])</code></pr
 <li><a href="/blog/dynamic-dashboards">How to Build an Interactive Dashboard in Excel (No VBA)</a> — the natural next step once your data model is in place.</li>
 <li><a href="/blog/financial-modelling">How to Build a Financial Model in Excel From Scratch</a> — where DAX measures beat SUMIFS at scale.</li>
 <li><a href="/blog/advanced-formulas">15 Excel Formulas That Save Hours of Manual Work</a> — the worksheet-level formulas DAX replaces or complements.</li>
-</ul><div class="blog-cta-box"><h3>Ready to level up your Excel skills?</h3><p>The Complete Excel Course with AI Integration takes you from formulas to production-grade spreadsheets, with real projects and AI-assisted workflows.</p><a href="/courses#excel" class="btn-primary">Explore the Excel + AI course <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+</ul>
+</div>
   </article></div></section>
   <footer><div class="container"><p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p></div></footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script><script src="/animations.js?v=f222c349" defer></script>

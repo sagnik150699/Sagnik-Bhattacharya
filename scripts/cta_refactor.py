@@ -38,7 +38,11 @@ CTA = {
 # Regex patterns for each CTA, designed to match the entire element + surrounding
 # blank-line whitespace so removal does not leave double-spaces behind.
 RE_COURSE_CARD = re.compile(
-    r'\n?[ \t]*<div class="blog-inline-course">.*?</div>\s*</div>\s*</div>[ \t]*\n?',
+    # Outer div has TWO inner divs (badge + body). Badge is inline:
+    #   <div outer><div badge>X</div><div body>...</div></div>
+    # The body close + outer close are adjacent, so we anchor on </div></div> after
+    # a non-greedy match. (3-`</div>` chain wouldn't appear consecutively.)
+    r'\n?[ \t]*<div class="blog-inline-course">.*?</div></div>[ \t]*\n?',
     re.DOTALL,
 )
 RE_COURSE_HINT = re.compile(
@@ -58,7 +62,9 @@ RE_YOUTUBE = re.compile(
     re.DOTALL,
 )
 RE_CTA_BOX = re.compile(
-    r'\n?[ \t]*<div class="blog-cta-box"\b.*?</div>[ \t]*\n?',
+    # Note: no \b after the quote — \b requires a word/non-word boundary, but ">
+    # is non-word followed by non-word, so \b would never match. Use literal ".
+    r'\n?[ \t]*<div class="blog-cta-box".*?</div>[ \t]*\n?',
     re.DOTALL,
 )
 

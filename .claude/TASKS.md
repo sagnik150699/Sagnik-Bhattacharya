@@ -71,11 +71,18 @@ Then **delete every later instance** of `blog-social-nudge--insta`, `blog-social
 - [x] Saved reusable snippet to `reports/cta-intro-region-template.html` with `{{P1}}`, `{{P2}}`, `{{P3}}` placeholders.
 - [ ] Show the user the rendered result and confirm the layout before applying to the other 9. ← **awaiting sign-off**
 
-### Task 1 — CTA cleanup, ALL blogs (scope widened from 10 to all 142)
+### Task 1 — CTA cleanup, ALL blogs (scope widened from 10 to all 142) ✅ DONE 2026-04-29
 
 User instruction (2026-04-29): *"apply this in all the blogs first and then go ahead and do the things i told you to do in the 9 blogs."*
 
-Automation: [scripts/cta_refactor.py](scripts/cta_refactor.py) — surgical regex-based CTA mover, validated on dry-run.
+Automation: [scripts/cta_refactor.py](scripts/cta_refactor.py) — surgical regex-based CTA mover.
+
+**Result:** 138 of 142 files changed (the 4 hub pages — `excel-ai-guide.html`, `excel-formulas-guide.html`, `flutter-guide.html`, `seedance-guide.html` — have no `.blog-post-content` and were correctly skipped). 137 sitemap `<lastmod>` entries bumped. Spot-checked 8 random tutorials — all show 4/4 CTAs in intro region, 0 in body. Log: [reports/cta-refactor-run-2026-04-29.log](reports/cta-refactor-run-2026-04-29.log).
+
+**Two regex bugs fixed during run** (kept here for the audit trail):
+
+1. `RE_COURSE_CARD` initially required 3 `</div>` separated by whitespace — but the markup has badge close inline, so only body+outer closes are adjacent. Fixed to anchor on `</div></div>` (just the last two).
+2. `RE_CTA_BOX` had a `\b` after a `"` — `\b` never matches between two non-word chars, so the regex silently failed and left every `blog-cta-box` in place. After the first run, spot-check caught it; re-ran and the cta-box was removed.
 
 **To resume:**
 

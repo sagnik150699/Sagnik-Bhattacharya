@@ -22,7 +22,7 @@
   <meta name="twitter:description" content="Use Microsoft Copilot to sort, filter, format, and summarise Excel data automatically \u2014 from plain text prompts. Save hours on weekly reporting tasks.">
   <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/copilot-automate-tasks-sagnik-bhattacharya-coding-liquids.jpg">
   <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Automating Repetitive Excel Tasks with Copilot, with automation loops, task cards, and spreadsheet workflow elements."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-23">
-  <meta property="article:modified_time" content="2026-04-22">
+  <meta property="article:modified_time" content="2026-04-29">
   <meta property="article:section" content="AI &amp; Automation"><meta property="article:tag" content="Microsoft Copilot"><meta property="article:tag" content="Task Automation"><meta property="article:tag" content="Excel Productivity"><meta property="article:tag" content="Excel Agent Mode"><meta property="article:tag" content="COPILOT function">
   <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
     <script type="application/ld+json">
@@ -35,7 +35,7 @@
                    "name":  "Sagnik Bhattacharya",
                    "url":  "https://sagnikbhattacharya.com"
                },
-    "datePublished":  "2026-03-23","dateModified":"2026-04-22",
+    "datePublished":  "2026-03-23","dateModified":"2026-04-29",
     "inLanguage":  "en-GB",
     "description":  "Use Microsoft Copilot to sort, filter, format, and summarise Excel data automatically — from plain text prompts. Save hours on weekly reporting tasks.",
     "publisher":  {
@@ -189,7 +189,16 @@
         </figure>
         <div class="blog-post-content">
 <p>If you spend time every week doing the same Excel tasks — sorting data, applying conditional formatting, creating summary rows, cleaning imports, building a weekly chart — Microsoft Copilot can handle most of them from a plain-English prompt, and as of the Q1 2026 release it can now chain those steps into a multi-action workflow through Agent Mode. A March 2026 Toshiba case study reported 5.6 hours per month saved per employee after adopting it properly. This tutorial shows you exactly which prompts earn those hours, how to use the new COPILOT() cell function for per-row AI operations, and how to set up a repeating weekly workflow in Agent Mode.</p>
+
+<div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Flutter and Excel with AI — <a href="/courses">explore my courses</a> if you want structured learning.</span></div>
+
 <p>Everything here works on Microsoft 365 Copilot in Excel on Windows and Mac, and on Excel for the web. You need a Microsoft 365 Copilot licence (around £24/user/month added to a Business Standard/Premium or Enterprise plan) and your workbook must be saved to OneDrive or SharePoint — the hard prerequisites I see people miss most often. For the broader Excel learning path see the <a href="/blog/excel-formulas-guide">Excel Formulas Guide</a> hub; for the first-time setup walk-through see <a href="/blog/getting-started-copilot-excel">Getting Started with Copilot in Excel</a>; for exploration-focused prompts see <a href="/blog/copilot-data-analysis">Copilot for Data Analysis</a>.</p>
+
+<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a>
+
+<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a>
+
+<a href="https://www.youtube.com/@codingliquids" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--youtube"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></span><span class="blog-social-nudge__text">Subscribe on YouTube</span><span class="blog-social-nudge__handle">@codingliquids</span></a>
 
 <h2>Prerequisites</h2>
 <ul>
@@ -198,7 +207,7 @@
   <li><strong>Your data as an Excel Table.</strong> Select the range and press <code>Ctrl+T</code>. Copilot reads structure via Table metadata — plain ranges work intermittently, Tables work every time.</li>
   <li><strong>Up-to-date Excel.</strong> Agent Mode and the COPILOT() function require Excel 365 version 2403 or later — File → Account → Update Options → Update Now.</li>
 </ul>
-<div class="blog-inline-courses-hint"><span class="blog-inline-courses-hint__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>I teach Flutter and Excel with AI — <a href="/courses">explore my courses</a> if you want structured learning.</span></div><h2>Sorting and Filtering</h2>
+<h2>Sorting and Filtering</h2>
 <ul>
   <li>"Sort this table by Revenue, highest to lowest."</li>
   <li>"Filter to show only rows where Region is North and Status is Active."</li>
@@ -208,7 +217,7 @@
 </ul>
 <p>Copilot applies these changes directly to your Table and confirms in chat. Every action is reversible with <code>Ctrl+Z</code>, and filters can be cleared from the ribbon if Copilot over-scopes.</p>
 <p><strong>Beginner pitfall:</strong> ambiguous column names (two columns called "Date") make Copilot guess wrong. Rename one before prompting, or reference the column by its position ("the second Date column").</p>
-<a href="https://www.instagram.com/sagnikteaches" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--insta"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="blog-social-nudge__text">Follow me on Instagram</span><span class="blog-social-nudge__handle">@sagnikteaches</span></a><h2>Formatting</h2>
+<h2>Formatting</h2>
 <ul>
   <li>"Bold all headers and add filters."</li>
   <li>"Highlight all cells in the Revenue column that are above average in green." — see <a href="/blog/conditional-formatting-tips">conditional formatting tips</a> for manual control when the AI version is too coarse.</li>
@@ -218,7 +227,7 @@
   <li>"Freeze the top row and the first two columns."</li>
 </ul>
 <p><strong>Beginner pitfall:</strong> Copilot-applied conditional formatting is applied to the current range snapshot, not to the Table's structured reference. Add rows later and the rule often doesn't extend. Prompt "apply to the entire Revenue column of tblSales so it extends with new rows" to force the structured-reference version.</p>
-<a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-social-nudge blog-social-nudge--linkedin"><span class="blog-social-nudge__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="blog-social-nudge__text">Connect on LinkedIn</span><span class="blog-social-nudge__handle">Sagnik Bhattacharya</span></a><h2>Adding Formulas</h2>
+<h2>Adding Formulas</h2>
 <ul>
   <li>"Add a column that calculates the percentage of total for each row."</li>
   <li>"Add a RANK column based on Revenue, with ties broken by Date descending."</li>
@@ -334,7 +343,8 @@
   <li><a href="/blog/excel-ai-prompts">60 AI Prompts for Excel That Actually Work</a> — the full copy-paste prompt library.</li>
   <li><a href="/blog/power-query-guide">How to Use Power Query in Excel</a> — for recurring data imports where refresh-on-open beats re-prompting.</li>
   <li><a href="/blog/clean-messy-data">How to Clean Messy Data in Excel</a> — what to run before Copilot so its output is trustworthy.</li>
-</ul><div class="blog-cta-box"><h3>Ready to level up your Excel skills?</h3><p>The Complete Excel Course with AI Integration takes you from formulas to production-grade spreadsheets, with real projects and AI-assisted workflows.</p><a href="/courses#excel" class="btn-primary">Explore the Excel + AI course <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+</ul>
+</div>
   </article></div></section>
   <footer><div class="container"><p>&copy; 2026 Sagnik Bhattacharya · Built with ☕ in Kolkata · <a href="https://codingliquids.com" target="_blank" rel="noopener">Coding Liquids</a></p></div></footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script><script src="/animations.js?v=f222c349" defer></script>
