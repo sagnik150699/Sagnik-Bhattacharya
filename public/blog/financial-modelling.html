@@ -21,7 +21,7 @@
   <meta name="twitter:title" content="How to Build a Financial Model in Excel From Scratch">
   <meta name="twitter:description" content="Learn how to build a revenue projection and cash flow model in Excel from scratch \u2014 covering assumptions, formulas, scenarios, and best practices for beginners.">
   <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/financial-modelling-sagnik-bhattacharya-coding-liquids.jpg">
-  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel for Financial Modelling — A Beginner&#39;s Guide, with forecast visuals, tables, and financial model elements."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-24"><meta property="article:modified_time" content="2026-04-29">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel for Financial Modelling — A Beginner&#39;s Guide, with forecast visuals, tables, and financial model elements."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-24"><meta property="article:modified_time" content="2026-04-30">
   <meta property="article:section" content="Data Analysis"><meta property="article:tag" content="Financial Modeling"><meta property="article:tag" content="Cash Flow"><meta property="article:tag" content="Excel Finance">
   <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
     <script type="application/ld+json">
@@ -34,7 +34,7 @@
                    "name":  "Sagnik Bhattacharya",
                    "url":  "https://sagnikbhattacharya.com"
                },
-    "datePublished":  "2026-03-24","dateModified":"2026-04-29",
+    "datePublished":  "2026-03-24","dateModified":"2026-04-30",
     "inLanguage":  "en-GB",
     "description":  "Learn how to build a revenue projection and cash flow model in Excel from scratch — covering assumptions, formulas, scenarios, and best practices.",
     "publisher":  {
@@ -180,7 +180,7 @@
   <section class="blog-section">
     <div class="container">
       <article class="blog-post">
-        <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/blog">Blog</a><span aria-hidden="true">/</span><span>How to Build a Financial Model in Excel From Scratch</span></nav><div class="blog-post-header"><div class="blog-post-tags"><span class="blog-post-tag">Data Analysis</span></div><h1 class="blog-post-title">How to Build a Financial Model in Excel From Scratch</h1><div class="blog-post-meta"><a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya"><img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48"></a><span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span><span>24 Mar 2026</span><span>12 min read</span>
+        <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/blog">Blog</a><span aria-hidden="true">/</span><span>How to Build a Financial Model in Excel From Scratch</span></nav><div class="blog-post-header"><div class="blog-post-tags"><span class="blog-post-tag">Data Analysis</span></div><h1 class="blog-post-title">How to Build a Financial Model in Excel From Scratch</h1><div class="blog-post-meta"><a href="https://sagnikbhattacharya.com" class="blog-author-avatar" title="Sagnik Bhattacharya"><img src="/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="48" height="48"></a><span>By <a href="https://www.linkedin.com/in/sagnik-bhattacharya-916b9463/" target="_blank" rel="noopener noreferrer" class="blog-author-name">Sagnik Bhattacharya</a></span><span>24 Mar 2026</span><span>16 min read</span>
           </div></div>
         <figure class="blog-cover">
           <img src="/blog/images/financial-modelling-sagnik-bhattacharya-coding-liquids.jpg" alt="Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel for Financial Modelling — A Beginner&#39;s Guide, with forecast visuals, tables, and financial model elements." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
@@ -210,41 +210,178 @@
 <p><strong>Colour convention (industry standard):</strong> blue for raw inputs/assumptions, black for formulas that reference same-sheet cells, green for formulas that reference OTHER sheets, red for external links (to other workbooks — avoid these if you can). Apply this with a saved cell style (Home → Cell Styles → New Cell Style) so you can one-click every cell type. Auditors scan colour before they read formulas — models that follow the convention are trusted faster.</p>
 <p><strong>Real-world scenario:</strong> A seed-stage founder preparing for a VC pitch hard-coded growth assumptions into formulas like <code>=B5*1.05</code>. When the lead VC asked "what happens if growth is 3%?", the founder had to find and change 36 formulas across 12 sheets — during the meeting. A properly-built model puts the 5% on the Assumptions sheet once, and every formula reads from that single cell. Change it to 3%, the whole model updates in one second. This is the single biggest skill difference between beginner and professional models.</p>
 <p><strong>Beginner pitfall:</strong> Resist the urge to copy-paste values into an output sheet "to freeze them for the board". The moment you do, someone updates an assumption and the board sheet silently lies. Instead, copy the whole file as <code>Model_v1_BoardApproved_2026-04-15.xlsx</code> for the audit trail and keep the live model live.</p>
-<h2>Building a Simple Revenue Model</h2>
-<h3>Step 1: Define Assumptions</h3>
-<table><thead><tr><th>Assumption</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr></thead><tbody>
-<tr><td>Starting customers</td><td>100</td><td>—</td><td>—</td></tr>
-<tr><td>Monthly growth rate</td><td>5%</td><td>4%</td><td>3%</td></tr>
-<tr><td>Average revenue per customer</td><td>₹500</td><td>₹525</td><td>₹550</td></tr>
-<tr><td>Churn rate (monthly)</td><td>3%</td><td>2.5%</td><td>2%</td></tr>
-</tbody></table>
-<h3>Step 2: Build Monthly Calculations</h3>
-<p>For each month, calculate:</p>
-<ul><li><strong>New customers</strong> = Previous month customers × growth rate</li><li><strong>Churned customers</strong> = Previous month customers × churn rate</li><li><strong>End-of-month customers</strong> = Previous + New - Churned</li><li><strong>Monthly revenue</strong> = End-of-month customers × ARPC</li></ul>
-<h3>Step 3: Annual Summary</h3>
-<p>Sum the monthly figures into annual totals. Use <code>=SUMPRODUCT</code> or simple <code>=SUM</code> for annual revenue, total new customers, and total churned customers. These and other powerful functions are covered in the <a href="/blog/advanced-formulas">advanced formulas reference</a>.</p>
+<h2>What we are building</h2>
+<p>One workbook, four sheets, in this order:</p>
+<ol>
+<li><strong>Assumptions</strong> (sheet name <code>Assumptions</code>). Every input lives here — growth, ARPC, churn, costs, scenario toggle. Three columns per assumption: <code>Base</code>, <code>Bull</code>, <code>Bear</code>, plus a live column that <code>CHOOSE</code>s based on the scenario dropdown.</li>
+<li><strong>Calc</strong> (sheet name <code>Calc</code>). 36 monthly columns. Customer corkscrew, revenue, cost lines, EBITDA, cash. Every formula reads from <code>Assumptions</code> — never hard-codes.</li>
+<li><strong>Summary</strong> (sheet name <code>Summary</code>). One-page KPI dashboard: total revenue, ending customers, EBITDA margin, runway, cash on hand. <code>GETPIVOTDATA</code>-style references back to <code>Calc</code>.</li>
+<li><strong>Checks</strong> (sheet name <code>Checks</code>). Single column of boolean checks: balance ties, cumulative reconciliations, sign tests. One red cell on this sheet means the model is broken — no exceptions.</li>
+</ol>
+<p>The discipline: <code>Assumptions</code> is the only place anyone types numbers. <code>Calc</code> contains formulas only. If a number on <code>Summary</code> looks wrong, the fix is in <code>Assumptions</code> — never paint a cell on <code>Summary</code> to "correct" it. This split is the single change that separates a junior model from a defensible one.</p>
 
-<h3>Step 4: Corkscrew for Running Balances</h3>
-<p>For the customer count, cash balance, and headcount, use a <em>corkscrew</em> layout — the industry-standard pattern for any running total. Rows: Opening balance, + additions, − reductions, = Closing balance. The Closing of month 1 feeds the Opening of month 2 with a simple <code>=Month1!ClosingCell</code>. Corkscrews make every moving balance auditable at a glance and are the reason professional models feel "clean".</p>
+<h2>Step 1 — Lay out the Assumptions sheet</h2>
+<p>On the <code>Assumptions</code> sheet, leave row 1 for a section header. In <strong>row 2</strong>, type the column headers:</p>
+<pre><code>A2: Assumption    B2: Unit    C2: Base    D2: Bull    E2: Bear    F2: Live</code></pre>
+<p>In rows 4 onwards, list every assumption. For a SaaS model, start with these:</p>
+<pre><code>A4: Starting customers          B4: count   C4: 100     D4: 100     E4: 100
+A5: Monthly growth rate (Y1)    B5: %       C5: 5%      D5: 7%      E5: 3%
+A6: Monthly growth rate (Y2)    B6: %       C6: 4%      D6: 6%      E6: 2%
+A7: Monthly growth rate (Y3)    B7: %       C7: 3%      D7: 5%      E7: 1.5%
+A8: ARPC Year 1                 B8: GBP     C8: 500     D8: 500     E8: 500
+A9: ARPC Year 2                 B9: GBP     C9: 525     D9: 540     E9: 510
+A10: ARPC Year 3                B10: GBP    C10: 550    D10: 565    E10: 530
+A11: Monthly churn (Y1)         B11: %      C11: 3%     D11: 2%     E11: 4%
+A12: Monthly churn (Y2)         B12: %      C12: 2.5%   D12: 1.5%   E12: 3.5%
+A13: Monthly churn (Y3)         B13: %      C13: 2%     D13: 1%     E13: 3%</code></pre>
+<p>In <strong>cell H1</strong>, drop the scenario toggle: data validation list with source <code>Base,Bull,Bear</code>. Name the cell <code>ScenarioSelected</code> (Formulas → Define Name).</p>
+<p>In <strong>F4</strong>, the live column formula:</p>
+<pre><code>=CHOOSE(MATCH(ScenarioSelected, {"Base","Bull","Bear"}, 0), C4, D4, E4)</code></pre>
+<p>Drag down through F13. Now every formula in the rest of the model reads from column F only — toggling H1 swaps the entire scenario in one click.</p>
+<p><strong>Colour every input cell blue.</strong> Cells C4:E13 are inputs (blue font). F4:F13 are formulas (black). H1 is an input (blue). Apply the convention with a saved cell style — Home → Cell Styles → New Cell Style — so the colour is one click for every new assumption.</p>
+<p><strong>Beginner pitfall.</strong> Forgetting to name the toggle cell <code>ScenarioSelected</code> and writing <code>$H$1</code> in every CHOOSE. Then someone moves the toggle to row 2 and 50 formulas break silently. Named ranges survive moves; raw cell addresses do not.</p>
 
-<p><strong>Real-world scenario:</strong> A B2B SaaS model projecting 36 months of customers uses three parallel corkscrews: customers, MRR, and headcount. When a VC asks "what drives the spike in Q3 of year 2?", the analyst points at the corkscrew — additions up from new marketing hire, reductions unchanged — and has an answer in 10 seconds. Without the corkscrew, the answer would require tracing formulas through multiple sheets.</p>
-<p><strong>Beginner pitfall:</strong> Don't mix the corkscrew pattern with dynamic array spills. Corkscrews depend on cell-to-cell relative references, which break if the source range spills unexpectedly. Keep dynamic arrays (FILTER, SORT, GROUPBY) on separate "helper" sheets and link into the corkscrew with plain references.</p>
-<h2>Cost Modelling</h2>
-<p>Separate costs into:</p>
-<ul><li><strong>Fixed costs</strong> — Rent, salaries, subscriptions (same regardless of revenue)</li><li><strong>Variable costs</strong> — Cost of goods sold, transaction fees (scale with revenue)</li><li><strong>Semi-variable</strong> — Customer support, infrastructure (step-function increases)</li></ul>
+<h2>Step 2 — Build the customer corkscrew on the Calc sheet</h2>
+<p>On the <code>Calc</code> sheet, freeze row labels in column A and date headers in row 4. In <strong>B4</strong>, the first month header:</p>
+<pre><code>B4: =DATE(2026, 1, 1)</code></pre>
+<p>In <strong>C4</strong> through <strong>AM4</strong> (36 months), drag <code>=EDATE(B4, 1)</code> right. Format as <code>mmm yy</code>.</p>
+<p>The customer corkscrew runs in rows 6–9:</p>
+<pre><code>A6: Opening customers    B6: =Assumptions!F4
+                         C6: =B9
+                         (drag C6 right to AM6 — each month opens with prior month's close)
 
-<p><strong>Model each category differently.</strong> Fixed costs live as a flat monthly line with annual step-ups for rent reviews or salary raises. Variable costs are formula-driven from revenue: <code>=Revenue * COGS%</code>, where COGS% is a single assumption cell. Semi-variable costs need an IF or LOOKUP: "1 support agent per 500 customers" translates to <code>=CEILING(Customers/500,1) * AgentSalary</code>. The moment a cost category appears as a hard-coded number month over month, refactor it into one of these three shapes.</p>
-<p><strong>Real-world scenario:</strong> An early-stage marketplace modelled marketing spend as a flat £10k/month. When board reviewed the model, the CFO asked "this implies CAC halves at 10× revenue — is that realistic?" The answer was no. The fix: model marketing as <code>=NewCustomers * CAC</code> and put CAC on the Assumptions sheet. Now the model respects the relationship between growth and spend, and a realism check happens automatically.</p>
-<p><strong>Beginner pitfall:</strong> Do not include personal salary taxes, employer NI, or pension contributions inside the gross salary line. Add them as a separate <em>Loaded cost multiplier</em> on the Assumptions sheet (typically 1.15–1.30 depending on jurisdiction). When the rate changes, every headcount line updates. Hard-coding taxes into 20 salary rows is how models drift out of sync with HMRC or IRS updates.</p>
-<h2>Key Financial Formulas</h2>
-<table><thead><tr><th>Metric</th><th>Formula</th></tr></thead><tbody>
-<tr><td>Gross Margin</td><td><code>=(Revenue - COGS) / Revenue</code></td></tr>
-<tr><td>Operating Margin</td><td><code>=(Revenue - Total OpEx) / Revenue</code></td></tr>
-<tr><td>Burn Rate</td><td><code>=Total Monthly Expenses - Monthly Revenue</code></td></tr>
-<tr><td>Runway (months)</td><td><code>=Cash Balance / Monthly Burn Rate</code></td></tr>
-<tr><td>Customer LTV</td><td><code>=ARPC / Churn Rate</code></td></tr>
-<tr><td>CAC Payback</td><td><code>=Customer Acquisition Cost / Monthly Revenue per Customer</code></td></tr>
-</tbody></table>
+A7: + New customers      B7: =B6 * Assumptions!F5
+                         (months 1–12 use Y1 growth at F5; months 13–24 use F6; months 25–36 use F7)
+                         Use INDEX or CHOOSE on the year:
+                         B7: =B6 * INDEX(Assumptions!$F$5:$F$7, INT((COLUMN(B7)-COLUMN($B7))/12)+1)
+
+A8: − Churned customers  B8: =B6 * INDEX(Assumptions!$F$11:$F$13, INT((COLUMN(B8)-COLUMN($B8))/12)+1)
+
+A9: = Closing customers  B9: =B6 + B7 - B8</code></pre>
+<p>The pattern — opening + additions − reductions = closing, with closing flowing into the next opening — is a <strong>corkscrew</strong>. It is the industry-standard layout for any running balance: customers, cash, debt, headcount, inventory. Once a reader sees this shape, they know exactly where to look to audit any number.</p>
+<p>For revenue, two more rows below:</p>
+<pre><code>A11: ARPC (live)         B11: =INDEX(Assumptions!$F$8:$F$10, INT((COLUMN(B11)-COLUMN($B11))/12)+1)
+A12: Monthly revenue     B12: =B9 * B11</code></pre>
+<p><strong>Real-world scenario.</strong> A B2B SaaS model projecting 36 months uses three parallel corkscrews: customers, MRR, and headcount. When a VC asks "what drives the spike in Q3 of year 2?", the analyst points at the customer corkscrew — additions up from a new marketing hire — and answers in 10 seconds. Without the corkscrew the same question takes 5 minutes of formula-tracing.</p>
+<p><strong>Beginner pitfall.</strong> Don't mix the corkscrew pattern with dynamic-array spills. Corkscrews depend on cell-to-cell relative references, which break the moment a source range spills unexpectedly. Keep dynamic arrays (FILTER, SORT, GROUPBY) on separate helper sheets and link into the corkscrew with plain references.</p>
+
+<h2>Step 3 — Annual summary roll-ups</h2>
+<p>To the right of the 36 monthly columns (column AN onwards), build year totals:</p>
+<pre><code>AN4: Year 1    AO4: Year 2    AP4: Year 3
+AN12: =SUM(B12:M12)        (Year 1 revenue)
+AO12: =SUM(N12:Y12)         (Year 2 revenue)
+AP12: =SUM(Z12:AM12)        (Year 3 revenue)</code></pre>
+<p>For closing customer counts (a balance, not a flow), pick the last month of the year — not the sum:</p>
+<pre><code>AN9: =M9      (Year 1 ending customers — December of Y1)
+AO9: =Y9      (Year 2 ending customers)
+AP9: =AM9     (Year 3 ending customers)</code></pre>
+<p><strong>Beginner pitfall.</strong> Summing balance-sheet rows (customers, cash, debt) across months. A balance-sheet row is a <em>state</em> at a point in time, not a flow. Summing twelve monthly customer counts gives you a meaningless total. Sum income statement rows (revenue, costs); pick last-month-of-period for balance rows.</p>
+
+<h2>Step 4 — Cost modelling and EBITDA</h2>
+<p>Costs split into three shapes — fixed, variable, semi-variable — each with a different formula pattern. On <code>Assumptions</code>, add:</p>
+<pre><code>A20: Fixed monthly OpEx       (rent, base salaries) — single £ figure per year
+A21: Variable cost (% of rev) (COGS, payment fees) — single % figure
+A22: Customers per support agent  (semi-variable trigger)
+A23: Support agent loaded cost (£/month)</code></pre>
+<p>On <code>Calc</code>, in rows 14–18:</p>
+<pre><code>A14: Fixed OpEx       B14: =INDEX(Assumptions!$F$20:$F$22, INT((COLUMN(B14)-COLUMN($B14))/12)+1)
+                          (or just reference one cell if fixed costs don't step)
+A15: Variable cost    B15: =B12 * Assumptions!$F$21        (revenue × COGS %)
+A16: Support cost     B16: =CEILING(B9 / Assumptions!$F$22, 1) * Assumptions!$F$23
+                          (one agent per N customers, rounded up)
+A17: Total OpEx       B17: =B14 + B15 + B16
+A18: EBITDA           B18: =B12 - B17</code></pre>
+<p>The <code>CEILING(customers / per-agent, 1)</code> is the semi-variable pattern: one agent up to 500 customers, two from 501 to 1000, and so on. Step-functions like this are how real cost lines behave — modelling them as a flat % of revenue is a common beginner error that hides the true unit economics.</p>
+<p><strong>Real-world scenario.</strong> An early-stage marketplace modelled marketing spend as a flat £10k/month. Board reviewed and asked "this implies CAC halves at 10× revenue — is that realistic?" Answer: no. The fix was modelling marketing as <code>=NewCustomers * CAC</code> with CAC on Assumptions. Now the model respects the spend-growth relationship and a realism check happens automatically.</p>
+<p><strong>Beginner pitfall.</strong> Including employer NI, pension, and benefits inside the gross salary line. Add a separate <code>LoadedCostMultiplier</code> assumption (typically 1.15–1.30 in the UK) and apply it once: <code>=Salary * LoadedCostMultiplier</code>. When statutory rates change, you update one cell, not 20.</p>
+
+<h2>Step 5 — Cash corkscrew and runway</h2>
+<p>Below EBITDA, build the cash corkscrew (rows 20–24):</p>
+<pre><code>A20: Opening cash       B20: =Assumptions!StartingCash
+                        C20: =B23
+                        (drag right)
+
+A21: + Cash in (EBITDA &gt; 0)    B21: =MAX(B18, 0)
+A22: − Cash out (EBITDA &lt; 0)   B22: =MAX(-B18, 0)
+A23: = Closing cash             B23: =B20 + B21 - B22
+
+A24: Monthly burn               B24: =MAX(B22 - B21, 0)
+A25: Runway (months)            B25: =IF(B24=0, "&gt;36", B23 / B24)</code></pre>
+<p>The runway row uses <code>IF</code> to handle the profitable case — when burn is zero, runway is effectively infinite, displayed as <code>&gt;36</code>. Without the guard you get <code>#DIV/0!</code> the moment EBITDA flips positive.</p>
+<p><strong>Beginner pitfall.</strong> Computing runway from current cash divided by <em>last month's</em> burn. If burn is accelerating, that overstates how long you have. Best practice is a 3-month trailing average: <code>=B23 / AVERAGE(OFFSET(B24, 0, -2, 1, 3))</code> — handles seasonality and ramp.</p>
+<h2>Step 6 — Build the Summary sheet and Checks sheet</h2>
+<p>On <code>Summary</code>, lay out the KPI cards. Each card is a label cell + a large number cell (36pt bold font, single-cell merge):</p>
+<pre><code>A1: SCENARIO              B1: =Assumptions!H1
+A3: Total revenue (3yr)   B3: =SUM(Calc!AN12:AP12)
+A4: Ending customers      B4: =Calc!AM9
+A5: EBITDA Y3             B5: =SUM(Calc!Z18:AM18)
+A6: EBITDA margin Y3      B6: =B5 / Calc!AP12
+A7: Cash on hand (M36)    B7: =Calc!AM23
+A8: Runway at M36         B8: =Calc!AM25
+A9: Months to break-even  B9: =MATCH(TRUE, INDEX(Calc!B18:AM18&gt;0, 0), 0)</code></pre>
+<p>The <code>MATCH(TRUE, INDEX(...), 0)</code> pattern finds the first month EBITDA goes positive. INDEX wraps the boolean array so MATCH works without Ctrl+Shift+Enter on older Excel.</p>
+<p>On <code>Checks</code>, build the integrity tests. One row per check, formula returns <code>"OK"</code> or <code>"ERR"</code>:</p>
+<pre><code>A2: Customers reconcile        B2: =IF(SUM(Calc!B7:AM7)-SUM(Calc!B8:AM8)=Calc!AM9-Calc!B6, "OK", "ERR")
+A3: Revenue = customers × ARPC B3: =IF(ROUND(Calc!B12,2)=ROUND(Calc!B9*Calc!B11,2), "OK", "ERR")
+A4: EBITDA = Rev − OpEx        B4: =IF(ROUND(Calc!B18,2)=ROUND(Calc!B12-Calc!B17,2), "OK", "ERR")
+A5: Cash closes ≥ 0            B5: =IF(MIN(Calc!B23:AM23)&gt;=0, "OK", "ERR — negative cash")
+A6: Total checks               B6: =COUNTIF(B2:B5, "OK") &amp; " / " &amp; COUNTA(B2:B5)</code></pre>
+<p>Conditional-format <code>B2:B5</code> red when value is anything other than <code>"OK"</code>. The day a Check row goes red, stop — fix the model before you trust any output. Green checks are not "the model is correct"; they are "the model is internally consistent". Two different things.</p>
+
+<h2>Step 7 — Worked example: 36-month SaaS projection</h2>
+<p>With the assumptions from Step 1 (Base scenario: 100 starting customers, 5%/4%/3% monthly growth, £500/525/550 ARPC, 3%/2.5%/2% churn) and a £20k/mo Fixed OpEx, 18% variable cost ratio, and £4k/mo loaded support cost per 500 customers, the model produces:</p>
+<ul>
+<li><strong>Ending customers (Month 36):</strong> ~285 — modest, because monthly churn at 2% partially offsets growth at 3%.</li>
+<li><strong>Year 1 revenue:</strong> ~£925k. Year 2: ~£1.55M. Year 3: ~£2.0M. Total 3-year: ~£4.5M.</li>
+<li><strong>Months to EBITDA-positive:</strong> ~Month 14, when revenue first clears the £20k Fixed + variable + support cost stack.</li>
+<li><strong>Year 3 EBITDA margin:</strong> ~30%. Healthy for a SaaS at this stage.</li>
+<li><strong>Cash on hand at Month 36 (assuming £200k starting cash):</strong> ~£420k. Runway: <code>&gt;36</code> (model has been profitable for 22 months).</li>
+</ul>
+<p>Now toggle <code>H1</code> on <code>Assumptions</code> to <code>Bear</code>. Watch every number reflow: ending customers drops to ~165, total revenue halves, break-even pushes past Month 36, ending cash goes negative around Month 24 — and the <code>Checks!B5</code> row turns red ("ERR — negative cash"). The model just told you the bear case requires a funding round before Month 24. That insight took one dropdown click.</p>
+
+<h2>The full formula reference</h2>
+<table>
+<thead><tr><th>Where</th><th>Formula</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td>Assumptions!F4 (live column)</td><td><code>=CHOOSE(MATCH(ScenarioSelected, {"Base","Bull","Bear"}, 0), C4, D4, E4)</code></td><td>Picks the active scenario value; every Calc formula reads from F</td></tr>
+<tr><td>Calc!B6 (opening customers, M1)</td><td><code>=Assumptions!F4</code></td><td>Seed the corkscrew with the starting-customers assumption</td></tr>
+<tr><td>Calc!C6 (opening, M2 onwards)</td><td><code>=B9</code></td><td>Open with prior month's close — the corkscrew link</td></tr>
+<tr><td>Calc!B7 (new customers)</td><td><code>=B6 * INDEX(Assumptions!$F$5:$F$7, INT((COLUMN(B7)-COLUMN($B7))/12)+1)</code></td><td>Picks Y1/Y2/Y3 growth rate based on which 12-month block this column is in</td></tr>
+<tr><td>Calc!B8 (churned)</td><td><code>=B6 * INDEX(Assumptions!$F$11:$F$13, INT((COLUMN(B8)-COLUMN($B8))/12)+1)</code></td><td>Same INDEX pattern, churn rate</td></tr>
+<tr><td>Calc!B9 (closing customers)</td><td><code>=B6 + B7 - B8</code></td><td>Corkscrew: opening + adds − reductions</td></tr>
+<tr><td>Calc!B12 (monthly revenue)</td><td><code>=B9 * B11</code></td><td>Closing customers × current-year ARPC</td></tr>
+<tr><td>Calc!B15 (variable cost)</td><td><code>=B12 * Assumptions!$F$21</code></td><td>Revenue × COGS percent</td></tr>
+<tr><td>Calc!B16 (semi-variable support)</td><td><code>=CEILING(B9 / Assumptions!$F$22, 1) * Assumptions!$F$23</code></td><td>Step-function: one agent per N customers, rounded up</td></tr>
+<tr><td>Calc!B18 (EBITDA)</td><td><code>=B12 - B17</code></td><td>Revenue minus total OpEx — the headline operating number</td></tr>
+<tr><td>Calc!B23 (closing cash)</td><td><code>=B20 + B21 - B22</code></td><td>Cash corkscrew close</td></tr>
+<tr><td>Calc!B25 (runway)</td><td><code>=IF(B24=0, "&gt;36", B23 / B24)</code></td><td>Months until cash exhausts at current burn; guard against /0</td></tr>
+<tr><td>Summary!B6 (EBITDA margin Y3)</td><td><code>=B5 / Calc!AP12</code></td><td>Year 3 EBITDA divided by Year 3 revenue</td></tr>
+<tr><td>Summary!B9 (months to break-even)</td><td><code>=MATCH(TRUE, INDEX(Calc!B18:AM18&gt;0, 0), 0)</code></td><td>First month EBITDA goes positive</td></tr>
+<tr><td>Checks!B5 (cash never negative)</td><td><code>=IF(MIN(Calc!B23:AM23)&gt;=0, "OK", "ERR — negative cash")</code></td><td>Single-cell sanity check on the cash corkscrew</td></tr>
+<tr><td>Gross margin (anywhere)</td><td><code>=(Revenue - COGS) / Revenue</code></td><td>Standard profitability ratio</td></tr>
+<tr><td>Operating margin</td><td><code>=(Revenue - Total OpEx) / Revenue</code></td><td>EBITDA as a % of revenue</td></tr>
+<tr><td>Customer LTV (simple)</td><td><code>=ARPC / Churn Rate</code></td><td>Lifetime value, simple form; for gross-margin LTV multiply by GM%</td></tr>
+<tr><td>CAC payback (months)</td><td><code>=CAC / (ARPC * GrossMargin)</code></td><td>Months to recoup acquisition cost from gross-margin contribution</td></tr>
+<tr><td>Net Present Value</td><td><code>=NPV(WACC, CashFlows) + InitialCash</code></td><td>NPV excludes the initial outlay — add it back manually</td></tr>
+<tr><td>Internal Rate of Return</td><td><code>=IRR(CashFlows)</code></td><td>The discount rate at which NPV = 0; first cash flow must be the negative outlay</td></tr>
+</tbody>
+</table>
+
+<h2>Variations: customise for your business shape</h2>
+<p>The skeleton (Assumptions sheet → Calc corkscrew → Summary KPIs → Checks) stays identical. What changes is the revenue driver and the cost split.</p>
+<table>
+<thead><tr><th>Business model</th><th>Revenue driver</th><th>Distinct cost shape</th></tr></thead>
+<tbody>
+<tr><td>SaaS / subscription</td><td>Customers × ARPC × (1 − churn)</td><td>Variable cost low (≈10–25%); fixed cost high (engineering)</td></tr>
+<tr><td>Marketplace / two-sided</td><td>GMV × take rate</td><td>Acquisition cost on both sides; semi-variable trust &amp; safety</td></tr>
+<tr><td>E-commerce</td><td>Orders × AOV × repeat rate</td><td>Variable cost very high (≈60–75% COGS + fulfilment); fixed low</td></tr>
+<tr><td>Agency / consulting</td><td>Billable hours × rate × utilisation</td><td>Cost dominated by salaries × loaded multiplier; small fixed overhead</td></tr>
+<tr><td>Manufacturing</td><td>Units × ASP</td><td>Variable BOM cost + step-fixed factory capacity (CAPEX waves)</td></tr>
+<tr><td>Subscription content / media</td><td>Subscribers × ARPU + ad CPM × impressions</td><td>Mostly fixed (content production); variable infra at scale</td></tr>
+</tbody>
+</table>
+<p>For investor-facing models, add a 5-year DCF tab: project free cash flow from EBITDA (subtract D&amp;A, add back, subtract CapEx and ΔWC), discount at WACC, add a terminal value with Gordon growth. The <code>=NPV()</code> and <code>=IRR()</code> functions handle the math; the analytical work is choosing the WACC and terminal growth defensibly.</p>
+
 <h2>Scenario Analysis</h2>
 <p>Build three scenarios by changing assumptions:</p>
 <ul><li><strong>Base case</strong> — Realistic projections</li><li><strong>Best case</strong> — Higher growth, lower churn</li><li><strong>Worst case</strong> — Lower growth, higher costs</li></ul>
@@ -253,12 +390,19 @@
 <p><strong>The scenario toggle pattern:</strong> Put a single cell on the Assumptions sheet called <code>ScenarioSelected</code> with data validation dropdown {Base, Bull, Bear}. Every assumption has three columns (one per scenario) plus a live column using <code>=CHOOSE(MATCH($ScenarioSelected,{"Base","Bull","Bear"},0), BaseCol, BullCol, BearCol)</code>. All formulas in the model read from the live column only. Toggling the dropdown switches the entire model in one click — cleaner than Scenario Manager, easier to audit than Data Tables.</p>
 <p><strong>Real-world scenario:</strong> A growth-stage CFO running the monthly forecast review switches between scenarios mid-meeting to answer "what if churn stays at 4%?" in real time. Without the toggle, the same question meant 20 minutes of spreadsheet wrangling after the meeting. The scenario toggle pattern is the single highest-leverage Excel skill in a finance job.</p>
 <p><strong>Beginner pitfall:</strong> Sensitivity analysis on more than two variables gets unreadable fast. Use a one-variable Data Table for "how does NPV move with discount rate?" and a two-variable Data Table for "how does NPV move with discount rate AND terminal growth?". For three+ variables, use a chart of several two-variable tables rather than trying to tabulate all combinations.</p>
-<h2>Best Practices</h2>
-<ol><li><strong>One formula per row</strong> — Don't mix different formulas in the same row</li><li><strong>Blue for inputs, black for formulas</strong> — Industry standard colour coding. You can automate this with <a href="/blog/conditional-formatting-tips">conditional formatting rules</a></li><li><strong>No circular references</strong> — They make models unstable and hard to audit</li><li><strong>Label everything</strong> — Every number should have a clear label</li><li><strong>Separate sheets</strong> — Assumptions, calculations, and outputs on different tabs</li><li><strong>Version control</strong> — Save dated copies before major changes</li>
-<li><strong>Error check rows</strong> — Add a Check row on each sheet with formulas like <code>=IF(A-L-E=0,"OK","ERR")</code> for balance sheet ties. One glance confirms model integrity.</li>
-<li><strong>No merged cells in calculation ranges</strong> — Merged cells break sort, break structured references, and confuse SUMIFS. Use "Center Across Selection" (Ctrl+1 → Alignment) for visual alignment without merging.</li>
-<li><strong>Freeze panes at row 4, column B</strong> — So row labels and header rows always stay visible while scrolling through 36 months of columns.</li>
-</ol>
+<h2>Common mistakes</h2>
+<ul>
+<li><strong>Hard-coding numbers inside formulas.</strong> <code>=B5 * 1.05</code> hides the 5% growth assumption from the auditor. Move every number into a single named cell on Assumptions and reference it. Hard-coded model = unauditable model.</li>
+<li><strong>Mixing inputs and formulas in the same cell.</strong> Cells must be either pure input (blue) or pure formula (black). The moment you write <code>=B5 + 1000</code>, the 1000 has nowhere to live and nobody can find it later.</li>
+<li><strong>Different formula in different cells of the same row.</strong> Every cell in a row must compute the same thing. Two different formulas across one row breaks the "drag right" mental model and is the #1 source of silent errors. Use <code>IF</code> inside one formula instead of switching formulas.</li>
+<li><strong>Skipping the colour convention.</strong> Blue inputs, black formulas, green cross-sheet links, red external workbook links. Auditors scan colour before they read formulas — a model that follows the convention is trusted in 30 seconds; one that doesn't gets a 30-minute walk-through.</li>
+<li><strong>Merged cells in calculation ranges.</strong> Break sort, structured references, and SUMIFS. Use "Center Across Selection" (Ctrl+1 → Alignment → Horizontal → Center Across Selection) for visual alignment without the merge.</li>
+<li><strong>Summing balance rows across periods.</strong> Customers, cash, debt, headcount are <em>states</em>. Summing 12 months of customer counts produces a meaningless total. Sum income-statement rows; pick last-period for balance rows.</li>
+<li><strong>Volatile functions in long calc chains.</strong> INDIRECT, OFFSET, TODAY, NOW recalculate on every cell change. Replace INDIRECT with INDEX, OFFSET with structured references, and cache TODAY into a single Assumptions cell every formula reads from. Speed-up: 10–30×.</li>
+<li><strong>Freezing the wrong panes.</strong> Freeze at <code>B5</code> (row 4 + column A locked) so the date headers in row 4 and the row labels in column A stay visible while scrolling through 36 monthly columns.</li>
+<li><strong>Treating the Summary sheet as something to "tweak".</strong> Summary is read-only output. If a number looks wrong, the fix is in Assumptions or Calc — never edit the Summary cell. Same rule as the Project Tracker tutorial.</li>
+<li><strong>No Checks sheet at all.</strong> A model without integrity checks is a model that will silently lie at the worst possible moment (the board meeting). Even four checks (cash positive, customers reconcile, revenue reconciles, EBITDA ties) catch most errors.</li>
+</ul>
 
 <h2>Troubleshooting</h2>
 <p>Five problems that derail nearly every beginner financial model, with exact fixes.</p>
@@ -276,6 +420,16 @@
 <p><strong>What's the difference between a 3-statement model and a DCF?</strong><br>3-statement = projected income statement + balance sheet + cash flow over time. DCF = takes free cash flows from the 3-statement, projects 5–10 years, applies WACC, adds terminal value = enterprise valuation. You can't build a DCF without a working 3-statement first.</p>
 <p><strong>Should I use SUMIFS or SUMPRODUCT in financial models?</strong><br>SUMIFS is faster, more readable — use it for almost everything. SUMPRODUCT wins for multiply-then-sum (weighted averages, portfolio math) and some multi-column sums SUMIFS can't handle. SUMIFS first, SUMPRODUCT when SUMIFS runs out.</p>
 <p><strong>How do I handle circular references?</strong><br>Two options: (1) File → Options → Formulas → Enable iterative calculation (simple but fragile); (2) restructure with a "circ breaker" — use beginning-of-period debt instead of average for interest calc (industry standard for audited models).</p>
+
+<h2>When this is not the right tool</h2>
+<ul>
+<li><strong>Real-time multi-user collaboration.</strong> Excel locks the file. For teams editing the same model simultaneously (FP&amp;A team during close), use a planning tool with proper concurrency: Anaplan, Pigment, Cube, or Workday Adaptive. Excel co-authoring on OneDrive helps for 2–3 editors, breaks for 5+.</li>
+<li><strong>Production financial reporting / consolidations.</strong> Audited month-end closes need an ERP (NetSuite, SAP) plus a consolidation tool (BlackLine, OneStream). Excel is fine for <em>analysis</em> on top of that data, never for being the system of record.</li>
+<li><strong>Models with &gt;500k rows of source data.</strong> Excel chokes; Power Pivot helps but the workflow becomes painful. Move source data to a database and use Power Query as the bridge — see the <a href="/blog/power-query-guide">Power Query tutorial</a>.</li>
+<li><strong>Multi-currency consolidation with FX retranslation.</strong> Possible in Excel but error-prone. Use Cube or a proper EPM tool when you cross more than two currencies and care about the cumulative translation adjustment.</li>
+<li><strong>Statistical / Monte Carlo simulation at scale.</strong> Excel handles 1,000-iteration Monte Carlo with Data Tables; for 100k+ iterations or correlated distributions, switch to Python (NumPy + pandas) or R. The output table can come back to Excel for presentation.</li>
+<li><strong>You actually need a tracker, not a model.</strong> If the goal is monitoring status of in-flight work rather than projecting financials, use the <a href="/blog/project-tracker-excel">project tracker</a> or <a href="/blog/sales-pipeline-tracker-excel">sales pipeline tracker</a>.</li>
+</ul>
 
 <h2>Sources &amp; Further Reading</h2>
 <ul>

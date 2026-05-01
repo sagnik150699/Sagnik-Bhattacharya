@@ -22,7 +22,7 @@
   <meta name="twitter:title" content="How to Build an Interactive Dashboard in Excel (No VBA)">
   <meta name="twitter:description" content="Build a professional Excel dashboard using pivot tables, charts, and slicers \u2014 no VBA or add-ins required. Includes a step-by-step walkthrough with a real sales dataset.">
   <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/dynamic-dashboards-sagnik-bhattacharya-coding-liquids.jpg">
-  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Creating Dynamic Dashboards in Excel, with dashboard cards, KPIs, and interactive chart elements."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-10"><meta property="article:modified_time" content="2026-04-29">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Creating Dynamic Dashboards in Excel, with dashboard cards, KPIs, and interactive chart elements."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-10"><meta property="article:modified_time" content="2026-04-30">
   <meta property="article:section" content="Data Analysis"><meta property="article:tag" content="Dashboards"><meta property="article:tag" content="Data Visualization"><meta property="article:tag" content="Interactive Reports">
   <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
     <script type="application/ld+json">
@@ -35,7 +35,7 @@
                    "name":  "Sagnik Bhattacharya",
                    "url":  "https://sagnikbhattacharya.com"
                },
-    "datePublished":  "2026-03-10","dateModified":"2026-04-29",
+    "datePublished":  "2026-03-10","dateModified":"2026-04-30",
     "inLanguage":  "en-GB",
     "description":  "Build a professional Excel dashboard using pivot tables, charts, and slicers — no VBA required. Step-by-step walkthrough with a real sales dataset.",
     "publisher":  {
@@ -246,6 +246,82 @@
 <p><strong>Beginner pitfall:</strong> "Refresh data when opening" only refreshes the source data — it does <em>not</em> refresh pivot tables that read from a Data Model unless the Data Model itself is refreshed. If you see stale values despite the checkbox, add a one-line macro in <code>Workbook_Open</code> that calls <code>ThisWorkbook.Model.Refresh</code>, or simply tick "Refresh data when opening" on every pivot individually.</p>
 <h2>Pro Tips</h2>
 <ol><li>Use <strong>KPI cards</strong> — Large numbers at the top showing total revenue, growth %, and key metrics using simple cell references with bold formatting. A KPI card is just a merged cell with a 36pt number above a 10pt label. Link it with <code>=GETPIVOTDATA("Revenue",Calc!$A$3)</code> so the KPI follows slicer state.</li><li>Use <strong>Sparklines</strong> — Tiny inline charts (Insert → Sparklines) for trend indicators next to KPIs. Colour the high point green and the low point red to communicate direction at a glance.</li><li>Use <strong>conditional formatting</strong> on data tables within the dashboard for visual emphasis. Data bars on the Top-10 table turn a flat list into a quick visual ranking. The <a href="/blog/conditional-formatting-tips">conditional formatting tips tutorial</a> covers the exact patterns that look professional.</li><li>Keep it to <strong>one screen</strong> — The best dashboards don't require scrolling. If you need more, split into multiple dashboard sheets with tab names like "Sales", "Ops", "Finance" — never a scroll bar.</li><li>Use <strong>named ranges for KPI targets</strong> — Put targets on a "Config" sheet (<code>TargetRevenue</code>, <code>TargetConversion</code>) so non-technical users can edit them without touching pivots or formulas.</li></ol>
+
+<h2>Worked example: 12 months of regional sales</h2>
+<p>Drop in this 12-row pivot source on the Calc sheet (or paste the raw transactions into the Data sheet and let the Revenue-by-month pivot summarise them) so the dashboard has something concrete to react to.</p>
+<pre><code>Month       Region   Channel   Revenue   Units   Orders
+2026-01-01  EMEA     Online    142000    980     412
+2026-01-01  AMER     Online    198000    1240    540
+2026-02-01  EMEA     Online    156000    1010    438
+2026-02-01  AMER     Retail    211000    1310    572
+2026-03-01  EMEA     Retail    138000    920     401
+2026-03-01  APAC     Online    104000    760     330
+2026-04-01  EMEA     Online    167000    1080    470
+2026-04-01  AMER     Online    225000    1390    605
+2026-04-01  APAC     Retail    118000    830     362
+2026-05-01  EMEA     Online    179000    1140    498
+2026-05-01  AMER     Retail    241000    1470    642
+2026-05-01  APAC     Online    132000    900     395</code></pre>
+<p>Build three KPI cards using <code>GETPIVOTDATA</code> (or direct cell links if you turned GETPIVOTDATA off):</p>
+<pre><code>Total revenue     =GETPIVOTDATA("Revenue", Calc!$A$3)
+Units sold        =GETPIVOTDATA("Units",   Calc!$A$3)
+YoY growth (%)    =GETPIVOTDATA("Revenue", Calc!$A$3, "Year", 2026) / GETPIVOTDATA("Revenue", Calc!$A$3, "Year", 2025) - 1</code></pre>
+<p>Add a Region slicer and a Channel slicer, both connected to all four pivots via Report Connections. Click <em>EMEA</em> + <em>Online</em> — every chart filters in one motion, and the KPI cards drop to the EMEA-Online subtotal. Add a date timeline above the cards so users can scrub the trend chart down to a quarter.</p>
+<p>Expected dashboard reads: total revenue ≈ £2,011,000 across the 12 source rows; AMER is the largest region by some margin; Online beats Retail until March, after which Retail catches up; growth between January and May is ≈ 26%. If the numbers in your build do not match, the most common cause is a missing slicer connection — one chart still showing the unfiltered total while the others react.</p>
+
+<h2>The full formula reference</h2>
+<table>
+<thead><tr><th>Where</th><th>Formula</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td>KPI card — total</td><td><code>=GETPIVOTDATA("Revenue", Calc!$A$3)</code></td><td>Reads the grand total of the Revenue field from the pivot at <code>Calc!$A$3</code>; honours active slicer state</td></tr>
+<tr><td>KPI card — filtered</td><td><code>=GETPIVOTDATA("Revenue", Calc!$A$3, "Region", "EMEA")</code></td><td>Pulls a single sliced number; the field/value pairs match the pivot's row/column fields</td></tr>
+<tr><td>KPI card — YoY %</td><td><code>=GETPIVOTDATA("Revenue", Calc!$A$3, "Year", 2026) / GETPIVOTDATA("Revenue", Calc!$A$3, "Year", 2025) - 1</code></td><td>Year-on-year growth from the same pivot; format as percentage</td></tr>
+<tr><td>KPI vs target gap</td><td><code>=GETPIVOTDATA("Revenue", Calc!$A$3) - TargetRevenue</code></td><td>Where <code>TargetRevenue</code> is a named range on the Config sheet</td></tr>
+<tr><td>Sparkline trend</td><td>Insert → Sparklines → Line, Data Range = pivot row of monthly revenue</td><td>One-cell trend; mark High and Low points in colour for instant direction read</td></tr>
+<tr><td>Conditional formatting — data bars</td><td>Home → Conditional Formatting → Data Bars → Solid Fill</td><td>Visual ranking on a Top-10 customers table without a chart</td></tr>
+<tr><td>Modern alternative — GROUPBY</td><td><code>=GROUPBY(tblSales[Region], tblSales[Revenue], SUM, 0, 0)</code></td><td>M365 dynamic-array equivalent of a one-pivot summary; auto-recalculates, no Refresh needed</td></tr>
+<tr><td>Modern alternative — PIVOTBY</td><td><code>=PIVOTBY(tblSales[Region], tblSales[Channel], tblSales[Revenue], SUM)</code></td><td>M365 cross-tab equivalent of a two-axis pivot; spills as a dynamic-array matrix</td></tr>
+<tr><td>Auto-refresh on open</td><td>Right-click pivot → PivotTable Options → Data → tick "Refresh data when opening the file"</td><td>Pulls fresh data the moment the user opens the workbook</td></tr>
+<tr><td>One-click refresh button</td><td><code>ActiveWorkbook.RefreshAll</code> (recorded macro on a shape)</td><td>Single button on the Dashboard sheet that refreshes every pivot at once</td></tr>
+</tbody>
+</table>
+
+<h2>Variations: customise for your dataset</h2>
+<p>The skeleton (Tables → shared pivot cache → charts → connected slicers + timeline → KPI cards on a Dashboard sheet) stays identical. What changes is which dimensions become slicers and which metric leads the KPI row.</p>
+<table>
+<thead><tr><th>Use case</th><th>Slicers / timeline</th><th>Lead KPI cards</th></tr></thead>
+<tbody>
+<tr><td>Sales pipeline review</td><td>Region, Stage, Owner; timeline on Close Date</td><td>Pipeline value, weighted forecast, win rate</td></tr>
+<tr><td>Marketing funnel</td><td>Channel, Campaign, Geo; timeline on Touch Date</td><td>Sessions, MQLs, conversion %</td></tr>
+<tr><td>HR headcount &amp; attrition</td><td>Department, Level, Location; timeline on Hire Date</td><td>Headcount, attrition %, open roles</td></tr>
+<tr><td>Finance variance</td><td>Cost centre, Account; timeline on Period</td><td>Actual, budget, variance % vs plan</td></tr>
+<tr><td>Product analytics</td><td>Product, Platform, Cohort; timeline on Event Date</td><td>DAU, retention %, feature adoption</td></tr>
+<tr><td>Operations / supply</td><td>Warehouse, SKU class; timeline on Order Date</td><td>Fill rate, on-time %, stockouts</td></tr>
+</tbody>
+</table>
+<p>Cross-functional dashboards (e.g. one workbook for sales + marketing) work, but only when both teams agree on the date dimension. If sales tracks "Close Date" and marketing tracks "Lead Date" and you want both on one timeline — pick one or build two timelines stacked vertically. Forcing a shared one creates more confusion than it solves.</p>
+
+<h2>Common mistakes</h2>
+<ul>
+<li><strong>Building from a plain range, not an Excel Table.</strong> The pivot range freezes at first build and never sees new rows. Always <kbd>Ctrl+T</kbd> the source first and rename it (e.g. <code>tblSales</code>).</li>
+<li><strong>One pivot cache per pivot.</strong> Causes Report Connections to silently exclude pivots, breaks cross-chart slicer behaviour, and bloats file size. Duplicate the first pivot (or use "Use this workbook's Data Model") so all pivots share one cache.</li>
+<li><strong>KPI cards typed manually.</strong> Hand-typed numbers don't respond to slicers. Always link via <code>=GETPIVOTDATA(...)</code> or a direct cell reference to a hidden pivot.</li>
+<li><strong>Slicer per chart instead of one slicer for all.</strong> Defeats the point. Build slicers once, then right-click → Report Connections → tick every pivot.</li>
+<li><strong>Charts on the same sheet as the pivots.</strong> Users start editing pivots by accident. Move all pivots to a hidden Calc sheet and only put charts/slicers/cards on the Dashboard sheet.</li>
+<li><strong>3-D and pie charts.</strong> 3-D distorts comparison; pie misleads above six slices. Default to bar (sorted) or line; reach for pie only when there are exactly 2–3 slices.</li>
+<li><strong>Inconsistent colour palette.</strong> Use a single brand primary + one accent + one neutral grey across every chart. The exec brain reads the palette as semantic — switching colours per chart breaks meaning.</li>
+<li><strong>Forgetting to lock the dashboard.</strong> Review → Protect Sheet, allow only "Use PivotTable &amp; PivotChart" and "Select unlocked cells". Hide the Calc sheet so it cannot be edited at all.</li>
+</ul>
+
+<h2>When this is not the right tool</h2>
+<ul>
+<li><strong>Source data above ~1M rows.</strong> Excel's row limit (1,048,576) is hard. For real "big data" dashboards, move to Power Pivot's Data Model (compresses 10×), Power BI, or a SQL-backed tool. The <a href="/blog/power-pivot-guide">Power Pivot guide</a> covers when to switch.</li>
+<li><strong>Live database connectivity for dozens of users.</strong> Excel's connection refresh is single-user. For shared live dashboards, Power BI service or Tableau is the correct layer.</li>
+<li><strong>Heavy DAX / time-intelligence calculations.</strong> Possible in Excel via Power Pivot but ergonomically painful. If you find yourself writing more than three CALCULATE expressions, you have outgrown Excel.</li>
+<li><strong>Mobile-first viewing.</strong> Excel for the web works on mobile but is cramped. If the primary consumer is on a phone, Power BI mobile or a custom web report is a better fit.</li>
+<li><strong>You only need a status/ownership tracker, not analytical visuals.</strong> Use the <a href="/blog/project-tracker-excel">project tracker</a> or <a href="/blog/sales-pipeline-tracker-excel">sales pipeline tracker</a> instead — same Table discipline, tuned for tracking rather than charting.</li>
+</ul>
+
 <h2>Troubleshooting</h2>
 <p>These are the five errors beginners hit most often when building their first dashboard. Each has a one-step fix.</p>
 <ol>

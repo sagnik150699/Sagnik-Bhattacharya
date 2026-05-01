@@ -20,13 +20,13 @@ Four problems to fix across the 10 "build-this-thing in Excel" tutorials:
 | 1 | [attendance-tracker-excel](public/blog/attendance-tracker-excel.html) | ✅ already 8 numbered steps, beginner-friendly | [x] | [ ] | [ ] |
 | 2 | [amortization-schedule-excel](public/blog/amortization-schedule-excel.html) | ⚠️ 1 step header — re-audit, likely needs structure | [ ] | [ ] | [ ] |
 | 3 | [calendar-in-excel-automatic](public/blog/calendar-in-excel-automatic.html) | ⚠️ 0 step headers — re-audit | [ ] | [ ] | [ ] |
-| 4 | [dynamic-dashboards](public/blog/dynamic-dashboards.html) | ✅ 5 numbered steps (verify quality) | [ ] | [ ] | [ ] |
-| 5 | [financial-modelling](public/blog/financial-modelling.html) | ⚠️ 0 step headers — re-audit | [ ] | [ ] | [ ] |
-| 6 | [gantt-chart-excel](public/blog/gantt-chart-excel.html) | ⚠️ 0 step headers — re-audit | [ ] | [ ] | [ ] |
-| 7 | [inventory-tracker-excel](public/blog/inventory-tracker-excel.html) | ⚠️ 0 step headers — re-audit | [ ] | [ ] | [ ] |
-| 8 | [monthly-budget-spreadsheet-excel](public/blog/monthly-budget-spreadsheet-excel.html) | ⚠️ 0 step headers — re-audit | [ ] | [ ] | [ ] |
-| 9 | [project-tracker-excel](public/blog/project-tracker-excel.html) | ⚠️ 0 step headers — re-audit | [ ] | [ ] | [ ] |
-| 10 | [sales-pipeline-tracker-excel](public/blog/sales-pipeline-tracker-excel.html) | ⚠️ 0 step headers — re-audit | [ ] | [ ] | [ ] |
+| 4 | [dynamic-dashboards](public/blog/dynamic-dashboards.html) | ✅ 5 steps + worked example + formula ref + Variations + Common mistakes + when-not | [x] | [ ] | [ ] |
+| 5 | [financial-modelling](public/blog/financial-modelling.html) | ✅ 7 steps + worked example + formula ref + Variations + Common mistakes + when-not | [x] | [ ] | [ ] |
+| 6 | [gantt-chart-excel](public/blog/gantt-chart-excel.html) | ✅ 7 steps + worked example + formula ref + Variations + Common mistakes + when-not | [x] | [ ] | [ ] |
+| 7 | [inventory-tracker-excel](public/blog/inventory-tracker-excel.html) | ✅ 5 steps + formula ref + Variations | [x] | [ ] | [ ] |
+| 8 | [monthly-budget-spreadsheet-excel](public/blog/monthly-budget-spreadsheet-excel.html) | ✅ 4 steps + formula ref + Variations | [x] | [ ] | [ ] |
+| 9 | [project-tracker-excel](public/blog/project-tracker-excel.html) | ✅ 7 steps + formula ref + Variations + Common mistakes + when-not | [x] | [ ] | [ ] |
+| 10 | [sales-pipeline-tracker-excel](public/blog/sales-pipeline-tracker-excel.html) | ✅ 7 steps + formula ref + Variations + Common mistakes + when-not | [x] | [ ] | [ ] |
 
 **Reference for tone, structure, depth:** [attendance-tracker-excel.html](public/blog/attendance-tracker-excel.html) — copy this pattern. Numbered Step 1..N, exact cell addresses, exact formulas in `<pre><code>` blocks, "Common mistakes" section, "Related tutorials" footer.
 
@@ -152,12 +152,15 @@ Update the Step-by-step status column in the in-scope table at the top of this f
 | 7 | inventory-tracker-excel | ✅ 5 steps + formula ref + Variations |
 | 8 | monthly-budget-spreadsheet-excel | ✅ 4 steps + formula ref + Variations |
 
-### Task 4 — Rewrite tutorials marked FULL-REWRITE
+### Task 4 — Rewrite tutorials marked FULL-REWRITE ✅ DONE 2026-04-30
 
-- [ ] One file per session. Use attendance-tracker as the structural template.
-- [ ] Keep the existing slug, title, image, and JSON-LD. Replace only the body (`.blog-post-content`).
-- [ ] Update `dateModified` in JSON-LD and bump `<lastmod>` in `public/sitemap.xml`.
-- [ ] Per the hub-sync rule: if the tutorial title changes meaningfully, also update `scripts/generate_hub_pages.py` and re-run it.
+- [x] `project-tracker-excel` — 7 numbered Steps + worked example + formula reference (15 rows) + Variations + Common mistakes + Troubleshooting + when-not. (commit `bda1877`.)
+- [x] `sales-pipeline-tracker-excel` — 7 numbered Steps + worked example + formula reference + Variations + Common mistakes + when-not. (commit `1b8e0d9`.)
+- [x] `gantt-chart-excel` — full rewrite from 780 → ~3500 words: 7 numbered Steps (Tasks Table, WORKDAY end, SEQUENCE date row, 5 CF rules, summary panel, needs-attention spill, worked example), formula reference (16 rows), Variations table (6 use cases), Common mistakes (7), Troubleshooting (7), when-not (5). FAQ JSON-LD rewritten to match new content. M365 line added.
+- [x] `dynamic-dashboards` — kept existing 5-step body; added Worked example (12-row regional sales dataset), formula reference table (10 rows incl. GETPIVOTDATA, GROUPBY, PIVOTBY), Variations table (6 use cases), consolidated Common mistakes (8), when-not (5). Existing Troubleshooting and FAQ retained.
+- [x] `financial-modelling` — promoted h3 step headers to 7 h2 numbered Steps with cell-level addresses (Assumptions sheet layout, customer corkscrew on Calc, annual roll-ups, cost modelling + EBITDA, cash corkscrew + runway, Summary + Checks sheets, worked 36-month SaaS example). Added formula reference table (20 rows), Variations table (6 business models), consolidated Common mistakes (10), when-not (6).
+- [x] All 5 had `dateModified`, `article:modified_time`, and sitemap `<lastmod>` bumped to 2026-04-30. Read times updated where stale (gantt 4→14 min, financial-modelling 12→16 min).
+- [x] No tutorial titles changed → no hub-page sync needed.
 
 ### Task 5 — Fact-check pass, all 10 tutorials
 
