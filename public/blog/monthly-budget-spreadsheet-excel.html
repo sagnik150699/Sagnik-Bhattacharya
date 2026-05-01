@@ -140,9 +140,10 @@
 </ol>
 <h2>Step 3 — Add the Summary formulas</h2>
 <p>On the Summary sheet, beside each category row:</p>
-<pre><code>Planned:   =VLOOKUP(A2, Inputs!A:B, 2, FALSE)
+<pre><code>Planned:   =XLOOKUP(A2, Inputs!A:A, Inputs!B:B, 0)
 Actual:    =SUMIFS(tblTransactions[Amount], tblTransactions[Category], A2)
 Remaining: =B2 - C2</code></pre>
+<p>The fourth argument <code>0</code> on <code>XLOOKUP</code> is the "if not found" value, so a category that hasn't been entered on Inputs shows £0 planned rather than <code>#N/A</code>. On Excel 2019, swap to <code>=VLOOKUP(A2, Inputs!A:B, 2, FALSE)</code> — same result, less graceful when keys don't match.</p>
 <p>At the bottom of the Summary sheet, add a single "Month cushion" row:</p>
 <pre><code>Total planned:   =SUM(B2:B15)
 Total actual:    =SUM(C2:C15)
@@ -176,7 +177,7 @@ Contingency        600</code></pre>
 2026-04-06   Marketing     300       Meta ads
 ...</code></pre>
 <p><strong>Summary sheet formulas (C2 onwards, one row per category)</strong></p>
-<pre><code>=VLOOKUP(A2, Inputs!A:B, 2, FALSE)                                  // Planned
+<pre><code>=XLOOKUP(A2, Inputs!A:A, Inputs!B:B, 0)                             // Planned
 =SUMIFS(tblTransactions[Amount], tblTransactions[Category], A2)     // Actual
 =B2 - C2                                                            // Remaining</code></pre>
 <p>With this setup, logging a transaction takes about 10 seconds: type date, pick category from dropdown, type amount, hit Enter. The Summary updates live. At the end of the month the Month Cushion row tells you whether you came in under or over.</p>
@@ -184,8 +185,8 @@ Contingency        600</code></pre>
 <table>
 <thead><tr><th>Where</th><th>Formula</th><th>What it does</th></tr></thead>
 <tbody>
-<tr><td>Summary B2 (Planned)</td><td><code>=VLOOKUP(A2, Inputs!A:B, 2, FALSE)</code></td><td>Pulls the planned amount for the row's category</td></tr>
-<tr><td>Summary B2 (modern)</td><td><code>=XLOOKUP(A2, Inputs!A:A, Inputs!B:B)</code></td><td>XLOOKUP equivalent — clearer error handling, requires Microsoft 365 / 2021</td></tr>
+<tr><td>Summary B2 (Planned)</td><td><code>=XLOOKUP(A2, Inputs!A:A, Inputs!B:B, 0)</code></td><td>Pulls the planned amount for the row's category; the <code>0</code> is the if-not-found value (M365 / 2021)</td></tr>
+<tr><td>Summary B2 (Excel 2019 fallback)</td><td><code>=VLOOKUP(A2, Inputs!A:B, 2, FALSE)</code></td><td>Pre-XLOOKUP equivalent; returns <code>#N/A</code> on miss instead of 0</td></tr>
 <tr><td>Summary C2 (Actual)</td><td><code>=SUMIFS(tblTransactions[Amount], tblTransactions[Category], A2)</code></td><td>Sums every transaction matching the category</td></tr>
 <tr><td>Summary D2 (Remaining)</td><td><code>=B2 - C2</code></td><td>Planned minus actual; goes red when negative</td></tr>
 <tr><td>Summary Total Planned</td><td><code>=SUM(B2:B15)</code></td><td>Total budgeted spend for the month</td></tr>

@@ -173,18 +173,36 @@ For each tutorial — open the file, then verify against current Microsoft Suppo
 - [ ] Any pricing / availability claims (Microsoft 365 plans, Copilot subscription, Claude for Excel) are checked against the vendor's current published pricing page.
 - [ ] Tick the Fact-check column in the table when done.
 
+**Progress so far (2026-04-30):**
+
+- Cross-file scan complete: no legacy menu items (Office Button, Tools menu, File menu, PivotTable Wizard) anywhere in the 10 tutorials.
+- WebSearch verified: GROUPBY / PIVOTBY are generally available from Sept 25 2024 in Current Channel — available in M365 (Win + Mac), Excel 2024 perpetual, and Excel for the web; NOT in 2019 or 2021. The fallback notes in `project-tracker-excel.html` ("Excel 2019/2021 — fall back to UNIQUE + COUNTIFS") are correct.
+- WebSearch verified: M365 ribbon path for slicers is `PivotTable Analyze → Insert Slicer`. The dynamic-dashboards file uses British "PivotTable Analyse" — left as-is for the en-GB audience; both render in Microsoft's localised ribbon.
+- VLOOKUP audit: only `monthly-budget-spreadsheet-excel.html` had VLOOKUP as the primary formula. Promoted to `XLOOKUP(A2, Inputs!A:A, Inputs!B:B, 0)` in Step 3, worked example, and formula-reference table; VLOOKUP kept as the labelled "Excel 2019 fallback". `inventory-tracker-excel.html` mentions VLOOKUP only in a teaching FAQ comparing it to SUMIFS — kept intentionally.
+- Nested-IF audit: only the `IF(B16>0, MIN(...), 0)` guards in `amortization-schedule-excel.html` matched the pattern, and they are simple guard-clauses, not nested-IF chains — IFS/SWITCH would not improve them.
+- "Requires M365" / Excel-version line: present in all 10 (verified: attendance L115, amortization L117 + L123, calendar L115, dynamic-dashboards L201, financial-modelling L198, gantt L115 (added in Task 4 rewrite), inventory L115, monthly-budget L115, project-tracker L115, sales-pipeline L115).
+
+**Still to do for Task 5 — formula-by-formula fact-check** (this is the bulk of the work, deferred to next session):
+
+- [ ] Mentally execute every formula in each tutorial against its worked example. Look for off-by-one, absolute-reference errors, blank-cell #DIV/0 risk, sign errors on PMT/IPMT, mismatched WORKDAY day-counts, etc.
+- [ ] Verify XLOOKUP / FILTER / SEQUENCE / GROUPBY / WORKDAY argument order against [Microsoft Support function reference](https://support.microsoft.com/en-us/office/excel-functions-by-category-5f91f4e9-7b42-46d2-9bd1-63f26a86c0eb).
+- [ ] Verify menu paths for: Conditional Formatting → New Rule (looks current), Data → Data Validation (current), Table Design tab (current), Insert → PivotTable (current), Review → Protect Sheet (current).
+- [ ] No pricing claims appear in any of the 10 tutorials → that subtask is N/A.
+
 ### Task 6 — Microsoft 365 pass, all 10 tutorials
 
 For each tutorial — modernise the formula stack:
 
-- [ ] Replace `VLOOKUP` with `XLOOKUP` everywhere unless there is a specific teaching reason to keep it. Add a one-line note where `VLOOKUP` is still shown for context.
-- [ ] Replace nested `IF` chains with `IFS` or `SWITCH` where it materially improves readability.
-- [ ] Use dynamic arrays (`FILTER`, `SORT`, `UNIQUE`, `SEQUENCE`) instead of older array-formula tricks (`Ctrl+Shift+Enter`).
-- [ ] Use `LET` to name sub-expressions in any formula longer than ~80 chars.
-- [ ] Use Excel Tables (`Ctrl+T`, structured references like `tblRoster[Name]`) for any range that grows over time.
-- [ ] Where tutorials touch grouping / pivoting workflows, mention `GROUPBY` / `PIVOTBY` as a modern alternative even if the main path stays on PivotTables.
-- [ ] Add a single line near the top of each tutorial: "Requires Microsoft 365 (desktop or web)."
-- [ ] Tick the M365 column in the table when done.
+- [x] Replace `VLOOKUP` with `XLOOKUP` everywhere unless there is a specific teaching reason to keep it. Add a one-line note where `VLOOKUP` is still shown for context. **Done 2026-04-30 — only monthly-budget needed it; bumped sitemap.xml lastmod when next-touched.**
+- [x] Replace nested `IF` chains with `IFS` or `SWITCH` where it materially improves readability. **N/A — none of the 10 tutorials has a nested-IF chain (only simple guards); confirmed by regex scan.**
+- [x] Use dynamic arrays (`FILTER`, `SORT`, `UNIQUE`, `SEQUENCE`) instead of older array-formula tricks (`Ctrl+Shift+Enter`). **Already in place across all 5 FULL-REWRITE files; no `Ctrl+Shift+Enter` references found in any tutorial.**
+- [ ] Use `LET` to name sub-expressions in any formula longer than ~80 chars. **Pending — sweep needed for the long FILTER + SUMPRODUCT formulas in project-tracker, sales-pipeline, financial-modelling, dynamic-dashboards.**
+- [x] Use Excel Tables (`Ctrl+T`, structured references like `tblRoster[Name]`) for any range that grows over time. **Done — every FULL-REWRITE tutorial uses named tables (tblTasks, tblDeals, tblStages, tblTransactions, tblItems).**
+- [x] Where tutorials touch grouping / pivoting workflows, mention `GROUPBY` / `PIVOTBY` as a modern alternative even if the main path stays on PivotTables. **Done — project-tracker (Step 5), dynamic-dashboards (formula reference + Variations).**
+- [x] Add a single line near the top of each tutorial: "Requires Microsoft 365 (desktop or web)." **Done — all 10 have a version-compat line near the top.**
+- [ ] Tick the M365 column in the table when done. **Pending until LET sweep complete.**
+
+**Resume point for next session:** Task 5 formula-by-formula fact-check (bulk work) + Task 6 LET sweep on long formulas.
 
 ### Task 7 — Final consistency pass
 
