@@ -21,7 +21,7 @@
   <meta name="twitter:title" content="How to Build a Financial Model in Excel From Scratch">
   <meta name="twitter:description" content="Learn how to build a revenue projection and cash flow model in Excel from scratch \u2014 covering assumptions, formulas, scenarios, and best practices for beginners.">
   <meta name="twitter:image" content="https://sagnikbhattacharya.com/blog/images/financial-modelling-sagnik-bhattacharya-coding-liquids.jpg">
-  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel for Financial Modelling — A Beginner&#39;s Guide, with forecast visuals, tables, and financial model elements."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-24"><meta property="article:modified_time" content="2026-04-30">
+  <meta name="twitter:image:alt" content="Coding Liquids blog cover featuring Sagnik Bhattacharya for Excel for Financial Modelling — A Beginner&#39;s Guide, with forecast visuals, tables, and financial model elements."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Sagnik Bhattacharya"><meta property="article:author" content="Sagnik Bhattacharya"><meta property="article:published_time" content="2026-03-24"><meta property="article:modified_time" content="2026-05-02">
   <meta property="article:section" content="Data Analysis"><meta property="article:tag" content="Financial Modeling"><meta property="article:tag" content="Cash Flow"><meta property="article:tag" content="Excel Finance">
   <link rel="alternate" type="application/rss+xml" title="Sagnik Bhattacharya — Blog" href="/feed.xml">
     <script type="application/ld+json">
@@ -34,7 +34,7 @@
                    "name":  "Sagnik Bhattacharya",
                    "url":  "https://sagnikbhattacharya.com"
                },
-    "datePublished":  "2026-03-24","dateModified":"2026-04-30",
+    "datePublished":  "2026-03-24","dateModified":"2026-05-02",
     "inLanguage":  "en-GB",
     "description":  "Learn how to build a revenue projection and cash flow model in Excel from scratch — covering assumptions, formulas, scenarios, and best practices.",
     "publisher":  {
@@ -329,15 +329,15 @@ A6: Total checks               B6: =COUNTIF(B2:B5, "OK") &amp; " / " &amp; COUNT
 <p>Conditional-format <code>B2:B5</code> red when value is anything other than <code>"OK"</code>. The day a Check row goes red, stop — fix the model before you trust any output. Green checks are not "the model is correct"; they are "the model is internally consistent". Two different things.</p>
 
 <h2>Step 7 — Worked example: 36-month SaaS projection</h2>
-<p>With the assumptions from Step 1 (Base scenario: 100 starting customers, 5%/4%/3% monthly growth, £500/525/550 ARPC, 3%/2.5%/2% churn) and a £20k/mo Fixed OpEx, 18% variable cost ratio, and £4k/mo loaded support cost per 500 customers, the model produces:</p>
+<p>With the assumptions from Step 1 (Base scenario: 100 starting customers, 5%/4%/3% monthly growth, £500/525/550 ARPC, 3%/2.5%/2% churn) and a £50k/mo Fixed OpEx, 18% variable cost ratio, and £4k/mo loaded support cost per 500 customers, the model produces:</p>
 <ul>
-<li><strong>Ending customers (Month 36):</strong> ~285 — modest, because monthly churn at 2% partially offsets growth at 3%.</li>
-<li><strong>Year 1 revenue:</strong> ~£925k. Year 2: ~£1.55M. Year 3: ~£2.0M. Total 3-year: ~£4.5M.</li>
-<li><strong>Months to EBITDA-positive:</strong> ~Month 14, when revenue first clears the £20k Fixed + variable + support cost stack.</li>
-<li><strong>Year 3 EBITDA margin:</strong> ~30%. Healthy for a SaaS at this stage.</li>
-<li><strong>Cash on hand at Month 36 (assuming £200k starting cash):</strong> ~£420k. Runway: <code>&gt;36</code> (model has been profitable for 22 months).</li>
+<li><strong>Ending customers (Month 36):</strong> 171 — net monthly growth is only 2% / 1.5% / 1% across the three years (growth minus churn), so 100 × 1.71 ≈ 171 over 36 months. The "modest" shape is the correct lesson: high gross-growth headlines hide whatever the churn line is doing.</li>
+<li><strong>Year 1 revenue:</strong> ~£684k. Year 2: ~£881k. Year 3: ~£1.07M. Total 3-year: ~£2.63M.</li>
+<li><strong>Months to EBITDA-positive:</strong> Month 13. M1 revenue is £51k against £63k OpEx (£50k fixed + £9.2k variable + £4k support) — a £12k loss. Revenue grows ~2% per month while fixed cost is flat, so the gap closes; by M13 closing customers are ~127, revenue ~£67k, OpEx ~£62k, EBITDA flips positive.</li>
+<li><strong>Year 3 EBITDA margin:</strong> ~21%. The £50k fixed-cost base is heavy relative to a £1.07M revenue line — typical for an early-stage SaaS that has not yet hit operating leverage.</li>
+<li><strong>Cash on hand at Month 36 (assuming £200k starting cash):</strong> ~£420k. The cash dip bottoms at ~£113k around Month 12 before recovering — the model warns you exactly when the runway is tightest. Runway: <code>&gt;36</code> (positive, growing cash from M14 onward).</li>
 </ul>
-<p>Now toggle <code>H1</code> on <code>Assumptions</code> to <code>Bear</code>. Watch every number reflow: ending customers drops to ~165, total revenue halves, break-even pushes past Month 36, ending cash goes negative around Month 24 — and the <code>Checks!B5</code> row turns red ("ERR — negative cash"). The model just told you the bear case requires a funding round before Month 24. That insight took one dropdown click.</p>
+<p>Now toggle <code>H1</code> on <code>Assumptions</code> to <code>Bear</code>. Watch every number reflow: growth/churn worsen (3%/2%/1.5% growth vs 4%/3.5%/3% churn — net <em>negative</em> growth in Y1), customer count shrinks instead of grows, revenue collapses below the fixed cost base, and cash burns through the £200k starting balance well before Month 36 — the <code>Checks!B5</code> row turns red ("ERR — negative cash"). The model just told you the bear case requires a funding round mid-projection. That insight took one dropdown click.</p>
 
 <h2>The full formula reference</h2>
 <table>

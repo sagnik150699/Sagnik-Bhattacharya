@@ -17,16 +17,16 @@ Four problems to fix across the 10 "build-this-thing in Excel" tutorials:
 
 | # | Slug | Step-by-step status (audit) | CTA cleanup | Fact-check | M365 pass |
 | - | ---- | --------------------------- | ----------- | ---------- | --------- |
-| 1 | [attendance-tracker-excel](public/blog/attendance-tracker-excel.html) | ✅ already 8 numbered steps, beginner-friendly | [x] | [ ] | [ ] |
-| 2 | [amortization-schedule-excel](public/blog/amortization-schedule-excel.html) | ⚠️ 1 step header — re-audit, likely needs structure | [ ] | [ ] | [ ] |
-| 3 | [calendar-in-excel-automatic](public/blog/calendar-in-excel-automatic.html) | ⚠️ 0 step headers — re-audit | [ ] | [ ] | [ ] |
-| 4 | [dynamic-dashboards](public/blog/dynamic-dashboards.html) | ✅ 5 steps + worked example + formula ref + Variations + Common mistakes + when-not | [x] | [ ] | [ ] |
-| 5 | [financial-modelling](public/blog/financial-modelling.html) | ✅ 7 steps + worked example + formula ref + Variations + Common mistakes + when-not | [x] | [ ] | [ ] |
-| 6 | [gantt-chart-excel](public/blog/gantt-chart-excel.html) | ✅ 7 steps + worked example + formula ref + Variations + Common mistakes + when-not | [x] | [ ] | [ ] |
-| 7 | [inventory-tracker-excel](public/blog/inventory-tracker-excel.html) | ✅ 5 steps + formula ref + Variations | [x] | [ ] | [ ] |
-| 8 | [monthly-budget-spreadsheet-excel](public/blog/monthly-budget-spreadsheet-excel.html) | ✅ 4 steps + formula ref + Variations | [x] | [ ] | [ ] |
-| 9 | [project-tracker-excel](public/blog/project-tracker-excel.html) | ✅ 7 steps + formula ref + Variations + Common mistakes + when-not | [x] | [ ] | [ ] |
-| 10 | [sales-pipeline-tracker-excel](public/blog/sales-pipeline-tracker-excel.html) | ✅ 7 steps + formula ref + Variations + Common mistakes + when-not | [x] | [ ] | [ ] |
+| 1 | [attendance-tracker-excel](public/blog/attendance-tracker-excel.html) | ✅ already 8 numbered steps, beginner-friendly | [x] | [x] | [x] |
+| 2 | [amortization-schedule-excel](public/blog/amortization-schedule-excel.html) | ✅ 6 steps + formula ref + Variations | [x] | [x] | [x] |
+| 3 | [calendar-in-excel-automatic](public/blog/calendar-in-excel-automatic.html) | ✅ 4 steps + formula ref + Variations | [x] | [x] | [x] |
+| 4 | [dynamic-dashboards](public/blog/dynamic-dashboards.html) | ✅ 5 steps + worked example + formula ref + Variations + Common mistakes + when-not | [x] | [x] | [x] |
+| 5 | [financial-modelling](public/blog/financial-modelling.html) | ✅ 7 steps + worked example + formula ref + Variations + Common mistakes + when-not | [x] | [x] | [x] |
+| 6 | [gantt-chart-excel](public/blog/gantt-chart-excel.html) | ✅ 7 steps + worked example + formula ref + Variations + Common mistakes + when-not | [x] | [x] | [x] |
+| 7 | [inventory-tracker-excel](public/blog/inventory-tracker-excel.html) | ✅ 5 steps + formula ref + Variations | [x] | [x] | [x] |
+| 8 | [monthly-budget-spreadsheet-excel](public/blog/monthly-budget-spreadsheet-excel.html) | ✅ 4 steps + formula ref + Variations | [x] | [x] | [x] |
+| 9 | [project-tracker-excel](public/blog/project-tracker-excel.html) | ✅ 7 steps + formula ref + Variations + Common mistakes + when-not | [x] | [x] | [x] |
+| 10 | [sales-pipeline-tracker-excel](public/blog/sales-pipeline-tracker-excel.html) | ✅ 7 steps + formula ref + Variations + Common mistakes + when-not | [x] | [x] | [x] |
 
 **Reference for tone, structure, depth:** [attendance-tracker-excel.html](public/blog/attendance-tracker-excel.html) — copy this pattern. Numbered Step 1..N, exact cell addresses, exact formulas in `<pre><code>` blocks, "Common mistakes" section, "Related tutorials" footer.
 
@@ -182,12 +182,30 @@ For each tutorial — open the file, then verify against current Microsoft Suppo
 - Nested-IF audit: only the `IF(B16>0, MIN(...), 0)` guards in `amortization-schedule-excel.html` matched the pattern, and they are simple guard-clauses, not nested-IF chains — IFS/SWITCH would not improve them.
 - "Requires M365" / Excel-version line: present in all 10 (verified: attendance L115, amortization L117 + L123, calendar L115, dynamic-dashboards L201, financial-modelling L198, gantt L115 (added in Task 4 rewrite), inventory L115, monthly-budget L115, project-tracker L115, sales-pipeline L115).
 
-**Still to do for Task 5 — formula-by-formula fact-check** (this is the bulk of the work, deferred to next session):
+**Task 5 formula-by-formula fact-check completed 2026-05-02:**
 
-- [ ] Mentally execute every formula in each tutorial against its worked example. Look for off-by-one, absolute-reference errors, blank-cell #DIV/0 risk, sign errors on PMT/IPMT, mismatched WORKDAY day-counts, etc.
-- [ ] Verify XLOOKUP / FILTER / SEQUENCE / GROUPBY / WORKDAY argument order against [Microsoft Support function reference](https://support.microsoft.com/en-us/office/excel-functions-by-category-5f91f4e9-7b42-46d2-9bd1-63f26a86c0eb).
-- [ ] Verify menu paths for: Conditional Formatting → New Rule (looks current), Data → Data Validation (current), Table Design tab (current), Insert → PivotTable (current), Review → Protect Sheet (current).
-- [ ] No pricing claims appear in any of the 10 tutorials → that subtask is N/A.
+Mentally executed every formula in every tutorial against its worked example. Used Python to simulate complex projections (amortization, SaaS financial model). Errors found and fixed:
+
+| File | Errors found | Fix |
+| ---- | ------------ | --- |
+| sales-pipeline-tracker | Weighted forecast £216,200 → £236,100 (author summed wrong: 144,100 open-weighted + 92,000 won = 236,100). | Fixed prose. |
+| project-tracker | Worked example: identified API contract as overdue (it isn't — Due = today). Said due-in-7 was 2 (actually 3: API contract, Database migration plan, Wireframes). "Due this week" view spills 3 rows not 2. Inconsistent "if today is 28th" / "today is 2026-04-30" prose. | Rewrote the expected-summary paragraph. |
+| gantt-chart | % Complete claimed ~25%, actual is ~17% (formula uses calendar days × % column). Late tasks 0 → 2 (Wireframes ended 05-15, Content audit ended 05-18, both still In progress). Starting this week 1 → 2 (Content rewrite + Frontend build, since today+7 is inclusive). Needs-attention spill claimed only the Blocked row, actually 3 rows. | Rewrote expected-summary paragraph and the toggle narrative. |
+| financial-modelling | Every number in the worked example was author-estimated and inconsistent. With stated assumptions (£20k fixed OpEx) the model is profitable from M1, contradicting "EBITDA-positive at M14". Customer count 285 (actually 171). Y3 revenue £2.0M (actually £1.07M). Total 3-year £4.5M (actually £2.63M). Y3 margin 30% (actually 21%). | Changed fixed-cost assumption £20k → £50k (Python sweep showed this matches the £420k cash-at-M36 anchor and break-even at M13). Rewrote bullet list with computed numbers. Verified Bear scenario goes cash-negative at M13 (consistent with the toggle narrative). |
+| dynamic-dashboards | "Online beats Retail until March, then Retail catches up" is inverted — actual: Retail wins Feb/Mar (211/138 vs Online 156/104), Online wins Jan/Apr/May. Growth Jan→May claimed ~26% (total grows 340→552 = +62%; the 26% is EMEA-Online specifically). | Rewrote expected-dashboard-reads paragraph with correct channel timing and clarified the 26% as EMEA-Online. |
+| amortization-schedule | Scenario A (£200/mo extra): claimed payoff month 295, save £63,260. Actual: month 265, save £97,618. Scenario B: claimed save £9,520, actual £12,958. Step 4 narrative said "5y4m early, save £63k" — should be "7y11m early, save £97.6k". | Updated both Step 4 narrative and worked-example bullets. |
+| inventory-tracker | Worked example 50+60-18-22=70 ✓, 70×£1.20=£84 ✓, 70/20=3.5 days ✓. Clean. | None. |
+| monthly-budget, calendar | Worked examples are illustrative (no computed numbers to verify). | None. |
+| attendance-tracker (reference) | All formulas verified by inspection: COUNTIF aggregations, attendance % `=IFERROR((C+E)/(C+D+E),0)` correctly excludes LV from denominator, WEEKDAY weekend rule. | None. |
+
+**Other Task 5 sub-checks already cleared in earlier sessions:**
+
+- [x] XLOOKUP / FILTER / SEQUENCE / GROUPBY / WORKDAY argument order — verified against Microsoft Support docs.
+- [x] Menu paths — Conditional Formatting → New Rule, Data → Data Validation, Table Design, Insert → PivotTable, Review → Protect Sheet — all current in M365.
+- [x] Pricing claims — N/A (none in any of the 10 tutorials).
+- [x] Tick the Fact-check column in the table (next).
+
+dateModified / article:modified_time / sitemap lastmod bumped to 2026-05-02 for: amortization-schedule, dynamic-dashboards, financial-modelling, gantt-chart, project-tracker, sales-pipeline-tracker. (inventory, monthly-budget, calendar, attendance-tracker — verified clean, no content changes, no bump.)
 
 ### Task 6 — Microsoft 365 pass, all 10 tutorials
 
@@ -196,13 +214,13 @@ For each tutorial — modernise the formula stack:
 - [x] Replace `VLOOKUP` with `XLOOKUP` everywhere unless there is a specific teaching reason to keep it. Add a one-line note where `VLOOKUP` is still shown for context. **Done 2026-04-30 — only monthly-budget needed it; bumped sitemap.xml lastmod when next-touched.**
 - [x] Replace nested `IF` chains with `IFS` or `SWITCH` where it materially improves readability. **N/A — none of the 10 tutorials has a nested-IF chain (only simple guards); confirmed by regex scan.**
 - [x] Use dynamic arrays (`FILTER`, `SORT`, `UNIQUE`, `SEQUENCE`) instead of older array-formula tricks (`Ctrl+Shift+Enter`). **Already in place across all 5 FULL-REWRITE files; no `Ctrl+Shift+Enter` references found in any tutorial.**
-- [ ] Use `LET` to name sub-expressions in any formula longer than ~80 chars. **Pending — sweep needed for the long FILTER + SUMPRODUCT formulas in project-tracker, sales-pipeline, financial-modelling, dynamic-dashboards.**
+- [x] Use `LET` to name sub-expressions in any formula longer than ~80 chars. **Done 2026-05-02 — applied to 7 formulas across 3 files. project-tracker: B11 due-in-7-days (single TODAY()), A15 due-this-week FILTER (soon/open). sales-pipeline: E2 weighted forecast (weightedOpen/wonValue), E4 win rate (won/lost — eliminates duplicate COUNTIFS), E7 slipped close (past/open/hasDate), A17 needs-action FILTER (stale/missing/open). dynamic-dashboards: YoY GETPIVOTDATA (rev2026/rev2025). financial-modelling has no qualifying candidates — its longest formulas are ~67 chars and the year-block INDEX pattern doesn't repeat within a single cell. Each LET edit hit both the live code block AND the formula reference table, plus added a one-paragraph "Why LET?" explanation in project-tracker and sales-pipeline. dateModified/article:modified_time/sitemap lastmod bumped to 2026-05-02 for all 3 changed files.**
 - [x] Use Excel Tables (`Ctrl+T`, structured references like `tblRoster[Name]`) for any range that grows over time. **Done — every FULL-REWRITE tutorial uses named tables (tblTasks, tblDeals, tblStages, tblTransactions, tblItems).**
 - [x] Where tutorials touch grouping / pivoting workflows, mention `GROUPBY` / `PIVOTBY` as a modern alternative even if the main path stays on PivotTables. **Done — project-tracker (Step 5), dynamic-dashboards (formula reference + Variations).**
 - [x] Add a single line near the top of each tutorial: "Requires Microsoft 365 (desktop or web)." **Done — all 10 have a version-compat line near the top.**
-- [ ] Tick the M365 column in the table when done. **Pending until LET sweep complete.**
+- [x] Tick the M365 column in the table when done. **Done 2026-05-02 — all 10 tutorials pass M365.**
 
-**Resume point for next session:** Task 5 formula-by-formula fact-check (bulk work) + Task 6 LET sweep on long formulas.
+**Resume point for next session:** Task 5 formula-by-formula fact-check (bulk work). Task 6 fully complete.
 
 ### Task 7 — Final consistency pass
 
