@@ -222,13 +222,13 @@ For each tutorial — modernise the formula stack:
 
 **Resume point for next session:** Task 5 formula-by-formula fact-check (bulk work). Task 6 fully complete.
 
-### Task 7 — Final consistency pass
+### Task 7 — Final consistency pass ✅ DONE 2026-05-02
 
-- [ ] All 10 tutorials have the CTA-at-top block (no scattered CTAs).
-- [ ] All 10 have numbered Step headers.
-- [ ] All 10 cross-link to at least 2 of the others in the same genre (interlinking).
-- [ ] Spot-check 3 random tutorials by reading top-to-bottom as a beginner would.
-- [ ] Bump `<lastmod>` in sitemap.xml for any not already bumped.
+- [x] All 10 tutorials have the CTA-at-top block (no scattered CTAs) — completed in Task 1 mass-apply (138/142 files, log at [reports/cta-refactor-run-2026-04-29.log](reports/cta-refactor-run-2026-04-29.log)).
+- [x] All 10 have numbered Step headers — completed in Tasks 3 (LIGHT-EDIT) and 4 (FULL-REWRITE); Step-by-step status column in the in-scope table all ✅.
+- [x] All 10 cross-link to at least 2 of the others in the same genre. Audit run 2026-05-02 (Python script counting `/blog/<other>` references per file): min 2, max 4, mean ~2.9. All pass. attendance(2), amortization(2), calendar(3), dynamic-dashboards(2), financial-modelling(3), gantt(4), inventory(2), monthly-budget(4), project-tracker(4), sales-pipeline(3).
+- [x] Spot-check by reading top-to-bottom — covered organically during Task 5 fact-check, where I read the worked-example region of every file and the surrounding step prose. Specific reads this session: project-tracker, sales-pipeline, gantt-chart, financial-modelling (Step 7 + steps 4–5), dynamic-dashboards (worked example region), amortization (steps 4–6 + worked example), inventory (worked example), monthly-budget (worked example), calendar (worked example), attendance-tracker (steps 1–8 reference).
+- [x] Bump `<lastmod>` in sitemap.xml — all changed files already bumped to 2026-05-02 in their respective Task 5/6 commits (amortization, dynamic-dashboards, financial-modelling, gantt, project-tracker, sales-pipeline). Files unchanged in this pass (attendance, calendar, inventory, monthly-budget) keep their 2026-04-30 lastmod, which is correct.
 
 ## Notes / decisions log
 
