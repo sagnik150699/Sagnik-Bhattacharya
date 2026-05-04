@@ -73,30 +73,19 @@
     </image:image>
   </url>
   <url>
-    <loc>https://sagnikbhattacharya.com/blog/excel-ai-guide</loc>
-    <lastmod>2026-04-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://sagnikbhattacharya.com/sagnik-bhattacharya.png</image:loc>
-      <image:title>Excel with AI: The Complete 2026 Guide</image:title>
-      <image:caption>Complete hub for using ChatGPT, Claude, Copilot, Gemini, and Gemma 4 inside Excel.</image:caption>
-    </image:image>
-  </url>
-  <url>
     <loc>https://sagnikbhattacharya.com/blog/excel-formulas-guide</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
       <image:loc>https://sagnikbhattacharya.com/sagnik-bhattacharya.png</image:loc>
-      <image:title>Excel Formulas: The Complete 2026 Reference</image:title>
-      <image:caption>Complete Excel formulas reference from VLOOKUP to LAMBDA and dynamic arrays.</image:caption>
+      <image:title>The Complete Excel Guide 2026</image:title>
+      <image:caption>Complete Excel hub — formulas (VLOOKUP to LAMBDA), dynamic arrays, pivots, Power Query, and AI workflows with Copilot/ChatGPT/Claude/Gemini.</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://sagnikbhattacharya.com/blog/flutter-guide</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
@@ -106,14 +95,14 @@
     </image:image>
   </url>
   <url>
-    <loc>https://sagnikbhattacharya.com/blog/seedance-guide</loc>
-    <lastmod>2026-04-11</lastmod>
+    <loc>https://sagnikbhattacharya.com/blog/ai-guide</loc>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
       <image:loc>https://sagnikbhattacharya.com/sagnik-bhattacharya.png</image:loc>
-      <image:title>Seedance 2.0: The Complete Guide</image:title>
-      <image:caption>Complete Seedance 2.0 hub for setup, prompts, settings, use cases, and comparisons.</image:caption>
+      <image:title>The Complete AI Tools and AI Development Guide 2026</image:title>
+      <image:caption>The complete AI hub — coding assistants, local Gemma 4, RAG, MCP, AI app architecture, AI video with Seedance, and AI workflows for Excel and Flutter.</image:caption>
     </image:image>
   </url>
   <url>

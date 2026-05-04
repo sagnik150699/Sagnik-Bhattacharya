@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 BLOG = ROOT / "public" / "blog"
 
-HUB_SLUGS = {"excel-ai-guide", "excel-formulas-guide", "flutter-guide", "seedance-guide"}
+HUB_SLUGS = {"excel-formulas-guide", "flutter-guide", "ai-guide"}
 
 updated = 0
 skipped = 0

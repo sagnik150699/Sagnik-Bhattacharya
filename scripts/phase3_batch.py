@@ -73,7 +73,7 @@ pages = {
             'Seedance gives you more directorial control; Veo 3 gives you prettier output with less steering.</p>'
         ),
         "hubs": [
-            ("/blog/seedance-guide", "Seedance 2.0: The Complete Guide", "the hub page indexing every Seedance tutorial."),
+            ("/blog/ai-guide", "The Complete AI Tools and AI Development Guide 2026", "the hub page indexing every AI tutorial, including Seedance."),
         ],
     },
     "seedance-vs-kling.html": {
@@ -84,7 +84,7 @@ pages = {
             'Seedance excels at cinematic camera work; Kling excels at natural body movement and facial expressions.</p>'
         ),
         "hubs": [
-            ("/blog/seedance-guide", "Seedance 2.0: The Complete Guide", "the hub page indexing every Seedance tutorial."),
+            ("/blog/ai-guide", "The Complete AI Tools and AI Development Guide 2026", "the hub page indexing every AI tutorial, including Seedance."),
         ],
     },
     "seedance-vs-sora-2.html": {
@@ -95,7 +95,7 @@ pages = {
             'Seedance is the better choice for iterative workflows where prompt adherence matters more than raw visual fidelity.</p>'
         ),
         "hubs": [
-            ("/blog/seedance-guide", "Seedance 2.0: The Complete Guide", "the hub page indexing every Seedance tutorial."),
+            ("/blog/ai-guide", "The Complete AI Tools and AI Development Guide 2026", "the hub page indexing every AI tutorial, including Seedance."),
         ],
     },
     "vlookup-vs-xlookup.html": {

@@ -1360,36 +1360,20 @@
     "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the Seedance 2.0 lip-sync and talking-head guide, with portrait and audio waveform visuals."
   },
   {
-    "slug": "excel-ai-guide",
-    "title": "The Complete Guide to Excel with AI in 2026",
-    "tag": "AI + Excel",
-    "hook": "Compare the AI tools, prompts, and review habits that make Excel work faster.",
-    "cta": "Use AI In Excel",
-    "keywords": [
-      "AI",
-      "Excel",
-      "Prompts"
-    ],
-    "cue": "Excel spreadsheet, AI chat interface, and formula visuals",
-    "category": "AI + Excel",
-    "coverTag": "AI + Excel",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the Complete Guide to Excel with AI in 2026, with Excel spreadsheet, AI chat interface, and formula visuals."
-  },
-  {
     "slug": "excel-formulas-guide",
-    "title": "Complete Excel Formulas Guide: From VLOOKUP to LAMBDA",
+    "title": "The Complete Excel Guide 2026: Formulas, AI Copilot, and Modern M365",
     "tag": "Excel",
-    "hook": "Learn the formulas, lookup patterns, and dynamic arrays that make workbooks reliable.",
-    "cta": "Master Excel Formulas",
+    "hook": "Every Excel tutorial — formulas, dynamic arrays, pivot tables, AI workflows with Copilot/ChatGPT/Claude/Gemini.",
+    "cta": "Master Excel",
     "keywords": [
       "VLOOKUP",
       "LAMBDA",
-      "Arrays"
+      "AI"
     ],
-    "cue": "formula reference visuals and dynamic array examples",
+    "cue": "formula reference visuals, AI prompts, and dynamic array examples",
     "category": "Excel",
     "coverTag": "Excel",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the Complete Excel Formulas Guide from VLOOKUP to LAMBDA, with formula reference visuals and dynamic array examples."
+    "imageAlt": "Coding Liquids cover featuring Sagnik Bhattacharya for the Complete Excel Guide 2026."
   },
   {
     "slug": "flutter-guide",
@@ -1408,19 +1392,19 @@
     "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the Flutter Development Guide 2026, with Flutter widget trees, state management diagrams, and architecture visuals."
   },
   {
-    "slug": "seedance-guide",
-    "title": "Complete Seedance 2.0 Guide: Prompts, Settings, Video Generation",
-    "tag": "Video",
-    "hook": "Prompt and tune Seedance 2.0 clips with cleaner settings, camera movement, and comparison workflows.",
-    "cta": "Create AI Video Better",
+    "slug": "ai-guide",
+    "title": "The Complete AI Tools and AI Development Guide 2026",
+    "tag": "AI",
+    "hook": "Every AI tutorial — coding assistants, local models, RAG, MCP, AI app architecture, AI video, and AI workflows for Excel/Flutter.",
+    "cta": "Explore AI Tools",
     "keywords": [
-      "Seedance 2.0",
-      "Prompts",
-      "Settings"
+      "AI",
+      "Claude Code",
+      "Gemma"
     ],
-    "cue": "video generation interface, prompt examples, and AI video creation visuals",
-    "category": "Video",
-    "coverTag": "Seedance 2.0",
-    "imageAlt": "Coding Liquids blog cover featuring Sagnik Bhattacharya for the Complete Seedance 2.0 Guide, with video generation interface, prompt examples, and AI video creation visuals."
+    "cue": "AI coding assistants, local models, RAG diagrams, and AI video generation visuals",
+    "category": "AI",
+    "coverTag": "AI",
+    "imageAlt": "Coding Liquids cover featuring Sagnik Bhattacharya for the Complete AI Tools and AI Development Guide 2026."
   }
 ]
