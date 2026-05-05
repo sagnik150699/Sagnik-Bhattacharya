@@ -152,7 +152,7 @@ OLD_POST_FALLBACKS = {
     "gemini-ai-excel": "How to Use Google Gemini to Write Excel Formulas for Free",
     "getting-started-copilot-excel": "How to Set Up and Use Microsoft Copilot in Excel (2026)",
     "index-match-guide": "How to Use INDEX MATCH in Excel with Multiple Criteria",
-    "keyboard-shortcuts": "30 Excel Keyboard Shortcuts That Save Hours Every Week",
+    "keyboard-shortcuts": "Complete List of Excel Keyboard Shortcuts (Windows and Mac): 200+ Reference for 2026",
     "mastering-pivot-tables": "How to Create a Pivot Table in Excel Step by Step",
     "power-pivot-guide": "How to Use Power Pivot in Excel to Analyse Millions of Rows",
     "power-query-guide": "How to Use Power Query in Excel to Automate Data Cleaning",

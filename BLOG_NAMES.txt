@@ -91,7 +91,7 @@ How to Set Up Seedance 2.0: Account, Access, First Video (2026)
 How to Improve RAG Answers With Reranking
 How to Use INDEX MATCH in Excel with Multiple Criteria
 How to Build an Inventory Tracker in Excel That Stays Maintainable
-30 Excel Keyboard Shortcuts That Save Hours Every Week
+Complete List of Excel Keyboard Shortcuts (Windows and Mac): 200+ Reference for 2026
 LET and LAMBDA in Excel: Turn Repeated Formulas Into Reusable Logic
 How to Use Local AI on Your Own Files
 Map Charts in Excel: When to Use Them, Data Prep, and Common Mistakes
